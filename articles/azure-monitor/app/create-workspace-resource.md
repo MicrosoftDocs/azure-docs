@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
 If you don't have an existing Log Analytics workspace, see the [Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
 
-*Workspace-based resources are currently available in all commercial regions and Azure Government. Having Application Insights and Log Analytics in two different regions can impact latency and reduce overall reliability of the monitoring solution. *
+*Workspace-based resources are currently available in all commercial regions and Azure Government. Having Application Insights and Log Analytics in two different regions can impact latency and reduce overall reliability of the monitoring solution.*
 
 After you create your resource, you'll see corresponding workspace information in the **Overview** pane.
 
@@ -331,7 +331,7 @@ var appInsights = window.appInsights || function(config){ ...
 To create an Applications Insights resource, see [Create an Application Insights resource](#workspace-based-application-insights-resources).
 
 > [!WARNING]
-> You may incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
+> You might incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
 #### Get the instrumentation key
 The instrumentation key identifies the resource that you created.
