@@ -17,7 +17,7 @@ items:
     - name: Use DICOM data in analytics workloads
       href: get-started-with-analytics-dicom.md
 - name: How-tos
-  expanded: true
+  expanded: false
   items: 
     - name: Use the DICOM service for digital pathology
       href: dicom-digital-pathology.md
@@ -31,7 +31,7 @@ items:
   expanded: true
   items: 
     - name: DICOMweb APIs
-      expanded: true
+      expanded: false
       items: 
         - name: DICOMweb standard APIs
           href: dicomweb-standard-apis-with-dicom-services.md
@@ -42,21 +42,21 @@ items:
         - name: Use DICOMweb standard APIs with Python
           href: dicomweb-standard-apis-python.md
     - name: Custom APIs
-      expanded: true
+      expanded: false
       items: 
         - name: Change feed overview
           href: dicom-change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
-      expanded: true
+      expanded: false
       items:
         - name: API versioning policies
           href: api-versioning-dicom-service.md
         - name: DICOM service API v2 changes
           href: dicom-service-v2-api-changes.md
 - name: DICOM conformance statements
-  expanded: true
+  expanded: false
   items: 
     - name: V2
       href: dicom-services-conformance-statement-v2.md
