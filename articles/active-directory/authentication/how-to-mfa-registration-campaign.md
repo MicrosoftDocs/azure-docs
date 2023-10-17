@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 09/28/2023
 
 ms.author: justinha
 author: mjsantani
@@ -77,7 +77,7 @@ To enable a registration campaign in the Microsoft Entra admin center, complete 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign** and click **Edit**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaing will change to **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaign will change to **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
 
    :::image type="content" border="true" source="media/how-to-mfa-registration-campaign/admin-experience.png" alt-text="Screenshot of enabling a registration campaign.":::
 
@@ -134,13 +134,14 @@ Here are a few sample JSONs you can use to get started!
 
 - Include all users 
   
-  If you want to include ALL users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/All%20Users%20Enabled.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include ALL users in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste it in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [],
               "includeTargets": [
@@ -157,13 +158,14 @@ Here are a few sample JSONs you can use to get started!
 
 - Include specific users or groups of users
 
-  If you want to include certain users or groups in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes.json) and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include certain users or groups in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
         "authenticationMethodsRegistrationCampaign": {
-            "snoozeDurationInDays": 0,
+            "snoozeDurationInDays": 1,
+            "enforceRegistrationAfterAllowedSnoozes": true,
             "state": "enabled",
             "excludeTargets": [],
             "includeTargets": [
@@ -180,17 +182,19 @@ Here are a few sample JSONs you can use to get started!
             ]
         }
     }
+  }  
   ```
 
-- Include and exclude specific users/groups of users
+- Include and exclude specific users or groups
 
-  If you want to include AND exclude certain users/groups of users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes%20and%20Excludes.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. Enter the correct GUIDs for your users and groups.
+  If you want to include AND exclude certain users or groups in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste it in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [
                   {
@@ -283,13 +287,13 @@ No. The snooze duration for the prompt is a tenant-wide setting and applies to a
 
 The feature aims to empower admins to get users set up with MFA using the Authenticator app and not passwordless phone sign-in.  
 
-**Will a user who has a 3rd party authenticator app setup see the nudge?** 
+**Will a user who signs in with a 3rd party authenticator app see the nudge?** 
 
-If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
+Yes. If a user is enabled for the registration campaign and doesn't have Microsoft Authenticator set up for push notifications, the user is nudged to set up Authenticator. 
 
-**Will a user who has the Authenticator app setup only for TOTP codes see the nudge?** 
+**Will a user who has Authenticator set up only for TOTP codes see the nudge?**
 
-Yes. If the Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
+Yes. If a user is enabled for the registration campaign and Authenticator app isn't set up for push notifications, the user is nudged to set up push notification with Authenticator.
 
 **If a user just went through MFA registration, are they nudged in the same sign-in session?** 
 
@@ -313,9 +317,9 @@ Yes. If they have been scoped for the nudge using the policy.
 
 **What if the user closes the browser?** 
 
-It's the same as snoozing. If setup is required for a user after they snoozed three times, the user will get prompted the next time they sign in.
+It's the same as snoozing. If setup is required for a user after they snoozed three times, the user is prompted the next time they sign in.
 
-**Why don’t some users see a nudge when there is a Conditional Access policy for "Register security information"?**
+**Why don't some users see a nudge when there is a Conditional Access policy for "Register security information"?**
 
 A nudge won't appear if a user is in scope for a Conditional Access policy that blocks access to the **Register security information** page.
 

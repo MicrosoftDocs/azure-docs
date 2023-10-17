@@ -2,7 +2,7 @@
 title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
-author: dubiety
+author: sinnypan
 ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
@@ -15,6 +15,22 @@ services: azure-maps
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (latest)
+
+### [3.0.1] (October 6, 2023)
+
+#### Bug fixes (3.0.1)
+
+- Various accessibility improvements.
+
+- Resolved the issue with dynamic attribution when progressive loading is enabled.
+
+- Fixed missing event names in `HtmlMarkerEvents`.
+
+#### Other changes (3.0.1)
+
+- Modified member methods to be protected for the zoom, pitch, and compass controls.
+
+- Telemetry is disabled by default in the Azure Government cloud.
 
 ### [3.0.0] (August 18, 2023)
 
@@ -334,6 +350,12 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2
 
+### [2.3.3] (October 6, 2023)
+
+#### Bug fixes (2.3.3)
+
+- Resolved the issue with dynamic attribution when progressive loading is enabled.
+
 ### [2.3.2] (August 11, 2023)
 
 #### Bug fixes (2.3.2)
@@ -463,6 +485,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.1
 [3.0.0]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0
 [3.0.0-preview.10]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.10
 [3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
@@ -474,6 +497,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.3]: https://www.npmjs.com/package/azure-maps-control/v/2.3.3
 [2.3.2]: https://www.npmjs.com/package/azure-maps-control/v/2.3.2
 [2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
 [2.3.0]: https://www.npmjs.com/package/azure-maps-control/v/2.3.0

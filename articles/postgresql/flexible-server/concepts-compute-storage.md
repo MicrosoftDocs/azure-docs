@@ -196,27 +196,31 @@ To avoid this situation, the server is automatically switched to read-only mode 
 
 We recommend that you actively monitor the disk space that's in use and increase the disk size before you run out of storage. You can set up an alert to notify you when your server storage is approaching an out-of-disk state. For more information, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](howto-alert-on-metrics.md).
 
-### Storage auto-grow (preview)
+### Storage auto-grow
 
 Storage auto-grow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage auto-grow, the storage will automatically expand without affecting the workload. This feature is currently in preview.
 
-For servers that have less than 1 TiB of provisioned storage, the auto-grow feature activates when storage consumption reaches 80 percent. For servers that have 1 TB or more of storage, auto-grow activates at 90 percent consumption.
+For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values is smaller. Conversely, for servers with storage under 1 TB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
-For example, assume that you allocate 256 GiB of storage and turn on storage auto-grow. When the utilization reaches 80 percent (205 GB), the server's storage size automatically increases to the next available premium disk tier, which is 512 GiB. But if the disk size is 1 TiB or larger, the scaling threshold is set at 90 percent. In such cases, the scaling process begins when the utilization reaches 922 GiB, and the disk is resized to 2 TiB.
+As an illustration, take a server with a storage capacity of 2 TiB ( greater than 1 TIB). In this case, the autogrow limit is set at 64 GiB. This choice is made because 64 GiB is the smaller value when compared to 10% of 2 TiB, which is roughly 204.8 GiB. In contrast, for a server with a storage size of 128 GiB (less than 1 TiB), the autogrow feature activates when there's only 25.8 GiB of space left. This activation is based on the 20% threshold of the total allocated storage (128 GiB), which is smaller than 64 GiB.
 
-Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage auto-grow. Enabling storage auto-grow is valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.
 
-The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure managed disks. If a disk is already 4,096 GiB, the storage scaling activity won't be triggered, even if storage auto-grow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
+
+Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage auto-grow. Enabling storage auto-grow is valuable when you're managing unpredictable workloads because it automatically detects low-storage conditions and scales up the storage accordingly.
+
+The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity won't be triggered, even if storage auto-grow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
 
 Remember that storage can only be scaled up, not down.
 
 ## Limitations
 
 - Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
+  
+- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. Customers moving from lower disk size to 4096 Gib or higher will lose disk caching ability.
 
-  This limitation is due to the underlying Azure managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
+  This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
-- Storage auto-grow currently doesn't work for high-availability or read-replica-enabled servers.
+-  Storage auto-grow currently doesn't work with read-replica-enabled servers.
 
 - Storage auto-grow isn't triggered when you have high WAL usage.
 

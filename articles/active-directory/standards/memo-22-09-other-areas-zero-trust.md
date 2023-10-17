@@ -45,7 +45,7 @@ In Microsoft Entra ID Free tenants, log entries are stored for seven days. Tenan
 
 Ensure a security information and event management (SIEM) tool ingests logs. Use sign-in and audit events to correlate with application, infrastructure, data, device, and network logs. 
 
-We recommend you integrate Microsoft Entra ID logs with Microsoft Sentinel. Configure a connector to ingest Microsoft Entra tenant logs.
+We recommend you integrate Microsoft Entra logs with Microsoft Sentinel. Configure a connector to ingest Microsoft Entra tenant logs.
 
 Learn more:
 
@@ -56,7 +56,7 @@ For the Microsoft Entra tenant, you can configure the diagnostic settings to sen
 
 Learn more:
 
-* [What is Microsoft Entra ID monitoring?](../reports-monitoring/overview-monitoring.md)
+* [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring.md)
 * [Microsoft Entra reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
 
 ## Analytics
@@ -72,7 +72,7 @@ You can use analytics in the following tools to aggregate information from Micro
   * See, [Usage and insights in Microsoft Entra ID](../reports-monitoring/concept-usage-insights-report.md)
 * **Microsoft Sentinel** analyze information from Microsoft Entra ID: 
   * Microsoft Sentinel User and Entity Behavior Analytics (UEBA) delivers intelligence on potential threats from user, host, IP address, and application entities. 
-  * Use analytics rule templates to hunt for threats and alerts in your Microsoft Entra ID logs. Your security or operation analyst can triage and remediate threats.
+  * Use analytics rule templates to hunt for threats and alerts in your Microsoft Entra logs. Your security or operation analyst can triage and remediate threats.
   * Microsoft Sentinel workbooks help visualize Microsoft Entra data sources. See sign-ins by country/region or applications. 
   * See, [Commonly used Microsoft Sentinel workbooks](../../sentinel/top-workbooks.md)
   * See, [Visualize collected data](../../sentinel/get-visibility.md)

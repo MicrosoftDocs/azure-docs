@@ -73,11 +73,11 @@ When a new employee is hired in your organization, you might need to trigger a w
 
 ## Check for separation of duties
 
-With separation-of-duties checks now available in preview in Microsoft Entra ID [entitlement management](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/ensure-compliance-using-separation-of-duties-checks-in-access/ba-p/2466939), customers can ensure that users don't take on excessive access rights:
+With separation-of-duties checks in Microsoft Entra ID [entitlement management](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/ensure-compliance-using-separation-of-duties-checks-in-access/ba-p/2466939), customers can ensure that users don't take on excessive access rights:
 
 * Admins and access managers can prevent users from requesting additional access packages if they're already assigned to other access packages or are a member of other groups that are incompatible with the requested access.
 * Enterprises with critical regulatory requirements for SAP apps have a single consistent view of access controls. They can then enforce separation-of-duties checks across their financial and other business-critical applications, along with Microsoft Entra integrated applications.
-* With [Pathlock](https://pathlock.com/), integration customers can take advantage of fine-grained separation-of-duties checks with access packages in Microsoft Entra ID. Over time, this ability will help customers address Sarbanes-Oxley and other compliance requirements.
+* With integration with [Pathlock](https://pathlock.com/) and other partner products, customers can take advantage of fine-grained separation-of-duties checks with access packages in Microsoft Entra ID. Over time, this ability will help customers address Sarbanes-Oxley and other compliance requirements.
 
 ## Next steps
 

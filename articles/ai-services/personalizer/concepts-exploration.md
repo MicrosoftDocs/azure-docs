@@ -12,6 +12,8 @@ ms.date: 08/28/2022
 
 # Exploration
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 With exploration, Personalizer is able to continuously deliver good results, even as user behavior changes.
 
 When Personalizer receives a Rank call, it returns a RewardActionID that either:

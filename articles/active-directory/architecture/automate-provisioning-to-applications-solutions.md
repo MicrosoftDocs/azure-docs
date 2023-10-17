@@ -69,7 +69,7 @@ As customers transition identity management to the cloud, more users and groups 
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
-| 1 |Users, groups| AD DS| Microsoft Entra ID| [Microsoft Entra Connect Cloud Sync](../hybrid/cloud-sync/what-is-cloud-sync.md) |
+| 1 |Users, groups| AD DS| Microsoft Entra ID| [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md) |
 | 2 |Users, groups, devices| AD DS| Microsoft Entra ID| [Microsoft Entra Connect Sync](../hybrid/connect/whatis-azure-ad-connect.md) |
 | 3 |Groups| Microsoft Entra ID| AD DS| [Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-group-writeback-v2.md) |
 | 4 |Guest accounts| Microsoft Entra ID| AD DS| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario), [PowerShell](https://github.com/Azure-Samples/B2B-to-AD-Sync)|
@@ -150,5 +150,5 @@ Organizations often need a complete audit trail of what users have access to app
 ### Next steps
 
 1. Automate provisioning with any of your applications that are in the [Microsoft Entra app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
-2. Evaluate [Microsoft Entra Cloud Sync](../hybrid/cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Microsoft Entra ID
+2. Evaluate [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Microsoft Entra ID
 3. Use the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios

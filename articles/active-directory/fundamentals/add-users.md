@@ -92,11 +92,7 @@ When a user is deleted, any licenses consumed by the user are made available for
 After you've added your users, you can do the following basic processes:
 
 - [Add or change profile information](./how-to-manage-user-profile-info.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Create a basic group and add members](./how-to-manage-groups.md)
-
 - [Work with dynamic groups and users](../enterprise-users/groups-create-rule.md)
-
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)

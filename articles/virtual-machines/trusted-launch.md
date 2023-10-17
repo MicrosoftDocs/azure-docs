@@ -6,7 +6,7 @@ ms.author: howieasmerom
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 10/04/2023
 ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
@@ -49,6 +49,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 | OS | Version |
 |:--- |:--- |
+| Alma Linux | 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1, 9.2 |
 | Azure Linux | 1.0, 2.0 |
 | CentOS | 8.3, 8.4 |
 | Debian |11 |

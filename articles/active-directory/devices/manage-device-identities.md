@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 09/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,7 @@ You can access the devices overview by completing these steps:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
 1. Go to **Identity** > **Devices** > **Overview**.
 
-In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
+In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. It provides links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
 
 Device counts on the overview page don't update in real time. Changes should be reflected every few hours.
 
@@ -46,7 +46,7 @@ From there, you can go to **All devices** to:
 [![Screenshot that shows the All devices view.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
-> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
+> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner unless the primary user is set in Microsoft Intune. If you're looking for a device by owner and don't find it, search by the device ID.
 >
 > - If you see a device that's **Microsoft Entra hybrid joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Microsoft Entra Connect and is waiting to complete registration from the client. See [How to plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
 >
@@ -54,9 +54,7 @@ From there, you can go to **All devices** to:
 
 ## Manage an Intune device
 
-If you have rights to manage devices in Intune, you can manage devices for which mobile device management is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option won't be available.
-
-<a name='enable-or-disable-an-azure-ad-device'></a>
+If you have rights to manage devices in Intune, you can manage devices for which mobile device management is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option isn't available.
 
 ## Enable or disable a Microsoft Entra device
 
@@ -70,8 +68,6 @@ There are two ways to enable or disable devices:
 > - Disabling a device prevents it from authenticating via Microsoft Entra ID. This prevents it from accessing your Microsoft Entra resources that are protected by device-based Conditional Access and from using Windows Hello for Business credentials.
 > - Disabling a device revokes the Primary Refresh Token (PRT) and any refresh tokens on the device.
 > - Printers can't be enabled or disabled in Microsoft Entra ID.
-
-<a name='delete-an-azure-ad-device'></a>
 
 ## Delete a Microsoft Entra device
 
@@ -88,7 +84,7 @@ There are two ways to delete a device:
 >    - Removes all details attached to the device. For example, BitLocker keys for Windows devices.  
 >    - Is a nonrecoverable activity. We don't recommended it unless it's required.
 
-If a device is managed by another management authority, like Microsoft Intune, be sure it's wiped or retired before you delete it. See [How to manage stale devices](manage-stale-devices.md) before you delete a device.
+If a device is managed in another management authority, like Microsoft Intune, be sure it's wiped or retired before you delete it. See [How to manage stale devices](manage-stale-devices.md) before you delete a device.
 
 ## View or copy a device ID
 
@@ -98,7 +94,7 @@ You can use a device ID to verify the device ID details on the device or to trou
   
 ## View or copy BitLocker keys
 
-You can view and copy BitLocker keys to allow users to recover encrypted drives. These keys are available only for Windows devices that are encrypted and store their keys in Microsoft Entra ID. You can find these keys when you view a device's details by selecting **Show Recovery Key**. Selecting **Show Recovery Key** will generate an audit log, which you can find in the `KeyManagement` category.
+You can view and copy BitLocker keys to allow users to recover encrypted drives. These keys are available only for Windows devices that are encrypted and store their keys in Microsoft Entra ID. You can find these keys when you view a device's details by selecting **Show Recovery Key**. Selecting **Show Recovery Key** generates an audit log entry, which you can find in the `KeyManagement` category.
 
 ![Screenshot that shows how to view BitLocker keys.](./media/manage-device-identities/show-bitlocker-key.png)
 
@@ -111,15 +107,15 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Security Administrator
 - Security Reader
 
-## View and filter your devices (preview)
+## View and filter your devices
 
-In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
+You can filter the device list by these attributes:
 
 - Enabled state
 - Compliant state
 - Join type (Microsoft Entra joined, Microsoft Entra hybrid joined, Microsoft Entra registered)
 - Activity timestamp
-- OS Type and Version
+- OS type and OS version
    - Windows is displayed for Windows 11 and Windows 10 devices (with KB5006738).
    - Windows Server is displayed for [supported versions managed with Microsoft Defender for Endpoint](/mem/intune/protect/mde-security-integration#supported-platforms).
 - Device type (printer, secure VM, shared device, registered device)
@@ -129,23 +125,22 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Administrative unit
 - Owner
 
-To enable the preview in the **All devices** view:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Browse to **Identity** > **Devices** > **All devices**.
-1. Select the **Preview features** button.
-1. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
-1. Refresh your browser.
-
-You can now experience the enhanced **All devices** view.
-
 ## Download devices
 
-Global readers, Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices will be listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.
+Global readers, Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices are listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.
 
 The exported list includes these device identity attributes:
 
 `displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
+
+The following filters can be applied for the export task:
+
+- Enabled state
+- Compliant state
+- Join type
+- Activity timestamp
+- OS type
+- Device type
 
 ## Configure device settings
 
@@ -165,7 +160,7 @@ You must be assigned one of the following roles to manage device settings:
 - Global Administrator
 - Cloud Device Administrator
 
-![Screenshot that shows device settings related to Azure AD.](./media/manage-device-identities/device-settings-azure-portal.png)
+![Screenshot that shows device settings related to Microsoft Entra ID.](./media/manage-device-identities/device-settings-azure-portal.png)
 
 - **Users may join devices to Microsoft Entra ID**: This setting enables you to select the users who can register their devices as Microsoft Entra joined devices. The default is **All**.
 
@@ -180,7 +175,7 @@ You must be assigned one of the following roles to manage device settings:
    > [!NOTE]
    > The **Require multifactor authentication to register or join devices with Microsoft Entra ID** setting applies to devices that are either Microsoft Entra joined (with some exceptions) or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
 
-- **Maximum number of devices**: This setting enables you to select the maximum number of Microsoft Entra joined or Microsoft Entra registered devices that a user can have in Microsoft Entra ID. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100. If you enter a value above 100, Microsoft Entra ID will set it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
+- **Maximum number of devices**: This setting enables you to select the maximum number of Microsoft Entra joined or Microsoft Entra registered devices that a user can have in Microsoft Entra ID. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100. If you enter a value above 100, Microsoft Entra ID sets it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
 
    > [!NOTE]
    > The **Maximum number of devices** setting applies to devices that are either Microsoft Entra joined or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices.
@@ -189,7 +184,7 @@ You must be assigned one of the following roles to manage device settings:
 This option is a premium edition capability available through products like Microsoft Entra ID P1 or P2 and Enterprise Mobility + Security.
 - **Enable Microsoft Entra Local Administrator Password Solution (LAPS) (preview)**: LAPS is the management of local account passwords on Windows devices. LAPS provides a solution to securely manage and retrieve the built-in local admin password. With cloud version of LAPS, customers can enable storing and rotation of local admin passwords for both Microsoft Entra ID and Microsoft Entra hybrid join devices. To learn how to manage LAPS in Microsoft Entra ID, see [the overview article](howto-manage-local-admin-passwords.md).
 
-- **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
+- **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission are unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
 
 - **Enterprise State Roaming**: For information about this setting, see [the overview article](./enterprise-state-roaming-enable.md).
 

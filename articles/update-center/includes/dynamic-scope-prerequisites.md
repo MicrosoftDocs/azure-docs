@@ -5,25 +5,6 @@ ms.topic: include
 ms.date: 08/02/2023
 ---
 
-## Enable feature flag
-
-#### [Portal](#tab/portal)
-Ensure to register the preview feature in your Azure subscription by following these steps:
-
-  1. Sign in to the [Azure portal](https://portal.azure.com).
-  1. In search, enter and select **Subscriptions**.
-  1. In **Subscriptions** home page, select your subscription from the list.
-  1. In the **Subscription | Preview features** page, under **Settings**, select **Preview features**.
-  1. Search for **Dynamic scoping**. 
-  1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
-
-#### [PowerShell](#tab/ps)
-To register the preview feature, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet
-
-```powershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Maintenance -FeatureName InGuestPatchDynamicScope
-```
----
 
 ## Prerequisites
 

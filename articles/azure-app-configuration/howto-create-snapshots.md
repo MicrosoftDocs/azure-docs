@@ -1,16 +1,16 @@
 ---
-title: How to create snapshots (preview) in Azure App Configuration
-description: How to create and manage snapshots Azure App Configuration store.
+title: How to manage and use snapshots (preview) in Azure App Configuration
+description: How to manage and use snapshots in an Azure App Configuration store.
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 05/16/2023
+ms.date: 09/28/2023
 ---
 
-# Use snapshots (preview)
+# Manage and use snapshots (preview)
 
-In this article, learn how to create and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
+In this article, learn how to create, use and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In your App Configuration store, go to **Operations** > **Configuration explorer
 ## Create a snapshot
 
  > [!IMPORTANT]
-   > You may see any error "You are not authorized to view this configuration store data" when you switch to the Snapshots blade in the Azure portal if you opt to use Azure AD authentication in the Configuration explorer or the Feature manager blades. This is a known issue in the Azure portal, and we are working on addressing it. It doesn't affect any scenarios other than the Azure Portal regarding accessing snapshots with Azure AD authentication.
+   > You may see any error "You are not authorized to view this configuration store data" when you switch to the Snapshots blade in the Azure portal if you opt to use Microsoft Entra authentication in the Configuration explorer or the Feature manager blades. This is a known issue in the Azure portal, and we are working on addressing it. It doesn't affect any scenarios other than the Azure Portal regarding accessing snapshots with Microsoft Entra authentication.
 
 As a temporary workaround, you can switch to using Access keys authentication from either the Configuration explorer or the Feature manager blades. You should then see the Snapshot blade displayed properly, assuming you have permission for the access keys.
 

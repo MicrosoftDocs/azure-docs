@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Set up your app to update its configuration in response to changes in an App Configuration store.
 
 > [!NOTE]
-> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b1/) package version 1.1.0b1 or later.
+> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b2/) package version 1.1.0b2 or later.
 
 ## Prerequisites
 

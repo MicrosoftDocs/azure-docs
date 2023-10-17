@@ -3,12 +3,12 @@ title: Azure storage disaster recovery planning and failover
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover for geo-redundant storage accounts. Create a disaster recovery plan for your storage accounts if the endpoints in the primary region become unavailable.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 09/22/2023
-ms.author: jammart
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
 ---
@@ -55,8 +55,8 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                               | Failover Scope  | Use case | Expected data loss | HNS supported |
 |------------------------------------|-----------------|----------|---------------------|---------------|
-| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                  | Entire region, datacenter or scale unit   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed                   | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes ](#azure-data-lake-storage-gen2)*[(In preview)](#azure-data-lake-storage-gen2)* |
+| Microsoft-managed                  | Entire region or scale unit   | The primary region becomes completely unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed failover
 
@@ -70,9 +70,7 @@ In extreme circumstances where the original primary region is deemed unrecoverab
 
 > [!IMPORTANT]
 > Your disaster recovery plan should be based on customer-managed failover. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
->
-> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It can't be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use [customer-managed account failover](#customer-managed-failover).
-
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or scale unit. It can't be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use [customer-managed account failover](#customer-managed-failover).
 ### Anticipate data loss and inconsistencies
 
 > [!CAUTION]
@@ -247,3 +245,4 @@ Microsoft also recommends that you design your application to prepare for the po
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)
 - [Azure Storage redundancy](storage-redundancy.md)
 - [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md)
+

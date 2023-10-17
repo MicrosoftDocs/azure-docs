@@ -4,7 +4,7 @@ description: This article discusses the VM insights Performance feature that dis
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 ---
 
 # Chart performance with VM insights
