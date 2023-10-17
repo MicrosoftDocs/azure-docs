@@ -197,31 +197,6 @@ For more information, see [Manage sensors with Defender for IoT in the Azure por
 
 If you want to cancel enterprise IoT security with Microsoft 365 Defender, do so from the Microsoft 365 Defender portal. For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
 
-<!--
-## Move existing sensors to a different subscription
-
-If you've registered an Enterprise IoT network sensor, you may need to apply it to a different subscription than the one you’re currently using. <!--how does this work now? if i don't have mde at all?
-
-**To apply an existing sensor to a different subscription**:
-
-1. Onboard a new plan to the new subscription
-1. Register the sensors under the new subscription
-1. Remove the sensors from the previous subscription
-
-Billing changes will take effect one hour after cancellation of the previous subscription, and will be reflected on the next month's bill. Devices will be synchronized from the sensor to the new subscription automatically.
-
-**To switch to a new subscription**:
-
-1. In Defender for Endpoint, onboard a new Enterprise IoT plan to the new subscription you want to use. For more information, see [Onboard a Defender for IoT plan](eiot-defender-for-endpoint.md#onboard-a-defender-for-iot-plan).
-
-1. In the Azure portal, register your Enterprise IoT sensor under the new subscription and run the activation command. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
-
-1. Delete the legacy sensor from the previous subscription.  In Defender for IoT, go to the **Sites and sensors** page and locate the legacy sensor on the previous subscription.
-
-1. In the row for your sensor, from the options (**...**) menu, select **Delete** to delete the sensor from the previous subscription.
-
-1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
--->
 ## Next steps
 
 - [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md)

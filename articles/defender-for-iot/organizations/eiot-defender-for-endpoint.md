@@ -48,7 +48,7 @@ Skip this procedure if you have one of the following types of licensing plans:
 
 1. In [Microsoft 365 Defender](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-1. Toggle the Enterprise IoT security option to **On**. <!--For example:-->
+1. Toggle the Enterprise IoT security option to **On**. 
 
 ## View added security value in Microsoft 365 Defender
 

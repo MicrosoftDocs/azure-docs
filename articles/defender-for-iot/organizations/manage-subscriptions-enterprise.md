@@ -16,12 +16,6 @@ This article describes how to:
 - Calculate the devices detected in your environment so that you can understand if you need extra, standalone licenses.
 - Cancel support for enterprise IoT monitoring with Microsoft Defender for IoT
 
-<!--
-Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
-
-For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-devices) that you want to monitor and cover by your plan.
--->
-
 If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
 ## Prerequisites
@@ -86,7 +80,7 @@ For example:
 - You have 320 ME5 licenses, which covers **1600** devices
 
 You'll need **79** standalone devices to cover the gap.
-<!-- amit is this a good example-->
+
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 > [!NOTE]
@@ -103,7 +97,7 @@ Purchase standalone, per-device licenses if you are an ME5/E5 Security customer 
 1. Search for **Microsoft Defender for IoT** and locate the **Microsoft Defender for IoT - Enterprise IoT** item.
 
 1. Enter the number of licenses you want to purchase and select **Details** > **Purchase**.
-<!--is this correct?-->
+
 For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
 ## Turn off enterprise IoT security
@@ -116,7 +110,7 @@ Turn off the **Enterprise IoT security** option if you are no longer using the s
 
 1. In [Microsoft 365 Defender](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-1. Toggle the option to **Off**. <!--For example:-->
+1. Toggle the option to **Off**.
 
 You'll stop getting security value in Microsoft 365 Defender, including purpose-built alerts, vulnerabilities, and recommendations.
 
