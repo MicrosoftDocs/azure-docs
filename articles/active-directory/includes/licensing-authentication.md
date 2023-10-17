@@ -14,7 +14,7 @@ The following table lists features that are available for authentication in the 
 
 | Feature | Entra ID Free - Security defaults (enabled for all users) | Entra ID Free - Global Administrators only | Office 365 | Entra ID Premium P1 | Entra ID Premium P2 |
 | --- |:---:|:---:|:---:|:---:|:---:|
-| Protect Azure AD tenant admin accounts with MFA | &#x2705 | &#x2705 (*Azure AD Global Administrator* accounts only) | &#x2705 | &#x2705 | &#x2705 |
+| Protect Azure AD tenant admin accounts with MFA | &#x2705 | :white_check_mark: (*Azure AD Global Administrator* accounts only) | &#x2705 | &#x2705 | &#x2705 |
 | Mobile app as a second factor | &#x2705 | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
 | Phone call as a second factor | | | &#x2705 | &#x2705 | &#x2705 |
 | SMS as a second factor | | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
