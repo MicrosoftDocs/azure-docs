@@ -3,7 +3,7 @@ title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desk
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 10/20/2023
 ms.author: helohr
 manager: femila
 ---
