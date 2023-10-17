@@ -1,5 +1,5 @@
 ---
-title: Dapr component resiliency
+title: Dapr component policies
 titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
@@ -12,20 +12,25 @@ ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Dapr component resiliency policies
+# Dapr component policies
 
-
-
-For container app to container app resiliency, you can define resiliency policies for:
-- Timeouts
-- Retries (HTTP)
+When using `dapr invoke` for service-to-service invocation between your Dapr sidecar and a component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
 
 :::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
 
+Dapr component policies include outbound and inbound operation directions. 
 
-## Policies
+- **Outbound operations:** Calls from the sidecar to a component, such as:
+   - Persisting or retrieving state
+   - Publishing a message
+   - Invoking an output binding
+- **Inbound operations:** Calls from the sidecar to your container app, such as:
+   - Subscriptions when delivering a message
+   - Input bindings delivering an event
 
-Define timeouts and retries using the following metadata.
+## Spec metadata
+
+For pub/sub, service invocation, and input/output bindings, define timeouts and retries using the following metadata.
 
 ### Timeouts
 
@@ -33,15 +38,22 @@ Timeouts are used to early-terminate long-running operations. The timeout policy
 
 ```bicep
 properties: {
-  timeoutPolicy: {
-      responseTimeoutInSeconds: 15
+  outbound: {
+    timeoutPolicy: {
+        responseTimeoutInSeconds: 15
+    }
+  },
+  inbound: {
+    timeoutPolicy: {
+        responseTimeoutInSeconds: 15
+    }
   }
 }
 ```
 
-| Metadata | Description |
-| ------ | ----------- |
-| `responseTimeoutInSeconds` |  |
+| Metadata | Description | Example |
+| -------- | ----------- | ------- |
+| `responseTimeoutInSeconds` |  |  |
 
 ### Retries
 
@@ -58,26 +70,14 @@ properties: {
           initialDelayInMilliseconds: 1000
           maxIntervalInMilliseconds: 10000
         }
-        matches: {
-            headers: [
-                {
-                    headerMatch: {
-                        header: 'X-Content-Type'
-                        match: { 
-                            prefixMatch: 'GOATS'
-                        }
-                    }
-                }
-            ]
-            httpStatusCodes: [
-                502
-                503
-            ]
-            errors: [
-                5xx
-                connect-failure
-                reset          
-            ]
+    }
+  },
+  inbound: {
+    httpRetryPolicy: {
+        maxRetries: 5
+        retryBackOff: {
+          initialDelayInMilliseconds: 1000
+          maxIntervalInMilliseconds: 10000
         }
     }
   } 
@@ -90,24 +90,6 @@ properties: {
 | `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
 | `retryBackOff.initialDelayInMilliseconds` |  |
 | `retryBackOff.maxIntervalInMilliseconds` |  |
-| `matches` | Set match values to limit when the app should attempt a retry. |
-| `matches.headers` | Only retries when the app returns a certain header. |
-| `matches.httpStatusCodes` | Only retries when the app returns a specific status code. |
-| `matches.errors` | Only retries when the app returns a specific error code. |
-
-#### `tcpRetryPolicy`
-
-```bicep
-properties: {
-    tcpRetryPolicy: {
-        maxConnectAttempts: 3
-    }
-}
-```
-
-| Metadata | Description |
-| ------ | ----------- |
-| `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency resource. |
 
 ## Define your resiliency policies
 
@@ -132,31 +114,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
             initialDelayInMilliseconds: 1000
             maxIntervalInMilliseconds: 10000
           }
-          matches: {
-              headers: [
-                  {
-                      headerMatch: {
-                          header: 'X-Content-Type'
-                          match: { 
-                              prefixMatch: 'GOATS'
-                          }
-                      }
-                  }
-              ]
-              httpStatusCodes: [
-                  502
-                  503
-              ]
-              errors: [
-                  5xx
-                  connect-failure
-                  reset          
-              ]
-          }
       } 
-      tcpRetryPolicy: {
-          maxConnectAttempts: 3
-      }
     }, 
     inbound: {
       timeoutPolicy: {
@@ -168,44 +126,11 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
           initialDelayInMilliseconds: 1000
           maxIntervalInMilliseconds: 10000
         }
-        matches: {
-            headers: [
-                {
-                    headerMatch: {
-                        header: 'X-Content-Type'
-                        match: { 
-                            prefixMatch: 'GOATS'
-                        }
-                    }
-                }
-            ]
-            httpStatusCodes: [
-                502
-                503
-            ]
-            errors: [
-                5xx
-                connect-failure
-                reset          
-            ]
-        }
       } 
-      tcpRetryPolicy: {
-          maxConnectAttempts: 3
-      }
     }
   }
 }
 ```
-
-Notice that resiliency policies created via Bicep must start with the following metadata: 
-
-| Metadata | Description |
-| ------ | ----------- |
-| `name` | The name of your resiliency policy. This name will be tied to container apps and Dapr components. |
-| `parent` | The resiliency policy scope, either your container app or Dapr component. | 
-| `target` | The target application of the resiliency configuration (the application being called). |
-
 
 # [CLI](#tab/cli)
 

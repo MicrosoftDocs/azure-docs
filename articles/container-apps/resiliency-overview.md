@@ -18,13 +18,13 @@ ms.custom: ignite-fall-2023
 
 In the context of Azure Container Apps, resiliency policies are configured as child resources on a [container app](./container-app-resiliency.md) or [Dapr component](./dapr-resiliency.md). When an application initiates a network request, the callee (either the container app or Dapr component associated with the resiliency policies) dictates how timeouts, retries, and other resiliency policies are applied.
 
-Whether your [container apps communicate with each other directly](./container-app-resiliency.md), or [use `dapr invoke` for service-to-service communication](./dapr-resiliency.md), resiliency policies are configured and applied the same. 
+Whether your container apps communicate with each other directly, or use `dapr invoke` for service-to-service communication, resiliency policies are configured and applied the same. 
 
 You can define resiliency policies using either Bicep, the Azure CLI, and the Azure Portal.
 
 ## Resiliency policy structure
 
-The following Bicep example demonstrates all possible resiliency policy configurations.
+The following Bicep example demonstrates all possible resiliency policy configurations. For more details, see the resiliency policy specs for [container app to container app policies](./container-app-resiliency.md) and [Dapr component policies](./dapr-resiliency.md).
 
 ```bicep
 resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@2023-08-01-preview' = {
@@ -81,6 +81,8 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@2023-08-01
   }
 }
 ```
+
+Resiliency policies created via Bicep must start with the following metadata: 
 
 | Metadata | Description |
 | ------ | ----------- |

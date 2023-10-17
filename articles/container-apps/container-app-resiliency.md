@@ -1,5 +1,5 @@
 ---
-title: Container app to container app resiliency
+title: Container app to container app policies
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency in Azure Container Apps.
 services: container-apps
@@ -12,11 +12,10 @@ ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Container app to container app resiliency
+# Container app to container app policies
 
-Use Bicep, the Azure CLI, or the Azure portal to define and apply fault tolerance resiliency policies
+You can define apply resiliency policies for communication between your container apps (without Dapr enabled), or between Dapr sidecars (with Dapr enabled). Use Bicep, the Azure CLI, or the Azure portal to configure the following policies for container apps with or without Dapr enabled:
 
-For container app to container app resiliency, you can define resiliency policies for:
 - Timeouts
 - Retries (HTTP and TCP)
 - Circuit breakers
@@ -24,9 +23,9 @@ For container app to container app resiliency, you can define resiliency policie
 
 :::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
 
-## Policy specs
+## Spec metadata
 
-The following examples demonstrate how resiliency policies are defined to provide resilient communication between your container apps.
+The following examples demonstrate how resiliency policies are defined to provide resilient communication between your container apps or Dapr sidecars.
 
 ### Timeouts
 
@@ -224,15 +223,6 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
   }
 }
 ```
-
-Notice that resiliency policies created via Bicep must start with the following metadata: 
-
-| Metadata | Description |
-| ------ | ----------- |
-| `name` | The name of your resiliency policy. This name will be tied to container apps and Dapr components. |
-| `parent` | The resiliency policy scope, either your container app or Dapr component. | 
-| `target` | The target application of the resiliency configuration (the application being called). |
-
 
 # [CLI](#tab/cli)
 
