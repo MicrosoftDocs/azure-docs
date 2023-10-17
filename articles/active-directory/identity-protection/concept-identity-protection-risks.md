@@ -19,12 +19,12 @@ ms.collection: M365-identity-device-management
 
 Risk detections in Microsoft Entra ID Protection include any identified suspicious actions related to user accounts in the directory. Risk detections (both user and sign-in linked) contribute to the overall user risk score that is found in the Risky Users report.
 
-Identity Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
+ID Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
 
 ![Security overview showing risky users and sign-ins](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
 > [!NOTE]
-> Identity Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
+> ID Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
 
 ## Risk types and detection
 
@@ -116,7 +116,7 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 1. If you're able to confirm location, application, IP address, User Agent, or other characteristics are expected for the user and there aren't other indications of compromise:
    1. **Recommended action**: Allow the user to self-remediate with a Conditional Access risk policy or have an admin confirm sign-in as safe.
 
-For further investigation of token based detections, see the article [Token tactics: How to prevent, detect, and respond to cloud token theft](https://www.microsoft.com/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/).
+For further investigation of token based detections, see the article [Token tactics: How to prevent, detect, and respond to cloud token theft](https://www.microsoft.com/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/) and the [Token theft investigation playbook](/security/operations/token-theft-playbook).
 
 #### Token issuer anomaly 
 
@@ -133,7 +133,7 @@ For further investigation of token based detections, see the article [Token tact
 
 #### Malware linked IP address (deprecated)
 
-**Calculated offline**. This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection matches the IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. **This detection has been deprecated**. Identity Protection no longer generates new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.
+**Calculated offline**. This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection matches the IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. **This detection has been deprecated**. ID Protection no longer generates new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.
 
 #### Suspicious browser
 
@@ -274,7 +274,7 @@ Customers without Microsoft Entra ID P2 licenses receive detections titled "addi
 
 ### Risk levels
 
-Identity Protection categorizes risk into three tiers: low, medium, and high. When configuring [Identity protection policies](./concept-identity-protection-policies.md), you can also configure it to trigger upon **No risk** level. No Risk means there's no active indication that the user's identity has been compromised.
+ID Protection categorizes risk into three tiers: low, medium, and high. When configuring [ID Protection policies](./concept-identity-protection-policies.md), you can also configure it to trigger upon **No risk** level. No Risk means there's no active indication that the user's identity has been compromised.
 
 Microsoft doesn't provide specific details about how risk is calculated. Each level of risk brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
@@ -284,7 +284,7 @@ Risk detections like leaked credentials require the presence of password hashes 
 
 ### Why are there risk detections generated for disabled user accounts?
           
-Disabled user accounts can be re-enabled. If the credentials of a disabled account are compromised, and the account gets re-enabled, bad actors might use those credentials to gain access. Identity Protection generates risk detections for suspicious activities against disabled user accounts to alert customers about potential account compromise. If an account is no longer in use and wont be re-enabled, customers should consider deleting it to prevent compromise. No risk detections are generated for deleted accounts.
+Disabled user accounts can be re-enabled. If the credentials of a disabled account are compromised, and the account gets re-enabled, bad actors might use those credentials to gain access. ID Protection generates risk detections for suspicious activities against disabled user accounts to alert customers about potential account compromise. If an account is no longer in use and wont be re-enabled, customers should consider deleting it to prevent compromise. No risk detections are generated for deleted accounts.
 
 ### Where does Microsoft find leaked credentials?
 

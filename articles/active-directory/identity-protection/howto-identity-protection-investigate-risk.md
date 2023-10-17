@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Investigate risk
 
-Identity Protection provides organizations with reporting they can use to investigate identity risks in their environment. These reports include **risky users**, **risky sign-ins**, **risky workload identities**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy. All of these reports allow for downloading of events in .CSV format for further analysis.
+Identity Protection provides organizations with reporting they can use to investigate identity risks in their environment. These reports include **risky users**, **risky sign-ins**, **risky workload identities**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy. All of these reports allow for downloading of events in .CSV format or integration with other security solutions like a dedicated SIEM tool for further analysis.
 
 Organizations can take advantage of the Microsoft Graph API integrations to aggregate data with other sources they may have access to as an organization.
 
