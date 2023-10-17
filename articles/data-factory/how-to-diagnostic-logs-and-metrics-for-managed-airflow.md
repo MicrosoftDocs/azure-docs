@@ -85,7 +85,7 @@ Similarly, you can create custom queries according to your needs using any table
 
 For more information:
 
-1. [https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
+1. [Log Analytics Tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
 
 2. [Kusto Query Language (KQL) overview - Azure Data Explorer | Microsoft Learn](/azure/data-explorer/kusto/query/)
 
