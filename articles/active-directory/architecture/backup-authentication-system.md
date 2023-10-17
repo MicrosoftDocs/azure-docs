@@ -70,7 +70,7 @@ Certain other types of policies don't support use of the backup authentication s
 
 - Use of the [sign-in frequency control](../conditional-access/concept-conditional-access-session.md#sign-in-frequency) as part of a Conditional Access policy.
 - Use of the [authentication methods policy](../conditional-access/concept-conditional-access-grant.md#require-authentication-strength).
-- Use of [classic Conditional Access policies](../conditional-access/policy-migration.md).
+- Use of [classic Conditional Access policies](../conditional-access/policy-migration-mfa.md).
 
 ## Workload identity resilience in the backup authentication system
 
@@ -250,4 +250,4 @@ The backup authentication system is supported in all cloud environments except M
 - [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
 - [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 - [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
-- [Microsoft Entra SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
+- [Microsoft Entra SLA performance reporting](../reports-monitoring/reference-sla-performance.md)

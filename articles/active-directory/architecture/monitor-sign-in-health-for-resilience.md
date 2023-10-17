@@ -25,7 +25,7 @@ You can configure alerts based on the App sign-in health workbook. This workbook
 - Compare trends over a period of time. Week over week is the workbook's default setting.
 
 > [!NOTE]
-> See all available workbooks and the prerequisites for using them in [How to use Azure Monitor workbooks for reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+> See all available workbooks and the prerequisites for using them in [How to use Azure Monitor workbooks for reports](../reports-monitoring/howto-use-workbooks.md).
 
 During an impacting event, two things may happen:
 
@@ -36,8 +36,8 @@ During an impacting event, two things may happen:
 
 - A Microsoft Entra tenant.
 - A user with global administrator or security administrator role for the Microsoft Entra tenant.
-- A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. Learn how to  [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-- Microsoft Entra logs integrated with Azure Monitor logs. Learn how to [Integrate Microsoft Entra sign-in logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. Learn how to  [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+- Microsoft Entra logs integrated with Azure Monitor logs. Learn how to [Integrate Microsoft Entra sign-in logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md)
 
 ## Configure the App sign-in health workbook 
 
@@ -65,7 +65,7 @@ Use the following instructions to create email alerts based on the queries refle
 - The successful usage drops by 90% from the same hour two days ago, as shown in the preceding hourly usage graph example.
 - The failure rate increases by 90% from the same hour two days ago, as shown in the preceding hourly failure rate graph example.
 
-To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 1. In the workbook, select **Edit** as shown in the following screenshot. Select the **query icon** in the upper right corner of the graph.
 
@@ -224,4 +224,4 @@ After you set up queries and alerts, create business processes to manage the ale
 
 ## Next steps
 
-[Learn more about workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
+[Learn more about workbooks](../reports-monitoring/howto-use-workbooks.md)

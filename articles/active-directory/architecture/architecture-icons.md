@@ -47,7 +47,7 @@ Microsoft permits the use of these icons in architectural diagrams, training mat
 
 ## More icon sets from Microsoft
 
-- [Azure architecture icons](/azure/architecture/icons)
+- [Azure architecture icons](/azure/architecture/icons/)
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
 - [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)

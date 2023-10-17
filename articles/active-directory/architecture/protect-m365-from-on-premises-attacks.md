@@ -91,7 +91,7 @@ In Microsoft Entra ID, users who have privileged roles, such as administrators, 
 
 - Deploy emergency access accounts. Do *not* use on-premises password vaults to store credentials. See [Manage emergency access accounts in Microsoft Entra ID](../roles/security-emergency-access.md).
 
-For more information, see [Securing privileged access](/security/compass/overview). Also, see [Secure access practices for administrators in Microsoft Entra ID](../roles/security-planning.md).
+For more information, see [Securing privileged access](/security/privileged-access-workstations/overview). Also, see [Secure access practices for administrators in Microsoft Entra ID](../roles/security-planning.md).
 
 ### Use cloud authentication
 
@@ -142,7 +142,7 @@ When used to provision hybrid accounts, the Microsoft Entra ID-from-cloud-HR sys
 
 Cloud groups allow you to decouple your collaboration and access from your on-premises infrastructure.
 
-- **Collaboration**. Use Microsoft 365 Groups and Microsoft Teams for modern collaboration. Decommission on-premises distribution lists, and [upgrade distribution lists to Microsoft 365 Groups in Outlook](/office365/admin/manage/upgrade-distribution-lists).
+- **Collaboration**. Use Microsoft 365 Groups and Microsoft Teams for modern collaboration. Decommission on-premises distribution lists, and [upgrade distribution lists to Microsoft 365 Groups in Outlook](/microsoft-365/admin/create-groups/office-365-groups).
 - **Access**. Use Microsoft Entra security groups or Microsoft 365 Groups to authorize access to applications in Microsoft Entra ID.
 - **Office 365 licensing**. Use group-based licensing to provision to Office 365 by using cloud-only groups. This method decouples control of group membership from on-premises infrastructure.
 
@@ -152,13 +152,13 @@ Owners of groups that are used for access should be considered privileged identi
 
 Use Microsoft Entra capabilities to securely manage devices.
 
-Deploy Microsoft Entra joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Microsoft Entra join implementation](../devices/device-join-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
+Deploy Microsoft Entra joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Microsoft Entra join implementation](../devices/device-join-plan.md) and [Windows Autopilot](/autopilot/windows-autopilot).
 
 - **Use Windows 10 workstations**.
   - Deprecate machines that run Windows 8.1 and earlier.
   - Don't deploy computers that have server operating systems as workstations.
 - **Use Microsoft Intune as the authority for all device management workloads.** See [Microsoft Intune](https://www.microsoft.com/security/business/endpoint-management/microsoft-intune).
-- **Deploy privileged access devices.** For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
+- **Deploy privileged access devices.** For more information, see [Device roles and profiles](/security/privileged-access-workstations/privileged-access-devices#device-roles-and-profiles).
 
 ### Workloads, applications, and resources 
 
@@ -178,9 +178,9 @@ Deploy Microsoft Entra joined Windows 10 workstations with mobile device managem
 
 - **Application and workload servers**
 
-  Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use Microsoft Entra Domain Services to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Microsoft Entra Domain Services don't have a connection to corporate networks. See [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
+  Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use Microsoft Entra Domain Services to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Microsoft Entra Domain Services don't have a connection to corporate networks. See [Microsoft Entra Domain Services](/entra/identity/domain-services/overview).
 
-  Use credential tiering. Application servers are typically considered tier-1 assets. For more information, see [Enterprise access model](/security/compass/privileged-access-access-model#ADATM_BM).
+  Use credential tiering. Application servers are typically considered tier-1 assets. For more information, see [Enterprise access model](/security/privileged-access-workstations/privileged-access-access-model#ADATM_BM).
 
 ## Conditional Access policies
 
@@ -212,9 +212,9 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 - **User and Entity Behavioral Analytics (UEBA) alerts**
 
-  Use UEBA to get insights on anomaly detection. Microsoft Defender for Cloud Apps provides UEBA in the cloud. See [Investigate risky users](/cloud-app-security/tutorial-ueba).
+  Use UEBA to get insights on anomaly detection. Microsoft Defender for Cloud Apps provides UEBA in the cloud. See [Investigate risky users](/defender-cloud-apps/tutorial-ueba).
 
-  You can integrate on-premises UEBA from Azure Advanced Threat Protection (ATP). Microsoft Defender for Cloud Apps reads signals from Microsoft Entra ID Protection. See [Connect to your Active Directory Forest](/defender-for-identity/install-step2).
+  You can integrate on-premises UEBA from Azure Advanced Threat Protection (ATP). Microsoft Defender for Cloud Apps reads signals from Microsoft Entra ID Protection. See [Connect to your Active Directory Forest](/defender-for-identity/directory-service-accounts).
 
 - **Emergency access accounts activity**
 
@@ -261,11 +261,11 @@ Define a log storage and retention strategy, design, and implementation to facil
   - Audit logs
   - Risk events
 
-  Microsoft Entra ID provides Azure Monitor integration for the sign-in activity log and audit logs. See [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
+  Microsoft Entra ID provides Azure Monitor integration for the sign-in activity log and audit logs. See [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md).
 
-  Use the Microsoft Graph API to ingest risk events. See [Use the Microsoft Graph identity protection APIs](/graph/api/resources/identityprotection-root).
+  Use the Microsoft Graph API to ingest risk events. See [Use the Microsoft Graph identity protection APIs](/graph/api/resources/identityprotection-overview).
 
-  You can stream Microsoft Entra logs to Azure Monitor logs. See [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+  You can stream Microsoft Entra logs to Azure Monitor logs. See [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md).
 
 - **Hybrid infrastructure operating system security logs**. All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
 

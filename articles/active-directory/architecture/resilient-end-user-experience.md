@@ -28,19 +28,19 @@ The sign-up and sign-in end-user experience is made up of the following elements
 
 ## Choose between user flow and custom policy  
 
-To help you set up the most common identity tasks, Azure AD B2C provides built-in configurable [user flows](../../active-directory-b2c/user-flow-overview.md). You can also build your own [custom policies](../../active-directory-b2c/custom-policy-overview.md) that offer you maximum flexibility. However, it's recommended to use custom policies only to address complex scenarios.
+To help you set up the most common identity tasks, Azure AD B2C provides built-in configurable [user flows](/azure/active-directory-b2c/user-flow-overview). You can also build your own [custom policies](/azure/active-directory-b2c/custom-policy-overview) that offer you maximum flexibility. However, it's recommended to use custom policies only to address complex scenarios.
 
 ### How to decide between user flow and custom policy
 
 Choose built-in user flows if your business requirements can be met by them. Since extensively tested by Microsoft, you can minimize the testing needed for validating policy-level functional, performance, or scale of these identity user flows. You still need to test your applications for functionality, performance, and scale.
 
-Should you [choose custom policies](../../active-directory-b2c/user-flow-overview.md) because of your business requirements, make sure you perform policy-level testing for functional, performance, or scale in addition to application-level testing.
+Should you [choose custom policies](/azure/active-directory-b2c/user-flow-overview) because of your business requirements, make sure you perform policy-level testing for functional, performance, or scale in addition to application-level testing.
 
-See the article that [compares user flows and custom polices](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) to help you decide.
+See the article that [compares user flows and custom polices](/azure/active-directory-b2c/user-flow-overview#comparing-user-flows-and-custom-policies) to help you decide.
 
 ## Choose multiple IDPs
 
-When using an [external identity provider](../../active-directory-b2c/add-identity-provider.md) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
+When using an [external identity provider](/azure/active-directory-b2c/add-identity-provider) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
 
 ### How to set up multiple IDPs
 
@@ -52,11 +52,11 @@ As part of the external identity provider registration process, include a verifi
 
  2. Configure a profile policy to allow users to [link the other identity to their account](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) after they sign in.
 
- 3. Notify and allow users to [switch to an alternate IDP](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) during an outage.
+ 3. Notify and allow users to [switch to an alternate IDP](/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) during an outage.
 
 ## Availability of Multi-factor authentication
 
-When using a [phone service for Multi-factor authentication (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
+When using a [phone service for Multi-factor authentication (MFA)](/azure/active-directory-b2c/phone-authentication-user-flows), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
 
 ### How to choose an alternate MFA  
 
