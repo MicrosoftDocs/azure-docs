@@ -299,9 +299,9 @@ items:
         href: how-to-github-actions.md
       - name: Auth with Key Vault in GitHub Actions
         href: github-actions-key-vault.md
-    - name: Disaster recovery
+    - name: Reliability
       items:
-      - name: Redundancy and high availability
+      - name: Disaster recovery and availability zones
         href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
