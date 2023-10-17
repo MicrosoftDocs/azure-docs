@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample Angular single-page application.
-description: Learn how to configure a sample Angular Single Page Application (SPA) using Azure Active Directory for Customers
+description: Learn how to configure a sample Angular Single Page Application (SPA) using Microsoft Entra ID for customers
 services: active-directory
 author: garrodonnell
 manager: celestedg
@@ -12,18 +12,18 @@ ms.topic: sample
 ms.date: 06/23/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Angular Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Angular Single Page Application to sign in and sign out users with my Microsoft Entra ID for customers tenant
 ---
 
 # Sign in users in a sample Angular single-page application 
 
-This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA. The SPA enables users to sign in and sign out by using your Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample Angular single-page application (SPA) to demonstrate how to add authentication users into a SPA. The SPA enables users to sign in and sign out by using your Microsoft Entra External  ID for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 
 * Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
-* Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+* Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
 ## Register the SPA in the Microsoft Entra admin center
@@ -93,7 +93,7 @@ All the required code snippets have been added, so the application can now be ca
 
 1. Open a web browser and navigate to `http://localhost:4200/`.
 
-1. Sign-in with an account registered to the Azure AD for customers tenant.
+1. Sign-in with an account registered to the Microsoft Entra ID for customers tenant.
 
 1. Once you successfully sign-in, the display name is shown next to the **Sign out** button.
 

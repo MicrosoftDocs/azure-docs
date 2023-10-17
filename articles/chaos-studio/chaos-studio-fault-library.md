@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/16/2022
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022, devx-track-arm-template
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio Preview fault and action library

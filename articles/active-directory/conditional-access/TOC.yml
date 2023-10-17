@@ -134,9 +134,7 @@
     href: controls.md
   - name: Classic policies
     items:
-    - name: Classic policy migrations
-      href: policy-migration.md
-    - name: Migrate classic policies
+    - name: Migrate from classic policies
       href: policy-migration-mfa.md
 - name: Reference
   items:

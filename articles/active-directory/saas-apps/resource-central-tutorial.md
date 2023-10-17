@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System'
-description: Learn how to configure single sign-on between Azure Active Directory and Resource Central – SAML SSO for Meeting Room Booking System.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Resource Central – SAML SSO for Meeting Room Booking System.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System
 
-In this tutorial, you'll learn how to integrate Resource Central – SAML SSO for Meeting Room Booking System with Azure Active Directory (Azure AD). When you integrate Resource Central – SAML SSO for Meeting Room Booking System with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Resource Central – SAML SSO for Meeting Room Booking System with Microsoft Entra ID. When you integrate Resource Central – SAML SSO for Meeting Room Booking System with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Resource Central – SAML SSO for Meeting Room Booking System.
-* Enable your users to be automatically signed-in to Resource Central – SAML SSO for Meeting Room Booking System with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Resource Central – SAML SSO for Meeting Room Booking System.
+* Enable your users to be automatically signed-in to Resource Central – SAML SSO for Meeting Room Booking System with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Resource Central – SAML SSO for Meeting Room Booking System single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Resource Central – SAML SSO for Meeting Room Booking System supports **SP** initiated SSO
 
@@ -39,7 +39,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Resource Central – SAML SSO for Meeting Room Booking System from the gallery
 
-To configure the integration of Resource Central – SAML SSO for Meeting Room Booking System into Azure AD, you need to add Resource Central – SAML SSO for Meeting Room Booking System from the gallery to your list of managed SaaS apps.
+To configure the integration of Resource Central – SAML SSO for Meeting Room Booking System into Microsoft Entra ID, you need to add Resource Central – SAML SSO for Meeting Room Booking System from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of Resource Central – SAML SSO for Meeting Room B
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Resource Central – SAML SSO for Meeting Room Booking System
+<a name='configure-and-test-azure-ad-sso-for-resource-central--saml-sso-for-meeting-room-booking-system'></a>
 
-Configure and test Azure AD SSO with Resource Central – SAML SSO for Meeting Room Booking System using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Resource Central – SAML SSO for Meeting Room Booking System.
+## Configure and test Microsoft Entra SSO for Resource Central – SAML SSO for Meeting Room Booking System
 
-To configure and test Azure AD SSO with Resource Central – SAML SSO for Meeting Room Booking System, perform the following steps:
+Configure and test Microsoft Entra SSO with Resource Central – SAML SSO for Meeting Room Booking System using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Resource Central – SAML SSO for Meeting Room Booking System.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-    1. **[Create Resource Central SAML SSO for Meeting Room Booking System test user](#create-resource-central-saml-sso-for-meeting-room-booking-system-test-user)** - to have a counterpart of B.Simon in Resource Central – SAML SSO for Meeting Room Booking System that is linked to the Azure AD representation of user.
+To configure and test Microsoft Entra SSO with Resource Central – SAML SSO for Meeting Room Booking System, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+    1. **[Create Resource Central SAML SSO for Meeting Room Booking System test user](#create-resource-central-saml-sso-for-meeting-room-booking-system-test-user)** - to have a counterpart of B.Simon in Resource Central – SAML SSO for Meeting Room Booking System that is linked to the Microsoft Entra representation of user.
 1. **[Configure Resource Central SAML SSO for Meeting Room Booking System SSO](#configure-resource-central-saml-sso-for-meeting-room-booking-system-sso)** - to configure the single sign-on settings on application side.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Resource Central – SAML SSO for Meeting Room Booking System** > **Single sign-on**.
@@ -91,7 +95,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -105,7 +111,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Resource Central – SAML SSO for Meeting Room Booking System.
 
@@ -125,7 +133,7 @@ In this section, a user called **B.Simon** is created in **Resource Central – 
   
     :::image type="content" source="./media/resource-central/new-person.png" alt-text="Screenshot that shows the Persons pane in Resource Central, with the New button highlighted.":::
 
-1. In **Person Details**, for **Display name**, enter the user **B.Simon**. For **SMTP Address**, enter the user's Azure AD user name. For example,  `B.Simon@contoso.com`.
+1. In **Person Details**, for **Display name**, enter the user **B.Simon**. For **SMTP Address**, enter the user's Microsoft Entra user name. For example,  `B.Simon@contoso.com`.
 
     :::image type="content" source="./media/resource-central/person.png" alt-text="Screenshot that shows the Person Details pane in Resource Central.":::
 
@@ -144,7 +152,7 @@ In this section, you'll configure single sign-on in **Resource Central System Ad
 
 1. Under **SAML2 Configuration**, enter the values for the following fields:
 
-    1. For **Identifier (Entity ID)**, **Login URL**, **Logout URL**, and **Azure AD Identifier**, enter the relevant URLs:
+    1. For **Identifier (Entity ID)**, **Login URL**, **Logout URL**, and **Microsoft Entra Identifier**, enter the relevant URLs:
 
        :::image type="content" source="./media/resource-central/auth.png" alt-text="Screenshot of the SAML2 Configuration pane in Resource Central.":::
 
@@ -168,7 +176,7 @@ In this section, you'll configure single sign-on in **Resource Central System Ad
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration. To test single sign-on, you have three options:
+In this section, you test your Microsoft Entra single sign-on configuration. To test single sign-on, you have three options:
 
 * In the Azure portal, select **Test this application**. The link redirects to the Resource Central – SAML SSO for Meeting Room Booking System sign-on URL, where you can initiate login.
 
@@ -180,4 +188,4 @@ In this section, you test your Azure AD single sign-on configuration. To test si
 
 ## Next steps
 
-After you set up Resource Central – SAML SSO for Meeting Room Booking System for single sign-on with Azure AD, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+After you set up Resource Central – SAML SSO for Meeting Room Booking System for single sign-on with Microsoft Entra ID, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

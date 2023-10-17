@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 10/13/2023
 ms.custom: references_regions
 ---
 
@@ -17,6 +17,14 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## October 2023
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**Exhaustive  K-Nearest Neighbors (KNN)**](vector-search-ranking.md#eknn) | Feature | Exhaustive K-Nearest Neighbors (KNN) is a new scoring algorithm for similarity search in vector space. It performs an exhaustive search for the nearest neighbors, useful for situations where high recall is more important than query performance. Available in the 2023-10-01-Preview REST API only. |
+| [**Prefilters in vector search**](vector-search-how-to-query.md) | Feature | Evaluates filter criteria before query execution, reducing the amount of content that needs to be searched. Available in the 2023-10-01-Preview REST API only, through a new `vectorFilterMode` property on the query that can be set to `preFilter` (default) or `postFilter`, depending on your requirements. |
+| [**2023-10-01-Preview Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) | API | New preview version of the Search REST APIs that changes the definition for [vector fields](vector-search-how-to-create-index.md) and [vector queries](vector-search-how-to-query.md). This API version introduces breaking changes from **2023-07-01-Preview**, otherwise it's inclusive of all previous preview features. We recommend [creating new indexes](vector-search-how-to-create-index.md) for **2023-10-01-Preview**. You might encounter an HTTP 400 on some features on a migrated index, even if you migrated correctly.|
 
 ## August 2023
 

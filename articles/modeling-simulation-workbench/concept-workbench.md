@@ -44,7 +44,7 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 - [Azure VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway, sending encrypted traffic between an Azure virtual network and an on-premises network over the public network.
 
-- Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Azure Active Directory](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users.
+- Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Microsoft Entra ID](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users.
 
 ## Next steps
 

@@ -128,7 +128,7 @@ App Service Environment v3 is available in the following regions:
 | Norway East          | ✅                           | ✅                          | ✅                           | 
 | Norway West          | ✅                           |                             | ✅                           |
 | Poland Central       | ✅                           |                             |                               |
-| Qatar Central        | ✅                           | ✅                          |                              |
+| Qatar Central        | ✅**                         | ✅**                        |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |

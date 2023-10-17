@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box'
-description: Learn how to configure single sign-on between Azure Active Directory and Box.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Box'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Box.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,27 +13,27 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Box
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Box
 
-In this tutorial, you'll learn how to integrate Box with Azure Active Directory (Azure AD). When you integrate Box with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Box with Microsoft Entra ID. When you integrate Box with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Box.
-* Enable your users to be automatically signed-in to Box with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Box.
+* Enable your users to be automatically signed-in to Box with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Box single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Box supports **SP** initiated SSO
 * Box supports [**Automated** user provisioning and deprovisioning](./box-userprovisioning-tutorial.md) (recommended)
@@ -44,7 +44,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Box from the gallery
 
-To configure the integration of Box into Azure AD, you need to add Box from the gallery to your list of managed SaaS apps.
+To configure the integration of Box into Microsoft Entra ID, you need to add Box from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -53,22 +53,26 @@ To configure the integration of Box into Azure AD, you need to add Box from the 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Box
+<a name='configure-and-test-azure-ad-sso-for-box'></a>
 
-Configure and test Azure AD SSO with Box using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Box.
+## Configure and test Microsoft Entra SSO for Box
 
-To configure and test Azure AD SSO with Box, perform the following steps:
+Configure and test Microsoft Entra SSO with Box using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Box.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Box, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Box SSO](#configure-box-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Box test user](#create-box-test-user)** - to have a counterpart of B.Simon in Box that is linked to the Azure AD representation of user.
+    1. **[Create Box test user](#create-box-test-user)** - to have a counterpart of B.Simon in Box that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Box** > **Single sign-on**.
@@ -100,7 +104,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -114,7 +120,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Box.
 
@@ -144,7 +152,7 @@ In this section, a user called Britta Simon is created in Box. Box supports just
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 * Select **Test this application**. You're redirected to the Box Sign-on URL, where you can initiate the login flow.
 
@@ -157,7 +165,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 You can push an Azure group to Box and sync that group. Azure pushes groups to Box via an API-level integration.
 
 1. In **Users & Groups**, search for the group you want to assign to Box.
-1. In **Provisioning**, ensure that **Synchronize Azure Active Directory Groups to Box** is selected. This setting syncs the groups that you allocated in the preceding step. It might take some time for these groups to be pushed from Azure.
+1. In **Provisioning**, ensure that **Synchronize Microsoft Entra groups to Box** is selected. This setting syncs the groups that you allocated in the preceding step. It might take some time for these groups to be pushed from Azure.
 
 > [!NOTE]
 > If you need to create a user manually, contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).

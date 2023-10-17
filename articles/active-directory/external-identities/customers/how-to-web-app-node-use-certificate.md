@@ -17,11 +17,11 @@ ms.custom: developer, devx-track-js
 
 # Use client certificate for authentication in your Node.js web app
 
-Azure Active Directory (Azure AD) for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
+Microsoft Entra ID for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
 
 In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it. 
 
-In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL or Windows PowerShell. If you have a client secret already, you'll learn how to safely delete it.
+In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL, or PowerShell. If you have a client secret already, you'll learn how to safely delete it.
 
 When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
@@ -31,7 +31,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
+- External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 - [OpenSSL](https://wiki.openssl.org/index.php/Binaries) or you can easily install [OpenSSL](https://community.chocolatey.org/packages/openssl) in Windows via [Chocolatey](https://chocolatey.org/). 
 

@@ -1,6 +1,6 @@
 ---
 title: Terms of Service and privacy statement for apps
-description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
+description: Learn how you can configure the terms of service and privacy statement for apps registered to use Microsoft Entra ID.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Configure terms of service and privacy statement for an app
 
-Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
+Developers who build and manage multi-tenant apps that integrate with Microsoft Entra ID and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
 You are responsible for creating the terms of service and privacy statement documents for your app, and for providing the URLs to these documents. For multi-tenant apps that fail to provide these links, the user consent experience for your app will show an alert, which may discourage users from consenting to your app.
 
@@ -99,4 +99,4 @@ PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}
 
 > [!NOTE]
 > * Be careful not to overwrite any pre-existing values you have assigned to any of these fields: `supportUrl`, `marketingUrl`, and `logoUrl`
-> * The Microsoft Graph API only works when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.
+> * The Microsoft Graph API only works when you sign in with a Microsoft Entra account. Personal Microsoft accounts are not supported.

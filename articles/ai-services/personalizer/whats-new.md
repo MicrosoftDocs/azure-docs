@@ -5,12 +5,13 @@ description: This article contains news about Personalizer.
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: whats-new
 ms.date: 05/28/2021
 ---
 # What's new in Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learn what's new in Azure AI Personalizer. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 

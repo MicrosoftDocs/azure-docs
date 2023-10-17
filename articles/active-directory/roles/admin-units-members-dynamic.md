@@ -1,6 +1,6 @@
 ---
 title: Manage users or devices for an administrative unit with dynamic membership rules (Preview)
-description: Manage users or devices for an administrative unit with dynamic membership rules (Preview) in Azure Active Directory
+description: Manage users or devices for an administrative unit with dynamic membership rules (Preview) in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -25,21 +25,21 @@ ms.collection: M365-identity-device-management
 You can add or remove users or devices for administrative units manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 
 > [!NOTE]
-> Dynamic membership rules for administrative units can be created using the same attributes available for dynamic groups. For more information about the specific attributes available and examples on how to use them, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+> Dynamic membership rules for administrative units can be created using the same attributes available for dynamic groups. For more information about the specific attributes available and examples on how to use them, see [Dynamic membership rules for groups in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md).
 
 Although administrative units with members assigned manually support multiple object types, such as user, group, and devices, it is currently not possible to create an administrative unit with dynamic membership rules that includes more than one object type. For example, you can create administrative units with dynamic membership rules for users or devices, but not both. Administrative units with dynamic membership rules for groups are currently not supported.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Premium P1 or P2 license for each administrative unit member
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID P1 or P2 license for each administrative unit member
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 - Global Azure cloud (not available in specialized clouds, such as Azure Government or Microsoft Azure operated by 21Vianet)
 
 > [!NOTE]
-> Dynamic membership rules for administrative units requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
+> Dynamic membership rules for administrative units requires a Microsoft Entra ID P1 license for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Microsoft Entra organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Microsoft Entra ID P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -81,9 +81,9 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
 
 ### PowerShell
 
-1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md).
 
-1. Use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) command to connect with Azure Active Directory with a user that has been assigned the Privileged Role Administrator or Global Administrator role.
+1. Use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) command to connect with Microsoft Entra ID with a user that has been assigned the Privileged Role Administrator or Global Administrator role.
 
     ```powershell
     # Connect to Azure AD
@@ -103,7 +103,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
 
 ### Microsoft Graph API
 
-1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+1. Create a dynamic membership rule. For more information, see [Dynamic membership rules for groups in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md).
 
 1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit with a dynamic membership rule.
     
@@ -231,6 +231,6 @@ Body
 
 ## Next steps
 
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
-- [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
+- [Microsoft Entra administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)

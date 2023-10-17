@@ -140,8 +140,10 @@ Location                 : westus
 LicenseType              :
 ```
 
-## Additional Information about joining Azure Active Directory
-Azure provisions all Windows VMs with built-in administrator account, which can't be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > + Connect* won't work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
+<a name='additional-information-about-joining-azure-active-directory'></a>
+
+## Additional Information about joining Microsoft Entra ID
+Azure provisions all Windows VMs with built-in administrator account, which can't be used to join Microsoft Entra ID. For example, *Settings > Account > Access Work or School > + Connect* won't work. You must create and log on as a second administrator account to join Microsoft Entra ID manually. You can also configure Microsoft Entra ID using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 11](/windows/deployment/vda-subscription-activation)

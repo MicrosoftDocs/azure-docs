@@ -1,6 +1,6 @@
 ---
-title: Manage access to custom security attributes in Azure AD (Preview)
-description: Learn how to manage access to custom security attributes in Azure Active Directory.
+title: Manage access to custom security attributes in Microsoft Entra ID (Preview)
+description: Learn how to manage access to custom security attributes in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 ms.author: rolyon
@@ -10,11 +10,11 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 10/01/2023
 ms.collection: M365-identity-device-management
 ---
 
-# Manage access to custom security attributes in Azure AD (Preview)
+# Manage access to custom security attributes in Microsoft Entra ID (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -26,7 +26,7 @@ For people in your organization to effectively work with [custom security attrib
 
 To manage access to custom security attributes, you must have:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 
@@ -45,11 +45,11 @@ Scope is the set of resources that the access applies to. For custom security at
 
 ![Diagram showing tenant scope and attribute set scope.](./media/custom-security-attributes-manage/scope-tenant-attribute-set.png)
 
-Azure AD role assignments are an additive model, so your effective permissions are the sum of your role assignments. For example, if you assign a user a role at tenant scope and assign the same user the same role at attribute set scope, the user will still have permissions at tenant scope. 
+Microsoft Entra role assignments are an additive model, so your effective permissions are the sum of your role assignments. For example, if you assign a user a role at tenant scope and assign the same user the same role at attribute set scope, the user will still have permissions at tenant scope. 
 
 ## Step 3: Review the available roles
 
-You need to determine who needs access to work with custom security attributes in your organization. To help you manage access to custom security attributes, there are four Azure AD built-in roles. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If necessary, a Global Administrator can assign these roles to themselves.
+You need to determine who needs access to work with custom security attributes in your organization. To help you manage access to custom security attributes, there are four Microsoft Entra built-in roles. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If necessary, a Global Administrator can assign these roles to themselves.
 
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
@@ -60,12 +60,12 @@ The following table provides a high-level comparison of the custom security attr
 
 | Permission | Global Administrator | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
-| Add or edit attribute sets |  | :heavy_check_mark: |  |  |  |
-| Add, edit, or deactivate attribute definitions |  | :heavy_check_mark: |  |  |  |
-| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
+| Read attribute sets |  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Read attribute definitions |  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Read attribute assignments for users and applications (service principals) |  |  | :white_check_mark: |  | :white_check_mark: | 
+| Add or edit attribute sets |  | :white_check_mark: |  |  |  |
+| Add, edit, or deactivate attribute definitions |  | :white_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  | :white_check_mark: |  |  |
 
 ## Step 4: Determine your delegation strategy
 
@@ -78,7 +78,7 @@ An administrator that has been assigned the Attribute Definition Administrator a
 ![Diagram showing attributes managed centrally.](./media/custom-security-attributes-manage/central-manage-attributes.png)
 
 1. The administrator (Xia) has both the Attribute Definition Administrator and Attribute Assignment Administrator roles assigned at tenant scope. The administrator adds attribute sets and defines attributes.
-1. The administrator assigns attributes to Azure AD objects.
+1. The administrator assigns attributes to Microsoft Entra objects.
 
 Managing attributes centrally has the advantage that it can be managed by one or two administrators. The disadvantage is that the administrator might get several requests to define or assign custom security attributes. In this case, you might want to delegate management.
 
@@ -90,7 +90,7 @@ An administrator may not know all the situations of how custom security attribut
 
 1. The administrator (Xia) with the Attribute Definition Administrator role assigned at tenant scope adds attribute sets. The administrator also has permissions to assign roles to others (Privileged Role Administrator) and delegates who can read, define, or assign custom security attributes for each attribute set.
 1. The delegated Attribute Definition Administrators (Alice and Bob) define attributes in the attribute sets they have been granted access to.
-1. The delegated Attribute Assignment Administrators (Chandra and Bob) assign attributes from their attribute sets to Azure AD objects.
+1. The delegated Attribute Assignment Administrators (Chandra and Bob) assign attributes from their attribute sets to Microsoft Entra objects.
 
 ## Step 5: Select the appropriate roles and scope
 
@@ -132,7 +132,7 @@ The following examples show how to assign a custom security attribute role to a 
 1. Add assignments for the custom security attribute roles.
 
     > [!NOTE]
-    > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
+    > If you are using Microsoft Entra Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
 
 # [PowerShell](#tab/ms-powershell)
 
@@ -150,7 +150,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId 
 [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 Content-type: application/json
 
 {
@@ -204,7 +204,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId 
 [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 Content-type: application/json
 
 {
@@ -230,7 +230,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -RoleDefinitionId $roleDefinitionI
 
 ## View audit logs for attribute changes
 
-Sometimes you need information about custom security attribute changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to definitions or assignments, the changes get logged in the [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md).
+Sometimes you need information about custom security attribute changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to definitions or assignments, the changes get logged in the [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md).
 
 Here are the custom security attribute-related activities that are logged:
 
@@ -247,6 +247,6 @@ The following screenshot shows an example of the audit log. To filter the logs f
 
 ## Next steps
 
-- [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Microsoft Entra ID](custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
-- [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID](custom-security-attributes-troubleshoot.md)

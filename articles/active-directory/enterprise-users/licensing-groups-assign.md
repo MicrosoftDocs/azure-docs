@@ -1,6 +1,6 @@
 ---
 title: Assign licenses to a group
-description: How to assign licenses to users with Azure Active Directory group licensing
+description: How to assign licenses to users with Microsoft Entra group licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -18,23 +18,23 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assign licenses to users by group membership in Azure Active Directory
+# Assign licenses to users by group membership in Microsoft Entra ID
 
-This article walks you through assigning product licenses to a group of users and verifying that they're licensed correctly in Azure Active Directory (Azure AD), part of Microsoft Entra.
+This article walks you through assigning product licenses to a group of users and verifying that they're licensed correctly in Microsoft Entra ID, part of Microsoft Entra.
 
-In this example, the Azure AD organization contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
+In this example, the Microsoft Entra organization contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
 > [!NOTE]
 > Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the Usage location property on the user.
 >
-> For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Azure AD. For example, configure Azure AD Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
+> For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Microsoft Entra ID. For example, configure Microsoft Entra Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
 
 ## Step 1: Assign the required licenses
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 
 1. Browse to **Billing** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
 
@@ -57,7 +57,7 @@ In this example, the Azure AD organization contains a security group called **HR
 
 1. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
 
-When assign licenses to a group, Azure AD processes all existing members of that group. This process might take some time, varying with the size of the group. The next step describes how to verify that the process has finished and determine if further attention is required to resolve problems.
+When assign licenses to a group, Microsoft Entra ID processes all existing members of that group. This process might take some time, varying with the size of the group. The next step describes how to verify that the process has finished and determine if further attention is required to resolve problems.
 
 ## Step 2: Verify that the initial assignment has finished
 
@@ -93,15 +93,15 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
    ![View all license conflicts for a user](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
-1. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
+1. To solve this conflict, remove the user from the **Kiosk users** group. After Microsoft Entra ID processes the change, the **HR Department** licenses are correctly assigned.
 
 ## Next steps
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-- [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-- [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
-- [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-- [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
-- [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
+- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
+- [How to migrate individual licensed users to group-based licensing in Microsoft Entra ID](licensing-groups-migrate-users.md)
+- [How to migrate users between product licenses using group-based licensing in Microsoft Entra ID](licensing-groups-change-licenses.md)
+- [Microsoft Entra group-based licensing additional scenarios](licensing-group-advanced.md)
+- [PowerShell examples for group-based licensing in Microsoft Entra ID](licensing-ps-examples.md)

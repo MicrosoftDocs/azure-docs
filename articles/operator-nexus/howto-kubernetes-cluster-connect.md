@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 08/17/2023 
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
 # Connect to Azure Operator Nexus Kubernetes cluster

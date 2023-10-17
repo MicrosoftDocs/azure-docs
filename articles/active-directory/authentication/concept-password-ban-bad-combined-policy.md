@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 04/02/2023
+ms.date: 10/16/2023
 
 ms.author: justinha
 author: justinha
@@ -27,7 +27,7 @@ This topic explains details about the password policy criteria checked by Micros
 
 A password policy is applied to all user and admin accounts that are created and managed directly in Microsoft Entra ID. You can [ban weak passwords](concept-password-ban-bad.md) and define parameters to [lock out an account](howto-password-smart-lockout.md) after repeated bad password attempts. Other password policy settings can't be modified.
 
-The Microsoft Entra password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Microsoft Entra Connect unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+The Microsoft Entra password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Microsoft Entra Connect unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers. If EnforceCloudPasswordPolicyForPasswordSyncedUsers and password writeback are enabled, Microsoft Entra password expiration policy applies, but the on-premises password policy takes precedence for length, complexity, and so on.
 
 The following Microsoft Entra password policy requirements apply for all passwords that are created, changed, or reset in Microsoft Entra ID. Requirements are applied during user provisioning, password change, and password reset flows. You can't change these settings except as noted.
 
@@ -42,7 +42,7 @@ The following Microsoft Entra password policy requirements apply for all passwor
 
 ## Password expiration policies
 
-Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Microsoft Entra Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
+Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Azure AD module for PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 > [!NOTE]
 > By default, only passwords for user accounts that aren't synchronized through Microsoft Entra Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Microsoft Entra ID](../hybrid/connect/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
@@ -53,7 +53,7 @@ The following expiration requirements apply to other providers that use Microsof
 
 | Property | Requirements |
 | --- | --- |
-| Password expiry duration (Maximum password age) |Default value: **90** days.<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Microsoft Entra Module for Windows PowerShell. |
+| Password expiry duration (Maximum password age) |Default value: **90** days.<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure AD PowerShell module. |
 | Password expiry (Let passwords never expire) |Default value: **false** (indicates that password's have an expiration date).<br>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.|
 
 ## Next steps

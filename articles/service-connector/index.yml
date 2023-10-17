@@ -30,6 +30,8 @@ landingContent:
             url: concept-region-support.md
           - text: High availability
             url: concept-availability.md
+          - text: Permission requirements
+            url: concept-permission.md
           - text: Frequently asked questions
             url: faq.yml
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JOBHUB'
-description: Learn how to configure single sign-on between Azure Active Directory and JOBHUB.
+title: 'Tutorial: Microsoft Entra integration with JOBHUB'
+description: Learn how to configure single sign-on between Microsoft Entra ID and JOBHUB.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Integrate JOBHUB with Azure Active Directory
+# Tutorial: Integrate JOBHUB with Microsoft Entra ID
 
-In this tutorial, you'll learn how to integrate JOBHUB with Azure Active Directory (Azure AD). When you integrate JOBHUB with Azure AD, you can:
+In this tutorial, you'll learn how to integrate JOBHUB with Microsoft Entra ID. When you integrate JOBHUB with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to JOBHUB.
-* Enable your users to be automatically signed-in to JOBHUB with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to JOBHUB.
+* Enable your users to be automatically signed-in to JOBHUB with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
 * JOBHUB single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. JOBHUB supports **SP** initiated SSO.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. JOBHUB supports **SP** initiated SSO.
 
 ## Adding JOBHUB from the gallery
 
-To configure the integration of JOBHUB into Azure AD, you need to add JOBHUB from the gallery to your list of managed SaaS apps.
+To configure the integration of JOBHUB into Microsoft Entra ID, you need to add JOBHUB from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of JOBHUB into Azure AD, you need to add JOBHUB fro
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-Configure and test Azure AD SSO with JOBHUB using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in JOBHUB.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD SSO with JOBHUB, complete the following building blocks:
+Configure and test Microsoft Entra SSO with JOBHUB using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in JOBHUB.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+To configure and test Microsoft Entra SSO with JOBHUB, complete the following building blocks:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure JOBHUB SSO](#configure-jobhub-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create JOBHUB test user](#create-jobhub-test-user)** - to have a counterpart of Britta Simon in JOBHUB that is linked to the Azure AD representation of user.
+3. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+4. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
+5. **[Create JOBHUB test user](#create-jobhub-test-user)** - to have a counterpart of Britta Simon in JOBHUB that is linked to the Microsoft Entra representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+### Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **JOBHUB** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -89,7 +93,7 @@ Follow these steps to enable Azure AD SSO.
 
 	a. Login URL
 
-	b. Azure AD Identifier
+	b. Microsoft Entra Identifier
 
 	c. Logout URL
 
@@ -97,7 +101,9 @@ Follow these steps to enable Azure AD SSO.
 
 To configure single sign-on on **JOBHUB** side, you need to send the **Thumbprint value** and appropriate copied URLs from the application configuration to [JOBHUB support team](mailto:platform@pasonagroup.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called Britta Simon.
 
@@ -111,7 +117,9 @@ In this section, you'll create a test user called Britta Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to JOBHUB.
 
@@ -139,8 +147,8 @@ When you select the JOBHUB tile in the Access Panel, you should be automatically
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

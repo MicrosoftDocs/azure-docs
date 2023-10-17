@@ -119,7 +119,7 @@ To configure network isolation for this account from a Synapse workspace:
    ```
 
    > [!NOTE]
-   > Azure Cosmos DB account and Azure Synapse Analytics workspace should be under same Azure Active Directory (AD) tenant.
+   > Azure Cosmos DB account and Azure Synapse Analytics workspace should be under same Microsoft Entra tenant.
 
 2. You can now access the account from serverless SQL pools, using T-SQL queries over Azure Synapse Link. However, to ensure network isolation for the data in analytical store, you must add an **analytical** managed private endpoint for this account. Otherwise, the data in the analytical store will not be blocked from public access.
 

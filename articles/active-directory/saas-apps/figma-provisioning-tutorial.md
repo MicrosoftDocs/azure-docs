@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Figma automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Figma.
+title: 'Tutorial: Configure Figma automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Figma.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,35 +15,35 @@ ms.author: thwimmer
 
 # Tutorial: Configure Figma for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Figma  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision user accounts to Figma.
+The objective of this tutorial is to demonstrate the steps to be performed in Figma  and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Figma.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * [A Figma tenant](https://www.figma.com/pricing/).
 * A user account in Figma  with Admin permissions.
 
 ## Assign users to Figma.
-Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Figma. Once decided, you can assign these users and/or groups to Figma by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Figma. Once decided, you can assign these users and/or groups to Figma by following the instructions here:
  
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 ## Important tips for assigning users to Figma
 
- * It is recommended that a single Azure AD user is assigned to Figma to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+ * It is recommended that a single Microsoft Entra user is assigned to Figma to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Figma, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
 ## Set up Figma for provisioning
 
-Before configuring Figma for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from Figma.
+Before configuring Figma for automatic user provisioning with Microsoft Entra ID, you will need to retrieve some provisioning information from Figma.
 
 1. Sign in to your [Figma Admin Console](https://www.Figma.com/). Click on the gear icon next to your tenant.
 
@@ -67,7 +67,7 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 ## Add Figma from the gallery
 
-To configure Figma for automatic user provisioning with Azure AD, you need to add Figma from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Figma for automatic user provisioning with Microsoft Entra ID, you need to add Figma from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -77,12 +77,14 @@ To configure Figma for automatic user provisioning with Azure AD, you need to ad
 
 ## Configuring automatic user provisioning to Figma 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Figma  based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Figma  based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Figma, following the instructions provided in the [Figma Single sign-on tutorial](figma-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-### To configure automatic user provisioning for Figma  in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-figma--in-azure-ad'></a>
+
+### To configure automatic user provisioning for Figma  in Microsoft Entra ID:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**
@@ -101,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://www.figma.com/scim/v2/<TenantID>` in **Tenant URL** where **TenantID** is the value that you retrieved from Figma earlier. Input the **API Token** value in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Figma. If the connection fails, ensure your Figma account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://www.figma.com/scim/v2/<TenantID>` in **Tenant URL** where **TenantID** is the value that you retrieved from Figma earlier. Input the **API Token** value in **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to Figma. If the connection fails, ensure your Figma account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -111,17 +113,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Click **Save**.
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Figma**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Figma**.
 
 	![Figma User Mappings](media/Figma-provisioning-tutorial/figma05.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Figma  in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Figma  for update operations. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Microsoft Entra ID to Figma  in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Figma  for update operations. Select the **Save** button to commit any changes.
 
 	![Figma User Attributes](media/Figma-provisioning-tutorial/figma06.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Figma, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Microsoft Entra provisioning service for Figma, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -133,14 +135,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Figma.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Figma.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

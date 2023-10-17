@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs for Identity Protection in Azure Active Directory
-  description: Frequently asked questions Azure AD Identity Protection
+  title: FAQs for Identity Protection in Microsoft Entra ID
+  description: Frequently asked questions Microsoft Entra ID Protection
   
   services: active-directory
   ms.service: active-directory
@@ -13,7 +13,7 @@ metadata:
   manager: amycolannino
   ms.reviewer: chuqiaoshi
   ms.collection: M365-identity-device-management
-title: Frequently asked questions Identity Protection in Azure Active Directory
+title: Frequently asked questions Identity Protection in Microsoft Entra ID
 summary: |
 
 sections:
@@ -22,7 +22,7 @@ sections:
       - question: |
           Dismiss user risk known issues
         answer: |
-          **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection to **Azure AD**.
+          **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection to **Microsoft Entra ID**.
           
           **Dismiss user risk** in Identity Protection sets the actor in the user’s risk history in Identity Protection to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
           
@@ -31,7 +31,7 @@ sections:
           ## Frequently asked questions
           
           ### Why is a user at risk?
-          If you're an Azure AD Identity Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and select an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, select ‘User’s risky sign-ins’. To see all risk detections for this user, select ‘User’s risk detections’.
+          If you're a Microsoft Entra ID Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and select an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, select ‘User’s risky sign-ins’. To see all risk detections for this user, select ‘User’s risk detections’.
           
           ### Why was my sign-in blocked but Identity Protection didn't generate a risk detection?
           Sign-ins can be blocked for several reasons. It's important to note that Identity Protection only generates risk detections when correct credentials are used in the authentication request. If a user uses incorrect credentials, it will not be flagged by Identity Protection since there isn't of risk of credential compromise unless a bad actor uses the correct credentials. Some reasons a user can be blocked from signing that won't generate an Identity Protection detection include:
@@ -53,7 +53,7 @@ sections:
 
           ### How can I close specific risk detections like I did in the old UI?
 
-          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Microsoft Entra ID Protection](howto-identity-protection-risk-feedback.md).
           
           ### How far can I go back in time to understand what’s going on with my user?
 
@@ -67,7 +67,7 @@ sections:
           
           ### How do the feedback mechanisms in Identity Protection work?
 
-          **Confirm compromised** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in wasn't performed by the identity owner and indicates a compromise.
+          **Confirm compromised** (on a sign-in) - Informs Microsoft Entra ID Protection that the sign-in wasn't performed by the identity owner and indicates a compromise.
           
           - Upon receiving this feedback, we move the sign-in and user risk state to **Confirmed compromised** and risk level to **High**.
           
@@ -76,7 +76,7 @@ sections:
               > [!NOTE]
               > If the user is already remediated, don't select **Confirm compromised** because it moves the sign-in and user risk state to **Confirmed compromised** and risk level to **High**.
           
-          **Confirm safe** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was performed by the identity owner and doesn't indicate a compromise.
+          **Confirm safe** (on a sign-in) - Informs Microsoft Entra ID Protection that the sign-in was performed by the identity owner and doesn't indicate a compromise.
           
           - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **None**.
           
@@ -97,4 +97,4 @@ sections:
 
           ### What is the difference between the "Activity from anonymous IP address" and "Anonymous IP address" detections?
 
-          The "Anonymous IP address" detection's source is Azure AD Identity Protection, while the "Activity from anonymous IP address" detection is integrated from Microsoft Defender for Cloud Apps). While they have similar names and you might see overlap in these signals, they have distinct back-end detections.
+          The "Anonymous IP address" detection's source is Microsoft Entra ID Protection, while the "Activity from anonymous IP address" detection is integrated from Microsoft Defender for Cloud Apps). While they have similar names and you might see overlap in these signals, they have distinct back-end detections.

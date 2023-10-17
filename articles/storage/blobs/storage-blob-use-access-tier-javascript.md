@@ -64,4 +64,4 @@ Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient).
 ## Next steps
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

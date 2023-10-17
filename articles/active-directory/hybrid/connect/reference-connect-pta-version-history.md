@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Pass-through Authentication: Version release history'
-description: This article lists all releases of the Azure AD Pass-through Authentication agent
+title: 'Microsoft Entra pass-through authentication: Version release history'
+description: This article lists all releases of the Microsoft Entra pass-through authentication agent
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,14 +14,14 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Pass-through Authentication agent: Version release history
+# Microsoft Entra pass-through authentication agent: Version release history
  
 The agents installed on-premises that enable Pass-through Authentication are updated regularly to provide new capabilities. This article lists the versions and features that are added when new functionality is introduced. Pass-through authentication agents are updated automatically when a new version is released. 
 
 Here are related topics: 
 
-- [User sign-in with Azure AD Pass-through Authentication](how-to-connect-pta.md) 
-- [Azure AD Pass-through Authentication agent installation](how-to-connect-pta-quick-start.md) 
+- [User sign-in with Microsoft Entra pass-through authentication](how-to-connect-pta.md) 
+- [Microsoft Entra pass-through authentication agent installation](how-to-connect-pta-quick-start.md) 
 
 ## 1.5.2482.0
 ### Release Status: 
@@ -62,7 +62,7 @@ Here are related topics:
 - Fixed a bug that caused some memory leaks in the agent. 
 - Updated the Azure Service Bus version, which includes a bug fix for connector timeout issues. 
 ### New features and improvements 
-- Added support for websocket based connections between the agent and Azure AD services to improve connection resiliency
+- Added support for websocket based connections between the agent and Microsoft Entra services to improve connection resiliency
 
 ## 1.5.402.0 
 ### Release status 
@@ -80,8 +80,8 @@ Here are related topics:
 ### Release status 
 08/31/2017: Released for download  
 ### New features and improvements 
-- GA version of the Azure AD Pass-through authentication agent 
+- GA version of the Microsoft Entra pass-through authentication agent 
 
 ## Next steps
 
-- [User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)
+- [User sign-in with Microsoft Entra pass-through authentication](how-to-connect-pta.md)

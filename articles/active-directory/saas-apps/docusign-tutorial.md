@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with DocuSign'
-description: Learn how to configure single sign-on (SSO) between Azure Active Directory and DocuSign.
+title: 'Tutorial: Microsoft Entra SSO integration with DocuSign'
+description: Learn how to configure single sign-on (SSO) between Microsoft Entra ID and DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,28 +13,28 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with DocuSign
+# Tutorial: Microsoft Entra SSO integration with DocuSign
 
-In this tutorial, you'll learn how to integrate DocuSign with Microsoft Azure Active Directory (Azure AD). When you integrate DocuSign with Azure AD, you can:
+In this tutorial, you'll learn how to integrate DocuSign with Microsoft Entra ID. When you integrate DocuSign with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who has access to DocuSign.
-* Enable automatic sign-in to DocuSign for your users through their Azure AD accounts.
+* Use Microsoft Entra ID to control who has access to DocuSign.
+* Enable automatic sign-in to DocuSign for your users through their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A DocuSign subscription that's single sign-on (SSO) enabled.
 * Control over your domain DNS. This is needed to claim domain on DocuSign. 
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment to verify that:
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment to verify that:
 
 * DocuSign supports service provider **SP** initiated SSO.
 
@@ -44,7 +44,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 
 ## Add DocuSign from the gallery
 
-To configure the integration of DocuSign into Azure AD, you must add DocuSign from the gallery to your list of managed SaaS apps:
+To configure the integration of DocuSign into Microsoft Entra ID, you must add DocuSign from the gallery to your list of managed SaaS apps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -55,22 +55,26 @@ To configure the integration of DocuSign into Azure AD, you must add DocuSign fr
 
 Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
 
-## Configure and test Azure AD SSO for DocuSign
+<a name='configure-and-test-azure-ad-sso-for-docusign'></a>
 
-Configure and test Azure AD SSO with DocuSign by using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between an Azure AD user and the corresponding user in DocuSign.
+## Configure and test Microsoft Entra SSO for DocuSign
 
-To configure and test Azure AD SSO with DocuSign, perform the following steps:
+Configure and test Microsoft Entra SSO with DocuSign by using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between a Microsoft Entra user and the corresponding user in DocuSign.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) so that your users can use this feature.
-    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
-    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with DocuSign, perform the following steps:
+
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) so that your users can use this feature.
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with B.Simon.
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Microsoft Entra single sign-on.
 1. [Configure DocuSign SSO](#configure-docusign-sso) to configure the single sign-on settings on the application side.
-    1. [Create a DocuSign test user](#create-docusign-test-user) to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
+    1. [Create a DocuSign test user](#create-docusign-test-user) to generate a counterpart of B.Simon in DocuSign that's linked to the Microsoft Entra representation of the user.
 1. [Test SSO](#test-sso) to verify that the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-To enable Azure AD SSO in the Azure portal, follow these steps:
+## Configure Microsoft Entra SSO
+
+To enable Microsoft Entra SSO in the Azure portal, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **DocuSign** application integration page, find the **Manage** section, and then select **single sign-on**.
@@ -110,7 +114,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user named B.Simon.
 
@@ -124,7 +130,9 @@ In this section, you'll create a test user named B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll grant B.Simon access to DocuSign so that this user can use Azure single sign-on.
 
@@ -189,7 +197,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 	
 	![Screenshot of name_Identity_provider.](media/docusign-tutorial/add-identity-providers.png)
 
-    b. In the **Identity Provider Issuer box**, paste the **Azure AD Identifier** value, which you copied.
+    b. In the **Identity Provider Issuer box**, paste the **Microsoft Entra Identifier** value, which you copied.
 
 	![Screenshot of urls_Identity_provider.](media/docusign-tutorial/idp-urls.png)
 
@@ -209,12 +217,12 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
        ![Screenshot of Custom Attribute Mapping UI.](media/docusign-tutorial/add-new-mapping.png)
 
-    h. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
+    h. Choose the field you want to map to the Microsoft Entra claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Microsoft Entra ID for the email claim. Select **SAVE**.
 
        ![Screenshot of Custom Attribute Mapping fields.](media/docusign-tutorial/email-address.png)
 
        > [!NOTE]
-       > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
+       > Use the appropriate **User identifier** to map the user from Microsoft Entra ID to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
 
     i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure portal, and select **SAVE**.
 
@@ -245,7 +253,7 @@ In this section, a user named B.Simon is created in DocuSign. DocuSign supports 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to DocuSign Sign-on URL where you can initiate the login flow. 
 

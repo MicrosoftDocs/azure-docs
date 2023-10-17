@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Jisc Student Voter Registration'
-description: Learn how to configure single sign-on between Azure Active Directory and Jisc Student Voter Registration.
+title: 'Tutorial: Microsoft Entra SSO integration with Jisc Student Voter Registration'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Jisc Student Voter Registration.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Jisc Student Voter Registration
+# Tutorial: Microsoft Entra SSO integration with Jisc Student Voter Registration
 
-In this tutorial, you'll learn how to integrate Jisc Student Voter Registration with Azure Active Directory (Azure AD). When you integrate Jisc Student Voter Registration with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Jisc Student Voter Registration with Microsoft Entra ID. When you integrate Jisc Student Voter Registration with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Jisc Student Voter Registration.
-* Enable your users to be automatically signed-in to Jisc Student Voter Registration with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Jisc Student Voter Registration.
+* Enable your users to be automatically signed-in to Jisc Student Voter Registration with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Jisc Student Voter Registration single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Jisc Student Voter Registration supports **SP** initiated SSO.
 * Jisc Student Voter Registration supports **Just In Time** user provisioning.
@@ -40,7 +40,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Jisc Student Voter Registration from the gallery
 
-To configure the integration of Jisc Student Voter Registration into Azure AD, you need to add Jisc Student Voter Registration from the gallery to your list of managed SaaS apps.
+To configure the integration of Jisc Student Voter Registration into Microsoft Entra ID, you need to add Jisc Student Voter Registration from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of Jisc Student Voter Registration into Azure AD, y
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Jisc Student Voter Registration
+<a name='configure-and-test-azure-ad-sso-for-jisc-student-voter-registration'></a>
 
-Configure and test Azure AD SSO with Jisc Student Voter Registration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Jisc Student Voter Registration.
+## Configure and test Microsoft Entra SSO for Jisc Student Voter Registration
 
-To configure and test Azure AD SSO with Jisc Student Voter Registration, perform the following steps:
+Configure and test Microsoft Entra SSO with Jisc Student Voter Registration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Jisc Student Voter Registration.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Jisc Student Voter Registration, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Jisc Student Voter Registration SSO](#configure-jisc-student-voter-registration-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Jisc Student Voter Registration test user](#create-jisc-student-voter-registration-test-user)** - to have a counterpart of B.Simon in Jisc Student Voter Registration that is linked to the Azure AD representation of user.
+    1. **[Create Jisc Student Voter Registration test user](#create-jisc-student-voter-registration-test-user)** - to have a counterpart of B.Simon in Jisc Student Voter Registration that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jisc Student Voter Registration** > **Single sign-on**.
@@ -97,7 +101,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -111,7 +117,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Jisc Student Voter Registration.
 
@@ -133,13 +141,13 @@ In this section, a user called B.Simon is created in Jisc Student Voter Registra
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Jisc Student Voter Registration Sign-on URL where you can initiate the login flow. 
 
 * Go to Jisc Student Voter Registration Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Jisc Student Voter Registration tile in the My Apps, this will redirect to Jisc Student Voter Registration Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the Jisc Student Voter Registration tile in the My Apps, this will redirect to Jisc Student Voter Registration Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

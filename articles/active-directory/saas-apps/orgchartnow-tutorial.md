@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with OrgChart Now'
-description: Learn how to configure single sign-on between Azure Active Directory and OrgChart Now.
+title: 'Tutorial: Microsoft Entra integration with OrgChart Now'
+description: Learn how to configure single sign-on between Microsoft Entra ID and OrgChart Now.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,24 +12,24 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with OrgChart Now
+# Tutorial: Microsoft Entra integration with OrgChart Now
 
-In this tutorial, you'll learn how to integrate OrgChart Now with Azure Active Directory (Azure AD). When you integrate OrgChart Now with Azure AD, you can:
+In this tutorial, you'll learn how to integrate OrgChart Now with Microsoft Entra ID. When you integrate OrgChart Now with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to OrgChart Now.
-* Enable your users to be automatically signed-in to OrgChart Now with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to OrgChart Now.
+* Enable your users to be automatically signed-in to OrgChart Now with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * OrgChart Now single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * OrgChart Now supports **SP** and **IDP** initiated SSO.
 
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Add OrgChart Now from the gallery
 
-To configure the integration of OrgChart Now into Azure AD, you need to add OrgChart Now from the gallery to your list of managed SaaS apps.
+To configure the integration of OrgChart Now into Microsoft Entra ID, you need to add OrgChart Now from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of OrgChart Now into Azure AD, you need to add OrgC
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for OrgChart Now
+<a name='configure-and-test-azure-ad-sso-for-orgchart-now'></a>
 
-Configure and test Azure AD SSO with OrgChart Now using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in OrgChart Now.
+## Configure and test Microsoft Entra SSO for OrgChart Now
 
-To configure and test Azure AD SSO with OrgChart Now, perform the following steps:
+Configure and test Microsoft Entra SSO with OrgChart Now using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in OrgChart Now.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with OrgChart Now, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure OrgChart Now SSO](#configure-orgchart-now-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create OrgChart Now test user](#create-orgchart-now-test-user)** - to have a counterpart of B.Simon in OrgChart Now that is linked to the Azure AD representation of user.
+    1. **[Create OrgChart Now test user](#create-orgchart-now-test-user)** - to have a counterpart of B.Simon in OrgChart Now that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO 
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO 
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OrgChart Now** > **Single sign-on**.
@@ -85,7 +89,7 @@ Follow these steps to enable Azure AD SSO.
     `https://<OrgChartServer>.orgchartnow.com/saml/sso_acs?entityID=<Your_Azure_AD_Entity_ID>`
 
 	> [!NOTE]
-	> `<YourEntityID>` is the **Azure AD Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
+	> `<YourEntityID>` is the **Microsoft Entra Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -95,7 +99,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user 
 
 In this section, you'll create a test user called B.Simon.
 
@@ -109,7 +115,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to OrgChart Now.
 
@@ -127,13 +135,13 @@ To configure single sign-on in OrgChart Now, follow the steps enumerated in the 
 
 ### Create OrgChart Now test user
 
-To enable Azure AD users to log in to OrgChart Now, they must be set up as a user in OrgChart Now, or **Auto-Provisioning** must be enabled in the [SSO Configuration](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) panel.
+To enable Microsoft Entra users to log in to OrgChart Now, they must be set up as a user in OrgChart Now, or **Auto-Provisioning** must be enabled in the [SSO Configuration](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) panel.
 
 If you do not wish to enable auto-provisioning at this time, you can manually add a user to OrgChart Now for SSO testing purposes. To do so, follow the steps enumerated in the [Creating a New User](https://help.orgchartnow.com/en/account-settings/manage-users.html#UUID-a921b00b-a5a2-3099-8fe5-d0f28f5a50b9_bridgehead-idm4532421481724832584395125038) section of the [Account Settings: Manage Users](https://help.orgchartnow.com/en/account-settings/manage-users.html) article.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

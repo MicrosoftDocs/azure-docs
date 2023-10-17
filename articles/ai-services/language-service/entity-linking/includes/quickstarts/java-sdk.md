@@ -3,8 +3,7 @@ title: "Quickstart: Entity linking client library for Java | Microsoft Docs"
 description: Get started with Entity linking using the client library for Java.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 02/17/2023
 ms.custom: devx-track-java, ignite-fall-2021

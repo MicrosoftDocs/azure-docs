@@ -26,9 +26,9 @@ The cause for most of these issues is as follows. The session storage and local 
 
 ### Issues
 
-- **Infinite redirect loops and page reloads during authentication**. When users sign in to the application on Microsoft Edge, they're redirected back from the AAD login page and are stuck in an infinite redirect loop resulting in repeated page reloads. This is usually accompanied by an `invalid_state` error in the session storage.
+- **Infinite redirect loops and page reloads during authentication**. When users sign in to the application on Microsoft Edge, they're redirected back from the Microsoft Entra login page and are stuck in an infinite redirect loop resulting in repeated page reloads. This is usually accompanied by an `invalid_state` error in the session storage.
 
-- **Infinite acquire token loops and AADSTS50058 error**. When an application that is run on Microsoft Edge tries to acquire a token for a resource, the application may get stuck in an infinite loop of the acquire token call. The following error is returned from AAD in your network trace:
+- **Infinite acquire token loops and AADSTS50058 error**. When an application that is run on Microsoft Edge tries to acquire a token for a resource, the application may get stuck in an infinite loop of the acquire token call. The following error is returned from Microsoft Entra ID in your network trace:
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 

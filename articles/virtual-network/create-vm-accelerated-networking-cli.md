@@ -142,7 +142,7 @@ The following example creates a VM with a size that supports Accelerated Network
 az vm create \
   --resource-group <myResourceGroup> \
   --name <myVm> \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --size Standard_DS4_v2 \
   --admin-username <myAdminUser> \
   --generate-ssh-keys \

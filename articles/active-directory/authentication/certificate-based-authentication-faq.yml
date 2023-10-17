@@ -46,8 +46,8 @@ sections:
           Is Microsoft Entra CBA a free feature?
         answer: |
           Certificate-based authentication is a free feature. 
-          Every edition of Azure AD includes Azure AD CBA.
-          For more information about features in each Azure AD edition, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+          Every edition of Microsoft Entra ID includes Microsoft Entra CBA.
+          For more information about features in each Microsoft Entra edition, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
       - question: |
           Does Microsoft Entra CBA support Alternate ID as the username instead of userPrincipalName?
@@ -88,7 +88,7 @@ sections:
 
             When a CRL download fails, the following message appears: 
             
-            "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
+            "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Microsoft Entra ID. Try again in few minutes. If the issue persists, contact your tenant administrators."
             
             Download remains in the background with higher limits.
 
@@ -115,7 +115,7 @@ sections:
           Why do I see the certificate-based authentication option after it fails?
         answer: |
           The Authentication method policy always shows all available authentication methods to the user so they can retry sign-in using any method they prefer. 
-          Azure AD doesn't hide available methods based on success or failure of a sign-in.
+          Microsoft Entra ID doesn't hide available methods based on success or failure of a sign-in.
 
       - question: |
           Why does certificate-based auth (CBA) loops once it fails?
@@ -159,12 +159,11 @@ additionalContent: |
   ## Next steps
     If your question isn't answered here, see the following related topics:
           
-    * [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-    * [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-    * [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
-    * [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
-    * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-    * [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+    * [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+    * [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+    * [Microsoft Entra CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+    * [Microsoft Entra CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+    * [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+    * [Windows smart card logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
     * [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
     * [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-    

@@ -165,7 +165,7 @@ sampleApp/
 In the next steps, you'll create a new folder for the JavaScript SPA and set up the user interface (UI).
 
 > [!TIP]
-> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](./application-model.md).
+> When you set up a Microsoft Entra account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](./application-model.md).
 
 ## Create the SPA UI
 
@@ -325,7 +325,7 @@ In the next steps, you'll create a new folder for the JavaScript SPA and set up 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Before you proceed with authentication, register the application on Azure AD:
+Before you proceed with authentication, register the application on Microsoft Entra ID:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.

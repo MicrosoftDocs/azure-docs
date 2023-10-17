@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed'
-description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise Client-Managed.
+title: 'Tutorial: Microsoft Entra SSO integration with Qlik Sense Enterprise Client-Managed'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Qlik Sense Enterprise Client-Managed.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed
+# Tutorial: Microsoft Entra SSO integration with Qlik Sense Enterprise Client-Managed
 
-In this tutorial, you'll learn how to integrate Qlik Sense Enterprise Client-Managed with Azure Active Directory (Azure AD). When you integrate Qlik Sense Enterprise Client-Managed with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Qlik Sense Enterprise Client-Managed with Microsoft Entra ID. When you integrate Qlik Sense Enterprise Client-Managed with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Qlik Sense Enterprise.
-* Enable your users to be automatically signed-in to Qlik Sense Enterprise with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Qlik Sense Enterprise.
+* Enable your users to be automatically signed-in to Qlik Sense Enterprise with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 Note that there are two versions of Qlik Sense Enterprise. While this tutorial covers integration with the client-managed releases, a different process is required for Qlik Sense Enterprise SaaS (Qlik Cloud version).
@@ -27,20 +27,20 @@ Note that there are two versions of Qlik Sense Enterprise. While this tutorial c
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Qlik Sense Enterprise single sign-on (SSO) enabled subscription.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. 
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 * Qlik Sense Enterprise supports **SP** initiated SSO.
 * Qlik Sense Enterprise supports **just-in-time provisioning**
 
 ## Add Qlik Sense Enterprise from the gallery
 
-To configure the integration of Qlik Sense Enterprise into Azure AD, you need to add Qlik Sense Enterprise from the gallery to your list of managed SaaS apps.
+To configure the integration of Qlik Sense Enterprise into Microsoft Entra ID, you need to add Qlik Sense Enterprise from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of Qlik Sense Enterprise into Azure AD, you need to
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Qlik Sense Enterprise
+<a name='configure-and-test-azure-ad-sso-for-qlik-sense-enterprise'></a>
 
-Configure and test Azure AD SSO with Qlik Sense Enterprise using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Qlik Sense Enterprise.
+## Configure and test Microsoft Entra SSO for Qlik Sense Enterprise
 
-To configure and test Azure AD SSO with Qlik Sense Enterprise, perform the following steps:
+Configure and test Microsoft Entra SSO with Qlik Sense Enterprise using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Qlik Sense Enterprise.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Qlik Sense Enterprise, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 1. **[Configure Qlik Sense Enterprise SSO](#configure-qlik-sense-enterprise-sso)** - to configure the Single Sign-On settings on application side.
-    1. **[Create Qlik Sense Enterprise test user](#create-qlik-sense-enterprise-test-user)** - to have a counterpart of Britta Simon in Qlik Sense Enterprise that is linked to the Azure AD representation of user.
+    1. **[Create Qlik Sense Enterprise test user](#create-qlik-sense-enterprise-test-user)** - to have a counterpart of Britta Simon in Qlik Sense Enterprise that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Qlik Sense Enterprise** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -96,7 +100,9 @@ Follow these steps to enable Azure AD SSO.
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called Britta Simon.
 
@@ -110,7 +116,9 @@ In this section, you'll create a test user called Britta Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Qlik Sense Enterprise.
 
@@ -127,7 +135,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 1. Prepare the Federation Metadata XML file so that you can upload that to Qlik Sense server.
 
     > [!NOTE]
-    > Before uploading the IdP metadata to the Qlik Sense server, the file needs to be edited to remove information to ensure proper operation between Azure AD and Qlik Sense server.
+    > Before uploading the IdP metadata to the Qlik Sense server, the file needs to be edited to remove information to ensure proper operation between Microsoft Entra ID and Qlik Sense server.
 
     ![Screenshot shows a Visual Studio Code window with the Federation Metadata X M L file.][qs24]
 
@@ -159,7 +167,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     a. The **Description** field is a friendly name for the virtual proxy configuration.  Enter a value for a description.
 
-    b. The **Prefix** field identifies the virtual proxy endpoint for connecting to Qlik Sense with Azure AD Single Sign-On.  Enter a unique prefix name for this virtual proxy.
+    b. The **Prefix** field identifies the virtual proxy endpoint for connecting to Qlik Sense with Microsoft Entra Single Sign-On.  Enter a unique prefix name for this virtual proxy.
 
     c. **Session inactivity timeout (minutes)** is the timeout for connections through this virtual proxy.
 
@@ -177,11 +185,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     d. In the **SAML entity ID**, enter the same value entered for the SAML host URI field.
 
-    e. The **SAML IdP metadata** is the file edited earlier in the **Edit Federation Metadata from Azure AD Configuration** section.  **Before uploading the IdP metadata, the file needs to be edited** to remove information to ensure proper operation between Azure AD and Qlik Sense server.  **Please refer to the instructions above if the file has yet to be edited.**  If the file has been edited click on the Browse button and select the edited metadata file to upload it to the virtual proxy configuration.
+    e. The **SAML IdP metadata** is the file edited earlier in the **Edit Federation Metadata from Microsoft Entra Configuration** section.  **Before uploading the IdP metadata, the file needs to be edited** to remove information to ensure proper operation between Microsoft Entra ID and Qlik Sense server.  **Please refer to the instructions above if the file has yet to be edited.**  If the file has been edited click on the Browse button and select the edited metadata file to upload it to the virtual proxy configuration.
 
-    f. Enter the attribute name or schema reference for the SAML attribute representing the **UserID** Azure AD sends to the Qlik Sense server.  Schema reference information is available in the Azure app screens post configuration.  To use the name attribute, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Enter the attribute name or schema reference for the SAML attribute representing the **UserID** Microsoft Entra ID sends to the Qlik Sense server.  Schema reference information is available in the Azure app screens post configuration.  To use the name attribute, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    g. Enter the value for the **user directory** that will be attached to users when they authenticate to Qlik Sense server through Azure AD.  Hardcoded values must be surrounded by **square brackets []**.  To use an attribute sent in the Azure AD SAML assertion, enter the name of the attribute in this text box **without** square brackets.
+    g. Enter the value for the **user directory** that will be attached to users when they authenticate to Qlik Sense server through Microsoft Entra ID.  Hardcoded values must be surrounded by **square brackets []**.  To use an attribute sent in the Microsoft Entra SAML assertion, enter the name of the attribute in this text box **without** square brackets.
 
     h. The **SAML signing algorithm** sets the service provider (in this case Qlik Sense server) certificate signing for the virtual proxy configuration.  If Qlik Sense server uses a trusted certificate generated using Microsoft Enhanced RSA and AES Cryptographic Provider, change the SAML signing algorithm to **SHA-256**.
 
@@ -235,7 +243,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Screenshot shows the Download S P metadata button.][qs52]
 
-19. Open the sp metadata file.  Observe the **entityID** entry and the **AssertionConsumerService** entry.  These values are equivalent to the **Identifier**, **Sign on URL** and the **Reply URL** in the Azure AD application configuration. Paste these values in the **Qlik Sense Enterprise Domain and URLs** section in the Azure AD application configuration if they are not matching, then you should replace them in the Azure AD App configuration wizard.
+19. Open the sp metadata file.  Observe the **entityID** entry and the **AssertionConsumerService** entry.  These values are equivalent to the **Identifier**, **Sign on URL** and the **Reply URL** in the Microsoft Entra application configuration. Paste these values in the **Qlik Sense Enterprise Domain and URLs** section in the Microsoft Entra application configuration if they are not matching, then you should replace them in the Microsoft Entra App configuration wizard.
 
     ![Screenshot shows a plain text editor with a EntityDescriptor with entityID and AssertionConsumerService called out.][qs53]
 
@@ -245,7 +253,7 @@ Qlik Sense Enterprise supports **just-in-time provisioning**, Users automaticall
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Qlik Sense Enterprise Sign-on URL where you can initiate the login flow. 
 

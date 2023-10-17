@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSyncTools PowerShell Reference'
+title: 'Microsoft Entra Connect: ADSyncTools PowerShell Reference'
 description: This document provides reference information for the ADSyncTools.psm1 PowerShell module.
 author: billmath
 manager: amycolannino
@@ -14,11 +14,12 @@ ms.collection: M365-identity-device-management
 ms.custom: has-azure-ad-ps-ref
 ---
 
-# Azure AD Connect:  ADSyncTools PowerShell Reference
-The following documentation provides reference information for the ADSyncTools.psm1 PowerShell Module that is included with Azure AD Connect.
+# Microsoft Entra Connect:  ADSyncTools PowerShell Reference
+The following documentation provides reference information for the `ADSyncTools.psm1` PowerShell module included with Microsoft Entra Connect.
 
-## Install the ADSyncTools PowerShell Module
-To install the ADSyncTools PowerShell Module do the following:
+## Install the ADSyncTools PowerShell module
+
+To install the ADSyncTools PowerShell module do the following:
 
 1.  Open Windows PowerShell with administrative privileges
 2.  Type or copy and paste the following: 
@@ -171,13 +172,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## ConvertFrom-ADSyncToolsAadDistinguishedName
 ### SYNOPSIS
-Convert Azure AD Connector DistinguishedName to ImmutableId
+Convert Microsoft Entra Connector DistinguishedName to ImmutableId
 ### SYNTAX
 ```
 ConvertFrom-ADSyncToolsAadDistinguishedName [-DistinguishedName] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Takes an Azure AD Connector DistinguishedName like CN={514635484D4B376E38307176645973555049486139513D3D}
+Takes a Microsoft Entra Connector DistinguishedName like CN={514635484D4B376E38307176645973555049486139513D3D}
 and converts to the respective base64 ImmutableID value, e.g.
 QF5HMK7n80qvdYsUPIHa9Q==
 ### EXAMPLES
@@ -187,7 +188,7 @@ ConvertFrom-ADSyncToolsAadDistinguishedName 'CN={514635484D4B376E383071766459735
 ```
 ### PARAMETERS
 #### -DistinguishedName
-Azure AD Connector Space DistinguishedName
+Microsoft Entra Connector Space DistinguishedName
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -236,14 +237,14 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## ConvertTo-ADSyncToolsAadDistinguishedName
 ### SYNOPSIS
-Convert ImmutableId to Azure AD Connector DistinguishedName
+Convert ImmutableId to Microsoft Entra Connector DistinguishedName
 ### SYNTAX
 ```
 ConvertTo-ADSyncToolsAadDistinguishedName [-ImmutableId] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
 Takes an ImmutableId (SourceAnchor) like QF5HMK7n80qvdYsUPIHa9Q== and converts to the respective
-Azure AD Connector DistinguishedName value, e.g.
+Microsoft Entra Connector DistinguishedName value, e.g.
 CN={514635484D4B376E38307176645973555049486139513D3D}
 ### EXAMPLES
 #### EXAMPLE 1
@@ -336,7 +337,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## Export-ADSyncToolsAadDisconnectors
 ### SYNOPSIS
-Export Azure AD Disconnector objects
+Export Microsoft Entra Disconnector objects
 ### SYNTAX
 ```
 Export-ADSyncToolsAadDisconnectors [[-SyncObjectType] <Object>] [<CommonParameters>]
@@ -378,16 +379,16 @@ UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, ObjectType
 
 ## Export-ADSyncToolsAadPublicFolders
 ### SYNOPSIS
-Exports all synchronized Mail-Enabled Public Folder objects from AzureAD to a CSV file
+Exports all synchronized Mail-Enabled Public Folder objects from Microsoft Entra ID to a CSV file
 ### SYNTAX
 ```
 Export-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-Path] <Object> [<CommonParameters>]
 ```
 ### DESCRIPTION
-This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Azure AD.
-It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Azure AD.
-This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
-NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Microsoft Entra ID.
+It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Microsoft Entra ID.
+This function requires the credentials of a Global Administrator in Microsoft Entra ID and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Microsoft Entra ID.
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -395,7 +396,7 @@ Export-ADSyncToolsAadPublicFolders -Credential $(Get-Credential) -Path <file_nam
 ```
 ### PARAMETERS
 #### -Credential
-Azure AD Global Admin Credential
+Microsoft Entra Global Admin Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -428,7 +429,7 @@ This cmdlet creates the `<filename>` containing all synced Mail-Enabled PublicFo
 ## Export-ADSyncToolsHybridAadJoinReport
 ### SYNOPSIS
 Generates a report of certificates stored in Active Directory Computer objects, specifically, 
-certificates issued by the Hybrid Azure AD join feature.
+certificates issued by the Microsoft Entra hybrid join feature.
 ### SYNTAX
 #### SingleObject
 ```
@@ -440,13 +441,13 @@ Export-ADSyncToolsHybridAadJoinReport [-OU] <String> [[-Filename] <String>] [<Co
 ```
 ### DESCRIPTION
 This tool checks for all certificates present in UserCertificate property of a Computer object in AD and, for each 
-non-expired certificate present, validates if the certificate was issued for the Hybrid Azure AD join feature 
+non-expired certificate present, validates if the certificate was issued for the Microsoft Entra hybrid join feature 
 (that is, Subject Name is CN={ObjectGUID}).
-Before version 1.4, Azure AD Connect would synchronize to Azure AD any Computer that contained at least one certificate but 
-in Azure AD Connect version 1.4 and later, ADSync engine can identify Hybrid Azure AD join certificates and will "cloudfilter" 
-(exclude) the computer object from synchronizing to Azure AD unless there's a valid Hybrid Azure AD join certificate present.
-Azure AD Device objects that were already synchronized to AD but do not have a valid Hybrid Azure AD join certificate will be 
-deleted from Azure AD (CloudFiltered=TRUE) by Azure AD Connect.
+Before version 1.4, Microsoft Entra Connect would synchronize to Microsoft Entra any Computer that contained at least one certificate but 
+in Microsoft Entra Connect version 1.4 and later, ADSync engine can identify Microsoft Entra hybrid join certificates and will "cloudfilter" 
+(exclude) the computer object from synchronizing to Microsoft Entra ID unless there's a valid Microsoft Entra hybrid join certificate present.
+Microsoft Entra Device objects that were already synchronized to AD but do not have a valid Microsoft Entra hybrid join certificate will be 
+deleted from Microsoft Entra ID (CloudFiltered=TRUE) by Microsoft Entra Connect.
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -497,11 +498,11 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ### RELATED LINKS
 More Information:
-[Understand Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
+[Understand Microsoft Entra Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
 
 ## Export-ADSyncToolsObjects
 ### SYNOPSIS
-Export Azure AD Connect Objects to XML files
+Export Microsoft Entra Connect Objects to XML files
 ### SYNTAX
 #### ObjectId
 ```
@@ -592,13 +593,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Export-ADSyncToolsRunHistory
 ### SYNOPSIS
-Export Azure AD Connect Run History
+Export Microsoft Entra Connect Run History
 ### SYNTAX
 ```
 Export-ADSyncToolsRunHistory [-TargetName] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function to export Azure AD Connect Run Profile and Run Step results to CSV and XML format respectively.
+Function to export Microsoft Entra Connect Run Profile and Run Step results to CSV and XML format respectively.
 The resulting Run Profile CSV file can be imported into a spreadsheet and the Run Step XML file can be imported with Import-Clixml
 ### EXAMPLES
 #### EXAMPLE 1
@@ -698,7 +699,7 @@ Get synced objects for a given SyncObjectType
 Get-ADSyncToolsAadObject [-SyncObjectType] <Object> [-Credential] <PSCredential> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Reads from Azure AD all synced objects for a given object class (SyncObjectType).
+Reads from Microsoft Entra all synced objects for a given object class (SyncObjectType).
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -718,7 +719,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 #### -Credential
-Azure AD Global Administrator Credential
+Microsoft Entra Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -736,7 +737,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### OUTPUTS
 
-This cmdlet returns the "Shadow" properties that are synchronized by the sync client, which might be different than the actual value stored in the respective property of Azure AD. For instance, a user's UPN that is synchronized with a non-verified domain suffix 'user@nonverified.domain', will have the UPN suffix in Azure AD converted to the tenant's default domain, 'user@tenantname.onmicrosoft.com'. In this case, Get-ADSyncToolsAadObject will return the "Shadow" value of 'user@nonverified.domain', and not the actual value in Azure AD 'user@tenantname.onmicrosoft.com'.
+This cmdlet returns the "Shadow" properties that are synchronized by the sync client, which might be different than the actual value stored in the respective property of Microsoft Entra ID. For instance, a user's UPN that is synchronized with a non-verified domain suffix 'user@nonverified.domain', will have the UPN suffix in Microsoft Entra ID converted to the tenant's default domain, 'user@tenantname.onmicrosoft.com'. In this case, Get-ADSyncToolsAadObject will return the "Shadow" value of 'user@nonverified.domain', and not the actual value in Microsoft Entra ID 'user@tenantname.onmicrosoft.com'.
 
 ## Get-ADSyncToolsMsDsConsistencyGuid
 ### SYNOPSIS
@@ -778,13 +779,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Get-ADSyncToolsRunHistory
 ### SYNOPSIS
-Get Azure AD Connect Run History
+Get Microsoft Entra Connect Run History
 ### SYNTAX
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function that returns the Azure AD Connect Run History in XML format
+Function that returns the Microsoft Entra Connect Run History in XML format
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -811,13 +812,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Get-ADSyncToolsRunHistoryLegacyWmi
 ### SYNOPSIS
-Get Azure AD Connect Run History for older versions of Azure AD Connect (WMI)
+Get Microsoft Entra Connect Run History for older versions of Microsoft Entra Connect (WMI)
 ### SYNTAX
 ```
 Get-ADSyncToolsRunHistoryLegacyWmi [[-Days] <Int32>] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function that returns the Azure AD Connect Run History in XML format
+Function that returns the Microsoft Entra Connect Run History in XML format
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -939,11 +940,11 @@ Get-ADSyncToolsTls12
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ### RELATED LINKS
 More Information:
-[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
+[TLS 1.2 enforcement for Microsoft Entra Connect](reference-connect-tls-enforcement.md)
 
 ## Import-ADSyncToolsObjects
 ### SYNOPSIS
-Import Azure AD Connect Object from XML file
+Import Microsoft Entra Connect Object from XML file
 ### SYNTAX
 ```
 Import-ADSyncToolsObjects [-Path] <String> [<CommonParameters>]
@@ -972,13 +973,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Import-ADSyncToolsRunHistory
 ### SYNOPSIS
-Import Azure AD Connect Run History
+Import Microsoft Entra Connect Run History
 ### SYNTAX
 ```
 Import-ADSyncToolsRunHistory [-Path] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function to Import Azure AD Connect Run Step results from XML created using Export-ADSyncToolsRunHistory
+Function to Import Microsoft Entra Connect Run Step results from XML created using Export-ADSyncToolsRunHistory
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -1001,13 +1002,13 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Import-ADSyncToolsSourceAnchor
 ### SYNOPSIS
-Import ImmutableID from Azure AD
+Import ImmutableID from Microsoft Entra ID
 ### SYNTAX
 ```
 Import-ADSyncToolsSourceAnchor [-Output] <String> [-IncludeSyncUsersFromRecycleBin] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Generates a file with all Azure AD Synchronized users containing the ImmutableID value in GUID format
+Generates a file with all Microsoft Entra ID synchronized users containing the ImmutableID value in GUID format
 Requirements: MSOnline PowerShell Module
 ### EXAMPLES
 #### EXAMPLE 1
@@ -1032,7 +1033,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### -IncludeSyncUsersFromRecycleBin
-Get Synchronized Users from Azure AD Recycle Bin
+Get Synchronized Users from Microsoft Entra ID Recycle Bin
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
@@ -1094,7 +1095,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## Remove-ADSyncToolsAadObject
 ### SYNOPSIS
-Remove orphaned synced object from Azure AD
+Remove orphaned synced object from Microsoft Entra ID
 ### SYNTAX
 #### CsvInput
 ```
@@ -1107,7 +1108,7 @@ Remove-ADSyncToolsAadObject [-Credential] <PSCredential> [-SourceAnchor] <Object
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Deletes from Azure AD a synced object(s) based on SourceAnchor and ObjecType in batches of 10 objects
+Deletes from Microsoft Entra ID a synced object(s) based on SourceAnchor and ObjecType in batches of 10 objects
 The CSV file can be generated using Export-ADSyncToolsAadDisconnectors
 ### EXAMPLES
 #### EXAMPLE 1
@@ -1120,7 +1121,7 @@ Remove-ADSyncToolsAadObject -SourceAnchor '2epFRNMCPUqhysJL3SWL1A==' -SyncObject
 ```
 ### PARAMETERS
 #### -Credential
-Azure AD Global Administrator Credential
+Microsoft Entra Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -1202,19 +1203,19 @@ DISCLAIMER: Other than User objects that have a Recycle Bin, any other object ty
 
 ## Remove-ADSyncToolsAadPublicFolders
 ### SYNOPSIS
-Removes synchronized Mail-Enabled Public Folders (MEPF) present from AzureAD.
+Removes synchronized Mail-Enabled Public Folders (MEPF) present from Microsoft Entra ID.
 You can specify one SourceAnchor/ImmutableID for the target MEPF object to delete, or provide a CSV list with a batch of objects to delete when used in conjunction with Export-ADSyncToolsAadPublicFolders.
-This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
-NOTE: If DirSync has been disabled on the tenant, you'll need to temporary re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+This function requires the credentials of a Global Administrator in Microsoft Entra ID and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you'll need to temporary re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Microsoft Entra ID.
 ### SYNTAX
 ```
 Export-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-Path] <Object> [<CommonParameters>]
 ```
 ### DESCRIPTION
-This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Azure AD.
-It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Azure AD.
-This function requires the credentials of a Global Administrator in Azure AD and authentication with MFA is not supported.
-NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Azure AD.
+This function exports to a CSV file all the synchronized Mail-Enabled Public Folders (MEPF) present in Microsoft Entra ID.
+It can be used in conjunction with Remove-ADSyncToolsAadPublicFolders to identify and remove orphaned Mail-Enabled Public Folders in Microsoft Entra ID.
+This function requires the credentials of a Global Administrator in Microsoft Entra ID and authentication with MFA is not supported.
+NOTE: If DirSync has been disabled on the tenant, you will need to temporarily re-enabled DirSync in order to remove orphaned Mail Enabled Public Folders from Microsoft Entra ID.
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -1226,7 +1227,7 @@ Remove-ADSyncToolsAadPublicFolders [-Credential] <PSCredential> [-SourceAnchor] 
 ```
 ### PARAMETERS
 #### -Credential
-Azure AD Global Admin Credential
+Microsoft Entra Global Admin Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -1336,7 +1337,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ## Repair-ADSyncToolsAutoUpgradeState
 ### SYNOPSIS
-Repair Azure AD Connect AutoUpgrade State
+Repair Microsoft Entra Connect AutoUpgrade State
 ### SYNTAX
 ```
 Repair-ADSyncToolsAutoUpgradeState
@@ -1527,7 +1528,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 ### RELATED LINKS
 More Information:
-[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
+[TLS 1.2 enforcement for Microsoft Entra Connect](reference-connect-tls-enforcement.md)
 
 ## Test-ADSyncToolsSqlNetworkPort
 ### SYNOPSIS
@@ -1875,7 +1876,7 @@ Gets a list of all the objects with "Source anchor has changed" error.
 Get-ADSyncToolsDuplicateUsersSourceAnchor [-ADConnectorName] <Object> [<CommonParameters>]
 ```
 ### DESCRIPTION
-There are certain scenarios like M&A where Customers add a new forest to Azure AD Connect with duplicate user objects. 
+There are certain scenarios like M&A where Customers add a new forest to Microsoft Entra Connect with duplicate user objects. 
 This causes multiple sync errors if the new connector precedence is higher for the newly joined users. This cmdlet will provide a list of all the objects with "Source anchor has changed" errors.
 
 ### EXAMPLES

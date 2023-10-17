@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Altamira HRM'
-description: Learn how to configure single sign-on between Azure Active Directory and Altamira HRM.
+title: 'Tutorial: Microsoft Entra SSO integration with Altamira HRM'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Altamira HRM.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Altamira HRM
+# Tutorial: Microsoft Entra SSO integration with Altamira HRM
 
-In this tutorial, you'll learn how to integrate Altamira HRM with Azure Active Directory (Azure AD). When you integrate Altamira HRM with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Altamira HRM with Microsoft Entra ID. When you integrate Altamira HRM with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Altamira HRM.
-* Enable your users to be automatically signed-in to Altamira HRM with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Altamira HRM.
+* Enable your users to be automatically signed-in to Altamira HRM with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Altamira HRM single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Altamira HRM supports **SP and IDP** initiated SSO.
 * Altamira HRM supports **Just In Time** user provisioning.
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Altamira HRM from the gallery
 
-To configure the integration of Altamira HRM into Azure AD, you need to add Altamira HRM from the gallery to your list of managed SaaS apps.
+To configure the integration of Altamira HRM into Microsoft Entra ID, you need to add Altamira HRM from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of Altamira HRM into Azure AD, you need to add Alta
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for Altamira HRM
+<a name='configure-and-test-azure-ad-sso-for-altamira-hrm'></a>
 
-Configure and test Azure AD SSO with Altamira HRM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Altamira HRM.
+## Configure and test Microsoft Entra SSO for Altamira HRM
 
-To configure and test Azure AD SSO with Altamira HRM, perform the following steps:
+Configure and test Microsoft Entra SSO with Altamira HRM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Altamira HRM.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Altamira HRM, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Altamira HRM SSO](#configure-altamira-hrm-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Altamira HRM test user](#create-altamira-hrm-test-user)** - to have a counterpart of B.Simon in Altamira HRM that is linked to the Azure AD representation of user.
+    1. **[Create Altamira HRM test user](#create-altamira-hrm-test-user)** - to have a counterpart of B.Simon in Altamira HRM that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Altamira HRM** > **Single sign-on**.
@@ -96,7 +100,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -110,7 +116,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Altamira HRM.
 
@@ -132,7 +140,7 @@ In this section, a user called Britta Simon is created in Altamira HRM. Altamira
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 #### SP initiated:
 

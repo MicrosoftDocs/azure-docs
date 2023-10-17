@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 10/12/2023
 ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
@@ -52,9 +52,12 @@ Use one of the following supported Windows or Linux images to create a pool of V
 
 ### Windows support
 
-Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `-with-containers` or `-with-containers-smalldisk`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
+Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `win_2016_mcr_20_10` or `win_2022_mcr_20_10` under the Mirantis publisher and are offered as `windows_2016_with_mirantis_container_runtime` or `windows_2022_with_mirantis_container_runtime`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
 
 You can also create custom images from VMs running Docker on Windows.
+
+> [!NOTE]
+> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment. 
 
 ### Linux support
 
@@ -71,6 +74,31 @@ For Linux container workloads, Batch currently supports the following Linux imag
 - Publisher: `microsoft-azure-batch`
   - Offer: `centos-container-rdma`
   - Offer: `ubuntu-server-container-rdma`
+
+- Publisher: `microsoft-dsvm`
+  - Offer: `ubuntu-hpc`
+
+#### Notes
+  The docker data root of the above images lies in different places:
+  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to `/mnt/batch/docker`, which is usually located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on Windows. These folders are usually located on the OS disk.
+
+    When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
+#### Potential solutions for customer
+
+Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
+```csharp
+1)  sudo systemctl stop docker
+2)  sudo vi /lib/systemd/system/docker.service
+    +++
+    FROM:
+    ExecStart=/usr/bin/docker daemon -H fd://
+    TO:
+    ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
+    +++
+3)  sudo systemctl daemon-reload
+4)  sudo systemctl start docker
+```
 
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 

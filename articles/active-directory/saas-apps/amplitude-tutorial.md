@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amplitude'
-description: Learn how to configure single sign-on between Azure Active Directory and Amplitude.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Amplitude'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Amplitude.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Amplitude
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Amplitude
 
-In this tutorial, you'll learn how to integrate Amplitude with Azure Active Directory (Azure AD). When you integrate Amplitude with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Amplitude with Microsoft Entra ID. When you integrate Amplitude with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Amplitude.
-* Enable your users to be automatically signed-in to Amplitude with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Amplitude.
+* Enable your users to be automatically signed-in to Amplitude with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Amplitude single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Amplitude supports **SP and IDP** initiated SSO.
 * Amplitude supports **Just In Time** user provisioning.
@@ -40,7 +40,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Amplitude from the gallery
 
-To configure the integration of Amplitude into Azure AD, you need to add Amplitude from the gallery to your list of managed SaaS apps.
+To configure the integration of Amplitude into Microsoft Entra ID, you need to add Amplitude from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of Amplitude into Azure AD, you need to add Amplitu
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Amplitude
+<a name='configure-and-test-azure-ad-sso-for-amplitude'></a>
 
-Configure and test Azure AD SSO with Amplitude using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amplitude.
+## Configure and test Microsoft Entra SSO for Amplitude
 
-To configure and test Azure AD SSO with Amplitude, perform the following steps:
+Configure and test Microsoft Entra SSO with Amplitude using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Amplitude.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Amplitude, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Amplitude SSO](#configure-amplitude-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Amplitude test user](#create-amplitude-test-user)** - to have a counterpart of B.Simon in Amplitude that is linked to the Azure AD representation of user.
+    1. **[Create Amplitude test user](#create-amplitude-test-user)** - to have a counterpart of B.Simon in Amplitude that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amplitude** > **Single sign-on**.
@@ -97,7 +101,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -111,7 +117,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Amplitude.
 
@@ -134,15 +142,15 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 	![Screenshot shows the Amplitude menu with Plan Admin selected.](./media/amplitude-tutorial/plan-tab.png)
 
-1. Select **Microsoft Azure Active Directory Metadata** from the **SSO Integration**.
+1. Select **Microsoft Entra Metadata** from the **SSO Integration**.
 
-	![Screenshot shows the Plan Admin pane with the Microsoft Azure Active Directory Metadata link called out.](./media/amplitude-tutorial/metadata.png)
+	![Screenshot shows the Plan Admin pane with the Microsoft Entra Metadata link called out.](./media/amplitude-tutorial/metadata.png)
 
 1. On the **Set Up Single Sign-On** section, perform the following steps:
 
 	![Screenshot shows the Set Up Single Sign-on section with values described in this step.](./media/amplitude-tutorial/configuration.png)
 
-	a. Open the downloaded **Metadata Xml** from Azure portal in notepad, paste the content into the **Microsoft Azure Active Directory Metadata** textbox.
+	a. Open the downloaded **Metadata Xml** from Azure portal in notepad, paste the content into the **Microsoft Entra Metadata** textbox.
 
 	b. Copy the **Reply URL (ACS)** value and paste it into the **Reply URL** textbox of **Basic SAML Configuration**.
 
@@ -157,7 +165,7 @@ In this section, a user called B.Simon is created in Amplitude. Amplitude suppor
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

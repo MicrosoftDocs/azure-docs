@@ -1,6 +1,6 @@
 ---
-title: Group management permissions for Azure AD custom roles
-description: Group management permissions for Azure AD custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
+title: Group management permissions for Microsoft Entra custom roles
+description: Group management permissions for Microsoft Entra custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer:
 ms.custom: it-pro
 ---
 
-# Group management permissions for Azure AD custom roles
+# Group management permissions for Microsoft Entra custom roles
 
-Group management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
+Group management permissions can be used in custom role definitions in Microsoft Entra ID to grant fine-grained access such as the following:
 
 - Manage group properties like name and description
 - Manage members and owners
@@ -24,7 +24,7 @@ Group management permissions can be used in custom role definitions in Azure Act
 - Read audit logs
 - Manage a specific type of group
 
-This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Azure Active Directory](custom-create.md).
+This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Microsoft Entra ID](custom-create.md).
 
 ## License requirements
 
@@ -144,5 +144,5 @@ The following permissions are available to delete groups.
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
-- [List Azure AD role assignments](view-assignments.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
+- [List Microsoft Entra role assignments](view-assignments.md)

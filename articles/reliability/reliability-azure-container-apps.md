@@ -18,7 +18,7 @@ This article describes reliability support in Azure Container Apps, and covers b
 
 [!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#availability-zones) in regions where they're available to provide high-availability protection for your applications and data from data center failures.
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available to provide high-availability protection for your applications and data from data center failures.
 
 By enabling Container Apps' zone redundancy feature, replicas are automatically distributed across the zones in the region.  Traffic is load balanced among the replicas.  If a zone outage occurs, traffic is automatically routed to the replicas in the remaining zones.
 
@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#availability-zones) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
 
 ### SLA improvements
 

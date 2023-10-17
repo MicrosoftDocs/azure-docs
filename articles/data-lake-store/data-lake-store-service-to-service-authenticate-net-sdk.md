@@ -1,6 +1,6 @@
 ---
 title: .NET - Service-to-service authentication - Data Lake Storage Gen1
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using .NET SDK
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID using .NET SDK
 
 author: normesta
 ms.service: data-lake-store
@@ -25,7 +25,7 @@ In this article, you learn about how to use the .NET SDK to do service-to-servic
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## Create a .NET application
 1. In Visual Studio, select the **File** menu, **New**, and then **Project**.
@@ -63,7 +63,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
 ## Service-to-service authentication with client secret
-Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD web application (listed as a prerequisite). This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the client secret/key for Azure AD web application.
+Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from a Microsoft Entra web application (listed as a prerequisite). This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the client secret/key for Microsoft Entra web application.
 
 ```csharp
 private static void Main(string[] args)
@@ -84,7 +84,7 @@ The preceding snippet uses a helper function `GetCreds_SPI_SecretKey`. The code 
 
 ## Service-to-service authentication with certificate
 
-Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD web application (listed as a prerequisite). This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the certificate for an Azure AD web application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from a Microsoft Entra web application (listed as a prerequisite). This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the certificate for a Microsoft Entra web application. For instructions on how to create a Microsoft Entra application, see [Create service principal with certificates](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 ```csharp
 private static void Main(string[] args)

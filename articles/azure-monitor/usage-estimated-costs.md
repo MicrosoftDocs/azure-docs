@@ -24,7 +24,7 @@ Several other features don't have a direct cost, but instead you pay for the ing
 | Logs | Ingestion, retention, and export of data in Log Analytics workspaces and legacy Application Insights resources. For most customers, this category typically incurs the bulk of Azure Monitor charges. There's no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for logs can vary significantly on the configuration that you choose. For information on how charges for logs data are calculated and the different pricing tiers available, see [Azure Monitor logs pricing details](logs/cost-logs.md). |
 | Platform logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
-| Prometheus Metrics | The service is currently free to use, with billing set to begin on 8/1/2023. Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](essentials/prometheus-metrics-enable.md)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
+| Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](essentials/prometheus-metrics-enable.md)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
 | Alerts | Charges are based on the type and number of signals used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [Log alerts](alerts/alerts-types.md#log-alerts) configured for [at-scale monitoring](alerts/alerts-types.md#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
 | Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) in Application Insights. Multistep web tests have been deprecated.
 
@@ -134,6 +134,8 @@ To be notified if there are significant increases in your spending, you can set 
 To gain more understanding of your usage and costs, create exports using Cost Analysis in Azure Cost Management + Billing. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
 These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
+
+The usage export has both the cost for your usage, and the number of units of usage. Consequently, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). 
 
 For instance, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
@@ -270,7 +272,7 @@ To investigate your Application Insights usage more deeply, open the **Metrics**
 
 ## View data allocation benefits
 
-To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to export your usage details.
+To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to export your usage details as described above.
 
 Open the exported usage spreadsheet and filter the **Instance ID** column to your workspace. (To select all your workspaces in the spreadsheet, filter the **Instance ID** column to **contains /workspaces/**.) Next, filter the **ResourceRate** column to show only rows where this rate is equal to zero. Now you'll see the data allocations from these various sources.
 
@@ -296,5 +298,6 @@ Also, if you move a subscription to the new Azure monitoring pricing model in Ap
 - For details on how to analyze the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected, see [Analyze usage in Log Analytics workspace](logs/analyze-usage.md).
 - To control your costs by setting a daily limit on the amount of data that can be ingested in a workspace, see [Set daily cap on Log Analytics workspace](logs/daily-cap.md).
 - For best practices on how to configure and manage Azure Monitor to minimize your charges, see [Azure Monitor best practices - Cost management](best-practices-cost.md).
+
 
 

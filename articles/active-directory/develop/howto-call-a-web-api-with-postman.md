@@ -33,7 +33,7 @@ This article shows you how to call a protected ASP.NET Core web API using [Postm
 ::: zone pivot="no-api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator
   - Application developer
   - Cloud application administrator
@@ -45,7 +45,7 @@ This article shows you how to call a protected ASP.NET Core web API using [Postm
 ::: zone pivot="api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator
   - Application developer
   - Cloud application administrator
@@ -254,7 +254,7 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
    | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | Token Name       | Provide any name for the token. For example, enter `Bearer`                                                                                                                                                                                    |
    | Grant Type       | Select **Authorization Code**                                                                                                                                                                                                                  |
-   | Callback URL     | Enter `http://localhost`, which sets the Callback URL to the Redirect URI registered with Azure AD. DO NOT check the **Authorize using browser** checkbox.                                                                               |
+   | Callback URL     | Enter `http://localhost`, which sets the Callback URL to the Redirect URI registered with Microsoft Entra ID. DO NOT check the **Authorize using browser** checkbox.                                                                               |
    | Auth URL         | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize` <br/> Replace `{tenantId}` with the **Directory (tenant) ID**                                                                                                             |
    | Access Token URL | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` <br/> Replace `{tenantId}` with the **Directory (tenant) ID**                                                                                                                 |
    | Client ID        | The **Application (client) ID** value of your web app registration                                                                                                                                                                             |

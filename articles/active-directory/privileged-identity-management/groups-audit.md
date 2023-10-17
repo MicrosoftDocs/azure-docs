@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Audit activity history for group assignments in Privileged Identity Management
 
-When working with your organization's groups in Privileged Identity Management (PIM), you can view activity, activations, and audit history for Entra ID (Azure AD) group membership or ownership changes. 
+When working with your organization's groups in Privileged Identity Management (PIM), you can view activity, activations, and audit history for Microsoft Entra group membership or ownership changes. 
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.

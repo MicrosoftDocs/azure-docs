@@ -1,6 +1,6 @@
 ---
-title: Problem installing the Azure Active Directory Application Proxy Agent Connector
-description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
+title: Problem installing the Microsoft Entra application proxy Agent Connector
+description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -15,13 +15,13 @@ ms.reviewer: ashishj
 
 # Problem installing the Application Proxy Agent Connector
 
-Microsoft Azure Active Directory Application Proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
+Microsoft Entra application proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
 
 ## General Problem Areas with Connector installation
 
 When the installation of a connector fails, the root cause is usually one of the following areas. **As a precursor to any troubleshooting, be sure to reboot the connector.**
 
-1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the Azure Active Directory Application Proxy cloud service.
+1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the Microsoft Entra application proxy cloud service.
 
 2.  **Trust Establishment** – the new connector creates a self-signed cert and registers to the cloud service.
 
@@ -96,7 +96,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](./application-proxy-register-connector-powershell.md)
+To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Microsoft Entra application proxy connector](./application-proxy-register-connector-powershell.md)
 
 ## Verify admin is used to install the connector
 
@@ -104,9 +104,9 @@ To learn more about the Register-AppProxyConnector command, please see [Create a
 
 **To verify the credentials are correct:**
 
-Connect to `https://login.microsoftonline.com` and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
+Connect to `https://login.microsoftonline.com` and use the same credentials. Make sure the login is successful. You can check the user role by going to **Microsoft Entra ID** -&gt; **Users and Groups** -&gt; **All Users**. 
 
 Select your user account, then "Directory Role" in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)

@@ -17,10 +17,10 @@ ms.reviewer: nickludwig, jelledruyts, paulgarn
 
 To enable single sign-on (SSO) in applications that use SAML tokens issued by Active Directory Federation Services (AD FS) and also require access to Microsoft Graph, follow the steps in this article.
 
-You'll enable the SAML bearer assertion flow to exchange a SAMLv1 token issued by the federated AD FS instance for an OAuth 2.0 access token for Microsoft Graph. When the user's browser is redirected to Azure Active Directory (Azure AD) to authenticate them, the browser picks up the session from the SAML sign-in instead of asking the user to enter their credentials.
+You'll enable the SAML bearer assertion flow to exchange a SAMLv1 token issued by the federated AD FS instance for an OAuth 2.0 access token for Microsoft Graph. When the user's browser is redirected to Microsoft Entra ID to authenticate them, the browser picks up the session from the SAML sign-in instead of asking the user to enter their credentials.
 
 > [!IMPORTANT]
-> This scenario works **only** when AD FS is the federated identity provider that issued the original SAMLv1 token. You **cannot** exchange a SAMLv2 token issued by Azure AD for a Microsoft Graph access token.
+> This scenario works **only** when AD FS is the federated identity provider that issued the original SAMLv1 token. You **cannot** exchange a SAMLv2 token issued by Microsoft Entra ID for a Microsoft Graph access token.
 
 ## Prerequisites
 
@@ -35,11 +35,13 @@ The SAML assertion is posted to the OAuth token endpoint. The endpoint processes
 
 ![OAuth flow](./media/v2-saml-bearer-assertion/1.png)
 
-## Register the application with Azure AD
+<a name='register-the-application-with-azure-ad'></a>
+
+## Register the application with Microsoft Entra ID
 
 Start by registering the application in the [portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 
-1. Sign in to the [app registration page of the portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Microsoft Entra admin center. Otherwise we could have used the registrations in Azure AD).
+1. Sign in to the [app registration page of the portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Microsoft Entra admin center. Otherwise we could have used the registrations in Microsoft Entra ID).
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
     1. **Name** - Enter a meaningful application name that will be displayed to users of the app.
@@ -76,7 +78,7 @@ Fetch an OAuth 2.0 token using the AD FS assertion response.
 1. In the body of the request, replace **client_id**, **client_secret**, and **assertion** (the base64 encoded SAML assertion obtained the previous step):
 
     ![Request body](./media/v2-saml-bearer-assertion/6.png)
-1. Upon successful request, you'll receive an access token from Azure active directory.
+1. Upon successful request, you'll receive an access token from Microsoft Entra ID.
 
 ## Get the data with the OAuth 2.0 token
 

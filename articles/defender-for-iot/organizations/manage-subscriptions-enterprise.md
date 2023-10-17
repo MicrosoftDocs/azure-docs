@@ -40,7 +40,8 @@ Before performing the procedures in this article, make sure that you have:
 
 - The following user roles:
 
-    - **In Azure Active Directory**:
+    - **In Microsoft Entra ID**: [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant
+
     - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
 
 ## Obtain a trial license
@@ -141,3 +142,7 @@ For more information, see:
 
 - [Securing IoT devices in the enterprise](concept-enterprise.md)
 - [Defender for IoT subscription billing](billing.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
+- [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
+-

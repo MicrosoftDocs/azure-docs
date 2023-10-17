@@ -20,7 +20,7 @@ After you've constructed a confidential client application, you can acquire a to
 
 ## Scopes to request
 
-The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
+The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Microsoft Entra ID to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
 
 # [.NET](#tab/idweb)
 
@@ -79,7 +79,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 The scope used for client credentials should always be the resource ID followed by `/.default`.
 
 > [!IMPORTANT]
-> When MSAL requests an access token for a resource that accepts a version 1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
+> When MSAL requests an access token for a resource that accepts a version 1.0 access token, Microsoft Entra ID parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
 > So if, like Azure SQL Database (`https://database.windows.net`), the resource expects an audience that ends with a slash (for Azure SQL Database, `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default`. (Note the double slash.) See also MSAL.NET issue [#747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## AcquireTokenForClient API
@@ -266,8 +266,9 @@ If you get an error message telling you that you used an invalid scope, you prob
 
 ### Did you forget to provide admin consent? Daemon apps need it!
 
-If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
-You'll typically see an error that looks like this error:
+If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. For guidance on how to grant admin consent for your application, see step 4 in [Quickstart: Acquire a token and call Microsoft Graph in a .NET Core console app](quickstart-console-app-netcore-acquire-token.md#step-4-admin-consent). 
+
+If you don't grant admin consent to your application, you'll run into the following error:
 
 ```json
 Failed to call the web API: Forbidden

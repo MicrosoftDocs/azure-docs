@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health with AD FS risky IP report workbook
-description: Describes the Azure AD Connect Health AD FS risky IP report with Azure Monitor Workbooks.
+title: Microsoft Entra Connect Health with AD FS risky IP report workbook
+description: Describes the Microsoft Entra Connect Health AD FS risky IP report with Azure Monitor Workbooks.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: 
@@ -20,11 +20,11 @@ ms.collection:
 
 # Risky IP report workbook 
 > [!NOTE]
-> To use the Risky IP report workbook , you must enable ‘ADFSSignInLogs’ in the Diagnostic Settings blade. This is a Log Analytics stream with AD FS Sign-Ins sent to Azure AD through Connect Health. To learn more about AD FS Sign-Ins in Azure AD, view our documentation here.
+> To use the Risky IP report workbook , you must enable ‘ADFSSignInLogs’ in the Diagnostic Settings blade. This is a Log Analytics stream with AD FS Sign-Ins sent to Microsoft Entra ID through Connect Health. To learn more about AD FS Sign-Ins in Microsoft Entra ID, view our documentation here.
 
 AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. In this case, it's possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you're on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 
-Additionally, it's possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators. The following are the key benefits for this report: 
+Additionally, it's possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Microsoft Entra Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
 - Supports failed logins due to bad password or due to extranet lockout state
 - Supports enabling alerts through Azure Alerts
@@ -35,9 +35,9 @@ Additionally, it's possible for a single IP address to attempt multiple logins a
 ## Requirements
 1. Connect Health for AD FS installed and updated to the latest agent.
 2. A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
-3. Permissions to use the Azure AD Monitor Workbooks. To use Workbooks, you need:
-- An Azure Active Directory tenant with a premium (P1 or P2) license.
-- Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through [Microsoft Entra admin center](https://entra.microsoft.com)): Security administrator, Security reader, Reports reader, Global administrator
+3. Permissions to use the Microsoft Entra ID Monitor Workbooks. To use Workbooks, you need:
+- A Microsoft Entra tenant with a Microsoft Entra ID P1 or P2 license.
+- Access to a Log Analytics Workspace and the following roles in Microsoft Entra ID (if accessing Log Analytics through [Microsoft Entra admin center](https://entra.microsoft.com)): Security administrator, Security reader, Reports reader, Global administrator
 
 
 ## What is in the report?
@@ -72,7 +72,7 @@ Filter the report by IP address or user name to see an expanded view of sign-ins
 
 To access the workbook:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > ***Monitoring and health** > **Workbooks**. 
 3. Select the Risky IP report workbook. 
 
@@ -133,5 +133,5 @@ You should add identified malicious IP address to the firewall or block in Excha
 - Audits isn't enabled in AD FS farms.
 
 ## Next steps
-* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
+* [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+* [Microsoft Entra Connect Health Agent Installation](how-to-connect-health-agent-install.md)

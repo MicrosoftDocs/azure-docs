@@ -20,7 +20,7 @@ ms.author: barclayn
 
 The Microsoft Entra Verified ID Admin API enables you to manage all aspects of the Verifiable Credential service. It offers a way to set up a brand new service, manage and create Verifiable Credential contracts, revoke Verifiable Credentials and completely opt out the service as well.
 
-> The API is intended for developers comfortable with RESTful APIs and enough permissions on the Azure Active Directory tenant to enable the service
+> The API is intended for developers comfortable with RESTful APIs and enough permissions on the Microsoft Entra tenant to enable the service
 
 ## Base URL
 
@@ -28,7 +28,7 @@ The Admin API is server over HTTPS. All URLs referenced in the documentation hav
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The access token can be for a user or for an application.
+The API is protected through Microsoft Entra ID and uses OAuth2 bearer tokens. The access token can be for a user or for an application.
 
 ### User bearer tokens
 
@@ -1359,4 +1359,4 @@ OK
 ## Next steps
 
 - [Specify the request service REST API issuance request](issuance-request-api.md)
-- [Entra Verified ID Network API](issuance-request-api.md)
+- [Microsoft Entra Verified ID Network API](issuance-request-api.md)

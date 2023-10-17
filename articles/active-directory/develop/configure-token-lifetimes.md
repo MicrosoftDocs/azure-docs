@@ -78,4 +78,4 @@ GET https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies/4d2f137b-e8a
 ```
 
 ## Next steps
-Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access.
+Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Microsoft Entra Conditional Access.

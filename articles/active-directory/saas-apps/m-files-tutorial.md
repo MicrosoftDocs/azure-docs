@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with M-Files'
-description: Learn how to configure single sign-on between Azure Active Directory and M-Files.
+title: 'Tutorial: Microsoft Entra integration with M-Files'
+description: Learn how to configure single sign-on between Microsoft Entra ID and M-Files.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with M-Files
+# Tutorial: Microsoft Entra integration with M-Files
 
-In this tutorial, you'll learn how to integrate M-Files with Azure Active Directory (Azure AD). When you integrate M-Files with Azure AD, you can:
+In this tutorial, you'll learn how to integrate M-Files with Microsoft Entra ID. When you integrate M-Files with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to M-Files.
-* Enable your users to be automatically signed-in to M-Files with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to M-Files.
+* Enable your users to be automatically signed-in to M-Files with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * M-Files single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * M-Files supports **SP** initiated SSO.
 
 ## Add M-Files from the gallery
 
-To configure the integration of M-Files into Azure AD, you need to add M-Files from the gallery to your list of managed SaaS apps.
+To configure the integration of M-Files into Microsoft Entra ID, you need to add M-Files from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of M-Files into Azure AD, you need to add M-Files f
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for M-Files
+<a name='configure-and-test-azure-ad-sso-for-m-files'></a>
 
-Configure and test Azure AD SSO with M-Files using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in M-Files.
+## Configure and test Microsoft Entra SSO for M-Files
 
-To configure and test Azure AD SSO with M-Files, perform the following steps:
+Configure and test Microsoft Entra SSO with M-Files using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in M-Files.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with M-Files, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure M-Files SSO](#configure-m-files-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create M-Files test user](#create-m-files-test-user)** - to have a counterpart of B.Simon in M-Files that is linked to the Azure AD representation of user.
+    1. **[Create M-Files test user](#create-m-files-test-user)** - to have a counterpart of B.Simon in M-Files that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **M-Files** > **Single sign-on**.
@@ -87,7 +91,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user 
 
 In this section, you'll create a test user called B.Simon.
 
@@ -101,7 +107,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to M-Files.
 
@@ -120,7 +128,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
     >[!NOTE]
     >Follow the next steps if you want to configure SSO for you M-File desktop application. No extra steps are required if you only want to configure SSO for M-Files web version.  
 
-1. Follow the next steps to configure the M-File desktop application to enable SSO with Azure AD. To download M-Files, go to [M-Files download](https://www.m-files.com/customers/product-downloads/download-update-links/) page.
+1. Follow the next steps to configure the M-File desktop application to enable SSO with Microsoft Entra ID. To download M-Files, go to [M-Files download](https://www.m-files.com/customers/product-downloads/download-update-links/) page.
 
 1. Open the **M-Files Desktop Settings** window. Then, click **Add**.
    
@@ -138,7 +146,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     c. For **Protocol**, select **HTTPS**. 
 
-    d. In the **Authentication** field, select **Specific Windows user**. Then, you are prompted with a signing page. Insert your Azure AD credentials. 
+    d. In the **Authentication** field, select **Specific Windows user**. Then, you are prompted with a signing page. Insert your Microsoft Entra credentials. 
 
     e. For the **Vault on Server**,  select the corresponding vault on server.
  
@@ -150,7 +158,7 @@ The objective of this section is to create a user called Britta Simon in M-Files
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to M-Files Sign-on URL where you can initiate the login flow. 
 

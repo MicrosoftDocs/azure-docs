@@ -1,7 +1,7 @@
 ---
 description: This article covers troubleshooting Cloud Shell common scenarios.
 ms.contributor: jahelmic
-ms.date: 05/03/2023
+ms.date: 09/29/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -60,7 +60,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Details**: When using a Microsoft Entra subscription, you can't create storage.
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
   ID subscriptions aren't able to create Azure resources.
 
@@ -123,10 +123,10 @@ Azure Cloud Shell has the following known limitations:
 
 ### Quota limitations
 
-Azure Cloud Shell has a limit of 20 concurrent users per tenant per region. Opening more than 20
-simultaneous sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to
-have more than 20 sessions open, such as for training sessions, contact Support to request a quota
-increase before your anticipated usage.
+Azure Cloud Shell has a limit of 20 concurrent users per tenant. Opening more than 20 simultaneous
+sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to have more than
+20 sessions open, such as for training sessions, contact Support to request a quota increase before
+your anticipated usage.
 
 Cloud Shell is provided as a free service for managing your Azure environment. It's not as a general
 purpose computing platform. Excessive automated usage may be considered in breach to the Azure Terms
@@ -141,8 +141,6 @@ considerations include:
 
 - With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash,
   your `$HOME` directory is also persisted.
-- Azure fileshares can be mounted only from within your [assigned region][05].
-  - In Bash, run `env` to find your region set as `ACC_LOCATION`.
 - Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ### Browser support
@@ -290,5 +288,4 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 
 <!-- link references -->
 [04]: https://docs.docker.com/desktop/
-[05]: persisting-shell-storage.md#mount-a-new-clouddrive
 [06]: /powershell/microsoftgraph/migration-steps

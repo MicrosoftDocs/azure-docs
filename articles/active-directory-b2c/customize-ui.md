@@ -56,7 +56,7 @@ Example of the Classic template rendered on sign up sign in page:
 
 ### Company branding
 
-You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
+You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Microsoft Entra ID [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
 
 The following example shows a *Sign up and sign in* page with a custom logo, background image, using Ocean Blue template:
 
@@ -190,7 +190,7 @@ Classic:
 
 ## Configure company branding
 
-To customize your user flow pages, you first configure company branding in Azure Active Directory, then you enable it in your user flows in Azure AD B2C.
+To customize your user flow pages, you first configure company branding in Microsoft Entra ID, then you enable it in your user flows in Azure AD B2C.
 
 Start by setting the banner logo, background image, and background color within **Company branding**.
 
@@ -199,7 +199,7 @@ Start by setting the banner logo, background image, and background color within 
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Company branding**.
-1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/how-to-customize-branding.md).
+1. Follow the steps in [Add branding to your organization's Microsoft Entra sign-in page](../active-directory/fundamentals/how-to-customize-branding.md).
 
 Keep these things in mind when you configure company branding in Azure AD B2C:
 
@@ -231,7 +231,7 @@ If you'd like to brand all pages in the user flow, set the page layout version f
 
 ## Enable company branding in custom policy pages
 
-Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
+Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: *urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version*. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 
 The following example shows the content definitions with their corresponding the page contract, and *Ocean Blue* page template: 
 

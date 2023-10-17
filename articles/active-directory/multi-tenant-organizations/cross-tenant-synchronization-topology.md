@@ -1,6 +1,6 @@
 ---
 title: Topologies for cross-tenant synchronization
-description: Learn about topologies for cross-tenant synchronization in Azure Active Directory.
+description: Learn about topologies for cross-tenant synchronization in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Topologies for cross-tenant synchronization
 
-Cross-tenant synchronization provides a flexible solution to enable collaboration, but every organization is different. Each cross-tenant synchronization configuration provides one-way synchronization between two Azure AD tenants, which enables configuration of the following topologies.
+Cross-tenant synchronization provides a flexible solution to enable collaboration, but every organization is different. Each cross-tenant synchronization configuration provides one-way synchronization between two Microsoft Entra tenants, which enables configuration of the following topologies.
 
 ## Single source with a single target
 

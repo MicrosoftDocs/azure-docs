@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/24/2023
 
 ms.author: justinha
 author: justinha
@@ -38,7 +38,7 @@ If you aren't using SSPR and aren't yet using the Authentication methods policy,
 
 ### Review the legacy MFA policy
 
-Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Microsoft Entra ID** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
+Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Identity** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-mfa-policy.png" alt-text="Screenshot the shows the legacy Microsoft Entra multifactor authentication policy." lightbox="media/how-to-authentication-methods-manage/legacy-mfa-policy.png":::
 
@@ -53,7 +53,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 ### Review the legacy SSPR policy
 
-To get the authentication methods available in the legacy SSPR policy, go to **Microsoft Entra ID** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
+To get the authentication methods available in the legacy SSPR policy, go to **Identity** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-sspr-policy.png" alt-text="Screenshot that shows the legacy Microsoft Entra SSPR policy." lightbox="media/how-to-authentication-methods-manage/legacy-sspr-policy.png":::
 
@@ -89,7 +89,7 @@ After you capture available authentication methods from the policies you're curr
 
 You'll want to set this option before you make any changes as it will apply your new policy to both sign-in and password reset scenarios.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
+:::image type="content" border="true" source="./media/Concept-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, the update is straightforward - you can enable each method for all users and precisely match your existing policy. 
 

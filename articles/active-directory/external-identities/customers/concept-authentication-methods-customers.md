@@ -15,7 +15,7 @@ ms.custom: it-pro
 
 # Authentication methods and identity providers for customers
 
-Azure Active Directory (Azure AD) for customers offers several options for authenticating users of your applications. You can let customers create an account in your customer directory using their email and either a password or an email one-time passcode. You can also enable sign-in with a social account.
+Microsoft Entra ID for customers offers several options for authenticating users of your applications. You can let customers create an account in your customer directory using their email and either a password or an email one-time passcode. You can also enable sign-in with a social account.
 
 ## Email and password sign-in
 
@@ -54,7 +54,7 @@ When you enable social identity providers, customers can select from the social 
 
 ### Google sign-in
 
-By setting up federation with Google, you can allow customers to sign in to your applications with their own Gmail accounts. After you've added Google as one of your application's sign-in options, on the sign-in page, users can sign in to Azure AD for customers with a Google account.
+By setting up federation with Google, you can allow customers to sign in to your applications with their own Gmail accounts. After you've added Google as one of your application's sign-in options, on the sign-in page, users can sign in to Microsoft Entra ID for customers with a Google account.
 
 The following screenshots show the sign-in with Google experience. In the sign-in page, users select **Sign-in with Google**. At that point, the user is redirected to the Google identity provider to complete the sign-in.
 
@@ -63,7 +63,7 @@ The following screenshots show the sign-in with Google experience. In the sign-i
 Learn how to [add Google as an identity provider](how-to-google-federation-customers.md).
 ### Facebook sign-in
 
-By setting up federation with Facebook, you can allow invited users to sign in to your applications with their own Facebook accounts. After you've added Facebook as one of your application's sign-in options, on the sign-in page, users can sign-in to Azure AD for customers with a Facebook account.
+By setting up federation with Facebook, you can allow invited users to sign in to your applications with their own Facebook accounts. After you've added Facebook as one of your application's sign-in options, on the sign-in page, users can sign-in to Microsoft Entra ID for customers with a Facebook account.
 
 The following screenshots show the sign-in with Facebook experience. In the sign-in page, users select **Sign-in with Facebook**. Then the user is redirected to the Facebook identity provider to complete the sign-in.
 

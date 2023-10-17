@@ -45,7 +45,7 @@ To edit the name identifier value claim:
 
 If the SAML request contains the element `NameIDPolicy` with a specific format, then the Microsoft identity platform honors the format in the request.
 
-If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the `nameID`.
+If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Microsoft Entra ID sends a persistent pairwise identifier in the `nameID`.
 
 From the **Choose name identifier format** dropdown, select one of the options in the following table.
 
@@ -69,11 +69,11 @@ Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can 
 |------|-------------|
 | `Email` | The email address of the user. |
 | `userprincipalName` | The user principal name (UPN) of the user. |
-| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
-| `objectid` | The object ID of the user in Azure AD. |
+| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Microsoft Entra ID. |
+| `objectid` | The object ID of the user in Microsoft Entra ID. |
 | `employeeid` | The employee ID of the user. |
-| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). |
-| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). |
+| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Microsoft Entra schema. |
 | `pairwiseid` | The persistent form of user identifier. |
 
 For more information about identifier values, see the table that lists the valid ID values per source later in this page.
@@ -226,9 +226,9 @@ The user type can be:
 
 * **Any** - All users are allowed to access the application.
 * **Members**: Native member of the tenant
-* **All guests**: User is brought over from an external organization with or without Azure AD.
-* **AAD guests**: Guest user belongs to another organization using Azure AD.
-* **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
+* **All guests**: User is brought over from an external organization with or without Microsoft Entra ID.
+* **Microsoft Entra guests**: Guest user belongs to another organization using Microsoft Entra ID.
+* **External guests**: Guest user belongs to an external organization that doesn't have Microsoft Entra ID.
 
 One scenario where the user type is helpful is when the source of a claim is different for a guest and an employee accessing an application. You can specify that if the user is an employee, the NameID is sourced from user.email. If the user is a guest, then the NameID is sourced from user.extensionattribute1.
 
@@ -239,13 +239,13 @@ To add a claim condition:
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
 1. Select the **Source** where the claim is going to retrieve its value. You can either select a user attribute from the dropdown for the source attribute or apply a transformation to the user attribute. You can also select a directory schema extension (preview) before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
+The order in which you add the conditions are important. Microsoft Entra first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
-For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
+For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Microsoft Entra ID. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
-First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
+First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **Microsoft Entra guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-As another example, consider when Britta Simon tries to sign in and the following configuration is used. All conditions are first evaluated with the source of `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, the transformations are evaluated. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
+As another example, consider when Britta Simon tries to sign in and the following configuration is used. All conditions are first evaluated with the source of `Attribute`. Because Britta's user type is **Microsoft Entra guests**, `user.mail` is assigned as the source for the claim. Next, the transformations are evaluated. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **Microsoft Entra guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
@@ -261,8 +261,8 @@ The following table lists other advanced options that can be configured for an a
 |--------|-------------|
 | Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |
 | Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
-| Include attribute name format | If selected, Azure Active Directory adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
+| Include attribute name format | If selected, Microsoft Entra ID adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
 
 ## Next steps
 
-* [Configure single sign-on for applications that aren't in the Azure AD application gallery](./single-sign-on-saml-protocol.md)
+* [Configure single sign-on for applications that aren't in the Microsoft Entra application gallery](./single-sign-on-saml-protocol.md)

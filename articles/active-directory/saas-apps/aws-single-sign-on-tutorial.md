@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with AWS IAM Identity Center (successor to AWS Single Sign-On)'
-description: Learn how to configure single sign-on between Azure Active Directory and AWS IAM Identity Center (successor to AWS Single Sign-On).
+title: 'Tutorial: Microsoft Entra SSO integration with AWS IAM Identity Center (successor to AWS Single Sign-On)'
+description: Learn how to configure single sign-on between Microsoft Entra ID and AWS IAM Identity Center (successor to AWS Single Sign-On).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with AWS IAM Identity Center
+# Tutorial: Microsoft Entra SSO integration with AWS IAM Identity Center
 
-In this tutorial, you'll learn how to integrate AWS IAM Identity Center (successor to AWS Single Sign-On) with Azure Active Directory (Azure AD). When you integrate AWS IAM Identity Center with Azure AD, you can:
+In this tutorial, you'll learn how to integrate AWS IAM Identity Center (successor to AWS Single Sign-On) with Microsoft Entra ID. When you integrate AWS IAM Identity Center with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to AWS IAM Identity Center.
-* Enable your users to be automatically signed-in to AWS IAM Identity Center with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to AWS IAM Identity Center.
+* Enable your users to be automatically signed-in to AWS IAM Identity Center with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * AWS IAM Identity Center enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * AWS IAM Identity Center supports **SP and IDP** initiated SSO.
 
@@ -39,7 +39,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add AWS IAM Identity Center from the gallery
 
-To configure the integration of AWS IAM Identity Center into Azure AD, you need to add AWS IAM Identity Center from the gallery to your list of managed SaaS apps.
+To configure the integration of AWS IAM Identity Center into Microsoft Entra ID, you need to add AWS IAM Identity Center from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of AWS IAM Identity Center into Azure AD, you need 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for AWS IAM Identity Center
+<a name='configure-and-test-azure-ad-sso-for-aws-iam-identity-center'></a>
 
-Configure and test Azure AD SSO with AWS IAM Identity Center using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in AWS IAM Identity Center.
+## Configure and test Microsoft Entra SSO for AWS IAM Identity Center
 
-To configure and test Azure AD SSO with AWS IAM Identity Center, perform the following steps:
+Configure and test Microsoft Entra SSO with AWS IAM Identity Center using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in AWS IAM Identity Center.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with AWS IAM Identity Center, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure AWS IAM Identity Center SSO](#configure-aws-iam-identity-center-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create AWS IAM Identity Center test user](#create-aws-iam-identity-center-test-user)** - to have a counterpart of B.Simon in AWS IAM Identity Center that is linked to the Azure AD representation of user.
+    1. **[Create AWS IAM Identity Center test user](#create-aws-iam-identity-center-test-user)** - to have a counterpart of B.Simon in AWS IAM Identity Center that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AWS IAM Identity Center** > **Single sign-on**.
@@ -86,7 +90,7 @@ Follow these steps to enable Azure AD SSO.
 	> If the **Identifier** and **Reply URL** values are not getting auto populated, then fill in the values manually according to your requirement.
 
     > [!Note]
-    > When changing identity provider in AWS (i.e. from AD to external provider such as Azure AD) the AWS metadata will change and need to be reuploaded to Azure for SSO to function correctly.
+    > When changing identity provider in AWS (i.e. from AD to external provider such as Microsoft Entra ID) the AWS metadata will change and need to be reuploaded to Azure for SSO to function correctly.
 
 1. If you don't have **Service Provider metadata file**, perform the following steps on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -119,7 +123,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -133,7 +139,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to AWS IAM Identity Center.
 
@@ -207,7 +215,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
     g. Choose **Next**, and then **Next** again.
 
     > [!NOTE]
-    > Make sure the username entered in AWS IAM Identity Center  matches the user’s Azure AD sign-in name. This will you help avoid any authentication problems.
+    > Make sure the username entered in AWS IAM Identity Center  matches the user’s Microsoft Entra sign-in name. This will you help avoid any authentication problems.
 
 5. Choose **Add user**.
 6. Next, you will assign the user to your AWS account. To do so, in the left navigation pane of the
@@ -230,7 +238,7 @@ about permission sets, see the **AWS IAM Identity Center Multi Account Permissio
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

@@ -14,7 +14,7 @@ ms.author: jfields
 # View personal and organization information
 
 The **Account settings** dashboard in Permissions Management allows you to view personal information, passwords, and account preferences.
-This information can't be modified because the user information is pulled from Azure AD only **User Session Time(min)**.
+This information can't be modified because the user information is pulled from Microsoft Entra-only **User Session Time(min)**.
 
 ## View personal information
 

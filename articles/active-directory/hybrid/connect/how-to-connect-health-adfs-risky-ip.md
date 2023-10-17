@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health with the AD FS Risky IP report
-description: This article describes the Azure AD Connect Health AD FS Risky IP report.
+title: Microsoft Entra Connect Health with the AD FS Risky IP report
+description: This article describes the Microsoft Entra Connect Health AD FS Risky IP report.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -25,7 +25,7 @@ It's possible for a bad actor to attempt logins against your AD FS system to gue
 
 Additionally, it's possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user might be under the threshold for account lockout protection in AD FS. 
 
-Azure Active Directory (Azure AD) Connect Health now provides the *Risky IP report*, which detects this condition and notifies administrators. Here are the key benefits of using this report: 
+Microsoft Entra Connect Health now provides the *Risky IP report*, which detects this condition and notifies administrators. Here are the key benefits of using this report: 
 
 - Detects IP addresses that exceed a threshold of failed password-based logins
 - Supports failed logins resulting from bad password or extranet lockout state
@@ -95,7 +95,7 @@ You can update the alerting threshold in **Threshold Settings**. The system thre
 
 The risk IP report threshold settings are separated into four categories.
 
-![Screenshot of the Azure AD Connect Health Portal that shows the four categories of threshold settings and their default values.](./media/how-to-connect-health-adfs/report4d.png)
+![Screenshot of the Microsoft Entra Connect Health Portal that shows the four categories of threshold settings and their default values.](./media/how-to-connect-health-adfs/report4d.png)
 
 | Threshold setting | Description |
 | --- | --- |
@@ -136,5 +136,5 @@ You should add the identified malicious IP address to the firewall or block it i
 You need to have Global Administrator or [Security Reader](../../roles/permissions-reference.md#security-reader) permissions. Contact your Global Administrator for access.
 
 ## Next steps
-* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md)
+* [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+* [Microsoft Entra Connect Health agent installation](how-to-connect-health-agent-install.md)

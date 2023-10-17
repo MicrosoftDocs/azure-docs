@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)'
-description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (V5.2).
+title: 'Tutorial: Microsoft Entra SSO integration with JIRA SAML SSO by Microsoft (V5.2)'
+description: Learn how to configure single sign-on between Microsoft Entra ID and JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
 author: dhivyagana
 manager: CelesteDG
@@ -12,27 +12,27 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: dhivyag
 ---
-# Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)
+# Tutorial: Microsoft Entra SSO integration with JIRA SAML SSO by Microsoft (V5.2)
 
-In this tutorial, you'll learn how to integrate JIRA SAML SSO by Microsoft (V5.2) with Azure Active Directory (Azure AD). When you integrate JIRA SAML SSO by Microsoft (V5.2) with Azure AD, you can:
+In this tutorial, you'll learn how to integrate JIRA SAML SSO by Microsoft (V5.2) with Microsoft Entra ID. When you integrate JIRA SAML SSO by Microsoft (V5.2) with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to JIRA SAML SSO by Microsoft (V5.2).
-* Enable your users to be automatically signed-in to JIRA SAML SSO by Microsoft (V5.2) with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to JIRA SAML SSO by Microsoft (V5.2).
+* Enable your users to be automatically signed-in to JIRA SAML SSO by Microsoft (V5.2) with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Description
 
-Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to sign in into the JIRA application. This plugin uses SAML 2.0 for federation.
+Use your Microsoft Entra account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Microsoft Entra credentials to sign in into the JIRA application. This plugin uses SAML 2.0 for federation.
 
 ## Prerequisites
 
-To configure Azure AD integration with JIRA SAML SSO by Microsoft (V5.2), you need the following items:
+To configure Microsoft Entra integration with JIRA SAML SSO by Microsoft (V5.2), you need the following items:
 
-- An Azure AD subscription.
+- A Microsoft Entra subscription.
 - JIRA Core and Software 5.2 should installed and configured on Windows 64-bit version.
 - JIRA server is HTTPS enabled.
 - Note the supported versions for JIRA Plugin are mentioned in below section.
-- JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD.
+- JIRA server is reachable on internet particularly to Microsoft Entra Login page for authentication and should able to receive the token from Microsoft Entra ID.
 - Admin credentials are set up in JIRA.
 - WebSudo is disabled in JIRA.
 - Test user created in the JIRA server application.
@@ -43,7 +43,7 @@ To configure Azure AD integration with JIRA SAML SSO by Microsoft (V5.2), you ne
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
 ## Supported versions of JIRA
 
@@ -55,13 +55,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * JIRA SAML SSO by Microsoft (V5.2) supports **SP** initiated SSO.
 
 ## Adding JIRA SAML SSO by Microsoft (V5.2) from the gallery
 
-To configure the integration of JIRA SAML SSO by Microsoft (V5.2) into Azure AD, you need to add JIRA SAML SSO by Microsoft (V5.2) from the gallery to your list of managed SaaS apps.
+To configure the integration of JIRA SAML SSO by Microsoft (V5.2) into Microsoft Entra ID, you need to add JIRA SAML SSO by Microsoft (V5.2) from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -70,20 +70,24 @@ To configure the integration of JIRA SAML SSO by Microsoft (V5.2) into Azure AD,
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for JIRA SAML SSO by Microsoft (V5.2)
+<a name='configure-and-test-azure-ad-sso-for-jira-saml-sso-by-microsoft-v52'></a>
 
-In this section, you configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2) based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in JIRA SAML SSO by Microsoft (V5.2).
+## Configure and test Microsoft Entra SSO for JIRA SAML SSO by Microsoft (V5.2)
 
-To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2), perform the following steps:
+In this section, you configure and test Microsoft Entra single sign-on with JIRA SAML SSO by Microsoft (V5.2) based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between a Microsoft Entra user and the related user in JIRA SAML SSO by Microsoft (V5.2).
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra single sign-on with JIRA SAML SSO by Microsoft (V5.2), perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 2. **[Configure JIRA SAML SSO by Microsoft (V5.2) SSO](#configure-jira-saml-sso-by-microsoft-v52-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create JIRA SAML SSO by Microsoft (V5.2) test user](#create-jira-saml-sso-by-microsoft-v52-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft (V5.2) that is linked to the Azure AD representation of user.
+	1. **[Create JIRA SAML SSO by Microsoft (V5.2) test user](#create-jira-saml-sso-by-microsoft-v52-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft (V5.2) that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
+
+### Configure Microsoft Entra SSO
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **JIRA SAML SSO by Microsoft (V5.2)** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -110,7 +114,9 @@ To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -124,7 +130,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to JIRA SAML SSO by Microsoft (V5.2).
 
@@ -154,7 +162,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 5. Once the plugin is installed, it appears in **User Installed** add-ons section. Click **Configure** to configure the new plugin.
 
-	![Screenshot shows the Azure A D SAML Single Sign-on for Jira section with Configure selected.](./media/jira52microsoft-tutorial/configure-plugin.png)
+	![Screenshot shows the Microsoft Entra SAML Single Sign-on for Jira section with Configure selected.](./media/jira52microsoft-tutorial/configure-plugin.png)
 
 6. Perform following steps on configuration page:
 
@@ -176,11 +184,11 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
 
-	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
+	f. If you are using the federated domain (like ADFS etc.) with Microsoft Entra ID, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 
 	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from JIRA. 
+	h. Check **Enable Single Sign out** if you wish to sign out from Microsoft Entra ID when a user signs out from JIRA. 
 
 	i. Click **Save** button to save the settings.
 
@@ -189,7 +197,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ### Create JIRA SAML SSO by Microsoft (V5.2) test user
 
-To enable Azure AD users to sign in to JIRA on-premises server, they must be provisioned into JIRA on-premises server.
+To enable Microsoft Entra users to sign in to JIRA on-premises server, they must be provisioned into JIRA on-premises server.
 
 **To provision a user account, perform the following steps:**
 
@@ -223,7 +231,7 @@ To enable Azure AD users to sign in to JIRA on-premises server, they must be pro
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to JIRA SAML SSO by Microsoft (V5.2) Sign-on URL where you can initiate the login flow. 
 

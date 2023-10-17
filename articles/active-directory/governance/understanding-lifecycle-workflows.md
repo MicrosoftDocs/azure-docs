@@ -27,7 +27,7 @@ The following document provides an overview of a workflow created using Lifecycl
 
 For a full list of supported delegated and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
 
-For delegated scenarios, the admin needs one of the following [Azure AD roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
+For delegated scenarios, the admin needs one of the following [Microsoft Entra roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
 
 - Global administrator
 - Global reader
@@ -116,7 +116,7 @@ The **My Feed** section of the workflow overview contains a quick peek into when
 The **Quick Action** section allows you to quickly take action with your workflow. These quick actions can either be making the workflow do something, or used for history or editing purposes. The following actions you can take are:
 
 - Run on Demand: Allows you to quickly run the workflow on demand. For more information on this process, see: [Run a workflow on-demand](on-demand-workflow.md)
-- Edit tasks: Allows you to add, delete, edit, or reorder tasks within the workflow. For more information on this process, see: [Edit the tasks of a workflow using the MicrosoftEntra admin center](manage-workflow-tasks.md#edit-the-tasks-of-a-workflow-using-the-microsoft-entra-admin-center)
+- Edit tasks: Allows you to add, delete, edit, or reorder tasks within the workflow. For more information on this process, see: [Edit the tasks of a workflow using the Microsoft Entra admin center](manage-workflow-tasks.md#edit-the-tasks-of-a-workflow-using-the-microsoft-entra-admin-center)
 - View Workflow History: Allows you to view the history of the workflow. For more information on the three history perspectives, see: [Lifecycle Workflows history](lifecycle-workflow-history.md)
 
 Actions taken from the overview of a workflow allow you to quickly complete tasks, which can normally be done via the manage section of a workflow.
@@ -141,7 +141,7 @@ The time-based attribute can be either one of two values, which are automaticall
 - createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding
 - employeeLeaveDateTime: If the template is a leaver workflow
 
-The values employeeHireDate and employeeLeaveDateTime must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
+The values employeeHireDate and employeeLeaveDateTime must be set within Microsoft Entra ID for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 180.
 

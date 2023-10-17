@@ -1,6 +1,6 @@
 ---
-title: Provisioning logs in Azure Active Directory
-description: Learn about the details included in the provisioning logs in Azure Active Directory for when users are provisioned by a third party service.
+title: Provisioning logs in Microsoft Entra ID
+description: Learn about the details included in the provisioning logs in Microsoft Entra ID for when users are provisioned by a third party service.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ---
 
-# What are the Azure Active Directory provisioning logs?
+# What are the Microsoft Entra provisioning logs?
 
-Azure Active Directory (Azure AD) integrates with several third party services to provision users into your tenant. If you need to troubleshoot an issue with a provisioned user, you can use the information captured in the Azure AD provisioning logs to help find a solution.
+Microsoft Entra ID integrates with several third party services to provision users into your tenant. If you need to troubleshoot an issue with a provisioned user, you can use the information captured in the Microsoft Entra provisioning logs to help find a solution.
 
 Two other activity logs are also available to help monitor the health of your tenant:
 
@@ -33,6 +33,9 @@ You can use the provisioning logs to find answers to questions like:
 -  What users were successfully removed from Adobe?
 
 -  What users from Workday were successfully created in Active Directory? 
+
+> [!NOTE]
+> Entries in the provisioning logs are system generated and can't be changed or deleted.
 
 ## What do the logs show?
 
@@ -53,4 +56,3 @@ When you select an item in the provisioning list view, you get more details abou
 - **Modified Properties**: If there were changes, this tab shows the old value and the new value.
 
 - **Summary**: Provides an overview of what happened and identifiers for the object in the source and target systems.
-

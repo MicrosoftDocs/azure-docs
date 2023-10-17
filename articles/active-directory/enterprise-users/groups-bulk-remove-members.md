@@ -15,13 +15,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk remove group members in Azure Active Directory
+# Bulk remove group members in Microsoft Entra ID
 
-You can remove a large number of members from a group by using a comma-separated values (CSV) file to remove group members in bulk using the portal for Azure Active Directory (Azure AD), part of Microsoft Entra.
+You can remove a large number of members from a group by using a comma-separated values (CSV) file to remove group members in bulk using the portal for Microsoft Entra ID, part of Microsoft Entra.
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
+Download and fill in the bulk upload CSV template to successfully add Microsoft Entra group members in bulk. Your CSV template might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-remove-members/template-example.png)
 
@@ -45,7 +45,7 @@ The rows in a downloaded CSV template are as follows:
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **Groups** > **All groups**.
 1. Open the group from which you're removing members and then select **Members**.
 1. On the **Members** page, select **Remove members**.

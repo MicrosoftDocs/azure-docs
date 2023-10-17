@@ -1,6 +1,6 @@
 ---
-title: Secure access control using groups in Azure AD
-description: Learn about how groups are used to securely control access to resources in Azure AD.
+title: Secure access control using groups in Microsoft Entra ID
+description: Learn about how groups are used to securely control access to resources in Microsoft Entra ID.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
 ms.reviewer: jodah
-# Customer intent: As a developer, I want to learn how to most securely use Azure AD groups to control access to resources.
+# Customer intent: As a developer, I want to learn how to most securely use Microsoft Entra groups to control access to resources.
 ---
 
-# Secure access control using groups in Azure AD
+# Secure access control using groups in Microsoft Entra ID
 
-Azure Active Directory (Azure AD) allows the use of groups to manage access to resources in an organization. Use groups for access control to manage and minimize access to applications. When groups are used, only members of those groups can access the resource. Using groups also enables the following management features:
+Microsoft Entra ID allows the use of groups to manage access to resources in an organization. Use groups for access control to manage and minimize access to applications. When groups are used, only members of those groups can access the resource. Using groups also enables the following management features:
 
 - Attribute-based dynamic groups
 - External groups synced from on-premises Active Directory
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) allows the use of groups to manage access to r
 
 To learn more about the benefits of groups for access control, see [manage access to an application](../manage-apps/what-is-access-management.md).
 
-While developing an application, authorize access with the groups claim. To learn more, see how to [configure group claims for applications with Azure AD](../hybrid/connect/how-to-connect-fed-group-claims.md).
+While developing an application, authorize access with the groups claim. To learn more, see how to [configure group claims for applications with Microsoft Entra ID](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 Today, many applications select a subset of groups with the `securityEnabled` flag set to `true` to avoid scale challenges, that is, to reduce the number of groups returned in the token. Setting the `securityEnabled` flag to be true for a group doesn't guarantee that the group is securely managed.
 
@@ -42,5 +42,5 @@ The following table presents several security best practices for security groups
 
 ## Next steps
 
-- [Manage app and resource access using Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
-- [Restrict your Azure AD app to a set of users in an Azure AD tenant](./howto-restrict-your-app-to-a-set-of-users.md)
+- [Manage app and resource access using Microsoft Entra groups](../fundamentals/concept-learn-about-groups.md)
+- [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](./howto-restrict-your-app-to-a-set-of-users.md)

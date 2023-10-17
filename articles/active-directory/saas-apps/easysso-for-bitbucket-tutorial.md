@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for BitBucket'
-description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for BitBucket.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with EasySSO for BitBucket'
+description: Learn how to configure single sign-on between Microsoft Entra ID and EasySSO for BitBucket.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,31 +13,31 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for BitBucket
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with EasySSO for BitBucket
 
-In this tutorial, you'll learn how to integrate EasySSO for BitBucket with Azure Active Directory (Azure AD). When you integrate EasySSO for BitBucket with Azure AD, you can:
+In this tutorial, you'll learn how to integrate EasySSO for BitBucket with Microsoft Entra ID. When you integrate EasySSO for BitBucket with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to EasySSO for BitBucket.
-* Enable your users to be automatically signed-in to EasySSO for BitBucket with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to EasySSO for BitBucket.
+* Enable your users to be automatically signed-in to EasySSO for BitBucket with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A subscription to EasySSO for BitBucket that's enabled for single sign-on (SSO).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * EasySSO for BitBucket supports SP-initiated and IdP-initiated SSO.
 * EasySSO for BitBucket supports "just-in-time" user provisioning.
 
 ## Add EasySSO for BitBucket from the gallery
 
-To configure the integration of EasySSO for BitBucket into Azure AD, you need to add EasySSO for BitBucket from the gallery to your list of managed SaaS apps.
+To configure the integration of EasySSO for BitBucket into Microsoft Entra ID, you need to add EasySSO for BitBucket from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -46,22 +46,26 @@ To configure the integration of EasySSO for BitBucket into Azure AD, you need to
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for EasySSO for BitBucket
+<a name='configure-and-test-azure-ad-sso-for-easysso-for-bitbucket'></a>
 
-Configure and test Azure AD SSO with EasySSO for BitBucket by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between an Azure AD user and the related user in EasySSO for BitBucket.
+## Configure and test Microsoft Entra SSO for EasySSO for BitBucket
 
-To configure and test Azure AD SSO with EasySSO for BitBucket, perform the following steps:
+Configure and test Microsoft Entra SSO with EasySSO for BitBucket by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between a Microsoft Entra user and the related user in EasySSO for BitBucket.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
-    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
-    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with EasySSO for BitBucket, perform the following steps:
+
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with B.Simon.
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Microsoft Entra single sign-on.
 1. [Configure EasySSO for BitBucket SSO](#configure-easysso-for-bitbucket-sso) to configure the single sign-on settings on the application side.
-    1. [Create an EasySSO for BitBucket test user](#create-an-easysso-for-bitbucket-test-user) to have a counterpart of B.Simon in EasySSO for BitBucket, linked to the Azure AD representation of user.
+    1. [Create an EasySSO for BitBucket test user](#create-an-easysso-for-bitbucket-test-user) to have a counterpart of B.Simon in EasySSO for BitBucket, linked to the Microsoft Entra representation of user.
 1. [Test SSO](#test-sso) to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **EasySSO for BitBucket** application integration page, find the **Manage** section. Select **single sign-on**.
@@ -100,15 +104,17 @@ Follow these steps to enable Azure AD SSO.
 	| urn:oid:2.5.4.4 | user.surname |
 	| urn:oid:2.5.4.42 | user.givenname |
     
-	If your Azure AD users have **sAMAccountName** configured, you have to map **urn:oid:0.9.2342.19200300.100.1.1** onto the **sAMAccountName** attribute.
+	If your Microsoft Entra users have **sAMAccountName** configured, you have to map **urn:oid:0.9.2342.19200300.100.1.1** onto the **sAMAccountName** attribute.
     
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the download links for the **Certificate (Base64)** or **Federation Metadata XML** options. Save either or both to your computer. You will need it later to configure BitBucket EasySSO.
 
 	![Screenshot of the SAML Signing Certificate section, with download links highlighted](./media/easysso-for-bitbucket-tutorial/certificate.png)
 	
-	If you plan to configure EasySSO for BitBucket manually with a certificate, you also need to copy **Login URL** and **Azure AD Identifier**, and save those on your computer.
+	If you plan to configure EasySSO for BitBucket manually with a certificate, you also need to copy **Login URL** and **Microsoft Entra Identifier**, and save those on your computer.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user, B.Simon,.
 
@@ -122,7 +128,9 @@ In this section, you'll create a test user, B.Simon,.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to EasySSO for BitBucket.
 
@@ -162,11 +170,11 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     - Open the App Federation **Metadata File** to see the content of the file, in any plain-text editor. Copy it onto the clipboard. Select **Input**, and paste the clipboard content into the text field.
  
-    - Do a fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content of the file, in any plain-text editor. Copy it onto the clipboard, and paste it into the **IdP Token Signing Certificates** text field. Then go to the **General** tab, and fill the **POST Binding URL** and **Entity ID** fields with the respective values for **Login URL** and **Azure AD Identifier** that you saved previously.
+    - Do a fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content of the file, in any plain-text editor. Copy it onto the clipboard, and paste it into the **IdP Token Signing Certificates** text field. Then go to the **General** tab, and fill the **POST Binding URL** and **Entity ID** fields with the respective values for **Login URL** and **Microsoft Entra Identifier** that you saved previously.
  
 1. Select **Save** on the bottom of the page. You'll see that the content of the metadata or certificate files is parsed into the configuration fields. EasySSO for BitBucket configuration is complete.
 
-1. To test the configuration, go to the **Look & Feel** tab, and select **SAML Login Button**. This enables a separate button on the BitBucket sign-in screen, specifically to test your Azure AD SAML integration end-to-end. You can leave this button on, and configure its placement, color, and translation for production mode, too.
+1. To test the configuration, go to the **Look & Feel** tab, and select **SAML Login Button**. This enables a separate button on the BitBucket sign-in screen, specifically to test your Microsoft Entra SAML integration end-to-end. You can leave this button on, and configure its placement, color, and translation for production mode, too.
 
     ![Screenshot of SAML page Look & Feel tab, with SAML Login Button highlighted](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-5.png)
     > [!NOTE]
@@ -182,7 +190,7 @@ However, if you don't want to enable automatic user provisioning when the user f
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 #### SP initiated:
 

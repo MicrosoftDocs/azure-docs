@@ -1,5 +1,5 @@
 ---
-title: How-to - Register an app in Azure AD for customers
+title: Register an app in Microsoft Entra ID for customers
 description: Learn about how to register an app in the customer tenant.
 services: active-directory
 author: csmulligan
@@ -17,30 +17,30 @@ ms.custom: it-pro
 ---
 # Register your app in the customer tenant
 
-Azure Active Directory (Azure AD) for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
+Microsoft Entra ID for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
 
-To enable your application to sign in with Azure AD for customers, you need to register your app in the Azure AD for customers. The app registration establishes a trust relationship between the app and Azure AD for customers.
-During app registration, you specify the redirect URI. The redirect URI is the endpoint to which users are redirected by Azure AD for customers after they authenticate. The app registration process generates an application ID, also known as the client ID, that uniquely identifies your app.
+To enable your application to sign in with External ID for customers, you need to register your app with External ID for customers. The app registration establishes a trust relationship between the app and External ID for customers.
+During app registration, you specify the redirect URI. The redirect URI is the endpoint to which users are redirected by External ID for customers after they authenticate. The app registration process generates an application ID, also known as the client ID, that uniquely identifies your app.
 
-Azure AD for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
+External ID for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
 In this article, you learn how to register an application in your customer tenant.
 
 ## Prerequisites
 
 - An Azure account that has an active subscription. <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">Create an account for free</a>.
-- Your Azure AD for customers tenant. If you don't already have one, sign up for a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
+- Your Microsoft Entra ID for customers tenant. If you don't already have one, sign up for a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
 
 ## Choose your app type
 
 # [Single-page app (SPA)](#tab/spa)
 ## Register your Single-page app
 
-Azure AD for customers supports authentication for Single-page apps (SPAs).
+External ID for customers supports authentication for Single-page apps (SPAs).
 
 The following steps show you how to register your SPA in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer).
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
@@ -78,11 +78,11 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 # [Web app](#tab/webapp)
 ## Register your Web app
 
-Azure AD for customers supports authentication for web apps.
+External ID for customers supports authentication for web apps.
 
 The following steps show you how to register your web app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer). 
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
@@ -137,7 +137,7 @@ If your web app needs to call an API, you must grant your web app API permission
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer). 
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 

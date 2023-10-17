@@ -1,6 +1,6 @@
 ---
 
-title: Authentication prompts analysis workbook in Azure AD
+title: Authentication prompts analysis workbook in Microsoft Entra ID
 description: Learn how to use the authentication prompts analysis workbook.
 services: active-directory
 author: shlipsey3
@@ -9,28 +9,24 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 10/03/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar 
-
-ms.collection: M365-identity-device-management
 ---
 
 # Authentication prompts analysis workbook
 
-As an IT Pro, you want the right information about authentication prompts in your environment so that you can detect unexpected prompts and investigate further. Providing you with this type of information is the goal of the **authentication prompts analysis workbook**. 
+As an IT Pro, you want the right information about authentication prompts in your environment so that you can detect unexpected prompts and investigate further. Providing you with this type of information is the goal of the **Authentication Prompts Analysis** workbook. 
 
-This article provides you with an overview of this workbook.
-
+This article provides you with an overview of **Authentication Prompts Analysis** workbook.
 
 ## Description
 
 ![Workbook category](./media/workbook-authentication-prompts-analysis/workbook-category.png)
 
-
 Have you recently heard of complaints from your users about getting too many authentication prompts?
 
-Overprompting users can affect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
+Overprompting users can affect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We aren't talking about if you should require MFA but how frequently you should prompt your users.
 
 Typically, this scenario is caused by:
 
@@ -47,8 +43,10 @@ You can use this workbook in the following scenarios:
 - To view authentication prompt counts of high-profile users.
 - To track legacy TLS and other authentication process details.
 
- 
- 
+## How to access the workbook
+
+[!INCLUDE [how to access workbooks](~/articles/active-directory/includes/how-to-access-workbooks.md)]
+3. Select the **Authentication Prompts Analysis** workbook from the **Usage** section.
 
 ## Sections
 
@@ -63,38 +61,26 @@ This workbook breaks down authentication prompts by:
 - Process detail
 - Policy
 
-
 ![Authentication prompts by authentication method](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-authentication-method.png)
 
-
-
-In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The charts below show authentication prompts by application.
-
-
+In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The following charts show authentication prompts by application.
 
 ![Authentication prompts by application](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-application.png)
 
-The prompts by application list view shows additional information such as timestamps, and request IDs that help with investigations.
+The **prompts by application list view** shows additional information such as timestamps, and request IDs that help with investigations.
 
 Additionally, you get a summary of the average and median prompts count for your tenant. 
 
-
 ![Prompts by application](./media/workbook-authentication-prompts-analysis/prompts-by-authentication-method.png)
 
-
 This workbook also helps track impactful ways to improve your users’ experience and reduce prompts and the relative percentage.  
-
 
 ![Recommendations for reducing prompts](./media/workbook-authentication-prompts-analysis/recommendations-for-reducing-prompts.png)
 
  
-
-
 ## Filters
 
-
 Take advantage of the filters for more granular views of the data: 
-
 
 ![Filter](./media/workbook-authentication-prompts-analysis/filters.png)
 
@@ -102,24 +88,14 @@ Filtering for a specific user that has many authentication requests or only show
 
 ## Best practices
 
+- If data isn't showing up or seems to be showing up incorrectly, confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
 
-If data isn't showing up or seems to be showing up incorrectly, confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
+    ![Set workspace and subscriptions](./media/workbook-authentication-prompts-analysis/workspace-and-subscriptions.png)
 
+- If the visuals are taking too much time to load, try reducing the Time filter to 24 hours or less.
 
-![Set workspace and subscriptions](./media/workbook-authentication-prompts-analysis/workspace-and-subscriptions.png)
+    ![Set filter](./media/workbook-authentication-prompts-analysis/set-filter.png)
 
-If the visuals are taking too much time to load, try reducing the Time filter to 24 hours or less.
-
-![Set filter](./media/workbook-authentication-prompts-analysis/set-filter.png)
-
-
-
-
-## Next steps
-
-- To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
-
-- To learn more about the different vulnerabilities of different MFA methods, see [All your creds belong to us!](https://aka.ms/allyourcreds).
+- To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Microsoft Entra multifactor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
 
 - To learn how to move users from telecom-based methods to the Authenticator app, see [How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app](../authentication/how-to-mfa-registration-campaign.md).
-

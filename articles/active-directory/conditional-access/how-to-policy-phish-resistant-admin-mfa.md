@@ -1,5 +1,5 @@
 ---
-title: Require phishing-resistant multifactor authentication for Azure AD administrator roles
+title: Require phishing-resistant multifactor authentication for Microsoft Entra administrator roles
 description: Create a Conditional Access policy requiring stronger authentication methods for highly privileged roles in your organization.
 
 services: active-directory

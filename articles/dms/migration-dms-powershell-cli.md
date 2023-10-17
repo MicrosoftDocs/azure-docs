@@ -6,8 +6,10 @@ ms.author: roblescarlos
 ms.reviewer: randolph.west
 ms.date: 04/26/2022
 ms.service: dms
-ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate databases at scale using automation (Preview)

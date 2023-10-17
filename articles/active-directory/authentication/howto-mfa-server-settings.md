@@ -59,7 +59,7 @@ Caching is primarily used when on-premises systems, such as VPN, send multiple v
 
 To set up caching, complete the following steps:
 
-1. Browse to **Microsoft Entra ID** > **Security** > **MFA** > **Caching rules**.
+1. Browse to **Protection** > **Multifactor authentication** > **Caching rules**.
 1. Select **Add**.
 1. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
 1. If necessary, select an authentication type and specify an application.

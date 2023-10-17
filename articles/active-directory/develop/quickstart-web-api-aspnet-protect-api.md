@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform
 
-The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how to request an access token to access a web API.
 
@@ -169,7 +169,7 @@ You can allow users from other directories to access your web API by pre-authori
 
 ## Optional: Limit sign-in access to certain users
 
-By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Azure AD can request tokens and access your web API.
+By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Microsoft Entra ID can request tokens and access your web API.
 
 To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 

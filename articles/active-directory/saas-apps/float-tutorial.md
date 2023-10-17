@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Float'
-description: Learn how to configure single sign-on between Azure Active Directory and Float.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Float'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Float.
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -12,24 +12,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Float
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Float
 
-In this tutorial, you'll learn how to integrate Float with Azure Active Directory (Azure AD). When you integrate Float with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Float with Microsoft Entra ID. When you integrate Float with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Float.
-* Enable your users to be automatically signed-in to Float with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Float.
+* Enable your users to be automatically signed-in to Float with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Float subscription. If you don't have a subscription, you can get a [free account](https://app.float.com/join?).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Float supports **SP and IDP** initiated SSO.
 
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Float from the gallery
 
-To configure the integration of Float into Azure AD, you need to add Float from the gallery to your list of managed SaaS apps.
+To configure the integration of Float into Microsoft Entra ID, you need to add Float from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Float into Azure AD, you need to add Float from 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Float
+<a name='configure-and-test-azure-ad-sso-for-float'></a>
 
-Configure and test Azure AD SSO with Float using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Float.
+## Configure and test Microsoft Entra SSO for Float
 
-To configure and test Azure AD SSO with Float, perform the following steps:
+Configure and test Microsoft Entra SSO with Float using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Float.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Float, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Float SSO](#configure-float-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Float test user](#create-float-test-user)** - to have a counterpart of B.Simon in Float that is linked to the Azure AD representation of user.
+    1. **[Create Float test user](#create-float-test-user)** - to have a counterpart of B.Simon in Float that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Float** > **Single sign-on**.
@@ -102,7 +106,9 @@ Follow these steps to enable Azure AD SSO.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -116,7 +122,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Float.
 
@@ -130,7 +138,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Configure Float SSO
 
-To configure single sign-on on **Float** side, visit the Float Team Settings section and select Configure from the Authentication module. Paste the Azure AD Login URL in the SAML 2.0 Endpoint URL field, paste the Azure AD Identifier in the Identity Provider Issuer URL field, paste the full text from the downloaded **Certificate (Base64)** in the X.509 Certificate field, and Save.
+To configure single sign-on on **Float** side, visit the Float Team Settings section and select Configure from the Authentication module. Paste the Microsoft Entra Login URL in the SAML 2.0 Endpoint URL field, paste the Microsoft Entra Identifier in the Identity Provider Issuer URL field, paste the full text from the downloaded **Certificate (Base64)** in the X.509 Certificate field, and Save.
 
 ### Create Float test user
 
@@ -138,7 +146,7 @@ In this section, create a user called Britta Simon in Float. Add the user from t
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

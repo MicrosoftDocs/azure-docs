@@ -112,9 +112,10 @@ The following providers offer FIDO2 security keys of different form factors that
 | Provider | Biometric | USB | NFC | BLE | FIPS Certified |
 |:-|:-:|:-:|:-:|:-:|:-:|
 | [AuthenTrend](https://authentrend.com/about-us/#pg-35-3) | ![y] | ![y]| ![y]| ![y]| ![n] |
-| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [ATOS](https://atos.net/en/solutions/cyber-security/iot-and-ot-security/smart-card-solution-cardos-for-iot) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Ciright](https://www.cyberonecard.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [Composecure](https://www.composecure.com/arculus) | ![n] | ![n]| ![y]| ![n]| ![n] |
 | [Crayonic](https://www.crayonic.com/keyvault) | ![y] | ![n]| ![y]| ![y]| ![n] |
 | [Cryptnox](https://cryptnox.com/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Ensurity](https://www.ensurity.com/contact) | ![y] | ![y]| ![n]| ![n]| ![n] |
@@ -140,6 +141,7 @@ The following providers offer FIDO2 security keys of different form factors that
 | [Precision Biometric](https://www.innait.com/product/fido/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [RSA](https://www.rsa.com/products/securid/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Sentry](https://sentryenterprises.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [SmartDisplayer](https://www.smartdisplayer.com/fido) | ![n] | ![n]| ![y]| ![y]| ![n] |
 | [Swissbit](https://www.swissbit.com/en/products/ishield-key/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Thales Group](https://cpl.thalesgroup.com/access-management/authenticators/fido-devices) | ![n] | ![y]| ![y]| ![n]| ![y] |
 | [Thetis](https://thetis.io/collections/fido2) | ![y] | ![y]| ![y]| ![y]| ![n] |

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JDA Cloud'
-description: Learn how to configure single sign-on between Azure Active Directory and JDA Cloud.
+title: 'Tutorial: Microsoft Entra integration with JDA Cloud'
+description: Learn how to configure single sign-on between Microsoft Entra ID and JDA Cloud.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with JDA Cloud
+# Tutorial: Microsoft Entra integration with JDA Cloud
 
-In this tutorial, you'll learn how to integrate JDA Cloud with Azure Active Directory (Azure AD). When you integrate JDA Cloud with Azure AD, you can:
+In this tutorial, you'll learn how to integrate JDA Cloud with Microsoft Entra ID. When you integrate JDA Cloud with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to JDA Cloud.
-* Enable your users to be automatically signed-in to JDA Cloud with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to JDA Cloud.
+* Enable your users to be automatically signed-in to JDA Cloud with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with JDA Cloud, you need the following items:
+To configure Microsoft Entra integration with JDA Cloud, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * JDA Cloud single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * JDA Cloud supports **SP and IDP** initiated SSO.
 
 ## Add JDA Cloud from the gallery
 
-To configure the integration of JDA Cloud into Azure AD, you need to add JDA Cloud from the gallery to your list of managed SaaS apps.
+To configure the integration of JDA Cloud into Microsoft Entra ID, you need to add JDA Cloud from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of JDA Cloud into Azure AD, you need to add JDA Clo
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for JDA Cloud
+<a name='configure-and-test-azure-ad-sso-for-jda-cloud'></a>
 
-Configure and test Azure AD SSO with JDA Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in JDA Cloud.
+## Configure and test Microsoft Entra SSO for JDA Cloud
 
-To configure and test Azure AD SSO with JDA Cloud, perform the following steps:
+Configure and test Microsoft Entra SSO with JDA Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in JDA Cloud.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with JDA Cloud, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure JDA Cloud SSO](#configure-jda-cloud-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create JDA Cloud test user](#create-jda-cloud-test-user)** - to have a counterpart of B.Simon in JDA Cloud that is linked to the Azure AD representation of user.
+    1. **[Create JDA Cloud test user](#create-jda-cloud-test-user)** - to have a counterpart of B.Simon in JDA Cloud that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **JDA Cloud** > **Single sign-on**.
@@ -82,7 +86,7 @@ Follow these steps to enable Azure AD SSO.
     `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<AZURE_AD_IDENTIFIER>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You will get the **Azure AD Identifier** value from the **Set up JDA Cloud** section. Contact [JDA Cloud Client support team](https://support.jda.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You will get the **Microsoft Entra Identifier** value from the **Set up JDA Cloud** section. Contact [JDA Cloud Client support team](https://support.jda.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -92,7 +96,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -106,7 +112,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to JDA Cloud.
 
@@ -128,7 +136,7 @@ In this section, you create a user called Britta Simon in JDA Cloud. Work with 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

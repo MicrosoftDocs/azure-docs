@@ -1,6 +1,6 @@
 ---
 title: Add company branding to your organization's sign-in page
-description: Instructions about how to add your organization's custom branding to the Azure AD sign-in experience.
+description: Instructions about how to add your organization's custom branding to the Microsoft Entra sign-in experience.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -15,9 +15,9 @@ ms.reviewer: almars
 ---
 # Configure your company branding
 
-When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
+When users authenticate into your corporate intranet or web-based applications, Microsoft Entra ID provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS file.
 
 > [!NOTE]
 > Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
@@ -26,13 +26,13 @@ The default sign-in experience is the global look and feel that applies across a
 
 Adding custom branding requires one of the following licenses:
 
-- Azure AD Premium 1
-- Azure AD Premium 2
+- Microsoft Entra ID P1 or P2
+- Microsoft Entra ID P1 or P2
 - Office 365 (for Office apps)
 
-For more information about licensing and editions, see the [Sign up for Azure AD Premium](./get-started-premium.md) article.
+For more information about licensing and editions, see the [Sign up for Microsoft Entra ID P1 or P2](./get-started-premium.md) article.
 
-Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
+Microsoft Entra ID P1 or P2 editions are available for customers in China using the worldwide instance of Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions aren't currently supported in the Azure service operated by 21Vianet in China.
 
 The **Global Administrator** role is required to customize company branding.
 
@@ -42,7 +42,7 @@ The **Global Administrator** role is required to customize company branding.
 
 **Images have different image and file size requirements.** Take note of the image requirements for each option. You may need to use a photo editor to create the right size images. The preferred image type for all images is PNG, but JPG is accepted. 
 
-**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
+**Use Microsoft Graph with Microsoft Entra company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
 
 The branding elements are called out in the following example. Text descriptions are provided following the image.
 
@@ -70,7 +70,7 @@ There are some scenarios you to consider when you customize the sign-in pages fo
 
 For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
 
-Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to an Azure AD common sign-in page, Azure AD can use the customer's user name to determine where they should sign in. 
+Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to a Microsoft Entra common sign-in page, Microsoft Entra ID can use the customer's user name to determine where they should sign in. 
 
 For customers who access applications from a custom URL, the `whr` query string parameter, or a domain variable, can be used to apply company branding at the initial sign-in screen, not just after adding the email or phone number. For example, `whr=contoso.com` would appear in the custom URL for the app. With the Home Realm Discover and domain parameter included, the company branding appears immediately in the first sign-in step. Other domain hints can be included.
 
@@ -102,7 +102,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 !['Review + create' and 'Next: Layout' buttons from the bottom of the configure custom branding page](media/how-to-customize-branding/customize-branding-buttons.png)
 
-## Basics
+### Basics
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
@@ -112,26 +112,26 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
 
-## Layout
+### Layout
 
-- **Visual Templates**: Customize the layout of your sign-in page using templates or custom CSS.
+- **Visual Templates**: Customize the layout of your sign-in page using templates or a custom CSS file.
 
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
     
     ![Screenshot of the Layout tab.](media/how-to-customize-branding/layout-visual-templates.png)
 
-- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page.
+- **Custom CSS**: Upload a custom CSS file to replace the Microsoft default style of the page.
     - [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
     - View the [CSS template reference guide](reference-company-branding-css-template.md).
 
-## Header
+### Header
 
 If you haven't enabled the header, go to the **Layout** section and select **Show header**. Once enabled, select a PNG or JPG to display in the header of the sign-in page.
 
 ![Screenshot of the message indicating that the header needs to be enabled.](media/how-to-customize-branding/disabled-header-message.png)
 
-## Footer
+### Footer
 
 If you haven't enabled the footer, go to the **Layout** section and select **Show footer**. Once enabled, adjust the following settings.
 
@@ -148,13 +148,13 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
     ![Customize branding on the Footer section](media/how-to-customize-branding/customize-branding-footer.png)
 
-## Sign-in form
+### Sign-in form
 
 - **Banner logo**: Select a PNG or JPG image file of a banner-sized logo (short and wide) to appear on the sign-in pages.
 
-- **Square logo (light theme)**: Select a square PNG or JPG image file of your logo to be used in browsers that are using a light color theme. This logo is used to represent your organization on the Azure AD web interface and in Windows.
+- **Square logo (light theme)**: Select a square PNG or JPG image file of your logo to be used in browsers that are using a light color theme. This logo is used to represent your organization on the Microsoft Entra web interface and in Windows.
 
-- **Square logo (dark theme)** Select a square PNG or JPG image file of your logo to be used in browsers that are using a dark color theme. This logo is used to represent your organization on the Azure AD web interface and in Windows. If your logo looks good on light and dark backgrounds, there's no need to add a dark theme logo.
+- **Square logo (dark theme)** Select a square PNG or JPG image file of your logo to be used in browsers that are using a dark color theme. This logo is used to represent your organization on the Microsoft Entra web interface and in Windows. If your logo looks good on light and dark backgrounds, there's no need to add a dark theme logo.
 
 - **Username hint text**: Enter hint text for the username input field on the sign-in page. If guests use the same sign-in page, we don't recommend using hint text here.
 
@@ -176,13 +176,13 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
     - Username collection display text: Replace the default text with your own custom username collection text.
     - Password collection display text: Replace the default text with your own customer password collection text.
 
-## Review
+### Review
 
 All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, select the **Create** button. 
 
 Once your default sign-in experience is created, select the **Edit** button to make any changes. You can't delete a default sign-in experience after it's created, but you can remove all custom settings.
 
-## Customize the sign-in experience by browser language
+### Customize the sign-in experience by browser language
 
 You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
@@ -194,12 +194,12 @@ You can create a personalized sign-in experience for users who sign in using a s
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
-Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the user's browser settings.
+Microsoft Entra ID supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the user's browser settings.
 
 ![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/right-to-left-language-example.png)
 
 ## Next steps
 
-- [View the CSS template reference guide](reference-company-branding-css-template.md).
-- [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
+- [View the CSS template reference guide](reference-company-branding-css-template.md)
+- [Learn more about default user permissions in Microsoft Entra ID](../fundamentals/users-default-permissions.md)
 - [Manage the 'stay signed in' prompt](how-to-manage-stay-signed-in-prompt.md)

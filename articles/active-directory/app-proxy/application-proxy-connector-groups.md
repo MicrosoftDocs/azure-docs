@@ -1,6 +1,6 @@
 ---
 title: Publish apps on separate networks via connector groups
-description: Covers how to create and manage groups of connectors in Azure Active Directory Application Proxy.
+description: Covers how to create and manage groups of connectors in Microsoft Entra application proxy.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.reviewer: ashishj
 
 # Publish applications on separate networks and locations using connector groups
 
-Customers utilize Azure AD's Application Proxy for more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment.
+Customers utilize Microsoft Entra application proxy for more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment.
 
 Each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate unit for high-availability and load balancing. All connectors belong to a connector group. If you don't create groups, then all your connectors are in a default group. Your admin can create new groups and assign connectors to them in the Microsoft Entra admin center.
 
@@ -68,28 +68,28 @@ For applications installed on IaaS for cloud access, connector groups provide a 
 
 Take as an example an organization that has several virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure to route access, as you can see in the diagram below:
 
-![Diagram that illustrates the Azure AD IaaS network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagram that illustrates the Microsoft Entra IaaS network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
-With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
+With Microsoft Entra application proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
-![Azure AD IaaS Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Microsoft Entra IaaS Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### Multi-forest – different connector groups for each forest
 
 Most customers who have deployed Application Proxy are using its single-sign-on (SSO) capabilities by performing Kerberos Constrained Delegation (KCD). To achieve this, the connector’s machines need to be joined to a domain that can delegate the users toward the application. KCD supports cross-forest capabilities. But for companies who have distinct multi-forest environments with no trust between them, a single connector cannot be used for all forests. 
 
-In this case, specific connectors can be deployed per forest, and set to serve applications that were published to serve only the users of that specific forest. Each connector group represents a different forest. While the tenant and most of the experience is unified for all forests, users can be assigned to their forest applications using Azure AD groups.
+In this case, specific connectors can be deployed per forest, and set to serve applications that were published to serve only the users of that specific forest. Each connector group represents a different forest. While the tenant and most of the experience is unified for all forests, users can be assigned to their forest applications using Microsoft Entra groups.
 
 ### Disaster Recovery sites
 
 There are two different approaches you can take with a disaster recovery (DR) site, depending on how your sites are implemented:
 
-* If your DR site is built in active-active mode where it is exactly like the main site and has the same networking and AD settings, you can create the connectors on the DR site in the same connector group as the main site. This enables Azure AD to detect failovers for you.
+* If your DR site is built in active-active mode where it is exactly like the main site and has the same networking and AD settings, you can create the connectors on the DR site in the same connector group as the main site. This enables Microsoft Entra ID to detect failovers for you.
 * If your DR site is separate from the main site, you can create a different connector group in the DR site, and either 1) have backup applications or 2) manually divert the existing application to the DR connector group as needed.
 
 ### Serve multiple companies from a single tenant
 
-There are many different ways to implement a model in which a single service provider deploys and maintains Azure AD related services for multiple companies. Connector groups help the admin segregate the connectors and applications into different groups. One way, which is suitable for small companies, is to have a single Azure AD tenant while the different companies have their own domain name and networks. This is also true for M&A scenarios and situations where a single IT division serves several companies for regulatory or business reasons.
+There are many different ways to implement a model in which a single service provider deploys and maintains Microsoft Entra related services for multiple companies. Connector groups help the admin segregate the connectors and applications into different groups. One way, which is suitable for small companies, is to have a single Microsoft Entra tenant while the different companies have their own domain name and networks. This is also true for M&A scenarios and situations where a single IT division serves several companies for regulatory or business reasons.
 
 ## Sample configurations
 
@@ -99,7 +99,7 @@ Some examples that you can implement, include the following connector groups.
 
 If you don’t use connector groups, your configuration would look like this:
 
-![Example Azure AD No Connector Groups](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Example Microsoft Entra No Connector Groups](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 This configuration is sufficient for small deployments and tests. It will also work well if your organization has a flat network topology.
 
@@ -107,7 +107,7 @@ This configuration is sufficient for small deployments and tests. It will also w
 
 This configuration is an evolution of the default one, in which there is a specific app that runs in an isolated network such as IaaS virtual network:
 
-![Example Azure AD No Connector Groups and an isolated network](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Example Microsoft Entra No Connector Groups and an isolated network](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### Recommended configuration – several specific groups and a default group for idle
 
@@ -119,5 +119,5 @@ In the example below, the company has two datacenters, A and B, with two connect
 
 ## Next steps
 
-[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)
 [Enable single-sign on](../manage-apps/what-is-single-sign-on.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Understanding Declarative Provisioning'
-description: Explains the declarative provisioning configuration model in Azure AD Connect.
+title: 'Microsoft Entra Connect: Understanding Declarative Provisioning'
+description: Explains the declarative provisioning configuration model in Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,8 +18,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Understanding Declarative Provisioning
-This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
+# Microsoft Entra Connect Sync: Understanding Declarative Provisioning
+This topic explains the configuration model in Microsoft Entra Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
 
 ## Overview
 Declarative provisioning is processing objects coming in from a source connected directory and determines how the object and attributes should be transformed from a source to a target. An object is processed in a sync pipeline and the pipeline is the same for inbound and outbound rules. An inbound rule is from a connector space to the metaverse and an outbound rule is from the metaverse to a connector space.
@@ -119,7 +119,7 @@ Here is an example:
 
 In *Out to AD - User Exchange hybrid* the following flow can be found:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-This expression should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
+This expression should be read as: if the user mailbox is located in Microsoft Entra ID, then flow the attribute from Microsoft Entra ID to Active Directory. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
 
 ### ImportedValue
 
@@ -158,9 +158,9 @@ It is not possible to have several objects in the same connector space joined to
 
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)
 
 **Reference topics**
 
-* [Azure AD Connect sync: Functions Reference](reference-connect-sync-functions-reference.md)
+* [Microsoft Entra Connect Sync: Functions Reference](reference-connect-sync-functions-reference.md)
