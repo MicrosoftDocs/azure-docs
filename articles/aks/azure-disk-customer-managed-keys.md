@@ -2,8 +2,8 @@
 title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 05/10/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 09/12/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -12,17 +12,22 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
-## Limitations
-
-* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
-
 ## Prerequisites
 
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 * You need the Azure CLI version 2.11.1 or later.
-* Customer-managed keys are only supported in Kubernetes versions 1.17 and higher.
-* If you choose to rotate (change) your keys periodically, for more information see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md).
+* Data disk encryption and customer-managed keys are supported on Kubernetes versions 1.24 and higher.
+* If you choose to rotate (change) your keys periodically, see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md) for more information.
+
+## Limitations
+
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Virtual nodes are not supported.
+* When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate the key in Azure Key Vault, you need to:
+
+   * Scale down the node pool count to 0
+   * Rotate the key
+   * Scale up the node pool to the original count.
 
 ## Create an Azure Key Vault instance
 
@@ -45,7 +50,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ## Create an instance of a DiskEncryptionSet
 
-Replace *myKeyVaultName* with the name of your key vault.  You will also need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created on the previous steps, or [generate a new key][key-vault-generate] and replace *myKeyName* below with the name of your key.
+Replace *myKeyVaultName* with the name of your key vault. You also need a *key* stored in Azure Key Vault to complete the following steps. Either store your existing Key in the Key Vault you created on the previous steps, or [generate a new key][key-vault-generate] and replace *myKeyName* with the name of your key.
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -75,23 +80,37 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk.
+Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the either using network-attached OS disks or ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.  
 
-> [!IMPORTANT]
-> Ensure you create a new resource group for your AKS cluster
+Run the following command to retrieve the DiskEncryptionSet value and set a variable:
 
 ```azurecli-interactive
-# Retrieve the DiskEncryptionSet value and set a variable
 diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
-
-# Create a resource group for the AKS cluster
-az group create -n myResourceGroup -l myAzureRegionName
-
-# Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
 ```
 
-When new node pools are added to the cluster created above, the customer-managed key provided during the create process is used to encrypt the OS disk.
+If you want to create a new resource group for the cluster, run the following command:
+
+```azurecli-interactive
+az group create -n myResourceGroup -l myAzureRegionName
+```
+
+To create a regular cluster using network-attached OS disks encrypted with your key, you can do so by specifying the `--node-osdisk-type=Managed` argument.
+
+```azurecli-interactive
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Managed
+```
+
+To create a cluster with ephemeral OS disk encrypted with your key, you can do so by specifying the `--node-osdisk-type=Ephemeral` argument. You also need to specify the argument `--node-vm-size` because the default vm size is too small and doesn't support ephemeral OS disk.
+
+```azurecli-interactive
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral --node-vm-size Standard_DS3_v2
+```
+
+When new node pools are added to the cluster, the customer-managed key provided during the create process is used to encrypt the OS disk. The following example shows how to deploy a new node pool with an ephemeral OS disk.
+
+```azurecli-interactive
+az aks nodepool add --cluster-name $CLUSTER_NAME -g $RG_NAME --name $NODEPOOL_NAME --node-osdisk-type Ephemeral
+```
 
 ## Encrypt your AKS cluster data disk
 
@@ -124,10 +143,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## Using Azure tags
-
-For more information on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
-
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
@@ -135,12 +150,8 @@ Review [best practices for AKS cluster security][best-practices-security]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
-[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
-[use-tags]: use-tags.md

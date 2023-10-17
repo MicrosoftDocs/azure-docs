@@ -13,10 +13,10 @@ ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
-In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
+In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use Azure role-based access control (Azure RBAC) in Microsoft Entra ID to control access to your Spatial Anchors accounts.
 
 > [!WARNING]
-> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches described next.
+> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Microsoft Entra authentication approaches described next.
 
 ## Overview
 
@@ -24,14 +24,14 @@ In this article, you'll learn the various ways you can authenticate to Azure Spa
 
 To access a given Azure Spatial Anchors account, clients need to first obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS have a lifetime of 24 hours. They contain information that Spatial Anchors services use to make authorization decisions on the account and ensure that only authorized principals can access the account.
 
-Access tokens can be obtained in exchange for either account keys or tokens issued by Azure AD.
+Access tokens can be obtained in exchange for either account keys or tokens issued by Microsoft Entra ID.
 
-Account keys enable you to get started quickly with using the Azure Spatial Anchors service. But before you deploy your application to production, we recommend that you update your app to use Azure AD authentication.
+Account keys enable you to get started quickly with using the Azure Spatial Anchors service. But before you deploy your application to production, we recommend that you update your app to use Microsoft Entra authentication.
 
-You can obtain Azure AD authentication tokens in two ways:
+You can obtain Microsoft Entra authentication tokens in two ways:
 
-- If you're building an enterprise application and your company is using Azure AD as its identity system, you can use user-based Azure AD authentication in your app. You then grant access to your Spatial Anchors accounts by using your existing Azure AD security groups. You can also grant access directly to users in your organization.
-- Otherwise, we recommend that you obtain Azure AD tokens from a web service that supports your app. We recommend this method for production applications because it allows you to avoid embedding the credentials for access to Azure Spatial Anchors in your client application.
+- If you're building an enterprise application and your company is using Microsoft Entra ID as its identity system, you can use user-based Microsoft Entra authentication in your app. You then grant access to your Spatial Anchors accounts by using your existing Microsoft Entra security groups. You can also grant access directly to users in your organization.
+- Otherwise, we recommend that you obtain Microsoft Entra tokens from a web service that supports your app. We recommend this method for production applications because it allows you to avoid embedding the credentials for access to Azure Spatial Anchors in your client application.
 
 ## Account keys
 
@@ -85,12 +85,14 @@ configuration.AccountKey(LR"(MyAccountKey)");
 
 After you set that property, the SDK will handle the exchange of the account key for an access token and the necessary caching of tokens for your app.
 
-## Azure AD user authentication
+<a name='azure-ad-user-authentication'></a>
 
-For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [quickstart on registering an app](../../active-directory/develop/quickstart-register-app.md), which include:
+## Microsoft Entra user authentication
+
+For applications that target Microsoft Entra users, we recommend that you use a Microsoft Entra token for the user. You can obtain this token by using the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [quickstart on registering an app](../../active-directory/develop/quickstart-register-app.md), which include:
 
 **In the Azure portal**
-1.    Register your application in Azure AD as a native application. As part of registering, you'll need to determine whether your application should be multitenant. You'll also need to provide the redirect URLs allowed for your application.
+1.    Register your application in Microsoft Entra ID as a native application. As part of registering, you'll need to determine whether your application should be multitenant. You'll also need to provide the redirect URLs allowed for your application.
 1.  Go to the **API permissions** tab.
 1.  Select **Add a permission**.
     1.  Select **Mixed Reality Resource Provider** on the **APIs my organization uses** tab.
@@ -99,17 +101,17 @@ For applications that target Azure Active Directory users, we recommend that you
     4.  Select **Add permissions**.
 1.  Select **Grant admin consent**.
 
-1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 **In your code**
-1.    Be sure to use the application ID and redirect URI of your own Azure AD application for the **client ID** and **RedirectUri** parameters in MSAL.
+1.    Be sure to use the application ID and redirect URI of your own Microsoft Entra application for the **client ID** and **RedirectUri** parameters in MSAL.
 2.    Set the tenant information:
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
         3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
-3.    On your token request, set the **scope** to **`https://sts.mixedreality.azure.com//.default`**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+3.    On your token request, set the **scope** to **`https://sts.mixedreality.azure.com//.default`**. This scope will indicate to Microsoft Entra ID that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
-After you complete these steps, your application should be able to obtain from MSAL an Azure AD token. You can set that Azure AD token as the `authenticationToken` on your cloud session configuration object:
+After you complete these steps, your application should be able to obtain from MSAL a Microsoft Entra token. You can set that Microsoft Entra token as the `authenticationToken` on your cloud session configuration object:
 
 # [C#](#tab/csharp)
 
@@ -151,34 +153,36 @@ configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 
 ---
 
-## Azure AD service authentication
+<a name='azure-ad-service-authentication'></a>
+
+## Microsoft Entra service authentication
 
 To deploy apps that use Azure Spatial Anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
 
 ![Diagram that provides an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-aad-authentication.png)
 
-Here, it's assumed that your app uses its own mechanism to authenticate to its back-end service. (For example, a Microsoft account, PlayFab, Facebook, a Google ID, or a custom user name and password.)  After your users are authenticated to your back-end service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
+Here, it's assumed that your app uses its own mechanism to authenticate to its back-end service. (For example, a Microsoft account, PlayFab, Facebook, a Google ID, or a custom user name and password.)  After your users are authenticated to your back-end service, that service can retrieve a Microsoft Entra token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
 
-The Azure AD access token is retrieved via the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+The Microsoft Entra access token is retrieved via the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
 **In the Azure portal**
-1.    Register your application in Azure AD:
-        1.    In the Azure portal, select **Azure Active Directory**, and then select **App registrations**.
+1.    Register your application in Microsoft Entra ID:
+        1.    In the Azure portal, select **Microsoft Entra ID**, and then select **App registrations**.
         2.    Select **New registration**.
         3.    Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Select **Create**.
 1.    On the application, select **Settings**, and then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and then select **Add**. Be sure to save the secret value. You'll need to include it in your web service's code.
-1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 **In your code**
 
 >[!NOTE]
 > You can use the [service sample](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) that is available as a part of the [Spatial Anchors sample apps](https://github.com/Azure/azure-spatial-anchors-samples).
 
-1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
-2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
+1.    Be sure to use the application ID, application secret, and redirect URI of your own Microsoft Entra application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
+2.    Set the tenant ID to your own Microsoft Entra tenant ID in the **authority** parameter in MSAL.
 3.    On your token request, set the **scope** to **`https://sts.mixedreality.azure.com//.default`**.
 
-After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
+After you complete these steps, your back-end service can retrieve a Microsoft Entra token. It can then exchange it for an MR token that it will return back to the client. Using a Microsoft Entra token to retrieve an MR token is done via a REST call. Here's a sample call:
 
 ```
 GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -243,7 +247,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ## Azure role-based access control
 
-To help you control the level of access granted to applications, services, or Azure AD users of your service, you can assign these pre-existing roles as needed against your Azure Spatial Anchors accounts:
+To help you control the level of access granted to applications, services, or Microsoft Entra users of your service, you can assign these pre-existing roles as needed against your Azure Spatial Anchors accounts:
 
 - **Spatial Anchors Account Owner**. Applications or users that have this role can create spatial anchors, query for them, and delete them. When you authenticate to your account by using account keys, the Spatial Anchors Account Owner role is assigned to the authenticated principal.
 - **Spatial Anchors Account Contributor**. Applications or users that have this role can create spatial anchors and query for them, but they can't delete them.

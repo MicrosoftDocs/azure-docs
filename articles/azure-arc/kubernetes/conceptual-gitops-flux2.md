@@ -1,14 +1,18 @@
 ---
-title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
+title: "Application deployments with GitOps (Flux v2)"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 05/08/2023
+ms.date: 10/04/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, references-regions
 ---
 
-# GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes
+# Application deployments with GitOps (Flux v2) for AKS and Azure Arc-enabled Kubernetes
 
-Azure provides configuration management capability using GitOps in Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters.
+Azure provides an automated application deployments capability using GitOps that works with Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. The key benefits provided by adopting GitOps for deploying applications to Kubernetes clusters include:
+
+* Continual visibility into the status of applications running on clusters.
+* Separation of concerns between application development teams and infrastructure teams. Application teams don't need to have experience with Kubernetes deployments. Platform engineering teams typically create a self-serve model for application teams, empowering them to run deployments with higher confidence.
+* Ability to recreate clusters with the same desired state in case of a crash or to scale out.
 
 With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. The Git repositories may contain the following files:
 
@@ -18,26 +22,11 @@ With GitOps, you declare the desired state of your Kubernetes clusters in files 
 
 Because these files are stored in a Git repository, they're versioned, and changes between versions are easily tracked. Kubernetes controllers run in the clusters and continually reconcile the cluster state with the desired state declared in the Git repository. These operators pull the files from the Git repositories and apply the desired state to the clusters. The operators also continuously assure that the cluster remains in the desired state.
 
-GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](https://fluxcd.io/docs/), a popular open-source tool set. Flux provides support for common file sources (Git and Helm repositories, Buckets, Azure Blob Storage) and template types (YAML, Helm, and Kustomize). Flux also supports [multi-tenancy](#multi-tenancy) and deployment dependency management, among [other features](https://fluxcd.io/docs/).
+GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](https://fluxcd.io/docs/), a popular open-source tool set. Flux provides support for common file sources (Git and Helm repositories, Buckets, Azure Blob Storage) and template types (YAML, Helm, and Kustomize). Flux also supports [multi-tenancy](#multi-tenancy) and deployment dependency management, among [other features](https://fluxcd.io/docs/). Flux is deployed directly on the cluster, and each cluster's control plane is logically separated. Hence, it can scale well to hundreds and thousands of clusters. It enables pure pull-based GitOps application deployments. No access to clusters is needed by the source repo or by any other cluster.
 
 ## Flux cluster extension
 
-:::image type="content" source="media/gitops/flux2-extension-install-arc.png" alt-text="Diagram showing the installation of the Flux extension for Azure Arc-enabled Kubernetes cluster." lightbox="media/gitops/flux2-extension-install-arc.png":::
-
-:::image type="content" source="media/gitops/flux2-extension-install-aks.png" alt-text="Diagram showing the installation of the Flux extension for Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-extension-install-aks.png":::
-
 GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created. The extension is installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in a cluster, or you can install it manually using the portal, the Azure CLI (`az k8s-extension create --extensionType=microsoft.flux`), ARM template, or REST API.
-
-### Version support
-
-The most recent version of the Flux v2 extension (`microsoft.flux`) and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension.
-
-Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
-
-> [!NOTE]
-> If you have been using Flux v1, we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
->
-> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 ### Controllers
 
@@ -98,6 +87,15 @@ Each `fluxConfigurations` resource in Azure is associated with one Flux `GitRepo
 > The `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be reapplied in Azure.
 >
 > Sensitive customer inputs like private key and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, make sure that your clusters connect with Azure within 48 hours.
+
+### Version support
+
+The most recent version of the Flux v2 extension (`microsoft.flux`) and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension. Starting with `microsoft.flux` version 1.7.0, ARM64-based clusters are supported.
+
+> [!NOTE]
+> If you have been using Flux v1, we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
+>
+> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 ## GitOps with Private Link
 
@@ -289,6 +287,8 @@ The GitOps implementation of Flux v2 automatically determines which library to u
 For on-premises repositories, Flux uses `libgit2`.
 
 ### Kustomization
+
+Kustomization is a setting created for Flux configurations that lets you choose a specific path in the source repo that is reconciled into the cluster. You don't need to create a `kustomization.yaml file on this specified path. By default, all of the manifests in this path will be reconciled. However, if you want to have a Kustomize overlay for applications available on this repo path, you should create [Kustomize files](https://kustomize.io/) in git for the flux configuration to make use of.
 
 By using [`az k8s-configuration flux kustomization create`](/cli/azure/k8s-configuration/flux/kustomization#az-k8s-configuration-flux-kustomization-create), you can create one or more kustomizations during the configuration.
 

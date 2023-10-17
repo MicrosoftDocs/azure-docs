@@ -1,11 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Active Directory device management FAQ
-  description: Azure Active Directory device management FAQ.
+  title: Microsoft Entra device management FAQ
+  description: Microsoft Entra device management FAQ.
   
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/27/2023
   ms.author: joflore
@@ -13,20 +14,20 @@ metadata:
   manager: amycolannino
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
-title: Azure Active Directory device management FAQ
+title: Microsoft Entra device management FAQ
 summary: |
 
 sections:
   - name: General FAQ
     questions:
-      - question: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+      - question: I registered the device recently. Why can't I see the device under my user info? Or why is the device owner marked as N/A for Microsoft Entra hybrid joined devices?
         answer: |
-          Windows 10 or newer devices that are hybrid Azure AD joined don't show up under **USER devices**.
-          Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
+          Windows 10 or newer devices that are Microsoft Entra hybrid joined don't show up under **USER devices**.
+          Use the **All devices** view. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
           
           Only the following devices are listed under **USER devices**:
           
-          - All personal devices that aren't hybrid Azure AD joined. 
+          - All personal devices that aren't Microsoft Entra hybrid joined. 
           - All non-Windows 10 or newer and Windows Server 2016 or later devices.
           - All non-Windows devices. 
           
@@ -34,68 +35,68 @@ sections:
           
       - question: How do I know what the device registration state of the client is?
         answer: |
-          In the Azure portal, go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
+          Go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
           
           - For Windows 10 or newer and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
           - For down-level OS versions, run `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
           
           For troubleshooting information, see these articles:
           - [Troubleshooting devices using dsregcmd command](troubleshoot-device-dsregcmd.md)
-          - [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
-          - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+          - [Troubleshooting Microsoft Entra hybrid joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+          - [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
           
           
           
-      - question: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
+      - question: I see the device record under the USER info and I see the state as registered. Am I set up correctly to use Conditional Access?
         answer: |
-          The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for Conditional Access. 
-          For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
+          The device join state, shown by **deviceID**, must match the state on Microsoft Entra ID and meet any evaluation criteria for Conditional Access. 
+          For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/concept-conditional-access-grant.md).
           
           
           
       - question: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?
         answer: |
-          On Windows 10/11 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
+          On Windows 10/11 devices joined or registered with Microsoft Entra ID, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Microsoft Entra ID without initiating the action from the device itself. A device can be deleted or disabled in Microsoft Entra one of the following scenarios: 
           
           - User disables the device from the My Apps portal. 
-          - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
-          - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-          - Hybrid Azure AD joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Azure AD
-          - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
+          - An administrator (or user) deletes or disables the device.
+          - Microsoft Entra hybrid joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Microsoft Entra ID.
+          - Microsoft Entra hybrid joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Microsoft Entra ID.
+          - Upgrading Microsoft Entra Connect to the version 1.4.xx.x. [Understanding Microsoft Entra Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
 
           
           
           
-      - question: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
+      - question: I disabled or deleted my device, but the local state on the device says it's still registered. What should I do?
         answer: |
           This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you need to re-enable or re-register the device using the steps that follow:
           
-          - If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure portal  
+          - If the device was disabled in Microsoft Entra ID, an administrator with sufficient privileges can enable it in the Microsoft Entra admin center  
             > [!NOTE]
-            > If you're syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a hybrid Azure AD joined device, you need to disable it from your on-premises AD
+            > If you're syncing devices using Microsoft Entra Connect, Microsoft Entra hybrid joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a Microsoft Entra hybrid joined device, you need to disable it from your on-premises AD
           
-           - If the device is deleted in Azure AD, you need to re-register the device. To re-register, you must take a manual action on the device. See the following steps for instructions to re-register based on the device state. 
+           - If the device is deleted in Microsoft Entra ID, you need to re-register the device. To re-register, you must take a manual action on the device. See the following steps for instructions to re-register based on the device state. 
           
-                To re-register hybrid Azure AD joined Windows 10/11 and Windows Server 2016/2019 devices, take the following steps:
+                To re-register Microsoft Entra joined Windows 10/11 and Windows Server 2016/2019 devices, take the following steps:
           
                 1. Open the command prompt as an administrator.
                 1. Enter `dsregcmd.exe /debug /leave`.
-                1. Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
+                1. Sign out and sign in to trigger the scheduled task that registers the device again with Microsoft Entra ID. 
           
-                For down-level Windows OS versions that are hybrid Azure AD joined, take the following steps:
+                For down-level Windows OS versions that are Microsoft Entra hybrid joined, take the following steps:
           
                 1. Open the command prompt as an administrator.
                 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
                 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
           
-                For Azure AD joined devices Windows 10/11 devices, take the following steps:
+                For Microsoft Entra joined devices Windows 10/11 devices, take the following steps:
           
                 1. Open the command prompt as an administrator
                 1. Enter `dsregcmd /forcerecovery` (You need to be an administrator to perform this action).
                 1. Click "Sign in" in the dialog that opens up and continue with the sign in process.
                 1. Sign out and sign in back to the device to complete the recovery.
           
-                For Azure AD registered Windows 10/11 devices, take the following steps:
+                For Microsoft Entra registered Windows 10/11 devices, take the following steps:
           
                 1. Go to **Settings** > **Accounts** > **Access Work or School**. 
                 1. Select the account and select **Disconnect**.
@@ -103,76 +104,76 @@ sections:
           
           
           
-      - question: Why do I see duplicate device entries in the Azure portal?
+      - question: Why do I see duplicate device entries?
         answer: |
           - For Windows 10 or newer and Windows Server 2016 or later, repeated tries to unjoin and rejoin the same device might cause duplicate entries. 
           - Each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
           - For down-level Windows OS versions that are on-premises Azure Directory domain joined, automatic registration creates a new device record with the same device name for each domain user who signs in to the device. 
-          - An Azure AD joined machine that's wiped, reinstalled, and rejoined with the same name shows up as another record with the same device name.
+          - A Microsoft Entra joined machine that's wiped, reinstalled, and rejoined with the same name shows up as another record with the same device name.
           
           
           
-      - question: Does Windows 10/11 device registration in Azure AD support TPMs in FIPS mode?
-        answer: Windows 10/11 device registration is only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
+      - question: Does Windows 10/11 device registration in Microsoft Entra ID support TPMs in FIPS mode?
+        answer: Windows 10/11 device registration is only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Microsoft Entra join or Microsoft Entra hybrid join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
 
-      - question: Why can a user still access resources from a device I disabled in the Azure portal?
+      - question: Why can a user still access resources from a device I disabled?
         answer: |
-          It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
+          It takes up to an hour for a revoke to be applied from the time the Microsoft Entra device is marked as disabled.
           
           >[!NOTE] 
           >For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
           
-      - question: I can't add more than 3 Azure AD user accounts under the same user session on a Windows 10/11 device, why?
+      - question: I can't add more than 3 Microsoft Entra user accounts under the same user session on a Windows 10/11 device, why?
         answer: |
-          Azure AD added support for multiple Azure AD accounts starting in Windows 10 1803 release. However, Windows 10/11 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign-on (SSO). Once 3 accounts have been added, users see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
+          Microsoft Entra ID added support for multiple Microsoft Entra accounts starting in Windows 10 1803 release. However, Windows 10/11 restricts the number of Microsoft Entra accounts on a device to 3 to limit the size of token requests and enable reliable single sign-on (SSO). Once 3 accounts have been added, users see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
           
       - question: What are the MS-Organization-Access certificates present on our Windows 10/11 devices? 
         answer: |
-          The MS-Organization-Access certificates are issued by Azure AD Device Registration Service during the device registration process. These certificates are issued to all join types supported on Windows - Azure AD joined, hybrid Azure AD joined and Azure AD registered devices. Once issued, they're used as part of the authentication process from the device to request a Primary Refresh Token (PRT). For Azure AD joined and hybrid Azure AD joined devices, this certificate is present in Local Computer\Personal\Certificates whereas for Azure AD registered devices, certificate is present in Current User\Personal\Certificates.  All MS-Organization-Access certificates have a default lifetime of 10 years, however these certificates are deleted from the corresponding certificate store when the device is unregistered from Azure AD. Any inadvertent deletion of this certificate leads to authentication failures for the user, and will require re-registration of the device in such cases. 
+          The MS-Organization-Access certificates are issued by Microsoft Entra Device Registration Service during the device registration process. These certificates are issued to all join types supported on Windows - Microsoft Entra joined, Microsoft Entra hybrid joined and Microsoft Entra registered devices. Once issued, they're used as part of the authentication process from the device to request a Primary Refresh Token (PRT). For Microsoft Entra joined and Microsoft Entra hybrid joined devices, this certificate is present in Local Computer\Personal\Certificates whereas for Microsoft Entra registered devices, certificate is present in Current User\Personal\Certificates.  All MS-Organization-Access certificates have a default lifetime of 10 years, however these certificates are deleted from the corresponding certificate store when the device is unregistered from Microsoft Entra ID. Any inadvertent deletion of this certificate leads to authentication failures for the user, and will require re-registration of the device in such cases. 
           
-  - name: Azure AD join FAQ
+  - name: Microsoft Entra join FAQ
     questions:
-      - question: How do I unjoin an Azure AD joined device locally on the device?
+      - question: How do I unjoin a Microsoft Entra joined device locally on the device?
         answer: |
-          For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
+          For pure Microsoft Entra joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Microsoft Entra user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
           
           
           
-      - question: Can my users' sign in to Azure AD joined devices that are deleted or disabled in Azure AD?
+      - question: Can my users sign in to Microsoft Entra joined devices that are deleted or disabled in Microsoft Entra ID?
         answer: |
           Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
           
-          When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based Conditional Access. 
+          When a device is deleted or disabled in Microsoft Entra ID, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based Conditional Access. 
           
           Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
           
           
           
-      - question: Can a disabled or deleted user sign in to an Azure AD joined device?
+      - question: Can a disabled or deleted user sign in to a Microsoft Entra joined device?
         answer: |
-          Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. 
+          Yes, but only for a limited time. When a user is deleted or disabled in Microsoft Entra ID, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. 
           
-          Typically, the device is aware of the user state in less than four hours. Then Windows blocks those users' access to the desktop. As the user is deleted or disabled in Azure AD, all their tokens are revoked. So they can't access any resources. 
+          Typically, the device is aware of the user state in less than four hours. Then Windows blocks those users' access to the desktop. As the user is deleted or disabled in Microsoft Entra ID, all their tokens are revoked. So they can't access any resources. 
           
           Deleted or disabled users who didn't sign in previously can't access a device. There's no cached username and password enabled for them. 
           
           
           
-      - question: Can a guest user sign in to an Azure AD joined device?
+      - question: Can a guest user sign in to a Microsoft Entra joined device?
         answer: |
-          No, currently, guest users can not sign in to an Azure AD joined device.
+          No, currently, guest users can't sign in to a Microsoft Entra joined device.
         
           
           
-      - question: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
+      - question: My users can't search printers from Microsoft Entra joined devices. How can I enable printing from those devices?
         answer: |
-          To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
           
           
           
-      - question: How do I connect to a remote Azure AD joined device?
+      - question: How do I connect to a remote Microsoft Entra joined device?
         answer: |
-          See [Connect to remote Azure Active Directory-joined PC](/windows/client-management/connect-to-remote-aadj-pc).
+          See [Connect to remote Microsoft Entra joined PC](/windows/client-management/connect-to-remote-aadj-pc).
           
           
           
@@ -183,84 +184,84 @@ sections:
           
           
           
-      - question: Why do I get a 'username or password is incorrect' message for a device I just joined to Azure AD?
+      - question: Why do I get a 'username or password is incorrect' message for a device I just joined to Microsoft Entra ID?
         answer: |
           Common reasons for this scenario are as follows:
           
           - Your user credentials are no longer valid.
-          - Your computer can't communicate with Azure Active Directory. Check for any network connectivity issues.
+          - Your computer can't communicate with Microsoft Entra ID. Check for any network connectivity issues.
           - Federated sign-ins require your federation server to support WS-Trust endpoints that are enabled and accessible. 
           - You enabled pass-through authentication. So your temporary password needs to be changed when you sign in.
           
-      - question: How can users change their temporary or expired password on Azure AD joined devices?
+      - question: How can users change their temporary or expired password on Microsoft Entra joined devices?
         answer: |
-              Currently, Azure AD joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires an Azure AD token) after they login to Windows.
+              Currently, Microsoft Entra joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires a Microsoft Entra token) after they log in to Windows.
           
-      - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
+      - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Microsoft Entra join my PC?
         answer: |
-          This error happens when you set up Azure Active Directory auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
+          This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
           
      
-      - question: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?
+      - question: Why did my attempt to Microsoft Entra join a PC fail, although I didn't get any error information?
         answer: |
           A likely cause is that you signed in to the device by using the local built-in administrator account. 
-          Create a different local account before you use Azure Active Directory join to finish the setup. 
+          Create a different local account before you use Microsoft Entra join to finish the setup. 
           
           
           
       - question: What are the MS-Organization-P2P-Access certificates present on our Windows 10/11 devices?
         answer: |
-          The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate isn't persistent and is valid for one hour, but it's issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It isn't renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
+          The MS-Organization-P2P-Access certificates are issued by Microsoft Entra ID to both, Microsoft Entra joined and Microsoft Entra hybrid joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Microsoft Entra ID. The user certificate isn't persistent and is valid for one hour, but it's issued on-demand when a user attempts a remote desktop session to another Microsoft Entra joined device. It isn't renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Microsoft Entra ID during device registration. 
           
-      - question: How can we disable cached logon/expire the cache logon of the user on Azure AD joined devices?
+      - question: How can we disable cached logon/expire the cache logon of the user on Microsoft Entra joined devices?
         answer: |
-              It isn't possible to disable or expire previous cached logons on Azure AD joined devices. 
+              It isn't possible to disable or expire previous cached logons on Microsoft Entra joined devices. 
           
           
-  - name: Hybrid Azure AD join FAQ
+  - name: Microsoft Entra hybrid join FAQ
     questions:
-      - question: How do I unjoin a Hybrid Azure AD joined device locally on the device?
-        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-azuread-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+      - question: How do I unjoin a Microsoft Entra hybrid joined device locally on the device?
+        answer: For Microsoft Entra hybrid joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
-      - question: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
+      - question: Where can I find troubleshooting information to diagnose Microsoft Entra hybrid join failures?
         answer: |
           For troubleshooting information, see these articles:
           
-          - [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
-          - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+          - [Troubleshooting Microsoft Entra hybrid joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+          - [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
            
-      - question: Why do I see a duplicate Azure AD registered record for my Windows 10/11 hybrid Azure AD joined device in the Azure AD devices list?
+      - question: Why do I see a duplicate Microsoft Entra registered record for my Windows 10/11 Microsoft Entra hybrid joined device in the Microsoft Entra devices list?
         answer: |
-          When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
+          When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Microsoft Entra ID. The trust type is marked as Microsoft Entra registered. After you enable Microsoft Entra hybrid join in your organization, the device also gets Microsoft Entra hybrid joined. Then two device states show up for the same device. 
           
-          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+          In most cases, Microsoft Entra hybrid join takes precedence over the Microsoft Entra registered state, resulting in your device being considered Microsoft Entra hybrid joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Microsoft Entra registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
           
           
           
-      - question: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?
+      - question: Why do my users have issues on Windows 10 Microsoft Entra hybrid joined devices after changing their UPN?
         answer: |
-          Currently UPN changes aren't fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue.
+          Currently UPN changes aren't fully supported with Microsoft Entra hybrid joined devices. While users can sign in to the device and access their on-premises applications, authentication with Microsoft Entra ID fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Microsoft Entra ID (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue.
           
           UPN changes are supported with Windows 10 2004 update and also applicable to Windows 11. Users on devices with this update won't have any issues after changing their UPNs
           
           
           
-      - question: Do Windows 10/11 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?
+      - question: Do Windows 10/11 Microsoft Entra hybrid joined devices require line of sight to the domain controller to get access to cloud resources?
         answer: |
-          No, except when the user's password is changed. After Windows 10/11 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10/11 can get single sign-on to Azure AD applications from anywhere with an internet connection, except when a password is changed. Users who sign in with Windows Hello for Business continue to get single sign-on to Azure AD applications even after a password change, even if they don't have line of sight to their domain controller. 
+          No, except when the user's password is changed. After Windows 10/11 Microsoft Entra hybrid join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10/11 can get single sign-on to Microsoft Entra applications from anywhere with an internet connection, except when a password is changed. Users who sign in with Windows Hello for Business continue to get single sign-on to Microsoft Entra applications even after a password change, even if they don't have line of sight to their domain controller. 
           
           
           
-      - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 hybrid Azure AD joined device outside the corporate network?
+      - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 Microsoft Entra hybrid joined device outside the corporate network?
         answer: |
-          If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password fails. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
+          If a password is changed outside the corporate network (for example, by using Microsoft Entra SSPR), then the user sign-in with the new password fails. For Microsoft Entra hybrid joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign-in capability in Windows. However, the old password is invalidated by Microsoft Entra ID during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
           
           
-  - name: Azure AD register FAQ
+  - name: Microsoft Entra register FAQ
     questions:
-      - question: How do I remove an Azure AD registered state for a device locally?
+      - question: How do I remove a Microsoft Entra registered state for a device locally?
         answer: |
-          - For Windows 10/11 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10/11.
+          - For Windows 10/11 Microsoft Entra registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10/11.
           - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
           - For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
           
@@ -270,9 +271,9 @@ sections:
           > This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.
           
           
-      - question: How can I block users from adding more work accounts (Azure AD registered) on my corporate Windows 10/11 devices?
+      - question: How can I block users from adding more work accounts (Microsoft Entra registered) on my corporate Windows 10/11 devices?
         answer: |
-          Enable the following registry to block your users from adding other work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10/11 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+          Enable the following registry to block your users from adding other work accounts to your corporate domain joined, Microsoft Entra joined, or Microsoft Entra hybrid joined Windows 10/11 devices. This policy can also be used to block domain joined machines from inadvertently getting Microsoft Entra registered with the same user account. 
           
           `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
           
@@ -298,8 +299,8 @@ additionalContent: |
 
   ## Next steps
 
-  - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
-  - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
-  - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+  - Learn more about [Microsoft Entra registered devices](concept-device-registration.md)
+  - Learn more about [Microsoft Entra joined devices](concept-directory-join.md)
+  - Learn more about [Microsoft Entra hybrid joined devices](concept-hybrid-join.md)
   - [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)
   

@@ -21,7 +21,7 @@ More information about policies:
 
 * [Policy overview](api-management-howto-policies.md)
 * [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
-* [Policy samples](./policies/index.md)
+* [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
 
 ## Prerequisites
 
@@ -228,4 +228,4 @@ For more information about working with policies, see:
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

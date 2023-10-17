@@ -49,6 +49,8 @@ landingContent:
             url: ./tutorial-migrate-physical-virtual-machines.md
           - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
             url: ./tutorial-modernize-asp-net-aks.md
+          - text: Create an Azure Spring Apps assessment
+            url: ./how-to-create-azure-spring-apps-assessment.md
 
   - title: Start deployment
     linkLists:
@@ -79,6 +81,8 @@ landingContent:
             url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
+          - text: Upgrade Windows OS
+            url: ./how-to-upgrade-windows.md
           - text: Scale VMware assessment
             url: ./scale-vmware-assessment.md
           - text: Automate and scale migration

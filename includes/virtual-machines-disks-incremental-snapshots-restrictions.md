@@ -5,9 +5,9 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/05/2023
+ ms.date: 08/17/2023
  ms.author: rogarana
- ms.custom: include file, references_regions
+ ms.custom: include file
 ---
 
 - Incremental snapshots currently can't be moved between subscriptions.
@@ -22,19 +22,14 @@
 
 Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra restrictions:
 
-- You must request and receive access to the feature from this [link](https://aka.ms/UltraPremiumv2SnapshotPreview).
 - Snapshots with a 512 logical sector size are stored as VHD, and can be used to create any disk type. Snapshots with a 4096 logical sector size are stored as VHDX and can only be used to create Ultra Disks and Premium SSD v2 disks, they can't be used to create other disk types. To determine which sector size your snapshot is, see [check sector size](#check-sector-size).
 - Up to five disks may be simultaneously created from a snapshot of a Premium SSD v2 or an Ultra Disk.
 - When an incremental snapshot of either a Premium SSD v2 or an Ultra Disk is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any more snapshots of that disk can be created.
-- Incremental snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot. See [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) for details.
-- Disks created from an incremental snapshot of a Premium SSD v2 or an Ultra Disk can't be immediately attached to a VM once it's created. The background copy must complete before it can be attached. See [Check disk creation status](#check-disk-creation-status) for details.
+- Incremental snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot. See [Check snapshot status](#check-snapshot-status) for details.
 
 > [!NOTE]
 > Normally, when you take an incremental snapshot, and there aren't any changes, the size of that snapshot is 0 MiB. Currently, empty snapshots of disks with a 4096 logical sector size instead have a size of 6 MiB, when they'd normally be 0 MiB.
 
 #### Regional availability
 
-Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in the following regions:
-
-- Incremental snapshots of Ultra Disks are currently only available in North Europe, West Europe, Sweden Central, East US, East US 2, South Central US, West US, and West US 2.
-- Incremental snapshots of Premium SSD v2 disks are currently only available in North Europe, West Europe, East US, East US 2, West US 2.
+Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in every region that Premium SSD v2 and Ultra Disks are available.

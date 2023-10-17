@@ -26,10 +26,10 @@ The following steps exemplify how to add these buttons to the app.
 2. In the central panel, look for the XAML code under the UI preview.
 3. Modify the XAML code by the following excerpt:
 ```xml
-<TextBox x:Name="CalleeTextBox" Text="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0" Height="40" Margin="10,10,10,10" />
-<StackPanel Orientation="Horizontal">
-    <Button x:Name="CallButton" Content="Start Call" Click="CallButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="200"/>
-    <Button x:Name="HangupButton" Content="Hang Up" Click="HangupButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="200"/>
+<TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" />
+<StackPanel>
+    <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" />
+    <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" />
 </StackPanel>
 ```
 
@@ -43,7 +43,6 @@ The following steps inform the C# compiler about these namespaces allowing Visua
 3. Add the following commands at the bottom of the current `using` statements.
 
 ```csharp
-using Azure.Communication;
 using Azure.Communication.Calling.WindowsClient;
 ```
 
@@ -51,13 +50,13 @@ Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps will add m
 
 ## Allow app interactions
 
-The UI buttons previously added need to operate on top of a placed `Call`. It means that a `Call` data member should be added to the `MainPage` or `MainWindow` class.
+The UI buttons previously added need to operate on top of a placed `CommunicationCall`. It means that a `CommunicationCall` data member should be added to the `MainPage` or `MainWindow` class.
 Additionally, to allow the asynchronous operation creating `CallAgent` to succeed, a `CallAgent` data member should also be added to the same class.
 
 Add the following data members to the `MainPage` pr `MainWindow` class:
 ```csharp
 CallAgent callAgent;
-Call call;
+CommunicationCall call;
 ```
 
 ## Create button handlers
@@ -121,18 +120,17 @@ The following code should be added after handling the exception from the previou
 
 ```csharp
 var startCallOptions = new StartCallOptions();
-
-var callees = new ICommunicationIdentifier[1] { new CommunicationUserIdentifier(CalleeTextBox.Text.Trim()) };
+var callees = new [] { new UserCallIdentifier(CalleeTextBox.Text.Trim()) };
 
 this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
-this.call.OnStateChanged += Call_OnStateChangedAsync;
+this.call.nStateChanged += Call_OnStateChangedAsync;
 ```
 
 Feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
 
 ## End a call
 
-Once a call is placed, the `HangupAsync` method of the `Call` object should be used to hang up the call.
+Once a call is placed, the `HangupAsync` method of the `CommunicationCall` object should be used to hang up the call.
 
 An instance of `HangupOptions` should also be used to inform if the call must be terminated to all its participants.
 
@@ -140,7 +138,7 @@ The following code should be added inside `HangupButton_Click`.
 
 ```csharp
 this.call.OnStateChanged -= Call_OnStateChangedAsync;
-await this.call.HangUpAsync(new HangUpOptions());
+await this.call.HangUpAsync(new HangUpOptions() { ForEveryone = false });
 ```
 
 ## Run the code

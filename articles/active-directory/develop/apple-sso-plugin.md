@@ -1,6 +1,6 @@
 ---
 title: Microsoft Enterprise SSO plug-in for Apple devices
-description: Learn about the Azure Active Directory SSO plug-in for iOS, iPadOS, and macOS devices.
+description: Learn about the Microsoft Entra SSO plug-in for iOS, iPadOS, and macOS devices.
 services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
@@ -9,15 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/18/2023
+ms.date: 09/05/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev
 ---
-
 # Microsoft Enterprise SSO plug-in for Apple devices
 
-The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
+The **Microsoft Enterprise SSO plug-in for Apple devices** provides single sign-on (SSO) for Microsoft Entra accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
 
 The Enterprise SSO plug-in is currently a built-in feature of the following apps:
 
@@ -28,7 +27,7 @@ The Enterprise SSO plug-in is currently a built-in feature of the following apps
 
 The Microsoft Enterprise SSO plug-in for Apple devices offers the following benefits:
 
-- It provides SSO for Azure AD accounts across all applications that support the Apple Enterprise SSO feature.
+- It provides SSO for Microsoft Entra accounts across all applications that support the Apple Enterprise SSO feature.
 - It can be enabled by any mobile device management (MDM) solution and is supported in both device and user enrollment. 
 - It extends SSO to applications that don't yet use the Microsoft Authentication Library (MSAL).
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
@@ -62,7 +61,7 @@ Use the following information to enable the SSO plug-in by using MDM.
 
 If you use Microsoft Intune as your MDM service, you can use built-in configuration profile settings to enable the Microsoft Enterprise SSO plug-in:
 
-1. Configure the [SSO app extension](/mem/intune/configuration/device-features-configure#single-sign-on-app-extension) settings of a configuration profile. 
+1. Configure the [SSO app plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune) settings of a configuration profile. 
 1. If the profile isn't already assigned, [assign the profile to a user or device group](/mem/intune/configuration/device-profile-assign).
 
 The profile settings that enable the SSO plug-in are automatically applied to the group's devices the next time each device checks in with Intune.
@@ -119,7 +118,7 @@ The SSO plug-in is installed automatically by devices that have:
 * Downloaded the Authenticator app on iOS or iPadOS, or downloaded the Intune Company Portal app on macOS.
 * MDM-enrolled their device with your organization. 
 
-Your organization likely uses the Authenticator app for scenarios like multifactor authentication (MFA), passwordless authentication, and conditional access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in using Microsoft Intune. An allowlist is used to configure these applications to use the SSO plug-in.
+Your organization likely uses the Authenticator app for scenarios like multifactor authentication, passwordless authentication, and Conditional Access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in using Microsoft Intune. An allowlist is used to configure these applications to use the SSO plug-in.
 
 >[!IMPORTANT]
 > The Microsoft Enterprise SSO plug-in supports only apps that use native Apple network technologies or webviews. It doesn't support applications that ship their own network layer implementation.  
@@ -189,7 +188,7 @@ Try this configuration only for applications that have unexpected sign-in failur
 | `Enable_SSO_On_All_ManagedApps` | Integer | `1` to enable SSO for all managed apps, `0` to disable SSO for all managed apps. |
 | `AppAllowList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications allowed to participate in SSO. |
 | `AppBlockList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications not allowed to participate in SSO. |
-| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers , Customers or Admins could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO. |
+| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. For iOS, the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers, Customers, or Admins could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO. |
 | `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. Please note that this key is to be used only for iOS apps and not for macOS apps. |
 
 #### Settings for common scenarios
@@ -238,7 +237,7 @@ By default, the Microsoft Enterprise SSO plug-in will acquire a shared credentia
 
 When you enable the `browser_sso_interaction_enabled` flag, apps that don't use MSAL can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
 
-If the Microsoft Enterprise SSO plug-in doesn't have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside the Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application. 
+If the Microsoft Enterprise SSO plug-in doesn't have a shared credential yet, it will try to get one whenever a sign-in is requested from a Microsoft Entra URL inside the Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application. 
 
 Use these parameters to enable the flag: 
 
@@ -290,7 +289,7 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 #### Change iOS experience for MSAL-enabled applications
 
-Apps that use MSAL will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if the user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
+Apps that use MSAL will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if the user also needs to complete the multifactor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
 
 This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use MSAL will redirect to the Microsoft Authenticator app for all interactive requests. This flag won't impact silent token requests from those apps, behavior of apps that don't use MSAL, or macOS apps. This flag is disabled by default. 
 
@@ -298,8 +297,10 @@ This behavior can be configured using the `disable_inapp_sso_signin` flag. If th
 - **Type**: `Integer`
 - **Value**: 1 or 0. This value is set to 0 by default.
 
-#### Configure Azure AD device registration
-For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform Azure AD device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
+<a name='configure-azure-ad-device-registration'></a>
+
+#### Configure Microsoft Entra device registration
+For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform Microsoft Entra device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
 
 Use the following configuration to enable Just in Time Registration for iOS/iPadOS with Microsoft Intune:
 
@@ -309,16 +310,18 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
-#### Conditional access policies and password changes
-Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Azure AD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
+#### Conditional Access policies and password changes
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Microsoft Entra Conditional Access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
 Compatible events and policies are documented in the following sections:
 
 ##### Password change and token revocation
 When a user resets their password, all tokens that were issued before that will be revoked. If a user is trying to access a resource after a password reset event, user would normally need to sign in again in each of the apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in the first application that participates in SSO. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
-##### Azure AD Multi-Factor Authentication
-[Multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multi-factor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multi-factor authentication in the first application that requires it. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+<a name='azure-ad-multi-factor-authentication'></a>
+
+##### Microsoft Entra multifactor authentication
+[Multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multifactor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multifactor authentication in the first application that requires it. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ##### User sign-in frequency
 [Sign-in frequency](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, a user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, a user will be asked to sign in to the first application that participates in SSO. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active.
@@ -329,6 +332,7 @@ The Microsoft Enterprise SSO plug-in relies on Apple's [enterprise SSO](https://
 For the SSO plug-in to function properly, Apple devices should be allowed to reach to both identity provider URLs and its own URLs without additional interception. This means that those URLs need to be excluded from network proxies, interception and other enterprise systems. 
 
 Here is the minimum set of URLs that need to be allowed for the SSO plug-in to function:
+
   - `*.cdn-apple.com`
   - `*.networking.apple`
   - `login.microsoftonline.com`
@@ -339,7 +343,12 @@ Here is the minimum set of URLs that need to be allowed for the SSO plug-in to f
   - `login.microsoftonline.us`
   - `login-us.microsoftonline.com`
 
-Additional Apple's URLs that may need to be allowed are documented here: https://support.apple.com/en-us/HT210060
+> [!WARNING]
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
+
+If your organization blocks these URLs users may see errors like `1012 NSURLErrorDomain error` or `1000 com.apple.AuthenticationServices.AuthorizationError`.
+
+Other Apple URLs that may need to be allowed are documented in their support article, [Use Apple products on enterprise networks](https://support.apple.com/HT210060).
 
 #### Use Intune for simplified configuration
 
@@ -359,6 +368,9 @@ The Microsoft Enterprise SSO plug-in relies on the [Apple Enterprise SSO framewo
 
 Native applications can also implement custom operations and communicate directly with the SSO plug-in. For more information, see this [2019 Worldwide Developer Conference video from Apple](https://developer.apple.com/videos/play/tech-talks/301/).
 
+> [!TIP]
+> Learn more about how the SSO plug-in works and how to troubleshoot the Microsoft Enterprise SSO Extension with the [SSO troubleshooting guide for Apple devices](../devices/troubleshoot-mac-sso-extension-plugin.md).
+
 ### Applications that use MSAL
 
 [MSAL for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versions 1.1.0 and later supports the Microsoft Enterprise SSO plug-in for Apple devices natively for work and school accounts. 
@@ -374,10 +386,10 @@ Applications that don't use MSAL, can still get SSO if an administrator adds the
 You don't need to change the code in those apps as long as the following conditions are satisfied:
 
 - The application uses Apple frameworks to run network requests. These frameworks include [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) and [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession), for example. 
-- The application uses standard protocols to communicate with Azure AD. These protocols include, for example, OAuth 2, SAML, and WS-Federation.
+- The application uses standard protocols to communicate with Microsoft Entra ID. These protocols include, for example, OAuth 2, SAML, and WS-Federation.
 - The application doesn't collect plaintext usernames and passwords in the native UI.
 
-In this case, SSO is provided when the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD sign-in URL, the SSO plug-in validates the URL and checks for an SSO credential for that URL. If it finds the credential, the SSO plug-in passes it to Azure AD, which authorizes the application to complete the network request without asking the user to enter credentials. Additionally, if the device is known to Azure AD, the SSO plug-in passes the device certificate to satisfy the device-based conditional access check. 
+In this case, SSO is provided when the application creates a network request and opens a web browser to sign the user in. When a user is redirected to a Microsoft Entra sign-in URL, the SSO plug-in validates the URL and checks for an SSO credential for that URL. If it finds the credential, the SSO plug-in passes it to Microsoft Entra ID, which authorizes the application to complete the network request without asking the user to enter credentials. Additionally, if the device is known to Microsoft Entra ID, the SSO plug-in passes the device certificate to satisfy the device-based Conditional Access check. 
 
 To support SSO for non-MSAL apps, the SSO plug-in implements a protocol similar to the Windows browser plug-in described in [What is a primary refresh token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
@@ -388,3 +400,5 @@ The end user sees the familiar experience and doesn't have to sign in again in e
 ## Next steps
 
 Learn about [Shared device mode for iOS devices](msal-ios-shared-devices.md).
+
+Learn about [troubleshooting the Microsoft Enterprise SSO Extension](../devices/troubleshoot-mac-sso-extension-plugin.md).

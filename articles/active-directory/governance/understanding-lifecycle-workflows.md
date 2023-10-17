@@ -27,7 +27,7 @@ The following document provides an overview of a workflow created using Lifecycl
 
 For a full list of supported delegated and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
 
-For delegated scenarios, the admin needs one of the following [Azure AD roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
+For delegated scenarios, the admin needs one of the following [Microsoft Entra roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
 
 - Global administrator
 - Global reader
@@ -61,7 +61,7 @@ A workflow can be broken down into the following three main parts:
 
 ## Templates
 
-Creating a workflow via the Azure portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for predefined tasks, and helps automate the creation of a workflow.  
+Creating a workflow via the Microsoft Entra admin center requires the use of a template. A Lifecycle Workflow template is a framework that is used for predefined tasks, and helps automate the creation of a workflow.  
 
   [![Understanding workflow template diagram.](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
 
@@ -116,7 +116,7 @@ The **My Feed** section of the workflow overview contains a quick peek into when
 The **Quick Action** section allows you to quickly take action with your workflow. These quick actions can either be making the workflow do something, or used for history or editing purposes. The following actions you can take are:
 
 - Run on Demand: Allows you to quickly run the workflow on demand. For more information on this process, see: [Run a workflow on-demand](on-demand-workflow.md)
-- Edit tasks: Allows you to add, delete, edit, or reorder tasks within the workflow. For more information on this process, see: [Edit the tasks of a workflow using the Azure portal](manage-workflow-tasks.md#edit-the-tasks-of-a-workflow-using-the-azure-portal)
+- Edit tasks: Allows you to add, delete, edit, or reorder tasks within the workflow. For more information on this process, see: [Edit the tasks of a workflow using the Microsoft Entra admin center](manage-workflow-tasks.md#edit-the-tasks-of-a-workflow-using-the-microsoft-entra-admin-center)
 - View Workflow History: Allows you to view the history of the workflow. For more information on the three history perspectives, see: [Lifecycle Workflows history](lifecycle-workflow-history.md)
 
 Actions taken from the overview of a workflow allow you to quickly complete tasks, which can normally be done via the manage section of a workflow.
@@ -141,13 +141,13 @@ The time-based attribute can be either one of two values, which are automaticall
 - createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding
 - employeeLeaveDateTime: If the template is a leaver workflow
 
-The values employeeHireDate and employeeLeaveDateTime must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
+The values employeeHireDate and employeeLeaveDateTime must be set within Microsoft Entra ID for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 180.
 
 
 > [!NOTE]
-> The offsetInDays value in the Azure portal is shown as *Days from event*. When you schedule a workflow to run, this value is used as the baseline for who a workflow will run. Currently there is a 3 day window in processing scheduled workflows. For example, if you schedule a workflow to run for users who joined 7 days ago, a user who meets the execution conditions for the workflow, but joined between 7 to 10 days ago would have the workflow ran for them.
+> The offsetInDays value in the Microsoft Entra admin center is shown as *Days from event*. When you schedule a workflow to run, this value is used as the baseline for who a workflow will run. Currently there is a 3 day window in processing scheduled workflows. For example, if you schedule a workflow to run for users who joined 7 days ago, a user who meets the execution conditions for the workflow, but joined between 7 to 10 days ago would have the workflow ran for them.
 
 ## Configure scope
 
@@ -171,12 +171,9 @@ For a detailed guide on setting the execution conditions for a workflow, see: [C
 
 While newly created workflows are enabled by default, scheduling is an option that must be enabled manually. To verify whether the workflow is scheduled, you can view the **Scheduled** column. 
 
-Once scheduling is enabled, the workflow is evaluated every three hours to determine whether or not it should run based on the execution conditions.
+Once scheduling is enabled, the workflow is evaluated based on the interval that is set within your workflow settings(default of three hours) to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
-
->[!NOTE]
-> For a particular user and workflow version, the scheduled workflow execution is performed only once every 30 days. Also, the execution of on-demand workflows of a particular workflow version in the last 30 days results in the scheduled workflow execution not taking place for a particular user.
 
 To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 
@@ -208,5 +205,5 @@ For more information, see: [Lifecycle Workflows Versioning](lifecycle-workflow-v
 
 
 ## Next steps
-- [Create a custom workflow using the Azure portal](tutorial-onboard-custom-workflow-portal.md)
+- [Create a custom workflow using the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)

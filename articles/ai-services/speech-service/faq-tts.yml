@@ -1,0 +1,115 @@
+### YamlMime:FAQ
+metadata:
+  title: Text to speech FAQ
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about the text to speech service.
+  services: cognitive-services
+  author: eric-urban
+  manager: nitinme
+  ms.service: azure-ai-speech
+  ms.topic: faq
+  ms.date: 03/29/2023
+  ms.author: eur
+title: Text to speech FAQ
+summary: |
+  This article answers commonly asked questions about the text to speech (TTS) service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+  
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How does the billing work for text to speech?
+        answer: |
+          Text to speech usage is billed per character. Check the definition of billable characters in the [pricing note](text-to-speech.md#pricing-note).
+      - question: |
+          What is the rate limit for the text to speech synthesis requests?
+        answer: |
+          The text to speech synthesis rate scales automatically as it receives more requests. A default rate limit is set per speech resource. The rate is adjustable with business justifications and no additional charge will occur for rate limit increase. Check more details in [Speech service quotas and limits](speech-services-quotas-and-limits.md#text-to-speech-quotas-and-limits-per-resource).
+      - question: |
+          How would we disclose to the end user that the voice is a synthetic voice?
+        answer: |
+          We recommend that every user should follow our [code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context) when using the TTS service. There are several ways to disclose the synthetic nature of the voice including implicit and explicit byline. Refer to [Disclosure design guidelines](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context).
+      - question: |
+          How can I reduce the latency for my voice app?
+        answer: |
+          We provide several tips for you to lower the latency and bring the best performance to your users. See [Lower speech synthesis latency using Speech SDK](how-to-lower-speech-synthesis-latency.md).
+      - question: |
+          What output audio formats does TTS support?
+        answer: |
+          The TTS service supports various streaming and non-streaming audio formats, with the commonly used sampling rates. All TTS prebuilt neural voices are created to support high-fidelity audio outputs with 48kHz and 24kHz. The audio can be resampled to support other rates as needed. See [Audio outputs](rest-text-to-speech.md#audio-outputs).
+      - question: |
+          Can the voice be customized to stress specific words?
+        answer: |
+          Adjusting the emphasis is supported for some voices depending on the locale. See the [emphasis tag](speech-synthesis-markup-voice.md#adjust-emphasis).
+      - question: |
+          Can we have multiple strength for each emotions, like very sad, slightly sad and so on in?
+        answer: |
+          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
+      - question: |
+          Is there a mapping between Viseme IDs and mouth shape?
+        answer: |
+          Yes. See [Get facial position with viseme](how-to-speech-synthesis-viseme.md?tabs=visemeid#map-phonemes-to-visemes).
+
+
+  - name: Custom Neural Voice
+    questions:
+      - question: |
+          How much data is required to create a custom neural voice?
+        answer: |
+          Custom Neural Voice (CNV) supports two project types: CNV Pro and CNV Lite. With CNV Pro, at least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for Custom Neural Voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. With CNV Lite, you can create a voice with just 20 recorded samples. CNV Lite is best for quick trials, or when you don't have access to professional voice actors. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+      - question: |
+          Can we include duplicate text sentences in the same set of training data?
+        answer: |
+          No. The service will flag the duplicate sentences and just keep the first imported one. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+      - question: |
+          Can we include multiple styles in the same set of training data?
+        answer: |
+          We recommend that you keep the style consistent in one set of training data. If the styles are different, put them into different training sets. In this case, you may consider using the multi-style voice training feature of Custom Neural Voice. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+      - question: |
+          Does switching styles via SSML work for Custom Neural Voices?
+        answer: |
+          Switching styles via SSML works for both prebuilt multi-style voices and CNV multi-style voices. With multi-style training, you can create a voice that speaks in different styles, and you can also adjust these styles via SSML.
+      - question: |
+          How does cross-lingual voice work with languages that have different pronunciation structure and assembly?  
+        answer: |
+          Sentence structure and pronunciation naturally vary across languages such as English and Japanese. Each neural voice is trained with audio data recorded by native speaking voice talent. For [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) voice, we transfer the major features like timbre to sound like the original speaker and preserve the right pronunciation. For example, a cross-lingual voice will use the native way to speak Japanese and still sound similar (but not exactly) like the original English speaker. 
+      - question: |
+          Can I use Custom Neural Voice to customize pronunciation for my domain?
+        answer: |
+          Custom Neural Voice enables you to create a brand voice for your business. You can optimize it for your domain as well. We recommend you include domain-specific samples in your training data for higher naturalness. However, the pronunciation is defined by the TTS engine by default, and we do not support pronunciation customization during the CNV training. If you want to customize pronunciation for your voice, use SSML. See [Pronunciation with Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-pronunciation.md).
+      - question: |
+          After one training can I train my voice again? 
+        answer: |
+          You can train again. Each training will create a new voice model. You will be charged for each training. 
+      - question: |
+          Is the model version the same as the engine version?
+        answer: |
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure AI services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
+      - question: |
+          Can we limit the number of trainings using Azure Policy or other features? Or is there any way to avoid false training?
+        answer: |
+          If you want to limit the permission to training, you can limit the user roles and access. Refer to [Role-based access control for Speech resources](role-based-access-control.md).
+      - question: |
+          Can Microsoft add a mechanism to prevent unauthorized use or misuse of our voice when it is created?
+        answer: |
+          The voice model can only be used by yourselves using your own token. Microsoft also doesn't use your data. See [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context). You can also request to add watermarks to your voice to protect your model. See [Microsoft Azure Neural TTS introduces the watermark algorithm for synthetic voice identification](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/introducing-the-watermark-algorithm-for-synthetic-voice/ba-p/3298548).
+      - question: |
+          Do you have any tips about contracts or negotiation with voice actors?
+        answer: |
+          We have no recommendations on contracts and it's up to the customer and the voice talent to negotiate the terms. However, you should make sure the voice talent understands the TTS technology, what it can do, its potential risks, and provide explicit consent to create a synthetic version of his/her voice in both the contract and a verbal statement. See [Disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context). 
+      - question: |
+          Do we need to return the written permission from the voice talent back to Microsoft?
+        answer: |
+          Microsoft doesn't need the written permission, but you must obtain consent from your voice talent. The voice talent will also be required to record the consent statement and it must be uploaded into Speech Studio before training can begin. See [Set up voice talent for Custom Neural Voice](how-to-custom-voice-talent.md).
+
+
+
+      
+additionalContent: |
+
+  ## Next steps
+  
+  - [Text to speech quickstart](get-started-text-to-speech.md)
+  - [What's new](releasenotes.md)
+

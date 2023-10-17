@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 06/20/2023
+ms.date: 07/19/2023
 ms.author: jasteppe
 ---
 
@@ -62,12 +62,12 @@ Transform is the next stage where normalized messages are processed using the us
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [**Resolution type**](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to **Lookup**, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to **Create**, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [**Resolution type**](deploy-manual-portal.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to **Lookup**, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to **Create**, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
 
 > [!NOTE]
 > The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.
 
-The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after approximately five minutes. When there's fewer than 300 normalized messages to be processed, there may be a delay of approximately five minutes before FHIR Observations are created or updated in the FHIR service.
+The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after approximately five minutes.
 
 > [!NOTE]
 > When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the five minute window or in groups of 300 normalized messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
@@ -103,7 +103,7 @@ Persist is the final stage where the FHIR Observations from the transform stage 
 
 ## Next steps
 
-In this article, you learned about the MedTech service device message processing and persistence in the FHIR service.
+In this article, you learned about the MedTech service device message processing stages.
 
 For an overview of the MedTech service deployment methods, see
 
@@ -119,5 +119,10 @@ For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

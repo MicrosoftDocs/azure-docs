@@ -30,7 +30,7 @@ Changing a savings plan's scope doesn't affect its term.
 
 To update a savings plan scope:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing** > **Savings plans**.
 3. Select the savings plan.
 4. Select **Settings** > **Configuration**.
@@ -55,7 +55,7 @@ For more information, see [Permissions to view and manage Azure savings plans](p
 
 If you're a billing administrator you don't need to be an owner on the subscription. Use following steps to view and manage all savings plans and to their transactions.
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 2. In the left menu, select **Products + services** > **Savings plan**.
@@ -73,7 +73,7 @@ Although you can't cancel, exchange, or refund a savings plan, you can transfer 
 
 Billing administrators can view savings plan usage Cost Management + Billing.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Cost Management + Billing** > **Savings plans** and note the **Utilization (%)** for a savings plan.
 1. Select a savings plan.
 1. Review the savings plan use trend over time.

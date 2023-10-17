@@ -19,7 +19,7 @@ The Azure Kinect DK development environment consists of the following multiple S
 
 - Sensor SDK for low-level sensor and device access.
 - Body Tracking SDK for tracking bodies in 3D.
-- Speech Cognitive Services SDK for enabling microphone access and Azure cloud-based speech services.
+- Azure AI Speech SDK for enabling microphone access and Azure cloud-based speech services.
 
 In addition, Cognitive Vision services can be used with the device RGB camera.
 
@@ -68,7 +68,9 @@ The following body-tracking features are available on the accompanying SDK:
 
 - Body Tracker has a viewer tool to track bodies in 3D.
 
-## Speech Cognitive services SDK
+<a name='speech-cognitive-services-sdk'></a>
+
+## Azure AI Speech SDK
 
 The Speech SDK enables Azure-connected speech services.
 
@@ -81,19 +83,19 @@ The Speech SDK enables Azure-connected speech services.
 >[!NOTE]
 >The Azure Kinect DK does not have speakers.
 
-For additional details and information, visit [Speech Service documentation](../cognitive-services/speech-service/index.yml).
+For additional details and information, visit [Speech Service documentation](../ai-services/speech-service/index.yml).
 
 ## Vision services
 
-The following [Azure Cognitive Vision Services](https://azure.microsoft.com/services/cognitive-services/directory/vision/) provide Azure services that can identify and analyze content within images and videos.
+The following [Azure Cognitive Vision Services](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab) provide Azure services that can identify and analyze content within images and videos.
 
-- [Computer vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Face](https://azure.microsoft.com/services/cognitive-services/face/)
+- [Computer vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/)
+- [Face](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-face-recognition/)
 - [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
 - [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 - [Custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
-Services evolve and improve constantly, so remember to check regularly for new or additional [Cognitive services](https://azure.microsoft.com/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Cognitive services labs](https://labs.cognitive.microsoft.com/).
+Services evolve and improve constantly, so remember to check regularly for new or additional [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Azure AI services labs](https://labs.cognitive.microsoft.com/).
 
 ## Azure Kinect hardware requirements
 

@@ -15,6 +15,15 @@ ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
+
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]

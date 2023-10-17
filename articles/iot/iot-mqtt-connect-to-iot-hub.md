@@ -189,7 +189,7 @@ To learn more, see [Tutorial - Use MQTT to develop an IoT device client](../iot-
 
 To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
-In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This certificate is the one that Azure uses to secure the connection. You can find this certificate in the [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) repository. More information about these certificates can be found on [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
+In order to establish a TLS connection, you may need to download and reference the DigiCert root certificate that Azure uses. Between February 15 and October 15, 2023, Azure IoT Hub is migrating its TLS root certificate from the DigiCert Baltimore Root Certificate to the DigiCert Global Root G2. During the migration period, you should have both certificates on your devices to ensure connectivity. For more information about the migration, see [Migrate IoT resources to a new TLS certificate root](../iot-hub/migrate-tls-certificate.md) For more information about these certificates, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
 The following example demonstrates how to implement this configuration, by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation.
 
@@ -201,7 +201,7 @@ pip install paho-mqtt
 
 Then, implement the client in a Python script. Replace these placeholders in the following code snippet:
 
-* `<local path to digicert.cer>` is the path to a local file that contains the DigiCert Baltimore Root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
+* `<local path to digicert.cer>` is the path to a local file that contains the DigiCert root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
 
 * `<device id from device registry>` is the ID of a device you added to your IoT hub.
 

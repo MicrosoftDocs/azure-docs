@@ -20,12 +20,12 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - An AKS cluster with a Linux node pool. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or the [Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
-> [!WARNING]
-> AKS Chaos Mesh faults are only supported on Linux node pools.
-
 ## Limitations
 
-Previously, Chaos Mesh faults didn't work with private clusters. You can now use Chaos Mesh faults with private clusters by configuring [virtual network injection in Chaos Studio](chaos-studio-private-networking.md).
+* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/access-private-cluster.md) feature.
+* AKS Chaos Mesh faults are only supported on Linux node pools.
+* Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
+* If your AKS cluster is configured to only allow authorized IP ranges, you need to allow Chaos Studio's IP ranges. You can find them by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md). 
 
 ## Set up Chaos Mesh on your AKS cluster
 
@@ -111,12 +111,11 @@ Now you can create your experiment. A chaos experiment defines the actions you w
             namespaces:
               - default
         ```
-    1. Remove any YAML outside of the `spec` (including the spec property name) and remove the indentation of the spec details.
+    1. Remove any YAML outside of the `spec` (including the spec property name) and remove the indentation of the spec details. The `duration` parameter isn't necessary, but is used if provided. In this case, remove it.
 
         ```yaml
         action: pod-failure
         mode: all
-        duration: '600s'
         selector:
           namespaces:
             - default
@@ -124,7 +123,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
     1. Use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minimize it.
 
         ```json
-        {"action":"pod-failure","mode":"all","duration":"600s","selector":{"namespaces":["default"]}}
+        {"action":"pod-failure","mode":"all","selector":{"namespaces":["default"]}}
         ```
     1. Paste the minimized JSON into the **jsonSpec** field in the portal.
 

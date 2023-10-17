@@ -12,10 +12,11 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 09/29/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
+
 # Understand Azure NetApp Files backup
 
 Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
@@ -36,8 +37,11 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 Azure NetApp Files backup is supported for the following regions:   
 
 * Australia Central
+* Australia Central 2
 * Australia East
+* Australia Southeast
 * Brazil South
+* Canada Central
 * Canada East
 * East Asia
 * East US
@@ -45,19 +49,38 @@ Azure NetApp Files backup is supported for the following regions:
 * France Central
 * Germany West Central
 * Japan East
+* Japan West
+* Korea Central
+* North Central US
 * North Europe
+* Norway East
+* Qatar Central
 * South Africa North
 * South Central US
+* South India
 * Southeast Asia
+* Sweden Central
+* UAE Central
+* UAE North
 * UK South
 * West Europe
 * West US
 * West US 2
 * West US 3
 
+## Backup vault 
+
+Backup vaults are organizational units to manage backups. You must create a backup vault before you can create a backup. 
+
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
+
+>[!IMPORTANT]
+>If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
+
 ## Cost model for Azure NetApp Files backup
 
 Pricing for Azure NetApp Files backup is based on the total amount of storage consumed by the backup. There are no setup charges or minimum usage fees. 
+
 Backup restore is priced based on the total amount of backup capacity restored during the billing cycle.
 
 As a pricing example, assume the following situations:
@@ -73,7 +96,7 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 
 ## Next steps
 
-* [Requirements and considerations for Azure NetApp Files](backup-requirements-considerations.md)
+* [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
 * [Configure manual backups](backup-configure-manual.md)
@@ -85,3 +108,5 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+
+

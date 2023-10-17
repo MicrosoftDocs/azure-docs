@@ -47,7 +47,6 @@ For more information about Basic, Standard, and Premium container registries, se
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
-[portal]: https://portal.azure.com
 [pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

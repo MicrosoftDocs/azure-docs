@@ -64,7 +64,7 @@ The following architecture diagram illustrates the sign-up, sign-in flow in the 
 
 To get started, you need:
 
-* An Azure AD subscription
+* An Azure subscription
   * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A BlokSec [demo](https://bloksec.com/)
@@ -97,7 +97,7 @@ Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-reques
 
 For the following instructions, use the directory that contains your Azure AD B2C tenant. 
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as Global Administrator of your Azure AD B2C tenant.
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
@@ -162,7 +162,7 @@ For the following instructions, ensure BlokSec is a new OIDC identity provider (
 
 Store the client secret you noted in your Azure AD B2C tenant. For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
@@ -294,7 +294,7 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the Refer
 
 For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal toolbar, select the **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory
 4. Select **Switch**.
@@ -321,4 +321,3 @@ Learn more: [Tutorial: Register a web application in Azure Active Directory B2C]
 
 * [Azure AD B2C custom policy overview](./custom-policy-overview.md)
 * [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-

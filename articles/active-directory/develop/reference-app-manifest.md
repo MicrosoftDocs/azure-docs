@@ -1,6 +1,6 @@
 ---
-title: Understanding the Azure Active Directory app manifest
-description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
+title: Understanding the Microsoft Entra app manifest
+description: Detailed coverage of the Microsoft Entra app manifest, which represents an application's identity configuration in a Microsoft Entra tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,23 +14,23 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ---
 
-# Azure Active Directory app manifest
+# Microsoft Entra app manifest
 
 The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](/graph/api/resources/application).
 
-You can configure an app's attributes through the Azure portal or programmatically using [Microsoft Graph API](/graph/api/resources/application) or [Microsoft Graph PowerShell SDK](/powershell/module/microsoft.graph.applications/?view=graph-powershell-1.0&preserve-view=true). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Microsoft Entra admin center or programmatically using [Microsoft Graph API](/graph/api/resources/application) or [Microsoft Graph PowerShell SDK](/powershell/module/microsoft.graph.applications/?view=graph-powershell-1.0&preserve-view=true). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
-* If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
+* If you registered the app as Microsoft Entra multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * To define permissions and roles that your app supports, you must modify the application manifest.
 
 ## Configure the app manifest
 
 To configure the application manifest:
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Search for and select the **Azure Active Directory** service.
-1. Select **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select the app you want to configure.
-1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
+1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
 
 ## Manifest reference
 
@@ -56,7 +56,7 @@ Example:
 | :--- | :--- |
 | acceptMappedClaims | Nullable Boolean |
 
-As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use [claims mapping](active-directory-claims-mapping.md) without specifying a custom signing key.  Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors.
+As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use [claims mapping](./saml-claims-customization.md) without specifying a custom signing key.  Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Microsoft Entra ID and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors.
 
 > [!WARNING]
 > Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
@@ -118,7 +118,7 @@ Example:
 | :--- | :--- |
 | allowPublicClient | Boolean |
 
-Specifies the fallback application type. Azure AD infers the application type from the replyUrlsWithType by default. There are certain scenarios where Azure AD can't determine the client app type. For example, one such scenario is the [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flow where HTTP request happens without a URL redirection). In those cases, Azure AD will interpret the application type based on the value of this property. If this value is set to true the fallback application type is set as public client, such as an installed app running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app.
+Specifies the fallback application type. Microsoft Entra ID infers the application type from the replyUrlsWithType by default. There are certain scenarios where Microsoft Entra ID can't determine the client app type. For example, one such scenario is the [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flow where HTTP request happens without a URL redirection). In those cases, Microsoft Entra ID will interpret the application type based on the value of this property. If this value is set to true the fallback application type is set as public client, such as an installed app running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app.
 
 Example:
 
@@ -132,7 +132,7 @@ Example:
 | :--- | :--- |
 | appId | String |
 
-Specifies the unique identifier for the app that is assigned to an app by Azure AD.
+Specifies the unique identifier for the app that is assigned to an app by Microsoft Entra ID.
 
 Example:
 
@@ -146,7 +146,7 @@ Example:
 | :--- | :--- |
 | appRoles | Collection |
 
-Specifies the collection of roles that an app may declare. These roles can be assigned to users, groups, or service principals. For more examples and info, see [Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
+Specifies the collection of roles that an app may declare. These roles can be assigned to users, groups, or service principals. For more examples and info, see [Add app roles in your application and receive them in the token](./howto-add-app-roles-in-apps.md).
 
 Example:
 
@@ -182,10 +182,10 @@ Unsupported.
 Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. To set this attribute, use one of the following valid string values:
 
 - `"None"`
-- `"SecurityGroup"` (for security groups and Azure AD roles)
+- `"SecurityGroup"` (for security groups and Microsoft Entra roles)
 - `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
-- `"DirectoryRole"` (gets the Azure AD directory roles the user is a member of)
-- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
+- `"DirectoryRole"` (gets the Microsoft Entra directory roles the user is a member of)
+- `"All"` (this will get all of the security groups, distribution groups, and Microsoft Entra directory roles that the signed-in user is a member of).
 
 Example:
 
@@ -201,7 +201,7 @@ Example:
 
 The optional claims returned in the token by the security token service for this specific app.
 
-At this time, apps that support both personal accounts and Azure AD (registered through the app registration portal) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [Optional claims](active-directory-optional-claims.md).
+Apps that support both personal accounts and Microsoft Entra ID cannot use optional claims. However, apps registered for just Microsoft Entra ID using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [Optional claims](./optional-claims.md).
 
 Example:
 
@@ -216,7 +216,7 @@ Example:
 | :--- | :--- |
 | identifierUris | String Array |
 
-User-defined URI(s) that uniquely identify a web app within its Azure AD tenant or verified customer owned domain.
+User-defined URI(s) that uniquely identify a web app within its Microsoft Entra tenant or verified customer owned domain.
 When an application is used as a resource app, the identifierUri value is used to uniquely identify and access the resource.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
@@ -233,7 +233,7 @@ Example:
 | :--- | :--- |
 | informationalUrls | String |
 
-Specifies the links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see [How to: Add Terms of service and privacy statement for registered Azure AD apps](howto-add-terms-of-service-privacy-statement.md).
+Specifies the links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see [How to: Add Terms of service and privacy statement for registered Microsoft Entra apps](howto-add-terms-of-service-privacy-statement.md).
 
 Example:
 
@@ -276,7 +276,7 @@ Example:
 | :--- | :--- |
 | knownClientApplications | String Array |
 
-Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you enter the appID of the client app into this value, the user will only have to consent once to the client app. Azure AD will know that consenting to the client means implicitly consenting to the web API. It will automatically provision service principals for both the client and web API at the same time. Both the client and the web API app must be registered in the same tenant.
+Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you enter the appID of the client app into this value, the user will only have to consent once to the client app. Microsoft Entra ID will know that consenting to the client means implicitly consenting to the web API. It will automatically provision service principals for both the client and web API at the same time. Both the client and the web API app must be registered in the same tenant.
 
 Example:
 
@@ -290,7 +290,7 @@ Example:
 | :--- | :--- |
 | logoUrl | String |
 
-Read only value that points to the CDN URL to logo that was uploaded in the portal.
+Read only value that points to the CDN URL to logo that was uploaded.
 
 Example:
 
@@ -385,7 +385,7 @@ Example:
 | :--- | :--- |
 | oauth2RequiredPostResponse | Boolean |
 
-Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
+Specifies whether, as part of OAuth 2.0 token requests, Microsoft Entra ID will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
 
 Example:
 
@@ -476,7 +476,7 @@ Example:
 | :--- | :--- |
 | replyUrlsWithType | Collection |
 
-This multi-value property holds the list of registered redirect_uri values that Azure AD will accept as destinations when returning tokens. Each URI value should contain an associated app type value. Supported type values are:
+This multi-value property holds the list of registered redirect_uri values that Microsoft Entra ID will accept as destinations when returning tokens. Each URI value should contain an associated app type value. Supported type values are:
 
 - `Web`
 - `InstalledClient`
@@ -557,9 +557,9 @@ Example:
 | signInAudience | String |
 
 Specifies what Microsoft accounts are supported for the current application. Supported values are:
-- `AzureADMyOrg` - Users with a Microsoft work or school account in my organization's Azure AD tenant (for example, single tenant)
-- `AzureADMultipleOrgs` - Users with a Microsoft work or school account in any organization's Azure AD tenant (for example, multi-tenant)
-- `AzureADandPersonalMicrosoftAccount` - Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant
+- `AzureADMyOrg` - Users with a Microsoft work or school account in my organization's Microsoft Entra tenant (for example, single tenant)
+- `AzureADMultipleOrgs` - Users with a Microsoft work or school account in any organization's Microsoft Entra tenant (for example, multi-tenant)
+- `AzureADandPersonalMicrosoftAccount` - Users with a personal Microsoft account, or a work or school account in any organization's Microsoft Entra tenant
 - `PersonalMicrosoftAccount` - Personal accounts that are used to sign in to services like Xbox and Skype.
 
 Example:
@@ -595,7 +595,7 @@ An application manifest has multiple attributes that are referred to as collecti
 
 ### Unsupported attributes
 
-The application manifest represents the schema of the underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908), which are known with a different name in the App registrations (Legacy) experience.
+The application manifest represents the schema of the underlying application model in Microsoft Entra ID. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908), which are known with a different name in the App registrations (Legacy) experience.
 
 | App registrations (Legacy)| App registrations           |
 |---------------------------|-----------------------------|
@@ -624,7 +624,7 @@ When you see one of these errors, we recommend the following actions:
 
 ## Next steps
 
-* For more info on the relationship between an app's application and service principal object(s), see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
+* For more info on the relationship between an app's application and service principal object(s), see [Application and service principal objects in Microsoft Entra ID](app-objects-and-service-principals.md).
 * See the [Microsoft identity platform developer glossary](developer-glossary.md) for definitions of some core Microsoft identity platform developer concepts.
 
 Use the following comments section to provide feedback that helps refine and shape our content.
@@ -633,11 +633,10 @@ Use the following comments section to provide feedback that helps refine and sha
 [AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AZURE-PORTAL]: https://portal.azure.com
+[ADD-UPD-RMV-APP]:./quickstart-register-app.md
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: /graph/migrate-azure-ad-graph-planning-checklist
-[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
+[IMPLICIT-GRANT]:./v2-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

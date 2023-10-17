@@ -7,11 +7,11 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/14/2023
+ms.date: 07/31/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, azurecli
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, AppServiceIdentity
 ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
@@ -29,7 +29,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 ### Install client library packages
 
-Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Microsoft Entra credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command-line
 

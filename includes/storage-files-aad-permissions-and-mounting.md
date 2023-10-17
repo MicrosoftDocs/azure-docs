@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: khdownie
- ms.service: storage
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 01/24/2023
  ms.author: kendownie
@@ -14,7 +14,7 @@
 
 To access Azure Files resources with identity-based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. **We highly recommend assigning permissions by declaring actions and data actions explicitly as opposed to using the wildcard (\*) character.**
 
-Most users should assign share-level permissions to specific Azure AD users or groups, and then [configure Windows ACLs](#configure-windows-acls) for granular access control at the directory and file level. However, alternatively you can set a [default share-level permission](../articles/storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow contributor, elevated contributor, or reader access to **all authenticated identities**.
+Most users should assign share-level permissions to specific Microsoft Entra users or groups, and then [configure Windows ACLs](#configure-windows-acls) for granular access control at the directory and file level. However, alternatively you can set a [default share-level permission](../articles/storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow contributor, elevated contributor, or reader access to **all authenticated identities**.
 
 We have introduced three Azure built-in roles for granting share-level permissions to users and groups:
 
@@ -23,27 +23,29 @@ We have introduced three Azure built-in roles for granting share-level permissio
 - **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control isn't supported with Azure AD credentials.
+> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control isn't supported with Microsoft Entra credentials.
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions. Be aware that the share-level Azure role assignment can take some time to be in effect. The general recommendation is to use share-level permission for high-level access management to an AD group representing a group of users and identities, then leverage Windows ACLs for granular access control at the directory/file level.
+You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Microsoft Entra identity of a user for granting share-level permissions. Be aware that the share-level Azure role assignment can take some time to be in effect. The general recommendation is to use share-level permission for high-level access management to an AD group representing a group of users and identities, then leverage Windows ACLs for granular access control at the directory/file level.
 
-### Assign an Azure role to an Azure AD identity
+<a name='assign-an-azure-role-to-an-azure-ad-identity'></a>
+
+### Assign an Azure role to a Microsoft Entra identity
 
 > [!IMPORTANT]
 > **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.
 
 # [Portal](#tab/azure-portal)
-To assign an Azure role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
+To assign an Azure role to a Microsoft Entra identity, using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your file share, or [Create a file share](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Select **Access Control (IAM)**.
 3. Select **Add a role assignment**
-4. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address.
+4. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Microsoft Entra user, group, or service principal**. Select the target Microsoft Entra identity by name or email address.
 5. Select **Review + assign** to complete the role assignment operation.
 
 # [PowerShell](#tab/azure-powershell)
 
-The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+The following PowerShell sample shows how to assign an Azure role to a Microsoft Entra identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
@@ -58,7 +60,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 # [Azure CLI](#tab/azure-cli)
   
-The following CLI 2.0 command shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).
+The following CLI 2.0 command shows how to assign an Azure role to a Microsoft Entra identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
@@ -88,7 +90,7 @@ For more information, see [Configure directory and file-level permissions over S
 
 ### Mount the file share using your storage account key
 
-Before you configure Windows ACLs, you must first mount the file share to your domain-joined VM by using your storage account key. To do this, log into the domain-joined VM as an Azure AD user, open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+Before you configure Windows ACLs, you must first mount the file share to your domain-joined VM by using your storage account key. To do this, log into the domain-joined VM as a Microsoft Entra user, open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 It's important that you use the `net use` Windows command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you won't be able to configure Windows ACLs.
 
@@ -128,7 +130,7 @@ For more information on how to use icacls to set Windows ACLs and the different 
 
 The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure file share from a domain-joined VM. Be aware that the share-level Azure role assignment can take some time to take effect.
 
-Sign in to the domain-joined VM using the Azure AD identity to which you granted permissions. Be sure to sign in with Azure AD credentials. If the drive is already mounted with the storage account key, you'll need to disconnect the drive or sign in again.
+Sign in to the domain-joined VM using the Microsoft Entra identity to which you granted permissions. Be sure to sign in with Microsoft Entra credentials. If the drive is already mounted with the storage account key, you'll need to disconnect the drive or sign in again.
 
 Run the PowerShell script below or [use the Azure portal](../articles/storage/files/storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. Because you've been authenticated, you won't need to provide the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace `<storage-account-name>` and `<file-share-name>` with your own values. For more information, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md).
 
@@ -150,16 +152,16 @@ You can also use the `net-use` command from a Windows prompt to mount the file s
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ```
 
-## Mount the file share from a non-domain-joined VM
+## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (an Azure AD identity synced from Azure AD to Azure AD DS) in the Azure AD DS managed domain.
+Non-domain-joined VMs or VMs that are joined to a different domain than the storage account can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has line-of-sight to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
 
 To mount a file share from a non-domain-joined VM, the user must either:
 
-- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Azure AD DS domain and **username** is the identity’s user name in Azure AD DS, or
+- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity’s user name in Microsoft Entra Domain Services, or
 - Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
 
-Using one of these approaches will allow the client to contact the domain controller in the Azure AD DS domain to request and receive Kerberos tickets.
+Using one of these approaches will allow the client to contact the domain controller in the Microsoft Entra Domain Services domain to request and receive Kerberos tickets.
 
 For example:
 
@@ -172,4 +174,3 @@ or
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
 ```
-

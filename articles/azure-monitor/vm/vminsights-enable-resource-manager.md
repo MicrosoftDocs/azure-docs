@@ -3,9 +3,9 @@ title: Enable VM insights using Resource Manager templates
 description: This article describes how you enable VM insights for one or more Azure virtual machines or Virtual Machine Scale Sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 ---
 
 # Enable VM insights using Resource Manager templates
@@ -32,7 +32,7 @@ If you aren't familiar how to deploy a Resource Manager template, see [Deploy te
 >The template needs to be deployed in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
 ## Azure Monitor agent
-Download the [Azure Monitor agent templates](https://aka.ms/vminsights/downloadAMADaVmiArmTemplates). You must first install the data collection rule and can then install agents to use that DCR. 
+Download the [Azure Monitor agent templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip). You must first install the data collection rule and can then install agents to use that DCR. 
 
 ###  Deploy data collection rule
 You only need to perform this step once. This will install the DCR that's used by each agent. The DCR will be created in the same resource group as the workspace with a name in the format "MSVMI-{WorkspaceName}".

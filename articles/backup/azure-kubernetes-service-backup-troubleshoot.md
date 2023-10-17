@@ -4,8 +4,8 @@ description: Symptoms, causes, and resolutions of Azure Kubernetes Service backu
 ms.topic: troubleshooting
 ms.date: 03/15/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore (preview)
@@ -45,7 +45,7 @@ To scale node pool on Azure portal, follow these steps:
 
 **Cause**: When you enable pod-managed identity on your AKS cluster, an *AzurePodIdentityException* named *aks-addon-exception* is added to the *kube-system* namespace. An *AzurePodIdentityException* allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the NMI server.
 
-The extension pods aren't exempt, and require the Azure Active Directory (Azure AD) pod identity to be enabled manually.
+The extension pods aren't exempt, and require the Microsoft Entra pod identity to be enabled manually.
 
 **Resolution**: Create *pod-identity* exception in AKS cluster (that works only for *dataprotection-microsoft* namespace and for *not kube-system*). [Learn more](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add).
 

@@ -1,13 +1,13 @@
 ---
-title: How to prevent misconfigurations with Microsoft Defender for Cloud
+title: How to prevent misconfigurations
 description: Learn how to use Defender for Cloud's 'Enforce' and 'Deny' options on the recommendations details pages
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.date: 07/24/2023
 ---
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources regarding specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources regarding specific recommendations.
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
@@ -25,7 +25,7 @@ The ability to secure configurations can be found at the top of the resource det
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-deny-button.png" alt-text="Recommendation page with Deny button highlighted.":::
 
-    The configuration pane opens listing the scope options. 
+    The configuration pane opens listing the scope options.
 
 1. Set the scope by selecting the relevant subscription or management group.
 
@@ -34,14 +34,13 @@ The ability to secure configurations can be found at the top of the resource det
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-prevent-resource-creation.png" alt-text="Setting the scope for Azure Policy deny.":::
 
-
 ## Enforce a secure configuration
 
 1. Open the recommendation that you'll deploy a template deployment for if new resources don't  satisfy it, and select the **Enforce** button at the top of the page.
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-button.png" alt-text="Recommendation page with Enforce button highlighted.":::
 
-    The configuration pane opens with all of the policy configuration options. 
+    The configuration pane opens with all of the policy configuration options.
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-config.png" alt-text="Enforce configuration options.":::
 
@@ -62,7 +61,6 @@ These recommendations can be used with the **enforce** option:
 - Azure Backup should be enabled for virtual machines
 - Microsoft Defender for App Service should be enabled
 - Microsoft Defender for container registries should be enabled
-- Microsoft Defender for DNS should be enabled
 - Microsoft Defender for Key Vault should be enabled
 - Microsoft Defender for Kubernetes should be enabled
 - Microsoft Defender for Resource Manager should be enabled

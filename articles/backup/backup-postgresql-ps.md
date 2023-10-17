@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 01/24/2022
 ms.custom: devx-track-azurepowershell
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure PostgreSQL databases using Azure PowerShell

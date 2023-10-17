@@ -34,7 +34,7 @@ After you've created your condition-monitoring application, you can edit its def
 
 The first step in customizing the application dashboard is to change the name:
 
-1. Go to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
+1. Go to the [Azure IoT Central My apps](https://apps.azureiotcentral.com/myapps) page.
 
 1. Open the condition-monitoring application that you created.
 

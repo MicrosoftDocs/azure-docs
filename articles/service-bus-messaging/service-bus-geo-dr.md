@@ -20,7 +20,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
 ## Important points to consider
 
 - The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they're already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
-- Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+- Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 - The following configurations aren't replicated. 
     - Virtual network configurations
     - Private endpoint connections
@@ -87,7 +87,11 @@ You first create or use an existing primary namespace, and a new secondary names
     1. Manually fail over to the secondary namespace. 
         1. Select **Failover** on the toolbar. 
         1. Confirm that you want to fail over to the secondary namespace by typing in your alias. 
-        1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. This feature makes sure that pending Geo-DR replications are completed before switching over to the secondary. 
+        1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. 
+        
+            > [!NOTE]
+            > - The safe failover makes sure that pending Geo-DR replications are completed before switching over to the secondary. Whereas forced or manual failover doesn't wait for pending replications to be completed before switching over to the secondary. 
+            > - Currently, the safe failover fails if the primary and secondary namespaces aren't in the same Azure subscription. 
         1. Then, select **Failover**. 
         
             :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="Screenshot showing the Failover page.":::
@@ -146,7 +150,7 @@ If you have a scenario in which you can't change the connections of producers an
 
 The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- A .NET sample and settings that are required in Azure Active Directory to use Azure Resource Manager with Service Bus, to set up, and enable Geo-disaster recovery.
+- A .NET sample and settings that are required in Microsoft Entra ID to use Azure Resource Manager with Service Bus, to set up, and enable Geo-disaster recovery.
 - Steps required to execute the sample code.
 - How to use an existing namespace as an alias.
 - Steps to alternatively enable Geo-disaster recovery via PowerShell or CLI.
@@ -185,7 +189,7 @@ If you try to create a pairing between a primary namespace with a private endpoi
 > [!NOTE]
 > When you try to pair the primary namespace with a private endpoint and the secondary namespace, the validation process only checks whether a private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
-> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/stable/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
+> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/controlplane-stable/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. To resolve, create a private endpoint on the secondary namespace first and then create one for the primary namespace.
@@ -214,12 +218,12 @@ Advantage of this approach is that failover can happen at the application layer 
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## Role-based access control
-Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 
 
 ## Next steps
 
-- See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/stable/disasterrecoveryconfigs).
+- See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs).
 - Run the Geo-disaster recovery [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - See the Geo-disaster recovery [sample that sends messages to an alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 

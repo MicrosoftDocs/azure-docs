@@ -2,8 +2,7 @@
 title: Control what a user can do at the directory and file level - Azure Files
 description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: kendownie
@@ -20,7 +19,7 @@ After you assign share-level permissions, you can configure Windows access contr
 Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 > [!IMPORTANT]
-> To configure Windows ACLs, you'll need a client machine running Windows that has line-of-sight to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Azure Active Directory Kerberos (Azure AD Kerberos) for hybrid identities, this means you'll need line-of-sight to the on-premises AD. If you're using Azure Active Directory Domain Services (Azure AD DS), then the client machine must have line-of-sight to the domain controllers for the domain that's managed by Azure AD DS, which are located in Azure.
+> To configure Windows ACLs, you'll need a client machine running Windows that has line-of-sight to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need line-of-sight to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have line-of-sight to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
 
 ## Applies to
 | File share type | SMB | NFS |

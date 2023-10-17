@@ -60,8 +60,8 @@ Many organizations use threat intelligence platform (TIP) solutions to aggregate
 
 This data connector utilizes a new API and offers the following improvements:
 - The threat indicator fields are based off of the STIX standardized format.
-- The Azure Active Directory (Azure AD) application only requires Microsoft Sentinel Contributor role.
-- The API request endpoint is scoped at the workspace level and the Azure AD application permissions required allow granular assignment at the workspace level.
+- The Microsoft Entra application only requires Microsoft Sentinel Contributor role.
+- The API request endpoint is scoped at the workspace level and the Microsoft Entra application permissions required allow granular assignment at the workspace level.
 
 For more information, see [Connect your threat intelligence platform using upload indicators API](connect-threat-intelligence-upload-api.md) 
 

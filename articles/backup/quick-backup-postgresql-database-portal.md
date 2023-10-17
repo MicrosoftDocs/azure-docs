@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.custom: mvc, mode-ui
 ms.date: 02/25/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Database for PostgreSQL server in Azure

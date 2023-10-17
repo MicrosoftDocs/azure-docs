@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Check spelling with the REST API and Node.js - Bing Spell Check"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get started using the Bing Spell Check REST API and Node.js to check spelling and grammar.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Check spelling with the Bing Spell Check REST API and Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple JavaScript application sends a request to the API and returns a list of suggested corrections. 
 
@@ -31,7 +31,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
 ## Create and initialize a project
 
-1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then, create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then, create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     'use strict';

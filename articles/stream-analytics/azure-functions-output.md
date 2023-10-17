@@ -12,7 +12,7 @@ ms.date: 05/28/2021
 
 Azure Functions is a serverless compute service that you can use to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that's triggered by events occurring in Azure or partner services. This ability of Azure Functions to respond to triggers makes it a natural output for Azure Stream Analytics. This output adapter enables users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
-Azure Functions output from Stream Analytics is not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions. Connection to Azure Functions inside a virtual network (VNet) from an Stream Analytics job that is running in a multi-tenant cluster is also not supported.
+Azure Functions output from Stream Analytics is not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International). Connection to Azure Functions inside a virtual network (VNet) from a Stream Analytics job that is running in a multi-tenant cluster is also not supported.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Functions output adapter is available with the following configurable properties:
 

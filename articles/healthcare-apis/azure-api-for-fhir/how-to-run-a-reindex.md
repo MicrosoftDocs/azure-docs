@@ -6,10 +6,12 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 # Running a reindex job in Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers how to run a reindex job to index search parameters that haven't yet been indexed in your FHIR service database.
 
@@ -104,9 +106,10 @@ content-type: application/fhir+json
 "resourceType": "Parameters",  
 
 "parameter": [
+    {
       "name": "targetSearchParameterTypes",
       "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma seperated.}"
-
+    }
 ] 
 
 }

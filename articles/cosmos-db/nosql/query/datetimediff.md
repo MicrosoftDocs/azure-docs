@@ -1,120 +1,70 @@
 ---
-title: DateTimeDiff in Azure Cosmos DB query language
-description: Learn about SQL system function DateTimeDiff in Azure Cosmos DB.
-author: seesharprun
+title: DateTimeDiff
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the difference of a specific part between two date and times.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 07/09/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# DateTimeDiff (Azure Cosmos DB)
+
+# DateTimeDiff (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
-Returns the count (as a signed integer value) of the specified DateTimePart boundaries crossed between the specified *StartDate* and *EndDate*.
+
+Returns the difference, as a signed integer, of the specified date and time part between two date and time values.
   
 ## Syntax
   
 ```sql
-DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
+DateTimeDiff(<date_time_part>, <start_date_time>, <end_date_time>)
 ```
 
 ## Arguments
-  
-*DateTimePart*  
-   The part of date to which DateTimeAdd adds an integer number. This table lists all valid DateTimePart arguments:
 
-| DateTimePart | abbreviations        |
-| ------------ | -------------------- |
-| Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
-| Day          | "day", "dd", "d"     |
-| Hour         | "hour", "hh"         |
-| Minute       | "minute", "mi", "n"  |
-| Second       | "second", "ss", "s"  |
-| Millisecond  | "millisecond", "ms"  |
-| Microsecond  | "microsecond", "mcs" |
-| Nanosecond   | "nanosecond", "ns"   |
+| | Description |
+| --- | --- |
+| **`date_time_part`** | A string representing a part of an ISO 8601 date format specification. This part is used to indicate which aspect of the date to compare. |
+| **`start_date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
+| **`end_date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
 
-*StartDate*  
-    UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
-  
-  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
-
-*EndDate*  
-   UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ`
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns a signed integer value.
+Returns a numeric value that is a signed integer.
+
+## Examples
+
+The following examples compare **February 4, 2019 16:00 UTC** and **March 5, 2018 05:00 UTC** using various date and time parts.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/query.sql" highlight="2-11":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/result.json":::
 
 ## Remarks
 
-DateTimeDiff will return `undefined` for the following reasons:
+- This function returns `undefined` for these reasons:
+  - The specified date and time part is invalid.
+  - The date and time in either start or end argument isn't a valid ISO 8601 date and time string.
+- The ISO 8601 date format specifies valid date and time parts to use with this function:
+    | | Format |
+    | --- | --- |
+    | **Day** | `day`, `dd`, `d` |
+    | **Hour** | `hour`, `hh` |
+    | **Minute** | `minute`, `mi`, `n` |
+    | **Second** | `second`, `ss`, `s` |
+    | **Millisecond** | `millisecond`, `ms` |
+    | **Microsecond** | `microsecond`, `mcs` |
+    | **Nanosecond** | `nanosecond`, `ns` |
+- The function always returns a signed integer value. The function returns a measurement of the number of boundaries crossed for the specified date and time part, not a measurement of the time interval.
 
-- The DateTimePart value specified is invalid
-- The StartDate or EndDate is not a valid ISO 8601 DateTime
+## Related content
 
-DateTimeDiff will always return a signed integer value and is a measurement of the number of DateTimePart boundaries crossed, not measurement of the time interval.
-
-## Examples
-  
-The following example computes the number of day boundaries crossed between `2020-01-01T01:02:03.1234527Z` and `2020-01-03T01:02:03.1234567Z`.
-
-```sql
-SELECT DateTimeDiff("day", "2020-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03.1234567Z") AS DifferenceInDays
-```
-
-```json
-[
-    {
-        "DifferenceInDays": 2
-    }
-]
-```  
-
-The following example computes the number of year boundaries crossed between `2028-01-01T01:02:03.1234527Z` and `2020-01-03T01:02:03.1234567Z`.
-
-```sql
-SELECT DateTimeDiff("yyyy", "2028-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03.1234567Z") AS DifferenceInYears
-```
-
-```json
-[
-    {
-        "DifferenceInYears": -8
-    }
-]
-```
-
-The following example computes the number of hour boundaries crossed between `2020-01-01T01:00:00.1234527Z` and `2020-01-01T01:59:59.1234567Z`. Even though these DateTime values are over 0.99 hours apart, `DateTimeDiff` returns 0 because no hour boundaries were crossed.
-
-```sql
-SELECT DateTimeDiff("hh", "2020-01-01T01:00:00.1234527Z", "2020-01-01T01:59:59.1234567Z") AS DifferenceInHours
-```
-
-```json
-[
-    {
-        "DifferenceInHours": 0
-    }
-]
-```
-
-## Next steps
-
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`DateTimeBin`](datetimebin.md)

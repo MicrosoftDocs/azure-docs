@@ -1,6 +1,6 @@
 ---
-title: Plan cloud HR application to Azure Active Directory user provisioning
-description: This article describes the deployment process of integrating cloud HR systems, such as Workday and SuccessFactors, with Azure Active Directory. Integrating Azure AD with your cloud HR system results in a complete identity lifecycle management system. 
+title: Plan cloud HR application to Microsoft Entra user provisioning
+description: This article describes the deployment process of integrating cloud HR systems, such as Workday and SuccessFactors, with Microsoft Entra ID. Integrating Microsoft Entra ID with your cloud HR system results in a complete identity lifecycle management system. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,45 +8,45 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Plan cloud HR application to Azure Active Directory user provisioning
+# Plan cloud HR application to Microsoft Entra user provisioning
 
 Historically, IT staff has relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
 
-To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](../app-provisioning/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
+To manage the identity lifecycles of employees, vendors, or contingent workers, [Microsoft Entra user provisioning service](../app-provisioning/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
 
-Azure AD uses this integration to enable the following cloud HR application (app) workflows:
+Microsoft Entra ID uses this integration to enable the following cloud HR application (app) workflows:
 
 - **Provision users to Active Directory:** Provision selected sets of users from a cloud HR app into one or more Active Directory domains.
-- **Provision cloud-only users to Azure AD:** In scenarios where Active Directory isn't used, provision users directly from the cloud HR app to Azure AD.
-- **Write back to the cloud HR app:** Write the email addresses and username attributes from Azure AD back to the cloud HR app.
+- **Provision cloud-only users to Microsoft Entra ID:** In scenarios where Active Directory isn't used, provision users directly from the cloud HR app to Microsoft Entra ID.
+- **Write back to the cloud HR app:** Write the email addresses and username attributes from Microsoft Entra back to the cloud HR app.
 
 The following video provides guidance on planning your HR-driven provisioning integrations.  
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/HsdBt40xEHs]
 
 > [!NOTE]
-> This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).
+> This deployment plan shows you how to deploy your cloud HR app workflows with Microsoft Entra user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).
 
 ## Enabled HR scenarios
 
-The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
+The Microsoft Entra user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
-- **New employee hiring:** Adding an employee to the cloud HR app automatically creates a user in Active Directory and Azure AD. Adding a user account includes the option to write back the email address and username attributes to the cloud HR app.
-- **Employee attribute and profile updates:** When an employee record such as name, title, or manager is updated in the cloud HR app, their user account is automatically updated in Active Directory and Azure AD.
-- **Employee terminations:** When an employee is terminated in the cloud HR app, their user account is automatically disabled in Active Directory and Azure AD.
-- **Employee rehires:** When an employee is rehired in the cloud HR app, their old account can be automatically reactivated or reprovisioned to Active Directory and Azure AD.
+- **New employee hiring:** Adding an employee to the cloud HR app automatically creates a user in Active Directory and Microsoft Entra ID. Adding a user account includes the option to write back the email address and username attributes to the cloud HR app.
+- **Employee attribute and profile updates:** When an employee record such as name, title, or manager is updated in the cloud HR app, their user account is automatically updated in Active Directory and Microsoft Entra ID.
+- **Employee terminations:** When an employee is terminated in the cloud HR app, their user account is automatically disabled in Active Directory and Microsoft Entra ID.
+- **Employee rehires:** When an employee is rehired in the cloud HR app, their old account can be automatically reactivated or reprovisioned to Active Directory and Microsoft Entra ID.
 
 ## Who is this integration best suited for?
 
-The cloud HR app integration with Azure AD user provisioning is ideally suited for organizations that:
+The cloud HR app integration with Microsoft Entra user provisioning is ideally suited for organizations that:
 
 - Want a prebuilt, cloud-based solution for cloud HR user provisioning.
-- Require direct user provisioning from the cloud HR app to Active Directory or Azure AD.
+- Require direct user provisioning from the cloud HR app to Active Directory or Microsoft Entra ID.
 - Require users to be provisioned by using data obtained from the cloud HR app.
 - Syncing users who are joining, moving, and leaving. The sync happens between one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
 - Use Microsoft 365 for email.
@@ -59,8 +59,8 @@ User provisioning creates a foundation for ongoing identity governance. It enhan
 
 This article uses the following terms:
 
-- **Source system**: The repository of users that Azure AD provisions from. An example is a cloud HR app such as Workday or SuccessFactors.
-- **Target system**: The repository of users that the Azure AD provisions to. Examples are Active Directory, Azure AD, Microsoft 365, or other SaaS apps.
+- **Source system**: The repository of users that Microsoft Entra ID provisions from. An example is a cloud HR app such as Workday or SuccessFactors.
+- **Target system**: The repository of users that the Microsoft Entra ID provisions to. Examples are Active Directory, Microsoft Entra ID, Microsoft 365, or other SaaS apps.
 - **Joiners-Movers-Leavers process**: A term used for new hires, transfers, and termination by using a cloud HR app as a system of records. The process completes when the service successfully provisions the necessary attributes to the target system.
 
 ### Key benefits
@@ -69,23 +69,23 @@ This capability of HR-driven IT provisioning offers the following significant bu
 
 - **Increase productivity:** You can now automate the assignment of user accounts and Microsoft 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
 - **Manage risk:** Automate changes based on employee status or group membership to increase security. This automation ensures that user identities and access to key apps update automatically. For example, an update in the HR app when a user transitions or leaves the organization flows in automatically.
-- **Address compliance and governance:** Azure AD supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
+- **Address compliance and governance:** Microsoft Entra ID supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
 - **Manage cost:** Automatic provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions built over time by using legacy and outdated platforms.
 
 ### Licensing
 
-To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
+To configure the cloud HR app to Microsoft Entra user provisioning integration, you require a valid [Microsoft Entra ID P1 or P2 license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
-You also need a valid Azure AD Premium P1 or higher subscription license for every user that is sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
+You also need a valid Microsoft Entra ID P1 or higher subscription license for every user that is sourced from the cloud HR app and provisioned to either Active Directory or Microsoft Entra ID. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
 
 ### Prerequisites
 
-- Azure AD [hybrid identity administrator](../roles/permissions-reference.md#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
-- Azure AD [application administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app in the Azure portal
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure the Connect provisioning agent.
+- [Application Administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app.
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
-- For user provisioning to Active Directory, a server running Windows Server 2016 or greater is required to host the Azure AD Connect provisioning agent. This server should be a tier 0 server based on the Active Directory administrative tier model.
-- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Azure AD.
+- For user provisioning to Active Directory, a server running Windows Server 2016 or greater is required to host the Microsoft Entra Connect provisioning agent. This server should be a tier 0 server based on the Active Directory administrative tier model.
+- [Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Microsoft Entra ID.
 
 ### Training resources
 
@@ -93,18 +93,18 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 |:-|:-|
 | Videos | [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) |
 | | [How to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
-| Tutorials | [List of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
+| Tutorials | [List of tutorials on how to integrate SaaS apps with Microsoft Entra ID](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configure automatic user provisioning with Workday](../saas-apps/workday-inbound-tutorial.md) |
 | | [Tutorial: Configure automatic user provisioning with SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
 | FAQ | [Automated user provisioning](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
-| | [Provisioning from Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Provisioning from Workday to Microsoft Entra ID](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### Solution architecture
 
 The following example describes the end-to-end user provisioning solution architecture for common hybrid environments and includes:
 
-- **Authoritative HR data flow from cloud HR app to Active Directory.** In this flow, the HR event (Joiners-Movers-Leavers process) is initiated in the cloud HR app tenant. The Azure AD provisioning service and Azure AD Connect provisioning agent provision the user data from the cloud HR app tenant into Active Directory. Depending on the event, it might lead to create, update, enable, and disable operations in Active Directory.
-- **Sync with Azure AD and write back email and username from on-premises Active Directory to cloud HR app.** After the accounts are updated in Active Directory, it's synced with Azure AD through Azure AD Connect. The email addresses and username attributes can be written back to the cloud HR app tenant.
+- **Authoritative HR data flow from cloud HR app to Active Directory.** In this flow, the HR event (Joiners-Movers-Leavers process) is initiated in the cloud HR app tenant. The Microsoft Entra provisioning service and Microsoft Entra Connect provisioning agent provision the user data from the cloud HR app tenant into Active Directory. Depending on the event, it might lead to create, update, enable, and disable operations in Active Directory.
+- **Sync with Microsoft Entra ID and write back email and username from on-premises Active Directory to cloud HR app.** After the accounts are updated in Active Directory, it's synced with Microsoft Entra ID through Microsoft Entra Connect. The email addresses and username attributes can be written back to the cloud HR app tenant.
 
 ![Workflow diagram](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img1.png)
 
@@ -113,12 +113,12 @@ The following example describes the end-to-end user provisioning solution archit
 The following key steps are indicated in the diagram:  
 
 1. **HR team** performs the transactions in the cloud HR app tenant.
-2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
-3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
-4. **Azure AD Connect provisioning agent** uses a service account to manage Active Directory account data.
-5. **Azure AD Connect** runs delta [sync](../hybrid/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
-6. **Active Directory** updates are synced with Azure AD.
-7. **Azure AD provisioning service** write backs email attribute and username from Azure AD to the cloud HR app tenant.
+2. **Microsoft Entra provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
+3. **Microsoft Entra provisioning service** invokes the Microsoft Entra Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
+4. **Microsoft Entra Connect provisioning agent** uses a service account to manage Active Directory account data.
+5. **Microsoft Entra Connect** runs delta [sync](../hybrid/connect/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
+6. **Active Directory** updates are synced with Microsoft Entra ID.
+7. **Microsoft Entra provisioning service** write backs email attribute and username from Microsoft Entra ID to the cloud HR app tenant.
 
 ## Plan the deployment project
 
@@ -126,7 +126,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
 
 Include a representative from the HR organization who can provide inputs on existing HR business processes and worker identity plus job data-processing requirements.
 
@@ -138,19 +138,19 @@ Communication is critical to the success of any new service. Proactively communi
 
 Integrating HR business processes and identity workflows from the cloud HR app to target systems requires a considerable amount of data validation, data transformation, data cleansing, and end-to-end testing before you can deploy the solution into production.
 
-Run the initial configuration in a [pilot environment](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
+Run the initial configuration in a [pilot environment](../architecture/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
 
 ## Select cloud HR provisioning connector apps
 
-To facilitate Azure AD provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Azure AD app gallery:
+To facilitate Microsoft Entra provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Microsoft Entra app gallery:
 
-- **Cloud HR app to Active Directory user provisioning**: This provisioning connector app facilitates user account provisioning from the cloud HR app to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
-- **Cloud HR app to Azure AD user provisioning**: Azure AD Connect is the tool used to synchronize Active Directory on premises users to Azure Active Directory. The Cloud HR app to Azure AD user provisioning is a connector you use to provision cloud-only users from the cloud HR app to a single Azure AD tenant.
-- **Cloud HR app write-back**: This provisioning connector app facilitates the write-back of the user's email addresses from Azure AD to the cloud HR app.
+- **Cloud HR app to Active Directory user provisioning**: This provisioning connector app facilitates user account provisioning from the cloud HR app to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Microsoft Entra app gallery for each Active Directory domain you need to provision to.
+- **Cloud HR app to Microsoft Entra user provisioning**: Microsoft Entra Connect is the tool used to synchronize Active Directory on premises users to Microsoft Entra ID. The Cloud HR app to Microsoft Entra user provisioning is a connector you use to provision cloud-only users from the cloud HR app to a single Microsoft Entra tenant.
+- **Cloud HR app write-back**: This provisioning connector app facilitates the write-back of the user's email addresses from Microsoft Entra ID to the cloud HR app.
 
-For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
+For example, the following image lists the Workday connector apps that are available in the Microsoft Entra app gallery.
 
-![Azure portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Microsoft Entra admin center app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
@@ -158,16 +158,18 @@ Use the following decision flow chart to identify which cloud HR provisioning ap
 
 ![Decision flow chart](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
 
-## Design the Azure AD Connect provisioning agent deployment topology
+<a name='design-the-azure-ad-connect-provisioning-agent-deployment-topology'></a>
+
+## Design the Microsoft Entra Connect provisioning agent deployment topology
 
 The provisioning integration between the cloud HR app and Active Directory requires four components:
 
 - Cloud HR app tenant
 - Provisioning connector app
-- Azure AD Connect provisioning agent
+- Microsoft Entra Connect provisioning agent
 - Active Directory domain
 
-The Azure AD Connect provisioning agent deployment topology depends on the number of cloud HR app tenants and Active Directory child domains that you plan to integrate. If you have multiple Active Directory domains, it depends on whether the Active Directory domains are contiguous or [disjoint](/windows-server/identity/ad-ds/plan/disjoint-namespace).
+The Microsoft Entra Connect provisioning agent deployment topology depends on the number of cloud HR app tenants and Active Directory child domains that you plan to integrate. If you have multiple Active Directory domains, it depends on whether the Active Directory domains are contiguous or [disjoint](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 Based on your decision, choose one of the deployment scenarios:
 
@@ -180,9 +182,9 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy.|Two (for high availability and failover).
+|Number of Microsoft Entra Connect provisioning agents to deploy.|Two (for high availability and failover).
 |Number of provisioning connector apps to configure.|One app per child domain.|
-|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
+|Server host for Microsoft Entra Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Microsoft Entra Connect service.|
 
 ![Flow to on-premises agents](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -194,24 +196,26 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest.|
+|Number of Microsoft Entra Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest.|
 |Number of provisioning connector apps to configure|One app per child domain.|
-|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
+|Server host for Microsoft Entra Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Microsoft Entra Connect service.|
 
 ![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
-### Azure AD Connect provisioning agent requirements
+<a name='azure-ad-connect-provisioning-agent-requirements'></a>
 
-The cloud HR app to Active Directory user provisioning solution requires the deployment of one or more Azure AD Connect provisioning agents. These agents must be deployed on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
+### Microsoft Entra Connect provisioning agent requirements
 
-To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+The cloud HR app to Active Directory user provisioning solution requires the deployment of one or more Microsoft Entra Connect provisioning agents. These agents must be deployed on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
 
-The provisioning agent configures a [Global Managed Service Account (GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
+To prepare the on-premises environment, the Microsoft Entra Connect provisioning agent configuration wizard registers the agent with your Microsoft Entra tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+
+The provisioning agent configures a [Global Managed Service Account (GMSA)](../hybrid/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
 to communicate with the Active Directory domains.
 
 You can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the provisioning agent in the same site as your preferred domain controllers. This positioning improves the reliability and performance of the end-to-end solution.
 
-For high availability, you can deploy more than one Azure AD Connect provisioning agent. Register the agent to handle the same set of on-premises Active Directory domains.
+For high availability, you can deploy more than one Microsoft Entra Connect provisioning agent. Register the agent to handle the same set of on-premises Active Directory domains.
 
 ## Design HR provisioning app deployment topology
 
@@ -225,7 +229,7 @@ Deployment topology one is the most common deployment topology. Use this topolog
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Azure AD tenant. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Microsoft Entra tenant. 
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
 * If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
@@ -255,7 +259,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Microsoft Entra tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring the provisioning app, select the respective child AD domain from the dropdown of available AD domains. 
 * Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes. 
@@ -272,8 +276,8 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
+* Configure [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Microsoft Entra tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
@@ -291,8 +295,8 @@ For example: In the diagram, a single provisioning app manages users present in 
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
+* Configure [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Microsoft Entra tenant. 
 * Create a single HR2AD provisioning app for the entire forest. 
 * When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
@@ -307,7 +311,7 @@ Use this topology if your IT infrastructure has disconnected/disjoint AD forests
 **Salient configuration aspects**
 * Setup two different sets of provisioning agents for high availability and failover, one for each forest. 
 * Create two different provisioning apps, one for each forest. 
-* If you need to resolve cross domain references within the forest, enable [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* If you need to resolve cross domain references within the forest, enable [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Create a separate HR2AD provisioning app for each disconnected forest. 
 * When configuring each provisioning app, select the appropriate parent AD domain from the dropdown of available AD domain names. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
@@ -320,30 +324,30 @@ In large organizations, it isn't uncommon to have multiple HR systems. During bu
 
 **Salient configuration aspects**
 * Setup two different sets of provisioning agents for high availability and failover, one for each forest. 
-* If you need to resolve cross domain references within the forest, enable [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* If you need to resolve cross domain references within the forest, enable [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Create a separate HR2AD provisioning app for each HR system and on-premises Active Directory combination.
 * When configuring each provisioning app, select the appropriate parent AD domain from the dropdown of available AD domain names. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 ## Plan scoping filters and attribute mapping
 
-When you enable provisioning from the cloud HR app to Active Directory or Azure AD, the Azure portal controls the attribute values through attribute mapping.
+When you enable provisioning from the cloud HR app to Active Directory or Microsoft Entra ID, the Azure portal controls the attribute values through attribute mapping.
 
 ### Define scoping filters
 
-Use [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to define the attribute-based rules that determine which users should be provisioned from the cloud HR app to Active Directory or Azure AD.
+Use [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to define the attribute-based rules that determine which users should be provisioned from the cloud HR app to Active Directory or Microsoft Entra ID.
 
 When you initiate the Joiners process, gather the following requirements:
 
 - Is the cloud HR app used to bring on board both employees and contingent workers?
-- Do you plan to use the cloud HR app to Azure AD user provisioning to manage both employees and contingent workers?
-- Do you plan to roll out the cloud HR app to Azure AD user provisioning only for a subset of the cloud HR app users? An example might be employees only.
+- Do you plan to use the cloud HR app to Microsoft Entra user provisioning to manage both employees and contingent workers?
+- Do you plan to roll out the cloud HR app to Microsoft Entra user provisioning only for a subset of the cloud HR app users? An example might be employees only.
 
 Depending on your requirements, when you configure attribute mappings, you can set the **Source Object Scope** field to select which sets of users in the cloud HR app should be in scope for provisioning to Active Directory. For more information, see the cloud HR app tutorial for commonly used scoping filters.
 
 ### Determine matching attributes
 
-With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Azure AD provisioning service, you can [configure attribute mapping](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Azure AD.
+With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Microsoft Entra provisioning service, you can [configure attribute mapping](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Microsoft Entra ID.
 
 When you initiate the Joiners process, gather the following requirements:
 
@@ -353,7 +357,7 @@ When you initiate the Joiners process, gather the following requirements:
 - From an identity lifecycle perspective, how do you handle employee to contingent worker conversion, or otherwise?
 - Do converted users keep their old Active Directory accounts or do they get new ones?
 
-Depending on your requirements, Azure AD supports direct attribute-to-attribute mapping by providing constant values or [writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md). This flexibility gives you ultimate control of what's populated in the targeted app attribute. You can use the [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
+Depending on your requirements, Microsoft Entra ID supports direct attribute-to-attribute mapping by providing constant values or [writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md). This flexibility gives you ultimate control of what's populated in the targeted app attribute. You can use the [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Microsoft Entra ID.
 
 By default, the attribute in the cloud HR app that represents the unique employee ID is used as the matching attribute *mapped to the unique attribute in Active Directory.* For example, in the Workday app scenario, the **Workday** **WorkerID** attribute is mapped to the Active Directory **employeeID** attribute.
 
@@ -378,7 +382,7 @@ When you initiate the Joiners-Leavers process, gather the following requirements
 | | How do employee and contingent worker conversions affect existing Active Directory accounts? |
 | | How do you process the Rescind operation in Active Directory? Rescind operations need to be handled if future dated hires are created in Active Directory as part of the Joiner process. |
 
-Depending on your requirements, you might customize the mapping logic by using [Azure AD expressions](../app-provisioning/functions-for-customizing-application-data.md) so that the Active Directory account is enabled or disabled based on a combination of data points.
+Depending on your requirements, you might customize the mapping logic by using [Microsoft Entra expressions](../app-provisioning/functions-for-customizing-application-data.md) so that the Active Directory account is enabled or disabled based on a combination of data points.
 
 ### Map cloud HR app to Active Directory user attributes
 
@@ -402,7 +406,7 @@ Depending on your requirements, you can modify the mappings to meet your integra
 Attributes like CN, samAccountName, and the UPN have unique constraints. You may need to generate unique attribute values when you initiate the Joiners process.
 
 
-The Azure AD function [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
+The Microsoft Entra ID function [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
 > [!NOTE]
 > This function is currently only supported for Workday to Active Directory and SAP SuccessFactors to Active Directory user provisioning. It can't be used with other provisioning apps.
@@ -423,13 +427,13 @@ With this expression, if the Municipality value is Dallas, Austin, Seattle, or L
 
 ## Plan for password delivery of new user accounts
 
-When you initiate the Joiners process, you need to set and deliver a temporary password of new user accounts. With cloud HR to Azure AD user provisioning, you can roll out the Azure AD [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) capability for the user on day one.
+When you initiate the Joiners process, you need to set and deliver a temporary password of new user accounts. With cloud HR to Microsoft Entra user provisioning, you can roll out the Microsoft Entra ID [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) capability for the user on day one.
 
-SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to prepopulate authentication contact information. 
+SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Microsoft Entra ID. After the **Mobile Number** attribute is in Microsoft Entra ID, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to prepopulate authentication contact information. 
 
 ## Plan for initial cycle
 
-When the Azure AD provisioning service runs for the first time, it performs an [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
+When the Microsoft Entra provisioning service runs for the first time, it performs an [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
 
 **For large cloud HR app tenants (>30,000 users),** run the initial cycle in progressive stages. Start the incremental updates only after you validate that the correct attributes are set in Active Directory for different user provisioning scenarios. Follow the order here.
 
@@ -443,11 +447,11 @@ A deployment consists of stages ranging from the initial pilot to enabling user 
 
 ### Plan testing
 
-After you configure the cloud HR app to Azure AD user provisioning, run test cases to verify whether this solution meets your organization's requirements.
+After you configure the cloud HR app to Microsoft Entra user provisioning, run test cases to verify whether this solution meets your organization's requirements.
 
 |Scenarios|Expected results|
 |:-|:-|
-|New employee is hired in the cloud HR app.| - The user account is provisioned in Active Directory.</br>- The user can log into Active Directory-domain apps and perform the desired actions.</br>- If Azure AD Connect sync is configured, the user account also gets created in Azure AD.
+|New employee is hired in the cloud HR app.| - The user account is provisioned in Active Directory.</br>- The user can log into Active Directory-domain apps and perform the desired actions.</br>- If Microsoft Entra Connect Sync is configured, the user account also gets created in Microsoft Entra ID.
 |User is terminated in the cloud HR app.|- The user account is disabled in Active Directory.</br>- The user can't log into any enterprise apps protected by Active Directory.
 |User supervisory organization is updated in the cloud HR app.|Based on the attribute mapping, the user account moves from one OU to another in Active Directory.|
 |HR updates the user's manager in the cloud HR app.|The manager field in Active Directory is updated to reflect the new manager's name.|
@@ -461,33 +465,33 @@ Use the previous results to determine how to transition your automatic user prov
 
 ### Plan security
 
-It's common for a security review to be required as part of the deployment of a new service. If a security review is required or hasn't been conducted, see the many Azure AD [white papers](https://www.microsoft.com/download/details.aspx?id=36391) that provide an overview of the identity as a service.
+It's common for a security review to be required as part of the deployment of a new service. If a security review is required or hasn't been conducted, see the many Microsoft Entra ID [white papers](https://www.microsoft.com/download/details.aspx?id=36391) that provide an overview of the identity as a service.
 
 ### Plan rollback
 
 The cloud HR user provisioning implementation might fail to work as desired in the production environment. If so, the following rollback steps can assist you in reverting to a previous known good state.
 
 1. Review the [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
-2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or Active Directory).
+2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Microsoft Entra ID or Active Directory).
 3. Work with the app owner to update the users or groups affected directly in the app by using the last known good state values.
 
 ## Deploy the cloud HR app
 
 Choose the cloud HR app that aligns to your solution requirements.
 
-**Workday**: To import worker profiles from Workday into Active Directory and Azure AD, see [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Optionally, you can write back the email address, username and phone number to Workday.
+**Workday**: To import worker profiles from Workday into Active Directory and Microsoft Entra ID, see [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Optionally, you can write back the email address, username and phone number to Workday.
 
-**SAP SuccessFactors**: To import worker profiles from SuccessFactors into Active Directory and Azure AD, see [Tutorial: Configure SAP SuccessFactors for automatic user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Optionally, you can write back the email address and username to SuccessFactors.
+**SAP SuccessFactors**: To import worker profiles from SuccessFactors into Active Directory and Microsoft Entra ID, see [Tutorial: Configure SAP SuccessFactors for automatic user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Optionally, you can write back the email address and username to SuccessFactors.
 
 ## Manage your configuration
 
-Azure AD can provide more insights into your organization's user provisioning usage and operational health through audit logs and reports.
+Microsoft Entra ID can provide more insights into your organization's user provisioning usage and operational health through audit logs and reports.
 
 ### Gain insights from reports and logs
 
-After a successful [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle), the Azure AD provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
+After a successful [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle), the Microsoft Entra provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
 
-- The service is manually stopped. A new initial cycle is triggered by using the [Azure portal](https://portal.azure.com/) or the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
+- The service is manually stopped. A new initial cycle is triggered by using the [Microsoft Entra admin center](https://entra.microsoft.com) or the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 - A new initial cycle is triggered owing to a change in attribute mappings or scoping filters.
 - The provisioning process goes into quarantine because of a high error rate. It stays in quarantine for more than four weeks, at which time it's automatically disabled.
 
@@ -495,29 +499,29 @@ To review these events and all other activities performed by the provisioning se
 
 #### Azure Monitor logs
 
-All activities performed by the provisioning service are recorded in the Azure AD audit logs. You can route Azure AD audit logs to Azure Monitor logs for further analysis. With Azure Monitor logs (also known as Log Analytics workspace), you can query data to find events, analyze trends, and perform correlation across various data sources. Watch this [video](https://youtu.be/MP5IaCTwkQg) to learn the benefits of using Azure Monitor logs for Azure AD logs in practical user scenarios.
+All activities performed by the provisioning service are recorded in the Microsoft Entra audit logs. You can route Microsoft Entra audit logs to Azure Monitor logs for further analysis. With Azure Monitor logs (also known as Log Analytics workspace), you can query data to find events, analyze trends, and perform correlation across various data sources. Watch this [video](https://youtu.be/MP5IaCTwkQg) to learn the benefits of using Azure Monitor logs for Microsoft Entra logs in practical user scenarios.
 
-Install the [log analytics views for Azure AD activity logs](../reports-monitoring/howto-install-use-log-analytics-views.md) to get access to [prebuilt reports](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) around provisioning events in your environment.
+Install the [log analytics views for Microsoft Entra activity logs](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md) to get access to [prebuilt reports](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) around provisioning events in your environment.
 
-For more information, see how to [analyze the Azure AD activity logs with your Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
+For more information, see how to [analyze the Microsoft Entra activity logs with your Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 
 ### Manage personal data
 
-The Azure AD Connect provisioning agent installed on the Windows server creates logs in the Windows event log that might contain personal data depending on your cloud HR app to Active Directory attribute mappings. To comply with user privacy obligations, set up a Windows scheduled task to clear the event log and ensure that no data is kept beyond 48 hours.
+The Microsoft Entra Connect provisioning agent installed on the Windows server creates logs in the Windows event log that might contain personal data depending on your cloud HR app to Active Directory attribute mappings. To comply with user privacy obligations, set up a Windows scheduled task to clear the event log and ensure that no data is kept beyond 48 hours.
 
-Azure AD provisioning service doesn't generate reports, perform analytics, or provide insights beyond 30 days because the service doesn't store, process, or keep any data beyond 30 days.
+Microsoft Entra provisioning service doesn't generate reports, perform analytics, or provide insights beyond 30 days because the service doesn't store, process, or keep any data beyond 30 days.
 
 ### Troubleshoot
 
 To troubleshoot any issues that might turn up during provisioning, see the following articles:
 
-- [Problem configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
-- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
-- [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](./user-provisioning.md)
-- [No users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
-- [Wrong set of users are being provisioned to an Azure AD Gallery application](../manage-apps/add-application-portal-assign-users.md)
+- [Problem configuring user provisioning to a Microsoft Entra Gallery application](application-provisioning-config-problem.md)
+- [Sync an attribute from your on-premises Active Directory to Microsoft Entra ID for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
+- [Problem saving administrator credentials while configuring user provisioning to a Microsoft Entra Gallery application](./user-provisioning.md)
+- [No users are being provisioned to a Microsoft Entra Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
+- [Wrong set of users are being provisioned to a Microsoft Entra Gallery application](../manage-apps/add-application-portal-assign-users.md)
 - [Setting up Windows Event Viewer for agent troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
-- [Setting up Azure portal Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
+- [Setting up Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Understanding logs for AD User Account create operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
 - [Understanding logs for Manager update operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolving commonly encountered errors](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
@@ -525,6 +529,6 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 ### Next steps
 
 - [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+- [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 - [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
-- [Azure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)
+- [Microsoft Entra Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/30/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage and monitor backed up SAP HANA databases

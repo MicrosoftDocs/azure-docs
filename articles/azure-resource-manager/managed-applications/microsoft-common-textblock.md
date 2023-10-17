@@ -11,7 +11,7 @@ A control that can be used to add text to the portal interface.
 
 ## UI sample
 
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft-common-textblock.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-textblock.png" alt-text="Screenshot of Microsoft.Common.TextBlock UI element in a portal interface.":::
 
 ## Schema
 

@@ -1,5 +1,5 @@
 ---
-title: List of security threats and security alerts - Microsoft Defender for Cloud
+title: List of security threats and security alerts 
 description: Learn about the security threats and alerts Microsoft Defender for Storage provides to detect and respond to potential security risks.
 ms.date: 03/16/2023
 author: dcurwin

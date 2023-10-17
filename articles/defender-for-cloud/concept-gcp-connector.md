@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud's GCP connector
 description: Learn how the GCP connector works on Microsoft Defender for Cloud.
-titleSuffix: Microsoft Defender for Cloud
+
 ms.topic: conceptual
 ms.service: defender-for-cloud
 ms.date: 06/29/2023
@@ -29,11 +29,11 @@ The authentication process works as follows:
 
 :::image type="content" source="media/concept-gcp-connector/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/concept-gcp-connector/authentication-process.png":::
 
-(1) - Microsoft Defender for Cloud's CSPM service acquires an Azure AD token. The token is signed by Azure AD using the RS256 algorithm and is valid for 1 hour.
+(1) - Microsoft Defender for Cloud's CSPM service acquires a Microsoft Entra token. The token is signed by Microsoft Entra ID using the RS256 algorithm and is valid for 1 hour.
 
-(2) - The Azure AD token is exchanged with Google's STS token.
+(2) - The Microsoft Entra token is exchanged with Google's STS token.
 
-(3) - Google STS validates the token with the workload identity provider. The Azure AD token is sent to Google's STS that validates the token with the workload identity provider. Audience validation then occurs and the token is signed. A Google STS token is then returned to Defender for Cloud's CSPM service.
+(3) - Google STS validates the token with the workload identity provider. The Microsoft Entra token is sent to Google's STS that validates the token with the workload identity provider. Audience validation then occurs and the token is signed. A Google STS token is then returned to Defender for Cloud's CSPM service.
 
 (4) - Defender for Cloud's CSPM service uses the Google STS token to impersonate the service account. Defender for Cloud's CSPM receives service account credentials that are used to scan the project.
 

@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight
 description: Learn about the open-source components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/16/2023
+ms.date: 07/27/2023
 ---
 
 # Azure HDInsight versions
@@ -17,7 +17,6 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
 | --- | --- | --- | --- | --- | --- | ---|
 | [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |Feb 27, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |
-| [HDInsight 5.0](./hdinsight-5x-component-versioning.md#hdinsight-50) |Ubuntu 18.0.4 LTS |July 01, 2022 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |
 | [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 18.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced | Not announced |Yes |
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You may not be able to create clusters from the Azure portal.

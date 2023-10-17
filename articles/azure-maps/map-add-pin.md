@@ -1,8 +1,8 @@
 ---
 title: Add a Symbol layer to a map | Microsoft Azure Maps
 description: Learn how to add customized symbols, such as text or icons, to maps. See how to use data sources and symbol layers in the Azure Maps Web SDK for this purpose.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -96,8 +96,7 @@ function InitMap()
 :::image type="content" source="./media/map-add-pin/add-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer.":::
 
 <!-------------------------------------------
-<iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------->
 
 > [!TIP]
@@ -161,8 +160,7 @@ function InitMap()
 :::image type="content" source="./media/map-add-pin/add-custom-icon-to-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
 
 <!-------------------------------------------
-<iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------->
 
 > [!TIP]
@@ -175,8 +173,7 @@ The symbol layer has many styling options available. The [Symbol Layer Options] 
 :::image type="content" source="./media/map-add-pin/symbol-layer-options.png" alt-text="A screenshot of map with a panel on the left side of the map with the various symbol options that can be interactively set.":::
 
 <!-------------------------------------------
-<iframe height='700' scrolling='no' title='Symbol Layer Options' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result]
 ------------------------------------->
 
 > [!TIP]

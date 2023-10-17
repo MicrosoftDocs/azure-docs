@@ -62,7 +62,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ### Portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Load balancer**.
 

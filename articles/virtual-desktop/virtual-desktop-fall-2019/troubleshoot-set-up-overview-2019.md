@@ -18,11 +18,32 @@ This article provides an overview of the issues you may encounter when setting u
 
 Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
-## Escalation tracks
+## Create a support request
 
-Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client. Once your tenant's set up, you can use our new [Diagnostics service](diagnostics-role-service-2019.md) to identify issues for common scenarios.
+To create a support request for Azure Virtual Desktop (classic):
 
->[!NOTE]
+1. Browse to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+
+1. On the **Problem description** tab, complete the following information. Some parameters are only shown based on other selections.
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Issue type | Select **Technical** from the drop-down list |
+   | Subscription | Select a subscription containing Azure Virtual Desktop (classic) resources from the drop-down list. |
+   | Service | Select **My services**. |
+   | Service type | Select **Azure Virtual Desktop** from the drop-down list |
+   | Resource | Select the Azure Virtual Desktop (classic) resource you're having an issue with from the drop-down list. |
+   | Summary | Enter a description of your issue. |
+   | Problem type | Select **Issues configuring Azure Virtual Desktop (classic)** from the drop-down list. |
+   | Problem subtype | Select the item which most describes your issue from the drop-down list. |
+
+1. Complete the remaining tabs and select **Create**.
+
+## Common issues and suggested solutions
+
+Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client. You can also use our [Diagnostics service](diagnostics-role-service-2019.md) to identify issues for common scenarios.
+
+> [!NOTE]
 > We have a Tech Community forum which you can visit to discuss your issues with the product team and active community members. Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to start a discussion.
 
 | **Issue**                                                            | **Suggested Solution**  |
@@ -39,7 +60,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Connected but no feed                                                                 | Troubleshoot using the [User connects but nothing is displayed (no feed)](troubleshoot-service-connection-2019.md#user-connects-but-nothing-is-displayed-no-feed) section of [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md). <br> <br> If your users have been assigned to an application group,  [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Azure Virtual Desktop** for the service, then select **Remote Desktop Clients** for the problem type. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | See [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md). |
-| Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Responsiveness of applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Issues when using Azure Virtual Desktop tools on GitHub (Azure Resource Manager templates, diagnostics tool, management tool) | See [Azure Resource Manager Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report issues. |
 

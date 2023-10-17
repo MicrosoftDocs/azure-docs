@@ -4,13 +4,13 @@ description: Learn how to deploy a Network Virtual Appliance in the Virtual WAN 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
 # How to create a Network Virtual Appliance in an Azure Virtual WAN hub
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance** (NVA) in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [What is Virtual WAN?](virtual-wan-about.md).
+This article shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance** (NVA) in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
 
 The steps in this article help you create a **Barracuda CloudGen WAN** Network Virtual Appliance in the Virtual WAN hub. To complete this exercise, you must have a Barracuda Cloud Premise Device (CPE) and a license for the Barracuda CloudGen WAN appliance that you deploy into the hub before you begin.
 
@@ -81,5 +81,5 @@ In this section, you create a connection between your hub and VNet.
 
 ## Next steps
 
-* To learn more about Virtual WAN, see the [What is Virtual WAN?](virtual-wan-about.md) page.
+* To learn more about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
 * To learn more about NVAs in a Virtual WAN hub, see [About Network Virtual Appliance in the Virtual WAN hub](about-nva-hub.md).

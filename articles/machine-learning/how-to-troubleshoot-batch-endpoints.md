@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and diagnostic errors with batch endpoints jobs
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande 
 ms.custom: devplatv2
 ---
 
@@ -137,6 +137,15 @@ __Reason__: Batch Deployments can be configured with a `timeout` value that indi
 
 __Solution__: Increase the `timemout` value of the deployment by updating the deployment. These properties are configured in the parameter `retry_settings`. By default, a `timeout=30` and `retries=3` is configured. When deciding the value of the `timeout`, take into consideration the number of files being processed on each batch and the size of each of those files. You can also decrease them to account for more mini-batches of smaller size and hence quicker to execute. 
 
+
+### ScriptExecution.StreamAccess.Authentication
+
+__Message logged__: ScriptExecutionException was caused by StreamAccessException. StreamAccessException was caused by AuthenticationException.
+
+__Reason__: The compute cluster where the deployment is running can't mount the storage where the data asset is located. The managed identity of the compute don't have permissions to perform the mount.
+
+__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+
 ### Dataset initialization failed
 
 __Message logged__: Dataset initialization failed: UserErrorException: Message: Cannot mount Dataset(id='xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', name='None', version=None). Source of the dataset is either not accessible or does not contain any data.
@@ -181,7 +190,7 @@ __Solution__: To understand what may be happening, go to __Outputs + Logs__ and 
 
 __Context__: When invoking a batch endpoint using its REST APIs.
 
-__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Azure Active Directory tokens are issued for specific actions.
+__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Microsoft Entra tokens are issued for specific actions.
 
 __Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you'll need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
 

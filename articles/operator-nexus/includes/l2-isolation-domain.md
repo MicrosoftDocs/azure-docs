@@ -11,7 +11,7 @@ ms.date: 01/26/2023
 Create an L2 isolation domain:
 
 ```azurecli
-  az nf l2domain create --resource-name "<YourL2IsolationDomainName>" \
+  az networkfabric l2domain create --resource-name "<YourL2IsolationDomainName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
     --nf-id "<NetworkFabricResourceId>" \
@@ -23,7 +23,7 @@ Create an L2 isolation domain:
 Enable the L2 isolation domain that you created:
 
 ```azurecli
-  az managednetworkfabric l2isolationdomain update-administrative-state \
+  az networkfabric l2domain update-administrative-state \
     --name "<YourL2IsolationDomainName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \

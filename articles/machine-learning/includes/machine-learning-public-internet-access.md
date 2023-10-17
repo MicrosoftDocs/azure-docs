@@ -19,12 +19,12 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Protocol &<br>ports | Service tag | Purpose |
 | ----- |-----| ----- | ----- |
-| Outbound | TCP: 80, 443 | `AzureActiveDirectory` | Authentication using Azure AD. |
+| Outbound | TCP: 80, 443 | `AzureActiveDirectory` | Authentication using Microsoft Entra ID. |
 | Outbound | TCP: 443, 18881<br>UDP: 5831 | `AzureMachineLearning` | Using Azure Machine Learning services.<br>Python intellisense in notebooks uses port 18881.<br>Creating, updating, and deleting an Azure Machine Learning compute instance uses port 5831. |
 | Outbound | ANY: 443 | `BatchNodeManagement.region` | Communication with Azure Batch back-end for Azure Machine Learning compute instances/clusters. |
 | Outbound | TCP: 443 | `AzureResourceManager` | Creation of Azure resources with Azure Machine Learning, Azure CLI, and Azure Machine Learning SDK. |
 | Outbound | TCP: 443 | `Storage.region` | Access data stored in the Azure Storage Account for compute cluster and compute instance. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
-| Outbound | TCP: 443 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
+| Outbound | TCP: 443 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Microsoft Azure operated by 21Vianet. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
 | Outbound | TCP: 443 | `MicrosoftContainerRegistry.region`</br>**Note** that this  tag has a dependency on the `AzureFrontDoor.FirstParty` tag | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
 
 # [Situational](#tab/situational)
@@ -55,7 +55,7 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 | `*.anaconda.org` | Used to get repo data. |
 | `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
 | `cloud.r-project.org` | Used when installing CRAN packages for R development. |
-| `*pytorch.org` | Used by some examples based on PyTorch. |
+| `*.pytorch.org` | Used by some examples based on PyTorch. |
 | `*.tensorflow.org` | Used by some examples based on Tensorflow. |
 | `code.visualstudio.com` | Required to download and install Visual Studio Code desktop. This isn't required for Visual Studio Code Web. |
 | `update.code.visualstudio.com`</br>`*.vo.msecnd.net` | Used to retrieve Visual Studio Code server bits that are installed on the compute instance through a setup script. |

@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 10/24/2022
 ms.author: yili7
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot common build issues in Azure Spring Apps

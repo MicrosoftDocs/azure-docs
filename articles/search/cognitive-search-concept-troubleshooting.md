@@ -2,7 +2,6 @@
 title: Tips for AI enrichment design
 titleSuffix: Azure Cognitive Search
 description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search

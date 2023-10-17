@@ -3,7 +3,7 @@ title: Troubleshoot Azure NAT Gateway connectivity
 description: Troubleshoot connectivity issues with a NAT gateway.
 author: asudbring
 ms.service: nat-gateway
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-linux
 ms.topic: troubleshooting
 ms.date: 04/24/2023
 ms.author: allensu
@@ -49,7 +49,7 @@ The following table describes a scenario where a long TCP idle timeout timer is 
 
 ### TCP idle timeout 
 
-As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](./nat-gateway-resource.md#timer-considerations). 
+As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [TCP idle timeout](./nat-gateway-resource.md#tcp-idle-timeout). 
 
 >[!Note] 
 >Increasing the TCP idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low-rate failures when timeout expires and introduce delay and unnecessary failures. 

@@ -34,7 +34,7 @@ Enterprises working in the Microsoft Azure cloud will find familiar security and
 
 Machine learning projects often require a team with varied skill set to build and maintain. Azure Machine Learning has tools that help enable you to: 
 
-* Collaborate with your team via shared notebooks, compute resources, data, and environments
+* Collaborate with your team via shared notebooks, compute resources, [serverless compute (preview)](how-to-use-serverless-compute.md), data, and environments
 
 * Develop models for fairness and explainability, tracking and auditability to fulfill lineage and audit compliance requirements
 
@@ -148,20 +148,15 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters and  [serverless compute (preview)](how-to-use-serverless-compute.md) offer the latest GPU options.
 
-Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compute clusters:
+Supported via Azure Machine Learning Kubernetes, Azure Machine Learning compute clusters, and  [serverless compute (preview)](how-to-use-serverless-compute.md):
 
 * PyTorch
 * TensorFlow
 * MPI
 
-The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
-
-> [!IMPORTANT]
-> Using Apache Spark via Azure Synapse Analytics Spark clusters is in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via [serverless Spark compute and attached Synapse Spark pool](apache-spark-azure-ml-concepts.md) that leverage Azure Synapse Analytics Spark clusters.
 
 See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
 

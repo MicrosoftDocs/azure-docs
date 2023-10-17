@@ -1,185 +1,185 @@
 {
-  "redirections": [     
+  "redirections": [
     {
       "source_path": "diagnostic-logs.md",
       "redirect_url": "/azure/event-grid/monitor-push-reference",
       "redirect_document_id": false
-    },          
+    },
     {
       "source_path": "compare-messaging-services.md",
       "redirect_url": "/azure/service-bus-messaging/compare-messaging-services",
       "redirect_document_id": false
-    },          
+    },
     {
       "source_path": "edge/advanced-filtering.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },          
+    },
     {
       "source_path": "edge/api.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "edge/concepts.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "edge/configure.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "edge/configure-api-protocol.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "edge/configure-client-auth.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },      
+    },
     {
       "source_path": "edge/configure-identity-auth.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/configure-webhook-subscriber-auth.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/delivery-output-batching.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/delivery-retry.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },                   
+    },
     {
       "source_path": "edge/event-handlers.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },                   
+    },
     {
       "source_path": "edge/event-schemas.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },                   
+    },
     {
       "source_path": "edge/forward-events-cloud.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/forward-events-iothub.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/monitor-topics-subscriptions.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/overview.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/persist-state-linux.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/persist-state-windows.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/pub-sub-events-webhook-cloud.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/pub-sub-events-webhook-local.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/react-blob-storage-events-locally.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/release-notes.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/security-authentication.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "edge/transition.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },     
+    },
     {
       "source_path": "edge/troubleshoot.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "edge/twin-json.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "edge/index.yml",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false
-    },          
+    },
     {
       "source_path": "edge/forward-events-event-grid-cloud.md",
       "redirect_url": "/azure/event-grid/edge/forward-events-cloud",
       "redirect_document_id": false
-    },      
+    },
     {
       "source_path": "edge/configure-event-grid.md",
       "redirect_url": "/azure/event-grid/edge/configure",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-user",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-app",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path": "scripts/event-grid-powershell-subscribe-custom-topic.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-subscribe-custom-topic",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path": "scripts/event-grid-powershell-resource-group.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-resource-group",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "scripts/event-grid-powershell-resource-group-filter.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-resource-group-filter",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "scripts/event-grid-powershell-create-custom-topic.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-create-custom-topic",
@@ -214,12 +214,12 @@
       "source_path": "event-grid-faq.yml",
       "redirect_url": "/azure/event-grid/faq",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "custom-disaster-recovery.md",
       "redirect_url": "/azure/event-grid/custom-disaster-recovery-client-side",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
@@ -239,7 +239,7 @@
       "source_path": "metrics.md",
       "redirect_url": "/azure/azure-monitor/essentials/metrics-supported#microsofteventgriddomains",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "move-partner-namespaces-across-regions.md",
       "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
@@ -249,7 +249,7 @@
       "source_path": "security-authenticate-publishing-clients.md",
       "redirect_url": "/azure/event-grid/authenticate-with-access-keys-shared-access-signatures",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "partner-topics-overview.md",
       "redirect_url": "/azure/event-grid/partner-events-overview",
@@ -286,9 +286,14 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "mqtt-client-authorization-use-rbac.md",
+      "redirect_url": "/azure/event-grid/mqtt-client-azure-ad-token-and-rbac",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "event-schema-farmbeats.md",
       "redirect_url": "/azure/event-grid/system-topics",
       "redirect_document_id": false
-    }    
+    }
   ]
 }

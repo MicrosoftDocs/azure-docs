@@ -30,14 +30,12 @@ Before proceeding with this how-to guide, it's recommended that you:
    * You can delete system node pools, provided you have another system node pool to take its place in the Nexus Kubernetes cluster.
    * System pools must contain at least one node.
    * You can't change the VM size of a node pool after you create it.
-   * System node pools require a VM SKU of at least 2 vCPUs and 4-GB memory. 
-   * A minimum of two nodes 4 vCPUs is recommended (for example, NC_G4_v1), especially for large clusters.
    * Each Nexus Kubernetes cluster requires at least one system node pool.
 
 ## System pool
 For a system node pool, Nexus Kubernetes automatically assigns the label `kubernetes.azure.com/mode: system` to its nodes. This label causes Nexus Kubernetes to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
 
-You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
+You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools. If you intend to use the system pool for application pods (not dedicated), do not apply any application specific taints to the pool, as this can cause cluster creation to fail. 
 
 > [!IMPORTANT]
 > If you run a single system node pool for your Nexus Kubernetes cluster in a production environment, we recommend you use at least three nodes for the node pool.

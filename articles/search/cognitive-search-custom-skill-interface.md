@@ -2,7 +2,6 @@
 title: Custom skill interface
 titleSuffix: Azure Cognitive Search
 description: Integrate a custom skill with an AI enrichment pipeline in Azure Cognitive Search through a web interface that defines compatible inputs and outputs in a skillset.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -38,9 +37,9 @@ The URI is the HTTPS endpoint of your function or app. When setting the URI, mak
 
 If instead your function or app uses Azure managed identities and Azure roles for authentication and authorization, the custom skill can include an authentication token on the request. The following points describe the requirements for this approach:
 
-+ The search service, which sends the request on the indexer's behalf, must be [configured to use a managed identity](search-howto-managed-identities-data-sources.md) (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory.
++ The search service, which sends the request on the indexer's behalf, must be [configured to use a managed identity](search-howto-managed-identities-data-sources.md) (either system or user-assigned) so that the caller can be authenticated by Microsoft Entra ID.
 
-+ Your function or app must be [configured for Azure Active Directory](../app-service/configure-authentication-provider-aad.md).
++ Your function or app must be [configured for Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md).
 
 + Your [custom skill definition](cognitive-search-custom-skill-web-api.md) must include an "authResourceId" property. This property takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri): `api://<appId>`.
 

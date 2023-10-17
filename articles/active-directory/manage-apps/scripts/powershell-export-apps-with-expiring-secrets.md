@@ -1,25 +1,26 @@
 ---
-title: PowerShell sample - Export apps with expiring secrets and certificates in Azure Active Directory tenant.
-description: PowerShell example that exports all apps with expiring secrets and certificates for the specified apps in your Azure Active Directory tenant.
+title: PowerShell sample - Export app registrations with expiring secrets and certificates in Microsoft Entra tenant.
+description: PowerShell example that exports all app registrations with expiring secrets and certificates for the specified apps in your Microsoft Entra tenant.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
+ms.custom:
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 07/11/2023
 ms.author: jomondi
 ms.reviewer: mifarca
 ---
 
-# Export apps with expiring secrets and certificates
+# Export app registrations with expiring secrets and certificates
 
-This PowerShell script example exports all app registrations with expiring secrets, certificates and their owners for the specified apps from your directory in a CSV file.
+This PowerShell script example exports all app registrations with secrets and certificates expiring in the next X days (and already expired if you choose so) with their owners for the specified apps from your directory in a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
+This sample requires the [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation) SDK module.
 
 ## Sample script
 
@@ -35,11 +36,11 @@ You can modify the "$Path" variable directly in PowerShell, with a CSV file path
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Retrieves an application from your directory. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
+| [Get-MgApplication](/powershell/module/microsoft.graph.applications/get-mgapplication?view=graph-powershell-1.0&preserve-view=true) | Retrieves an application from your directory. |
+| [Get-MgApplicationOwner](/powershell/module/microsoft.graph.applications/get-mgapplicationowner?view=graph-powershell-1.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
 
 ## Next steps
 
-For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
+For more information on the Microsoft Graph PowerShell module, see [Microsoft Graph PowerShell module overview](/powershell/microsoftgraph/installation).
 
-For other PowerShell examples for Application Management, see [Azure AD PowerShell examples for Application Management](../app-management-powershell-samples.md).
+For other PowerShell examples for Application Management, see [Azure Microsoft Graph PowerShell examples for Application Management](../app-management-powershell-samples.md).

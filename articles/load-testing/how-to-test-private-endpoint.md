@@ -4,6 +4,7 @@ titleSuffix: Azure Load Testing
 description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.author: nicktrog
 author: ntrogh
 ms.date: 05/12/2023
@@ -63,7 +64,7 @@ If you plan to further restrict access to your virtual network with a network se
 
 To configure outbound access for Azure Load Testing: 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to your network security group.
 
@@ -320,7 +321,22 @@ Follow these steps to [update the subnet settings](/azure/virtual-network/virtua
 ### Starting the load test fails with `Management Lock is enabled on Resource Group of VNET (ALTVNET015)`
 
 If there is a lock on the resource group that contains the virtual network, the service can't inject the test engine virtual machines in your virtual network. Remove the management lock before running the load test. Learn how to [configure locks in the Azure portal](/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks).
- 
+
+### Starting the load test fails with `Insufficient public IP address quota in VNET subscription (ALTVNET016)`
+
+When you start the load test, Azure Load Testing injects the following Azure resources in the virtual network that contains the application endpoint:
+
+- The test engine virtual machines. These VMs invoke your application endpoint during the load test.
+- A public IP address.
+- A network security group (NSG). 
+- An Azure Load Balancer.
+
+Ensure that you have quota for at least one public IP address available in your subscription to use in the load test.
+
+### Starting the load test fails with `Subnet with name "AzureFirewallSubnet" cannot be used for load testing (ALTVNET017)`
+
+The subnet *AzureFirewallSubnet* is reserved and you can't use it for Azure Load Testing. Select another subnet for your load test.
+
 ## Next steps
 
 - Learn more about the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).

@@ -2,8 +2,8 @@
 title: Log Analytics agent data sources in Azure Monitor
 description: Data sources define the log data that Azure Monitor collects from agents and other connected sources. This article describes how Azure Monitor uses data sources, explains how to configure them, and summarizes the different data sources available.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 05/10/2022
 ms.reviewer: shseth
 
@@ -13,7 +13,7 @@ ms.reviewer: shseth
 
 The data that Azure Monitor collects from virtual machines with the legacy [Log Analytics](./log-analytics-agent.md) agent is defined by the data sources that you configure in the [Log Analytics workspace](../logs/data-platform-logs.md). Each data source creates records of a particular type. Each type has its own set of properties.
 
-![Diagram that shows log data collection.](media/agent-data-sources/overview.png)
+:::image type="content" source="media/agent-data-sources/overview.png" lightbox="media/agent-data-sources/overview.png" alt-text="Diagram that shows log data collection.":::
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -40,7 +40,7 @@ To configure data sources for Log Analytics agents, go to the **Log Analytics wo
 
 Any configuration is delivered to all agents connected to that workspace. You can't exclude any connected agents from this configuration.
 
-[![Screenshot that shows configuring Windows events.](media/agent-data-sources/configure-events.png)](media/agent-data-sources/configure-events.png#lightbox)
+:::image type="content" source="media/agent-data-sources/configure-events.png" lightbox="media/agent-data-sources/configure-events.png" alt-text="Screenshot that shows configuring Windows events.":::
 
 ## Data collection
 

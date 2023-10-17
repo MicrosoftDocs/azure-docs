@@ -1,8 +1,8 @@
 ---
-title: Quickstart - deploy updates in using update management center in the Azure portal
-description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center (preview) using the Azure portal.
+title: 'Quickstart: Deploy updates by using Update Manager in the Azure portal'
+description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager by using the Azure portal.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
@@ -10,70 +10,69 @@ ms.topic: quickstart
 
 # Quickstart: Check and install on-demand updates
 
-Using the Update management center (preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
+By using Azure Update Manager, you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis. You can also take control by checking and installing updates manually.
 
-This quickstart details you how to perform manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server on-premises or in cloud environments.
+This quickstart explains how to perform manual assessment and apply updates on selected Azure virtual machines (VMs) or an Azure Arc-enabled server on-premises or in cloud environments.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your role must be either an [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) for Azure VM and resource administrator for Arc enabled servers.
+- Your role must be either an [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) for an Azure VM and resource administrator for Azure Arc-enabled servers.
 - Ensure that the target machines meet the specific operating system requirements of the Windows Server and Linux. For more information, see [Overview](overview.md).
-
 
 ## Check updates
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
-1. Select **Getting started**, **On-demand assessment and updates**, select **Check for updates**.
+1. Select **Get started** > **On-demand assessment and updates** > **Check for updates**.
 
-    In the **Select resources and check for updates**, a table lists all the machines in the specific Azure subscription.
+   :::image type="content" source="./media/quickstart-on-demand/quickstart-check-updates.png" alt-text="Screenshot that shows accessing check for updates.":::
+
+    On the **Select resources and check for updates** pane, a table lists all the machines in the specific Azure subscription.
 
 1. Select one or more machines from the list and select **Check for updates** to initiate a compliance scan.
     
-    When the assessment is complete, a confirmation message appears on the top right corner of the page.
-
+After the assessment is finished, a confirmation message appears in the upper-right corner of the page.
 
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure [hotpatching](updates-maintenance-schedules.md#hotpatching), [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) and [periodic assessment](assessment-options.md#periodic-assessment) either immediately or schedule the updates by defining the maintenance window.
+For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment), [hotpatching](updates-maintenance-schedules.md#hotpatching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
 
-To configure the settings on your machines, follow these steps:
+To configure the settings on your machines:
 
-1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+1. On the **Azure Update Manager | Get started** page, in **On-demand assessment and updates**, select **Update settings**.
 
-    In the **Change update settings** page, by default **Properties** is selected. 
-1. Select from the list of update settings to apply them to the selected machines.
+    :::image type="content" source="./media/quickstart-on-demand/quickstart-update-settings.png" alt-text="Screenshot that shows how to access the Update settings option to configure updates for virtual machines.":::
 
-1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-single-vm).
+1. On the **Update settings to change** page, select **Periodic assessment**, **Hotpatch**, or **Patch orchestration** to configure. Select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-a-single-vm).
 
-1. In **Machines**, verify the machines for which you can apply the updates. You can also add or remove machines from the list and select **Next**.
+1. On the **Review and change** tab, verify the resource selection and update settings and select **Review and change**.
 
-1. In **Review and change**, verify the resource selection and update settings and select **Review and change**.
-    A notification appears to confirm that the update settings have been successfully applied.
-
+A notification confirms that the update settings were successfully applied.
 
 ## Install updates
 
-As per the last assessment performed on the selected machines, you can now select resources and machines to install the updates
+Based on the last assessment performed on the selected machines, you can now select resources and machines to install the updates.
 
-1. In the **Update management center(Preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+1. On the **Azure Update Manager | Get started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
-1. In the **Install one-time updates** page, select one or more machines from the list in the **Machines** tab and click **Next**.
+   :::image type="content" source="./media/quickstart-on-demand/quickstart-install-updates.png" alt-text="Screenshot that shows how to access the Install update settings option to install the updates for virtual machines.":::
 
-1. In **Updates**, specify the updates to include in the deployment and click **Next**:
+1. On the **Install one-time updates** pane, select one or more machines from the list on the **Machines** tab. Select **Next**.
 
-    - Include update classification 
-    - Include KB ID/package - by specific KB IDs or package. For Windows, see [MSRC](https://msrc.microsoft.com/update-guide/deployments) for the latest KBs.
-    - Exclude KB ID/package that you don't want to install as part of the process. Updates not shown in the list can be installed based on the time between last assessment and release of new updates.
+1. On the **Updates** tab, specify the updates to include in the deployment and select **Next**:
+
+    - Include update classification.
+    - Include the Knowledge Base (KB) ID/package, by specific KB IDs or package. For Windows, see the [Microsoft Security Response Center (MSRC)](https://msrc.microsoft.com/update-guide/deployments) for the latest information.
+    - Exclude the KB ID/package that you don't want to install as part of the process. Updates not shown in the list can be installed based on the time between last assessment and release of new updates.
     - Include by maximum patch publish date includes the updates published on or before a specific date.
 
-1. In **Properties**, select the **Reboot option** and **Maintenance window** (in minutes) and click **Next**.
+1. On the **Properties** tab, select **Reboot** and **Maintenance window** (in minutes). Select **Next**.
 
-1. In **Review + install**, verify the update deployment options and select **Install**.
+1. On the **Review + install** tab, verify the update deployment options and select **Install**.
 
-A notification confirms that the installation of updates is in progress and after completion, you can view the results in the **Update management center**, **History** page.
+A notification confirms that the installation of updates is in progress. After the update is finished, you can view the results on the **Update Manager | History** page.
 
 ## Next steps
 
-  Learn about [managing multiple machines](manage-multiple-machines.md).
+Learn about [managing multiple machines](manage-multiple-machines.md).

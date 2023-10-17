@@ -24,7 +24,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Change Tracking and Inventory
 

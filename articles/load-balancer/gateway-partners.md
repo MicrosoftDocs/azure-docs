@@ -91,8 +91,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Tobias Kunze - Co-founder & CEO** 
 
-[Learn more](https://glasnostic.com/blog/announcing-glasnostic-for-azure-gwlb)
-
 ### Palo Alto Networks
 
 :::image type="content" source="./media/gateway-partners/paloalto.png" alt-text="Screenshot of Palo Alto Networks logo.":::

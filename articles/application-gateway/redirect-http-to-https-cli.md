@@ -5,7 +5,7 @@ description: Learn how to create an HTTP to HTTPS redirection and add a certific
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
@@ -174,7 +174,7 @@ In this example, you create a Virtual Machine Scale Set named *myvmss* that prov
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

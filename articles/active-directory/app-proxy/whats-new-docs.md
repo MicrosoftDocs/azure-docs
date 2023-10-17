@@ -76,7 +76,7 @@ Welcome to what's new in Azure Active Directory application proxy documentation.
 
 ### Updated articles
 
-- [Integrate with Azure Active Directory Application Proxy on a Network Device Enrollment Service (NDES) server](active-directory-app-proxy-protect-ndes.md)
+- [Integrate with Azure Active Directory Application Proxy on a Network Device Enrollment Service (NDES) server](./app-proxy-protect-ndes.md)
 - [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md)
 - [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
 - [Integrate Azure Active Directory Application Proxy with SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)

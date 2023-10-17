@@ -23,7 +23,7 @@ In this tutorial:
 
 > [!div class="checklist"]
 >
-> - Register the application in the Azure portal
+> - Register the application in the Microsoft Entra admin center
 > - Create an Angular project with `npm`
 > - Add code to support user sign-in and sign-out
 > - Add code to call Microsoft Graph API
@@ -40,7 +40,7 @@ MSAL Angular v2 improves on MSAL Angular v1 by supporting the authorization code
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
 
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2, a wrapper of the MSAL.js v2 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2, a wrapper of the MSAL.js v2 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Microsoft Entra ID, and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -53,7 +53,7 @@ This tutorial uses the following libraries:
 | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) | Microsoft Authentication Library for JavaScript Angular Wrapper    |
 | [MSAL Browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Microsoft Authentication Library for JavaScript v2 browser package |
 
-You can find the source code for all of the MSAL.js libraries in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
+You can find the source code for all of the MSAL.js libraries in the [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
 ### Get the completed code sample
 
@@ -67,12 +67,14 @@ To continue with the tutorial and build the application yourself, move on to the
 
 ## Register the application and record identifiers
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations > New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for the application, such as _Angular-SPA-auth-code_.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
 1. Under **Redirect URI (optional)**, use the drop-down menu to select **Single-page-application (SPA)** and enter `http://localhost:4200` into the text box.
@@ -84,7 +86,7 @@ To complete registration, provide the application a name, specify the supported 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
    1. You may need to switch terminal types. Select the down arrow next to the **+** icon in the terminal and select **Command Prompt**.
-1. Run the following commands to create a new Angular project with the name _msal-angular-tutorial_, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
+1. Run the following commands to create a new Angular project with the name `msal-angular-tutorial`, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
 
    ```cmd
    npm install -g @angular/cli
@@ -153,7 +155,7 @@ To complete registration, provide the application a name, specify the supported 
    export class AppModule {}
    ```
 
-1. Replace the following values with the values obtained from the Azure portal. For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+1. Replace the following values with the values obtained from the Microsoft Entra admin center. For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
    - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
    - `authority` - This is composed of two parts:
@@ -992,7 +994,7 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 ## Add scopes and delegated permissions
 
-The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
+The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
 
 As you add scopes, your users might be prompted to provide extra consent for the added scopes.
 

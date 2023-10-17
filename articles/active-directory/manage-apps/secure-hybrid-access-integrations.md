@@ -1,6 +1,6 @@
 ---
-title: Secure hybrid access with Azure AD partner integration
-description: Help customers discover and migrate SaaS applications into Azure AD and connect apps that use legacy authentication methods with Azure AD.
+title: Secure hybrid access with Microsoft Entra integration
+description: Help customers discover and migrate SaaS applications into Microsoft Entra ID and connect apps that use legacy authentication methods with Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -15,32 +15,32 @@ ms.custom: not-enterprise-apps
 
 ---
 
-# Secure hybrid access with Azure Active Directory partner integrations
+# Secure hybrid access with Microsoft Entra integration
 
-Azure Active Directory (Azure AD) supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Azure AD and provide authentication for legacy applications.
+Microsoft Entra ID supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Microsoft Entra ID and provide authentication for legacy applications.
 
 Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
-Azure AD natively supports modern protocols:
+Microsoft Entra ID natively supports modern protocols:
 
 * Security Assertion Markup Language (SAML)
 * Web Service Federation (WS-Fed)
 * OpenID Connect (OIDC)
 
-Azure Active Directory Application Proxy, or Azure AD App Proxy supports Kerberos and header-based authentication. Other protocols, like Secure Shell (SSH), (Microsoft Windows NT LAN Manager) NTLM, Lightweight Directory Access Protocol (LDAP), and cookies, aren't supported. But, independent software vendors (ISVs) can create solutions to connect these applications with Azure AD.
+Microsoft Entra application proxy, or Microsoft Entra application proxy supports Kerberos and header-based authentication. Other protocols, like Secure Shell (SSH), (Microsoft Windows NT LAN Manager) NTLM, Lightweight Directory Access Protocol (LDAP), and cookies, aren't supported. But, independent software vendors (ISVs) can create solutions to connect these applications with Microsoft Entra ID.
 
-ISVs can help customers discover and migrate software as a service (SaaS) applications into Azure AD. They can connect apps that use legacy authentication methods with Azure AD. Customers can consolidate onto Azure AD to simplify their app management and implement Zero Trust principles.
+ISVs can help customers discover and migrate software as a service (SaaS) applications into Microsoft Entra ID. They can connect apps that use legacy authentication methods with Microsoft Entra ID. Customers can consolidate onto Microsoft Entra ID to simplify their app management and implement Zero Trust principles.
 
 ## Solution overview
 
 The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
-  * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
+  * Application discovery finds applications, facilitating app integrating with Microsoft Entra ID
+* **App migration** - Create a workflow to integrate apps with Microsoft Entra ID without using the Microsoft Entra admin center
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
+* **Conditional Access** - Enable customers to apply Microsoft Entra policies to apps in your solution without using the Microsoft Entra admin center
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -48,9 +48,9 @@ See the following sections for technical considerations and recommendations.
 
 ## Publishing applications to Azure Marketplace
 
-Azure Marketplace is a trusted source of applications for IT admins. Applications are compatible with Azure AD and support SSO, automate user provisioning, and integrate into customer tenants with automated app registration.
+Azure Marketplace is a trusted source of applications for IT admins. Applications are compatible with Microsoft Entra ID and support SSO, automate user provisioning, and integrate into customer tenants with automated app registration.
 
-You can pre-integrate your application with Azure AD to support SSO and automated provisioning. See, [Submit a request to publish your application in Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md). 
+You can pre-integrate your application with Microsoft Entra ID to support SSO and automated provisioning. See, [Submit a request to publish your application in Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md). 
 
 We recommend you become a verified publisher, so customers know you're the trusted publisher. See, [Publisher verification](../develop/publisher-verification-overview.md).
 
@@ -58,18 +58,18 @@ We recommend you become a verified publisher, so customers know you're the trust
 
 There are several ways to enable SSO for IT administrators to your solution. See, [Plan a single sign-on deployment, SSO options](./plan-sso-deployment.md#single-sign-on-options).
 
-Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
+Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Microsoft Entra ID issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Microsoft Entra ID, so it can get a JWT from Microsoft Entra ID to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
-* **Recommended SAML approach**: Create a new  registration in Azure Marketplace, which is an OIDC app. Customers add the SAML and OIDC apps to their tenant. If your application isn't in the Azure AD gallery, you can start with a non-gallery multi-tenant app.
-  *  [Configure an OpenID Connect OAuth application from Azure AD app gallery](../saas-apps/openidoauth-tutorial.md)
+* **Recommended SAML approach**: Create a new  registration in Azure Marketplace, which is an OIDC app. Customers add the SAML and OIDC apps to their tenant. If your application isn't in the Microsoft Entra gallery, you can start with a non-gallery multi-tenant app.
+  *  [Configure an OpenID Connect OAuth application from Microsoft Entra app gallery](../saas-apps/openidoauth-tutorial.md)
   *  [Making your application multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md)
-* **Alternate SAML approach**: Customers can create an OIDC application registration in their Azure AD tenant and set the URIs, endpoints, and permissions
+* **Alternate SAML approach**: Customers can create an OIDC application registration in their Microsoft Entra tenant and set the URIs, endpoints, and permissions
 
-Use the client credentials grant type, which requires the solution to allow customers to enter a client ID and secret. The solution also requires you store this information. Get a JWT from Azure AD, and then use it to interact with Microsoft Graph. See, [Get a token](../develop/v2-oauth2-client-creds-grant-flow.md#get-a-token). We recommend you repare customer documentation about how to create application registration in their Azure AD tenant. Include endpoints, URIs, and permissions.
+Use the client credentials grant type, which requires the solution to allow customers to enter a client ID and secret. The solution also requires you store this information. Get a JWT from Microsoft Entra ID, and then use it to interact with Microsoft Graph. See, [Get a token](../develop/v2-oauth2-client-creds-grant-flow.md#get-a-token). We recommend you repare customer documentation about how to create application registration in their Microsoft Entra tenant. Include endpoints, URIs, and permissions.
 
 > [!NOTE]
 > Before applications are used for IT administrator or user SSO, the customer IT administrator must consent to the application in their tenant. See, [Grant tenant-wide admin consent to an application](./grant-admin-consent.md).
@@ -79,51 +79,53 @@ Use the client credentials grant type, which requires the solution to allow cust
 The solution authentication flows support the following scenarios:
 
 - The customer IT administrator signs in with SSO to administer your solution
-- The customer IT administrator uses your solution to integrate applications with Azure AD with Microsoft Graph
-- Users sign in to legacy applications secured by your solution and Azure AD
+- The customer IT administrator uses your solution to integrate applications with Microsoft Entra ID with Microsoft Graph
+- Users sign in to legacy applications secured by your solution and Microsoft Entra ID
 
 ### Your customer IT administrator does single sign-on to your solution
 
-Your solution can use SAML or OIDC for SSO, when the customer IT administrator signs in. We recommend the IT administrator signs in to your solution with their Azure AD credentials, which enables use of current security controls. Integrate your with Azure AD for SSO through SAML or OIDC.
+Your solution can use SAML or OIDC for SSO, when the customer IT administrator signs in. We recommend the IT administrator signs in to your solution with their Microsoft Entra credentials, which enables use of current security controls. Integrate your with Microsoft Entra ID for SSO through SAML or OIDC.
 
 The following diagram illustrates the user authentication flow:
 
-   ![Diagram of an administrator redirected to Azure AD to sign in, then redirected to the solution.](./media/secure-hybrid-access-integrations/admin-flow.png)
+   ![Diagram of an administrator redirected to Microsoft Entra ID to sign in, then redirected to the solution.](./media/secure-hybrid-access-integrations/admin-flow.png)
 
-1. The IT administrator signs in to your solution with their Azure AD credentials
-2. The solution redirects the IT administrator to Azure AD with a SAML or an OIDC sign-in request
-3. Azure AD authenticates the IT administrator and redirects them to your solution, with a SAML token or JWT to be authorized in your solution
+1. The IT administrator signs in to your solution with their Microsoft Entra credentials
+2. The solution redirects the IT administrator to Microsoft Entra ID with a SAML or an OIDC sign-in request
+3. Microsoft Entra authenticates the IT administrator and redirects them to your solution, with a SAML token or JWT to be authorized in your solution
 
-### IT administrators integrate applications with Azure AD 
+<a name='it-administrators-integrate-applications-with-azure-ad-'></a>
 
-IT administrators integrate applications with Azure AD by using your solution, which employs Microsoft Graph to create application registrations and Azure AD Conditional Access policies.
+### IT administrators integrate applications with Microsoft Entra ID 
+
+IT administrators integrate applications with Microsoft Entra ID by using your solution, which employs Microsoft Graph to create application registrations and Microsoft Entra Conditional Access policies.
 
 The following diagram illustrates the user authentication flow:
 
-   ![Diagram of interactions between the IT administrator, Azure AD, your solution, and Microsoft Graph.](./media/secure-hybrid-access-integrations/registration-flow.png)
+   ![Diagram of interactions between the IT administrator, Microsoft Entra ID, your solution, and Microsoft Graph.](./media/secure-hybrid-access-integrations/registration-flow.png)
 
 
-1. The IT administrator signs in to your solution with their Azure AD credentials
-2. The solution redirects the IT administrator to Azure AD with a SAML or an OIDC sign-in request
-3. Azure AD authenticates the IT administrator and redirects them to your solution with a SAML token or JWT for authorization
-4. When the IT administrator integrates an application with Azure AD, the solution calls Microsoft Graph with their JWT to register applications, or apply Azure AD Conditional Access policies
+1. The IT administrator signs in to your solution with their Microsoft Entra credentials
+2. The solution redirects the IT administrator to Microsoft Entra ID with a SAML or an OIDC sign-in request
+3. Microsoft Entra authenticates the IT administrator and redirects them to your solution with a SAML token or JWT for authorization
+4. When the IT administrator integrates an application with Microsoft Entra ID, the solution calls Microsoft Graph with their JWT to register applications, or apply Microsoft Entra Conditional Access policies
 
 ### Users sign in to the applications
 
-When users sign in to applications, they use OIDC or SAML. If the applications need to interact with Microsoft Graph or Azure AD-protected API, we recommend you configure them to use OICD. This configuration ensures the JWT is applied to interact with Microsoft Graph. If there's no need for applications to interact with Microsoft Graph, or Azure AD protected APIs, then use SAML.
+When users sign in to applications, they use OIDC or SAML. If the applications need to interact with Microsoft Graph or Microsoft Entra protected API, we recommend you configure them to use OICD. This configuration ensures the JWT is applied to interact with Microsoft Graph. If there's no need for applications to interact with Microsoft Graph, or Microsoft Entra protected APIs, then use SAML.
 
 The following diagram shows user authentication flow:
 
-   ![Diagram of interactions between the user, Azure AD, your solution, and the app.](./media/secure-hybrid-access-integrations/end-user-flow.png)
+   ![Diagram of interactions between the user, Microsoft Entra ID, your solution, and the app.](./media/secure-hybrid-access-integrations/end-user-flow.png)
 
 1. The user signs in to an application
-2. The solution redirects the user to Azure AD with a SAML or an OIDC sign-in request
-3. Azure AD authenticates the user and redirects them to your solution with a SAML token or JWT for authorization
+2. The solution redirects the user to Microsoft Entra ID with a SAML or an OIDC sign-in request
+3. Microsoft Entra authenticates the user and redirects them to your solution with a SAML token or JWT for authorization
 4. The solution allows the request by using the application protocol
 
 ## Microsoft Graph API
 
-We recommend use of the following APIs. Use Azure AD to configure delegated permissions or application permissions. For this solution, use delegated permissions.
+We recommend use of the following APIs. Use Microsoft Entra ID to configure delegated permissions or application permissions. For this solution, use delegated permissions.
 
 * **Applications templates API** - In Azure Marketplace, use this API to find a matching application template
   * Permissions required: Application.Read.All
@@ -131,7 +133,7 @@ We recommend use of the following APIs. Use Azure AD to configure delegated perm
   * Permissions required: Application.Read.All, Application.ReadWrite.All
 * **Service principal API** - After you register the app, update the service principal object to set SSO properties
   * Permissions required: Application.ReadWrite.All, Directory.AccessAsUser.All, AppRoleAssignment.ReadWrite.All (for assignment)
-* **Conditional Access API** - Apply Azure AD Conditional Access policies to user applications 
+* **Conditional Access API** - Apply Microsoft Entra Conditional Access policies to user applications 
   * Permissions required: Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All
 
 Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0&preserve-view=true)
@@ -140,7 +142,9 @@ Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph%2Fapi%
 
 Use the following information to implement application registrations, connect legacy applications, and enable Conditional Access policies. Learn to automate admin consent, get the token-signing certificate, and assign users and groups. 
 
-### Use Microsoft Graph API to register apps with Azure AD
+<a name='use-microsoft-graph-api-to-register-apps-with-azure-ad'></a>
+
+### Use Microsoft Graph API to register apps with Microsoft Entra ID
 
 #### Add apps in Azure Marketplace
 
@@ -202,7 +206,7 @@ https://graph.microsoft.com/v1.0/applications/54c4806b-b260-4a12-873c-9671169837
 
 #### Add apps not in Azure Marketplace
 
-If there's no match in Azure Marketplace, or to integrate a custom application, register a custom application in Azure AD with the template ID: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Then, make the following API call and provide an application display name in the JSON body:
+If there's no match in Azure Marketplace, or to integrate a custom application, register a custom application in Microsoft Entra ID with the template ID: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Then, make the following API call and provide an application display name in the JSON body:
 
 ```https
 Authorization: Required with a valid Bearer token
@@ -246,18 +250,22 @@ https://graph.microsoft.com/v1.0/applications/54c4806b-b260-4a12-873c-9671169837
 }
 ```
 
-#### Use Azure AD single sign-on
+<a name='use-azure-ad-single-sign-on'></a>
 
-After the SaaS applications are registered in Azure AD, the applications need to start using Azure AD as the identity provider (IdP):
+#### Use Microsoft Entra single sign-on
 
-- **Applications support one-click SSO** - Azure AD enables the applications. In the Azure portal, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
+After the SaaS applications are registered in Microsoft Entra ID, the applications need to start using Microsoft Entra ID as the identity provider (IdP):
+
+- **Applications support one-click SSO** - Microsoft Entra ID enables the applications. In the Microsoft Entra admin center, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
   - Learn more: [One-click app configuration of single sign-on](./one-click-sso-tutorial.md)
-- **Applications don't support one-click SSO** - The customer enables the applications to use Azure AD. 
-  - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+- **Applications don't support one-click SSO** - The customer enables the applications to use Microsoft Entra ID. 
+  - [Tutorials for integrating SaaS applications with Microsoft Entra ID](../saas-apps/tutorial-list.md)
 
-### Connect apps to Azure AD with legacy authentication
+<a name='connect-apps-to-azure-ad-with-legacy-authentication'></a>
 
-Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply [Azure AD Conditional Access policies](../conditional-access/overview.md). Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
+### Connect apps to Microsoft Entra ID with legacy authentication
+
+Your solution can enable the customer to use SSO and Microsoft Entra features, even unsupported applications. To allow access with legacy protocols, your application calls Microsoft Entra ID to authenticate the user and apply [Microsoft Entra Conditional Access policies](../conditional-access/overview.md). Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Microsoft Entra ID.
 
 #### Create a SAML application registration
 
@@ -357,7 +365,7 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Microsoft Entra admin center. There are two options to apply Microsoft Entra Conditional Access policies:
 
 - [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
 - [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
@@ -381,7 +389,7 @@ Method: PATCH
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
 {
-    "displayName":"Existing CA Policy",
+    "displayName":"Existing Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -418,7 +426,7 @@ Method: POST
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 {
-    "displayName":"New CA Policy",
+    "displayName":"New Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -442,7 +450,7 @@ https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 }
 ```
 
-To create new Azure AD Conditional Access policies, see [Conditional Access: Programmatic access](../conditional-access/howto-conditional-access-apis.md).
+To create new Microsoft Entra Conditional Access policies, see [Conditional Access: Programmatic access](../conditional-access/howto-conditional-access-apis.md).
 
 ```https
 #Policy Template for Requiring Compliant Device
@@ -499,7 +507,7 @@ To create new Azure AD Conditional Access policies, see [Conditional Access: Pro
 
 ### Automate admin consent
 
-If the customer is adding applications from your solution to Azure AD, you can automate administrator consent with Microsoft Graph. You need the application service principal object ID you created in API calls, and the Microsoft Graph service principal object ID from the customer tenant.
+If the customer is adding applications from your solution to Microsoft Entra ID, you can automate administrator consent with Microsoft Graph. You need the application service principal object ID you created in API calls, and the Microsoft Graph service principal object ID from the customer tenant.
 
 Get the Microsoft Graph service principal object ID by making the following API call:
 
@@ -529,7 +537,7 @@ https://graph.microsoft.com/v1.0/oauth2PermissionGrants
 
 ### Get the token-signing certificate
 
-To get the public portion of the token-signing certificate, use `GET` from the Azure AD metadata endpoint for the application:
+To get the public portion of the token-signing certificate, use `GET` from the Microsoft Entra metadata endpoint for the application:
 
 ```https
 Method:GET
@@ -539,7 +547,7 @@ https://login.microsoftonline.com/{Tenant_ID}/federationmetadata/2007-06/federat
 
 ### Assign users and groups
 
-After you publish the application to Azure AD, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](./myapps-overview.md).
+After you publish the application to Microsoft Entra ID, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](./myapps-overview.md).
 
 Get `AppRole` instances the application might have associated with it. It's common for SaaS applications to have various `AppRole` instances associated with them. Typically, for custom applications, there's one default `AppRole` instance. Get the `AppRole` instance ID you want to assign:
 
@@ -550,7 +558,7 @@ Method:GET
 https://graph.microsoft.com/v1.0/servicePrincipals/3161ab85-8f57-4ae0-82d3-7a1f71680b27
 ```
 
-From Azure AD, get the user or group object ID that you want to assign to the application. Take the app role ID from the previous API call and submit it with the patch body on the service principal:
+From Microsoft Entra ID, get the user or group object ID that you want to assign to the application. Take the app role ID from the previous API call and submit it with the patch body on the service principal:
 
 ```https
 Authorization: Required with a valid Bearer token
@@ -570,38 +578,38 @@ https://graph.microsoft.com/v1.0/servicePrincipals/3161ab85-8f57-4ae0-82d3-7a1f7
 To help protect legacy applications, while using networking and delivery controllers, Microsoft has partnerships with the following application delivery controller (ADC) providers.
 
 * **Akamai Enterprise Application Access**
-  * [Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Akamai](../saas-apps/akamai-tutorial.md)
 * **Citrix ADC**
-  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Citrix ADC SAML Connector for Microsoft Entra ID (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-integration.md)
+  * [Tutorial: Microsoft Entra SSO integration with Citrix ADC SAML Connector for Microsoft Entra ID (Kerberos-based authentication)](./f5-integration.md)
 * **Kemp LoadMaster**
-  * [Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Kemp LoadMaster Microsoft Entra integration](../saas-apps/kemp-tutorial.md)
 * **Pulse Secure Virtual Traffic Manager**
-  * [Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
-The following VPN solution providers connect with Azure AD to enable modern authentication and authorization methods like SSO and multifactor authentication (MFA).
+The following VPN solution providers connect with Microsoft Entra ID to enable modern authentication and authorization methods like SSO and multifactor authentication (MFA).
 
 * **Cisco AnyConnect**
-  * [Tutorial: Azure AD SSO integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+  * [Tutorial: Microsoft Entra SSO integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 * **Fortinet FortiGate**
-  * [Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-passwordless-vpn.md)
+  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Microsoft Entra SSO](./f5-passwordless-vpn.md)
 * **Palo Alto Networks GlobalProtect**
-  * [Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md)
 * **Pulse Connect Secure**
-  * [Tutorial: Azure AD SSO integration with Pulse Secure PCS](../saas-apps/pulse-secure-pcs-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Pulse Secure PCS](../saas-apps/pulse-secure-pcs-tutorial.md)
 
-The following software-defined perimeter (SDP) solutions providers connect with Azure AD for authentication and authorization methods like SSO and MFA.
+The following software-defined perimeter (SDP) solutions providers connect with Microsoft Entra ID for authentication and authorization methods like SSO and MFA.
 
 * **Datawiza Access Broker**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+  * [Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Datawiza](./datawiza-configure-sha.md)
 * **Perimeter 81**
-  * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
+  * [Tutorial: Microsoft Entra SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-integration.md)
+  * [Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Silverfort](./silverfort-integration.md)
 * **Strata Maverics Identity Orchestrator**
-  * [Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+  * [Integrate Microsoft Entra SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 * **Zscaler Private Access**
-  * [Tutorial: Integrate Zscaler Private Access with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)
+  * [Tutorial: Integrate Zscaler Private Access with Microsoft Entra ID](../saas-apps/zscalerprivateaccess-tutorial.md)

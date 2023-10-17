@@ -1,10 +1,12 @@
 ---
 title: New Zealand ISM Restricted blueprint sample
 description: Overview of the New Zealand ISM Restricted blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # New Zealand ISM Restricted blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The New Zealand ISM Restricted blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific

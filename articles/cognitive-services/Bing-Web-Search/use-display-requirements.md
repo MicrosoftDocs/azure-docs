@@ -1,6 +1,6 @@
 ---
 title: Use and display requirements for the Bing Search APIs
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The requirements for displaying search results from the Bing Search APIs in your applications.
 services: cognitive-services
 author: aahill
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Bing Search API use and display requirements
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 These use and display requirements apply to any implementation of the content and associated information from the following Bing Search APIs, including relationships, metadata, and other signals.
 

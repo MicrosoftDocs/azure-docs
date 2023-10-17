@@ -82,3 +82,13 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
     Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network is not listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
 
 1. Select **Review + Create** to create the resource.
+
+## Next steps
+
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)

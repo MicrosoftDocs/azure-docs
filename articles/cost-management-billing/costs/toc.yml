@@ -19,6 +19,8 @@
     items:
     - name: Cost Management best practices
       href: cost-mgt-best-practices.md
+    - name: AI-powered Cost Management
+      href: ai-powered-cost-management.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
@@ -33,8 +35,8 @@
       href: cost-management-error-codes.md
   - name: Resources
     items:
-    - name: Calculate pricing
-      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Estimate costs with Azure pricing calculator
+      href: pricing-calculator.md
     - name: Cost Management for AWS pricing
       href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Build your skills with Microsoft Learn training
@@ -147,6 +149,8 @@
       href: ../reservations/how-to-view-csp-reservations.md
     - name: Exchange and refund reservations
       href: ../reservations/exchange-and-refund-azure-reservations.md
+    - name: View reservation and savings plan amortized costs
+      href: ../reservations/view-amortized-costs.md
     - name: Charge back reservations costs
       href: ../reservations/exchange-and-refund-azure-reservations.md
     - name: Renew a reservation

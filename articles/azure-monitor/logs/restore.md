@@ -127,14 +127,15 @@ You can:
 - Perform up to four restores per table per week. 
 
 ## Pricing model
-The charge for maintaining restored logs is calculated based on the volume of data you restore, in GB, and the number or days for which you restore the data. Charges are prorated and subject to the minimum restore duration and data volume. There is no charge for querying against restored logs.
+The charge for restored logs is based on the volume of data you restore, in GB, and the duration for which you keep the restored data. 
+- Charges are subject to a minimum restored data volume.
+- Charges are prorated hourly and subject to a minimum restore duration.
+- For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
+For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you [dismiss the restored data](#dismiss-restored-data).
 
 > [!NOTE]
-> Billing of restore is not yet enabled. You can restore logs for free until early 2023.
-
-For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+> There is no charge for querying restored logs.
 
 ## Next steps
 

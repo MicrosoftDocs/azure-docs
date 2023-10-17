@@ -2,7 +2,6 @@
 title: Create a skillset
 titleSuffix: Azure Cognitive Search
 description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -43,7 +42,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description":"A Cognitive Services resource in the same region as Azure Cognitive Search",
+      "description":"An Azure AI services resource in the same region as Azure Cognitive Search",
       "key":"<Your-Cognitive-Services-Multiservice-Key>"
    },
    "knowledgeStore":{
@@ -62,9 +61,9 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Azure AI services), or custom skills that you provide. An example of a skills array is provided in the next section.
 
-+ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
++ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Azure AI services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
 + `knowledgeStore` (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
@@ -79,46 +78,48 @@ The end result of an enrichment pipeline is textual content in either a search i
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
 ```json
-"skills":[
-  {
-    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-    "name": "#1",
-    "description": "This skill detects organizations in the source content",
-    "context": "/document",
-    "categories": [ "Organization" ],
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "organizations",
-        "targetName": "orgs"
-      }
-    ]
-  },
-  {
-      "name": "#2",
-      "description": "This skill detects corporate logos in the source files",
-      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-      "context": "/document/normalized_images/*",
-      "visualFeatures": [
-          "brands"
-      ],
-      "inputs": [
-          {
-              "name": "image",
-              "source": "/document/normalized_images/*"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "brands"
-          }
-      ]
-  }
+"skills": [
+    {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name": "#1",
+        "description": "This skill detects organizations in the source content",
+        "context": "/document",
+        "categories": [
+            "Organization"
+        ],
+        "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "organizations",
+                "targetName": "orgs"
+            }
+        ]
+    },
+    {
+        "name": "#2",
+        "description": "This skill detects corporate logos in the source files",
+        "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+        "context": "/document/normalized_images/*",
+        "visualFeatures": [
+            "brands"
+        ],
+        "inputs": [
+            {
+                "name": "image",
+                "source": "/document/normalized_images/*"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "brands"
+            }
+        ]
+    }
 ]
 ```
 

@@ -1,12 +1,12 @@
 ---
 title: Prerequisites for deploying tenant workloads
-description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS hybrid clusters for CNF workloads.
+description: Learn the prerequisites for creating VMs for VNF workloads and for creating Kubernetes clusters for CNF workloads.
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 01/25/2023
-ms.custom: template-how-to-pattern, devx-track-azurecli
+ms.custom: template-how-to-pattern, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Prerequisites for deploying tenant workloads
@@ -14,123 +14,261 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 This guide explains prerequisites for creating:
 
 - Virtual machines (VMs) for virtual network function (VNF) workloads.
-- Azure Kubernetes Service (AKS) hybrid deployments for cloud-native network function (CNF) workloads.
+- Nexus Kubernetes cluster deployments for cloud-native network function (CNF) workloads.
 
 :::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Diagram of a tenant workload deployment flow.":::
 
-## Preparation
+## Network prerequisites
 
 You need to create various networks based on your workload needs. The following list of considerations isn't exhaustive. Consult with the appropriate support teams for help.
 
 - Determine the types of networks that you need to support your workloads:
   - A layer 3 (L3) network requires a VLAN and subnet assignment. The subnet must be large enough to support IP assignment to each of the VMs.
-  
     The platform reserves the first three usable IP addresses for internal use. For instance, to support six VMs, the minimum CIDR for your subnet is /28 (14 usable addresses – 3 reserved = 11 addresses available).
   - A layer 2 (L2) network requires only a single VLAN assignment.
   - A trunked network requires the assignment of multiple VLANs.
 - Determine how many networks of each type you need.
 - Determine the MTU size of each of your networks (maximum is 9,000).
 - Determine the BGP peering info for each network, and whether the networks need to talk to each other. You should group networks that need to talk to each other into the same L3 isolation domain, because each L3 isolation domain can support multiple L3 networks.
-- The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints.
+- The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints. You can modify the list of endpoints after the network creation.
 
-  You can modify the list of endpoints after the network creation.
-- For an AKS hybrid cluster, you need to create a `defaultcninetwork` instance to support your cluster CNI networking needs. You need another VLAN and subnet assignment for `defaultcninetwork`, similar to an L3 network.
+## Create networks for tenant workloads
 
-You also need:
+The following sections explain the steps to create networks for tenant workloads (VMs and Kubernetes clusters).
 
-- Your Azure account and the subscription ID of the Azure Operator Nexus cluster deployment.
-- The `custom location` resource ID of your Azure Operator Nexus cluster.
+### Create isolation domains
 
-## Specify the AKS hybrid availability zone
+Isolation domains enable creation of layer 2 (L2) and layer 3 (L3) connectivity between network functions running on Azure Operator Nexus. This connectivity enables inter-rack and intra-rack communication between the workloads.
+You can create as many L2 and L3 isolation domains as needed.
 
-When you're creating an AKS hybrid cluster, you can use the `--zones` option in `az hybridaks create` or `az hybridaks nodepool add` to schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
+You should have the following information already:
 
-If you don't specify a zone when you're creating an AKS hybrid cluster through the `--zones` option, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
+- The network fabric resource ID to create isolation domains.
+- VLAN and subnet info for each L3 network.
+- Which networks need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
+- BGP peering and network policy information for your L3 isolation domains.
+- VLANs for all your L2 networks.
+- VLANs for all your trunked networks.
+- MTU values for your networks.
+
+#### L2 isolation domain
+
+[!INCLUDE [l2-isolation-domain](./includes/l2-isolation-domain.md)]
+
+#### L3 isolation domain
+
+[!INCLUDE [l3-isolation-domain](./includes/l3-isolation-domain.md)]
+
+### Create networks for tenant workloads
+
+The following sections describe how to create these networks:
+
+- Layer 2 network
+- Layer 3 network
+- Trunked network
+- Cloud services network
+
+#### Create an L2 network
+
+Create an L2 network, if necessary, for your workloads. You can repeat the instructions for each required L2 network.
+
+Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+  az networkcloud l2network create --name "<YourL2NetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --l2-isolation-domain-id "<YourL2IsolationDomainId>"
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" `
+-L2IsolationDomainId "<YourL2IsolationDomainId>" `
+-Location "<ClusterAzureRegion>" `
+-InterfaceName "<InterfaceName>" `
+-Subscription "<YourSubscription>"
+```
+
+---
+
+#### Create an L3 network
+
+Create an L3 network, if necessary, for your workloads. Repeat the instructions for each required L3 network.
+
+You need:
+
+- The `resourceID` value of the L3 isolation domain that you [created](#l3-isolation-domain) to configure the VLAN for this network.
+- The `ipv4-connected-prefix` value, which must match the `i-pv4-connected-prefix` value that's in the L3 isolation domain.
+- The `ipv6-connected-prefix` value, which must match the `i-pv6-connected-prefix` value that's in the L3 isolation domain.
+- The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
+- The `vlan` value, which must match what's in the L3 isolation domain.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+  az networkcloud l3network create --name "<YourL3NetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --ip-allocation-type "<YourNetworkIpAllocation>" \
+    --ipv4-connected-prefix "<YourNetworkIpv4Prefix>" \
+    --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
+    --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
+    --vlan <YourNetworkVlan>
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzNetworkCloudL3Network -Name "<YourL3NetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-Subscription "<YourSubscription>" `
+-Location "<ClusterAzureRegion>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" `
+-Vlan "<YourNetworkVlan>" `
+-L3IsolationDomainId "<YourL3IsolationDomainId>" `
+-Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" `
+-Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>"
+```
+
+---
+
+#### Create a trunked network
+
+Create a trunked network, if necessary, for your VM. Repeat the instructions for each required trunked network.
+
+Gather the `resourceId` values of the L2 and L3 isolation domains that you created earlier to configure the VLANs for this network. You can include as many L2 and L3 isolation domains as needed.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+  az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --interface-name "<YourNetworkInterfaceName>" \
+    --isolation-domain-ids \
+      "<YourL3IsolationDomainId1>" \
+      "<YourL3IsolationDomainId2>" \
+      "<YourL2IsolationDomainId1>" \
+      "<YourL2IsolationDomainId2>" \
+      "<YourL3IsolationDomainId3>" \
+    --vlans <YourVlanList>
+```
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-SubscriptionId "<YourSubscription>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" `
+-Location "<ClusterAzureRegion>" `
+-IsolationDomainId "<YourL3IsolationDomainId>" `
+-InterfaceName "<YourNetworkInterfaceName>" `
+-Vlan "<YourVlanList>"
+```
+
+---
+
+#### Create a cloud services network
+
+Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+  az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
+    --resource-group "<YourResourceGroupName >" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId >" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$endpointEgressList = @()
+$endpointList = @()
+$endpoint = New-AzNetworkCloudEndpointDependencyObject `
+  -DomainName "<domainName1>" `
+  -Port "<portnumber1>"
+$endpointList+= $endpoint
+$additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
+  -Category "YourCategory" `
+  -Endpoint $endpointList
+$endpointEgressList+= $additionalEgressEndpoint
+
+New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-Subscription "<YourSubscription>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" `
+-Location "<ClusterAzureRegion>" `
+-AdditionalEgressEndpoint $endpointEgressList `
+-EnableDefaultEgressEndpoint "False"
+```
+
+---
+
+#### Using the proxy to reach outside of the virtual machine
+
+Once you have created your VM or Kubernetes cluster with this cloud services network, you can use the proxy to reach outside of the virtual machine. Proxy is useful if you need to access resources outside of the virtual machine, such as pulling images or accessing data.
+
+To use the proxy, you need to set the following environment variables:
+
+```bash
+export HTTP_PROXY=http://169.254.0.11:3128
+export http_proxy=http://169.254.0.11:3128
+export HTTPS_PROXY=http://169.254.0.11:3128
+export https_proxy=http://169.254.0.11:3128
+```
+
+Once you have set the environment variables, your virtual machine should be able to reach outside of the virtual network using the proxy.
+
+In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+
+> [!IMPORTANT]
+> When using a proxy, it's also important to set the `no_proxy` environment variable properly. This variable can be used to specify domains or IP addresses that shouldn't be accessed through the proxy. If not set properly, it can cause issues while accessing services, such as the Kubernetes API server or cluster IP. Make sure to include the IP address or domain name of the Kubernetes API server and any cluster IP addresses in the `no_proxy` variable.
+
+## Nexus Kubernetes cluster availability zone
+
+When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
+
+If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
     az networkcloud cluster show \
       --resource-group <Azure Operator Nexus on-premises cluster resource group> \
       --name <Azure Operator Nexus on-premises cluster name> \
       --query computeRackDefinitions[*].availabilityZone
 ```
 
-### Review Azure Container Registry
+### [Azure PowerShell](#tab/azure-powershell)
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
-
-This article provides details on how to create and maintain Azure Container Registry operations such as [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli) and [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md), for security and monitoring. For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
-
-## Install Azure CLI extensions
-
-Install the latest version of the
-[necessary Azure CLI extensions](./howto-install-cli-extensions.md).
-
-## Upload Azure Operator Nexus workload images
-
-Make sure that each image that you use to create your workload VMs is a
-containerized image in either `qcow2` or `raw` disk format. Upload these images to Azure Container Registry. If your Azure Container Registry instance is password protected, you can supply this info when creating your VM.
-
-The following build procedure is an example of how to pull an image from an anonymous Azure Container Registry instance. It assumes that you already have an existing VM instance image in `qcow2` format and that the image can boot with cloud-init. The procedure requires a working Docker build and runtime environment.
-
-Create a Dockerfile that copies the `qcow2` image file into the container's `/disk` directory. Place it in an expected directory with correct permissions. For example, for a Dockerfile named `aods-vm-img-dockerfile`:
-
-```bash
-FROM scratch
-ADD --chown=107:107 your-favorite-image.qcow2 /disk/
+```azurepowershell-interactive
+Get-AzNetworkCloudCluster -Name "<Azure Operator Nexus on-premises cluster name>" `
+-ResourceGroupName "<Azure Operator Nexus on-premises cluster resource group>" `
+-SubscriptionId "<YourSubscription>" `
+| Select -ExpandProperty ComputeRackDefinition `
+| Select-Object -Property AvailabilityZone
 ```
 
-By using the `docker` command, build the image and tag to a Docker registry (such as Azure Container Registry) that you can push to. The build can take a while, depending on how large the `qcow2` file is. The `docker` command assumes that the `qcow2` file is in the same directory as your Dockerfile.
-
-```bash
-  docker build -f aods-vm-img-dockerfile -t devtestacr.azurecr.io/your-favorite-image:v1 .
-  FROM scratch
-  ADD --chown=107:107 your-favorite-image.qcow2 /disk/
-```
-
-Sign in to Azure Container Registry if needed and push. Depending on the size of the Docker image, this push can also take a while.
-
-```azurecli
-az acr login -n devtestacr
-```
-
-The push refers to repository `devtestacr.azurecr.io/your-favorite-image`:
-
-```bash
-docker push devtestacr.azurecr.io/your-favorite-image:v1
-```
-
-## Create a VM by using an image
-
-You can now use your image when you're creating Azure Operator Nexus virtual machines:
-
-```azurecli
-az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \
---resource-group "<YourResourceGroup>" \
---subscription "<YourSubscription" \
---extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
---location "<ClusterAzureRegion>" \
---admin-username "<AdminUserForYourVm>" \
---csn attached-network-id="<CloudServicesNetworkResourceId>" \
---cpu-cores <NumOfCpuCores> \
---memory-size <AmountOfMemoryInGB> \
---network-attachments '[{"attachedNetworkId":"<L3NetworkResourceId>","ipAllocationMethod":"<YourIpAllocationMethod","defaultGateway":"True","networkAttachmentName":"<YourNetworkInterfaceName"},\
-                        {"attachedNetworkId":"<L2NetworkResourceId>","ipAllocationMethod":"Disabled","networkAttachmentName":"<YourNetworkInterfaceName"},
-                        {"attachedNetworkId":"<TrunkedNetworkResourceId>","ipAllocationMethod":"Disabled","networkAttachmentName":"<YourNetworkInterfaceName"}]' \
---storage-profile create-option="Ephemeral" delete-option="Delete" disk-size="<YourVmDiskSize>" \
---vm-image "<vmImageRef>" \
---ssh-key-values "<YourSshKey1>" "<YourSshKey2>" \
---placement-hints '[{<YourPlacementHint1},\
-                    {<YourPlacementHint2}]' \
---vm-image-repository-credentials registry-url="<YourAcrUrl>" username="<YourAcrUsername>" password="<YourAcrPassword>" \
-```
-
-This VM image build procedure is derived from [KubeVirt](https://kubevirt.io/user-guide/virtual_machines/disks_and_volumes/#containerdisk-workflow-example).
-
-## Miscellaneous prerequisites
-
-To deploy your workloads, you need:
-
-- To create resource group or find a resource group to use for your workloads.
-- The network fabric resource ID to create isolation domains.
+---

@@ -14,11 +14,11 @@ ms.author: barclayn
 
 # Configure Verified ID with LexisNexis as your Identity Verification Partner
 
-You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster onboarding by replacing some human interactions. Verifiable Credentials (VCs) can be used to onboard employees, students, citizens, or others to access services.
+You can use Microsoft Entra Verified ID with LexisNexis Risk Solutions to enable faster onboarding by replacing some human interactions. Verifiable Credentials (VCs) can be used to onboard employees, students, citizens, or others to access services.
 
 ## Prerequisites
 
-- A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
+- A tenant [configured](verifiable-credentials-configure-tenant.md) for Microsoft Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your tenant should also have completed the LexisNexis onboarding process.
     - Create a LexisNexis account, you can request a [demo](https://solutions.risk.lexisnexis.com/did-microsoft). Expect response from your LexisNexis Risk Solutions within 48 hours.
@@ -41,7 +41,7 @@ To incorporate identity verification into your Apps using LexisNexis Verified ID
 
 As a developer you'll provide the steps below to your tenant administrator. The instructions help them obtain the verification request URL, and application body or website to request verifiable credentials from your users.
 
-1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade).
+1. Go to [Microsoft Entra admin center -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade).
     >[!Note]
     > Make sure this is the tenant you set up for Verified ID per the pre-requisites.
 1. Go to [Quickstart-> Verification Request -> Start](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/QuickStartVerifierBlade).

@@ -1,10 +1,11 @@
 ---
 title: Create an Azure Service Fabric cluster template 
-description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
+description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Microsoft Entra ID for client authentication.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: has-azure-ad-ps-ref
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -13,7 +14,7 @@ ms.date: 07/14/2022
 
 An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. A Service Fabric cluster running in Azure is an Azure resource and is deployed, managed, and monitored using the Resource Manager.  This article describes how create a Resource Manager template for a Service Fabric cluster running in Azure.  When the template is complete, you can [deploy the cluster on Azure](service-fabric-cluster-creation-via-arm.md).
 
-Cluster security is configured when the cluster is first set up and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+Cluster security is configured when the cluster is first set up and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Microsoft Entra ID is also recommended to secure access to management endpoints. Microsoft Entra tenants and users must be created before creating the cluster.  For more information, read [Set up Microsoft Entra ID to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 Before deploying a production cluster to run production workloads, be sure to first read the [Production readiness checklist](service-fabric-production-readiness-checklist.md).
 
@@ -26,7 +27,7 @@ Sample Resource Manager templates are available in the [Azure samples on GitHub]
 This article uses the [five-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype] example template and template parameters. Download *azuredeploy.json* and *azuredeploy.parameters.json* to your computer and open both files in your favorite text editor.
 
 > [!NOTE]
-> For national clouds (Azure Government, Azure China, Azure Germany), you should also add the following `fabricSettings` to your template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
+> For national clouds (Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), you should also add the following `fabricSettings` to your template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
 
 ## Add certificates
 You add certificates to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those key-vault parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*).
@@ -129,12 +130,14 @@ The cluster authentication certificate must be configured in both the Service Fa
 }
 ```
 
-## Add Azure AD configuration to use Azure AD for client access
+<a name='add-azure-ad-configuration-to-use-azure-ad-for-client-access'></a>
 
-You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*). 
+## Add Microsoft Entra configuration to use Microsoft Entra ID for client access
+
+You add the Microsoft Entra configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Microsoft Entra parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*). 
 
 > [!NOTE]
-> On Linux, Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+> On Linux, Microsoft Entra tenants and users must be created before creating the cluster.  For more information, read [Set up Microsoft Entra ID to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -189,7 +192,7 @@ If you plan to use the Azure service fabric RM PowerShell modules, then you do n
 
 If you are using application certs or are using an existing cluster that you have uploaded to the key vault, you need to get this information and populate it.
 
-The RM modules do not have the ability to generate the Azure AD configuration for you, so if you plan to use the Azure AD for client access, you need to populate it.
+The RM modules do not have the ability to generate the Microsoft Entra configuration for you, so if you plan to use the Microsoft Entra ID for client access, you need to populate it.
 
 ```json
 {
@@ -242,7 +245,7 @@ In case you run into issues and get cryptic messages, then use "-Debug" as an op
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
-The following diagram illustrates where your key vault and Azure AD configuration fit into your Resource Manager template.
+The following diagram illustrates where your key vault and Microsoft Entra configuration fit into your Resource Manager template.
 
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
 

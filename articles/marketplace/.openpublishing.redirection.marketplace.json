@@ -149,7 +149,7 @@
             "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
             "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -1209,7 +1209,7 @@
             "source_path_from_root": "/articles/marketplace/support-azure-marketplace.md",
             "redirect_url": "/azure/marketplace/support",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
@@ -1445,7 +1445,6 @@
             "redirect_url": "/partner-center/co-sell-status",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/marketplace/consulting-services.md",
             "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
@@ -1620,7 +1619,7 @@
             "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
             "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
             "redirect_document_id": true
-        },                
+        },
         {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/partner-center/co-sell-overview",
@@ -1665,7 +1664,7 @@
             "source_path_from_root": "/articles/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",

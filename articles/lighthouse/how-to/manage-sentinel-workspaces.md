@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage Microsoft Sentinel workspaces at scale
 
-[Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks more efficient.
+[Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several Microsoft Entra tenants at once, making management tasks more efficient.
 
 [Microsoft Sentinel](../../sentinel/overview.md) delivers security analytics and threat intelligence, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. With Azure Lighthouse, you can manage multiple Microsoft Sentinel workspaces across tenants at scale. This enables scenarios such as running queries across multiple workspaces, or creating workbooks to visualize and monitor data from your connected data sources to gain insights. IP such as queries and playbooks remain in your managing tenant, but can be used to perform security management in the customer tenants.
 
@@ -21,7 +21,7 @@ This topic provides an overview of how Azure Lighthouse lets you use Microsoft S
 
 ## Architectural considerations
 
-For a managed security service provider (MSSP) who wants to build a Security-as-a-Service offering using Microsoft Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Microsoft Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Microsoft Sentinel workspaces deployed across their tenants.
+For a managed security service provider (MSSP) who wants to build a Security-as-a-Service offering using Microsoft Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Microsoft Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Microsoft Entra tenants may want to centrally manage multiple Microsoft Sentinel workspaces deployed across their tenants.
 
 This model of centralized management has the following advantages:
 
@@ -30,7 +30,7 @@ This model of centralized management has the following advantages:
 - Ensures data isolation, since data for multiple customers isn't stored in the same workspace.
 - Prevents data exfiltration from the managed tenants, helping to ensure data compliance.
 - Related costs are charged to each managed tenant, rather than to the managing tenant.
-- Data from all data sources and data connectors that are integrated with Microsoft Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
+- Data from all data sources and data connectors that are integrated with Microsoft Sentinel (such as Microsoft Entra Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
 - Able to use a multi-workspace view when working through Azure Lighthouse.
@@ -76,13 +76,13 @@ You can also deploy workbooks directly in an individual managed tenant for scena
 
 ## Run Log Analytics and hunting queries across Microsoft Sentinel workspaces
 
-Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
+Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#hunt-across-multiple-workspaces). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
 
-For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 
 ## Use automation for cross-workspace management
 
-You can use automation to manage multiple Microsoft Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
+You can use automation to manage multiple Microsoft Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#manage-multiple-workspaces-using-automation).
 
 ## Monitor security of Office 365 environments
 

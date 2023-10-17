@@ -2,7 +2,7 @@
 title: Teams interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Teams interoperability
-author: chpalm
+author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -22,17 +22,17 @@ Azure Communication Services can be used to build custom applications and experi
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the user:
 
-- **[External user](#external-user).** You control user authentication, and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
-- **[Teams user](#teams-user).** Azure Active Directory controls user authentication, and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are impossible with the existing Teams clients.
+- **[External user](#external-user).** You control user authentication, and users of your custom applications don't need to have Microsoft Entra identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
+- **[Teams user](#teams-user).** Microsoft Entra ID controls user authentication, and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are impossible with the existing Teams clients.
 
 Applications can implement both authentication models and leave the choice of authentication up to the user. The following table compares two models:
 
 |Feature|External user| Teams user|
 |---|---|---|
 |Target user base|Customers|Enterprise|
-|Identity provider|Any|Azure Active Directory|
-| Display name |Any with the suffix "(External)"| Azure Active Directory user's value of the property "Display name" |
-|Authentication & authorization|Custom*| Azure Active Directory and custom*|
+|Identity provider|Any|Microsoft Entra ID|
+| Display name |Any with the suffix "(External)"| Microsoft Entra user's value of the property "Display name" |
+|Authentication & authorization|Custom*| Microsoft Entra ID and custom*|
 |Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
 |Chat is available via | Communication Services Chat SDKs | Graph API |
 |Join Teams meetings | Yes | Yes |
@@ -43,7 +43,7 @@ Applications can implement both authentication models and leave the choice of au
 
 ## External user
 
-The bring your own identity (BYOI) authentication model allows you to build custom applications for external users to connect and communicate with Teams users. You control user authentication, and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that combine employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future, we will be enabling additional scenarios, including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
+The bring your own identity (BYOI) authentication model allows you to build custom applications for external users to connect and communicate with Teams users. You control user authentication, and users of your custom applications don't need to have Microsoft Entra identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that combine employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future, we will be enabling additional scenarios, including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
 For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
@@ -51,11 +51,11 @@ It is currently not possible for a Teams user to join a call that was initiated 
 
 ## Teams user
 
-Developers can use [Communication Services Calling SDK with Teams identity](./interop/teams-user-calling.md) to build custom applications for Teams users. Custom applications can enable specialized workflows for Teams users, such as managing incoming and outgoing phone calls or bringing Teams calling experience into devices not supported with the standard Teams client. Azure Active Directory authenticates Teams users, and all attributes and details about the user are bound to their Azure Active Directory account.
+Developers can use [Communication Services Calling SDK with Teams identity](./interop/teams-user-calling.md) to build custom applications for Teams users. Custom applications can enable specialized workflows for Teams users, such as managing incoming and outgoing phone calls or bringing Teams calling experience into devices not supported with the standard Teams client. Microsoft Entra authenticates Teams users, and all attributes and details about the user are bound to their Microsoft Entra account.
 
 When a Communication Services endpoint connects to a Teams meeting or Teams call using a Teams identity, the endpoint is treated like a Teams user with a Teams client. The experience is driven by policies assigned to users within and outside of the organization. Teams users can join Teams meetings, place calls to other Teams users, receive calls from phone numbers, and transfer an ongoing call to the Teams call queue or share screen. 
 
-Teams users authenticate against Azure Active Directory in the client application. Developers then exchange authentication tokens from Azure Active Directory for access tokens via the Communication Services Identity SDK. This exchange creates a connection between Azure Active Directory and Communication Services. You are encouraged to implement an exchange of tokens in your backend services as credentials for Azure Communication Services sign exchange requests. In your backend services, you can require any additional authentication.
+Teams users authenticate against Microsoft Entra ID in the client application. Developers then exchange authentication tokens from Microsoft Entra ID for access tokens via the Communication Services Identity SDK. This exchange creates a connection between Microsoft Entra ID and Communication Services. You are encouraged to implement an exchange of tokens in your backend services as credentials for Azure Communication Services sign exchange requests. In your backend services, you can require any additional authentication.
 
 ## Teams meeting and calling experiences
 

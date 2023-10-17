@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 06/09/2023
 ms.author: carlsonr
 ms.service: chaos-studio
-ms.custom: 
+ms.custom: devx-track-bicep
 ---
 
 # Use Bicep to create an experiment in Azure Chaos Studio Preview

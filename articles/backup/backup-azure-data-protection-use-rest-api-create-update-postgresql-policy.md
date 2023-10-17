@@ -4,8 +4,8 @@ description: In this article, you'll learn how to create and manage backup polic
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create Azure Data Protection backup policies for Azure PostgreSQL databases using REST API

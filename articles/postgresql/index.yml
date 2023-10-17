@@ -5,61 +5,33 @@ metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: sunilagarwal
   ms.author: sunila
-  ms.date: 08/11/2022
+  ms.review: maghan
+  ms.date: 07/07/2023
   ms.service: postgresql
-  ms.custom: ignite-2022
   ms.topic: landing-page
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-  # Card
-  - title: About Azure Database for PostgreSQL
+
+# Card 1
+  - title: Azure Database for PostgreSQL
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Database for PostgreSQL?
-            url: single-server/overview.md
+            url: flexible-server/overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
- # Card
-  - title: Single server
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Single Server?
-            url: single-server/concepts-servers.md
-          - text: View all Single server documentation
-            url: single-server/index.yml
-      - linkListType: quickstart
-        links:
-          - text: Create a server using the Azure Portal
-            url: single-server/quickstart-create-server-database-portal.md
-          - text: Create a server using Azure CLI
-            url: single-server/quickstart-create-server-database-azure-cli.md
-      - linkListType: concept
-        links:
-          - text: Server concepts
-            url: single-server/concepts-servers.md
-          - text: Limits
-            url: single-server/concepts-limits.md
-      - linkListType: tutorial
-        links:
-          - text: Design a Database on Single Server
-            url: single-server/tutorial-design-database-using-azure-portal.md
-          - text: Build Python (Django) app with PostgreSQL
-            url: ../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
-          - text: Monitor and tune the server
-            url: single-server/tutorial-monitor-and-tune.md
+
+# Card 2
   - title: Flexible Server 
     linkLists:
       - linkListType: overview
         links:
           - text: What is Flexible Server?
             url: flexible-server/overview.md
-          - text: View all Flexible server documentation
-            url: flexible-server/index.yml
           - text: Try Flexible Server for free
             url: flexible-server/how-to-deploy-on-azure-free-account.md
       - linkListType: concept
@@ -81,44 +53,149 @@ landingContent:
           - text: Create App and database server in virtual network
             url: flexible-server/tutorial-webapp-server-vnet.md
 
-# Card
+# Card 3
+  - title: Manage Flexible Server
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Compute and storage options
+            url: flexible-server/concepts-compute-storage.md
+          - text: Networking
+            url: flexible-server/concepts-networking.md
+          - text: Firewall Rules
+            url: flexible-server/concepts-firewall-rules.md
+          - text: PostgreSQL versions
+            url: flexible-server/concepts-supported-versions.md
+          - text: Extensions
+            url: flexible-server/concepts-extensions.md
+          - text: Security
+            url: flexible-server/concepts-security.md
+          - text: Monitor
+            url: flexible-server/concepts-monitoring.md
+          - text: Logical replication
+            url: flexible-server/concepts-logical.md
+          - text: Intelligent tuning
+            url: flexible-server/concepts-intelligent-tuning.md
+          - text: Azure Advisor recommendations
+            url: flexible-server/concepts-azure-advisor-recommendations.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage server
+            url: flexible-server/how-to-manage-server-portal.md
+          - text: Stop/Start server
+            url: flexible-server/how-to-stop-start-server-portal.md
+          - text: Scale up
+            url: flexible-server/how-to-scale-compute-storage-portal.md
+          - text: Restart a server
+            url: flexible-server/how-to-restart-server-portal.md 
+          - text: Setup private networking 
+            url:  flexible-server/how-to-manage-virtual-network-portal.md
+          - text: Connect securely using TLS
+            url: flexible-server/how-to-connect-tls-ssl.md        
+          - text: Configure and access logs
+            url: flexible-server/howto-configure-and-access-logs.md
+          - text: Schedule maintenance
+            url: flexible-server/how-to-maintenance-portal.md
+
+# Card 4
+  - title: Business continuity
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Business continuity overview
+            url: concepts-business-continuity.md
+          - text: High availability
+            url: concepts-high-availability.md
+          - text: Backup and restore
+            url: flexible-server/concepts-backup-restore.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage high availability
+            url: flexible-server/how-to-manage-high-availability-portal.md
+          - text: Restore a server
+            url: flexible-server/how-to-restore-server-portal.md
+
+# Card 5
   - title: Connect and query
     linkLists:
       - linkListType: concept
         links:
           - text: Enable firewall rules to connect
-            url: single-server/concepts-firewall-rules.md
+            url: flexible-server/concepts-firewall-rules.md
           - text: Configure SSL for secure connections
             url: single-server/concepts-ssl-connection-security.md
       - linkListType: quickstart
         links:
           - text: Connect using Python
-            url: single-server/connect-python.md
+            url: flexible-server/connect-python.md
           - text: Connect using Node.js
             url: single-server/connect-nodejs.md
           - text: Connect using Java
-            url: single-server/connect-java.md
+            url: flexible-server/connect-java.md
           - text: Connect using Ruby
             url: single-server/connect-ruby.md
           - text: Connect using PHP
             url: single-server/connect-php.md
           - text: Connect using .NET
-            url: single-server/connect-csharp.md
+            url: flexible-server/connect-csharp.md
           - text: Connect using Go
             url: single-server/connect-go.md
- # Card
+      - linkListType: tutorial
+        links:
+        - text: Connect Web App in virtual network
+          url: flexible-server/tutorial-webapp-server-vnet.md
+
+# Card 6
   - title: Application Development
     linkLists:
       - linkListType: concept
         links:
           - text: Connection resiliency
-            url: single-server/concepts-connectivity.md
+            url: flexible-server/concepts-connectivity.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
             url: single-server/tutorial-design-database-using-azure-portal.md
 
-  # Card
+# Card 7
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate a database using pg_dump and pg_restore
+            url: howto-migrate-using-dump-and-restore.md
+          - text: Migrate online
+            url: howto-migrate-online.md
+
+#Card 8
+  - title: Single server
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Single Server?
+            url: single-server/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a server using the Azure Portal
+            url: single-server/quickstart-create-server-database-portal.md
+          - text: Create a server using Azure CLI
+            url: single-server/quickstart-create-server-database-azure-cli.md
+      - linkListType: concept
+        links:
+          - text: Server concepts
+            url: flexible-server/concepts-servers.md
+          - text: Limits
+            url: flexible-server/concepts-limits.md
+      - linkListType: tutorial
+        links:
+          - text: Design a Database on Single Server
+            url: single-server/tutorial-design-database-using-azure-portal.md
+          - text: Build Python (Django) app with PostgreSQL
+            url: ../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
+          - text: Monitor and tune the server
+            url: single-server/tutorial-monitor-and-tune.md
+
+# Card 9
   - title: Reference
     linkLists:
       - linkListType: learn
@@ -137,3 +214,16 @@ landingContent:
             url: /cli/azure/postgres
           - text: REST API developer reference
             url: /rest/api/postgresql/
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbforpostgresql/allversions
+      - linkListType: get-started
+        links:
+          - text: Azure CLI scripts for common tasks
+            url: sample-scripts-azure-cli.md
+# Card 10
+  - title: Get training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure Database for PostgreSQL
+            url: /training/paths/introduction-to-azure-postgres/

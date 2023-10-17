@@ -3,6 +3,7 @@ title: Set up disaster recovery after migration to Azure with Azure Site Recover
 description: This article describes how to prepare machines to set up disaster recovery between Azure regions after migration to Azure using Azure Site Recovery.
 services: site-recovery
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 05/02/2023
 ms.author: ankitadutta

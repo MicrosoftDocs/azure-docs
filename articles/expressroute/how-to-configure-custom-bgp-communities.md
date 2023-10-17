@@ -1,16 +1,16 @@
 ---
-title: 'Configure custom BGP communities for Azure ExpressRoute private peering (Preview)'
+title: 'Configure custom BGP communities for Azure ExpressRoute private peering'
 description: Learn how to apply or update BGP community value for a new or an existing virtual network.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 09/05/2023
 ms.author: duau
 ---
 
-# Configure custom BGP communities for Azure ExpressRoute private peering (Preview)
+# Configure custom BGP communities for Azure ExpressRoute private peering
 
 BGP communities are groupings of IP prefixes tagged with a community value. This value can be used to make routing decisions on the router's infrastructure. You can apply filters or specify routing preferences for traffic sent to your on-premises from Azure with BGP community tags. This article explains how to apply a custom BGP community value for your virtual networks using Azure PowerShell. Once configured, you can view the regional BGP community value and the custom community value of your virtual network. This value will be used for outbound traffic sent over ExpressRoute when originating from that virtual network.
 
@@ -18,7 +18,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
 
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 
-* You must have an active ExpressRoute circuit in a **non-vWAN environment**. This feature isn't supported for ExpressRoute with vWAN. 
+* You must have an active ExpressRoute circuit.
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.

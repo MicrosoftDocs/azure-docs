@@ -17,9 +17,9 @@ ms.custom: enterprise-apps
 
 # Unexpected error when performing consent to an application
 
-This article discusses errors that can occur during the process of consenting to an application. If you're troubleshooting unexpected consent prompts that don't contain any error messages, see [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md).
+This article discusses errors that can occur during the process of consenting to an application. If you're troubleshooting unexpected consent prompts that don't contain any error messages, see [Authentication Scenarios for Microsoft Entra ID](../develop/authentication-vs-authorization.md).
 
-Many applications that integrate with Azure Active Directory require permissions to access other resources in order to function. When these resources are also integrated with Azure Active Directory, the permission to access them is often requested using the common consent framework. A consent prompt is displayed, which generally occurs the first time an application is used but can also occur on a subsequent use of the application.
+Many applications that integrate with Microsoft Entra ID require permissions to access other resources in order to function. When these resources are also integrated with Microsoft Entra ID, the permission to access them is often requested using the common consent framework. A consent prompt is displayed, which generally occurs the first time an application is used but can also occur on a subsequent use of the application.
 
 Certain conditions must be true for a user to consent to the permissions an application requires. If these conditions aren't met, the following errors can occur.
 
@@ -68,9 +68,9 @@ These errors all occur when the application a user is trying to consent to is re
 
 * Consenting to the resource application
 
-* Granting the application permissions via the Azure portal
+* Granting the application permissions via the Microsoft Entra admin center
 
-* Adding the application from the Azure AD Application Gallery
+* Adding the application from the Microsoft Entra Application Gallery
 
 ## Risky app error and warning
 
@@ -85,8 +85,8 @@ End-users won't be able to grant consent to apps that have been detected as risk
 
 ## Next steps
 
-[Apps, permissions, and consent in Azure Active Directory (v1 endpoint)](../develop/quickstart-register-app.md)<br>
+[Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)<br>
 
-[Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)
+[Scopes, permissions, and consent in the Microsoft identity platform (v2.0 endpoint)](../develop/permissions-consent-overview.md)
 
 [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)

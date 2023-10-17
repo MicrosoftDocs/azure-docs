@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect Synchronization Service Manager Operations'
-description: Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect.
+title: 'Microsoft Entra Connect Synchronization Service Manager Operations'
+description: Understand the Operations tab in the Synchronization Service Manager for Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -42,6 +42,6 @@ When you select a row, the bottom updates to show the details of that run. To th
 For more information, see [troubleshoot an object that is not synchronizing](tshoot-connect-object-not-syncing.md)
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

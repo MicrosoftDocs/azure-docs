@@ -73,8 +73,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 
-Add a task collection to the job using the appropriate overload of the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) or [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask
-) method. For example:
+Add a task collection to the job using the appropriate overload of the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) or [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask) method. For example:
 
 ```csharp
 // Add a list of tasks as a collection

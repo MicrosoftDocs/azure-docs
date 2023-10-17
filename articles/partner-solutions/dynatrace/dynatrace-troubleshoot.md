@@ -34,7 +34,7 @@ This document contains information about troubleshooting your solutions that use
 
 - To set up the Azure Native Dynatrace Service, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
-- Create fails because Last Name is empty. The issue happens when the user info in Azure AD is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify the issue and try again.
+- Create fails because Last Name is empty. The issue happens when the user info in Microsoft Entra ID is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify the issue and try again.
 
 ### Logs not being emitted or Limit reached issue
 
@@ -62,4 +62,10 @@ This document contains information about troubleshooting your solutions that use
 ## Next steps
 
 - Learn about [managing your instance](dynatrace-how-to-manage.md) of Dynatrace.
-- Get started with Azure Native Dynatrace Service on [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

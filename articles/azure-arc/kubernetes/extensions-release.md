@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 04/17/2023
+ms.date: 10/10/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -118,7 +118,76 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
-### 1.7.3 (April 2023)
+> [!IMPORTANT]
+> Eventually, a major version update (v2.x.x) for the `microsoft.flux` extension will be released. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+
+### 1.8.0 (October 2023)
+
+> [!NOTE]
+> We have started to roll out this release across regions. We'll remove this note once version 1.8.0 is available to all supported regions.
+
+Flux version: [Release v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
+
+- source-controller: v1.1.1
+- kustomize-controller: v1.1.0
+- helm-controller: v0.36.1
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- Upgrades Flux to [v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
+- Adds support for [AKS clusters with workload identity](tutorial-use-gitops-flux2.md#workload-identity-in-aks-clusters)
+
+### 1.7.7 (September 2023)
+
+Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+
+- source-controller: v1.0.1
+- kustomize-controller: v1.0.1
+- helm-controller: v0.35.0
+- notification-controller: v1.0.0
+- image-automation-controller: v0.35.0
+- image-reflector-controller: v0.29.1
+
+Changes made for this version:
+
+- Updated SSH key entry to use the [Ed25519 SSH host key](https://bitbucket.org/blog/ssh-host-key-changes) to prevent failures in configurations with `ssh` authentication type for Bitbucket.
+
+### 1.7.6 (August 2023)
+
+Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+
+- source-controller: v1.0.1
+- kustomize-controller: v1.0.1
+- helm-controller: v0.35.0
+- notification-controller: v1.0.0
+- image-automation-controller: v0.35.0
+- image-reflector-controller: v0.29.1
+
+Changes made for this version:
+
+- Configurations with `ssh` authentication type were intermittently failing to reconcile with GitHub due to an updated [RSA SSH host key](https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/). This release updates the SSH key entries to match the ones mentioned in [GitHub's SSH key fingerprints documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints).
+
+### 1.7.5 (August 2023)
+
+Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+
+- source-controller: v1.0.1
+- kustomize-controller: v1.0.1
+- helm-controller: v0.35.0
+- notification-controller: v1.0.0
+- image-automation-controller: v0.35.0
+- image-reflector-controller: v0.29.1
+
+Changes made for this version:
+
+- Upgrades Flux to [v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+- Promotes some APIs to v1. This change should not affect any existing Flux configurations that have already been deployed. Previous API versions will still be supported in all `microsoft.flux` v.1.x.x releases. However, we recommend that you update the API versions in your manifests as soon as possible. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+- Adds support for [Helm drift detection](tutorial-use-gitops-flux2.md#helm-drift-detection) and [OOM watch](tutorial-use-gitops-flux2.md#helm-oom-watch).
+
+### 1.7.4 (June 2023)
 
 Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
 
@@ -131,48 +200,11 @@ Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.
 
 Changes made for this version:
 
-- Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
-- Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
-- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
+- Adds support for [`wait`](https://fluxcd.io/flux/components/kustomize/kustomization/#wait) and [`postBuild`](https://fluxcd.io/flux/components/kustomize/kustomization/#post-build-variable-substitution) properties as optional parameters for kustomization. By default, `wait` will be set to `true` for all Flux configurations, and `postBuild` will be null. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L55))
 
-### 1.7.0 (March 2023)
+- Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304).
 
-Flux version: [Release v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
-
-- source-controller: v0.34.0
-- kustomize-controller: v0.33.0
-- helm-controller: v0.29.0
-- notification-controller: v0.31.0
-- image-automation-controller: v0.29.0
-- image-reflector-controller: v0.24.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
-- Flux extension is now supported on ARM64-based clusters
-
-### 1.6.4 (February 2023)
-
-Changes made for this version:
-
-- Disabled extension reconciler (which attempts to restore the Flux extension if it fails). This resolves a potential bug where, if the reconciler is unable to recover a failed Flux extension and `prune` is set to `true`, the extension and deployed objects may be deleted.
-
-### 1.6.3 (December 2022)
-
-Flux version: [Release v0.37.0](https://github.com/fluxcd/flux2/releases/tag/v0.37.0)
-
-- source-controller: v0.32.1
-- kustomize-controller: v0.31.0
-- helm-controller: v0.27.0
-- notification-controller: v0.29.0
-- image-automation-controller: v0.27.0
-- image-reflector-controller: v0.23.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.37.0](https://github.com/fluxcd/flux2/releases/tag/v0.37.0)
-- Adds exception for [aad-pod-identity in flux extension](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-azure-ad-pod-identity-enabled)
-- Enables reconciler for flux extension
+   By default, `waitForReconciliation` is set to false, so when creating a flux configuration, the `provisioningState` returns `Succeeded` once the configuration reaches the cluster and the ARM template or Azure CLI command successfully exits. However, the actual state of the objects being deployed as part of the configuration is tracked by `complianceState`, which can be viewed in the portal or by using Azure CLI. Setting `waitForReconciliation` to true and specifying a `reconciliationWaitDuration` means that the template or CLI deployment will wait for `complianceState` to reach a terminal state (success or failure) before exiting. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 

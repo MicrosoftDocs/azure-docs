@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 09/25/2023
 ROBOTS: NOINDEX
 ms.author: henrymbugua
 ms.reviewer: jamesmantu
@@ -21,7 +21,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: React single-page app with user sign-in](single-page-app-quickstart.md?pivots=devlang-react)
+> > [Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using React](quickstart-single-page-app-react-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -96,4 +96,4 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > Next, try a step-by-step tutorial to learn how to build a React SPA from scratch that signs in users and calls the > Microsoft Graph API to get user profile data:
 > 
 > > [!div class="nextstepaction"]
-> > [Tutorial: Sign in users and call Microsoft Graph](tutorial-v2-react.md)
+> > [Tutorial: Sign in users and call Microsoft Graph](./tutorial-single-page-app-react-register-app.md)

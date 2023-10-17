@@ -50,20 +50,20 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
-    - name: Cache for ACR (preview)
+    - name: Artifact Cache
       items:
-      - name: Cache for ACR - Overview
-        href: tutorial-registry-cache.md
-      - name: Enable Cache for ACR - Azure portal
-        href: tutorial-enable-registry-cache.md
-      - name: Enable Cache for ACR with authentication - Azure portal
-        href: tutorial-enable-registry-cache-auth.md
-      - name: Enable Cache for ACR - Azure CLI
-        href: tutorial-enable-registry-cache-cli.md
-      - name: Enable Cache for ACR with authentication - Azure CLI
-        href: tutorial-enable-registry-cache-auth-cli.md
+      - name: Artifact Cache - Overview
+        href: tutorial-artifact-cache.md
+      - name: Enable Artifact Cache - Azure portal
+        href: tutorial-enable-artifact-cache.md
+      - name: Enable Artifact Cache with authentication - Azure portal
+        href: tutorial-enable-artifact-cache-auth.md
+      - name: Enable Artifact Cache - Azure CLI
+        href: tutorial-enable-artifact-cache-cli.md
+      - name: Enable Artifact Cache with authentication - Azure CLI
+        href: tutorial-enable-artifact-cache-auth-cli.md
       - name: Troubleshoot 
-        href: tutorial-troubleshoot-registry-cache.md
+        href: tutorial-troubleshoot-artifact-cache.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -356,6 +356,8 @@
     href: container-registry-support-policies.md
   - name: FAQ
     href: container-registry-faq.yml
+  - name: API Deprecation
+    href: container-registry-api-deprecation.md
 - name: Resources
   expanded: false
   items:

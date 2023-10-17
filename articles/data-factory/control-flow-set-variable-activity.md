@@ -39,7 +39,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
     
 ## Setting a pipeline return value with UI
 
-We have expanded Set Variable activity to include a special system variable, named _Pipeline Return Value_. This allows communication from the child pipeline to the calling pipeline, in the following scenario. 
+We have expanded Set Variable activity to include a special system variable, named _Pipeline Return Value_, allowing communication from the child pipeline to the calling pipeline, in the following scenario. 
 
 You don't need to define the variable, before using it. For more information, see [Pipeline Return Value](tutorial-pipeline-return-value.md)
 
@@ -59,17 +59,38 @@ value | String literal or expression object value that the variable is assigned 
 
 ## Incrementing a variable
 
-A common scenario involving variable is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
+A common scenario involving variable is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field, that is, no self-referencing. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. Here's an example of this pattern:
 
-Below is an example of this pattern:
+* First you define two variables: one for the iterator, and one for temporary storage.
+
+:::image type="content" source="media/control-flow-set-variable-activity/set-variable-integer.png" alt-text="Screenshot shows defining variables.":::
+
+* Then you use two activities to increment values
 
 :::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="Screenshot shows increment variable.":::
 
 ``` json
 {
-    "name": "pipeline3",
+    "name": "pipeline1",
     "properties": {
         "activities": [
+            {
+                "name": "Increment J",
+                "type": "SetVariable",
+                "dependsOn": [],
+                "policy": {
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "temp_j",
+                    "value": {
+                        "value": "@add(variables('counter_i'),1)",
+                        "type": "Expression"
+                    }
+                }
+            },
             {
                 "name": "Set I",
                 "type": "SetVariable",
@@ -81,37 +102,28 @@ Below is an example of this pattern:
                         ]
                     }
                 ],
+                "policy": {
+                    "secureOutput": false,
+                    "secureInput": false
+                },
                 "userProperties": [],
                 "typeProperties": {
-                    "variableName": "i",
+                    "variableName": "counter_i",
                     "value": {
-                        "value": "@variables('j')",
-                        "type": "Expression"
-                    }
-                }
-            },
-            {
-                "name": "Increment J",
-                "type": "SetVariable",
-                "dependsOn": [],
-                "userProperties": [],
-                "typeProperties": {
-                    "variableName": "j",
-                    "value": {
-                        "value": "@string(add(int(variables('i')), 1))",
+                        "value": "@variables('temp_j')",
                         "type": "Expression"
                     }
                 }
             }
         ],
         "variables": {
-            "i": {
-                "type": "String",
-                "defaultValue": "0"
+            "counter_i": {
+                "type": "Integer",
+                "defaultValue": 0
             },
-            "j": {
-                "type": "String",
-                "defaultValue": "0"
+            "temp_j": {
+                "type": "Integer",
+                "defaultValue": 0
             }
         },
         "annotations": []
@@ -119,7 +131,7 @@ Below is an example of this pattern:
 }
 ```
 
-Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
+Variables are scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
 ## Next steps

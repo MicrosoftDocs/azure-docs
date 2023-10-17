@@ -6,11 +6,11 @@ ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 04/03/2023
+ms.date: 10/10/2023
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster are proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) is be provided at the end showing how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster are proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) is provided at the end showing how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 > [!IMPORTANT]
 > Do not attempt these instructions on older ARO clusters if those clusters don't have the Egress Lockdown feature enabled. To enable the Egress Lockdown feature on older ARO clusters, see [Enable Egress Lockdown](./concepts-egress-lockdown.md#enable-egress-lockdown).
@@ -54,12 +54,12 @@ The following FQDNs are proxied through the service, and won't need additional f
 
 ### TELEMETRY
 
-You can opt out of telemetry, but make sure you understand this feature before doing so: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/about-remote-health-monitoring.html
+You can opt out of telemetry, but make sure you understand this feature before doing so: https://docs.openshift.com/container-platform/4.12/support/remote_health_monitoring/about-remote-health-monitoring.html
 - **`cert-api.access.redhat.com`**: Used for Red Hat telemetry.
 - **`api.access.redhat.com`**: Used for Red Hat telemetry.
 - **`infogw.api.openshift.com`**: Used for Red Hat telemetry.
-- **`https://cloud.redhat.com/api/ingress`**: Use in the cluster for the insights operator who integrates with Red Hat Insights.
-In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.6/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
+- **`https://cloud.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights (required in 4.10 and earlier only).
+- **`https://console.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights.
 
 ---
 
@@ -163,7 +163,7 @@ az vm create --name ubuntu-jump \
              --resource-group $RESOURCEGROUP \
              --generate-ssh-keys \
              --admin-username $VMUSERNAME \
-             --image UbuntuLTS \
+             --image Ubuntu2204 \
              --subnet $JUMPSUBNET \
              --public-ip-address jumphost-ip \
              --vnet-name $AROVNET 
@@ -220,7 +220,7 @@ az network firewall ip-config create -g $RESOURCEGROUP -f aro-private -n fw-conf
 ### Capture Azure Firewall IPs for a later use
 ```azurecli
 FWPUBLIC_IP=$(az network public-ip show -g $RESOURCEGROUP -n fw-ip --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIPAddress" -o tsv)
 
 echo $FWPUBLIC_IP
 echo $FWPRIVATE_IP

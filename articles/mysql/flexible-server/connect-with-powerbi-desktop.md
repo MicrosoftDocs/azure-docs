@@ -85,7 +85,7 @@ You can connect to Azure database for MySQL Flexible server with Power BI deskto
    :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="Screenshot of navigator to view MySQL tables."::: 
    
 ## Connect to MySQL database from Power Query Online
-A data gateway is required to use MySQL with Power BI query online. See (how to deploy a data gateway for MySQL](/power-bi/connect-data/service-gateway-deployment-guidance.md). Once data gateway is setup, take the following steps to add a new connection:
+A data gateway is required to use MySQL with Power BI query online. See [how to deploy a data gateway for MySQL](/power-bi/connect-data/service-gateway-deployment-guidance). Once data gateway is setup, take the following steps to add a new connection:
 
 1. Select the **MySQL database** option in the connector selection.
  

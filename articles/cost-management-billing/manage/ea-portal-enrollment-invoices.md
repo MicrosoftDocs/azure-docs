@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/16/2022
+ms.date: 07/29/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -172,8 +172,6 @@ A customer's billing frequency is annual, quarterly, or monthly. The billing cyc
 - **Submit** your approval to [Azure Enterprise portal support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the issue category: **Billing and Invoicing**.
 
 The change becomes effective at the end of the current billing quarter.
-
-If an Amendment M503 is signed, you can move any agreement from any frequency to monthly billing. ​
 
 ### Request an invoice copy
 

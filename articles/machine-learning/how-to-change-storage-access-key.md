@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: deeikele
 author: deeikele
@@ -70,7 +70,8 @@ workspace_name = '<AZUREML_WORKSPACE_NAME>'
 
 ml_client = MLClient(credential=DefaultAzureCredential(),
                         subscription_id=subscription_id, 
-                        resource_group_name=resource_group)
+                        resource_group_name=resource_group,
+                        workspace_name=workspace_name)
 
 # list all the datastores
 datastores = ml_client.datastores.list()
@@ -149,7 +150,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
         ```azurecli-interactive
-        az ml workspace sync-keys -w myworkspace -g myresourcegroup
+        az ml workspace sync-keys -n myworkspace -g myresourcegroup
         ```
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.

@@ -44,7 +44,7 @@ For example: if www.contoso.com has resolved to 1.2.3.4 and 5.6.7.8 in the past 
 - www.contoso.com / 5.6.7.8 
 
 
-The list is then analyzed to identify duplicate entries and eliminate duplicate hosts.  If a host is a subdomain of a parent host that resolves to the same IP address, we exclude the child from the billable host count. For example, if both www.contoso.com and contoso.com resolve to 1.2.3.4, then we exclude www.contoso.com/ 1.2.3.4 from our Host Count list. 
+The list is then analyzed to identify duplicate entries and eliminate duplicate hosts.  If a host is a subdomain of a parent host that resolves to the same IP address, we exclude the child from the billable host count. For example, if both www.contoso.com and contoso.com resolve to 1.2.3.4, then we exclude www.contoso.com 1.2.3.4 from our Host Count list. 
 
 
 

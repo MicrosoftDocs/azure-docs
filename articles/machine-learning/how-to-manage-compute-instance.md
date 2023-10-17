@@ -21,10 +21,10 @@ Learn how to manage a [compute instance](concept-compute-instance.md) in your Az
 
 Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
-In this article, you learn how to start, stop, restart, delete) a compute instance. See [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) to learn how to create a compute instance.
+In this article, you learn how to start, stop, restart, delete a compute instance. See [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) to learn how to create a compute instance.
 
 > [!NOTE]
-> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
+> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
 
 ## Prerequisites
 

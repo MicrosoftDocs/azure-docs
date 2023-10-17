@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/24/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -29,7 +29,9 @@ Because you might want the same sign-in experience for all of your customer-faci
 
 If you already registered your application in your customer tenant, you can add it to the new user flow. This step activates the sign-up and sign-in experience for users who visit your application. An application can have only one user flow, but a user flow can be used by multiple applications.
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory** > **External Identities** > **User flows**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Browse to **Identity** > **External Identities** > **User flows**.
 
 1. From the list, select your user flow.
 
@@ -42,6 +44,12 @@ If you already registered your application in your customer tenant, you can add 
 1. Select the application from the list. Or use the search box to find the application, and then select it.
 
 1. Choose **Select**.
+
+## Extension app 
+
+You might find an app named **b2c-extensions-app** in the application list. This app is created automatically inside the new directory, and it contains all extension attributes for your customer tenant.
+If you want to collect information beyond the built-in attributes, you can create [custom user attributes](how-to-define-custom-attributes.md) and add them to your sign-up user flow. Custom attributes are also known as directory extension attributes, as they extend the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the **b2c-extensions-app**. Do not delete this app.
+You can learn more about this app [here](/azure/active-directory-b2c/extensions-app). 
 
 ## Next steps
 

@@ -77,5 +77,5 @@ Now that a connection has been established to your database, you'll write a quer
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
-To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](sql-authentication.md?tabs=provisioned).
+To configure your environment for Microsoft Entra authentication, see [Authenticate to dedicated SQL pool](sql-authentication.md?tabs=provisioned).
  

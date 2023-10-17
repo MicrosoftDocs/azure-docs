@@ -2,11 +2,9 @@
 title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
-
-ms.date: 05/22/2023
+ms.date: 10/06/2023
 author: flang-msft
 ms.author: franlanglois
-
 ---
 
 # Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -95,6 +93,14 @@ To associate an already existing traffic filter to the current deployment, you s
 
 If a traffic filter is no longer needed, unlink it from deployment and then delete it.
 
+## Connected Elastic resources
+
+To access all Elastic resources and deployments you have created using the Azure or Elastic portal experience, go to the **Connected Elastic resources** tab in any of your Azure Elastic resources.
+
+:::image type="content" source="media/manage/connected-elastic-resources.png" alt-text="Screenshot showing Connected Elastic resources selected in the Resource menu.":::
+
+You can easily manage the corresponding Elastic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
+
 ## Delete Elastic resource
 
 When you no longer need your Elastic resource, delete the resource in the Azure portal.
@@ -114,3 +120,10 @@ When the Elastic resource is deleted, logs are no longer sent to Elastic. All bi
 ## Next steps
 
 - For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).
+- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)

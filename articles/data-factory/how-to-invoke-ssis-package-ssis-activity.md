@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal
@@ -245,7 +245,7 @@ On the **Connection Managers** tab of Execute SSIS Package activity, complete th
 
       For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overriding the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
       
-      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
+      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Microsoft Entra authentication with ADF managed identity, see [Configuring Microsoft Entra authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
       :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="Set properties from SSDT on the Connection Managers tab":::
    

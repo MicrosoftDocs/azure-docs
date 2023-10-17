@@ -44,6 +44,7 @@ The following claims are in the restricted claim set for a JWT.
 - `acr`
 - `acrs`
 - `actor`
+- `actortoken`
 - `ageGroup`
 - `aio`
 - `altsecid`
@@ -55,41 +56,68 @@ The following claims are in the restricted claim set for a JWT.
 - `appctxsender`
 - `appid`
 - `appidacr`
+- `assertion`
 - `at_hash`
+- `aud`
+- `auth_data`
 - `auth_time`
+- `authorization_code`
 - `azp`
 - `azpacr`
+- `bk_claim`
+- `bk_enclave`
+- `bk_pub`
+- `brk_client_id`
+- `brk_redirect_uri`
 - `c_hash`
 - `ca_enf`
 - `ca_policy_result`
-- `capolids_latebind`
 - `capolids`
+- `capolids_latebind`
 - `cc`
+- `cert_token_use`
+- `child_client_id`
+- `child_redirect_uri`
+- `client_id`
+- `client_ip`
+- `cloud_graph_host_name`
+- `cloud_instance_host_name`
+- `cloud_instance_name`
+- `CloudAssignedMdmId`
 - `cnf`
 - `code`
-- `controls_auds`
 - `controls`
+- `controls_auds`
 - `credential_keys`
+- `csr`
+- `csr_type`
 - `ctry`
 - `deviceid`
+- `dns_names`
 - `domain_dns_name`
 - `domain_netbios_name`
 - `e_exp`
 - `email`
 - `endpoint`
 - `enfpolids`
+- `exp`
 - `expires_on`
+- `extn. as prefix`
 - `fido_auth_data`
-- `fwd_appidacr`
+- `fido_ver`
 - `fwd`
+- `fwd_appidacr`
+- `grant_type`
 - `graph`
 - `group_sids`
 - `groups`
 - `hasgroups`
+- `hash_alg`
 - `haswids`
 - `home_oid`
 - `home_puid`
 - `home_tid`
+- `iat`
 - `identityprovider`
 - `idp`
 - `idtyp`
@@ -98,7 +126,11 @@ The following claims are in the restricted claim set for a JWT.
 - `inviteTicket`
 - `ipaddr`
 - `isbrowserhostedapp`
+- `iss`
 - `isViral`
+- `jwk`
+- `key_id`
+- `key_type`
 - `login_hint`
 - `mam_compliance_url`
 - `mam_enrollment_url`
@@ -106,8 +138,11 @@ The following claims are in the restricted claim set for a JWT.
 - `mdm_compliance_url`
 - `mdm_enrollment_url`
 - `mdm_terms_of_use_url`
+- `msgraph_host`
 - `msproxy`
 - `nameid`
+- `nbf`
+- `netbios_name`
 - `nickname`
 - `nonce`
 - `oid`
@@ -116,25 +151,35 @@ The following claims are in the restricted claim set for a JWT.
 - `onprem_sid`
 - `openid2_id`
 - `origin_header`
+- `password`
 - `platf`
 - `polids`
 - `pop_jwk`
 - `preferred_username`
+- `previous_refresh_token`
 - `primary_sid`
 - `prov_data`
 - `puid`
 - `pwd_exp`
 - `pwd_url`
 - `rdp_bt`
+- `redirect_uri`
+- `refresh_token`
 - `refresh_token_issued_on`
 - `refreshtoken`
+- `request_nonce`
+- `resource`
 - `rh`
+- `role`
 - `roles`
+- `rp_id`
 - `rt_type`
+- `scope`
 - `scp`
 - `secaud`
 - `sid`
 - `sid`
+- `signature`
 - `signin_state`
 - `source_anchor`
 - `src1`
@@ -145,6 +190,7 @@ The following claims are in the restricted claim set for a JWT.
 - `tbidv2`
 - `tenant_ctry`
 - `tenant_display_name`
+- `tenant_id`
 - `tenant_region_scope`
 - `tenant_region_sub_scope`
 - `thumbnail_photo`
@@ -154,20 +200,26 @@ The following claims are in the restricted claim set for a JWT.
 - `ttr`
 - `unique_name`
 - `upn`
+- `user_agent`
 - `user_setting_sync_url`
+- `username`
 - `uti`
 - `ver`
 - `verified_primary_email`
 - `verified_secondary_email`
 - `vnet`
+- `vsm_binding_key`
 - `wamcompat_client_info`
 - `wamcompat_id_token`
 - `wamcompat_scopes`
 - `wids`
+- `win_ver`
+- `x5c_ca`
 - `xcb2b_rclient`
 - `xcb2b_rcloud`
 - `xcb2b_rtenant`
 - `ztdid`
+
 
 > [!NOTE]
 > Any claim starting with `xms_` is restricted.
@@ -176,38 +228,52 @@ The following claims are in the restricted claim set for a JWT.
 
 The following table lists the SAML claims that are in the restricted claim set.
 
-| Claim type (URI) |
-| ----- |
-|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
-|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
-|`http://schemas.microsoft.com/2014/03/psso`|
-|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
-|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
-|`http://schemas.microsoft.com/claims/groups.link`|
-|`http://schemas.microsoft.com/identity/claims/accesstoken`|
-|`http://schemas.microsoft.com/identity/claims/acct`|
-|`http://schemas.microsoft.com/identity/claims/agegroup`|
-|`http://schemas.microsoft.com/identity/claims/aio`|
-|`http://schemas.microsoft.com/identity/claims/identityprovider`|
-|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
-|`http://schemas.microsoft.com/identity/claims/openid2_id`|
-|`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.microsoft.com/identity/claims/tenantid`|
-|`http://schemas.microsoft.com/identity/claims/xms_et`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
+Restricted Claim type (URI):
+- `http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`
+- `http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`
+- `http://schemas.microsoft.com/2014/03/psso`
+- `http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`
+- `http://schemas.microsoft.com/claims/authnmethodsreferences`
+- `http://schemas.microsoft.com/claims/groups.link`
+- `http://schemas.microsoft.com/identity/claims/accesstoken`
+- `http://schemas.microsoft.com/identity/claims/acct`
+- `http://schemas.microsoft.com/identity/claims/agegroup`
+- `http://schemas.microsoft.com/identity/claims/aio`
+- `http://schemas.microsoft.com/identity/claims/identityprovider`
+- `http://schemas.microsoft.com/identity/claims/objectidentifier`
+- `http://schemas.microsoft.com/identity/claims/openid2_id`
+- `http://schemas.microsoft.com/identity/claims/puid`
+- `http://schemas.microsoft.com/identity/claims/scope`
+- `http://schemas.microsoft.com/identity/claims/tenantid`
+- `http://schemas.microsoft.com/identity/claims/xms_et`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+- `http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`
+
 
 These claims are restricted by default, but aren't restricted if you [set the AcceptMappedClaims property](saml-claims-customization.md) to `true` in your app manifest *or* have a [custom signing key](saml-claims-customization.md):
 
@@ -227,7 +293,7 @@ These claims are restricted by default, but aren't restricted if you have a [cus
 To control the claims that are included and where the data comes from, use the properties of a claims mapping policy. Without a policy, the system issues tokens with the following claims:
 - The core claim set.
 - The basic claim set.
-- Any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
+- Any [optional claims](./optional-claims.md) that the application has chosen to receive.
 
 > [!NOTE]
 > Claims in the core claim set are present in every token, regardless of what this property is set to.

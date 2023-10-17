@@ -2,11 +2,10 @@
 title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: devx-track-azurecli
 ---
 

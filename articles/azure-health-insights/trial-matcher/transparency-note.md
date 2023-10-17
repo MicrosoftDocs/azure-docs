@@ -27,12 +27,13 @@ Organizations can use the Trial Matcher model to match patients to potentially s
 
 
 ### Key terms
-| Term | What is it |  |  | | | 
-|----------|--|--|--|--|--| 
-| Patient centric | Trial Matcher, when powering a single patient trial search, helps a patient narrow down the list of potentially suitable clinical trials based on the patient’s clinical information. | | 
-| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is   provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | |
-| Evidence | For each trial that the model concludes the patient is not eligible for, the model returns the relevant patient information and the eligibility criteria that the model used to exclude the patient from trial eligibility. | |
-| Gradual matching | The model can provide patient information with gradual matching. In this mode, the user can send requests to Trial Matcher gradually, primarily via conversational intelligence or chat-like scenarios. | |
+
+| Term | What is it |  
+|----------|---------------|
+| Patient centric | Trial Matcher, when powering a single patient trial search, helps a patient narrow down the list of potentially suitable clinical trials based on the patient’s clinical information. | 
+| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is   provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | 
+| Evidence | For each trial that the model concludes the patient is not eligible for, the model returns the relevant patient information and the eligibility criteria that the model used to exclude the patient from trial eligibility. | 
+| Gradual matching | The model can provide patient information with gradual matching. In this mode, the user can send requests to Trial Matcher gradually, primarily via conversational intelligence or chat-like scenarios. | 
 
 
 
@@ -42,7 +43,7 @@ Organizations can use the Trial Matcher model to match patients to potentially s
 Trial Matcher analyzes and matches clinical trial eligibility criteria and patients’ clinical information.
 Clinical trial eligibility criteria are extracted from clinical trials available on clinicaltrials.gov or provided by the service user as a custom trial. Patient clinical information is provided either as unstructured clinical note, FHIR  bundles or key-value schema.
 
-Trial Matcher uses [Text Analytics for health](https://docs.microsoft.com/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner) to identify and extract medical entities in case the information provided is unstructured, either from clinical trial protocols from clinicaltrials.gov, custom trials and patient clinical notes.
+Trial Matcher uses [Text Analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) to identify and extract medical entities in case the information provided is unstructured, either from clinical trial protocols from clinicaltrials.gov, custom trials and patient clinical notes.
 
 When Trial Matcher is in patient centric mode, it returns a list of potentially suitable clinical trials, based on the patient clinical information. When Trial Matcher is in trial centric mode, it     returns a list of patients who are potentially eligible for a clinical trial.   The Trial Matcher results should be reviewed by a human decision maker for a further full qualification.
 Trial Matcher results also include an explainability layer. When a patient appears to be ineligible for a trial, Trial Matcher provides evidence of why the patient is not eligible to meet the criteria of the specific trial.
@@ -78,7 +79,7 @@ We encourage customers to leverage Trial Matcher in their innovative solutions o
 
 ### Technical limitations, operational factors, and ranges
 * Trial Matcher is available only in English.
-* Since Trial Matcher is based on TA4H for analyzing unstructured text, please refer to [Text Analytics for health Transparency Note](https://learn.microsoft.com/legal/cognitive-services/language-service/transparency-note-health)
+* Since Trial Matcher is based on TA4H for analyzing unstructured text, please refer to [Text Analytics for health Transparency Note](/legal/cognitive-services/language-service/transparency-note-health?context=/azure/azure-health-insights/trial-matcher/context/context)
 for further information.
 
 
@@ -92,13 +93,11 @@ for further information.
 ## Learn more about responsible AI
 * [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
 * [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources).
-* [Microsoft Azure Learning courses on responsible AI](https://docs.microsoft.com/learn/paths/responsible-ai-business-principles/).
+* [Microsoft Azure Learning courses on responsible AI](/learn/paths/responsible-ai-business-principles/).
 
 
 ## Learn more about Text Analytics For Health
-[Text Analytics for Health Transparency Note](https://learn.microsoft.com/legal/cognitive-services/language-service/transparency-note-health).
-
-
+[Text Analytics for Health Transparency Note](/legal/cognitive-services/language-service/transparency-note-health?context=/azure/azure-health-insights/trial-matcher/context/context).
 
 
 ## About this document

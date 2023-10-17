@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for images using the Bing Image Search REST API and Ruby"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Ruby, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.custom: seodec2018, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 
@@ -26,7 +26,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 
 * [The latest version of Ruby](https://www.ruby-lang.org/en/downloads/).
 
-For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
@@ -38,7 +38,7 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
     require 'json'
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term. For `uri`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. For `uri`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -140,5 +140,5 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 * [What is the Bing Image Search API?](../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)   
-* [Azure Cognitive Services documentation](../../index.yml)
+* [Azure AI services documentation](../../../ai-services/index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

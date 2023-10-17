@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 08/15/2022
 ms.author: asirveda
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
@@ -28,7 +28,7 @@ Zero Trust is based on the principle of "never trust, always verify, and credent
 
 To securely load certificates from [Azure Key Vault](../key-vault/index.yml), Spring Boot apps use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [Azure role-based access control (RBAC)](../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
 
-With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Azure Active Directory and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
+With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Microsoft Entra ID and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
 
 ## Secure communications end-to-end or terminate TLS at any point
 
@@ -118,5 +118,5 @@ Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMw
 
 - [Deploy Spring microservices to Azure](/training/modules/azure-spring-cloud-workshop/)
 - [Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
-- [Azure Spring Apps reference architecture](reference-architecture.md)
+- [Azure Spring Apps architecture design](/azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json)
 - Migrate your [Spring Boot](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps), [Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps), and [Tomcat](/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps) applications to Azure Spring Apps

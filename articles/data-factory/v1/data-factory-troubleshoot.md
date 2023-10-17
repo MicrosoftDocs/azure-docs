@@ -126,8 +126,6 @@ See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-monitor
 [cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 [json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
-[azure-portal]: https://portal.azure.com/
-
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
 [image-data-factory-troubleshoot-datasets-with-errors-blade]: ./media/data-factory-troubleshoot/DatasetsWithErrorsBlade.png

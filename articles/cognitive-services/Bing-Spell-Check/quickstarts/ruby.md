@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Check spelling with the REST API and Ruby - Bing Spell Check"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get started using the Bing Spell Check REST API and Ruby to check spelling and grammar.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: mode-api
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of suggested corrections. 
 
@@ -38,7 +38,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
     require 'json'
     ```
 
-2. Create variables for your subscription key, endpoint URI, and path. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Create your request parameters:
+2. Create variables for your subscription key, endpoint URI, and path. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Create your request parameters:
 
    1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 

@@ -62,6 +62,12 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 | Bring your own AKS in Azure | Cloud | More security and controls.<br/>All private IP machine learning to prevent data exfiltration. | 1. AKS cluster behind an Azure VNet.<br/>2. Create private endpoints in the same VNet for Azure Machine Learning workspace and its associated resources.<br/>3. Fully automated MLOps. |
 | Full ML lifecycle on-premises | On-premises | Secure sensitive data or proprietary IP, such as ML models and code/scripts. | 1. Outbound proxy server connection on-premises.<br/>2. Azure ExpressRoute and Azure Arc private link to Azure resources.<br/>3. Customer managed Kubernetes on-premises.<br/>4. Fully automated MLOps. |
 
+### Limitations
+
+`KubernetesCompute` target in Azure Machine learning workloads (training and model inference) has the following limitations:
+* The availability of **Preview features** in Azure Machine Learning is not guaranteed.
+    * Identified limitation: Models (including the foundational model) from the **Model Catalog** are not supported on Kubernetes online endpoints.
+
 ## Recommended best practices
 
 **Separation of responsibilities between the IT-operations team and data-science team**. As we mentioned above, managing your own compute and infrastructure for ML workload is a complicated task, and it's best to be done by IT-operations team so data-science team can focus on ML models for organizational efficiency.

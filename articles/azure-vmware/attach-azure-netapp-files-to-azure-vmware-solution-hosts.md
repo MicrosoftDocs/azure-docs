@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/28/2023
+ms.date: 07/14/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -60,6 +60,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Japan West
 * North Central US
 * North Europe
+* Qatar Central
 * South Africa North
 * South Central US
 * Southeast Asia
@@ -71,7 +72,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * West Europe 
 * West US
 * West US 2
-
+* West US 3
 
 ## Performance best practices
 
@@ -256,3 +257,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
     Yes, you can select multiple clusters at the time of creating the datastore. Additional clusters may be added or removed after the initial creation as well.
+
+- **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution SDDCs?**
+
+    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network.

@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, pa
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -26,7 +26,9 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 * An Azure Database for MySQL Flexible Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/Java)
 
 1. In your project's *pom.xml* file, add the following dependency:
 
@@ -45,9 +47,20 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
+### [Polyglot](#tab/Polyglot)
+
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
+
+For the default environment variable names, see [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md#default-environment-variable-names-or-application-properties-and-sample-codes).
+
+---
+
 ## Connect your app to the Azure Database for MySQL instance
 
 ### [Service Connector](#tab/Service-Connector)
+
+> [!NOTE]
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
 
@@ -57,7 +70,7 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+1. Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
 
    ```azurecli
    export AZ_IDENTITY_RESOURCE_ID=$(az identity create \

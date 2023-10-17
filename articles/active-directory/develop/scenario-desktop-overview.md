@@ -36,11 +36,11 @@ You write a desktop application, and you want to sign in users to your applicati
 - You can use the interactive token acquisition:
 
   - If your desktop application supports graphical controls, for instance, if it's a Windows Form application, a Windows Presentation Foundation (WPF) application, or a macOS native application.
-  - Or, if it's a .NET Core application and you agree to have the authentication interaction with Azure Active Directory (Azure AD) happen in the system browser.
+  - Or, if it's a .NET Core application and you agree to have the authentication interaction with Microsoft Entra ID happen in the system browser.
   - Or, if it's a Node.js Electron application, which runs on a Chromium instance.
 
-- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using integrated Windows authentication.
-- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to do [multifactor authentication](../authentication/concept-mfa-howitworks.md) (conditional access). Also, your application won't benefit from single sign-on (SSO).
+- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Microsoft Entra joined to acquire a token silently by using integrated Windows authentication.
+- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to do [multifactor authentication](../authentication/concept-mfa-howitworks.md) (Conditional Access). Also, your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.
 

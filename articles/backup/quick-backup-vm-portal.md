@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up a virtual machine in Azure
@@ -28,11 +28,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center** and click **+Backup** from the **Overview** tab.
+1. Go to **Backup center** and select **+Backup** from the **Overview** tab.
 
    ![Screenshot showing the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then click **Continue**.
+1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
 
    ![Screenshot showing Backup and Backup Goal panes.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -107,7 +107,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 1. Go to **Backup center** and select the **Backup Instances** menu item.
 1. Select **Azure Virtual machines** as the **Datasource type**. Then search for the VM that you have configured for backup.
-1. Right-click the relevant row or select the more icon (…), and then click **Backup Now**.
+1. Right-click the relevant row or select the more icon (…), and then select **Backup Now**.
 1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 1. Monitor the portal notifications.
    To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.

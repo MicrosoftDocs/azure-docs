@@ -210,7 +210,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     ```console
     helm install azureappconfiguration.kubernetesprovider \
          oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-         --version 1.0.0-preview \
+         --version 1.0.0-preview4 \
          --namespace azappconfig-system \
          --create-namespace
     ```

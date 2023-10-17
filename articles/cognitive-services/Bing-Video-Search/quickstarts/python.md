@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the REST API and Python - Bing Video Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Python.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Python
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Video Search API. This simple Python application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
 
@@ -41,7 +41,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     import requests
     from IPython.display import HTML
     ```
-2.  Create variables for your subscription key, search endpoint, and search term. For the `search_url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2.  Create variables for your subscription key, search endpoint, and search term. For the `search_url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```python
     subscription_key = None

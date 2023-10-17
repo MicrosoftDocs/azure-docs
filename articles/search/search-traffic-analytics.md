@@ -2,7 +2,6 @@
 title: Telemetry for search traffic analytics
 titleSuffix: Azure Cognitive Search
 description: Enable search traffic analytics for Azure Cognitive Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

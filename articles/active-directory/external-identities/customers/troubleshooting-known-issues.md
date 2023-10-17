@@ -14,15 +14,15 @@ ms.custom: it-pro
 
 ---
 
-# Known issues with Azure Active Directory (Azure AD) for customers
+# Known issues with Microsoft Entra ID for customers
 
-This article describes known issues that you may experience when you use Azure Active Directory (Azure AD) for customers, and provides help to resolve these issues.
+This article describes known issues that you may experience when you use Microsoft Entra ID for customers, and provides help to resolve these issues.
 
 ## Tenant creation and management
 
 ### Tenant creation fails when you choose an unsupported region
 
-During customer tenant creation, the **Country/Region** dropdown menu lists countries and regions where Azure Azure AD for customers isn't yet available. If you choose Japan or Australia, tenant creation fails.
+During customer tenant creation, the **Country/Region** dropdown menu lists countries and regions where  Microsoft Entra ID for customers isn't yet available. If you choose Japan or Australia, tenant creation fails.
 
 **Cause**: Public preview is currently available in the Americas and Europe, with more regions to follow shortly.
 
@@ -34,9 +34,9 @@ Customer trial tenants can't be supported beyond 30 days.
 
 **Workaround**: Take one of the following actions.
 
-- To continue beyond 30 days, if you're an existing Azure AD customer, [create a new customer tenant](how-to-create-customer-tenant-portal.md) with your subscription.
+- To continue beyond 30 days, if you're an existing Microsoft Entra customer, [create a new customer tenant](how-to-create-customer-tenant-portal.md) with your subscription.
 
-- If you don’t have an Azure AD account, delete the trial tenant and [set up an Azure free account](https://azure.microsoft.com/free/).
+- If you don’t have a Microsoft Entra account, delete the trial tenant and [set up an Azure free account](https://azure.microsoft.com/free/).
 
 ### The get started guide UI lacks client-side validation for the Domain name field
 
@@ -63,7 +63,9 @@ You get the following error when you try to delete a customer tenant:
 
    `Unable to delete tenant`
 
-**Cause**: This error occurs when you try to delete a customer tenant but you haven't deleted the b2c-extensions-app.
+**Cause**: This error occurs when you try to delete a customer tenant but you haven't deleted the **b2c-extensions-app**. 
+
+Custom attributes are also known as directory extension attributes expand the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the app named **b2c-extensions-app**.
 
 **Workaround**: When deleting a customer tenant, delete the **b2c-extensions-app**, found in **App registrations** under **All applications**.
 
@@ -135,4 +137,4 @@ When you create your own web API in a customer tenant (without using the app cre
 
 ## Next steps
 
-See also [Supported features in Azure Active Directory for customers](concept-supported-features-customers.md)
+See also [Supported features in Microsoft Entra ID for customers](concept-supported-features-customers.md)

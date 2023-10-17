@@ -1,60 +1,59 @@
 ---
-title: ROUND in Azure Cosmos DB query language
-description: Learn about SQL system function ROUND in Azure Cosmos DB.
-author: ginamr
+title: ROUND
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the number rounded to the closest integer.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# ROUND (Azure Cosmos DB)
+
+# ROUND (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a numeric value, rounded to the closest integer value.  
-  
+Returns a numeric value, rounded to the closest integer value.  
+
 ## Syntax
-  
+
 ```sql
 ROUND(<numeric_expr>)  
-```  
-  
+```
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
-## Remarks
-  
-The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero. This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
-  
-|<numeric_expr>|Rounded|
-|-|-|
-|-6.5000|-7|
-|-0.5|-1|
-|0.5|1|
-|6.5000|7|
-  
+
+Returns a numeric expression.
+
 ## Examples
-  
-The following example rounds the following positive and negative numbers to the nearest integer.  
-  
-```sql
-SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
-```  
-  
-Here is the result set.  
-  
-```json
-[{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
-```  
 
-## Next steps
+The following example rounds positive and negative numbers to the nearest integer.  
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/round/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/round/result.json":::
+
+## Remarks
+
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression, which falls exactly between two integers then the result is the closest integer value away from `0`. Examples are provided here:
+    | | Rounded |
+    | --- | --- |
+    | **`-6.5000`** | `-7` |
+    | **`-0.5`** | `-1` |
+    | **`0.5`** | `1` |
+    | **`6.5000`** | `7` |
+
+## Related content
+
+- [System functions](system-functions.yml)
+- [`POWER`](power.md)

@@ -8,11 +8,11 @@ ms.date: 02/09/2023
 author: ebolton-cyber
 ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922, devx-track-linux
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
@@ -41,7 +41,7 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *Ubuntu2204*.
+The output includes the image URN. If you omit the `--all` option, you can see the *UrnAlias* for each image, if available. *UrnAlias* is a shortened version created for popular images like *Ubuntu2204*.
 The Linux image alias names and their details outputted by this command are:
 
 ```output
@@ -86,6 +86,11 @@ For example, the following command displays all Debian offers:
 az vm image list --offer Debian --all --output table 
 ```
 
+You can limit your results to a single architecture by adding the `--architecture` parameter. For example, to display all Arm64 images available from Canonical:
+
+```azurecli-interactive
+az vm image list --architecture Arm64 --publisher Canonical --all --output table
+```
 
 ## Look at all available images
  

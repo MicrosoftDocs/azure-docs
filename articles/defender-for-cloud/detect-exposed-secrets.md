@@ -1,6 +1,6 @@
 ---
 title: Detect exposed secrets in code
-titleSuffix: Defender for Cloud
+
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
@@ -12,7 +12,7 @@ ms.date: 01/31/2023
 When passwords and other secrets are stored in source code, it poses a significant risk and could compromise the security of your environments. Defender for Cloud offers a solution by using secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and your build output. Secret scanning can be run as part of the Microsoft Security DevOps for Azure DevOps extension. To explore the options available for secret scanning in GitHub, learn more [about secret scanning](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/about-secret-scanning) in GitHub.
 
 > [!NOTE]
-> During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of secret scanning.
+> Effective September 2023, the Secret Scanning option (CredScan) within Microsoft Security DevOps (MSDO) Extension for Azure DevOps will be deprecated. MSDO Secret Scanning will be replaced by the [Configure GitHub Advanced Security for Azure DevOps features - Azure Repos](/azure/devops/repos/security/configure-github-advanced-security-features#set-up-secret-scanning) offering.
 
 Check the list of supported [file types](concept-credential-scanner-rules.md#supported-file-types), [exit codes](concept-credential-scanner-rules.md#supported-exit-codes) and [rules and descriptions](concept-credential-scanner-rules.md#rules-and-descriptions).
 
@@ -55,7 +55,7 @@ When credentials are discovered in your code, you can remove them. Instead you c
 
 - Using secret storage such as Azure Key Vault (AKV).
 
-- Updating your authentication methods to take advantage of managed identities (MSI) via Azure Active Directory (AAD).
+- Updating your authentication methods to take advantage of managed identities (MSI) via Microsoft Entra ID.
   
 ### Remediate secrets findings using Azure Key Vault
 

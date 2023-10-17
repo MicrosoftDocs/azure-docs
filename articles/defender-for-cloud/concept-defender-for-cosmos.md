@@ -1,7 +1,6 @@
 ---
 title: Overview of Defender for Azure Cosmos DB
 description: Learn about the benefits and features of Microsoft Defender for Azure Cosmos DB.
-titleSuffix: Microsoft Defender for Azure Cosmos DB
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.author: dacurwin
@@ -27,7 +26,7 @@ Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data, an
 |----|:----|
 |Release state:| General Availability (GA) | 
 | Protected Azure Cosmos DB API | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Cosmos DB for NoSQL <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Cassandra <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for MongoDB <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Table <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Gremlin |
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet |
 
 ## What are the benefits of Microsoft Defender for Azure Cosmos DB
 

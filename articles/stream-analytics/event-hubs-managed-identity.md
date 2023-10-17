@@ -9,11 +9,11 @@ ms.date: 05/15/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Use managed identities to access Event Hubs from an Azure Stream Analytics job
+# Use managed identities to access Event Hubs  from an Azure Stream Analytics job
 
 Azure Stream Analytics supports Managed Identity authentication for both Azure Event Hubs input and output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 
-A managed identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource, including event hubs that are behind a firewall or virtual network (VNet). For more information about how to bypass firewalls, see [Allow access to Azure Event Hubs namespaces via private endpoints](../event-hubs/private-link-service.md#trusted-microsoft-services).
+A managed identity is a managed application registered in Microsoft Entra ID that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource, including event hubs that are behind a firewall or virtual network (VNet). For more information about how to bypass firewalls, see [Allow access to Azure Event Hubs namespaces via private endpoints](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 This article shows you how to enable Managed Identity for an event hub input or output of a Stream Analytics job through the Azure portal. Before you enabled Managed Identity, you must first have a Stream Analytics job and an Event Hubs resource.
 
@@ -27,7 +27,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::  
 
-1. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+1. A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
 
    When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:  
 
@@ -46,7 +46,7 @@ For the Stream Analytics job to access your event hub using managed identity, th
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> When giving access to any resource, you should give the least needed access. Depending on whether you are configuring Event Hubs as an input or output, you may not need to assign the Azure Event Hubs Data Owner role which would grant more than needed access to your Eventhub resource. For more information see [Authenticate an application with Azure Active Directory to access Event Hubs resources](../event-hubs/authenticate-application.md)
+> When giving access to any resource, you should give the least needed access. Depending on whether you are configuring Event Hubs as an input or output, you may not need to assign the Azure Event Hubs Data Owner role which would grant more than needed access to your Eventhub resource. For more information see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../event-hubs/authenticate-application.md)
 
  | Setting | Value |
  | --- | --- |

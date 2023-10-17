@@ -7,12 +7,13 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/30/2022
+ms.date: 07/19/2023
 ms.topic: conceptual
 ---
 
 # Connectivity modes and requirements
 
+This article describes the connectivity modes available for Azure Arc-enabled data services, and their respective requirements.
 
 ## Connectivity modes
 
@@ -27,7 +28,7 @@ The connectivity mode provides you the flexibility to choose how much data is se
 
 Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and PostgreSQL servers that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
 
-Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
+Additionally, Microsoft Entra ID and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
 Some Azure-attached services are only available when they can be directly reached such as Container Insights, and backup to blob storage.
 
@@ -50,8 +51,8 @@ Some Azure-attached services are only available when they can be directly reache
 |**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported|
 |**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure blob storage for long-term, off-site retention.|
 |**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
-|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use Kubernetes authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
-|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC.|
+|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use Kubernetes authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Microsoft Entra ID.|
+|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Microsoft Entra ID and Azure RBAC.|
 
 ## Connectivity requirements
 
@@ -66,7 +67,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Billing telemetry data**|Customer environment -> Azure|Required|No|Indirect or direct|Utilization of database instances must be sent to Azure for billing purposes. |
 |**Monitoring data and logs**|Customer environment -> Azure|Optional|Maybe depending on data volume (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))|Indirect or direct|You may want to send the locally collected monitoring data and logs to Azure Monitor for aggregating data across multiple environments into one place and also to use Azure Monitor services like alerts, using the data in Azure Machine Learning, etc.|
 |**Azure Role-based Access Control (Azure RBAC)**|Customer environment -> Azure -> Customer Environment|Optional|No|Direct only|If you want to use Azure RBAC, then connectivity must be established with Azure at all times.  If you don’t want to use Azure RBAC then local Kubernetes RBAC can be used.|
-|**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can use Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
+|**Microsoft Entra ID (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Microsoft Entra ID|Direct only|If you want to use Microsoft Entra ID for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Microsoft Entra ID for authentication, you can use Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
 |**Backup and restore**|Customer environment -> Customer environment|Required|No|Direct or indirect|The backup and restore service can be configured to point to local storage classes. |
 |**Azure backup - long term retention (Future)**| Customer environment -> Azure | Optional| Yes for Azure storage | Direct only |You may want to send backups that are taken locally to Azure Backup for long-term, off-site retention of backups and bring them back to the local environment for restore. |
 |**Provisioning and configuration changes from Azure portal**|Customer environment -> Azure -> Customer environment|Optional|No|Direct only|Provisioning and configuration changes can be done locally using Azure Data Studio or the appropriate CLI.  In directly connected mode, you will also be able to provision and make configuration changes from the Azure portal.|

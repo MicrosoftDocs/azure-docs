@@ -8,49 +8,47 @@ author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/30/2023
+ms.date: 07/27/2023
 ms.topic: conceptual
 
 ---
 
-# Vector stores in Azure Machine Learning
+# Vector stores in Azure Machine Learning (preview)
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation. A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with an LLM and retrieve the data efficiently.
+This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation (RAG). A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with a large language model (LLM) like GPT-4 and retrieve the data efficiently.
 
-Azure Machine Learning supports embedding vectors to be stored in two types of vector stores. Faiss and Azure Cognitive Search.
+Azure Machine Learning supports two types of vector stores that contain your supplemental data used in a RAG workflow:
 
-Faiss is a local file-based store. The Vector Index is stored in the storage account of your Azure Machine Learning workspace. Since it's stored locally, the costs are minimal making it ideal for development and testing.
++ [Faiss](https://github.com/facebookresearch/faiss) is an open source library that provides a local file-based store. The vector index is stored in the storage account of your Azure Machine Learning workspace. Since it's stored locally, the costs are minimal making it ideal for development and testing.
 
-Azure Cognitive Search index uses the Azure Cognitive Search service to store the index. Apart from being an index store, this type of index with more features. It allows for large size and scale, making it a good fit for production scenarios or scenarios where the special features are needed.
++ [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. A prompt flow can create, populate, and query your vector data stored in Azure Cognitive Search.
 
+## Choose a vector store
 
-The following tables list pros and cons for each type of Index:
+You can use either store in prompt flow, so which one should you use?
 
-**Faiss**
+**Faiss** is an open source library that you download and use a component of your solution. This library might be the best place to start if you have vector-only data. Some key points about working with Faiss:
 
-| Pros	| Cons |
-| ----------- | ----------- |
-| No costs for creating an index: only storage cost | Limited query capabilities, embedding vector similarity search | 
-| Can be built and queried in-memory | Hosting for access in an application needs user to set up |
-| Easy to share copies for individual use |  | 
-| Scales with underlying compute loading Index |  | 
++ Local storage, with no costs for creating an index (only storage cost).
 
- 
++ You can build and query an index in memory.
 
-**Azure Cognitive Search**
++ You can share copies for individual use. If you want to host the index for an application, you need to set that up.
 
- 
-| Pros	| Cons |
-| ----------- | ----------- |
-| Supports Vector Search, Semantic search, filters | Monthly subscription fees | 
-| Can be scaled via replicas and partitions as needed | Initial setup is complex: need to provision and manage Azure Resource, need to grant access for local dev usage/manage secrets |
-| Support and detailed documentation are available on service features/limitations | Limitations on number of vectors, which can be stored in index | 
++ Faiss scales with underlying compute loading index.
+
+**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of indexes, which can be queried and used in a RAG pattern. Some key points about using Cognitive Search for your vector store:
+
++ Supports enterprise level business requirements for scale, security, and availability.
+
++ Supports hybrid information retrieval. Vector data can coexist with non-vector data, which means you can use any of the [features of Azure Cognitive Search](/azure/search/search-features-list) for indexing and queries, including [hybrid search](/azure/search/vector-search-how-to-query) and [semantic reranking](/azure/search/semantic-ranking).
+
++ [Vector support is in public preview](/azure/search/vector-search-overview). Currently, vectors must be generated externally and then passed to Cognitive Search for indexing and query encoding. The prompt flow handles these transitions for you.
+
+To use Cognitive Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists and you've granted access to developers, you can choose **Azure Cognitive Search** as a vector index in a prompt flow. The prompt flow creates the index on Cognitive Search, generates vectors from your source data, sends the vectors to the index, invokes similarity search on Cognitive Search, and returns the response.
 
 ## Next steps
 
 [How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
-
-
- 

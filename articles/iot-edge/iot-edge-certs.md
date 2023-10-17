@@ -1,10 +1,11 @@
 ---
 title: Understand how IoT Edge uses certificates for security
+titleSuffix: Azure IoT Edge
 description: How Azure IoT Edge uses certificate to validate devices, modules, and downstream devices enabling secure connections between them. 
 author: jlian
 
 ms.author: jlian
-ms.date: 11/03/2022
+ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -122,8 +123,8 @@ sequenceDiagram
     
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     EdgeGateway->>ContosoIotHub: Here's my certificate 📜
-    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
+    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 
@@ -232,16 +233,9 @@ flowchart TB
 
 ### Hostname specificity
 
-The certificate common name **CN = edgegateway.local** is listed at the top of the chain. **edgegateway.local** is the hostname for *EdgeGateway* on the local network (LAN or VNet) where *TempSensor* and *EdgeGateway* are connected. It could be a private IP address such as *192.168.1.23* or a fully-qualified domain name (FQDN) similar to the diagram. The important parts are:
+The certificate common name **CN = edgegateway.local** is listed at the top of the chain. **edgegateway.local** is *edgeHub*'s server certificate common name. **edgegateway.local** is also the hostname for *EdgeGateway* on the local network (LAN or VNet) where *TempSensor* and *EdgeGateway* are connected. It could be a private IP address such as *192.168.1.23* or a fully qualified domain name (FQDN) like the diagram. The *edgeHub server certificate* is generated using the **hostname** parameter defined in the [IoT Edge config.toml file](configure-device.md#hostname). Don't confuse the *edgeHub server certificate* with *Edge CA certificate*. For more information about managing the Edge CA certificate, see [Manage IoT Edge certificates](how-to-manage-device-certificates.md#manage-edge-ca).
 
-* *TempSensor's* OS could resolve the hostname to reach *EdgeGateway*
-* The hostname is explicitly configured in *EdgeGateway's* `config.toml` as follows:
-
-    ```toml
-    hostname = 'edgegateway.local'
-    ```
-
-The two values must *match exactly*. As in the example, **CN = 'edgegateway.local'** and **hostname = 'edgegateway.local'**.
+When *TempSensor* connects to *EdgeGateway*, *TempSensor* uses the hostname **edgegateway.local** to connect to *EdgeGateway*. *TempSensor* checks the certificate presented by *EdgeGateway* and verifies that the certificate common name is **edgegateway.local**. If the certificate common name is different, *TempSensor* rejects the connection.
 
 > [!NOTE]
 > For simplicity, the example shows subject certificate common name (CN) as property that is validated. In practice, if a certificate has a subject alternative name (SAN), SAN is validated instead of CN. Generally, because SAN can contain multiple values, it has both the main domain/hostname for the certificate holder as well as any alternate domains.

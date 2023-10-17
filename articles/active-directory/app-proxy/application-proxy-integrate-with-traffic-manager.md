@@ -7,13 +7,13 @@ ms.reviewer: ashishj
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 09/14/2023
 ms.custom: template-how-to
 ---
 
 # Add your own Traffic Manager to Application Proxy
 
-This article explains how to configure Azure Active Directory (Azure AD) Application Proxy to work with Traffic Manager. With the Application Proxy geo-routing feature, you can optimize which region of the Application Proxy service your connector groups use. You can now combine this functionality with a Traffic Manager solution of your choice. This combination enables a fully dynamic geo-aware solution based on your user location. It unlocks the rich rule set of your preferred Traffic Manager to prioritize how traffic is routed to your apps protected by Application Proxy. With this combination, users can use a single URL to access the instance of the app closest to them.
+This article explains how to configure Microsoft Entra application proxy to work with Traffic Manager. With the Application Proxy geo-routing feature, you can optimize which region of the Application Proxy service your connector groups use. You can now combine this functionality with a Traffic Manager solution of your choice. This combination enables a fully dynamic geo-aware solution based on your user location. It unlocks the rich rule set of your preferred Traffic Manager to prioritize how traffic is routed to your apps protected by Application Proxy. With this combination, users can use a single URL to access the instance of the app closest to them.
 
 :::image type="content" source="./media/application-proxy-integrate-with-traffic-manager/application-proxy-integrate-with-traffic-manager-diagram.png" alt-text="Diagram showing how Traffic Manager is integrated with Application Proxy.":::
 

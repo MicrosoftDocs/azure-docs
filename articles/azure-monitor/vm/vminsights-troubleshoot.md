@@ -2,9 +2,9 @@
 title: Troubleshoot VM insights
 description: Troubleshooting information for VM insights installation.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 ms.custom: references_regions
 
 ---

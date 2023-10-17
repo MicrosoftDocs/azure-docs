@@ -105,7 +105,7 @@ The JSON attestation definition should contain the **selfIssued** name and the c
 
 During issuance, Authenticator prompts you to enter values for the specified claims. User input isn't validated.
 
-![Screenshot of selfIssued claims input.](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
+![Screenshot of selfIssued claims input.](./media/how-to-use-quickstart-selfissued/selfIssued-claims-input.png)
 
 ## Configure the samples to issue and verify your custom credential
 

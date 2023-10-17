@@ -116,7 +116,7 @@ The following table compares Hive table types and ACID operations before an upgr
 
 ### HDInsight 3.x and HDInsight 4.x Table type comparison
 
-|**HDInsight 3.x**| | | |**HDInsight 4.x**| |
+|**HDInsight 3.x**| - | - | - |**HDInsight 4.x**| - |
 |-|-|-|-|-|-|
 |**Table Type**	|**ACID v1**	|**Format**	|**Owner (user) of Hive Table File**	|**Table Type**|**ACID v2**|
 |External	|No	|Native or non-native|	Hive or non-Hive	|External	|No|
@@ -244,7 +244,10 @@ Hive has changed table creation in the following ways
     Find a table having the problematic table reference.
     `math.students` that appears in a CREATE TABLE statement.
     Enclose the database name and the table name in backticks.
-     `CREATE TABLE `math`.`students` (name VARCHAR(64), age INT, gpa DECIMAL(3,2));`
+    
+    ```sql
+    TABLE `math`.`students` (name VARCHAR(64), age INT, gpa DECIMAL(3,2));
+    ```
 
 * CASTING TIMESTAMPS
     Results of applications that cast numerics to timestamps differ from Hive 2 to Hive 3. Apache Hive changed the behavior of CAST to comply with the SQL Standard, which doesn't associate a time zone with the TIMESTAMP type.
@@ -501,7 +504,7 @@ This step avoids the query failures, which fail with "Invalid column name" once 
 
 ## Secure Hive across HDInsight versions
 
-HDInsight optionally integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
+HDInsight optionally integrates with Microsoft Entra ID using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
 1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
 1. Navigate to the policy named **HIVE** and export the policy to a json file.

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to author scoring scripts to perform batch inference in batch deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia

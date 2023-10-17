@@ -1,0 +1,33 @@
+### YamlMime:Landing
+
+title: Azure Large Instances for Epic workload 
+summary: Learn how to use Azure Large Instances for Epic.
+
+metadata:
+  title: Azure Large Instances for Epic workload 
+  description: Learn how to use ALI for Epic.
+  services: baremetal-infrastructure 
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: jjaygbay1
+  ms.author: jacobjaygbay
+  ms.date: 06/01/2023
+
+
+# card 1
+landingContent:
+  - title: Overview
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: Azure Large Instances SKUs for Epic workload
+            url: available-skus.md
+        
+# card 2
+  - title: Configuration
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Create a volume group
+            url: create-a-volume-group.md
+          

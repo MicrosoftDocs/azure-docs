@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -29,63 +29,22 @@ GetCurrentDateTimeStatic()
 
 ## Return types
 
-Returns the current UTC date and time string value in the **round-trip** (ISO 8601) format. For more information on the round-trip format, see [.NET round-trip format](/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier). For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
+Returns the current UTC date and time string value in the **round-trip** (ISO 8601) format.
+
+> [!NOTE]
+> For more information on the round-trip format, see [.NET round-trip format](/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier). For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
 
 ## Examples
 
 This example uses a container with a partition key path of `/pk`. There are three items in the container with two items within the same logical partition, and one item in a different logical partition.
 
-```json
-[
-  {
-    "id": "1",
-    "pk": "A"
-  },
-  {
-    "id": "2",
-    "pk": "A"
-  },
-  {
-    "id": "3",
-    "pk": "B"
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/seed.novalidate.json" highlight="4,8,12":::
 
 This function returns the same static date and time for items within the same partition. For comparison, the nonstatic function gets a new date and time value for each item matched by the query.
 
-```sql
-SELECT
-    i.id,
-    i.pk AS partitionKey,
-    GetCurrentDateTime() AS nonStaticDateTime,
-    GetCurrentDateTimeStatic() AS staticDateTime
-FROM
-    items i
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/query.novalidate.sql" highlight="4-5":::  
 
-```json
-[
-  {
-    "id": "1",
-    "partitionKey": "A",
-    "nonStaticDateTime": "2023-06-28T18:32:12.4500994Z",
-    "staticDateTime": "2023-06-28T18:32:12.4499507Z"
-  },
-  {
-    "id": "2",
-    "partitionKey": "A",
-    "nonStaticDateTime": "2023-06-28T18:32:12.4501101Z",
-    "staticDateTime": "2023-06-28T18:32:12.4499507Z"
-  },
-  {
-    "id": "3",
-    "partitionKey": "B",
-    "nonStaticDateTime": "2023-06-28T18:32:12.4501181Z",
-    "staticDateTime": "2023-06-28T18:32:12.4401181Z"
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/result.novalidate.json":::
 
 > [!NOTE]
 > It's possible for items in different logical partitions to exist in the same physical partition. In this scenario, the static date and time value would be identical.
@@ -98,4 +57,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentDateTime` (nonstatic)](getcurrentdatetime.md)
+- [`GetCurrentDateTime`](getcurrentdatetime.md)

@@ -8,9 +8,9 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: Trial user guide - Microsoft Entra Permissions Management
-      href: permissions-management-trial-user-guide.md  
-    - name: Onboard Permissions Management on the Azure AD tenant
+    - name: Quickstart guide - Microsoft Entra Permissions Management
+      href: permissions-management-quickstart-guide.md  
+    - name: Onboard Permissions Management on the Microsoft Entra tenant
       expanded: true
       items:
       - name: Enable Permissions Management in your organization 
@@ -21,12 +21,19 @@
         href: onboard-azure.MD
       - name: Onboard a GCP project
         href: onboard-gcp.md
-      - name: Configure AWS IAM Identity Center as an identity provider
-        href: how-to-configure-aws-iam.md
       - name: Enable or disable the controller after onboarding is complete
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
+      - name: Create folders to organize your Authorization Systems
+        href: how-to-create-folders.md
+    - name: Configure third-party integrations 
+      expanded: false
+      items:
+      - name: Configure AWS IAM Identity Center as an identity provider
+        href: how-to-configure-aws-iam.md
+      - name: Configure Okta as an identity provider
+        href: how-to-configure-okta-as-an-identity-provider.md 
     - name: View information about your Authorization Systems
       expanded: false
       items:
@@ -63,6 +70,8 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: Permissions Management roles and permissions
+        href: product-roles-permissions.md
       - name: View privileged role assignments in your organization
         href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
@@ -107,16 +116,16 @@
         href: how-to-create-custom-queries.md
       - name: Filter and query user activity
         href: product-audit-trail.md
-    - name: Set activity alerts and triggers 
+    - name: Set alerts and alert triggers 
       expanded: false
       items: 
-      - name: View information about activity triggers
+      - name: View information about alerts and alert triggers
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
         href: how-to-create-alert-trigger.md
-      - name: Create and view rule-based anomalies and anomaly triggers
+      - name: Create and view rule-based anomaly alerts and alert triggers
         href: product-rule-based-anomalies.md
-      - name: Create and view statistical anomalies and anomaly triggers
+      - name: Create and view statistical anomaly alerts and alert triggers
         href: product-statistical-anomalies.md
       - name: Create and view permission analytics triggers
         href: product-permission-analytics.md
@@ -151,6 +160,8 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+    - name: Error codes
+      href: error-codes-onboarding.md
   - name: Reference
     expanded: false
     items:
@@ -160,4 +171,3 @@
       href: multi-cloud-glossary.md
     - name: Microsoft Entra Permissions Management partners
       href: partner-list.md
-

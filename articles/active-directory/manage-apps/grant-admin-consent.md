@@ -13,14 +13,14 @@ ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2, enterprise-apps
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
 
-#customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
+#customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Microsoft Entra ID.
 ---
 
 # Grant tenant-wide admin consent to an application
 
-  In this article, you'll learn how to grant tenant-wide admin consent to an application in Azure Active Directory (Azure AD). To understand how individual users consent, see [Configure how end-users consent to applications](configure-user-consent.md).
+  In this article, you'll learn how to grant tenant-wide admin consent to an application in Microsoft Entra ID. To understand how individual users consent, see [Configure how end-users consent to applications](configure-user-consent.md).
 
 When you grant tenant-wide admin consent to an application, you give the application access on behalf of the whole organization to the permissions requested. Granting admin consent on behalf of an organization is a sensitive operation, potentially allowing the application's publisher access to significant portions of your organization's data, or the permission to do highly privileged operations. Examples of such operations might be role management, full access to all mailboxes or all sites, and full user impersonation. Carefully review the permissions that the application is requesting before you grant consent.
 
@@ -28,48 +28,49 @@ By default, granting tenant-wide admin consent to an application will allow all 
 
 Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization.
 
 To grant tenant-wide admin consent, you need:
 
-- An Azure AD user account with one of the following roles:
+- A Microsoft Entra user account with one of the following roles:
+
    - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
    - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, _except_ Azure AD Graph or Microsoft Graph app roles (application permissions).
    - A custom directory role that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md), for the permissions required by the application.
 
 ## Grant tenant-wide admin consent in Enterprise apps
 
-You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/how-applications-are-added.md).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Microsoft Entra ID](../develop/how-applications-are-added.md).
 
 :::zone pivot="portal"
 
 To grant tenant-wide admin consent to an app listed in **Enterprise applications**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites section.
-1. Select **Azure Active Directory**, and then select **Enterprise applications**.
-1. Select the application to which you want to grant tenant-wide admin consent, and then select **Permissions**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Select **Permissions** under **Security**.
    :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant-wide admin consent.":::
 1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
 ## Grant admin consent in App registrations
 
-For applications your organization has developed, or which are registered directly in your Azure AD tenant, you can also grant tenant-wide admin consent from **App registrations** in the Azure portal.
+For applications your organization has developed, or which are registered directly in your Microsoft Entra tenant, you can also grant tenant-wide admin consent from **App registrations** in the Microsoft Entra admin centerMicrosoft Entra admin center.
 
 To grant tenant-wide admin consent from **App registrations**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites section.
-1. Select **Azure Active Directory**, and then select **App registrations**.
-1. Select the application to which you want to grant tenant-wide admin consent.
-1. Select **API permissions**.
+1. On the Microsoft Entra admin center, browse to **Identity** > **Applications** > **App registrations** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Select **API permissions** under **Manage**.
 1. Carefully review the permissions that the application requires. If you agree, select **Grant admin consent**.
 
 ## Construct the URL for granting tenant-wide admin consent
 
-When granting tenant-wide admin consent using either method described above, a window opens from the Azure portal to prompt for tenant-wide admin consent. If you know the client ID (also known as the application ID) of the application, you can build the same URL to grant tenant-wide admin consent.
+When granting tenant-wide admin consent using either method described above, a window opens from the Microsoft Entra admin center to prompt for tenant-wide admin consent. If you know the client ID (also known as the application ID) of the application, you can build the same URL to grant tenant-wide admin consent.
 
 The tenant-wide admin consent URL follows the following format:
 
@@ -80,10 +81,11 @@ https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `organizations`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 
+For more information on constructing the tenant-wide admin consent URL, see [Admin consent on the Microsoft identity platform](../develop/v2-admin-consent.md).
 
 :::zone-end
 
@@ -99,7 +101,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 ## Grant admin consent for delegated permissions
 
-1. Connect to Microsoft Graph PowerShell:
+1. Connect to Microsoft Graph PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
    ```powershell
    Connect-MgGraph -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
@@ -126,16 +128,16 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
   Format-List Id, ClientId, ConsentType, ResourceId, Scope
 ```
      
-1. Confirm that you've granted tenant wide admin consent by running the following request.   
+4. Confirm that you've granted tenant wide admin consent by running the following request.   
     
   ```powershell
-   Get-MgOauth2PermissionGrant-Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'AllPrincipals'" 
   ```      
 ## Grant admin consent for application permissions
 
 In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
-1. Connect to Microsoft Graph PowerShell:
+1. Connect to Microsoft Graph PowerShell and sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
    ```powershell
    Connect-MgGraph -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
@@ -152,11 +154,11 @@ In the following example, you grant the Microsoft Graph enterprise application (
 ```powershell
  $params = @{
   "PrincipalId" ="b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
-  "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
+  "ResourceId" = "7ea9e944-71ce-443d-811c-71e8047b557a"
   "AppRoleId" = "df021288-bdef-4463-88db-98f22de89214"
 }
 
-New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId '2cab1707-656d-40cc-8522-3178a184e03d' -BodyParameter $params | 
+New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' -BodyParameter $params | 
   Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 
@@ -168,7 +170,9 @@ Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to gr
 
 ## Grant admin consent for delegated permissions
 
-In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users.
+In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users. 
+
+You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `AllPrincipals`, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
 
@@ -183,7 +187,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 1. Grant the delegated permissions to the client enterprise application by running the following request.
    
-   ```http   
+   ```http
    POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
    
    Request body
@@ -201,7 +205,9 @@ In the example, the resource enterprise application is Microsoft Graph of object
    ```
 ## Grant admin consent for application permissions
 
-In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
+In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`. 
+
+You need to sign in as sign as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 1. Retrieve the app roles defined by Microsoft graph in your tenant. Identify the app role that you'll grant the client enterprise application. In this example, the app role ID is `df021288-bdef-4463-88db-98f22de89214`
 

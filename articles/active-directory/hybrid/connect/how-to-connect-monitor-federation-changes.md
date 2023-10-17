@@ -1,6 +1,6 @@
 ---
-title: Monitor changes to federation configuration in Azure AD
-description: This article explains how to monitor changes to your federation configuration with Azure AD.
+title: Monitor changes to federation configuration in Microsoft Entra ID
+description: This article explains how to monitor changes to your federation configuration with Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,11 +14,11 @@ ms.author: billmath
 ---
 
 
-# Monitor changes to federation configuration in your Azure AD
+# Monitor changes to federation configuration in your Microsoft Entra ID
 
-When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD. 
+When you federate your on-premises environment with Microsoft Entra ID, you establish a trust relationship between the on-premises identity provider and Microsoft Entra ID. 
 
-Due to this established trust, Azure AD honors the security token issued by the on-premises identity provider post authentication, to grant access to resources protected by Azure AD. 
+Due to this established trust, Microsoft Entra ID honors the security token issued by the on-premises identity provider post authentication, to grant access to resources protected by Microsoft Entra ID. 
 
 Therefore, it's critical that this trust (federation configuration) is monitored closely, and any unusual or suspicious activity is captured.
 
@@ -29,13 +29,13 @@ To monitor the trust relationship, we recommend you set up alerts to be notified
 
 Follow these steps to set up alerts to monitor the trust relationship:
 
-1. [Configure Azure AD audit logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
-2. [Create an alert rule](../../../azure-monitor/alerts/alerts-log.md) that triggers based on Azure AD log query. 
+1. [Configure Microsoft Entra audit logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
+2. [Create an alert rule](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md) that triggers based on Microsoft Entra ID log query. 
 3. [Add an action group](../../../azure-monitor/alerts/action-groups.md) to the alert rule that gets notified when the alert condition is met.  
 
 After the environment is configured, the data flows as follows: 
 
- 1. Azure AD Logs get populated per the activity in the tenant.  
+ 1. Microsoft Entra logs are populated per the activity in the tenant.  
  2. The log information flows to the Azure Log Analytics workspace.  
  3. A background job from Azure Monitor executes the log query based on the configuration of the Alert Rule in the configuration step (2) above.  
     ```
@@ -49,14 +49,14 @@ After the environment is configured, the data flows as follows:
  5. Notification is sent to the action group selected while configuring the alert.
 
  > [!NOTE]
- >  In addition to setting up alerts, we recommend periodically reviewing the configured domains within your Azure AD tenant and removing any stale, unrecognized, or suspicious domains. 
+ >  In addition to setting up alerts, we recommend periodically reviewing the configured domains within your Microsoft Entra tenant and removing any stale, unrecognized, or suspicious domains. 
 
 
 
 
 ## Next steps
 
-- [Integrate Azure AD logs with Azure Monitor logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-- [Create, view, and manage log alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-log.md)
-- [Manage AD FS trust with Azure AD using Azure AD Connect](how-to-connect-azure-ad-trust.md)
+- [Integrate Microsoft Entra logs with Azure Monitor logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Create, view, and manage log alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md)
+- [Manage AD FS trust with Microsoft Entra ID using Microsoft Entra Connect](how-to-connect-azure-ad-trust.md)
 - [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)

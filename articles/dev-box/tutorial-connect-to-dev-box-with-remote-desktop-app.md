@@ -6,13 +6,13 @@ services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/25/2023
+ms.date: 09/11/2023
 ms.topic: tutorial
 ---
 
 # Tutorial: Use a Remote Desktop client to connect to a dev box
 
-After you configure the Microsoft Dev Box Preview service and create dev boxes, you can connect to them by using a browser or by using a Remote Desktop client.
+After you configure the Microsoft Dev Box service and create dev boxes, you can connect to them by using a browser or by using a Remote Desktop client.
 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must first:
 
-- [Configure Microsoft Dev Box Preview](./quickstart-configure-dev-box-service.md).
+- [Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 - [Create a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
 ## Download the client and connect to your dev box
@@ -50,10 +50,39 @@ To download and set up the Remote Desktop client for Windows:
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot of the option to download the Windows Desktop client.":::
 
-1. Open the remote desktop MSI file and follow the prompts to install the remote desktop app. After the client is installed, you'll use the developer portal to connect to your dev box.
+1. Open the remote desktop MSI file and follow the prompts to install the remote desktop app. 
 
+### Connect to a dev box by using a subscription URL
 
-### Connect to your dev box
+Each dev box project is represented as a Workspace in Remote Desktop. When you're working with multiple dev boxes, across multiple projects, you can use  Remote Desktop to switch between them. To do this, you need to add the subscription URL for each workspace to Remote Desktop. With the Remote Desktop app, you can subscribe to multiple workspaces, allowing you to view and connect to all your dev boxes.  
+
+To get the subscription URL for your workspace:
+
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+ 
+1. Open help **?**, and then select **Configure Remote Desktop**. 
+ 
+   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-box-rdp-get-subscription-url.png" alt-text="Screenshot showing the developer portal help pane with subscription URL highlighted.":::
+
+1. In **Configure Remote Desktop**, next to the subscription feed URL, select **Copy**.
+
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-box-rdp-subscription-windows.png" alt-text="Screenshot of the Configure Remote Desktop dialog with the subscription feed URL highlighted.":::
+
+1. In Remote Desktop, on the **Let's get started** page, select **Subscribe with URL**.
+
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-get-started.png" alt-text="Screenshot of the Remote Desktop Let's get started page."::: 
+
+1. In the **Email or Workspace URL** box, paste the Workspace URL you copied in step 3, and then select **Next**.
+
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-add-subscription-with-url.png" alt-text="Screenshot of the Remote Desktop Subscribe with URL dialog.":::
+
+1. Remote Desktop gets the information from your workspace and adds it to the Workspaces list. Select the dev box you want to connect to from your workspace.
+
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-workspace.png" alt-text="Screenshot of the Remote Desktop Workspace.":::
+
+### Connect to your dev box from the developer portal
+
+In addition to connecting through the Remote Desktop app, you can also connect to your dev boxes from the developer portal. 
 
 To open the Remote Desktop client:
 
@@ -143,7 +172,6 @@ Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both s
 
 --- 
 
-
 ## Clean up resources
 
 Dev boxes incur costs whenever they're running. When you finish using your dev box, shut down or stop it to avoid incurring unnecessary costs.
@@ -152,15 +180,14 @@ You can stop a dev box from the developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. For the dev box that you want to stop, select the **Actions** menu, and then select **Stop**.
+1. For the dev box that you want to stop, select actions > **Stop**.
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/stop-dev-box.png" alt-text="Screenshot of the menu command to stop a dev box.":::
 
 The dev box might take a few moments to stop.
 
-## Next steps
+## Related content
 
-To learn about managing Microsoft Dev Box Preview, see:
+To learn about managing your dev box, see:
 
-- [Provide access to project admins](./how-to-project-admin.md)
-- [Provide access to dev box users](./how-to-dev-box-user.md)
+- [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)

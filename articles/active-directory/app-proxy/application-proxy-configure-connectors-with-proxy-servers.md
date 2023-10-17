@@ -1,6 +1,6 @@
 ---
-title: Work with existing on-premises proxy servers and Azure Active Directory
-description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
+title: Work with existing on-premises proxy servers and Microsoft Entra ID
+description: Covers how to work with existing on-premises proxy servers with Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
 # Work with existing on-premises proxy servers
 
-This article explains how to configure Azure Active Directory (Azure AD) Application Proxy connectors to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
+This article explains how to configure Microsoft Entra application proxy connectors to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
 We start by looking at these main deployment scenarios:
 
 * Configure connectors to bypass your on-premises outbound proxies.
-* Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
+* Configure connectors to use an outbound proxy to access Microsoft Entra application proxy.
 * Configure using a proxy between the connector and backend application.
 
-For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
+For more information about how connectors work, see [Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md).
 
 ## Bypass outbound proxies
 
@@ -33,7 +33,7 @@ The OS components attempt to locate a proxy server by carrying out a DNS lookup 
 
 You can configure the connector to bypass your on-premises proxy to ensure that it uses direct connectivity to the Azure services. We recommend this approach, as long as your network policy allows for it, because it means that you have one less configuration to maintain.
 
-To disable outbound proxy usage for the connector, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample:
+To disable outbound proxy usage for the connector, edit the C:\Program Files\Microsoft Azure AD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -50,7 +50,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
 </configuration>
 ```
 
-To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file. This file is located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
+To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file. This file is located at C:\Program Files\Microsoft Azure AD App Proxy Connector Updater.
 
 Be sure to make copies of the original files, in case you need to revert to the default .config files.
 
@@ -60,7 +60,7 @@ Some environments require all outbound traffic to go through an outbound proxy, 
 
 You can configure the connector traffic to go through the outbound proxy, as shown in the following diagram:
 
- ![Configuring connector traffic to go through an outbound proxy to Azure AD Application Proxy](./media/application-proxy-configure-connectors-with-proxy-servers/configure-proxy-settings.png)
+ ![Configuring connector traffic to go through an outbound proxy to Microsoft Entra application proxy](./media/application-proxy-configure-connectors-with-proxy-servers/configure-proxy-settings.png)
 
 As a result of having only outbound traffic, there's no need to configure inbound access through your firewalls.
 
@@ -71,7 +71,7 @@ As a result of having only outbound traffic, there's no need to configure inboun
 
 If WPAD is enabled in the environment and configured appropriately, the connector automatically discovers the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
 
-To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file, and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on. The value must have the prefix http:// even if you are using an IP address.
+To do so, edit the C:\Program Files\Microsoft Azure AD App Proxy Connector\ApplicationProxyConnectorService.exe.config file, and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on. The value must have the prefix http:// even if you are using an IP address.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -90,7 +90,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 </configuration>
 ```
 
-Next, configure the Connector Updater service to use the proxy by making a similar change to the C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config file.
+Next, configure the Connector Updater service to use the proxy by making a similar change to the C:\Program Files\Microsoft Azure AD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config file.
 
 > [!NOTE]
 > The Connector service evaluates the **defaultProxy** configuration for usage in `%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config`, if the **defaultProxy** is not configured (by default) in ApplicationProxyConnectorService.exe.config. The same applies to the Connector Updater service (ApplicationProxyConnectorUpdaterService.exe.config) too. 
@@ -143,13 +143,13 @@ To enable this, please follow the next steps:
 
 ### Step 1: Add the required registry value to the server
 1. To enable using the default proxy add the following registry value (DWORD) 
-`UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+`UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft Azure AD App Proxy Connector".
 
 ### Step 2: Configure the proxy server manually using netsh command
-1.	Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
-2.	Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
-3.	Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
-4.	Configure the required proxy settings. 
+1. Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
+2. Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
+3. Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
+4. Configure the required proxy settings. 
 
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
 
@@ -175,13 +175,13 @@ The following examples are specific to Message Analyzer, but the principles can 
 
 For initial troubleshooting, perform the following steps:
 
-1. From services.msc, stop the Azure AD Application Proxy Connector service.
+1. From services.msc, stop the Microsoft Entra application proxy Connector service.
 
-   ![Azure AD Application Proxy Connector service in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
+   ![Microsoft Entra application proxy Connector service in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Run Message Analyzer as an administrator.
 1. Select **Start local trace**.
-1. Start the Azure AD Application Proxy Connector service.
+1. Start the Microsoft Entra application proxy Connector service.
 1. Stop the network capture.
 
    ![Screenshot shows the Stop network capture button](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
@@ -208,5 +208,5 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 
 ## Next steps
 
-* [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html) or create a ticket with our support team.
+* [Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Microsoft Entra ID](/answers/topics/azure-active-directory.html) or create a ticket with our support team.

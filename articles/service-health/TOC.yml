@@ -58,6 +58,8 @@
     href: resource-health-checks-resource-types.md
   - name: Impacted Resources Support for Outages
     href: impacted-resources-outage.md
+  - name: Impacted Resources Support for Planned Maintenance Events
+    href: impacted-resources-planned-maintenance.md
   - name: Impacted Resources Support for Security Incidents
     href: impacted-resources-security.md
   - name: Resource Health FAQ

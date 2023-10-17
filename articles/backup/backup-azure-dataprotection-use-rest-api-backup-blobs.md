@@ -6,8 +6,8 @@ ms.date: 10/31/2022
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API

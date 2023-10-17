@@ -36,9 +36,9 @@ An Azure CDN profile is required for the following steps. Refer to [create an Az
 
 Follow these steps enable logging for your Azure CDN endpoint:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, navigate to **All resources** -> **your-cdn-profile**
+2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
 2. Select the CDN endpoint for which you want to enable diagnostics logs:
 
@@ -222,9 +222,9 @@ Here's how you can use the tool:
 
 ## Log data delays
 
-The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
+The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Edgio**.
 
-Microsoft log data delays | Verizon log data delays | Akamai log data delays
+Microsoft log data delays | Edgio log data delays | Akamai log data delays
 --- | --- | ---
 Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. | Delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
 
@@ -237,12 +237,12 @@ The following table shows a list of metrics available in the core analytics logs
 
 * **Azure CDN Standard from Microsoft**
 * **Azure CDN Standard from Akamai**
-* **Azure CDN Standard/Premium from Verizon**
+* **Azure CDN Standard/Premium from Edgio**
 
 Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
 
 
-|Metric                     | Description | Microsoft | Verizon | Akamai |
+|Metric                     | Description | Microsoft | Edgio | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Total number of request hits during this period. | Yes | Yes |Yes |
 | RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |Yes |

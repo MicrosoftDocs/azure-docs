@@ -2551,7 +2551,7 @@ rand(<minValue>, <maxValue>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Integer | The random integer returned from the specified range |
+| <*random-result*> | Integer | The random integer returned from the specified range. Note that every invocation of ```rand()``` will produce a unique result, meaning that the value you observe in output monitoring may not be the same at actual run time. |
 ||||
 
 *Example*

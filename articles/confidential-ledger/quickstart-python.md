@@ -22,8 +22,8 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 3.6+](/azure/developer/python/configure-local-development-environment)
-- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+- Python versions that are [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Set up
 
@@ -37,7 +37,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
-Install the Azure Active Directory identity client library:
+Install the Microsoft Entra identity client library:
 
 ```terminal
 pip install azure-identity

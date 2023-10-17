@@ -10,7 +10,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: ssalgado
 ms.date: 03/11/2021
-ms.custom: deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 monikerRange: 'azureml-api-1'
 ---
 

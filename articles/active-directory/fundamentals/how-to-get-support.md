@@ -1,6 +1,6 @@
 ---
-title: Find help and get support for Azure Active Directory
-description: Instructions about how to get help and open a support request for Azure Active Directory.
+title: Find help and get support for Microsoft Entra ID
+description: Instructions about how to get help and open a support request for Microsoft Entra ID.
 services: active-directory
 author: shlipsey3                
 manager: amycolannino
@@ -8,16 +8,13 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 09/22/2022
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
+# Find help and get support for Microsoft Entra ID
 
-# Find help and get support for Azure Active Directory
-
-Microsoft documentation and learning content provide quality support and troubleshooting information, but if you have a problem not covered in our content, there are several options to get help and support for Azure Active Directory (Azure AD). This article provides the options to find support from the Microsoft community and how to submit a support request with Microsoft.
+Microsoft documentation and learning content provide quality support and troubleshooting information, but if you have a problem not covered in our content, there are several options to get help and support for Microsoft Entra ID. This article provides the options to find support from the Microsoft community and how to submit a support request with Microsoft.
 
 ## Ask the Microsoft community
 
@@ -34,16 +31,16 @@ Microsoft Q&A is Azure's recommended source for community support. We recommend 
 
 | Component/area| Tags  |
 |------------|---------------------------|
-| Microsoft Authentication Library (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
-| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
-| All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| Microsoft Authentication Library (MSAL)                                     | [[`msal`]](/answers/topics/azure-ad-msal.html)                            |
+| Open Web Interface for .NET (OWIN) middleware                               | [[`azure-active-directory`]](/answers/topics/azure-active-directory.html) |
+| [Microsoft Entra B2B / External Identities](../external-identities/what-is-b2b.md) | [[`azure-ad-b2b`]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[`azure-ad-b2c`]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[`azure-ad-graph`]](/answers/topics/azure-ad-graph.html)                 |
+| All other authentication and authorization areas                            | [[`azure-active-directory`]](/answers/topics/azure-active-directory.html) |
 
-## Open a support request in Azure Active Directory
+## Open a support request
 
-If you're unable to find answers by using self-help resources, you can open an online support request. You should open a support request for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Azure AD engineering teams prioritize their work based on incidents that are generated from support, so you're often contributing to service improvements.
+If you're unable to find answers by using self-help resources, you can open an online support request. You should open a support request for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Microsoft Entra engineering teams prioritize their work based on incidents that are generated from support, so you're often contributing to service improvements.
 
 Support is available online and by phone for Microsoft Azure paid and trial subscriptions on global technical, pre-sales, billing, and subscription issues. Phone support and online billing support are available in additional languages.
 
@@ -54,11 +51,11 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 - If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 > [!NOTE]
-> If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
+> If you're using Azure AD B2C, open a support ticket by first switching to a Microsoft Entra tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Microsoft Entra ID](./how-subscriptions-associated-directory.md).
 
-1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
-   
-1. Scroll down to **Troubleshooting + Support** and select **New support request**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator).
+
+1. Browse to **Learn & support** > **New support request**.
 
 1. Follow the prompts to provide us with information about the problem you're having.
 
@@ -90,7 +87,7 @@ Next, we collect more details about the problem. Providing thorough and detailed
 
     - Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources.
     - If you prefer not to share this information, select **No**. For more information about the types of files we might collect, see [Advanced diagnostic information logs](../../azure-portal/supportability/how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) section.
-    - In some scenarios, an administrator in your tenant may need to approve Microsoft Support access to your Azure Active Directory identity data.
+    - In some scenarios, an administrator in your tenant may need to approve Microsoft Support access to your Microsoft Entra identity data.
 
 1. In the **Support method** section, select your preferred contact method and support language.
     - Some details are pre-selected for you. 
@@ -109,21 +106,17 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Get Microsoft 365 admin center support
 
-Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](/microsoft-365/admin).
+Support for Microsoft Entra ID in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](/microsoft-365/admin).
 
 ## Stay informed
 Things can change quickly. The following resources provide updates and information on the latest releases.
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
-
-- [What's new in Azure AD](whats-new.md): Get to know what's new in Azure AD including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-
-- [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
+- [What's new in Microsoft Entra ID](whats-new.md): Get to know what's new in Microsoft Entra ID including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+- [Microsoft Entra identity blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Microsoft Entra ID.
 
 ##  Next steps
 
 * [Post a question to Microsoft Q&A](/answers/products/)
-
-* [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)]
-
+* [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)
 * [Learn about the diagnostic data Azure identity support can access](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)

@@ -21,7 +21,7 @@ This article will provide guidance for your Azure Virtual Desktop deployment str
 
 If you're making an Azure Virtual Desktop deployment for users inside your organization, you can host all your users and resources in the same Azure tenant. You can also use Azure Virtual Desktop's currently supported identity management methods to keep your users secure.
 
-These are the most basic requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
+These are the most basic requirements for an Azure Virtual Desktop deployment that can serve desktops and applications to users within your organization:
 
 - One host pool to host user sessions
 - One Azure subscription to host the host pool
@@ -37,4 +37,4 @@ If your Azure Virtual Desktop deployment will serve end-users outside your organ
 
 Azure Virtual Desktop doesn't currently support external identities, including business-to-business (B2B) or business-to-client (B2C) users. You'll need to create and manage these identities manually and provide the credentials to your users yourself. Users will then use these identities to access resources in Azure Virtual Desktop.
 
-To provide a secure solution to your customers, Microsoft strongly recommends creating an Azure Active Directory (Azure AD) tenant and subscription for each customer with their own dedicated Active Directory. This separation means you'll have to create a separate Azure Virtual Desktop deployment for each organization that's totally isolated from the other deployments and their resources. The virtual machines that each organization uses shouldn't be able to access the resources of other companies to keep information secure. You can set up these separate deployments by using either a combination of Active Directory Domain Services (AD DS) and Azure AD Connect or by using Azure AD Domain Services.
+To provide a secure solution to your customers, Microsoft strongly recommends creating a Microsoft Entra tenant and subscription for each customer with their own dedicated Active Directory. This separation means you'll have to create a separate Azure Virtual Desktop deployment for each organization that's totally isolated from the other deployments and their resources. The virtual machines that each organization uses shouldn't be able to access the resources of other companies to keep information secure. You can set up these separate deployments by using either a combination of Active Directory Domain Services (AD DS) and Microsoft Entra Connect or by using Microsoft Entra Domain Services.

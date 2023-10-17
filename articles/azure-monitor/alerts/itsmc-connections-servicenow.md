@@ -11,6 +11,9 @@ ms.reviewer: nolavime
 
 This article shows you how to configure the connection between a ServiceNow instance and the IT Service Management Connector (ITSMC) in Log Analytics, so you can centrally manage your IT Service Management (ITSM) work items.
 
+> [!NOTE]
+> As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow.
+
 ## Prerequisites
 Ensure that you meet the following prerequisites for the connection.
 

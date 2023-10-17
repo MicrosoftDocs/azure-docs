@@ -4,8 +4,8 @@ description: This article summarizes the scenarios that Backup center supports f
 ms.topic: conceptual
 ms.date: 03/31/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Support matrix for Backup center
 

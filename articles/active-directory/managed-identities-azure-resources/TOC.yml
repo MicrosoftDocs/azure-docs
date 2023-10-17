@@ -156,9 +156,9 @@
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
     href: managed-identities-status.md
-  - name: Azure services that support Azure Active Directory authentication
-    href: services-azure-active-directory-support.md
+  - name: Azure services that support Microsoft Entra authentication
+    href: services-id-authentication-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-managed-identity
-  - name: Azure AD Developers forum
+  - name: Microsoft Entra Developers forum
     href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=3abf25c9-ad25-ec11-b6e6-000d3a4f0789#

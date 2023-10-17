@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 manager: femila
 ---
 
@@ -18,7 +18,7 @@ This article will show you how to deploy the management tool using PowerShell.
 
 ## Important considerations
 
-Each Azure Active Directory (Azure AD) tenant's subscription needs its own separate deployment of the management tool. This tool doesn't support Azure AD Business-to-Business (B2B) scenarios.
+Each Microsoft Entra tenant's subscription needs its own separate deployment of the management tool. This tool doesn't support Microsoft Entra Business-to-Business (B2B) scenarios.
 
 This management tool is a sample. Microsoft will provide important security and quality updates. [The source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Whether you're a customer or partner, we encourage you to customize the tool to satisfy your business needs.
 
@@ -31,10 +31,10 @@ The following browsers are compatible with the management tool:
 
 ## What you need to deploy the management tool
 
-Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
+Before deploying the management tool, you'll need a Microsoft Entra user to create an app registration and deploy the management UI. This user must:
 
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+- Have permission to create a Microsoft Entra application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Azure Virtual Desktop tenant.
 
@@ -49,7 +49,7 @@ Get started by signing in to both the Az and Azure AD PowerShell modules. Here's
     Login-AzAccount
     ```
 
-3. Run the following cmdlet to sign in to Azure AD with the same account you used for the Az PowerShell module:
+3. Run the following cmdlet to sign in to Microsoft Entra ID with the same account you used for the Az PowerShell module:
 
     ```powershell
     Connect-AzureAD
@@ -59,7 +59,9 @@ Get started by signing in to both the Az and Azure AD PowerShell modules. Here's
 
 Keep the PowerShell window you used to sign in open to run additional PowerShell cmdlets while signed in.
 
-## Create an Azure Active Directory app registration
+<a name='create-an-azure-active-directory-app-registration'></a>
+
+## Create a Microsoft Entra app registration
 
 In order to successfully deploy and configure the management tool, you first need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts)
 
@@ -82,7 +84,7 @@ Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
 .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 
-Now that you've completed the Azure AD app registration, you can deploy the management tool.
+Now that you've completed the Microsoft Entra app registration, you can deploy the management tool.
 
 ## Deploy the management tool
 
@@ -105,7 +107,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -Verbose
 ```
 
-After you've created the web app, you must add a redirect URI to the Azure AD application to successfully sign in users.
+After you've created the web app, you must add a redirect URI to the Microsoft Entra application to successfully sign in users.
 
 ## Set the Redirect URI
 
@@ -127,15 +129,17 @@ Run the following script to update the API URL configuration in the web applicat
 .\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 
-Now that you've fully configured the management tool web app, it's time to verify the Azure AD application and provide consent.
+Now that you've fully configured the management tool web app, it's time to verify the Microsoft Entra application and provide consent.
 
-## Verify the Azure AD application and provide consent
+<a name='verify-the-azure-ad-application-and-provide-consent'></a>
 
-To verify the Azure AD application configuration and provide consent:
+## Verify the Microsoft Entra application and provide consent
+
+To verify the Microsoft Entra application configuration and provide consent:
 
 1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. From the search bar at the top of the Azure portal, search for **App registrations** and select the item under **Services**.
-3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create an Azure Active Directory app registration](#create-an-azure-active-directory-app-registration).
+3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create a Microsoft Entra app registration](#create-an-azure-active-directory-app-registration).
 4. In the panel on the left side of the browser, select **Authentication** and make sure the redirect URI is the same as the web app URL for the management tool, as shown in the following image.
 
    [ ![The authentication page with the entered redirect URI](../media/management-ui-redirect-uri-inline.png) ](../media/management-ui-redirect-uri-expanded.png#lightbox)

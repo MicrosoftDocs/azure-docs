@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample Node.js browserless application using the Device Code flow
-description: Learn how to configure a sample browserless application to sign in users in an Azure Active Directory (Azure AD) for customers tenant
+description: Learn how to configure a sample browserless application to sign in users in a Microsoft Entra ID for customers tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -11,14 +11,13 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
-ms.custom: developer
-
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
+ms.custom: developer, devx-track-js
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Microsoft Entra ID for customers tenant
 ---
 
 # Authenticate users in a sample Node.js browserless application using the Device Code flow
 
-This how-to guide uses a sample Node.js application to show how to sign in users in a browserless application. The sample application uses the device code flow to sign in  users in an Azure Active Directory (Azure AD) for customers tenant. 
+This how-to guide uses a sample Node.js application to show how to sign in users in a browserless application. The sample application uses the device code flow to sign in users in a Microsoft Entra ID for customers tenant. 
 
 In this article, you complete the following tasks:
 
@@ -28,7 +27,7 @@ In this article, you complete the following tasks:
 
 - Associate your browserless application with the user flow. 
 
-- Update a sample Node.js browserless application using your own Azure AD for customers tenant.
+- Update a sample Node.js browserless application using your own External ID for customers tenant.
 
 - Run and test the sample browserless application.
 
@@ -38,7 +37,7 @@ In this article, you complete the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 ## Register the browserless app
 

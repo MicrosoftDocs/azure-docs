@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Azure Active Directory Seamless single sign-on'
-description: Learn how to get started with Azure Active Directory Seamless single sign-on by using Azure AD Connect.
+title: 'Quickstart: Microsoft Entra seamless single sign-on'
+description: Learn how to get started with Microsoft Entra seamless single sign-on by using Microsoft Entra Connect.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 author: billmath
@@ -15,11 +15,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Azure Active Directory Seamless single sign-on
+# Quickstart: Microsoft Entra seamless single sign-on
 
-Azure Active Directory (Azure AD) Seamless single sign-on (Seamless SSO) automatically signs in users when they're using their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without using any other on-premises components.
+Microsoft Entra seamless single sign-on (Seamless SSO) automatically signs in users when they're using their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without using any other on-premises components.
 
-To deploy Seamless SSO for Azure AD by using Azure AD Connect, complete the steps that are described in the following sections.
+To deploy Seamless SSO for Microsoft Entra ID by using Microsoft Entra Connect, complete the steps that are described in the following sections.
 
 <a name="step-1-check-the-prerequisites"></a>
 
@@ -27,22 +27,22 @@ To deploy Seamless SSO for Azure AD by using Azure AD Connect, complete the step
 
 Ensure that the following prerequisites are in place:
 
-- **Set up your Azure AD Connect server**: If you use [pass-through authentication](how-to-connect-pta.md) as your sign-in method, no other prerequisite check is required. If you use [password hash synchronization](how-to-connect-password-hash-synchronization.md) as your sign-in method and there's a firewall between Azure AD Connect and Azure AD, ensure that:
-  - You use Azure AD Connect version 1.1.644.0 or later.
+- **Set up your Microsoft Entra Connect server**: If you use [pass-through authentication](how-to-connect-pta.md) as your sign-in method, no other prerequisite check is required. If you use [password hash synchronization](how-to-connect-password-hash-synchronization.md) as your sign-in method and there's a firewall between Microsoft Entra Connect and Microsoft Entra ID, ensure that:
+  - You use Microsoft Entra Connect version 1.1.644.0 or later.
   - If your firewall or proxy allows, add the connections to your allowlist for `*.msappproxy.net` URLs over port 443. If you require a specific URL instead of a wildcard for proxy configuration, you can configure `tenantid.registration.msappproxy.net`, where `tenantid` is the GUID of the tenant for which you're configuring the feature. If URL-based proxy exceptions aren't possible in your organization, you can instead allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the Seamless SSO feature. It isn't required for direct user sign-ins.
 
     > [!NOTE]
     >
-    > - Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash sync. If you *don't* intend to use password hash sync in conjunction with pass-through authentication, review the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.
+    > - Microsoft Entra Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash sync. If you *don't* intend to use password hash sync in conjunction with pass-through authentication, review the [Microsoft Entra Connect release notes](./reference-connect-version-history.md) to learn more.
 
-- **Use a supported Azure AD Connect topology**: Ensure that you're using one of the Azure AD Connect [supported topologies](plan-connect-topologies.md).
+- **Use a supported Microsoft Entra Connect topology**: Ensure that you're using one of the Microsoft Entra Connect [supported topologies](plan-connect-topologies.md).
 
     > [!NOTE]
     > Seamless SSO supports multiple on-premises Windows Server Active Directory (Windows Server AD) forests, whether or not there are Windows Server AD trusts between them.
 
 - **Set up domain administrator credentials**: You must have domain administrator credentials for each Windows Server AD forest that:
 
-  - You sync to Azure AD through Azure AD Connect.
+  - You sync to Microsoft Entra ID through Microsoft Entra Connect.
   - Contains users you want to enable Seamless SSO for.
 
 - **Enable modern authentication**: To use this feature, you must enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
@@ -54,40 +54,41 @@ Ensure that the following prerequisites are in place:
 
 ## Enable the feature
 
-Enable Seamless SSO through [Azure AD Connect](../whatis-hybrid-identity.md).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Enable Seamless SSO through [Microsoft Entra Connect](../whatis-hybrid-identity.md).
 
 > [!NOTE]
-> If Azure AD Connect doesn't meet your requirements, you can [enable Seamless SSO by using PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature). Use this option if you have more than one domain per Windows Server AD forest, and you want to target the domain to enable Seamless SSO for.
+> If Microsoft Entra Connect doesn't meet your requirements, you can [enable Seamless SSO by using PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature). Use this option if you have more than one domain per Windows Server AD forest, and you want to target the domain to enable Seamless SSO for.
 
-If you're doing a *fresh installation of Azure AD Connect*, choose the [custom installation path](how-to-connect-install-custom.md). On the **User sign-in** page, select the **Enable single sign on** option.
+If you're doing a *fresh installation of Microsoft Entra Connect*, choose the [custom installation path](how-to-connect-install-custom.md). On the **User sign-in** page, select the **Enable single sign on** option.
 
-:::image type="content" source="media/how-to-connect-sso-quick-start/sso8.png" alt-text="Screenshot that shows the User sign-in page in Azure AD Connect, with Enable single sign on selected.":::
+:::image type="content" source="media/how-to-connect-sso-quick-start/sso8.png" alt-text="Screenshot that shows the User sign-in page in Microsoft Entra Connect, with Enable single sign on selected.":::
 
 > [!NOTE]
 > The option is available to select only if the sign-on method that's selected is **Password Hash Synchronization** or **Pass-through Authentication**.
 
-If you *already have an installation of Azure AD Connect*, in **Additional tasks**, select **Change user sign-in**, and then select **Next**. If you're using Azure AD Connect versions 1.1.880.0 or later, the **Enable single sign on** option is selected by default. If you're using an earlier version of Azure AD Connect, select the **Enable single sign on** option.
+If you *already have an installation of Microsoft Entra Connect*, in **Additional tasks**, select **Change user sign-in**, and then select **Next**. If you're using Microsoft Entra Connect versions 1.1.880.0 or later, the **Enable single sign on** option is selected by default. If you're using an earlier version of Microsoft Entra Connect, select the **Enable single sign on** option.
 
 :::image type="content" source="media/how-to-connect-pta-quick-start/changeusersignin.png" alt-text="Screenshot that shows the Additional tasks page with Change the user sign-in selected.":::
 
 Continue through the wizard to the **Enable single sign on** page. Provide Domain Administrator credentials for each Windows Server AD forest that:
 
-- You sync to Azure AD through Azure AD Connect.
+- You sync to Microsoft Entra ID through Microsoft Entra Connect.
 - Contains users you want to enable Seamless SSO for.
 
 When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 > [!NOTE]
-> The Domain Administrator credentials are not stored in Azure AD Connect or in Azure AD. They're used only to enable the feature.
+> The Domain Administrator credentials are not stored in Microsoft Entra Connect or in Microsoft Entra ID. They're used only to enable the feature.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Hybrid Identity Administrator account credentials for your tenant.
-1. In the left menu, select **Azure Active Directory**.
-1. Select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect sync**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.
 
-:::image type="content" source="media/how-to-connect-sso-quick-start/sso10.png" alt-text="Screenshot that shows the Azure AD Connect pane in the admin portal.":::
+:::image type="content" source="media/how-to-connect-sso-quick-start/sso10.png" alt-text="Screenshot that shows the Microsoft Entra Connect pane in the admin portal.":::
 
 > [!IMPORTANT]
 > Seamless SSO creates a computer account named `AZUREADSSOACC` in each Windows Server AD forest in your on-premises Windows Server AD directory. The `AZUREADSSOACC` computer account must be strongly protected for security reasons. Only Domain Administrator accounts should be allowed to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Windows Server AD has delegation permissions on the `AZUREADSSOACC` computer account. Store the computer accounts in an organization unit so that they're safe from accidental deletions and only Domain Administrators can access them.
@@ -99,7 +100,7 @@ To verify that you have enabled Seamless SSO correctly:
 
 ## Roll out the feature
 
-You can gradually roll out Seamless SSO to your users by using the instructions provided in the next sections. You start by adding the following Azure AD URL to all or selected user intranet zone settings through Group Policy in Windows Server AD:
+You can gradually roll out Seamless SSO to your users by using the instructions provided in the next sections. You start by adding the following Microsoft Entra URL to all or selected user intranet zone settings through Group Policy in Windows Server AD:
 
 `https://autologon.microsoftazuread-sso.com`
 
@@ -110,7 +111,7 @@ You also must enable an intranet zone policy setting called **Allow updates to s
 
 ### Why you need to modify user intranet zone settings
 
-By default, a browser automatically calculates the correct zone, either internet or intranet, from a specific URL. For example, `http://contoso/` maps to the *intranet* zone, and `http://intranet.contoso.com/` maps to the *internet* zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint, like to the Azure AD URL, unless you explicitly add the URL to the browser's intranet zone.
+By default, a browser automatically calculates the correct zone, either internet or intranet, from a specific URL. For example, `http://contoso/` maps to the *intranet* zone, and `http://intranet.contoso.com/` maps to the *internet* zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint, like to the Microsoft Entra URL, unless you explicitly add the URL to the browser's intranet zone.
 
 There are two ways you can modify user intranet zone settings:
 
@@ -128,7 +129,7 @@ There are two ways you can modify user intranet zone settings:
     :::image type="content" source="media/how-to-connect-sso-quick-start/sso6.png" alt-text="Screenshot that shows the Security Page with Site to Zone Assignment List selected.":::
 1. Enable the policy, and then enter the following values in the dialog:
 
-   - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
+   - **Value name**: The Microsoft Entra URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the intranet zone.
 
      The result looks like this example:
@@ -138,7 +139,7 @@ There are two ways you can modify user intranet zone settings:
      Value (Data): 1
 
    > [!NOTE]
-   > If you want to prevent some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the restricted zone and Seamless SSO fails for the users all the time.
+   > If you want to prevent some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Microsoft Entra URL to the restricted zone and Seamless SSO fails for the users all the time.
    >
 
 1. Select **OK**, and then select **OK** again.
@@ -176,7 +177,7 @@ The next sections have information about Seamless SSO that's specific to differe
 
 #### Mozilla Firefox (all platforms)
 
-If you're using the [Authentication](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) policy settings in your environment, ensure that you add the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) to the **SPNEGO** section. You can also set the **PrivateBrowsing** option to **true** to allow Seamless SSO in private browsing mode.
+If you're using the [Authentication](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) policy settings in your environment, ensure that you add the Microsoft Entra URL (`https://autologon.microsoftazuread-sso.com`) to the **SPNEGO** section. You can also set the **PrivateBrowsing** option to **true** to allow Seamless SSO in private browsing mode.
 
 #### Safari (macOS)
 
@@ -186,19 +187,19 @@ Instructions for joining your macOS device to Windows Server AD are outside the 
 
 #### Microsoft Edge based on Chromium (all platforms)
 
-If you've overridden the [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you also add the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) to these policy settings.
+If you've overridden the [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you also add the Microsoft Entra URL (`https://autologon.microsoftazuread-sso.com`) to these policy settings.
 
 #### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
 
-For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, see the [Microsoft Edge based on Chromium Policy List](/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allowlist.
+For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, see the [Microsoft Edge based on Chromium Policy List](/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Microsoft Entra URL for integrated authentication to your allowlist.
 
 #### Google Chrome (all platforms)
 
-If you've overridden the [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) or [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) policy settings in your environment, ensure that you also add the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) to these policy settings.
+If you've overridden the [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) or [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) policy settings in your environment, ensure that you also add the Microsoft Entra URL (`https://autologon.microsoftazuread-sso.com`) to these policy settings.
 
 #### macOS
 
-The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome for macOS users is outside the scope of this article.
+The use of third-party Active Directory Group Policy extensions to roll out the Microsoft Entra URL to Firefox and Google Chrome for macOS users is outside the scope of this article.
 
 #### Known browser limitations
 
@@ -214,7 +215,7 @@ You might need to configure `AmbientAuthenticationInPrivateModesEnabled` for InP
 To test the feature for a specific user, ensure that all the following conditions are in place:
 
 - The user signs in on a corporate device.
-- The device is joined to your Windows Server AD domain. The device *doesn't* need to be [Azure AD Joined](../../devices/overview.md).
+- The device is joined to your Windows Server AD domain. The device *doesn't* need to be [Microsoft Entra joined](../../devices/overview.md).
 - The device has a direct connection to your domain controller, either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
 - You've [rolled out the feature](#roll-out-the-feature) to this user through Group Policy.
 
@@ -229,12 +230,12 @@ To test a scenario in which the user doesn't have to enter a username or passwor
 
 ## Roll over keys
 
-In [Enable the feature](#enable-the-feature), Azure AD Connect creates computer accounts (representing Azure AD) in all the Windows Server AD forests on which you enabled Seamless SSO. To learn more, see [Azure Active Directory Seamless single sign-on: Technical deep dive](how-to-connect-sso-how-it-works.md).
+In [Enable the feature](#enable-the-feature), Microsoft Entra Connect creates computer accounts (representing Microsoft Entra ID) in all the Windows Server AD forests on which you enabled Seamless SSO. To learn more, see [Microsoft Entra seamless single sign-on: Technical deep dive](how-to-connect-sso-how-it-works.md).
 
 > [!IMPORTANT]
-> The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its Windows Server AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys, or at least once every 30 days.
+> The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its Windows Server AD forest. Malicious actors can then impersonate Microsoft Entra sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys, or at least once every 30 days.
 
-For instructions on how to roll over keys, see [Azure Active Directory Seamless single sign-on: Frequently asked questions](how-to-connect-sso-faq.yml).
+For instructions on how to roll over keys, see [Microsoft Entra seamless single sign-on: Frequently asked questions](how-to-connect-sso-faq.yml).
 
 > [!IMPORTANT]
 > You don't need to do this step *immediately* after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.
@@ -244,4 +245,4 @@ For instructions on how to roll over keys, see [Azure Active Directory Seamless 
 - [Technical deep dive](how-to-connect-sso-how-it-works.md): Understand how the Seamless single sign-on feature works.
 - [Frequently asked questions](how-to-connect-sso-faq.yml): Get answers to frequently asked questions about Seamless single sign-on.
 - [Troubleshoot](tshoot-connect-sso.md): Learn how to resolve common problems with the Seamless single sign-on feature.
-- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Microsoft Entra Forum to file new feature requests.

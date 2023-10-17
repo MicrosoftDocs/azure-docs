@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Create simpler, more efficient rules for dynamic groups in Azure Active Directory
+# Create simpler, more efficient rules for dynamic groups in Microsoft Entra ID
 
-The team for Azure Active Directory (Azure AD), part of Microsoft Entra, receives reports of incidents related to dynamic groups and the processing time for their membership rules. This article uses that reported information to present the most common methods by which our engineering team helps customers to simplify their membership rules. Simpler and more efficient rules result in better dynamic group processing times. When writing membership rules for dynamic groups, follow these steps to ensure that your rules are as efficient as possible.
+The team for Microsoft Entra ID, part of Microsoft Entra, receives reports of incidents related to dynamic groups and the processing time for their membership rules. This article uses that reported information to present the most common methods by which our engineering team helps customers to simplify their membership rules. Simpler and more efficient rules result in better dynamic group processing times. When writing membership rules for dynamic groups, follow these steps to ensure that your rules are as efficient as possible.
 
 
 ## Minimize use of MATCH
@@ -77,4 +77,3 @@ It's better to use a rule like this:
 ## Next steps
 
 - [Create a dynamic group](groups-dynamic-membership.md)
-
