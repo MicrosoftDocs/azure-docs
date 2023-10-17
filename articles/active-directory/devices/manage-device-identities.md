@@ -37,7 +37,7 @@ From there, you can go to **All devices** to:
    - Devices deployed via [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
    - Printers that use [Universal Print](/universal-print/fundamentals/universal-print-getting-started).
 - Complete device identity management tasks like enable, disable, delete, and manage.
-   - The management options for [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) are limited in Microsoft Entra ID. These devices must be managed from their respective admin interfaces.
+   - The management options for [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/autopilot/windows-autopilot) are limited in Microsoft Entra ID. These devices must be managed from their respective admin interfaces.
 - Configure your device identity settings.
 - Enable or disable enterprise state roaming.
 - Review device-related audit logs.
@@ -173,7 +173,7 @@ You must be assigned one of the following roles to manage device settings:
    - This setting allows you to specify whether users are required to provide another authentication factor to join or register their devices to Microsoft Entra ID. The default is **No**. We recommend that you require multifactor authentication when a device is registered or joined. Before you enable multifactor authentication for this service, you must ensure that multifactor authentication is configured for users that register their devices. For more information on Microsoft Entra multifactor authentication services, see [getting started with Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md). This setting may not work with third-party identity providers.
 
    > [!NOTE]
-   > The **Require multifactor authentication to register or join devices with Microsoft Entra ID** setting applies to devices that are either Microsoft Entra joined (with some exceptions) or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
+   > The **Require multifactor authentication to register or join devices with Microsoft Entra ID** setting applies to devices that are either Microsoft Entra joined (with some exceptions) or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/autopilot/self-deploying).
 
 - **Maximum number of devices**: This setting enables you to select the maximum number of Microsoft Entra joined or Microsoft Entra registered devices that a user can have in Microsoft Entra ID. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100. If you enter a value above 100, Microsoft Entra ID sets it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
 
