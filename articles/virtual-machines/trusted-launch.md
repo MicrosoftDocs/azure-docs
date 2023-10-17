@@ -73,7 +73,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - All Azure Government regions
 
 **Pricing**:
-No additional cost to existing VM pricing.
+Trusted launch does not increase existing VM pricing costs.
 
 ## Unsupported features
 
@@ -101,9 +101,9 @@ Trusted launch uses the vTPM to perform remote attestation through the cloud. At
 
 [Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) uses the hypervisor to create a secure and isolated region of memory. Windows uses these regions to run various security solutions with increased protection against vulnerabilities and malicious exploits. Trusted launch lets you enable Hypervisor Code Integrity (HVCI) and Windows Defender Credential Guard.
 
-HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
+HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. Checks ensure executable code can't be modified once it's allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-With trusted launch and VBS you can enable Windows Defender Credential Guard. Credential Guard isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
+With trusted launch and VBS, you can enable Windows Defender Credential Guard. Credential Guard isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 ## Microsoft Defender for Cloud integration
 
@@ -118,15 +118,15 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
 
 - **Alert for VM attestation failure:** Microsoft Defender for Cloud periodically performs attestation on your VMs. The attestation also happens after your VM boots. If the attestation fails, it triggers a medium severity alert.
     VM attestation can fail for the following reasons:
-    - The attested information, which includes a boot log, deviates from a trusted baseline. Any deviation can indicate that untrusted modules have been loaded, and the OS may be compromised.
-    - The attestation quote could not be verified to originate from the vTPM of the attested VM. An unverified origin can indicate that malware is present and may be intercepting traffic to the vTPM.
+    - The attested information, which includes a boot log, deviates from a trusted baseline. Any deviation can indicate that untrusted modules have been loaded, and the OS could be compromised.
+    - The attestation quote couldn't be verified to originate from the vTPM of the attested VM. An unverified origin can indicate that malware is present and could be intercepting traffic to the vTPM.
 
     > [!NOTE]
     >  Alerts are available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation fails if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
-- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud issues low severity alerts. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
+- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud issues low severity alerts. While there's no immediate threat, because the untrusted driver hasn't been loaded, these events should be investigated.
     - Which kernel driver failed? Am I familiar with this driver and expect it to be loaded?
-    - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If this is a 3rd party driver, did the vendor pass the OS compliance tests to get it signed?
+    - Is this the exact version of the driver I'm expecting? Are the driver binaries intact? If this is a third party driver, did the vendor pass the OS compliance tests to get it signed?
 
 ## Next steps
 
