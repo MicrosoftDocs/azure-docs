@@ -175,3 +175,7 @@ Application Insights Logs provides a rich query language that you can use to ana
 - [Funnels](./usage-funnels.md)
 - [Retention](./usage-retention.md)
 - [User flows](./usage-flows.md)
+- In the tutorial, you learned how to create custom dashboards. Now look at the rest of the Application Insights documentation, which also includes a case study.
+   > [!div class="nextstepaction"]
+   > [Deep diagnostics](../app/devops.md)
+
