@@ -77,14 +77,14 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     | Environment | URL |
     |----|----|
     | Production| `https://eu.tispayments.com` , `https://us.tispayments.com` |
-    | Staging | `https://eu-test.tispayments.com` , `https://us-test.tispayments.com` |
+    | Test | `https://eu-test.tispayments.com` , `https://us-test.tispayments.com` |
 
     b. In the **Reply URL** text box, type one of the following URLs:
 
     | Environment | URL |
     |----|----|
     | Production| `https://login.eu.tispayments.com/iam-server/SamlSsoLogin` , `https://login.us.tispayments.com/iam-server/SamlSsoLogin` |
-    | Staging | `https://login.eu-test.tispayments.com/iam-server/SamlSsoLogin` , `https://login.us-test.tispayments.com/iam-server/SamlSsoLogin` |
+    | Test | `https://login.eu-test.tispayments.com/iam-server/SamlSsoLogin` , `https://login.us-test.tispayments.com/iam-server/SamlSsoLogin` |
 
 1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
 
@@ -93,9 +93,9 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     | Environment | URL |
     |----|----|
     | Production| `https://login.eu.tispayments.com` , `https://login.us.tispayments.com` |
-    | Staging | `https://login.eu-test.tispayments.com` , `https://login.us-test.tispayments.com` |
+    | Test | `https://login.eu-test.tispayments.com` , `https://login.us-test.tispayments.com` |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (PEM)** and select **PEM certificate download** to download the certificate and save it on your computer.
 
 	![Certificate shows the Certificate download link.](common/certificate-base64-download.png "Certificate")
 
@@ -127,11 +127,19 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
 
 ## Configure Treasury Intelligence Solutions (TIS) SSO
 
-To configure single sign-on on **Treasury Intelligence Solutions** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Microsoft Entra admin center to [Treasury Intelligence Solutions support team](mailto:support@tispayments.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Treasury Intelligence Solutions** side:
+1. In TIS, navigate to **Administration** > **Security** > **Single Sign-On Configuration** and select either **IdP-initiated Single Sign-On** or **SP-initiatedd Single Sign-On**
+2. Provide the **Identity Provider (Entity ID)**. This is the value that is provided by Microsoft Entra SSO in the field **Microsoft Entra ID Identifier**.
+3. For the Certificate, select the **PEM certificate** downloaded on your computer.
+4. For **SP-initiatedd Single Sign-On**, provide the **Identity Provider Login URL** which was shown in the field **Login URL**. For the **IdP-initiated Single Sign-On**, both fields **User Login URL** and **User Logout URL** are optional and can be left blank. 
+
 
 ### Create Treasury Intelligence Solutions (TIS) test user
 
-In this section, you create a user called B.Simon in Treasury Intelligence Solutions (TIS). Work with [Treasury Intelligence Solutions (TIS) support team](mailto:support@tispayments.com) to add the users in the Treasury Intelligence Solutions (TIS) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Treasury Intelligence Solutions (TIS). 
+1. For the new user, SSO has to be enabled by selecting the new user and then choose **Edit** > **SSO user** > **Enable SSO Login**.
+1. The value for **SSO** id is provided by Microsoft Entra. By default this is the user's attribute **user.userprincipalname** (can be changed by choosing another attribute for **Unique User Identifier** in Microsoft Entra SSO).
+2. Select the test user in Microsoft Entra and copy the value for **User principal name** and paste it into the field **SSO id** in TIS.
 
 ## Test SSO 
 
