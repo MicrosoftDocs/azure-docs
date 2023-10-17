@@ -134,7 +134,9 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + For `exhaustiveKnn`, use [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs or Azure SDK beta libraries that target the 2023-10-01-Preview version.
 
-Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built, except for invocation of an exhaustive search over a field that's specified for HNSW. A [query request](vector-search-how-to-query.md) that has `"exhaustive": true` will perform an exhaustive search, even if the field is indexed for HNSW. The opposite isn't true however. If a field is indexed for `exhaustiveKnn`, you can't use HNSW in the query. The extra data structures that enable efficient search don’t exist.
+Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. Some parameters that affect the query-time characteristics may be modified. 
+
+In addition, fields that specify HNSW algorithm also support exhaustive knn search using the [query request](vector-search-how-to-query.md) parameter `"exhaustive": true`. The opposite isn't true however. If a field is indexed for `exhaustiveKnn`, you can't use HNSW in the query because the additional data structures that enable efficient search don’t exist.
 
 ### Approximate Nearest Neighbors
 
