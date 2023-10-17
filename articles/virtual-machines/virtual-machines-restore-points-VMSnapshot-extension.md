@@ -6,7 +6,7 @@ ms.author: Aarthi-Vijaya-raghavan
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/17/2023
 ms.custom: template-how-to
 ---
 

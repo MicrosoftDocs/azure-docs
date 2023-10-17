@@ -6,7 +6,7 @@ ms.author: Aarthi-Vijaya-raghavan
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 10/17/2023
 ms.custom: conceptual
 ---
 

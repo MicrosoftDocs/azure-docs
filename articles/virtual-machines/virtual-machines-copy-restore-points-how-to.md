@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 10/17/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorials
 ---
 
 # Cross-region copy of VM Restore Points
