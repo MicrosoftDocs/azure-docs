@@ -75,7 +75,7 @@ Sign-in logs also contain several unique identifiers that provide further insigh
 
 ## Sign-in activity details
 
-Each sign-in attempt contains details associated with those three main components. The details are organized into several tab, based on the type of sign-in. 
+Each sign-in attempt contains details associated with those three main components. The details are organized into several tabs, based on the type of sign-in. 
 
 ### [Basic info](#tab/basic-info)
 
@@ -130,7 +130,7 @@ If Conditional Access (CA) policies are in use in your tenant, you can see if th
 
 ### [Report-only](#tab/report-only)
 
-Because Conditional Access (CA) policies can change the sign-in experience for your users and potentially disrupt their processes, it's a good idea to be absolutely sure your policy is configured correctly. With **Report-only** mode, you can configure a policy and evaluate it's potential impact before enabling the policy.
+Because Conditional Access (CA) policies can change the sign-in experience for your users and potentially disrupt their processes, it's a good idea to be absolutely sure your policy is configured correctly. With **Report-only** mode, you can configure a policy and evaluate its potential impact before enabling the policy.
 
 This tab of the sign-in logs displays the results of sign-in attempts that were in scope for the policy. For more information, see the [What is Conditional Access report-only mode?](../conditional-access/concept-conditional-access-report-only.md) article.
 

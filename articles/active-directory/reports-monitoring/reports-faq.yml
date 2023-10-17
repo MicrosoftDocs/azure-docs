@@ -134,7 +134,7 @@ sections:
       - question: |
           I'm seeing User IDs / Object IDs / GUIDs in the username field of my sign-in log. Why is this happening?
         answer: |
-          There are several reason why sign-in entries may display User IDs, Object IDs, or GUIDs in the username field.
+          There are several reasons why sign-in entries may display User IDs, Object IDs, or GUIDs in the username field.
           - With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field says *passwordless*.
           - The user authenticated but has not yet signed in. To confirm, there is an *error code 50058* that correlates with an interrupt.
           - If the username field shows *000000-00000-0000-0000* or something similar, there could be tenant restrictions in place, preventing the user from signing in to the selected tenant.
