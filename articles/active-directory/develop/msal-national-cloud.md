@@ -43,7 +43,7 @@ Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](../../azure-government/index.yml) applications can use Microsoft Entra Government identities and Microsoft Entra Public identities to authenticate users. Because you can use any of these identities, decide which authority endpoint you should choose for your scenario:
+[Azure Government](/azure/azure-government/) applications can use Microsoft Entra Government identities and Microsoft Entra Public identities to authenticate users. Because you can use any of these identities, decide which authority endpoint you should choose for your scenario:
 
 - Microsoft Entra Public: Commonly used if your organization already has a Microsoft Entra Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Microsoft Entra Government: Commonly used if your organization already has a Microsoft Entra Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Microsoft Entra Government.
@@ -52,7 +52,7 @@ After you decide, a special consideration is where you perform your app registra
 
 ### Get an Azure Government subscription
 
-To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/compare-azure-government-global-azure.md).
+To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](/azure/azure-government/compare-azure-government-global-azure).
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
@@ -215,6 +215,6 @@ See [National cloud authentication endpoints](authentication-national-cloud.md) 
 
 National cloud documentation:
 
-- [Azure Government](../../azure-government/index.yml)
+- [Azure Government](/azure/azure-government/)
 - [Microsoft Azure operated by 21Vianet](/azure/china/)
-- [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)
+- [Azure Germany (closes on October 29, 2021)](/azure/germany/)

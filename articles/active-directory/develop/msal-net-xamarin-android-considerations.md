@@ -223,7 +223,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-For more information, see [Use web browsers for MSAL.NET](msal-net-web-browsers.md) and [Xamarin Android system browser considerations](msal-net-system-browser-android-considerations.md).
+For more information, see [Use web browsers for MSAL.NET](/entra/msal/dotnet/acquiring-tokens/using-web-browsers) and [Xamarin Android system browser considerations](msal-net-system-browser-android-considerations.md).
 
 ## Troubleshooting
 

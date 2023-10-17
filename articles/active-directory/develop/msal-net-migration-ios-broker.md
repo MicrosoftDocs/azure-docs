@@ -35,7 +35,7 @@ They enable:
 
 - Single sign-on.
 - Device identification, which is required by some [Conditional Access policies](../conditional-access/overview.md). For more information, see [Device management](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Application identification verification, which is also required in some enterprise scenarios. For more information, see [Intune mobile application management (MAM)](/intune/mam-faq).
+- Application identification verification, which is also required in some enterprise scenarios. For more information, see [Intune mobile application management (MAM)](/mem/intune/apps/mam-faq).
 
 ## Migrate from ADAL to MSAL
 

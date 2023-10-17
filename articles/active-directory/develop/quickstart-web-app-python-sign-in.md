@@ -28,7 +28,7 @@ The following diagram displays how the sample app works:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Microsoft Entra tenant. For more information on how to get a Microsoft Entra tenant, see [how to get a Microsoft Entra tenant.](/azure/active-directory/develop/quickstart-create-new-tenant)
+- A Microsoft Entra tenant. For more information on how to get a Microsoft Entra tenant, see [how to get a Microsoft Entra tenant.](./quickstart-create-new-tenant.md)
 - [Python 3.7+](https://www.python.org/downloads/)
 
 ## Step 1: Register your application

@@ -81,7 +81,7 @@ ADAL to MSAL migration guide for different platforms are available in the follow
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
 - [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Migrate to MSAL .NET](msal-net-migration.md)
+- [Migrate to MSAL .NET](/entra/msal/dotnet/how-to/msal-net-migration)
 - [Migrate to MSAL Node](msal-node-migration.md)
 - [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 
@@ -89,7 +89,7 @@ ADAL to MSAL migration guide for different platforms are available in the follow
 
 If you have questions about migrating your app from ADAL to MSAL, here are some options:
 
-- Post your question on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) and tag it with `[azure-ad-adal-deprecation]`.
+- Post your question on [Microsoft Q&A](/answers/tags/455/entra-id) and tag it with `[azure-ad-adal-deprecation]`.
 - Open an issue in the library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
 
 If you partnered with an Independent Software Vendor (ISV) in the development of your application, we recommend that you contact them directly to understand their migration journey to MSAL.
