@@ -24,7 +24,7 @@ This article provides some general guidance on getting optimal performance with 
 
 :::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Enable Accelerated Networking during VM creation." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
 
-- You must use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-a-volume), [Linux](elastic-san-connect-linux.md#connect-to-a-volume), or on the Connect to volume page for your volumes in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
+- You must use 32 sessions per target volume for each volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-a-volume), [Linux](elastic-san-connect-linux.md#connect-to-a-volume), or on the Connect to volume page for your volumes in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
 
 
 ### MPIO
