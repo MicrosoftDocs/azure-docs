@@ -110,7 +110,7 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
 * **Issuer**: Account onboarding is a good fit for an external identity-proofing service as the issuer of the VCs. Examples of checks for onboarding include: liveness check, government-issued document validation, address, or phone number confirmation, and so on.
 
-* **Storing VC Attributes**: Where possible don't store attributes from VCs in your app-specific store. Be especially careful with personal data. If specific flows within your applications requires this information, consider asking for the VC to retrieve the claims on demand. 
+* **Storing VC Attributes**: Where possible don't store attributes from VCs in your app-specific store. Be especially careful with personal data. If specific flows within your applications require this information, consider asking for the VC to retrieve the claims on demand. 
 
 * **VC Attribute correlation with back-end systems**: When defining the attributes of the VC with the issuer, establish a mechanism to correlate information in the back-end system after the user presents the VC. The mechanism typically uses a time-bound, unique identifier in the context of your RP in combination with the claims you receive. Some examples:
 
@@ -265,7 +265,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
 As with any solution, you must plan for performance. Focus areas include latency, throughput, and scalability. During initial phases of a release cycle, performance shouldn't be a concern. However, when adoption of your solution results in many verifiable credentials being verified, performance planning might become a critical part of your solution.
 
-The following items provides areas to consider when planning for performance:
+The following items provide areas to consider when planning for performance:
 
 * The Microsoft Entra Verified ID issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. To limit latency, deploy your verification front end (website) and key vault in the closest region.
 
