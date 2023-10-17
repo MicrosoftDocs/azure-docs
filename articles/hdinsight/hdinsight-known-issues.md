@@ -25,7 +25,7 @@ Azure HDInsight has the following known issues:
 ### Kafka 2.4.1 has validation error in ARM templates
 **Issue published date**: October, 13 2023
 
-When submitting cluster creation requests using ARM templates, Runbooks, PowerShell, Azure CLI, and other automation tools, you may receive a BadRequest error message if you specify clusterType="Kafka", HDI version = "5.0" and Kafka version = "2.4.1".
+When submitting cluster creation requests using ARM templates, Runbooks, PowerShell, Azure CLI, and other automation tools, you might receive a BadRequest error message if you specify clusterType="Kafka", HDI version = "5.0" and Kafka version = "2.4.1".
 
 #### Troubleshooting steps
 
