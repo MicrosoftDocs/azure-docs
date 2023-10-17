@@ -24,7 +24,7 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 The following table provides a comparison between Azure Front Door and Azure CDN services.
 
-| Features and optimizations | Front Door Standard | Front Door Premium | Azure CDN Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
+| Features and optimizations | Front Door Standard | Front Door Premium | Front Door Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Delivery and acceleration** | | | | | | |
 | Static file delivery | Yes | Yes | Yes | Yes | Yes | Yes |
