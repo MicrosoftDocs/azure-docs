@@ -194,4 +194,4 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 ## Next steps
 
 - [Managed identities for Azure resources overview](overview.md)
-- For the full Azure virtual machine scale set creation Quickstart, see [Create a Virtual Machine Scale Set with CLI](../develop/configure-app-multi-instancing.md#create-a-scale-set)
+- For the full Azure virtual machine scale set creation Quickstart, see [Create a Virtual Machine Scale Set with CLI](/azure/virtual-machines/linux/tutorial-create-vmss#create-a-scale-set)
