@@ -56,7 +56,7 @@ Currently, the two distinct APIs for defining entities are:
 
 **Class-based syntax (.NET only)**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
 
-# [C# (In-proc)](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 ### Example: Function-based syntax - C#
 
@@ -110,7 +110,7 @@ The state of this entity is an object of type `Counter`, which contains a field 
 
 For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
 
-# [C# (Isolated)](#tab/csharp)
+# [C# (Isolated)](#tab/isolated-process)
 ### Example: Function-based syntax - C#
 
 ```csharp

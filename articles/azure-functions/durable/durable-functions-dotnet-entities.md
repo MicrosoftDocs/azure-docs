@@ -330,7 +330,7 @@ Besides providing type checking, interfaces are useful for a better separation o
 
 ### Example: client signals entity through interface
 
-# [C# (In-Proc)](#tab/inprocess-process)
+# [C# (In-Proc)](#tab/in-process)
 Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. For example:
 
 ```csharp
