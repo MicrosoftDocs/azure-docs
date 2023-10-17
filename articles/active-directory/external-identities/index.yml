@@ -27,11 +27,11 @@ highlightedContent:
     # Card
     - title: CIAM - Get started 
       itemType: overview
-      url: /azure/active-directory/external-identities/customers
+      url: ./customers/index.yml
     # Card
     - title: B2B - Get started 
       itemType: overview
-      url: /azure/active-directory/external-identities/index-b2b      
+      url: ./index-b2b.yml      
     # Card
     - title: What is Azure AD B2C (business-to-consumer) identity?
       itemType: overview
@@ -47,80 +47,80 @@ additionalContent:
         # Card
         - title: Overview
           summary: Learn basic customer tenant concepts and processes.
-          url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+          url: ./customers/overview-customers-ciam.md
         # Card
         - title: 30-day free trial
           summary: Set up your customer tenant free trial.
-          url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
+          url: ./customers/quickstart-trial-setup.md
         # Card
         - title: Planning for customer identity and access management 
           summary: Plan your customer tenant journey.
-          url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
+          url: ./customers/concept-planning-your-solution.md
           # Card
         - title: Code samples for customer tenants
           summary: Learn about our code samples for customer identity and access management (CIAM) in Microsoft Entra External ID.
-          url: /azure/active-directory/external-identities/customers/samples-ciam-all
+          url: ./customers/samples-ciam-all.md
           # Card
         - title: Authentication methods and identity providers
           summary: Learn about several options for authenticating users of your applications. 
-          url: /azure/active-directory/external-identities/customers/concept-authentication-methods-customers
+          url: ./customers/concept-authentication-methods-customers.md
           # Card
         - title: Customize the sign-in look and feel
           summary: Learn about how to personalize the end-user experience.
-          url: /azure/active-directory/external-identities/customers/concept-branding-customers        
+          url: ./customers/concept-branding-customers.md        
     - title: Microsoft Entra External ID for partners (B2B)
       items:      
         # Card
         - title: Overview
           summary: Learn basic B2B concepts and processes.
-          url: /azure/active-directory/external-identities/external-identities-overview
+          url: ./external-identities-overview.md
         # Card
         - title: What is Microsoft Entra B2B collaboration?
           summary: Learn about the Microsoft Entra B2B collaboration feature.
-          url: /azure/active-directory/external-identities/what-is-b2b      
+          url: ./what-is-b2b.md      
         # Card
         - title: What is Microsoft Entra B2B direct connect?
           summary: Learn about the Microsoft Entra B2B direct connect feature.
-          url: /azure/active-directory/external-identities/b2b-direct-connect-overview   
+          url: ./b2b-direct-connect-overview.md   
         # Card
         - title: External user properties in Microsoft Entra External ID
           summary: Learn about the properties of a Microsoft Entra B2B collaboration user.
-          url: /azure/active-directory/external-identities/user-properties 
+          url: ./user-properties.md 
         # Card
         - title: Cross-tenant access
           summary: Configure cross-tenant access settings for B2B collaboration.
-          url: /azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration
+          url: ./cross-tenant-access-settings-b2b-collaboration.md
         # Card
         - title: Self-service sign-up
           summary: Learn about the self-service sign-up user flow. 
-          url: /azure/active-directory/external-identities/self-service-sign-up-overview 
+          url: ./self-service-sign-up-overview.md 
     - title: Quickstarts by app type in the customer tenant 
       items:
         # Card
         - title: Single-page app (SPA)
           summary: A web app whose code is downloaded and run in the browser itself. 
-          url: /azure/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sample-sign-in  
+          url: ./customers/sample-single-page-app-vanillajs-sign-in.md  
         # Card
         - title: Web app
           summary: A "classic" web app that runs on a server.
-          url: /azure/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in
+          url: ./customers/sample-web-app-node-sign-in.md
         # Card
         - title: Web API
           summary: Web API that is called from a web app or from a web client.
-          url: /azure/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-overview          
+          url: ./customers/tutorial-protect-web-api-dotnet-core-build-app.md          
           # Card
         - title: Browserless app
           summary: A web app without a user interface.
-          url: /azure/active-directory/external-identities/customers/how-to-browserless-app-node-sample-sign-in 
+          url: ./customers/sample-browserless-app-node-sign-in.md 
         - title: Daemon app
           summary: Daemon or server app that runs without a user interface.
-          url: /azure/active-directory/external-identities/customers/how-to-daemon-node-sample-call-api
+          url: ./customers/sample-daemon-node-call-api.md
         # Card
         - title: Desktop app
           summary: App with a native user interface that runs on a desktop, laptop or notebook.
-          url: /azure/active-directory/external-identities/customers/how-to-desktop-app-electron-sample-sign-in   
+          url: ./customers/how-to-desktop-app-electron-sample-sign-in.md   
           # Card
         - title: Mobile app
           summary: App with a native user interface that runs on a mobile device.
-          url: /azure/active-directory/develop/mobile-app-quickstart           
+          url: ../develop/index-mobile.yml           
 ## BAND 2 - ADDITIONAL CONTENT END ##########################################################################################################################

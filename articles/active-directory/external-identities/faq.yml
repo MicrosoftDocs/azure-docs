@@ -18,7 +18,7 @@ summary: |
   These frequently asked questions (FAQs) about Microsoft Entra business-to-business (B2B) collaboration are periodically updated to include new topics.
   
   > [!IMPORTANT]
-  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you're using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
+  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you're using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](/azure/active-directory/develop/configure-app-multi-instancing#deprecation-of-web-view-sign-in-support).
   > - The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 sections:
@@ -37,7 +37,7 @@ sections:
       - question: |
           Can B2B collaboration users access Power BI content?
         answer: |
-          Yes, you can [distribute Power BI content to external guest users using B2B collaboration](/power-bi/guidance/whitepaper-azure-b2b-power-bi). To share Power BI content across Microsoft clouds, you can [use Microsoft cloud settings](cross-tenant-access-overview.md#microsoft-cloud-settings) to establish mutual B2B collaboration between your cloud and an external cloud.
+          Yes, you can [distribute Power BI content to external guest users using B2B collaboration](/power-bi/guidance/whitepaper-azure-b2b-power-bi). To share Power BI content across Microsoft clouds, you can [use Microsoft cloud settings](/azure/active-directory/develop/configure-app-multi-instancing#microsoft-cloud-settings) to establish mutual B2B collaboration between your cloud and an external cloud.
 
       - question: |
           Is the CSV upload feature still supported?
@@ -47,7 +47,7 @@ sections:
       - question: |
           How can I customize my invitation emails?
         answer: |
-          You can customize almost everything about the inviter process by using the [B2B invitation APIs](customize-invitation-api.md).
+          You can customize almost everything about the inviter process by using the [B2B invitation APIs](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
           Can guest users reset their multifactor authentication method?
@@ -62,12 +62,12 @@ sections:
       - question: |
           What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and Microsoft Entra hybrid joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Microsoft Entra organizations.
+          [Cross-tenant access settings](/azure/active-directory/develop/configure-app-multi-instancing) let you trust multifactor authentication and device claims ([compliant claims and Microsoft Entra hybrid joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Microsoft Entra organizations.
 
       - question: |
           How many organizations can I add in cross-tenant access settings?
         answer: |
-          Cross-tenant access settings are a policy in the directory that stores your settings for how you collaborate with other organizations. This policy file has a 25kb size limit and once it is maxed out, no additional organizations or changes can be made that would further increase the file size. Due to how we store the content in this policy, there is no defined limit of organizations you can add in cross-tenant access settings. If you need to apply settings to a large number of organizations, we recommend implementing those settings as your default settings. Follow the steps to [calculate the current size of your policy](troubleshoot.md#an-error-similar-to-failure-to-update-policy-due-to-object-limit-appears-while-configuring-cross-tenant-access-settings) and determine whether you are close to hitting the 25kb file size limit.
+          Cross-tenant access settings are a policy in the directory that stores your settings for how you collaborate with other organizations. This policy file has a 25kb size limit and once it is maxed out, no additional organizations or changes can be made that would further increase the file size. Due to how we store the content in this policy, there is no defined limit of organizations you can add in cross-tenant access settings. If you need to apply settings to a large number of organizations, we recommend implementing those settings as your default settings. Follow the steps to [calculate the current size of your policy](/azure/active-directory/develop/configure-app-multi-instancing#an-error-similar-to-failure-to-update-policy-due-to-object-limit-appears-while-configuring-cross-tenant-access-settings) and determine whether you are close to hitting the 25kb file size limit.
 
       - question: |
           How can I use delayed invitations?
@@ -126,7 +126,7 @@ sections:
       - question: |
           Does Microsoft Dynamics 365 provide online support for Microsoft Entra B2B collaboration?
         answer: |
-          Yes, Dynamics 365 (online) supports Microsoft Entra B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Microsoft Entra B2B collaboration](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+          Yes, Dynamics 365 (online) supports Microsoft Entra B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Microsoft Entra B2B collaboration](/power-platform/admin/invite-users-azure-active-directory-b2b-collaboration).
           
       - question: |
           What is the lifetime of an initial password for a newly created B2B collaboration user?
@@ -142,7 +142,7 @@ sections:
       - question: |
           An organization might want to have different experiences in their applications for tenant users and guest users. Is there standard guidance for this? Is the presence of the identity provider claim the correct model to use?
         answer: |
-          A guest user can use any identity provider to authenticate. For more information, see [Properties of a B2B collaboration user](user-properties.md). Use the **UserType** property to determine user experience. The **UserType** claim isn't currently included in the token. Applications should use the Microsoft Graph API to query the directory for the user, and to get the UserType.
+          A guest user can use any identity provider to authenticate. For more information, see [Properties of a B2B collaboration user](/azure/active-directory/develop/configure-app-multi-instancing). Use the **UserType** property to determine user experience. The **UserType** claim isn't currently included in the token. Applications should use the Microsoft Graph API to query the directory for the user, and to get the UserType.
           
       - question: |
           Where can I find a B2B collaboration community to share solutions and to submit ideas?
@@ -154,7 +154,7 @@ sections:
       - question: |
           Can we send an invitation that is automatically redeemed, so that the user is just “ready to go”? Or does the user always have to click through to the redemption URL?
         answer: |
-          You can invite other users in the partner organization by using the UI, PowerShell scripts, or APIs. You can then send the guest user a direct link to a shared app. In most cases, there's no longer a need to open the email invitation and click a redemption URL. See [Microsoft Entra B2B collaboration invitation redemption](redemption-experience.md).
+          You can invite other users in the partner organization by using the UI, PowerShell scripts, or APIs. You can then send the guest user a direct link to a shared app. In most cases, there's no longer a need to open the email invitation and click a redemption URL. See [Microsoft Entra B2B collaboration invitation redemption](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
           How does B2B collaboration work when the invited partner is using federation to add their own on-premises authentication?
@@ -164,7 +164,7 @@ sections:
       - question: |
           I thought Microsoft Entra B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
         answer: |
-          We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Microsoft Entra ID](external-identities-overview.md).
+          We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Microsoft Entra ID](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
           Can an Azure AD B2C local account be invited to a Microsoft Entra tenant for B2B collaboration?
@@ -174,12 +174,12 @@ sections:
       - question: |
           What applications and services support Azure B2B guest users?
         answer: |
-          All Microsoft Entra integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
+          All Microsoft Entra integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](/azure/active-directory/develop/configure-app-multi-instancing) in the SAML token that is issued when a guest user authenticates to the app. 
           
       - question: |
           Can we force multifactor authentication for B2B guest users if our partners don't have multifactor authentication?
         answer: |
-          Yes. For more information, see [Conditional Access for B2B collaboration users](authentication-conditional-access.md).
+          Yes. For more information, see [Conditional Access for B2B collaboration users](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
           In SharePoint, you can define an "allow" or "deny" list for external users. Can we do this in Azure?
@@ -189,13 +189,13 @@ sections:
       - question: |
           What licenses do we need to use Microsoft Entra B2B?
         answer: |
-          For information about what licenses your organization needs to use Microsoft Entra B2B, see [External Identities pricing](external-identities-pricing.md).
+          For information about what licenses your organization needs to use Microsoft Entra B2B, see [External Identities pricing](/azure/active-directory/develop/configure-app-multi-instancing).
 
       - question: |
           What happens if I invite a user whose email and UPN don’t match?
         answer: |
           It depends. By default, Microsoft Entra-only allows UPN for login ID. When UPN and email are the same, Microsoft Entra B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to sign in.
-          When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](redemption-experience.md#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Microsoft Entra ID or a federated identity provider) is configured to allow email as an alternative login ID. 
+          When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](/azure/active-directory/develop/configure-app-multi-instancing#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Microsoft Entra ID or a federated identity provider) is configured to allow email as an alternative login ID. 
           This issue can be mitigated by:
           1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Microsoft Entra tenant
           2. Enabling the federated identity provider to support email as login ID (if Microsoft Entra ID is federated to another identity provider) or
