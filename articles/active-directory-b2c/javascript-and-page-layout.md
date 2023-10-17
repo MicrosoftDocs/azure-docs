@@ -26,7 +26,9 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
 
 1. Adding the `defer` attribute, which specifies that the script is downloaded in parallel to parsing the page, then the script is executed after the page has finished parsing:
 
-	`<script src="my-script.js" defer></script>`
+	 ```javascript
+	<script src="my-script.js" defer></script>
+	```
 
 
 2. Adding `async` attribute, it specifies that the script is downloaded in parallel to parsing the page, and executed as soon as it is available (before parsing completes).
