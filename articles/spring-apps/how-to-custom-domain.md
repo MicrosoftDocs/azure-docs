@@ -239,7 +239,7 @@ Certificate stored in key vault may get renewed before it expires. DevOps team i
 - [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md) custom domain
 - [Application Configuration Service for Tanzu](./how-to-enterprise-application-configuration-service.md)
 
-Whenever Azure Spring Apps imports or reloads a certificate for you, an activity log will be generated.  To see it, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
+Whenever Azure Spring Apps imports or reloads a certificate for you, an activity log will be generated.  To see your activity logs, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
 
 > [!NOTE]
 > This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
