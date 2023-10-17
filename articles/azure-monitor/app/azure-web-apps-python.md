@@ -47,14 +47,14 @@ The integration is in public preview. It adds the Python SDK, which is in GA.
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    :::image type="content"source="./media/azure-web-apps-python/enable.png" alt-text="Screenshot of Application Insights tab with enable selected."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected."::: 
 
 2. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
     > [!NOTE]
     > When you select **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**.
 
-    :::image type="content"source="./media/azure-web-apps-python/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
+    :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
 
 3. Once you've specified which resource to use, you're all set to go. 
 
