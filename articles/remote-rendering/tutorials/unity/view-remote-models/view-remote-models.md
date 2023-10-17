@@ -495,7 +495,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string modelPath, UnityEngine.Transform parent = null, Action<float> progress = null)
     {
         //Implement me
         return null;
@@ -745,7 +745,7 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string modelPath, UnityEngine.Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();

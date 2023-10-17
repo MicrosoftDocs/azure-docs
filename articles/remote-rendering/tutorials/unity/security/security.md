@@ -63,7 +63,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobName, string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobName, string modelPath, UnityEngine.Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
