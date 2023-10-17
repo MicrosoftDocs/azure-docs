@@ -50,7 +50,7 @@ The following table shows the differences between the system-assigned and user-a
 
 2. Azure Resource Manager creates a service principal in Microsoft Entra ID for the identity of the VM. The service principal is created in the Microsoft Entra tenant that's trusted by the subscription.
 
-3. Azure Resource Manager updates the VM identity using the Azure Instance Metadata Service identity endpoint (for [Windows](../../virtual-machines/windows/instance-metadata-service.md) and [Linux](../../virtual-machines/linux/instance-metadata-service.md)), providing the endpoint with the service principal client ID and certificate.
+3. Azure Resource Manager updates the VM identity using the Azure Instance Metadata Service identity endpoint (for [Windows](../develop/configure-app-multi-instancing.md) and [Linux](../develop/configure-app-multi-instancing.md)), providing the endpoint with the service principal client ID and certificate.
 
 4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use Azure Role-Based Access Control (Azure RBAC) to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 

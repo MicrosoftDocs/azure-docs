@@ -39,19 +39,19 @@
     - name: Access Azure Key Vault
       href: tutorial-linux-vm-access-nonaad.md
     - name: Access Azure Container Registry
-      href: ../../container-registry/container-registry-authentication-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+      href: /azure/container-registry/container-registry-authentication-managed-identity?context=/azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: msi-tutorial-linux-vm-access-arm.md
   - name: Access Azure Cosmos DB
     href: tutorial-vm-managed-identities-cosmos.md
   - name: Azure Service Bus
-    href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=/azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure App Service and Functions
-    href: ../../app-service/overview-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: /azure/app-service/overview-managed-identity?context=/azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Event Hubs
-    href: ../../event-hubs/authenticate-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: /azure/event-hubs/authenticate-managed-identity?context=/azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Container Instances
-    href: ../../container-instances/container-instances-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: /azure/container-instances/container-instances-managed-identity?context=/azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
 - name: Concepts
