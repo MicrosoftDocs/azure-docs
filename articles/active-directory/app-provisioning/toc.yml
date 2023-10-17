@@ -176,7 +176,7 @@ items:
     - name: Azure feedback forum
       href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
     - name: Microsoft Q&A question page
-      href: /answers/topics/azure-active-directory.html
+      href: /answers/tags/455/entra-id
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Service updates
