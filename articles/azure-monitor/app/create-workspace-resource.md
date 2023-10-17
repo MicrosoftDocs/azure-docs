@@ -328,7 +328,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ### Create more Application Insights resources
 
-To create an Applications Insights resource, see [Create an Application Insights resource](./create-workspace-resource.md).
+To create an Applications Insights resource, see [Create an Application Insights resource](#workspace-based-application-insights-resources).
 
 > [!WARNING]
 > You may incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
@@ -404,7 +404,7 @@ This section provides answers to common questions.
 
 Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
           
-1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./create-workspace-resource.md)) in the new region.
+1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](#workspace-based-application-insights-resources)) in the new region.
 1. Re-create all unique customizations specific to the original resource in the new resource.
 1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](./sdk-connection-string.md).
 1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
@@ -422,7 +422,7 @@ Unique customizations that commonly need to be manually re-created or updated fo
 - Diagnostic settings in workspace-based resources must be configured again.
           
 > [!NOTE]
-> If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](./create-workspace-resource.md). Alternatively, [migrate your existing resource to workspace based](./convert-classic-resource.md).
+> If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](#workspace-based-application-insights-resources). Alternatively, [migrate your existing resource to workspace based](./convert-classic-resource.md).
 
 ## Next steps
 
