@@ -220,7 +220,7 @@ For this risk area, we recommend you monitor standard user accounts and privileg
 
 ### How to detect
 
-You use Azure Identity Protection and the Microsoft Entra sign-in logs to help discover threats indicated by unusual sign-in characteristics. Information about Identity Protection is available at [What is Identity Protection](../identity-protection/overview-identity-protection.md). You can also replicate the data to Azure Monitor or a SIEM for monitoring and alerting purposes. To define normal for your environment and to set a baseline, determine:
+You use Microsoft Entra ID Protection and the Microsoft Entra sign-in logs to help discover threats indicated by unusual sign-in characteristics. Information about Identity Protection is available at [What is Identity Protection](../identity-protection/overview-identity-protection.md). You can also replicate the data to Azure Monitor or a SIEM for monitoring and alerting purposes. To define normal for your environment and to set a baseline, determine:
 
 * the parameters you consider normal for your user base.
 
