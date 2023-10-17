@@ -891,7 +891,7 @@ SAML/Ws-Fed based identity providers for authentication in Azure AD B2B are gene
 **Service category:** Azure Active Directory Domain Services                     
 **Product capability:** Azure Active Directory Domain Services            
 
-Azure Active Directory Domain Services will now support synchronizing custom attributes from Azure AD for on-premises accounts. For more information, see: [Custom attributes for Azure Active Directory Domain Services](/azure/active-directory-domain-services/concepts-custom-attributes).
+Azure Active Directory Domain Services will now support synchronizing custom attributes from Azure AD for on-premises accounts. For more information, see: [Custom attributes for Azure Active Directory Domain Services](/entra/identity/domain-services/concepts-custom-attributes).
 
 ---
 

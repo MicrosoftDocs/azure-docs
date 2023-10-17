@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Accounts that are assigned administrative rights are targeted by attackers. Requiring multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
 
-Microsoft recommends you require MFA on the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
+Microsoft recommends you require MFA on the following roles at a minimum, based on [identity score recommendations](../reports-monitoring/concept-identity-secure-score.md):
 
 - Global Administrator
 - Application Administrator
