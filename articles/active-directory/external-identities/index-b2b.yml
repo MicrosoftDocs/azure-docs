@@ -91,7 +91,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is a multi-tenant organization in Microsoft Entra ID?
-            url: ../multi-tenant-organizations/overview
+            url: /azure/active-directory/multi-tenant-organizations/overview
       - linkListType: concept
         links:
           - text: Topologies for cross-tenant synchronization
