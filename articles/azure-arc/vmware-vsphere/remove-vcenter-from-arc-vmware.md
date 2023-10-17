@@ -22,7 +22,9 @@ In this article, you learn how to cleanly remove your VMware vCenter environment
 ## 1. Remove guest management from VMware virtual machines
 
 To prevent continued billing of Azure management services after you remove the vSphere environment from Azure Arc, you must first cleanly remove guest management from all Arc-enabled VMware vSphere virtual machines where it was enabled.
-When you enable guest management on Arc-enabled VMware vSphere virtual machines, the Arc connected machine agent is installed on them. Once guest management is enabled, you can install VM extensions on them and use Azure management services like the Log Analytics on them.
+When you enable guest management on Arc-enabled VMware vSphere virtual machines, the Arc connected machine agent is installed on them. 
+
+Once guest management is enabled, you can install VM extensions on them and use Azure management services like the Log Analytics on them.
 To cleanly remove guest management, you must follow the steps below to remove any VM extensions from the virtual machine, disconnect the agent, and uninstall the software from your virtual machine. It's important to complete each of the three steps to fully remove all related software components from your virtual machines.
 
 ### Step 1: Remove VM extensions
@@ -344,14 +346,14 @@ To run the deboarding script, follow these steps:
 
 2. Run the following command to allow the script to run because it's an unsigned script. (If you close the session before you complete all the steps, run this command again for the new session.)
 
-```powershell-interactive
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
-```
+    ```powershell-interactive
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
+    ```
 3. Run the script.
 
-```powershell-interactive
-./arcvmware-deboard.ps1
-```
+    ```powershell-interactive
+    ./arcvmware-deboard.ps1
+    ```
 
 #### Inputs for the script
 
