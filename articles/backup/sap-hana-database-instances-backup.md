@@ -96,7 +96,7 @@ To create a policy for the SAP HANA database instance backup, follow these steps
    1. **Resource group**: Select the appropriate resource group in the drop-down list.  
    1. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
-      You can also create a new managed identity for snapshot backup and restore. To create a managed identity, follow these steps:
+      You can also create a new managed identity for snapshot backup and restore. To create a managed identity and assign it to the VM with SAP HANA database, follow these steps:
 
       1. Select **+ Create**.
       
@@ -106,6 +106,22 @@ To create a policy for the SAP HANA database instance backup, follow these steps
       1. Select **Review + create**.
       
          :::image type="content" source="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png" alt-text="Screenshot that shows how to configure a new managed identity.":::
+
+      1. Go to the *VM with SAP HANA database*, and then select **Identity** > **User assigned** tab.
+      1. Select **User assigned managed identity**.
+         
+         :::image type="content" source="./media/sap-hana-database-instances-backup/assign-vm-user-assigned-managed-identity.png" alt-text="Screenshot shows how to assign user-assigned managed identity to VM with SAP HANA database.":::
+         
+      1. Select the *subscription*, *resource group*, and the *new user-assigned managed identity*.
+      1. Select **Add**.
+                  
+         :::image type="content" source="./media/sap-hana-database-instances-backup/add-user-assigned-permission-to-vm.png" alt-text="Screenshot shows how to add the new user-assigned managed identity.":::
+                  
+      1. On the **Create policy** page, under **Managed Identity**, select the *newly created user-assigned managed identity* > **OK**.
+         
+         :::image type="content" source="./media/sap-hana-database-instances-backup/add-new-user-assigned-managed-identity-to-backup-policy.png" alt-text="Screenshot shows how to add new user-assigned managed identity to the backup policy.":::
+
+
 
 
    You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup).
