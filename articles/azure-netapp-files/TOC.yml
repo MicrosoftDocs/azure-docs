@@ -373,6 +373,8 @@
       href: azure-netapp-files-sdk-cli.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot using diagnose and solve problems tool 
+      href: troubleshoot-diagnose-solve-problems.md
     - name: Troubleshoot capacity pool errors 
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot volume errors

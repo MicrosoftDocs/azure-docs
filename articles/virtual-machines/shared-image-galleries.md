@@ -173,7 +173,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
 * [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Can I share image versions across Microsoft Entra tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
@@ -249,7 +249,9 @@ No, you can't replicate image versions across clouds.
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 
-### Can I share image versions across Azure AD tenants? 
+<a name='can-i-share-image-versions-across-azure-ad-tenants'></a>
+
+### Can I share image versions across Microsoft Entra tenants? 
 
 Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 

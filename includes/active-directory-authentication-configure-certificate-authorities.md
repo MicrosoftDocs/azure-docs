@@ -1,9 +1,9 @@
 ---
 author: justinha
 ms.service: active-directory
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: include
-ms.date: 08/14/2023
+ms.date: 10/13/2023
 ms.author: justinha
 ---
 

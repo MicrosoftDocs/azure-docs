@@ -24,7 +24,7 @@ The following methods are Azure's most commonly used methods to enable outbound 
 | 1 | Use the frontend IP address(es) of a load balancer for outbound via outbound rules | Static, explicit | Yes, but not at scale | OK | 
 | 2 | Associate a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
 | 3 | Assign a public IP to the virtual machine | Static, explicit | Yes | OK | 
-| 4 | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) use | Implicit | No | Worst |
+| 4 | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
 :::image type="content" source="./media/load-balancer-outbound-connections/outbound-options.png" alt-text="Diagram of Azure outbound options.":::
 

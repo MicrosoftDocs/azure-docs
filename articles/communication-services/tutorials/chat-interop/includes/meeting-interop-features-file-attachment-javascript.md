@@ -79,7 +79,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
         "attachmentType": "teamsImage",
         "contentType": "png",
         "name": "Screenshot.png",
-        "url": "",
+        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
         "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
       }
 ]

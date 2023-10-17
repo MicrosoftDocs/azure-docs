@@ -59,5 +59,5 @@ This has been accomplished by Microsoft Entra Connect Sync, Microsoft Entra Conn
  
 ## Next steps 
 
-- [What is Microsoft Entra Connect cloud sync?](cloud-sync/what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](cloud-sync/what-is-cloud-sync.md)
 - [Install cloud provisioning](cloud-sync/how-to-install.md)
