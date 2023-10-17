@@ -70,7 +70,7 @@ In HDInsight images dated prior to March 2022, a known bug was discovered on one
 
 #### Required Action
 
-If your cluster was created prior to February 2022, we advise rebuilding your cluster with the latest HDInsight image by October 31, 2023. Cluster images dated prior to March 2022 not support beyond this date. These images not receive security updates, bug fixes, or patches, leaving them susceptible to vulnerabilities. 
+If your cluster was created prior to February 2022, we advise rebuilding your cluster with the latest HDInsight image by November 10, 2023. Cluster images dated prior to March 2022 will not be supported beyond this date. These images will not receive security updates, bug fixes, or patches, leaving them highly susceptible to vulnerabilities.
 
 > [!IMPORTANT]  
 > It’s recommended to keep your clusters updated to the latest HDInsight version on a regular basis. Using clusters based on the latest HDInsight image ensures that clusters have the latest operating system patches, security patches, bug fixes, library versions, and minimizes risk and potential security vulnerabilities.
