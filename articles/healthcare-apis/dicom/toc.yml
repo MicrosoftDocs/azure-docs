@@ -62,7 +62,7 @@ items:
       href: dicom-services-conformance-statement-v2.md
     - name: V1
       href: dicom-services-conformance-statement.md
-    - name: FAQ
-      href: dicom-services-faqs.yml
 - name: DICOM service open-source projects
   href: references-for-dicom-service.md
+- name: FAQ
+  href: dicom-services-faqs.yml
