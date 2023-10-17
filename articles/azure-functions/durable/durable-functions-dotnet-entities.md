@@ -101,7 +101,7 @@ public class Counter
         return Task.FromResult(this.Value);
     }
 
-    // Delete is implicitly defined
+    // Delete is implicitly defined when defining an entity this way
 
     [FunctionName(nameof(Counter))]
     public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
@@ -120,12 +120,12 @@ public class Counter : TaskEntity<int>
         this.logger = logger; 
     }
 
-    public void Add(int amount) 
+    public int Add(int amount) 
     {
         this.State += amount;
     }
 
-    public Task Reset() 
+    public Reset() 
     {
         this.State = 0;
         return Task.CompletedTask;
@@ -136,14 +136,21 @@ public class Counter : TaskEntity<int>
         return Task.FromResult(this.State);
     }
 
-    // Delete is implicitly defined
+    // Delete is implicitly defined when defining an entity this way
 
     [FunctionName(nameof(Counter))]
     public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
         => dispatcher.DispatchAsync<Counter>();
 }
 ```
+### Deleting entities in the isolated model
 
+Depending on how an entity is implemented, delete is sometimes implicitly defined. 
+
+- When implemented using the state-based method or deriving from `TaskEntity<TState>` as shown above, delete is implicit. It can be overridden with your own `Delete` method however.
+- When implemented using the [function based syntax](#function-based-syntax) or deriving from `ITaskEntity`, delete is *not* implicit and must be manually implemented. 
+
+You can delete an entity manually by setting state to `null`. 
 
 ### Class Requirements
  
@@ -186,7 +193,15 @@ For example, we can modify the counter entity so it starts an orchestration when
 ```
 # [C# (Isolated)](#tab/isolated-process)
 ```csharp
+public void Add(int amount, TaskEntityContext context) 
+{
+    if (this.Value < 100 && this.Value + amount >= 100)
+    {
+        context.ScheduleNewOrchestration("MilestoneReached", context.Id);
+    }
 
+    this.Value += amount;      
+}
 ```
 
 ## Accessing entities directly
@@ -255,9 +270,9 @@ public static async Task<HttpResponseData> GetCounter(
     [DurableClient] DurableTaskClient client, string entityKey)
 {
     var entityId = new EntityInstanceId("Counter", entityKey);
-    object? entity = await client.Entities.GetEntityAsync<int>(entityId);
+    EntityMetadata<int>? entity = await client.Entities.GetEntityAsync<int>(entityId);
     HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
-    await response.WriteAsJsonAsync(entity);
+    await response.WriteAsJsonAsync(entity.State);
 
     return response;
 }
@@ -350,8 +365,7 @@ In this example, the `proxy` parameter is a dynamically generated instance of `I
 
 # [C# (Isolated)](#tab/isolated-process)
 
-```csharp
-```
+This is currently not supported in the .NET isolated worker. 
 
 > [!NOTE]
 > The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
@@ -385,8 +399,7 @@ Implicitly, any operations that return `void` are signaled, and any operations t
 
 # [C# (Isolated)](#tab/isolated-process)
 
-```csharp
-```
+This is currently not supported in the .NET isolated worker. 
 
 ### Shorter option for specifying the target
 
@@ -512,6 +525,14 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
+public class Counter : TaskEntity<int>
+{
+    protected override int InitializeState(TaskEntityOperation operation)
+    {
+        // This is called when state is null, giving a chance to customize first-access of entity.
+        return 10;
+    }
+}
 ```
 
 ### Bindings in entity classes
@@ -549,6 +570,19 @@ public class BlobBackedEntity
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
+public class BlobBackedEntity : TaskEntity<object?>
+{
+    private BlobContainerClient Container { get; set; }
+
+    [Function(nameof(BlobBackedEntity))]
+    public Task DispatchAsync(
+        [EntityTrigger] TaskEntityDispatcher dispatcher, 
+        [BlobInput("my-container")] BlobContainerClient container)
+    {
+        this.Container = container;
+        return dispatcher.DispatchAsync(this);
+    }
+}
 ```
 
 For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
@@ -576,6 +610,18 @@ namespace MyNamespace
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
+[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+
+namespace MyNamespace
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            builder.Services.AddHttpClient();
+        }
+    }
+}
 ```
 
 The following snippet demonstrates how to incorporate the injected service into your entity class.
@@ -610,6 +656,28 @@ public class HttpEntity
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
+public class HttpEntity : TaskEntity<TState>
+{
+    [JsonIgnore]
+    private readonly HttpClient client;
+
+    public HttpEntity(IHttpClientFactory factory)
+    {
+        this.client = factory.CreateClient();
+    }
+
+    public Task<int> GetAsync(string url)
+    {
+        using (var response = await this.client.GetAsync(url))
+        {
+            return (int)response.StatusCode;
+        }
+    }
+
+    [Function(nameof(HttpEntity))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<HttpEntity>();
+}
 ```
 
 > [!NOTE]
@@ -680,34 +748,34 @@ Finally, the following members are used to signal other entities, or start new o
 ```csharp
 [FunctionName(nameof(Counter))]
 public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync(operation =>
     {
-        return dispatcher.DispatchAsync(operation =>
+        if (operation.State.GetState(typeof(int)) is null)
         {
-            if (operation.State.GetState(typeof(int)) is null)
-            {
+            operation.State.SetState(0);
+        }
+
+        switch (operation.Name.ToLowerInvariant())
+        {
+            case "add":
+                int state = operation.State.GetState<int>();
+                state += operation.GetInput<int>();
+                operation.State.SetState(state);
+                return new(state);
+            case "reset":
                 operation.State.SetState(0);
-            }
+                break;
+            case "get":
+                return new(operation.State.GetState<int>());
+            case "delete": 
+                operation.State.SetState(null);
+                break; 
+        }
 
-            switch (operation.Name.ToLowerInvariant())
-            {
-                case "add":
-                    int state = operation.State.GetState<int>();
-                    state += operation.GetInput<int>();
-                    operation.State.SetState(state);
-                    return new(state);
-                case "reset":
-                    operation.State.SetState(0);
-                    break;
-                case "get":
-                    return new((operation.State.GetState(typeof(int)) as int?) ?? 0);
-                case "delete": 
-                    operation.State.SetState(null);
-                    break; 
-            }
-
-            return default;
-        });
-    }
+        return default;
+    });
+}
 ```
 
 ## Next steps
