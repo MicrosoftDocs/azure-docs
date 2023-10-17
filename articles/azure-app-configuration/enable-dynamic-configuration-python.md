@@ -99,11 +99,11 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Web applications
 
-The following example show how to update an existing web application to use refreshable configuration values.
+The following example shows how to update an existing web application to use refreshable configuration values.
 
 ### [Django](#tab/django)
 
-Setup App Configuration in your Django settings file, `settings.py`.
+Set up App Configuration in your Django settings file, `settings.py`.
 
 ```python
 AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
