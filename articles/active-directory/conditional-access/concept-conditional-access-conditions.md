@@ -128,7 +128,9 @@ These browsers support device authentication, allowing the device to be identifi
 > Safari is supported for device-based Conditional Access on a managed device, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
 > On iOS with 3rd party MDM solution only Microsoft Edge browser supports device policy.
 > 
-> [Firefox 91+](https://support.mozilla.org/kb/windows-sso) is supported for device-based Conditional Access, but "Allow Windows single sign-on for Microsoft, work, and school accounts" needs to be enabled. 
+> [Firefox 91+](https://support.mozilla.org/kb/windows-sso) is supported for device-based Conditional Access, but "Allow Windows single sign-on for Microsoft, work, and school accounts" needs to be enabled.
+>
+> [Chrome 11+](https://chromeenterprise.google/policies/#CloudAPAuthEnabled) is supported for device-based Conditional Access, but "CloudApAuthEnabled" needs to be enabled.
 
 #### Why do I see a certificate prompt in the browser
 
@@ -136,9 +138,14 @@ On Windows 7, iOS, Android, and macOS devices are identified using a client cert
 
 #### Chrome support
 
-For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows Accounts](https://chrome.google.com/webstore/detail/windows-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) or [Office](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) extensions. These extensions are required when a Conditional Access policy requires device-specific details.
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows Accounts](https://chrome.google.com/webstore/detail/windows-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) extension, the [Microsoft 365](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) extension, or enable Chrome's [CloudAPAuthEnabled](https://chromeenterprise.google/policies/#CloudAPAuthEnabled). These configurations are required when a Conditional Access policy requires device-specific details.
 
-To automatically deploy this extension to Chrome browsers, create the following registry key:
+To automatically enable the CloudAPAuthEnabled policy in Chrome, create the following registry key:
+
+- Path HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\CloudAPAuthEnabled
+- Type REG_DWORD (Integer)
+
+To automatically deploy the Windows Account extension to Chrome browsers, create the following registry key:
 
 - Path HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - Name 1
