@@ -45,7 +45,7 @@ In this step, you create an HTTP trigger function API in the Azure portal. The f
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which the new function app will be created in. |
-    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
+    | **[Resource Group](/azure/azure-resource-manager/management/overview)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
     | **Function App name** | Globally unique name | A name that identifies the new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. For this tutorial, select **Code**. |
     | **Runtime stack** | .NET | Your preferred programming language. For this tutorial, select **.NET**.  |

@@ -44,7 +44,7 @@ If you develop daemon apps on ASP.NET Core, use the Microsoft.Identity.Web libra
 
 Learn more:
 
-* [Microsoft Identity Web authentication library](../develop/microsoft-identity-web.md)
+* [Microsoft Identity Web authentication library](/entra/msal/dotnet/microsoft-identity-web/)
 * [Distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache)
 
 ## Cache and store tokens
