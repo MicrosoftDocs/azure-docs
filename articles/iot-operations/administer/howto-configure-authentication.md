@@ -481,3 +481,10 @@ spec:
 ```
 
 ---
+
+## Related content
+
+- BrokerListener resource
+- Configure authorization for a BrokerListener
+- Configure authentication for a BrokerListener
+- Configure TLS with manual certificate management
