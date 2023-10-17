@@ -1,5 +1,5 @@
 ---
-title: Part 3 (optional) embedding your calling experience
+title: Part 3 embedding your calling experience
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to embed a calling experience inside your new widget - Part 3.
 author: dmceachern
@@ -13,11 +13,11 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Part 3 (optional) embedding your calling experience
+# Part 3 embedding your calling experience
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Finally in this optional section of the tutorial we talk about making an embedded version of the Calling surface. We continue from where we left off in the last section and make some modifications to our existing screens. 
+Finally in this section of the tutorial we talk about making an embedded version of the Calling surface. We continue from where we left off in the last section and make some modifications to our existing screens. 
 
 To start, let's take a look at the props for the `CallingWidgetComponent.tsx` props, these properties need to be updated to have the widget hold the Calling surface. We make two changes.
 - Add a new prop for the adapter arguments needed for the `AzureCommunicationCallAdapter` we call this `adapterArgs`.
@@ -96,7 +96,7 @@ import { useCallback, useMemo } from 'react';
             displayName: displayName,
             alternateCallerId: adapterArgs.alternateCallerId
         }
-    }, [adapterArgs.alternateCallerId, adapterArgs.locator, adapterArgs.userId, credential, displayName])
+    }, [adapterArgs.alternateCallerId, adapterArgs.locator, adapterArgs.userId, credential, displayName]);
 
 ```
 You will also need to update the spread of the props for the component to include the new property, should look like the followwing:
@@ -116,7 +116,7 @@ Let's also add a `afterCreate` function like before, to do a few things with our
             setWidgetState('new');
         });
         return adapter;
-    },[])
+    },[]);
 
     const adapter = useAzureCommunicationCallAdapter(callAdapterArgs as AzureCommunicationCallAdapterArgs, afterCreate);
 
@@ -133,7 +133,7 @@ Next, we'll need to add new logic to our Start Call button so that it checks to 
 
 `CallingWidgetComponent.tsx`
 ```ts
-    // replace the primary button in the template with this
+    {/** replace the primary button in the template with this */}
     <PrimaryButton
         styles={startCallButtonStyles(theme)}
         onClick={() => {
@@ -155,6 +155,7 @@ We'll also want to introduce some internal state to the widget about the local u
 
 `CallingWidgetComponent.tsx`
 ```ts
+// add with other state variables
 const [useLocalVideo, setUseLocalVideo] = useState<boolean>(false);
 ```
 
@@ -190,7 +191,7 @@ import { callingWidgetInCallContainerStyles } from '../styles/CallingWidgetCompo
 ```ts
 if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
         return (
-            <Stack styles={clicktoCallSetupContainerStyles(theme)} tokens={{ childrenGap: '1rem' }}>
+            <Stack styles={callingWidgetSetupContainerStyles(theme)} tokens={{ childrenGap: '1rem' }}>
                 <IconButton
                     styles={collapseButtonStyles}
                     iconProps={{ iconName: 'Dismiss' }}
@@ -240,7 +241,7 @@ if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
 
 if (widgetState === 'inCall' && adapter) {
     return (
-        <Stack styles={clickToCallInCallContainerStyles(theme)}>
+        <Stack styles={callingWidgetInCallContainerStyles(theme)}>
             <CallComposite adapter={adapter} options={{
                 callControls: {
                     cameraButton: useLocalVideo,
@@ -259,7 +260,7 @@ return (
     <Stack
         horizontalAlign="center"
         verticalAlign="center"
-        styles={clickToCallContainerStyles(theme)}
+        styles={callingWidgetContainerStyles(theme)}
         onClick={() => {
             setWidgetState('setup');
         }}

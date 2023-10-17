@@ -75,7 +75,7 @@ Finally, we add the body of the component.
  * @param props
  */
 export const CallingWidgetComponent = (
-  props: clickToCallComponentProps
+  props: CallingWidgetComponentProps
 ): JSX.Element => {
   const { onRenderStartCall, onRenderLogo, onSetDisplayName, onSetUseVideo } =
     props;
@@ -323,7 +323,7 @@ Next, lets add the page content:
 
 `CallingWidgetScreen.tsx`
 ```ts
-// imports needed
+// imports needed, add these before the props for the page
 import { CommunicationUserIdentifier, MicrosoftTeamsUserIdentifier } from '@azure/communication-common';
 import { Stack, Text } from '@fluentui/react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';

@@ -76,7 +76,6 @@ export const NewWindowCallScreen = (props: {
 
   const afterCreate = (adapter: CallAdapter): Promise<CallAdapter> => {
     adapter.on("callEnded", () => {
-      adapter.dispose();
       window.close();
     });
     adapter.joinCall({cameraOn: false, microphoneOn: true});
@@ -119,7 +118,7 @@ export const NewWindowCallScreen = (props: {
 };
 ```
 
-To configure our `CallComposite` to fit in the Calling Widget, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
+To configure our `CallComposite` to fit in the Calling Widget, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join({cameraOn: false, microphoneOn: true});` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
@@ -207,7 +206,7 @@ Finally on this screen, let's add the `startNewWindow` handler to the widget so 
                 return (
                     <img
                         style={{ height: '4rem', width: '4rem', margin: 'auto' }}
-                        src={hero}
+                        src={logo}
                         alt="logo"
                     />
                 );

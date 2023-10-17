@@ -65,13 +65,13 @@ cd ui-library-calling-widget-app
 
 Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
 ```json
-"@azure/communication-calling": "1.16.3-beta.1",
+"@azure/communication-calling": "1.17.1-beta.5",
 "@azure/communication-chat": "1.4.0-beta.1",
 "@azure/communication-react": "1.9.0-beta.1",
-"@azure/communication-calling-effects": "1.0.0-beta.2",
+"@azure/communication-calling-effects": "1.0.1",
+"@azure/communication-common": "2.2.1",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
-"@azure/communication-common": "2.2.1"
 ```
 
 Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
@@ -184,7 +184,7 @@ npm install
 npm run start
 ```
 
-Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `getting credentials from server` as
+Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `Please enter your identification to start application` as
 a test message.
 
 ## Next steps
