@@ -128,7 +128,7 @@ Azure Cognitive Search currently supports the following algorithms:
 
 + Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector index size quota. However, this algorithm will provide the global set of nearest neighbors.
 
-Within an index definition, you can specify one or more algorithms, and then specify on each vector field which algorithm to use:
+Within an index definition, you can specify one or more algorithms, and then for each vector field specify which algorithm to use:
 
 + [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
