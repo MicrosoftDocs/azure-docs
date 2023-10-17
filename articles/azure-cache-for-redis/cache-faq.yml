@@ -48,9 +48,9 @@ sections:
 
       - question: How do I migrate Cloud Services (classic) caches to Azure Virtual Machine Scale Sets? 
         answer: |
-          We have migrated most  caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. Migrating to Azure Virtual Machine Scale Sets removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+          We have migrated most  caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. Migrating to Azure Virtual Machine Scale Sets removes the dependency. There are three ways to initiate this process for caches in a VNet: 
 
-          - Migrate to a new cache using Private Links (recommended). 
+          - Migrate to a new cache using Private Links. 
 
              Create a new cache that uses Private Link for network isolation rather than VNet injection and [migrate your data to this cache](cache-vnet-migration.md). This option gives you the best and most secure network isolation experience, while also ensuring that all new caches are created using updated infrastructure. 
             
@@ -58,8 +58,16 @@ sections:
 
              Creating a cache within a Classic VNET creates a Cloud Services (classic) cache and not an Azure Virtual Machine Scale Sets cache. Migrating to a new cache in a new Azure Resource Manager VNet subnet fixes the underlying dependency on Cloud Services while maintaining a similar VNet experience. 
              
-             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md). 
 
+          - Automatic migration with data loss (recommended).  
+
+             We are able to migrate caches from using Cloud Services (classic) to using Virtual Machine Scale Sets automatically, with cache configuration (include access keys and hostname) perserved. However, this method requires around 30 minutes of downtime and complete data loss on the cache. 
+             You can use the [import/export](cache-how-to-import-export-data.md) feature to save a copy of your data before the migration. 
+
+             To utilize this option, please reach out to azurecachemigration@microsoft.com or create a support request to request a migration.
+
+             
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
           Check to see if your cache is using geo-replication. If so, you’ll need to migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. 
@@ -107,6 +115,12 @@ sections:
             
             :::image type="content" source="media/cache-faq/cache-cloud-service-timeline.png" alt-text="picture of a timeline that shows the timeline for retiring cloud services (classic).":::
 
+      - question: Does this timeline apply to caches running on Redis 4.0? 
+        answer: |
+          No. This timeline only applies to caches running on Redis 6.0. Redis 4.0 is a part of a [separate retirement](https://azure.microsoft.com/updates/upgrade-your-azure-cache-for-redis-instances-to-use-redis-version-6-by-30-june-2023/) that finishes before the Cloud Services (classic) retirement. 
+          All remaining caches using Redis 4.0 on Cloud Services (classic) will be automatically migrated to use Virtual Machine Scale Sets and Redis 6.0 after 31 October 2023. This migration method requires downtime and full data loss on the cache, so please migrate ahead of this date if you'd like to avoid the downtime or data loss.
+          Please reach out to azurecachemigration@microsoft.com or create a support request to request an automatic upgrade before 31 October 2023. 
+          
       - question: Where can I get more information if I have more questions about this retirement? 
         answer: |
           Post any of your questions to the [Q&A page](https://aka.ms/redisretirementquestions) for Cloud Services (classic) retirement. Also, You can send email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com) for more information.  
