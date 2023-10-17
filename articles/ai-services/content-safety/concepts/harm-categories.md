@@ -39,15 +39,6 @@ Every harm category the service applies also comes with a severity level rating.
 
 **Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
 
-
-| Four Severity Levels          |Eight Severity Levels          | Label |
-| --------                 | ----------- | -- |
-|Severity Level 0 – Safe   | Severity Level 0 and 1 – Safe   |Content might be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts that are appropriate for most audiences.  |
-|Severity Level 2 – Low    | Severity Level 2 and 3 – Low   |Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (for example, gaming, literature) and depictions at low intensity.        |
-|Severity Level 4 – Medium| Severity Level 4 and 5 – Medium   |Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity.      |
-|Severity Level 6 – High   | Severity Level 6-7 – High   |Content that displays explicit and severe harmful instructions, actions, damage, or abuse, includes endorsement, glorification, promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, and non-consensual power exchange or abuse.        |
-
-
 | **Severity Level** | **Description** |
 | --- | --- |
 | Level 0 – Safe  | Content that may be related to violence, self-harm, sexual or hate & fairness categories, but the terms are used in general, journalistic, scientific, medical, or similar professional contexts that are **appropriate for most audiences**. This level doesn't include content unrelated to the above categories.  |
