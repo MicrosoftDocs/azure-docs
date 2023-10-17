@@ -79,7 +79,7 @@ This process helps to assess your users’ client and app compatibility for toke
 
 ### Create a Conditional Access policy
 
-Users who perform specialized roles like those described in [Privileged access security levels](/security/compass/privileged-access-security-levels#specialized) are possible targets for this functionality. We recommend piloting with a small subset to begin. 
+Users who perform specialized roles like those described in [Privileged access security levels](/security/privileged-access-workstations/privileged-access-security-levels#specialized) are possible targets for this functionality. We recommend piloting with a small subset to begin. 
 
 :::image type="content" source="media/concept-token-protection/exposed-policy-attributes.png" alt-text="Screenshot of a configured Conditional Access policy and its components." lightbox="media/concept-token-protection/exposed-policy-attributes.png":::
 
@@ -136,7 +136,7 @@ Use Microsoft Entra sign-in log to verify the outcome of a token protection enfo
 
 #### Log Analytics  
 
-You can also use [Log Analytics](../reports-monitoring/tutorial-log-analytics-wizard.md) to query the sign-in logs (interactive and non-interactive) for blocked requests due to token protection enforcement failure.
+You can also use [Log Analytics](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) to query the sign-in logs (interactive and non-interactive) for blocked requests due to token protection enforcement failure.
 
 Here's a sample Log Analytics query searching the non-interactive sign-in logs for the last seven days, highlighting **Blocked** versus **Allowed** requests by **Application**. These queries are only samples and are subject to change.
 
