@@ -2007,7 +2007,7 @@
       href: virtual-machines-create-restore-points.md
     - name: VMSnapshot Extension
       href: virtual-machines-restore-points-VMSnapshot-extension.md
-    - name: Cross region copy VM restore points
+    - name: Cross region copy of VM restore points
       href: virtual-machines-copy-restore-points-copy.md
     - name: Manage VM restore points
       href: manage-restore-points.md
