@@ -38,14 +38,14 @@ By adding Microsoft Entra roles to the local administrators group, you can updat
 
 ## Manage the Global Administrator role
 
-To view and update the membership of the [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) role, see:
+To view and update the membership of the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, see:
 
 - [View all members of an administrator role in Microsoft Entra ID](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Microsoft Entra ID](../fundamentals/how-subscriptions-associated-directory.md)
 
 ## Manage the Azure AD Joined Device Local Administrator role 
 
-You can manage the [Azure AD Joined Device Local Administrator](/azure/active-directory/roles/permissions-reference#azure-ad-joined-device-local-administrator) role from **Device settings**. 
+You can manage the [Azure AD Joined Device Local Administrator](../roles/permissions-reference.md#azure-ad-joined-device-local-administrator) role from **Device settings**. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
 1. Browse to **Identity** > **Devices** > **All devices** > **Device settings**.
@@ -90,9 +90,9 @@ Organizations can use Intune to manage these policies using [Custom OMA-URI Sett
 
 By default, Microsoft Entra ID adds the user performing the Microsoft Entra join to the administrator group on the device. If you want to prevent regular users from becoming local administrators, you have the following options:
 
-- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) -
-Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator by [creating an Autopilot profile](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Bulk enrollment](/intune/windows-bulk-enroll) - a Microsoft Entra join that is performed in the context of a bulk enrollment happens in the context of an autocreated user. Users signing in after a device has been joined aren't added to the administrators group.   
+- [Windows Autopilot](/autopilot/windows-autopilot) -
+Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator by [creating an Autopilot profile](/autopilot/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Bulk enrollment](/mem/intune/enrollment/windows-bulk-enroll) - a Microsoft Entra join that is performed in the context of a bulk enrollment happens in the context of an autocreated user. Users signing in after a device has been joined aren't added to the administrators group.   
 
 ## Manually elevate a user on a device 
 

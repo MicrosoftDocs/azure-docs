@@ -56,7 +56,7 @@ sections:
           
       - question: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?
         answer: |
-          On Windows 10/11 devices joined or registered with Microsoft Entra ID, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Microsoft Entra ID without initiating the action from the device itself. A device can be deleted or disabled in Microsoft Entra one of the following scenarios: 
+          On Windows 10/11 devices joined or registered with Microsoft Entra ID, users are issued a [Primary refresh token (PRT)](/azure/active-directory/develop/configure-app-multi-instancing) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Microsoft Entra ID without initiating the action from the device itself. A device can be deleted or disabled in Microsoft Entra one of the following scenarios: 
           
           - User disables the device from the My Apps portal. 
           - An administrator (or user) deletes or disables the device.
@@ -167,13 +167,13 @@ sections:
           
       - question: My users can't search printers from Microsoft Entra joined devices. How can I enable printing from those devices?
         answer: |
-          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
+          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/universal-print/) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
           
           
           
       - question: How do I connect to a remote Microsoft Entra joined device?
         answer: |
-          See [Connect to remote Microsoft Entra joined PC](/windows/client-management/connect-to-remote-aadj-pc).
+          See [Connect to remote Microsoft Entra joined PC](/windows/client-management/client-tools/connect-to-remote-aadj-pc).
           
           
           
@@ -199,7 +199,7 @@ sections:
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Microsoft Entra join my PC?
         answer: |
-          This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
+          This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/mem/intune/enrollment/windows-enroll).  
           
      
       - question: Why did my attempt to Microsoft Entra join a PC fail, although I didn't get any error information?
@@ -221,7 +221,7 @@ sections:
   - name: Microsoft Entra hybrid join FAQ
     questions:
       - question: How do I unjoin a Microsoft Entra hybrid joined device locally on the device?
-        answer: For Microsoft Entra hybrid joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+        answer: For Microsoft Entra hybrid joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](/azure/active-directory/develop/configure-app-multi-instancing) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
       - question: Where can I find troubleshooting information to diagnose Microsoft Entra hybrid join failures?
         answer: |
@@ -234,7 +234,7 @@ sections:
         answer: |
           When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Microsoft Entra ID. The trust type is marked as Microsoft Entra registered. After you enable Microsoft Entra hybrid join in your organization, the device also gets Microsoft Entra hybrid joined. Then two device states show up for the same device. 
           
-          In most cases, Microsoft Entra hybrid join takes precedence over the Microsoft Entra registered state, resulting in your device being considered Microsoft Entra hybrid joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Microsoft Entra registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
+          In most cases, Microsoft Entra hybrid join takes precedence over the Microsoft Entra registered state, resulting in your device being considered Microsoft Entra hybrid joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Microsoft Entra registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](/azure/active-directory/develop/configure-app-multi-instancing#review-things-you-should-know). 
           
           
           
@@ -287,7 +287,7 @@ sections:
         answer: |
           Take the following steps:
           
-          1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
+          1.    [Create a compliance policy](/mem/intune/protect/compliance-policy-create-mac-os)
           1.    [Define a Conditional Access policy for macOS devices](../conditional-access/overview.md) 
           
           **Remarks:**

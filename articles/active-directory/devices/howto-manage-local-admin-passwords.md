@@ -75,11 +75,11 @@ LAPS is available to all customers with Microsoft Entra ID Free or higher licens
 
 ### Required roles or permission
 
-Other than the built-in Microsoft Entra roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Microsoft Entra custom roles](/azure/active-directory/roles/custom-create) or administrative units to authorize local administrator password recovery. For example,
+Other than the built-in Microsoft Entra roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Microsoft Entra custom roles](../roles/custom-create.md) or administrative units to authorize local administrator password recovery. For example,
 
-- Custom roles must be assigned the *microsoft.directory/deviceLocalCredentials/password/read* permission to authorize local administrator password recovery. During the preview, you must create a custom role and grant permissions using the [Microsoft Graph API](/azure/active-directory/roles/custom-create#create-a-role-with-the-microsoft-graph-api) or [PowerShell](/azure/active-directory/roles/custom-create#create-a-role-using-powershell). Once you have created the custom role, you can assign it to users.
+- Custom roles must be assigned the *microsoft.directory/deviceLocalCredentials/password/read* permission to authorize local administrator password recovery. During the preview, you must create a custom role and grant permissions using the [Microsoft Graph API](../roles/custom-create.md#create-a-role-with-the-microsoft-graph-api) or [PowerShell](../roles/custom-create.md#create-a-role-using-powershell). Once you have created the custom role, you can assign it to users.
 
-- You can also create a Microsoft Entra ID [administrative unit](/azure/active-directory/roles/administrative-units), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
+- You can also create a Microsoft Entra ID [administrative unit](../roles/administrative-units.md), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
 
 <a name='enabling-windows-laps-with-azure-ad'></a>
 

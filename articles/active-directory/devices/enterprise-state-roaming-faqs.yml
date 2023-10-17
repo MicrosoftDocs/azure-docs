@@ -89,7 +89,7 @@ sections:
         answer: |
           Prior to Nov 2022 all user data was secured using [Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
-          Starting in November 2022, Microsoft no longer uses Azure Rights Management for all data encryption. Microsoft is committed to safeguarding customer data. Certain sensitive data such as passwords will be encrypted client side with keys derived from the Microsoft Entra tenant to ensure an extra layer of security. All user data (including non-sensitive data) will be encrypted in transit and at rest in the cloud. For a list of sensitive and non-sensitive data items roamed, see [Windows roaming settings reference](enterprise-state-roaming-windows-settings-reference.md).
+          Starting in November 2022, Microsoft no longer uses Azure Rights Management for all data encryption. Microsoft is committed to safeguarding customer data. Certain sensitive data such as passwords will be encrypted client side with keys derived from the Microsoft Entra tenant to ensure an extra layer of security. All user data (including non-sensitive data) will be encrypted in transit and at rest in the cloud. For a list of sensitive and non-sensitive data items roamed, see [Windows roaming settings reference](/azure/active-directory/develop/configure-app-multi-instancing).
           
       - question: |
           Can I manage sync for a specific app or setting?

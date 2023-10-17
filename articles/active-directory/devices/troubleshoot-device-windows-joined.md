@@ -34,5 +34,5 @@ The troubleshooter will review the contents of the file you uploaded and provide
 - [Troubleshoot Microsoft Entra hybrid joined devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 - [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
-- [MDM enrollment of Windows 10-based devices](/windows/client-management/mdm/mdm-enrollment-of-windows-devices)
-- [Troubleshooting Windows device enrollment errors in Intune](/troubleshoot/mem/intune/troubleshoot-windows-enrollment-errors)
+- [MDM enrollment of Windows 10-based devices](/windows/client-management/mdm-enrollment-of-windows-devices)
+- [Troubleshooting Windows device enrollment errors in Intune](/troubleshoot/mem/intune/device-enrollment/troubleshoot-windows-enrollment-errors)
