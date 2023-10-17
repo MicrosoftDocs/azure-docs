@@ -4,7 +4,7 @@ description: This article explains the steps to cleanly remove your VMware vCent
 author: snehithm
 ms.author: snmuvva
 ms.topic: how-to 
-ms.date: 10/16/2023
+ms.date: 10/17/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
@@ -13,7 +13,7 @@ ms.subservice: azure-arc-vmware-vsphere
 
 # Remove your VMware vCenter  environment from Azure Arc
 
-In this article, you'll learn how to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere. For VMware vSphere environments that you no longer want to manage with Azure Arc-enabled VMware vSphere, follow the steps in the article to:
+In this article, you learn how to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere. For VMware vSphere environments that you no longer want to manage with Azure Arc-enabled VMware vSphere, follow the steps in the article to:
 
 1. Remove guest management from VMware virtual machines
 2. Remove your VMware vCenter environment from Azure Arc

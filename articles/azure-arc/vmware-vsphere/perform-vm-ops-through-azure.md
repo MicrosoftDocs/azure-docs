@@ -2,14 +2,14 @@
 title: Perform VM operations on VMware VMs through Azure
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 10/16/2023
+ms.date: 10/17/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you'll learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
 
 - Start, stop, and restart a VM
 
