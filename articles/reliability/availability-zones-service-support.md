@@ -29,13 +29,10 @@ The following regions currently support availability zones:
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-<<<<<<< HEAD
-| Canada Central | Italy North* | UAE North | | Central India |
+| Canada Central | Italy North | UAE North | | Central India |
 | Central US |  Germany West Central | Israel Central | | Japan East |
-=======
 | Canada Central | Italy North | UAE North | | Central India |
 | Central US |  Germany West Central | Israel Central* | | Japan East |
->>>>>>> dbf87574a4ad22b72962000d8e15b26a04889c7d
 | East US | Norway East | | | Korea Central |
 | East US 2 | North Europe  | | | Southeast Asia |
 | South Central US | UK South | | | East Asia |
