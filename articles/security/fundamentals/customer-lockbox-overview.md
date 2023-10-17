@@ -20,7 +20,7 @@ This article covers how to enable Customer Lockbox and how Lockbox requests are 
 
 ## Supported services
 
-The following services are supported for Customer Lockbox:
+The following services are currently supported for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
