@@ -26,15 +26,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Enterprise IoT security monitoring with Defender for IoT adds extra security value, including vulnerabilities and recommendations, that are purpose-built for eIoT devices.
 
-Starting October 9, 2003, Defender for IoT enterprise IoT (eIoT) monitoring is automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, supporting up to 5 devices per user license. For example, if you have 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 eIoT devices.
+Starting October 16, 2023, Defender for IoT enterprise IoT (eIoT) monitoring is automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, supporting up to 5 devices per user license. For example, if you have 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 eIoT devices.
 
-- **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, and there is no additional charge for turning on **Enterprise IoT security** monitoring.
+- **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, at no additional charge, and with no action item required from you.
 
-- **Customers who have ME5 or E5 Security plans but aren't yet using Defender for IoT for their eIoT devices** must toggle on support in the Microsoft 365 Defender portal.
+- **Customers who have ME5 or E5 Security plans but aren't yet using Defender for IoT for their eIoT devices** must [toggle on support]((eiot-defender-for-endpoint.md) in the Microsoft 365 Defender portal.
 
 - **Customers with legacy Enterprise IoT plans and no ME5/E5 Security plans** can continue to use their existing plans until the plans expire.
 
-- **New customers** without an ME5 or E5 Security plan can purchase a standalone, **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, as an add-on to Microsoft Defender for Endpoint P2.
+- **New customers** without an ME5 or E5 Security plan can purchase a standalone, **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, as an add-on to Microsoft Defender for Endpoint P2. Purchase standalone licenses from the Microsoft admin center.
 
 Trial licenses are available for Defender for Endpoint P2 customers as standalone licenses. Trial licenses support 100 number of devices for 90 days.
 
