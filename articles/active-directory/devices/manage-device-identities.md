@@ -106,6 +106,9 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Intune Service Administrator
 - Security Administrator
 - Security Reader
+  
+> [!NOTE]
+> When devices that utilize [Windows Autopilot](/mem/autopilot/windows-autopilot) are reused, **and there is a new device owner**, that new device owner must contact an administrator to acquire the BitLocker recovery key for that device. Administrative unit scoped administrators will lose access to BitLocker recovery keys after device ownership changes.
 
 ## View and filter your devices
 
