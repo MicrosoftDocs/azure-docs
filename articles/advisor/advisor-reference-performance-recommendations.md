@@ -294,13 +294,13 @@ Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your 
 
 Maximizing the efficiency of your system's resources is crucial for maintaining top-notch performance. Our system closely monitors CPU usage, and when it crosses the 90% threshold over a 12-hour period, a proactive alert is triggered. This alert not only informs Azure Cosmos DB for MongoDB vCore users of the elevated CPU consumption but also provides valuable guidance on scaling up to a higher tier. By upgrading to a more robust tier, you can unlock improved performance and ensure your system operates at its peak potential.
 
-Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster.md)
+Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster)
 
 ### PerformanceBoostervCore
 
 When CPU usage surpasses 90% within a 12-hour timeframe, users are notified about the high usage. Additionally it advises them to scale up to a higher tier to get a better performance.
 
-Learn more about [Cosmos DB account - ScaleUpvCoreRecommendation (PerformanceBoostervCore)](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/how-to-scale-cluster).
+Learn more about [Cosmos DB account - ScaleUpvCoreRecommendation (PerformanceBoostervCore)](/azure/cosmos-db/mongodb/vcore/how-to-scale-cluster).
 
 
 ### Scale the storage limit for MariaDB server
@@ -500,31 +500,31 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit 
 
 Optimize logging settings by setting LoggingCollector to -1
 
-Learn more [Logs in Azure Database for PostgreSQL - Single Server] (https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-server-logs#configure-logging).
+Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgresql/single-server/concepts-server-logs#configure-logging).
 
 #### Optimize logging settings by setting LogDuration to OFF
 
 Optimize logging settings by setting LogDuration to OFF
 
-Learn more [Logs in Azure Database for PostgreSQL - Single Server] (https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-server-logs#configure-logging).
+Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgresql/single-server/concepts-server-logs#configure-logging).
 
 #### Optimize logging settings by setting LogStatement to NONE
 
 Optimize logging settings by setting LogStatement to NONE
 
-Learn more [Logs in Azure Database for PostgreSQL - Single Server] (https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-server-logs#configure-logging).
+Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgresql/single-server/concepts-server-logs#configure-logging).
 
 #### Optimize logging settings by setting ReplaceParameter to OFF
 
 Optimize logging settings by setting ReplaceParameter to OFF
 
-Learn more [Logs in Azure Database for PostgreSQL - Single Server] (https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-server-logs#configure-logging).
+Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgresql/single-server/concepts-server-logs#configure-logging).
 
 #### Optimize logging settings by setting LoggingCollector to OFF
 
 Optimize logging settings by setting LoggingCollector to OFF
 
-Learn more [Logs in Azure Database for PostgreSQL - Single Server] (https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-server-logs#configure-logging).
+Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgresql/single-server/concepts-server-logs#configure-logging).
 
 ### Increase the storage limit for Hyperscale (Citus) server group
 
@@ -669,7 +669,7 @@ Learn more about [Monitor - UpgradeToLatestAMSSdkVersion (Upgrade to the latest 
 
 in your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 will be retired and API calls will fail. Upgrade to newer version to prevent disruption to your services.
 
-Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](https://azure.microsoft.com/en-us/updates/api-versions-being-retired-for-azure-api-management/).
+Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](../updates/api-versions-being-retired-for-azure-api-management/).
 
 
 
@@ -729,7 +729,7 @@ Learn more about [Communication service - UpgradeTurnSdk (Use recommended versio
 
 Azure Communication Services Rooms SDK can be used to control who can join a call, when they can meet, and how they can collaborate. Update to the recommended version of Rooms SDK to ensure the latest fixes and features. A non-recommended version was detected in the last 48-60 hours.
 
-Learn more about [Communication service - UpgradeRoomsSdk (Use recommended version of Rooms SDK)](https://learn.microsoft.com/azure/communication-services/concepts/rooms/room-concept).
+Learn more about [Communication service - UpgradeRoomsSdk (Use recommended version of Rooms SDK)](/azure/communication-services/concepts/rooms/room-concept).
 
 
 
@@ -1103,7 +1103,7 @@ Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the sto
 
 The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage.
 
-Learn more about [Storage Account - UpdateStorageSDK (Upgrade your Storage Client Library to the latest version for better reliability and performance)]({recommendedActionLearnMore}).
+Learn more about [Storage Account - UpdateStorageSDK (Upgrade your Storage Client Library to the latest version for better reliability and performance)](https://aka.ms/learnmorestoragecolocation).
 
 ### Upgrade your Storage Client Library to the latest version for better reliability and performance
 
