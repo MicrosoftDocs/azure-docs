@@ -73,7 +73,7 @@ This article describes how to deploy and configure virtual machines (VMs), insta
 
 To deploy the SAP NetWeaver application layer, you need shared directories like `/sapmnt/SID` and `/usr/sap/trans` in the environment. Additionally, when you deploy an HA SAP system, you need to protect and make highly available file systems like `/sapmnt/SID` and `/usr/sap/SID/ASCS`.
 
-Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous zone redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across availability zones. You still need a Pacemaker cluster to protect single point of failure components like SAP NetWeaver central services (ASCS/SCS).
+Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous zone-redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across availability zones. You still need a Pacemaker cluster to protect single point of failure components like SAP NetWeaver central services (ASCS/SCS).
 
 The example configurations and installation commands use the following instance numbers:
 
@@ -104,14 +104,14 @@ This document assumes that you already deployed an [Azure virtual network](../..
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files runs on top of [Azure Files Premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage), which offers local, in-zone synchronous data replication.
-* [Zone redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
+* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
 
-Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS, [verify that Premium File shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 We recommend that you access your Azure Storage account through an [Azure private endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure virtual network or peered Azure virtual networks.
 
@@ -148,7 +148,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 1. On the resource menu for **sapafsnfs**, under **Data storage**, select **File shares**.
 1. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPs and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
    1. Select **NFS** as the protocol.
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
@@ -163,7 +163,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
 * The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
 * Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
-* Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file shares performance](../../storage/files/files-troubleshoot-performance.md).
+* Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
 * If your SAP system has a heavy batch jobs load, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For more information, see [Job log in the database][2360818].
 * Deploy a separate `sapmnt` share for each SAP system.
@@ -482,31 +482,31 @@ The following items are prefixed with:
 
    * ASCS/SCS profile:
 
-    ```bash
-    sudo vi /sapmnt/NW1/profile/NW1_ASCS00_sapascs
+     ```bash
+     sudo vi /sapmnt/NW1/profile/NW1_ASCS00_sapascs
    
-    # Change the restart command to a start command
-    #Restart_Program_01 = local $(_EN) pf=$(_PF)
-    Start_Program_01 = local $(_EN) pf=$(_PF)
+     # Change the restart command to a start command
+     #Restart_Program_01 = local $(_EN) pf=$(_PF)
+     Start_Program_01 = local $(_EN) pf=$(_PF)
    
-    # Add the keep alive parameter, if using ENSA1
-    enque/encni/set_so_keepalive = true
-    ```
+     # Add the keep alive parameter, if using ENSA1
+     enque/encni/set_so_keepalive = true
+     ```
 
-   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
+     For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
    * ERS profile:
 
-    ```bash
-    sudo vi /sapmnt/NW1/profile/NW1_ERS01_sapers
+     ```bash
+     sudo vi /sapmnt/NW1/profile/NW1_ERS01_sapers
    
-    # Change the restart command to a start command
-    #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-    Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+     # Change the restart command to a start command
+     #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+     Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
-    # remove Autostart from ERS profile
-    # Autostart = 1
-    ```
+     # remove Autostart from ERS profile
+     # Autostart = 1
+     ```
 
 1. **[A]** Configure Keep Alive.
 
