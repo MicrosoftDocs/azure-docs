@@ -130,7 +130,15 @@ Use the following steps to create the required resources:
 
 [!INCLUDE [deploy-hello-app-with-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin-output](hello-spring-apps-maven-plugin-standard-output.md)]
+   ```output
+   [INFO] Deployment(default) is successfully created
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:UNREGISTERED
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxx-xxxxx  Status:Terminating Reason:null       DiscoverStatus:UNREGISTERED
+   [INFO] Getting public url of app(demo)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   ```
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 

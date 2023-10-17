@@ -183,7 +183,14 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 [!INCLUDE [deploy-hello-app-with-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin-output](hello-spring-apps-maven-plugin-standard-output.md)]
+   ```output
+   [INFO] Deployment(default) is successfully created
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A
+   [INFO] Getting public url of app(demo)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   ```
 
 ### [Azure CLI](#tab/Azure-CLI)
 

@@ -128,9 +128,9 @@ Use the following steps to create the required resources:
    [INFO] Deployment(default) is successfully created
    [INFO] Starting Spring App after deploying artifacts...
    [INFO] Deployment Status: Running
-   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A
+   [INFO]   InstanceName:demo--default-xxxxxxx-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
    [INFO] Getting public url of app(demo)...
-   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   [INFO] Application url: https://demo.<unique-identifier>.<region-name>.azurecontainerapps.io
    ```
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
