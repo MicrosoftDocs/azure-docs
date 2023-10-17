@@ -106,10 +106,6 @@ items:
             items:
             - name: .NET
               href: event-grid-dotnet-get-started-pull-delivery.md
-        - name: Push delivery
-          items:
-          - name: Push delivery using namespace topics
-            href:
       - name: Concepts
         items:
         - name: Pull delivery
@@ -136,8 +132,6 @@ items:
           items:
             - name: Event filtering
               href: namespace-event-filtering.md
-            - name: Delivery and retry
-              href: 
       - name: How-to
         items:
         - name: Create, view, and manage namespaces

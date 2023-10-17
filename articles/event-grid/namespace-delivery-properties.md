@@ -49,5 +49,4 @@ You can also specify custom properties when sending messages to an event hub. Do
 ## Next steps
 For more information about event delivery, see the following article:
 
-- [Delivery and retry](namespace-delivery-and-retry.md)
 - [Event filtering](namespace-event-filtering.md)
