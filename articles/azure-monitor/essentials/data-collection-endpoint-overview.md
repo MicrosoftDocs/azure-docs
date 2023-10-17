@@ -12,14 +12,7 @@ ms.reviwer: nikeist
 
 # Data collection endpoints in Azure Monitor
 
-The [Logs ingestion API](../logs/logs-ingestion-api-overview.md) and [Azure Monitor Agent](../agents/agents-overview.md) use data collection endpoints (DCEs) to receive configuration files from Azure Monitor and to send collected data for processing and ingestion into Azure Monitor. 
-
-Azure Monitor Agent uses data collection endpoints to collect:
-
-- IIS logs
-- Firewall logs
-- Custom logs
-- Custom JSON logs
+A data collection endpoint (DCE) is a connection that the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) and [Azure Monitor Agent](../agents/agents-overview.md) use to receive configuration files from Azure Monitor and to send collected data for processing and ingestion into Azure Monitor. 
 
 This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
