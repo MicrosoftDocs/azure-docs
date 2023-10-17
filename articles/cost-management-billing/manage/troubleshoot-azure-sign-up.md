@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/11/2023
+ms.date: 10/17/2023
 ms.author: banders
 ---
 
@@ -150,7 +150,7 @@ Check that you're using the correct sign-in credentials. Then, check the benefit
   - If you can't verify your status, contact [Visual Studio Subscription Support](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
-  - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
+  - If you can't verify your status, you can get help by creating a [Microsoft for Startups support request](https://support.microsoft.com/supportrequestform/354fe60a-ba6d-92ad-208a-6a41387aa9d8).
 - Cloud Partner Program
   - Sign in to the [Cloud Partner Program portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for other benefits.
   - If you can't verify your status, contact [Cloud Partner Program Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
