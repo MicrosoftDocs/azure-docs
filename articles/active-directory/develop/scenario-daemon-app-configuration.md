@@ -511,7 +511,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
+When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -533,7 +533,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Again, for details, see [Client assertions](msal-net-client-assertions.md).
+Again, for details, see [Client assertions](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/confidential-client-assertions).
 
 ---
 

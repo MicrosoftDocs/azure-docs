@@ -375,17 +375,17 @@ See `app.py` for the full context of that code.
 ---
 
 Instead of a client secret, the confidential client application can also prove its identity by using a client certificate or a client assertion.
-The use of client assertions is an advanced scenario, detailed in [Client assertions](msal-net-client-assertions.md).
+The use of client assertions is an advanced scenario, detailed in [Client assertions](/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions).
 
 ## Token cache
 
 > [!IMPORTANT]
-> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
+> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](/entra/msal/dotnet/how-to/token-cache-serialization).
 > For security and performance reasons, it's important to ensure that for web apps and web APIs there is one token cache per user account. You must serialize the token cache for each account.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with prebuilt token-cache serializers described in [Token cache serialization](/entra/msal/dotnet/how-to/token-cache-serialization). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -418,7 +418,7 @@ For details about the token-cache providers, see also Microsoft.Identity.Web's [
 
 # [ASP.NET](#tab/aspnet)
 
-The ASP.NET tutorial uses dependency injection to let you decide the token cache implementation in the *Startup.Auth.cs* file for your application. *Microsoft.Identity.Web* comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET tutorial uses dependency injection to let you decide the token cache implementation in the *Startup.Auth.cs* file for your application. *Microsoft.Identity.Web* comes with prebuilt token-cache serializers described in [Token cache serialization](/entra/msal/dotnet/how-to/token-cache-serialization). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 var services = owinTokenAcquirerFactory.Services;
@@ -447,7 +447,7 @@ services.AddDistributedSqlServerCache(options =>
 
 For details about the token-cache providers, see also the *Microsoft.Identity.Web* [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, and the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web app's tutorial.
 
-For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
+For details see [Token cache serialization for MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization).
 
 # [Java](#tab/java)
 

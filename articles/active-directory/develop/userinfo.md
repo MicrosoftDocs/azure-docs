@@ -23,7 +23,7 @@ As part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://o
 
 You can find the UserInfo endpoint programmatically by reading the `userinfo_endpoint` field of the OpenID configuration document at `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. We don't recommend hard-coding the UserInfo endpoint in your applications. Instead, use the OIDC configuration document to find the endpoint at runtime.
 
-The UserInfo endpoint is typically called automatically by [OIDC-compliant libraries](https://openid.net/developers/certified/) to get information about the user. From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), the Microsoft identity platform produces the name claims, subject claim, and email when available and consented to. 
+The UserInfo endpoint is typically called automatically by [OIDC-compliant libraries](https://openid.net/certified-open-id-developer-tools/) to get information about the user. From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), the Microsoft identity platform produces the name claims, subject claim, and email when available and consented to. 
 
 ## Consider using an ID token instead
 
@@ -83,7 +83,7 @@ The claims shown in the response are all those that the UserInfo endpoint can re
 
 You can't add to or customize the information returned by the UserInfo endpoint.
 
-To customize the information returned by the identity platform during authentication and authorization, use [claims mapping](active-directory-claims-mapping.md) and [optional claims](active-directory-optional-claims.md) to modify security token configuration.
+To customize the information returned by the identity platform during authentication and authorization, use [claims mapping](./saml-claims-customization.md) and [optional claims](./optional-claims.md) to modify security token configuration.
 
 ## Next steps
 

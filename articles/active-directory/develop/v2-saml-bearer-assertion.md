@@ -25,7 +25,7 @@ You'll enable the SAML bearer assertion flow to exchange a SAMLv1 token issued b
 ## Prerequisites
 
 - AD FS federated as an identity provider for single sign-on; see [Setting up AD FS and Enabling Single Sign-On to Office 365](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365) for an example.
-- [Postman](https://www.getpostman.com/) for testing requests.
+- [Postman](https://www.postman.com/) for testing requests.
 
 ## Scenario overview
 

@@ -28,7 +28,7 @@ In general, all applications with more than 400 permissions have exceeded the co
 
 ## Resolution steps
 
-If the application isn't needed anymore, the first option you should consider is to delete the app registration entirely. (You can [restore recently deleted applications](/azure/active-directory/fundamentals/recover-from-deletions#applications-and-service-principals), in case you discover soon afterwards that it was still needed.)
+If the application isn't needed anymore, the first option you should consider is to delete the app registration entirely. (You can [restore recently deleted applications](../architecture/recover-from-deletions.md#applications-and-service-principals), in case you discover soon afterwards that it was still needed.)
 
 If you still need the application or are unsure, the following steps will help you resolve this issue:
 

@@ -46,7 +46,7 @@ catch(MsalUiRequiredException)
 
 On both desktop and mobile applications, it's important to specify the parent by using `.WithParentActivityOrWindow`. In many cases, it's a requirement and MSAL will throw exceptions.
 
-For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles).
+For desktop applications, see [Parent window handles](./scenario-desktop-acquire-token-wam.md#parent-window-handles).
 
 For mobile applications, provide `Activity` (Android) or `UIViewController` (iOS).
 
@@ -103,7 +103,7 @@ The structure defines the following constants:
 
 #### WithUseEmbeddedWebView
 
-This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](msal-net-web-browsers.md).
+This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](/entra/msal/dotnet/acquiring-tokens/using-web-browsers).
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopes)
