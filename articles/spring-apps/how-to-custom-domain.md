@@ -192,7 +192,7 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter your certificate name, tick Enable auto sync checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](#certificate-auto-sync).
+1. On the opened **Set certificate name** page, enter your certificate name, tick the **Enable auto sync** checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](#certificate-auto-sync).
 
    :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of setting certificate name.":::
 
@@ -245,9 +245,9 @@ You may also enable or disable this feature for a certificate that has already b
 
 Use the following steps to enable or disable auto sync for your imported certificate:
 
-1. Go to the list of Private Key Certificates or Public Key Certificates.
+1. Go to the list of **Private Key Certificates** or **Public Key Certificates**.
 1. Scroll to the right.
-1. Click *...*, and choose **Enable auto sync** or **Disble auto sync**.
+1. Click *...*, and then select **Enable auto sync** or **Disble auto sync**.
 
    :::image type="content" source="./media/how-to-custom-domain/edit-auto-sync.png" alt-text="Screenshot of toggle certificate auto sync." lightbox="./media/how-to-custom-domain/edit-auto-sync.png":::
 
