@@ -177,8 +177,8 @@ To better serve you in locations where there's high demand, you can select from 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
 | Alternative Small GPU (Compute) | 6 | 112 | [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Alternative GPU Visualization small (NVadsA10v5) | 6 | 55 | [Standard_NV6ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Alternative GPU Visualization medium (NVadsA10v5) | 12 | 110 | [Standard_NV12ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Alternative Small GPU (Visualization) | 6 | 55 | [Standard_NV6ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Alternative Medium GPU (Visualization) | 12 | 110 | [Standard_NV12ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ### Classic VM sizes
 
@@ -186,12 +186,14 @@ When you create a lab plan and you still have lab accounts in your Azure subscri
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Classic small (Av2)| 2 | 4 | [Standard_A2_v2](../virtual-machines/av2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Classic medium (Av2) | 4 | 8 | [Standard_A4_v2](../virtual-machines/av2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
-| Classic Nested Virtualization medium (Dsv3) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
-| Classic large (Av2) | 8 | 16  |  [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Classic Nested Virtualization large (Dsv3) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
-| Classic GPU Compute small (NC) | 6 | 56 | [Standard_NC6](../virtual-machines/nc-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Classic Small | 2 | 4 | [Standard_A2_v2](../virtual-machines/av2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Classic Medium | 4 | 8 | [Standard_A4_v2](../virtual-machines/av2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
+| Classic Large | 8 | 16  |  [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Classic Medium (Nested virtualization) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
+| Classic Large (Nested virtualization) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
+| Classic Small GPU (Compute) | 6 | 56 | [Standard_NC6](../virtual-machines/nc-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Classic Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Classic Medium GPU (Visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ## RBAC roles
 
