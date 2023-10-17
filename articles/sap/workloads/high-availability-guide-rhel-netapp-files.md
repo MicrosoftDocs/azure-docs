@@ -113,7 +113,7 @@ The SAP NetWeaver architecture presented in this article uses a single Azure Net
    1. Volume sap**QAS** (nfs://192.168.24.5/usrsap**qas**/usrsap**QAS**pas)
    1. Volume sap**QAS** (nfs://192.168.24.5/usrsap**qas**/usrsap**QAS**aas)
 
-In this example, we used Azure NetApp Files for all SAP NetWeaver file systems to demonstrate how you can use Azure NetApp Files. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02** and /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
+In this example, we used Azure NetApp Files for all SAP NetWeaver file systems to demonstrate how you can use Azure NetApp Files. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02** and /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
 
 ### Important considerations
 
@@ -175,7 +175,7 @@ After you deploy the VMs for your SAP system, create a load balancer. Use VMs cr
 > [!IMPORTANT]
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need more IP addresses for the VM, deploy a second NIC.
 
-When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard load balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) standard load balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
 > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
@@ -526,31 +526,31 @@ The following items are prefixed with either:
 
    * ASCS/SCS profile
 
-   ```bash
-   sudo vi /sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh
+     ```bash
+     sudo vi /sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh
    
-   # Change the restart command to a start command
-   #Restart_Program_01 = local $(_EN) pf=$(_PF)
-   Start_Program_01 = local $(_EN) pf=$(_PF)
+     # Change the restart command to a start command
+     #Restart_Program_01 = local $(_EN) pf=$(_PF)
+     Start_Program_01 = local $(_EN) pf=$(_PF)
    
-   # Add the keep alive parameter, if using ENSA1
-   enque/encni/set_so_keepalive = true
-   ```
+     # Add the keep alive parameter, if using ENSA1
+     enque/encni/set_so_keepalive = true
+     ```
 
-   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
+     For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
 
    * ERS profile
 
-   ```bash
-   sudo vi /sapmnt/QAS/profile/QAS_ERS01_anftstsapers
+     ```bash
+     sudo vi /sapmnt/QAS/profile/QAS_ERS01_anftstsapers
    
-   # Change the restart command to a start command
-   #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-   Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+     # Change the restart command to a start command
+     #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+     Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
-   # remove Autostart from ERS profile
-   # Autostart = 1
-   ```
+     # remove Autostart from ERS profile
+     # Autostart = 1
+     ```
 
 1. **[A]** Configure Keep Alive.
 
@@ -913,7 +913,7 @@ The following items are prefixed with either:
 
 In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
-1. Run the SAP database instance installation.
+* Run the SAP database instance installation.
 
    Install the SAP NetWeaver database instance as the root by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the database.
 
