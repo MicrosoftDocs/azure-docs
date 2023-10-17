@@ -26,6 +26,7 @@ For CMK-based data encryption or Purview, you must set up Azure Key Vault and UA
 
 ### Set up Azure Key Vault
 
+To perform the below steps you need to be a subscription "owner".
 1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
