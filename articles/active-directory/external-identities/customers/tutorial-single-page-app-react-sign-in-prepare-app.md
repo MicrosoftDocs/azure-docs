@@ -157,7 +157,7 @@ Identity related **npm** packages must be installed in the project to enable use
 
 ## Modify *index.js* to include the authentication provider
 
-All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
+All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/%40azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/%40azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
 1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
 

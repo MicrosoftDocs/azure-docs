@@ -61,7 +61,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
 
 # [Windows PowerShell](#tab/windows-powershell)
 
-1. Use the steps in [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate). Make sure you export your public certificate with its private key. For the `certificateName`, use *ciam-client-app-cert*. 
+1. Use the steps in [Create a self-signed public certificate to authenticate your application](../../develop/howto-create-self-signed-certificate.md). Make sure you export your public certificate with its private key. For the `certificateName`, use *ciam-client-app-cert*. 
 
 1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type in your pass phrase, type a pass phrase of your choice: 
 
