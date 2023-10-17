@@ -175,6 +175,12 @@ We've analyzed the usage patterns of your virtual machine scale sets over the pa
 
 Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdown underutilized virtual machine scale sets)](https://aka.ms/aa_lowusagerec_vmss_learnmore).
 
+### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
+
+With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
+
+Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
+
 
 
 
@@ -226,6 +232,10 @@ Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFro
 
 
 ## Management and Governance
+
+### Azure Monitor
+
+For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
 
 ### Configure automatic renewal for your expiring reservation
 
@@ -435,14 +445,6 @@ Learn more about [Storage Account - MoveToPremiumStorage (Based on your high tra
 For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup that is even more cost effective.
 
 Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](https://aka.ms/DBBackupCostOptimization).
-
-### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
-
-With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
-
-Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
-
-
 
 
 
