@@ -2008,7 +2008,7 @@
     - name: VMSnapshot Extension
       href: virtual-machines-restore-points-VMSnapshot-extension.md
     - name: Cross region copy
-      href: virtual-machines-copy-restore-points copy.md
+      href: virtual-machines-copy-restore-points-copy.md
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Quickstarts

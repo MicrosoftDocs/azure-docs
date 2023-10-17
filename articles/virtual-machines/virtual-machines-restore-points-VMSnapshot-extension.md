@@ -1,12 +1,12 @@
 ---
 title: VMSnapshot extension using VM restore points
 description: VMSnapshot extension using VM restore points
-author: aarthiv
-ms.author: aarthiv
+author: Aarthi-Vijaya-raghavan
+ms.author: Aarthi-Vijaya-raghavan
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/17/2023
 ms.custom: template-how-to
 ---
 
@@ -17,7 +17,7 @@ Application-consistent restore points leverage VSS service (or pre/post-scripts 
 For Windows images **VMSnapshot Windows** extension and for Linux images **VMSnapshot Linux** extension is used for taking application consistent restore points. When there is a create application consistent restore point request issued from a VM, Azure will install the VM snapshot extension if not already present. The extension will also be automatically updated.
 
 > [!IMPORTANT]
-> Azure will begin creating a restore point only after all extensions (including but not limited to VMSnapshot) provisioning state are complete.
+> Azure will start creating a restore point only after all extensions (including but not limited to VMSnapshot) provisioning state are complete.
 
 ## Extension logs
 
