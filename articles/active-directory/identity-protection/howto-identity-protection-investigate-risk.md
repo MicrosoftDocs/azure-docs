@@ -123,7 +123,7 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location - Is the user traveling to a different location or accessing devices from multiple locations?
       1. IP address 
       1. User agent string
-   1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
+   1. If you have access to other security tools like [Microsoft Sentinel](/azure/sentinel/overview), check for corresponding alerts that might indicate a larger issue.
    1. Organizations with access to [Microsoft 365 Defender](/defender-for-identity/understanding-security-alerts) can follow a user risk event through other related alerts and incidents and the MITRE ATT&CK chain. 
        1. Select the user in the Risky users report.
        1. Select the **ellipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.

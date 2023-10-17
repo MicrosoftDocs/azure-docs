@@ -31,7 +31,7 @@ sections:
           ## Frequently asked questions
           
           ### Why is a user at risk?
-          If you're a Microsoft Entra ID Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and select an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, select ‘User’s risky sign-ins’. To see all risk detections for this user, select ‘User’s risk detections’.
+          If you're a Microsoft Entra ID Protection customer, go to the [risky users](/azure/active-directory/develop/configure-app-multi-instancing#risky-users) view and select an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, select ‘User’s risky sign-ins’. To see all risk detections for this user, select ‘User’s risk detections’.
           
           ### Why was my sign-in blocked but Identity Protection didn't generate a risk detection?
           Sign-ins can be blocked for several reasons. It's important to note that Identity Protection only generates risk detections when correct credentials are used in the authentication request. If a user uses incorrect credentials, it will not be flagged by Identity Protection since there isn't of risk of credential compromise unless a bad actor uses the correct credentials. Some reasons a user can be blocked from signing that won't generate an Identity Protection detection include:
@@ -41,7 +41,7 @@ sections:
           
           ### How can I get a report of detections of a specific type?
 
-          Go to the risk detections view and filter by ‘Detection type’. You can then download this report in .CSV or .JSON format using the **Download** button at the top. For more information, see the article [How To: Investigate risk](howto-identity-protection-investigate-risk.md#risk-detections).
+          Go to the risk detections view and filter by ‘Detection type’. You can then download this report in .CSV or .JSON format using the **Download** button at the top. For more information, see the article [How To: Investigate risk](/azure/active-directory/develop/configure-app-multi-instancing#risk-detections).
           
           ### Why can’t I set my own risk levels for each risk detection?
 
@@ -53,7 +53,7 @@ sections:
 
           ### How can I close specific risk detections like I did in the old UI?
 
-          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Microsoft Entra ID Protection](howto-identity-protection-risk-feedback.md).
+          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Microsoft Entra ID Protection](/azure/active-directory/develop/configure-app-multi-instancing).
           
           ### How far can I go back in time to understand what’s going on with my user?
 
@@ -63,7 +63,7 @@ sections:
           
           ### How can I learn more about a specific detection?
 
-          All risk detections are documented in the article [What is risk](concept-identity-protection-risks.md#risk-types-and-detection). You can hover over the (i) symbol next to the detection to learn more about a detection.
+          All risk detections are documented in the article [What is risk](/azure/active-directory/develop/configure-app-multi-instancing#risk-types-and-detection). You can hover over the (i) symbol next to the detection to learn more about a detection.
           
           ### How do the feedback mechanisms in Identity Protection work?
 

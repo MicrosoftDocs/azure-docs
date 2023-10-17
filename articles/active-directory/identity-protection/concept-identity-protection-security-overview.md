@@ -34,4 +34,4 @@ The security overview page is being replaced by the [Microsoft Entra ID Protecti
 
 - [What is risk](concept-identity-protection-risks.md)
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
-- [Identity Secure Score](../fundamentals/identity-secure-score.md)
+- [Identity Secure Score](../reports-monitoring/concept-identity-secure-score.md)
