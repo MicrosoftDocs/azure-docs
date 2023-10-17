@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/17/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
-zone_pivot_group_filename: articles/container-apps/zone-pivot-groups.json
+zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
@@ -260,6 +260,8 @@ properties: {
 | Metadata | Description |
 | ------ | ----------- |
 | `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency resource. |
+
+::: zone-end 
 
 ## Define your resiliency policies
 

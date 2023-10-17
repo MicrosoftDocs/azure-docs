@@ -11,3 +11,11 @@ groups:
     title: Python
   - id: csharp
     title: .NET
+- id: resiliency-options
+  title: Resiliency options
+  prompt: Choose the resiliency option that best fits your needs
+  pivots:
+  - id: container-app-resiliency
+    title: Container App resiliency
+  - id: dapr-resiliency
+    title: Dapr component resiliency
