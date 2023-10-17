@@ -27,7 +27,7 @@ As you start to scale your service, the number of requests sent to your key vaul
 
 ### I'm not able to modify access policy, how can it be enabled?
 
-The user needs to have sufficient Azure AD permissions to modify access policy. In this case, the user would need to have higher contributor role.
+The user needs to have sufficient Microsoft Entra permissions to modify access policy. In this case, the user would need to have higher contributor role.
 
 ### I'm seeing 'Unknown Policy' error. What does that mean?
 
@@ -53,7 +53,7 @@ If you're creating an on-premises application, doing local development, or other
 
 Give the AD group permissions to your key vault using the Azure CLI `az keyvault set-policy` command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
 
-The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
+The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Microsoft Entra groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 

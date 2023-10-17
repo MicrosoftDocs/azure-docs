@@ -193,6 +193,6 @@ For more information about programmatically updating your Conditional Access pol
 
 ## Next steps
 
-- [What is Microsoft Entra ID monitoring?](../reports-monitoring/overview-monitoring.md)
+- [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring.md)
 - [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Conditional Access: Programmatic access](howto-conditional-access-apis.md)

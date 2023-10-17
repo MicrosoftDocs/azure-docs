@@ -17,7 +17,7 @@ In this article, you'll learn how to set up Batch nodes with certificates to sec
 
 To authenticate to Azure Key Vault from a Batch node, you need:
 
-- An Azure Active Directory (Azure AD) credential
+- A Microsoft Entra credential
 - A certificate
 - A Batch account
 - A Batch pool with at least one node
@@ -28,7 +28,7 @@ If you don't already have a certificate, [use the PowerShell cmdlet `New-SelfSig
 
 ## Create a service principal
 
-Access to Key Vault is granted to either a **user** or a **service principal**. To access Key Vault programmatically, use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the certificate you created in the previous step. The service principal must be in the same Azure AD tenant as the Key Vault.
+Access to Key Vault is granted to either a **user** or a **service principal**. To access Key Vault programmatically, use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the certificate you created in the previous step. The service principal must be in the same Microsoft Entra tenant as the Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -76,7 +76,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## Access Key Vault
 
-Now you're ready to access Key Vault in scripts running on your Batch nodes. To access Key Vault from a script, all you need is for your script to authenticate against Azure AD using the certificate. To do this in PowerShell, use the following example commands. Specify the appropriate GUID for **Thumbprint**, **App ID** (the ID of your service principal), and **Tenant ID** (the tenant where your service principal exists).
+Now you're ready to access Key Vault in scripts running on your Batch nodes. To access Key Vault from a script, all you need is for your script to authenticate against Microsoft Entra ID using the certificate. To do this in PowerShell, use the following example commands. Specify the appropriate GUID for **Thumbprint**, **App ID** (the ID of your service principal), and **Tenant ID** (the tenant where your service principal exists).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

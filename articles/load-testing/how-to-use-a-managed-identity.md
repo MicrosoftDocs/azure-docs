@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to authenticate with and read secrets from Azure Key Vault.
 
-A managed identity from Azure Active Directory (Azure AD) allows your load testing resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+A managed identity from Microsoft Entra ID allows your load testing resource to easily access other Microsoft Entra protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Azure Load Testing supports two types of identities:
 
@@ -90,7 +90,7 @@ After the resource creation finishes, the following properties are configured fo
 }
 ```
 
-The `tenantId` property identifies which Azure AD tenant the managed identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Azure AD, the service principal has the same name as the Azure load testing resource.
+The `tenantId` property identifies which Microsoft Entra tenant the managed identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Microsoft Entra ID, the service principal has the same name as the Azure load testing resource.
 
 You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
 
@@ -98,7 +98,7 @@ You can now [grant your load testing resource access to your Azure key vault](#g
 
 ## Assign a user-assigned identity to a load testing resource
 
-Before you can add a user-assigned managed identity to an Azure load testing resource, you must first create this identity in Azure AD. Then, you can assign the identity by using its resource identifier.
+Before you can add a user-assigned managed identity to an Azure load testing resource, you must first create this identity in Microsoft Entra ID. Then, you can assign the identity by using its resource identifier.
 
 You can add multiple user-assigned managed identities to your resource. For example, if you need to access multiple Azure resources, you can grant different permissions to each of these identities.
 
@@ -171,7 +171,7 @@ You can create an Azure load testing resource by using an ARM template and the r
     }
     ```
 
-    The `principalId` is a unique identifier for the identity that's used for Azure AD administration. The `clientId` is a unique identifier for the resource's new identity that's used for specifying which identity to use during runtime calls.
+    The `principalId` is a unique identifier for the identity that's used for Microsoft Entra administration. The `clientId` is a unique identifier for the resource's new identity that's used for specifying which identity to use during runtime calls.
 
 You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
 

@@ -111,9 +111,9 @@ The following firewall URL exceptions are needed for the Azure Arc agents:
 | `aka.ms` | Used to resolve the download script during installation |
 | `packages.microsoft.com` | Used to download the Linux installation package |
 | `download.microsoft.com` | Used to download the Windows installation package |
-| `login.windows.net` | Azure Active Directory |
-| `login.microsoftonline.com` | Azure Active Directory |
-| `pas.windows.net` | Azure Active Directory |
+| `login.windows.net` | Microsoft Entra ID |
+| `login.microsoftonline.com` | Microsoft Entra ID |
+| `pas.windows.net` | Microsoft Entra ID |
 | `management.azure.com` | Azure Resource Manager - to create or delete the Arc server resource |
 | `*.his.arc.azure.com` | Metadata and hybrid identity services |
 | `*.guestconfiguration.azure.com` | Extension management and guest configuration services |

@@ -251,7 +251,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
 > | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
-> | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
+> | [Principal](#principal-attributes) | Indicates that the attribute is a Microsoft Entra custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
 > | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
 
@@ -283,7 +283,7 @@ The following table lists the supported environment attributes for conditions.
 
 #### Principal attributes
 
-Principal attributes are Azure AD custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
+Principal attributes are Microsoft Entra custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
 
 > [!IMPORTANT]
 > Principal attributes are currently in PREVIEW.
@@ -291,15 +291,15 @@ Principal attributes are Azure AD custom security attributes associated with the
 
 To use principal attributes, you must have **all** of the following:
 
-- Azure AD Premium P1 or P2 license
-- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
-- Custom security attributes defined in Azure AD
+- Microsoft Entra ID P1 or P2 license
+- Microsoft Entra permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
+- Custom security attributes defined in Microsoft Entra ID
 
 For more information about custom security attributes, see:
 
 - [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
 - [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
-- [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attributes in Microsoft Entra ID (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 #### Request attributes
 

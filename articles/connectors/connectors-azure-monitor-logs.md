@@ -21,7 +21,7 @@ tags: connectors
 > the same functionality as the other connectors and is the preferred method for running a query against a 
 > Log Analytics workspace or an Application Insights resource. For example, when you connect to your Application 
 > Insights resource, you don't have to create or provide an application ID and API key. Authentication is 
-> integrated with Azure Active Directory.
+> integrated with Microsoft Entra ID.
 
 To build workflows in Azure Logic Apps that retrieve data from a Log Analytics workspace or an Application Insights resource in Azure Monitor, you can use the Azure Monitor Logs connector.
 
@@ -92,7 +92,7 @@ For technical information about this connector's operations, see the [connector'
 
    This example continues with the action named **Run query and visualize results**.
 
-1. In the connection box, from the **Tenant** list, select your Azure Active Directory (Azure AD) tenant, and then select **Create**.
+1. In the connection box, from the **Tenant** list, select your Microsoft Entra tenant, and then select **Create**.
 
    > [!NOTE]
    > 

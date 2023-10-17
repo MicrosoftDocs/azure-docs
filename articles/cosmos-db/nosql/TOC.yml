@@ -53,7 +53,9 @@
       href: tutorial-springboot-azure-kubernetes-service.md
     - name: Jupyter notebooks
       items:
-        - name: Create notebook
+        - name: Create notebook (VSCode)
+          href: tutorial-create-notebook-vscode.md
+        - name: Create notebook (Azure portal)
           href: tutorial-create-notebook.md
         - name: Import notebooks from GitHub
           href: tutorial-import-notebooks.md

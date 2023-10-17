@@ -1,6 +1,6 @@
 ---
 title: Create a trust relationship between an app and an external identity provider
-description: Set up a trust relationship between an app in Microsoft Entra ID and an external identity provider.  This allows a software workload outside of Azure to access Microsoft Entra ID protected resources without using secrets or certificates.
+description: Set up a trust relationship between an app in Microsoft Entra ID and an external identity provider.  This allows a software workload outside of Azure to access Microsoft Entra protected resources without using secrets or certificates.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalid, udayh, vakarand
 zone_pivot_groups: identity-wif-apps-methods
-#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Microsoft Entra ID protected resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Microsoft Entra protected resources without managing secrets.
 ---
 
 # Configure an app to trust an external identity provider
 
 This article describes how to manage a federated identity credential on an application in Microsoft Entra ID.  The federated identity credential creates a trust relationship between an application and an external identity provider (IdP).
 
-You can then configure an external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload can access Microsoft Entra ID protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
+You can then configure an external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload can access Microsoft Entra protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
 
 In this article, you learn how to create, list, and delete federated identity credentials on an application in Microsoft Entra ID.
 

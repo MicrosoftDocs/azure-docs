@@ -35,7 +35,7 @@ The Azure Maps Web SDK provides a [services module]. This module is a helper lib
       import * as service from "azure-maps-rest";
       ```
 
-1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client is created.
+1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Microsoft Entra credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client is created.
 
     If you use a subscription key for authentication:
 
@@ -55,7 +55,7 @@ The Azure Maps Web SDK provides a [services module]. This module is a helper lib
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    If you use Azure AD for authentication:
+    If you use Microsoft Entra ID for authentication:
 
     ```javascript
     // Enter your Azure AD client ID.

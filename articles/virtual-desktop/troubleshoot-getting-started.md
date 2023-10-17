@@ -10,7 +10,7 @@ manager: femila
 
 # Troubleshoot the Azure Virtual Desktop getting started feature
 
-The Azure Virtual Desktop getting started feature uses nested templates to deploy Azure resources for validation and automation in Azure Virtual Desktop. The getting started feature creates either two or three resource groups based on whether the subscription it's running on has existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) or not. All resource groups start with the same user-defined prefix.
+The Azure Virtual Desktop getting started feature uses nested templates to deploy Azure resources for validation and automation in Azure Virtual Desktop. The getting started feature creates either two or three resource groups based on whether the subscription it's running on has existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services or not. All resource groups start with the same user-defined prefix.
 
 When you run the nested templates, they create three resource groups and a template that provisions Azure Resource Manager resources. The following lists show each resource group and the templates they run.
 
@@ -39,7 +39,7 @@ The resource group that ends in "-prerequisite" runs these templates:
 - easy-button-prerequisite-resources-linked-template
 
 >[!NOTE]
->This resource group is optional, and will only appear if your subscription doesn't have Azure AD DS or AD DS.
+>This resource group is optional, and will only appear if your subscription doesn't have Microsoft Entra Domain Services or AD DS.
 
 ## No subscriptions
 
@@ -73,7 +73,7 @@ To resolve this issue, either try a new word or add letters to the blocked word 
 
 This error message appears when entering a password that is either too long or too short to meet the character length requirement. Azure password length and complexity requirements even apply to fields that you later use in Windows, which has less strict requirements.
 
-To resolve this issue, make sure you use an account that follows [Microsoft's password guidelines](https://www.microsoft.com/research/publication/password-guidance) or uses [Azure AD Password Protection](../active-directory/authentication/concept-password-ban-bad.md).
+To resolve this issue, make sure you use an account that follows [Microsoft's password guidelines](https://www.microsoft.com/research/publication/password-guidance) or uses [Microsoft Entra Password Protection](../active-directory/authentication/concept-password-ban-bad.md).
 
 ## Error messages for easy-button-prerequisite-user-setup-linked-template
 
@@ -175,7 +175,7 @@ This error happens when the Azure admin UPN you entered isn't correct. To resolv
 
 ## Multiple VMExtensions per handler not supported
 
-When you run the getting started feature on a subscription that has Azure AD DS or AD DS, then the feature will use a Microsoft.Powershell.DSC extension to create validation users and configure FSLogix. However, Windows VMs in Azure can't run more than one of the same type of extension at the same time.
+When you run the getting started feature on a subscription that has Microsoft Entra Domain Services or AD DS, then the feature will use a Microsoft.Powershell.DSC extension to create validation users and configure FSLogix. However, Windows VMs in Azure can't run more than one of the same type of extension at the same time.
 
 If you try to run multiple versions of Microsoft.Powershell.DSC, you'll get an error message that looks like this:
 
@@ -193,7 +193,7 @@ To resolve this issue, before you run the getting started feature, make sure to 
 
 ## Failure in easy-button-prerequisitecompletion-job-linked-template
 
-The user group for the validation users is located in the "USERS" container. However, the user group must be synced to Azure AD in order to work properly. If it isn't, you'll get an error message that looks like this:
+The user group for the validation users is located in the "USERS" container. However, the user group must be synced to Microsoft Entra ID in order to work properly. If it isn't, you'll get an error message that looks like this:
 
 ```azure
 {
@@ -209,7 +209,7 @@ To make sure the issue is caused by the validation user group not syncing, open 
 
 To resolve this issue:
 
-1. Enable syncing with Azure AD for the "USERS" container.
+1. Enable syncing with Microsoft Entra ID for the "USERS" container.
 
 2. Create the AVDValidationUsers group in an organization unit that's syncing with Azure.
 

@@ -117,7 +117,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com  <br> *.microsoftazuread-sso.com | Used for access control and identity management by Azure Active Directory
+*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com  <br> *.microsoftazuread-sso.com | Used for access control and identity management by Microsoft Entra ID
 management.azure.com | Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br> Note: Ensure servers to replicate have access to this.
@@ -134,7 +134,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net <br> graph.microsoftazure.us | Sign in to your Azure subscription.
-login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
+login.microsoftonline.us  | Used for access control and identity management by Microsoft Entra ID.
 management.usgovcloudapi.net |  Used for resource deployments and management operations.
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
@@ -154,7 +154,7 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com  | Used for access control and identity management by Azure Active Directory
+*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com  | Used for access control and identity management by Microsoft Entra ID
 management.azure.com |  Used for resource deployments and management operations
 *.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 aka.ms/* (optional) | Allow access to these links; used to download and install the latest updates for appliance services.
@@ -167,7 +167,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net | Sign in to your Azure subscription.
-login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
+login.microsoftonline.us  | Used for access control and identity management by Microsoft Entra ID.
 management.usgovcloudapi.net |  Used for resource deployments and management operations.
 *.services.visualstudio.com (optional)| Upload appliance logs used for internal monitoring.
 aka.ms/* (optional)| Allow access to these links; used to download and install the latest updates for appliance services.
@@ -182,7 +182,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.cn  | Navigate to the Azure portal.
 graph.chinacloudapi.cn | Sign in to your Azure subscription.
-login.microsoftonline.cn  | Used for access control and identity management by Azure Active Directory.
+login.microsoftonline.cn  | Used for access control and identity management by Microsoft Entra ID.
 management.chinacloudapi.cn |  Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.chinacloudapi.cn | Manage secrets in the Azure Key Vault.
@@ -201,7 +201,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.cn  | Navigate to the Azure portal.
 graph.chinacloudapi.cn | Sign in to your Azure subscription.
-login.microsoftonline.cn  | Used for access control and identity management by Azure Active Directory.
+login.microsoftonline.cn  | Used for access control and identity management by Microsoft Entra ID.
 management.chinacloudapi.cn |  Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.chinacloudapi.cn | Manage secrets in the Azure Key Vault.
