@@ -6365,6 +6365,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing-telemetry-correlation.md",
+            "redirect_url": "/dotnet/api/microsoft.applicationinsights.extensibility.operationcorrelationtelemetryinitializer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/transaction-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics",
             "redirect_document_id": false

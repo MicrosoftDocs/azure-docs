@@ -143,10 +143,10 @@
             href: tutorial-single-page-app-react-call-api.md
         - name: Angular
           href: tutorial-v2-angular-auth-code.md
-        - name: Blazor WebAssembly
-          href: tutorial-blazor-webassembly.md
         - name: JavaScript
           href: tutorial-v2-javascript-auth-code.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#single-page-applications

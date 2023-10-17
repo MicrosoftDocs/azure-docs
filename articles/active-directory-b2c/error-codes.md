@@ -152,3 +152,4 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
 |`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
+| `AADB2C99027` | Policy '{0}' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
