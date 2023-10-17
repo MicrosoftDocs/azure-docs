@@ -55,7 +55,8 @@ After you grant access to your key vault, you can import your certificate using 
 1. Go to your service instance.
 1. From the left navigation pane of your instance, select **TLS/SSL settings**.
 1. Select **Import Key Vault Certificate** in the **Public Key Certificates** section.
-1. Select your Key Vault in **Key vault** and the certificate in **Certificate**, then **Select** and **Apply**.
+1. Select your Key Vault in **Key vault** and the certificate in **Certificate**, then **Select**.
+1. Enter your certificate name in **Certificate name**, tick the **Enable auto sync** checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](./how-to-custom-domain.md#certificate-auto-sync).
 1. When you have successfully imported your certificate, you'll see it in the list of Public Key Certificates.
 
 > [!NOTE]
