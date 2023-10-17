@@ -851,7 +851,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 # [Microsoft Graph](#tab/ms-graph)
 
-1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-synchronization-secrets) API to save your credentials.
+1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-serviceprincipal-put-synchronization) API to save your credentials.
 
     **Request**
     
