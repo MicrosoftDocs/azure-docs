@@ -200,9 +200,9 @@ sections:
         answer:
           Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
-          Is there a token limit on the system message?
+          Is there a token limit on the system message? 
         answer: 
-          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored.
+          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored. This limitation only applies to the Azure OpenAI [on your data feature](/azure/ai-services/openai/concepts/use-your-data).
       - question: |
           Do the query language and the data source language need to be the same?
         answer:
