@@ -148,7 +148,7 @@ In this section, you package the previously registered MLflow model and deploy i
     ---
     
     > [!TIP]
-    > When you specify the **model configuration** using `copy` for the **mode** property, you guarantee that all the model artifacts are copied inside the generated docker image instead of downloaded from the Azure Machine Learning model registry, thereby allowing true portability outside of Azure Machine Learning. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md#create-a-package-for-a-custom-model).
+    > When you specify the **model configuration** using `copy` for the **mode** property, you guarantee that all the model artifacts are copied inside the generated docker image instead of downloaded from the Azure Machine Learning model registry, thereby allowing true portability outside of Azure Machine Learning. For a full specification about all the options when creating packages see [Create a package specification](how-to-package-models.md#create-a-package-specification).
 
 1. Start the package operation.
 

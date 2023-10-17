@@ -62,25 +62,13 @@ The simplest way to deploy using a model package is by specifying to Azure Machi
 
 Use the `--with-package` flag when creating a deployment:
 
-```azurecli
-az ml online-deployment create  -f deployment.yml --package-model
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh" ID="create_deployment_inline" :::
 
 # [Python](#tab/sdk)
 
 Use the `--with_package=True` argument when creating a deployment:
 
-```python
-ml_client.batch_deployment.create(
-    ManagedOnlineDeployment(
-        name="default",
-        endpoint_name=endpoint_name,
-        model=model,
-        instance_count=1,
-        package_model=True,
-    )
-).result()
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh" ID="configure_deployment_inline" :::
 
 # [Studio](#tab/studio)
 

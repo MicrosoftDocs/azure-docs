@@ -51,13 +51,6 @@ cd azureml-examples/cli
 !cd azureml-examples/sdk/python
 ```
 
-# [Studio](#tab/studio)
-
-1. From the left navigation bar, select the option __Notebooks__.
-1. Select __Samples__.
-1. Navigate to the folder _sdk/python/endpoints/online/deploy-packages_.
-1. Find the notebook you want to try out and select __Clone this notebook__.
-
 ---
 
 This section uses the example in the folder **endpoints/online/deploy-packages/custom-model**.
