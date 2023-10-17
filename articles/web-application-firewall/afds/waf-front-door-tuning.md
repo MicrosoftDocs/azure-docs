@@ -263,9 +263,9 @@ In this example, you perform an exclusion at the most granular level by applying
 
 ![Screenshot that shows rule exclusion for a specific rule.](../media/waf-front-door-tuning/exclusion-rule.png)
 
-Occasionally, there are cases where specific parameters get passed into the WAF in a manner that might not be intuitive. For example, a token gets passed when you authenticate by using Azure Active Directory (Azure AD). The token `__RequestVerificationToken` usually gets passed in as a request cookie.
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that might not be intuitive. For example, a token gets passed when you authenticate by using Microsoft Entra ID. The token `__RequestVerificationToken` usually gets passed in as a request cookie.
 
-In some cases where cookies are disabled, this token is also passed in as a request post argument. For this reason, to address Azure AD token false positives, you must ensure that `__RequestVerificationToken` is added to the exclusion list for both `RequestCookieNames` and `RequestBodyPostArgsNames`.
+In some cases where cookies are disabled, this token is also passed in as a request post argument. For this reason, to address Microsoft Entra token false positives, you must ensure that `__RequestVerificationToken` is added to the exclusion list for both `RequestCookieNames` and `RequestBodyPostArgsNames`.
 
 Exclusions on a field name (**Selector**) means that the value will no longer be evaluated by the WAF. The field name itself continues to be evaluated and in rare cases it might match a WAF rule and trigger an action.
 

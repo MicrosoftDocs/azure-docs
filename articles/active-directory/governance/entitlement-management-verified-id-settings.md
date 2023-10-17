@@ -76,7 +76,7 @@ Once an access package is configured with a verified ID requirement, end-users w
 
 The requestor steps are as follows:
 
-1. Go to [myaccess.microsoft.com](../develop/configure-app-multi-instancing.md) and sign in.
+1. Go to [myaccess.microsoft.com](HTTPS://myaccess.microsoft.com) and sign in.
 
 1. Search for the access package you want to request access to (you can browse the listed packages or use the search bar at the top of the page) and select **Request**.
 

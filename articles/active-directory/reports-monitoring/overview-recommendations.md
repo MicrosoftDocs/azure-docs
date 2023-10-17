@@ -24,7 +24,7 @@ Microsoft Entra recommendations now include *identity secure score* recommendati
 
 All these Microsoft Entra recommendations provide you with personalized insights with actionable guidance to:
 
-- Help you identify opportunities to implement best practices for Microsoft Entra ID-related features.
+- Help you identify opportunities to implement best practices for Microsoft Entra related features.
 - Improve the state of your Microsoft Entra tenant.
 - Optimize the configurations for your scenarios.
 

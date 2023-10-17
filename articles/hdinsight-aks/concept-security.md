@@ -1,6 +1,6 @@
 ---
 title: Security in HDInsight on AKS
-description: An introduction to security with managed identity from Azure Active Directory in HDInsight on AKS.
+description: An introduction to security with managed identity from Microsoft Entra ID in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/29/2023
@@ -32,8 +32,8 @@ Perimeter security in HDInsight on AKS is achieved through [virtual networks.](.
 
 ### Authentication
 
-HDInsight on AKS provides Azure Active Directory-based authentication for cluster login and uses managed identities (MSI) to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identity is a feature of Azure Active Directory that provides Azure services with a set of automatically managed credentials. With this setup, enterprise employees can sign into the cluster nodes by using their domain credentials. 
-A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault, Storage, SQL Server, and Database. The identity managed by the Azure platform and doesn't require you to provision or rotate any secrets.
+HDInsight on AKS provides Microsoft Entra ID-based authentication for cluster login and uses managed identities (MSI) to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identity is a feature of Microsoft Entra ID that provides Azure services with a set of automatically managed credentials. With this setup, enterprise employees can sign into the cluster nodes by using their domain credentials. 
+A managed identity from Microsoft Entra ID allows your app to easily access other Microsoft Entra protected resources such as Azure Key Vault, Storage, SQL Server, and Database. The identity managed by the Azure platform and doesn't require you to provision or rotate any secrets.
 This solution is a key for securing access to your HDInsight on AKS cluster and other dependent resources. Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings.
 
 You create a user-assigned managed identity, which is a standalone Azure resource, as part of the cluster creation process, which manages the access to your dependent resources.

@@ -120,7 +120,7 @@ To configure Microsoft Entra ID to secure the CDE:
 * Enable privileged identity management and access reviews for Microsoft Entra roles, privileged access groups and Azure resources
 * Use Conditional Access policies to enforce PCI-requirement controls: credential strength, device state, and enforce them based on location, group membership, applications, and risk 
 * Use modern authentication for DCE workloads
-* Archive Microsoft Entra ID logs in security information and event management (SIEM) systems
+* Archive Microsoft Entra logs in security information and event management (SIEM) systems
 
 Where applications and resources use Microsoft Entra ID for identity and access management (IAM), the Microsoft Entra tenant(s) are in scope of PCI audit, and the guidance herein is applicable. Organizations must evaluate identity and resource isolation requirements, between non-PCI and PCI workloads, to determine their best architecture.
 

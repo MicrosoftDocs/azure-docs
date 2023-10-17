@@ -55,7 +55,7 @@ Use API Management for user authentication and authorization:
 
     * [Client certificate](authentication-certificate-policy.md) policy - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
 
-* **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
+* **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md). 
 
 More recommendations:
 
@@ -63,7 +63,7 @@ More recommendations:
 
 * APIs should use TLS/SSL (transport security) to protect the credentials or tokens. Credentials and tokens should be sent in request headers and not as query parameters. 
 
-* In the API Management [developer portal](api-management-howto-developer-portal.md), configure [Azure Active Directory](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) as the identity provider to increase the account security. The developer portal uses CAPTCHA to mitigate brute force attacks. 
+* In the API Management [developer portal](api-management-howto-developer-portal.md), configure [Microsoft Entra ID](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) as the identity provider to increase the account security. The developer portal uses CAPTCHA to mitigate brute force attacks. 
 
 ### Related information 
 
@@ -218,7 +218,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * If you choose to [self-host](developer-portal-self-host.md) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic. 
 
-    * Use [Azure Active Directory (Azure AD)](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
+    * Use [Microsoft Entra ID](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
 
     * Assign [user groups](api-management-howto-create-groups.md#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.  
 
@@ -295,7 +295,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor.md). 
 
-* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/transaction-diagnostics.md) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
 
 * If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
 

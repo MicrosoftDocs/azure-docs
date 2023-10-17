@@ -152,7 +152,7 @@ Advanced configuration tutorials:
 
 The BIG-IP version 13.1 Guided Configuration wizard, minimizes time and effort to implement common BIG-IP publishing scenarios. Its workflow framework provides an intuitive deployment experience, for specific access topologies.
 
-Guided Configuration version 16.x has the Easy Button feature: admins no longer go back and forth between Microsoft Entra ID and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration between BIG-IP APM and Microsoft Entra ensures applications support identity federation, SSO, and Microsoft Entra Conditional Access, without the management overhead of doing so for each app. 
+Guided Configuration version 16.x has the Easy Button feature: admins no longer go back and forth between Microsoft Entra ID and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration between BIG-IP APM and Microsoft Entra ID ensures applications support identity federation, SSO, and Microsoft Entra Conditional Access, without the management overhead of doing so for each app. 
 
 Tutorials for using Easy Button templates, *F5 BIG-IP Easy Button for SSO to*:
 

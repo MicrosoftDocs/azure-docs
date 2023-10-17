@@ -27,10 +27,10 @@ In this guide, learn about the different authentication options available in Ser
 
 Select one of the four different authentication options offered by Service Connector to connect your Azure services together:
 
-- **System assigned managed identity**: provides an automatically managed identity tied to the resource in Azure Active Directory (Azure AD)
+- **System assigned managed identity**: provides an automatically managed identity tied to the resource in Microsoft Entra ID
 - **User assigned managed identity**: provides an identity that can be used on multiple resources
 - **Connection string**: provides one or multiple key-value pairs with secrets or tokens
-- **Service principal**: creates a service principal that defines the access policy and permissions for the user/application in the Azure AD tenant
+- **Service principal**: creates a service principal that defines the access policy and permissions for the user/application in the Microsoft Entra tenant
 
 Service Connector offers the following authentication options:
 

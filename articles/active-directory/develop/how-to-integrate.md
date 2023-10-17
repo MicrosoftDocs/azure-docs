@@ -48,7 +48,7 @@ There are several ways for your application to integrate with the Microsoft iden
 
 ### Promote your application in the Azure and Microsoft 365 Marketplaces
 
-**Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers. Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+**Promote your application to the millions of organizations who are already using Microsoft Entra ID.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers. Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
 **When users sign up for your application, it will appear in their Microsoft Entra ID access panel and Microsoft 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Microsoft Entra ID access panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

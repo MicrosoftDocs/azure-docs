@@ -56,7 +56,7 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 ### Workstation
 
-You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy.
+You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy. The workstation must also have outbound network connectivity to the ESXi host backing the datastore. Datastore connectivity is needed for uploading the Arc resource bridge image to the datastore as part of the onboarding.    
 
 ## Prepare vCenter Server
 

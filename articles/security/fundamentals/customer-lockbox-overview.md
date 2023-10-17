@@ -43,12 +43,12 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 1. The approver(s) at the customer organization for a given Lockbox request are determined as follows: 
     - For Subscription scoped requests (requests to access specific resources contained within a subscription), users who have been assigned the Owner role on the associated subscription. 
-    - For Tenant scope requests (requests to access the Azure Active Directory Tenant), users who have been assigned the Global Administrator role on the Tenant. 
+    - For Tenant scope requests (requests to access the Microsoft Entra tenant), users who have been assigned the Global Administrator role on the Tenant. 
     > [!NOTE]
-    > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Azure AD roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
+    > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
     > 
     > **Role assignments scoped to management groups are not supported in Lockbox at this time.**
-1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Azure AD Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
+1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
     
     Example email:
     
