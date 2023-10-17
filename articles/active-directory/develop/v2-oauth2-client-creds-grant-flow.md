@@ -41,9 +41,9 @@ The entire client credentials flow looks similar to the following diagram. We de
 An app typically receives direct authorization to access a resource in one of two ways:
 
 * [Through an access control list (ACL) at the resource](#access-control-lists)
-* [Through application permission assignment in Azure AD](#application-permissions)
+* [Through application permission assignment in Microsoft Entra ID](#application-permissions)
 
-These two methods are the most common in Azure AD and we recommend them for clients and resources that perform the client credentials flow. A resource can also choose to authorize its clients in other ways. Each resource server can choose the method that makes the most sense for its application.
+These two methods are the most common in Microsoft Entra ID and we recommend them for clients and resources that perform the client credentials flow. A resource can also choose to authorize its clients in other ways. Each resource server can choose the method that makes the most sense for its application.
 
 ### Access control lists
 
@@ -55,7 +55,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 #### Controlling tokens without the `roles` claim
 
-In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
+In order to enable this ACL-based authorization pattern, Microsoft Entra ID doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
 If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that assignment requirements are enabled for your app](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app). This will block users and applications without assigned roles from being able to get a token for this application. 
 
@@ -106,7 +106,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | `redirect_uri` |  Required   | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded, and it can have additional path segments. |
 |    `state`     | Recommended | A value that's included in the request that's also returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
-At this point, Azure AD enforces that only a tenant administrator can sign in to complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
+At this point, Microsoft Entra ID enforces that only a tenant administrator can sign in to complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
 
 ##### Successful response
 

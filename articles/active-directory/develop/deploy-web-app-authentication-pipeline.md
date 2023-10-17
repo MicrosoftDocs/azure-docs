@@ -1,6 +1,6 @@
 ---
 title: Deploy a web app with App Service auth in a pipeline
-description: Describes how to set up a pipeline in Azure Pipelines to build and deploy a web app to Azure and enable the Azure App Service built-in authentication. The article provides step-by-step instructions on how to configure Azure resources, build and deploy a web application, create an Azure AD app registration, and configure App Service built-in authentication using Azure Pipelines.
+description: Describes how to set up a pipeline in Azure Pipelines to build and deploy a web app to Azure and enable the Azure App Service built-in authentication. The article provides step-by-step instructions on how to configure Azure resources, build and deploy a web application, create a Microsoft Entra app registration, and configure App Service built-in authentication using Azure Pipelines.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -22,7 +22,7 @@ You'll learn how to:
 
 - Configure Azure resources using scripts in Azure Pipelines
 - Build a web application and deploy to App Service using Azure Pipelines
-- Create an Azure AD app registration in Azure Pipelines
+- Create a Microsoft Entra app registration in Azure Pipelines
 - Configure App Service built-in authentication in Azure Pipelines.
 
 ## Prerequisites
@@ -30,7 +30,7 @@ You'll learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
     - To use Microsoft-hosted agents, your Azure DevOps organization must have access to Microsoft-hosted parallel jobs. [Check your parallel jobs and request a free grant](/azure/devops/pipelines/troubleshooting/troubleshooting#check-for-available-parallel-jobs).
-- An Azure Active Directory [tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
+- A Microsoft Entra [tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
 - A [GitHub account](https://github.com) and Git [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
 - .NET 6.0 SDK or later.
 
@@ -141,7 +141,7 @@ Add a [service connection](/azure/devops/pipelines/library/service-endpoints) so
 1. Select **Service principal (automatic)** and then **Next**.
 1. Select **Subscription** for **scope level** and select your Azure subscription.  Enter a service connection name such as "PipelinesTestServiceConnection" and select **Next**.  The service connection name is used in the following steps.
 
-An application is also created in your Azure AD tenant that provides an identity for the pipeline.  You need the display name of the app registration in later steps.  To find the display name:
+An application is also created in your Microsoft Entra tenant that provides an identity for the pipeline.  You need the display name of the app registration in later steps.  To find the display name:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. Browse to **Identity** > **Applications** > **App registrations** > **All applications**.
@@ -157,7 +157,7 @@ Grant the service connection permission to access the pipeline:
 
 The `DeployAzureResources` stage that you create in the next section uses several values to create and deploy resources to Azure:
 
-- The Azure AD tenant ID (find in the [Microsoft Entra admin center](https://entra.microsoft.com/)).
+- The Microsoft Entra tenant ID (find in the [Microsoft Entra admin center](https://entra.microsoft.com/)).
 - The region, or location, where the resources are deployed.
 - A resource group name.
 - The App Service service plan name.
@@ -191,7 +191,7 @@ Save your changes and run the pipeline.
 
 ## Deploy Azure resources
 
-Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure Pipelines tasks) can't create an app registration.
+Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates a Microsoft Entra app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure Pipelines tasks) can't create an app registration.
 
 The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 
@@ -234,7 +234,7 @@ The *pipelinetestwebapp* has been successfully deployed to App Service.
 
 Now that the pipeline is deploying the web app to App Service, you can configure the [App Service built-in authentication](/azure/app-service/overview-authentication-authorization).  Modify the inline script in the `DeployAzureResources` to:
 
-1. Create an Azure AD app registration as an identity for your web app. To create an app registration, the service principal for running the  pipeline needs Application Administrator role in the directory.
+1. Create a Microsoft Entra app registration as an identity for your web app. To create an app registration, the service principal for running the  pipeline needs Application Administrator role in the directory.
 1. Get a secret from the app.
 1. Configure the secret setting for the App Service web app.
 1. Configure the redirect URI, home page URI, and issuer settings for the App Service web app.
@@ -283,7 +283,9 @@ Choose this option if you don't need your DevOps project for future reference. T
 1. Under **Overview**, scroll down to the bottom of the page and then select **Delete**.
 1. Type your project name in the text box, and then select **Delete**.
 
-### Delete app registrations in Azure AD
+<a name='delete-app-registrations-in-azure-ad'></a>
+
+### Delete app registrations in Microsoft Entra ID
 
 In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Identity** > **Applications** > **App registrations** > **All applications**.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 
 ms.author: justinha
 author: sabina-smith
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 # How to enable Microsoft Authenticator Lite for Outlook mobile
 
 
-Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
+Microsoft Authenticator Lite is another surface for Microsoft Entra users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
 
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
@@ -76,7 +76,7 @@ To disable Authenticator Lite in the Microsoft Entra admin center, complete the 
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from Authenticator Lite, which can be a dynamic or nested group.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for Authenticator Lite, which can be a dynamic or nested group.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 Once you identify the single target group, use the following API endpoint to change the **CompanionAppsAllowedState** property under **featureSettings**. 
 
@@ -149,7 +149,7 @@ If the sign-in was done by phone app notification, under **authenticationAppDevi
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
 ## Push notifications in Authenticator Lite
-Push notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The settings for features included in the Authenticator Lite experience are listed in the following table. Every authentication includes a number matching prompt and does not include app and location context, regardless of Microsoft Authentiator feature settings.
+Push notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. Authenticator Lite doesn't support passwordless authentication mode. The settings for features included in the Authenticator Lite experience are listed in the following table. Every authentication includes a number matching prompt and does not include app and location context, regardless of Microsoft Authentiator feature settings.
 
 | Authenticator Feature    | Authenticator Lite Experience|
 |:------------------------:|:----------------------------:|
@@ -168,8 +168,6 @@ Authenticator Lite enforces number matching in every authentication. If your ten
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
 ## Common questions
-### Are users on the legacy policy eligible for Authenticator Lite? 
-No, only those users configured for Authenticator app via the modern authentication methods policy are eligible for this experience. If your tenant is currently on the legacy policy and you are interested in this feature, please migrate your users to the modern auth policy.
 
 ### Does Authenticator Lite work as a broker app?
 No, Authenticator Lite is only available for push notifications and TOTP. 
@@ -199,4 +197,4 @@ The Conditional Access policies are evaluated each time a user opens their Outlo
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+[Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)

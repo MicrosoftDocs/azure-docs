@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect and user privacy'
-description: This document describes how to obtain GDPR compliancy with Azure AD Connect.
+title: 'Microsoft Entra Connect and user privacy'
+description: This document describes how to obtain GDPR compliancy with Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,32 +16,34 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# User privacy and Azure AD Connect 
+# User privacy and Microsoft Entra Connect 
 
 [!INCLUDE [Privacy](../../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->This article deals with Azure AD Connect and user privacy.  For information on Azure AD Connect Health and user privacy see the article [here](reference-connect-health-user-privacy.md).
+>This article deals with Microsoft Entra Connect and user privacy.  For information on Microsoft Entra Connect Health and user privacy see the article [here](reference-connect-health-user-privacy.md).
 
-Improve user privacy for Azure AD Connect installations in two ways:
+Improve user privacy for Microsoft Entra Connect installations in two ways:
 
 1. Upon request, extract data for a person and remove data from that person from the installations
 2. Ensure no data is retained beyond 48 hours.
 
-The Azure AD Connect team recommends the second option since it is much easier to implement and maintain.
+The Microsoft Entra Connect team recommends the second option since it is much easier to implement and maintain.
 
-An Azure AD Connect sync server stores the following user privacy data:
-1. Data about a person in the **Azure AD Connect database**
+A Microsoft Entra Connect Sync server stores the following user privacy data:
+1. Data about a person in the **Microsoft Entra Connect database**
 2. Data in the **Windows Event log** files that may contain information about a person
-3. Data in the **Azure AD Connect installation log files** that may contain about a person
+3. Data in the **Microsoft Entra Connect installation log files** that may contain about a person
 
-Azure AD Connect customers should use the following guidelines when removing user data:
-1. Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
+Microsoft Entra Connect customers should use the following guidelines when removing user data:
+1. Delete the contents of the folder that contains the Microsoft Entra Connect installation log files on a regular basis – at least every 48 hours
 2. This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](/windows/win32/wes/windows-event-log).
 
-Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
+Data about a person is automatically removed from the Microsoft Entra Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Microsoft Entra Connect data is synced with your data source at least every two days.
 
-## Delete the Azure AD Connect installation log file folder contents
+<a name='delete-the-azure-ad-connect-installation-log-file-folder-contents'></a>
+
+## Delete the Microsoft Entra Connect installation log file folder contents
 Regularly check and delete the contents of **c:\programdata\aadconnect** folder – except for the **PersistedState.Xml** file. This file maintains the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file doesn't contain any data about a person and shouldn't be deleted.
 
 >[!IMPORTANT]
@@ -78,4 +80,4 @@ Use the following steps to schedule the script to run every 48 hours.
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trust-center)
-* [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)
+* [Microsoft Entra Connect Health and User Privacy](reference-connect-health-user-privacy.md)

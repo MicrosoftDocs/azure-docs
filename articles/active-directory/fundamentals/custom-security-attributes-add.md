@@ -1,6 +1,6 @@
 ---
-title: Add or deactivate custom security attribute definitions in Azure AD (Preview)
-description: Learn how to add new custom security attribute definitions or deactivate custom security attribute definitions in Azure Active Directory.
+title: Add or deactivate custom security attribute definitions in Microsoft Entra ID (Preview)
+description: Learn how to add new custom security attribute definitions or deactivate custom security attribute definitions in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -10,23 +10,23 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 10/01/2023
 ms.collection: M365-identity-device-management
 ---
 
-# Add or deactivate custom security attribute definitions in Azure AD (Preview)
+# Add or deactivate custom security attribute definitions in Microsoft Entra ID (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
 > For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-[Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
+[Custom security attributes](custom-security-attributes-overview.md) in Microsoft Entra ID are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
 
 ## Prerequisites
 
 To add or deactivate custom security attributes definitions, you must have:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using Azure AD PowerShell
@@ -148,7 +148,7 @@ Once you add a custom security attribute definition, you can't delete it. Howeve
 
 ## PowerShell or Microsoft Graph API
 
-To manage custom security attribute definitions in your Azure AD organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attribute definitions.
+To manage custom security attribute definitions in your Microsoft Entra organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attribute definitions.
 
 #### Get all attribute sets
 
@@ -179,7 +179,7 @@ AdditionalProperties : {}
 [List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/attributeSets
+GET https://graph.microsoft.com/v1.0/directory/attributeSets
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -209,7 +209,7 @@ Get-MgDirectoryAttributeSet -Top 10
 [List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
+GET https://graph.microsoft.com/v1.0/directory/attributeSets?$top=10
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -235,7 +235,7 @@ Get-MgDirectoryAttributeSet -Sort "Id"
 [List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
+GET https://graph.microsoft.com/v1.0/directory/attributeSets?$orderBy=id
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -270,7 +270,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 [Get attributeSet](/graph/api/attributeset-get)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
+GET https://graph.microsoft.com/v1.0/directory/attributeSets/Engineering
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -313,7 +313,7 @@ Engineering Attributes for engineering team 25
 [Create attributeSet](/graph/api/directory-post-attributesets)
 
 ```http
-POST https://graph.microsoft.com/beta/directory/attributeSets 
+POST https://graph.microsoft.com/v1.0/directory/attributeSets 
 {
     "id":"Engineering",
     "description":"Attributes for engineering team",
@@ -354,7 +354,7 @@ Update-MgDirectoryAttributeSet -AttributeSetId "Engineering" -BodyParameter $par
 [Update attributeSet](/graph/api/attributeset-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
+PATCH https://graph.microsoft.com/v1.0/directory/attributeSets/Engineering
 {
     "description":"Attributes for engineering team",
     "maxAttributesPerSet":20
@@ -427,7 +427,7 @@ AdditionalProperties    : {}
 [List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -473,7 +473,7 @@ AdditionalProperties    : {}
 [List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -523,7 +523,7 @@ AdditionalProperties    : {}
 [List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -566,7 +566,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 [Get customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-get)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -624,7 +624,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+POST https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions
 {
     "attributeSet":"Engineering",
     "description":"Target completion date",
@@ -692,7 +692,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+POST https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions
 {
     "attributeSet":"Engineering",
     "description":"Active projects for user",
@@ -771,7 +771,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+POST https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions
 {
     "attributeSet": "Engineering",
     "description": "Active projects for user",
@@ -827,7 +827,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefi
 [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
+PATCH https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 {
   "description": "Target completion date (YYYY/MM/DD)",
 }
@@ -887,7 +887,7 @@ Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/v1.0/direc
 > For this request, you must add the **OData-Version** header and assign it the value `4.01`.
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
+PATCH https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project
 {
     "allowedValues@delta": [
         {
@@ -931,7 +931,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefi
 [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
+PATCH https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project
 {
   "status": "Deprecated"
 }
@@ -985,7 +985,7 @@ AdditionalProperties : {}
 [List allowedValues](/graph/api/customsecurityattributedefinition-list-allowedvalues)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -1026,7 +1026,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 [Get allowedValue](/graph/api/allowedvalue-get)
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
+GET https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -1073,7 +1073,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 [Create allowedValue](/graph/api/customsecurityattributedefinition-post-allowedvalues)
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
+POST https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
 {
     "id":"Alpine",
     "isActive":"true"
@@ -1114,7 +1114,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityA
 [Update allowedValue](/graph/api/allowedvalue-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
+PATCH https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
 {
     "isActive":"false"
 }
@@ -1134,10 +1134,10 @@ Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 
 **Can you delete custom security attribute definitions?**
 
-No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute-definition). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
+No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute-definition). Once you deactivate a custom security attribute, it can no longer be applied to the Microsoft Entra objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
 
 ## Next steps
 
-- [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
+- [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)

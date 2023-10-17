@@ -4,7 +4,7 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 04/24/2023
+ms.date: 10/11/2023
 ms.reviewer: mmcc
 ---
 
@@ -25,7 +25,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 For a sample application, we'll use an [ASP.NET Core MVC application](https://github.com/AaronMaxwell/AzureCafe) that targets `net6.0`. However, you can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
-> A preview [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
+> An [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 

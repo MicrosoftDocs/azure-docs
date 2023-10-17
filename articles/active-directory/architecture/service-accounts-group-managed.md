@@ -109,7 +109,7 @@ To manage gMSAs, use the following Active Directory PowerShell cmdlets:
 
 ## Move to a gMSA
 
-gMSAs are a secure service account type for on-premises. It's recommended you use gMSAs, if possible. In addition, consider moving your services to Azure and your service accounts to Azure Active Directory. 
+gMSAs are a secure service account type for on-premises. It's recommended you use gMSAs, if possible. In addition, consider moving your services to Azure and your service accounts to Microsoft Entra ID. 
 
    > [!NOTE] 
    > Before you configure your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).

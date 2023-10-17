@@ -18,8 +18,8 @@ ms.custom: devx-track-azurecli
 > Key Vault Managed Storage Account Keys (legacy) is supported as-is with no more updates planned. Only Account SAS are supported with SAS definitions signed storage service version no later than 2018-03-28.
 
 > [!IMPORTANT]
-> We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
-> Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Azure AD authentication is not possible.
+> We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
+> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
 
@@ -37,14 +37,14 @@ When you use the managed storage account key feature, consider the following poi
 
 ## Service principal application ID
 
-An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
+A Microsoft Entra tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
 
-Key Vault is a Microsoft application that's pre-registered in all Azure AD tenants. Key Vault is registered under the same Application ID in each Azure cloud.
+Key Vault is a Microsoft application that's pre-registered in all Microsoft Entra tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
 | Tenants | Cloud | Application ID |
 | --- | --- | --- |
-| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Microsoft Entra ID | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Microsoft Entra ID | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Other  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## Prerequisites
@@ -87,17 +87,18 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 ```
 
 Permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
+
 ### Create a Key Vault Managed storage account
 
- Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
+Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
 - `--resource-id`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Find your subscription ID, by using the Azure CLI [az account list](/cli/azure/account?#az-account-list) command. Find your storage account name and storage account resource group, by using the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
    
- ```azurecli-interactive
+```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P30D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
- ```
+```
 
 ## Shared access signature tokens
 

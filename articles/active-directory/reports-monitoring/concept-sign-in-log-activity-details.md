@@ -1,6 +1,6 @@
 ---
 title: Learn about the sign-in log activity details
-description: Learn about the information available on each of the tabs on the Azure AD sign-in log activity details.
+description: Learn about the information available on each of the tabs on the Microsoft Entra sign-in log activity details.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -15,12 +15,12 @@ ms.reviewer: besiler
 
 # Learn about the sign-in log activity details
 
-Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+Microsoft Entra logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
 - [Customize and filter the sign-in logs](howto-customize-filter-logs.md)
 
-This article explains the values on the Basic info tab of the sign-ins log.
+This article explains the values on the Basic info tab of the sign-in log.
 
 ## [Basic info](#tab/basic-info)
 
@@ -34,7 +34,7 @@ If a sign-in failed, you can get more information about the reason in the Basic 
 
 ## [Location and Device](#tab/location-and-device)
 
-The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
+The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or Microsoft Entra hybrid joined.
 
 ## [Authentication details](#tab/authentication-details)
 
@@ -66,7 +66,7 @@ When analyzing authentication details, take note of the following details:
 
 ## Unique identifiers 
 
-In Azure AD, a resource access has three relevant components:
+In Microsoft Entra ID, a resource access has three relevant components:
 
 - **Who:** The identity (User) doing the sign-in. 
 - **How:** The client (Application) used for the access.  
@@ -80,12 +80,12 @@ Each component has an associated unique identifier (ID).:
 - **Conditional Access evaluation:** Shows whether continuous access evaluation (CAE) was applied to the sign-in event.
     - There are multiple sign-in requests for each authentication, which can appear on either the interactive or non-interactive tabs.
     - CAE is only displayed as true for one of the requests, and it can appear on the interactive tab or non-interactive tab.
-    - For more information, see [Monitor and troubleshoot sign-ins with continuous access evaluation in Azure AD](../conditional-access/howto-continuous-access-evaluation-troubleshoot.md).
+    - For more information, see [Monitor and troubleshoot sign-ins with continuous access evaluation in Microsoft Entra ID](../conditional-access/howto-continuous-access-evaluation-troubleshoot.md).
 
-- **Correlation ID:** The correlation ID groups sign-ins from the same sign-in session. The value is based on parameters passed by a client, so may Azure AD cannot guarantee its accuracy. 
+- **Correlation ID:** The correlation ID groups sign-ins from the same sign-in session. The value is based on parameters passed by a client, so may Microsoft Entra ID cannot guarantee its accuracy. 
 
 - **Cross-tenant access type:** Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: 
-    - `none` - A sign-in event that didn't cross an Azure AD tenant's boundaries.
+    - `none` - A sign-in event that didn't cross a Microsoft Entra tenant's boundaries.
     - `b2bCollaboration`- A cross tenant sign-in performed by a guest user using B2B Collaboration.
     - `b2bDirectConnect` - A cross tenant sign-in performed by a B2B.
     - `microsoftSupport`- A cross tenant sign-in performed by a Microsoft support agent in a Microsoft customer tenant.
@@ -95,7 +95,7 @@ Each component has an associated unique identifier (ID).:
 
 - **Request ID:** An identifier that corresponds to an issued token. If you're looking for sign-ins with a specific token, you need to extract the request ID from the token, first.
 
-- **Sign-in:** String the user provides to Azure AD to identify itself when attempting to sign-in. It's usually a user principal name (UPN), but can be another identifier such as a phone number. 
+- **Sign-in:** String the user provides to Microsoft Entra ID to identify itself when attempting to sign-in. It's usually a user principal name (UPN), but can be another identifier such as a phone number. 
 
 - **Sign-in event types:** Indicates the category of the sign-in the event represents.
     - The user sign-ins category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the sign-in resource.
@@ -110,7 +110,7 @@ Each component has an associated unique identifier (ID).:
     - The Microsoft Graph API, supports: `$filter` (`eq` operator only).
 
 - **Tenant:** The sign-in log tracks two tenant identifiers:
-    - **Home tenant** – The tenant that owns the user identity. Azure AD tracks the ID and name.
+    - **Home tenant** – The tenant that owns the user identity. Microsoft Entra ID tracks the ID and name.
     - **Resource tenant** – The tenant that owns the (target) resource.
     - These identifiers are relevant in cross-tenant scenarios.
     - For example, to find out how users outside your tenant are accessing your resources, select all entries where the home tenant doesn’t match the resource tenant.
@@ -131,11 +131,11 @@ The following scenarios are important to consider when you're reviewing sign-in 
     - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status shows *Success*.
     - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access. 
 
-- **Home tenant name:** Due to privacy commitments, Azure AD doesn't populate the home tenant name field during cross-tenant scenarios.
+- **Home tenant name:** Due to privacy commitments, Microsoft Entra ID doesn't populate the home tenant name field during cross-tenant scenarios.
 
-- **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
+- **Multifactor authentication:** When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Microsoft Entra sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
 
 ## Next steps
 
-* [Learn about exporting Azure AD sign-in logs](concept-activity-logs-azure-monitor.md)
-* [Explore the sign-in diagnostic in Azure AD](./howto-use-sign-in-diagnostics.md)
+* [Learn about exporting Microsoft Entra sign-in logs](concept-activity-logs-azure-monitor.md)
+* [Explore the sign-in diagnostic in Microsoft Entra ID](./howto-use-sign-in-diagnostics.md)

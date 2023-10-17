@@ -1,6 +1,6 @@
 ---
-title: Enable accidental deletions prevention in the Azure AD provisioning service
-description: Enable accidental deletions prevention in the Azure Active Directory (Azure AD) provisioning service for applications and cross-tenant synchronization.
+title: Enable accidental deletions prevention in the Microsoft Entra provisioning service
+description: Enable accidental deletions prevention in the Microsoft Entra provisioning service for applications and cross-tenant synchronization.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -14,14 +14,14 @@ ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# Enable accidental deletions prevention in the Azure AD provisioning service
+# Enable accidental deletions prevention in the Microsoft Entra provisioning service
 
 ::: zone pivot="app-provisioning"
-The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
+The Microsoft Entra provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
+The Microsoft Entra provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
 ::: zone-end
 
 You use accidental deletions to specify a deletion threshold. Anything above the threshold that you set requires an admin to explicitly allow the processing of the deletions.

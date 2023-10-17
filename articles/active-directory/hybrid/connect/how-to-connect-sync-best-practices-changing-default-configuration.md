@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Changing the default configuration'
-description: Provides best practices for changing the default configuration of Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Changing the default configuration'
+description: Provides best practices for changing the default configuration of Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,13 +17,13 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Best practices for changing the default configuration
-The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
+# Microsoft Entra Connect Sync: Best practices for changing the default configuration
+The purpose of this topic is to describe supported and unsupported changes to Microsoft Entra Connect Sync.
 
-The configuration created by Azure AD Connect works “as is” for most environments that synchronize on-premises Active Directory with Azure AD. However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
+The configuration created by Microsoft Entra Connect works “as is” for most environments that synchronize on-premises Active Directory with Microsoft Entra ID. However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
 
 ## Changes to the service account
-Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
+Microsoft Entra Connect Sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
 
 > [!WARNING]
 > If you change or reset the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password.
@@ -36,16 +36,16 @@ Starting with the releases from build 1.1 (February 2016) you can configure the 
 The installation wizard provides a configuration that is supposed to work for the most common scenarios. In case you need to make changes to the configuration, then you must follow these rules to still have a supported configuration.
 
 > [!WARNING]
-> If you make changes to the default sync rules then these changes will be overwritten the next time Azure AD Connect is updated, resulting in unexpected and likely unwanted synchronization results.
+> If you make changes to the default sync rules then these changes will be overwritten the next time Microsoft Entra Connect is updated, resulting in unexpected and likely unwanted synchronization results.
 
 * You can [change attribute flows](how-to-connect-sync-change-the-configuration.md#other-common-attribute-flow-changes) if the default direct attribute flows are not suitable for your organization.
-* If you want to [not flow an attribute](how-to-connect-sync-change-the-configuration.md#do-not-flow-an-attribute) and remove any existing attribute values in Azure AD, then you need to create a rule for this scenario.
+* If you want to [not flow an attribute](how-to-connect-sync-change-the-configuration.md#do-not-flow-an-attribute) and remove any existing attribute values in Microsoft Entra ID, then you need to create a rule for this scenario.
 * [Disable an unwanted Sync Rule](#disable-an-unwanted-sync-rule) rather than deleting it. A deleted rule is recreated during an upgrade.
 * To [change an out-of-box rule](#change-an-out-of-box-rule), you should make a copy of the original rule and disable the out-of-box rule. The Sync Rule Editor prompts and helps you.
 * Export your custom synchronization rules using the Synchronization Rules Editor. The editor provides you with a PowerShell script you can use to easily recreate them in a disaster recovery scenario.
 
 > [!WARNING]
-> The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
+> The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Microsoft Entra Connect. Only make changes the way it is described in this article.
 
 ### Disable an unwanted Sync Rule
 Do not delete an out-of-box sync rule. It is recreated during next upgrade.
@@ -70,5 +70,5 @@ On this cloned rule, make any necessary changes to scope, join, and transformati
 ## Next steps
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

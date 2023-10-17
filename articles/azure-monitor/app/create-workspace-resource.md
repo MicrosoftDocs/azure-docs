@@ -70,7 +70,7 @@ For information on how to set up an Application Insights SDK for code-based moni
 - [Java](./opentelemetry-enable.md?tabs=java)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
-- [Python](./opencensus-python.md)
+- [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
 ### Codeless monitoring and Visual Studio resource creation
 

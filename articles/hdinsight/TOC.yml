@@ -73,10 +73,10 @@ items:
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Business continuity
+    - name: Reliability and Business continuity
       items:
-        - name: Business continuity overview
-          href: hdinsight-business-continuity.md
+        - name: Reliability in HDInsight
+          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study
@@ -277,6 +277,8 @@ items:
         href: ./log-analytics-migration.md
     - name: Troubleshoot
       items:
+      - name: Known issues in HDInsight
+        href: ./hdinsight-known-issues.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -775,8 +777,12 @@ items:
         href: ./hbase/apache-hbase-backup-replication.md
       - name: Migrate Apache HBase cluster to newer version
         href: ./hbase/apache-hbase-migrate-new-version.md
+      - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
       - name: Migrate Apache HBase version and storage account
         href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
+      - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
       - name: Apache Phoenix performance best practices
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
@@ -997,9 +1003,9 @@ items:
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure ESP clusters using Azure AD DS
+    - name: Configure ESP clusters using Microsoft Entra Domain Services
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
-    - name: Synchronize Azure AD users to an HDInsight cluster
+    - name: Synchronize Microsoft Entra users to an HDInsight cluster
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md

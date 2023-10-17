@@ -5,7 +5,7 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-ms.author: kalyaninamuduri
+ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
@@ -34,7 +34,7 @@ When you register a system with Azure Center for SAP solutions, the following re
 ### Azure infrastructure level pre-requisites
 
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
-- Grant access to Azure Storage accounts, Azure resource manager (ARM) and Microsoft Entra ID services from the virtual network where the SAP system exists. Use one of these options:
+- Grant access to Azure Storage accounts, Azure resource manager (ARM) and Microsoft Entra services from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
     - Use a [**Service tags**](../../virtual-network/service-tags-overview.md) to allow connectivity
     - Use a [Service tags with regional scope](../../virtual-network/service-tags-overview.md) to allow connectivity to resources in the same region as the VMs.

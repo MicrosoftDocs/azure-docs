@@ -39,7 +39,7 @@ To create a catalog:
 
 1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
-    ![Screenshot that shows entitlement management catalogs in the Entra admin center.](./media/entitlement-management-catalog-create/catalogs.png)
+    ![Screenshot that shows entitlement management catalogs in the Microsoft Entra admin center.](./media/entitlement-management-catalog-create/catalogs.png)
 
 1. Select **New catalog**.
 
@@ -76,15 +76,15 @@ $catalog = New-MgEntitlementManagementCatalog -DisplayName "Marketing"
 
 To include resources in an access package, the resources must exist in a catalog. The types of resources you can add to a catalog are groups, applications, and SharePoint Online sites.
 
-* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
+* Groups can be cloud-created Microsoft 365 Groups or cloud-created Microsoft Entra security groups.
 
-  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
+  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Microsoft Entra ID. To give a user access to an application that uses AD security group memberships, create a new security group in Microsoft Entra ID, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
 
-  * Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either, so cannot be added to catalogs.
+  * Groups that originate in Exchange Online as Distribution groups can't be modified in Microsoft Entra ID either, so cannot be added to catalogs.
 
-* Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD.
+* Applications can be Microsoft Entra enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Microsoft Entra ID.
 
-  * If your application has not yet been integrated with Azure AD, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Azure AD](identity-governance-applications-integrate.md).
+  * If your application has not yet been integrated with Microsoft Entra ID, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Microsoft Entra ID](identity-governance-applications-integrate.md).
 
   * For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 * Sites can be SharePoint Online sites or SharePoint Online site collections.
@@ -107,7 +107,7 @@ To add resources to a catalog:
 
 1. Select the resource type **Groups and Teams**, **Applications**, or **SharePoint sites**.
 
-    If you don't see a resource that you want to add or you're unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    If you don't see a resource that you want to add or you're unable to add a resource, make sure you have the required Microsoft Entra directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Select one or more resources of the type that you want to add to the catalog.
 
@@ -119,7 +119,7 @@ To add resources to a catalog:
 
 ### Add resource attributes in the catalog
 
-Attributes are required fields that requestors will be asked to answer before they submit their access request. Their answers for these attributes will be shown to approvers and also stamped on the user object in Azure AD. 
+Attributes are required fields that requestors will be asked to answer before they submit their access request. Their answers for these attributes will be shown to approvers and also stamped on the user object in Microsoft Entra ID. 
 
 > [!NOTE]
 >All attributes set up on a resource require an answer before a request for an access package containing that resource can be submitted. If requestors don't provide an answer, their request won't be processed.
@@ -134,8 +134,8 @@ To require attributes for access requests:
  
 1. Select the attribute type:
 
-    1. **Built-in** includes Azure AD user profile attributes.
-    1. **Directory schema extension** provides a way to store more data in Azure AD on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
+    1. **Built-in** includes Microsoft Entra user profile attributes.
+    1. **Directory schema extension** provides a way to store more data in Microsoft Entra ID on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
 1. If you chose **Built-in**, select an attribute from the dropdown list. If you chose **Directory schema extension**, enter the attribute name in the text box.
 
     > [!NOTE]
@@ -187,8 +187,10 @@ You can also add a resource to a catalog in PowerShell with the `New-MgEntitleme
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
 
 $g = Get-MgGroup -Filter "displayName eq 'Marketing'"
+if ($null -eq $g) {throw "no group" }
 
 $catalog = Get-MgEntitlementManagementCatalog -Filter "displayName eq 'Marketing'"
+if ($null -eq $catalog) { throw "no catalog" }
 $params = @{
   requestType = "adminAdd"
   resource = @{

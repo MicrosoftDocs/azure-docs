@@ -35,6 +35,6 @@ When you configure a federated identity credential, there are several important 
 
 - *name* is the unique identifier for the federated identity credential. Required.  This field has a character limit of 3-120 characters and must be URL friendly. Alphanumeric, dash, or underscore characters are supported, the first character must be alphanumeric only.  It's immutable once created.
 
-- *description* is the user-provided description of the federated identity credential.  Optional. The description isn't validated or checked by Azure AD. This field has a limit of 600 characters.
+- *description* is the user-provided description of the federated identity credential.  Optional. The description isn't validated or checked by Microsoft Entra ID. This field has a limit of 600 characters.
 
 Wildcard characters aren't supported in any federated identity credential property value.

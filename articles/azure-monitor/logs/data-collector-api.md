@@ -12,7 +12,7 @@ ms.date: 08/08/2023
 This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor. We provide examples for Azure PowerShell, C#, and Python.
 
 > [!NOTE]
-> The Azure Monitor HTTP Data Collector API has been deprecated and will no longer be functional as of 9/18/2026. It's been replaced by the [Logs ingestion API](logs-ingestion-api-overview.md).
+> The Azure Monitor HTTP Data Collector API has been deprecated and will no longer be functional as of 9/14/2026. It's been replaced by the [Logs ingestion API](logs-ingestion-api-overview.md).
 
 ## Concepts
 You can use the HTTP Data Collector API to send log data to a Log Analytics workspace in Azure Monitor from any client that can call a REST API.  The client might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternative management system that uses Azure Monitor to consolidate and analyze log data.

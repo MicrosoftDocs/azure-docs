@@ -30,9 +30,9 @@ highlightedContent:
     - title: Q&A
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
-    - title: Use Azure Cosmos DB with Azure OpenAI
+    - title: Vector Search with Azure Cosmos DB
       itemType: concept
-      url: rag-data-openai.md
+      url: vector-search.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md

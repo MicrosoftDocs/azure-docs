@@ -18,7 +18,7 @@ ms.reviewer: joroja
 
 You can specify the lifetime of an access, ID, or SAML token issued by the Microsoft identity platform. You can set token lifetimes for all apps in your organization or for a multi-tenant (multi-organization) application. We currently don't support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
-In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they're assigned.
+In Microsoft Entra ID, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they're assigned.
 
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it isn't overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
@@ -30,7 +30,7 @@ For examples, read [examples of how to configure token lifetimes](configure-toke
 
 ## License requirements
 
-Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using this feature requires a Microsoft Entra ID P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
@@ -46,7 +46,7 @@ The default lifetime of an access token is variable. When issued, an access toke
 
 ### SAML tokens
 
-SAML tokens are used by many web-based SaaS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint. They are also consumed by applications using WS-Federation. The default lifetime of the token is 1 hour. From an application's perspective, the validity period of the token is specified by the NotOnOrAfter value of the `<conditions …>` element in the token. After the validity period of the token has ended, the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
+SAML tokens are used by many web-based SaaS applications, and are obtained using Microsoft Entra ID's SAML2 protocol endpoint. They are also consumed by applications using WS-Federation. The default lifetime of the token is 1 hour. From an application's perspective, the validity period of the token is specified by the NotOnOrAfter value of the `<conditions …>` element in the token. After the validity period of the token has ended, the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
 
 The value of NotOnOrAfter can be changed using the `AccessTokenLifetime` parameter in a `TokenLifetimePolicy`. It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
 
@@ -61,7 +61,7 @@ ID tokens are passed to websites and native clients. ID tokens contain profile i
 You cannot set token lifetime policies for refresh tokens and session tokens. For lifetime, timeout, and revocation information on refresh tokens, see [Refresh tokens](refresh-tokens.md).
 
 > [!IMPORTANT]
-> As of January 30, 2021 you cannot configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+> As of January 30, 2021 you cannot configure refresh and session token lifetimes. Microsoft Entra no longer honors refresh and session token configuration in existing policies. New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
 > Existing token's lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
@@ -89,7 +89,7 @@ Access, ID, and SAML2 token configuration are affected by the following properti
 
 ### Refresh and session token lifetime policy properties
 
-Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you'll no longer be able to change their lifetimes.  
+Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Microsoft Entra ID will only honor the default values described below. If you decide not to use [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you'll no longer be able to change their lifetimes.  
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|

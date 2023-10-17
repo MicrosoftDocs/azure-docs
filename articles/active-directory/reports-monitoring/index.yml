@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory monitoring and health documentation
-summary: Learn how to access and use logs, reports, monitoring integrations, workbooks, and recommendations in Azure Active Directory (Azure AD).
+title: Microsoft Entra monitoring and health documentation
+summary: Learn how to access and use logs, reports, monitoring integrations, workbooks, and recommendations in Microsoft Entra ID.
 
 metadata:
-  title: Azure Active Directory monitoring and health documentation
-  description: Learn how to use the logs, reports, and monitoring tools in Azure AD.
+  title: Microsoft Entra monitoring and health documentation
+  description: Learn how to use the logs, reports, and monitoring tools in Microsoft Entra ID.
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
@@ -44,7 +44,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Manage inactive user accounts in Azure AD
+          - text: Manage inactive user accounts in Microsoft Entra ID
             url: howto-manage-inactive-user-accounts.md
           - text: Troubleshoot sign-in errors
             url: howto-troubleshoot-sign-in-errors.md

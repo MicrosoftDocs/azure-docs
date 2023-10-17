@@ -5,8 +5,8 @@ description: Learn how to use the HeadPose attribute to automatically rotate the
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: pafarley

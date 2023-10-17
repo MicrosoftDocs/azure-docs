@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure Virtual Machines and Virtual Machin
 author: faister
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 09/21/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -14,13 +14,15 @@ ms.custom: references_regions, subject-reliability
 
 This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets from non-availability zone support to availability zone support. We take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
 
-Virtual Machine (VM) and Virtual Machine Scale Sets are zonal services, which means that VM resources can be deployed by using one of the following methods:
+Virtual Machine (VM) and Virtual Machine Scale Sets are availability zone enabled services, which means that VM resources can be deployed by using one of the following methods:
 
-- VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
+- **Zonal**: VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
 
-- VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
+- **Zone-redundant**: VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
-When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets, to ensure high-availability of your compute resources.
+To ensure high-availability of your compute resources, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets when you migrate to availability zones.
+
+For more information on availability zone support for VM services, see [Reliability in Virtual Machines](./reliability-virtual-machines.md). For availability zone support for Virtual Machine scale sets, see [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md).
 
 ## Prerequisites
 
@@ -116,8 +118,97 @@ Now that you have migrated your data to ZRS managed disks or zonal managed disks
 
 ```
 
+## Migration Option 2: VM regional to zonal move
 
-## Migration Option 2: Azure Resource Mover
+This section details how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
+
+
+> [!IMPORTANT]
+> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
+
+###  Key benefits of regional to zonal move
+
+The benefits of a regional to zonal move are:
+
+- **Enhanced user experience**- The new availability zones in the desired region lowers the latency and builds a good customer experience.
+- **Reduced downtime**- The virtual machines are supported throughout, thereby improving the application resiliency and availability.
+- **Network connectivity**– Leverages the existing infrastructure, such as virtual networks (VNETs), subnets, network security groups (NSGs), and load balancers (LBs), which can support the target Zonal configuration. 
+- **High scalability**- Orchestrates the move at scale by reducing manual touch points and minimizes the overall migration time from days to hours or even minutes, depending on the volume of data.
+
+
+### Components
+
+The following components are used during a regional to zonal move:
+
+| Component | Details |
+| --- | --- |
+| Move collection |	A move collection is an Azure Resource Manager object that is created during the regional to zonal move process. The collection is based on the VM's region and subscription parameters and contains metadata and configuration information about the resources you want to move. VMs added to a move collection must be in the same subscription and region/location but can be selected from different resource groups.|
+| Move resource |	When you add VM(s) to a move collection, it's tracked as a move resource and this information is maintained in the move collection for each of the VM(s) that are currently in the move process. The move collection will be created in a temporary resource group in your subscription and can be deleted along with the resource group if desired. |
+| Dependencies | When you add VMs to the move collection, validation checks are done to determine if the VMs have any dependencies that aren't in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying the dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. You can select an existing VNET in the target zonal configuration or create a new VNET as applicable. |
+
+### Support matrix
+   
+##### **Virtual Machines compute**
+
+The following table describes the support matrix for moving virtual machines from a regional to zonal configuration:
+
+| Scenario | Support | Details |
+| --- | --- | --- |
+| Single Instance VM | Supported | Regional to zonal move of single instance VM(s) is supported. |
+| VMs within an Availability Set | Not supported | |
+| VMs inside Virtual Machine Scale Sets with uniform orchestration | Not supported | |
+| VMs inside Virtual Machine Scale Sets with flexible orchestration | Not supported | |
+| Supported regions | Supported | Only availability zone supported regions are supported. Learn [more](../reliability/availability-zones-service-support.md) to learn about the region details. |
+| VMs already located in an availability zone | Not supported | Cross-zone move isn't supported. Only VMs that are within the same region can be moved to another availability zone. |
+| VM extensions | Not Supported | VM move is supported, but extensions aren't copied to target zonal VM. |
+| VMs with trusted launch | Supported | Re-enable the **Integrity Monitoring** option in the portal and save the configuration after the move. |
+| Confidential VMs | Supported | Re-enable the **Integrity Monitoring** option in the portal and save the configuration after the move. |
+| Generation 2 VMs (UEFI boot) | Supported | |
+| VMs in Proximity placement groups | Supported | Source proximity placement group (PPG) is not retained in the zonal configuration. |
+| Spot VMs (Low priority VMs) | Supported | |
+| VMs with dedicated hosts | Supported | Source VM dedicated host won't be preserved. |
+| VMs with Host caching enabled | Supported | |
+| VMs created from marketplace images | Supported | |
+| VMs created from custom images | Supported | |
+| VM with HUB (Hybrid Use Benefit) license | Supported | |
+| VM RBAC policies | Not Supported | VM move is supported, but RBACs aren't copied to target zonal VM. |
+| VMs using Accelerated Networking | Supported | |
+
+#### **Virtual Machines storage settings**
+
+The following table describes the support matrix for moving virtual machines storage settings:
+
+| Scenario | Support | Details |
+| --- | --- | --- |
+| VMs with managed disk | Supported | Regional to zonal move of single instance VM(s) is supported. |
+| VMs using unmanaged disks | Not supported | |
+| VMs using Ultra Disks | Not supported | |
+| VMs using Ephemeral OS Disks | Not supported | |
+| VMs using shared disks | Not supported | |
+| VMs with standard HDDs | Supported | |
+| VMs with standard SSDs | Supported | |
+| VMs with premium SSDs | Supported | |
+| VMs with NVMe disks (Storage optimized - Lsv2-series) | Supported | |
+| Temporary disk in VMs | Supported | Temporary disks will be created; however, they won't contain the data from the source temporary disks. |
+| VMs with ZRS disks | Supported | |
+| VMs with ADE (Azure Disk Encryption) | Supported | |
+| VMs with server-side encryption using service-managed keys | Supported | |
+| VMs with server-side encryption using customer-managed keys | Supported | |
+| VMs with Host based encryption enabled with PM | Not Supported | |
+| VMs with Host based encryption enabled with CMK | Not Supported | |
+| VMs with Host based encryption enabled with Double encryption | Not Supported | |
+
+#### **Virtual Machines networking settings**
+
+The following table describes the support matrix for moving virtual machines networking settings:
+
+| Scenario | Support | Details | 
+| --- | --- | --|
+| NIC | Supported | By default, a new resource is created, however, you can specify an existing resource in the target configuration. | 
+| VNET | Supported| By default, the source virtual network (VNET) is used, or you can specify an existing resource in the target configuration. | 
+
+
+## Migration Option 3: Azure Resource Mover
 
 ### When to use Azure Resource Mover
 
@@ -146,7 +237,9 @@ The following requirements should be part of a disaster recovery strategy that h
 
 ## Next Steps
 
-Learn more about:
+- [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Reliability in Virtual Machines](./reliability-virtual-machines.md)
+- [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md)
+- [Move single instance Azure VMs from regional to zonal configuration using PowerShell](../virtual-machines/move-virtual-machines-regional-zonal-powershell.md)
+- [Move single instance Azure VMs from regional to zonal configuration via portal](../virtual-machines/move-virtual-machines-regional-zonal-portal.md)
 
-> [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)

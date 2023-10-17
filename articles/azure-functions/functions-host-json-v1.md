@@ -186,7 +186,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 |---------|---------|---------| 
 |enabled|true|Specifies whether the feature is enabled. | 
 |healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
-|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckWindow|2 minutes|A sliding time window used with the `healthCheckThreshold` setting.| 
 |healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
 |counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
 
@@ -207,16 +207,16 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
+|dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests are rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
 |maxConcurrentRequests|unbounded (`-1`)|The maximum number of HTTP functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an HTTP function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a third party service, and those calls need to be rate limited. In these cases, applying a throttle here can help.|
-|maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
+|maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, and any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
 |routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
 
 ## id
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure, we recommend that you not set an ID value. An ID is generated automatically in Azure when `id` is omitted. 
 
-If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer runs.
 
 ```json
 {
@@ -294,7 +294,7 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ```json
-{
+{ "extensions":
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -307,9 +307,9 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 |Property  |Default | Description |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying ServiceBusReceiver.| 
 |autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|When true, the trigger will complete the message processing automatically on successful execution of the operation. When false, it is the responsibility of the function to complete the message before returning.|
+|autoComplete|true|When true, the trigger completes the message processing automatically on successful execution of the operation. When false, it is the responsibility of the function to complete the message before returning.|
 
 ## singleton
 
@@ -332,7 +332,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 |lockPeriod|00:00:15|The period that function level locks are taken for. The locks auto-renew.| 
 |listenerLockPeriod|00:01:00|The period that listener locks are taken for.| 
 |listenerLockRecoveryPollingInterval|00:01:00|The time interval used for listener lock recovery if a listener lock couldn't be acquired on startup.| 
-|lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime will try to acquire a lock.| 
+|lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime tries to acquire a lock.| 
 |lockAcquisitionPollingInterval|n/a|The interval between lock acquisition attempts.| 
 
 ## tracing

@@ -19,8 +19,8 @@ May include one or more of the following issues:
 - Cached images don't appear in a real repository 
   - [Cached images don't appear in a live repository](tutorial-troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
 
-- Credential set has an unhealthy status
-  - [Unhealthy Credential Set](tutorial-troubleshoot-artifact-cache.md#unhealthy-credential-set)
+- Credentials has an unhealthy status
+  - [Unhealthy Credentials](tutorial-troubleshoot-artifact-cache.md#unhealthy-credentials)
 
 - Unable to create a cache rule
   - [Cache rule Limit](tutorial-troubleshoot-artifact-cache.md#cache-rule-limit)
@@ -36,9 +36,9 @@ If you're having an issue with cached images not showing up in your repository i
 
 The Azure portal autofills these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
 
-## Unhealthy Credential Set
+## Unhealthy Credentials 
 
-Credential sets are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. In the Azure portal, you can select the credential set, to edit and apply changes.
+Credentials are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credentials are often a result of these secrets no longer being valid. In the Azure portal, you can select the credentials, to edit and apply changes.
 
 - Verify the secrets in Azure Key Vault haven't expired. 
 - Verify the secrets in Azure Key Vault are valid.
@@ -69,11 +69,11 @@ Artifact Cache currently supports the following upstream registries:
 
 | Upstream registries         | Support                                                      | Availability            |
 | --------------------------- | ------------------------------------------------------------ | ----------------------- |
-| Docker                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Docker Hub                     | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Nivida                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Nvidia                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 | Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 

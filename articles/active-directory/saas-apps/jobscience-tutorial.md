@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Jobscience'
-description: Learn how to configure single sign-on between Azure Active Directory and Jobscience.
+title: 'Tutorial: Microsoft Entra integration with Jobscience'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Jobscience.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,23 +11,23 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Jobscience
+# Tutorial: Microsoft Entra integration with Jobscience
 
-In this tutorial, you learn how to integrate Jobscience with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Jobscience with Microsoft Entra ID.
 
-Integrating Jobscience with Azure AD provides you with the following benefits:
+Integrating Jobscience with Microsoft Entra ID provides you with the following benefits:
 
-- You can control in Azure AD who has access to Jobscience
-- You can enable your users to automatically get signed-on to Jobscience (Single Sign-On) with their Azure AD accounts
+- You can control in Microsoft Entra ID who has access to Jobscience
+- You can enable your users to automatically get signed-on to Jobscience (Single Sign-On) with their Microsoft Entra accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Microsoft Entra ID, see [what is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Jobscience, you need the following items:
+To configure Microsoft Entra integration with Jobscience, you need the following items:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
 - A Jobscience single sign-on enabled subscription
 
 > [!NOTE]
@@ -36,64 +36,54 @@ To configure Azure AD integration with Jobscience, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have a Microsoft Entra trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Microsoft Entra single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Jobscience from the gallery
-1. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Microsoft Entra single sign-on
 
 ## Adding Jobscience from the gallery
-To configure the integration of Jobscience into Azure AD, you need to add Jobscience from the gallery to your list of managed SaaS apps.
+To configure the integration of Jobscience into Microsoft Entra ID, you need to add Jobscience from the gallery to your list of managed SaaS apps.
 
 **To add Jobscience from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Jobscience** in the search box.
+1. Select **Jobscience** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-    ![Active Directory][1]
+<a name='-configuring-and-testing-azure-ad-single-sign-on'></a>
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+##  Configuring and testing Microsoft Entra single sign-on
+In this section, you configure and test Microsoft Entra single sign-on with Jobscience based on a test user called "Britta Simon."
 
-    ![Screenshot shows the Azure portal Enterprise Applications selected under Manage, with All applications selected.][2]
-    
-1. To add new application, click **New application** button on the top of dialog.
+For single sign-on to work, Microsoft Entra ID needs to know what the counterpart user in Jobscience is to a user in Microsoft Entra ID. In other words, a link relationship between a Microsoft Entra user and the related user in Jobscience needs to be established.
 
-    ![Screenshot shows New application selected.][3]
+In Jobscience, assign the value of the **user name** in Microsoft Entra ID as the value of the **Username** to establish the link relationship.
 
-1. In the search box, type **Jobscience**.
+To configure and test Microsoft Entra single sign-on with Jobscience, you need to complete the following building blocks:
 
-    ![Screenshot shows Add from the gallery with jobscience entered.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
-
-1. In the results panel, select **Jobscience**, and then click **Add** button to add the application.
-
-    ![Screenshot shows the results which included Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Jobscience based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Jobscience is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Jobscience needs to be established.
-
-In Jobscience, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
-To configure and test Azure AD single sign-on with Jobscience, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Jobscience test user](#creating-a-jobscience-test-user)** - to have a counterpart of Britta Simon in Jobscience that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Configuring Microsoft Entra Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Creating a Microsoft Entra test user](#creating-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+1. **[Creating a Jobscience test user](#creating-a-jobscience-test-user)** - to have a counterpart of Britta Simon in Jobscience that is linked to the Microsoft Entra representation of user.
+1. **[Assigning the Microsoft Entra test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+<a name='configuring-azure-ad-single-sign-on'></a>
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Jobscience application.
+### Configuring Microsoft Entra single sign-on
 
-**To configure Azure AD single sign-on with Jobscience, perform the following steps:**
+In this section, you enable Microsoft Entra single sign-on in the Azure portal and configure single sign-on in your Jobscience application.
 
-1. In the Azure portal, on the **Jobscience** application integration page, click **Single sign-on**.
+**To configure Microsoft Entra single sign-on with Jobscience, perform the following steps:**
 
-    ![Screenshot shows Single sign-on selected under Manage in the Azure portal.][4]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jobscience** application integration page, click **Single sign-on**.
+
+    ![Screenshot shows Single sign-on selected under Manage.][4]
 
 1. On the **Single sign-on** dialog, select **Mode** as    **SAML-based Sign-on** to enable single sign-on.
  
@@ -153,19 +143,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     a. In the **Name** textbox, type a name for your configuration.
 
-    b. In **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+    b. In **Issuer** textbox, paste the value of **SAML Entity ID**.
 
     c. In the **Entity Id** textbox, type `https://salesforce-jobscience.com`
 
-    d. Click **Browse** to upload your Azure AD certificate.
+    d. Click **Browse** to upload your Microsoft Entra certificate.
 
     e. As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
 
     f. As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
 
-    g. In **Identity Provider Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    g. In **Identity Provider Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**.
 
-    h. In **Identity Provider Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    h. In **Identity Provider Logout URL** textbox, paste the value of **Sign-Out URL**.
 
     i. Click **Save**.
 
@@ -188,21 +178,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     Click the SSO profile you have created in the step above. This page shows the Single Sign on URL for your company (for example, `https://companyname.my.salesforce.com?so=companyid`.    
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Microsoft Entra ID embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+<a name='creating-an-azure-ad-test-user'></a>
 
-![Create Azure AD User][100]
+### Creating a Microsoft Entra test user
+The objective of this section is to create a test user called Britta Simon.
 
-**To create a test user in Azure AD, perform the following steps:**
+![Create Microsoft Entra user][100]
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+**To create a test user in Microsoft Entra ID, perform the following steps:**
 
-    ![Screenshot shows the Azure A D icon in the Azure portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Users** > **All users**.
     
     ![Screenshot shows Users and groups selected from the Manage menu, with All users selected.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
@@ -224,10 +212,10 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Jobscience test user
 
-In order to enable Azure AD users to log in to Jobscience, they must be provisioned into Jobscience. In the case of Jobscience, provisioning is a manual task.
+In order to enable Microsoft Entra users to log in to Jobscience, they must be provisioned into Jobscience. In the case of Jobscience, provisioning is a manual task.
 
 >[!NOTE]
->You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision Azure Active Directory user accounts.
+>You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision Microsoft Entra user accounts.
 >  
         
 **To configure user provisioning, perform the following steps:**
@@ -263,9 +251,11 @@ In order to enable Azure AD users to log in to Jobscience, they must be provisio
 
     
 > [!NOTE]
-> The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+> The Microsoft Entra account holder receives an email and follows a link to confirm their account before it becomes active.
 
-### Assigning the Azure AD test user
+<a name='assigning-the-azure-ad-test-user'></a>
+
+### Assigning the Microsoft Entra test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Jobscience.
 
@@ -273,17 +263,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Jobscience, perform the following steps:**
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-    ![Screenshot shows Enterprise Applications in the Azure portal menu with All applications selected.][201] 
-
-1. In the applications list, select **Jobscience**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jobscience**.
 
     ![Screenshot shows Jobscience selected.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
 1. In the menu on the left, click **Users and groups**.
 
-    ![Screenshot shows Users and Groups selected from the Azure portal menu.][202] 
+    ![Screenshot shows Users and Groups selected menu.][202] 
 
 1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -297,15 +284,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
     
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
 When you click the Jobscience tile in the Access Panel, you should get automatically signed-on to your Jobscience application.
 For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](tutorial-list.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

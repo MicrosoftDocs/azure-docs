@@ -98,7 +98,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client

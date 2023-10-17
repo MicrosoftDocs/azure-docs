@@ -37,13 +37,13 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
+1. Make sure you're using the Microsoft Entra tenant that contains your Azure subscription:
 
     1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
     
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to it.
      
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. In the left menu, under **Troubleshooting + Support**, select **New support request**.
    

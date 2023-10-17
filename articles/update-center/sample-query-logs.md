@@ -4,7 +4,7 @@ description: The article provides details of sample query logs from Azure Update
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 

@@ -86,7 +86,7 @@
         # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Develop and operationalize features
+    - name: Managed feature store
       items:
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
@@ -702,7 +702,6 @@
           href: how-to-secure-rag-workflows.md
         - name: RAG cloud to local 
           href: how-to-retrieval-augmented-generation-cloud-to-local.md
-
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
@@ -1305,6 +1304,8 @@
           href: how-to-troubleshoot-kubernetes-compute.md
         - name: Reference for configuring Kubernetes cluster
           href: reference-kubernetes.md
+        - name: Monitor Kubernetes Online Endpoint inference server logs
+          href: how-to-monitor-kubernetes-online-enpoint-inference-server-log.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -1384,6 +1385,12 @@
             href: ./known-issues/workspace-move-compute-instance-same-name.md
           - name: Application Sharing Policy isn't supported 
             href: ./known-issues/application-sharing-policy-not-supported.md 
+        - name: Inferencing known issues
+          items:
+          - name: Existing Kubernetes compute cannot be updated
+            href: ./known-issues/inferencing-updating-kubernetes-compute-appears-to-succeed.md
+          - name: Invalid certificate error during deployment
+            href: ./known-issues/inferencing-invalid-certificate.md
 - name: Samples
   items:
     - name: Jupyter Notebooks

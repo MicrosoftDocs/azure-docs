@@ -1,6 +1,6 @@
 ---
-title: 'AADCloudSyncTools PowerShell module for Azure AD Connect cloud sync'
-description: This article describes how to install the Azure AD Connect cloud provisioning agent.
+title: 'AADCloudSyncTools PowerShell module for Microsoft Entra Cloud Sync'
+description: This article describes how to install the Microsoft Entra Connect cloud provisioning agent.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# AADCloudSyncTools PowerShell module for Azure AD Connect cloud sync
+# AADCloudSyncTools PowerShell module for Microsoft Entra Cloud Sync
 
-The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Azure Active Directory Connect (Azure AD Connect) cloud sync.
+The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Microsoft Entra Cloud Sync.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Here are some details about what you need:
   ```
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
-- The AADCloudSyncTools module might not work correctly if the Azure AD Connect cloud provisioning agent is not running or the configuration wizard has not finished successfully.
+- The AADCloudSyncTools module might not work correctly if the Microsoft Entra Connect cloud provisioning agent is not running or the configuration wizard has not finished successfully.
 
 ## Install the AADCloudSyncTools PowerShell module
 
@@ -43,7 +43,7 @@ Here are some details about what you need:
 4. To install the AADCloudSyncTools module prerequisites, run `Install-AADCloudSyncToolsPrerequisites`.
 5. On the first run, the PowerShellGet module will be installed if it's not present. To load the new PowerShellGet module, close the PowerShell window and open a new PowerShell session with administrative privileges. 
 6. Import the module again by running `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`.
-7. Run `Install-AADCloudSyncToolsPrerequisites` again to install the MSAL and Azure AD modules.
+7. Run `Install-AADCloudSyncToolsPrerequisites` again to install the MSAL and Azure AD PowerShell modules.
 
    All prerequisites should now be installed.
 
@@ -57,11 +57,11 @@ Here are some details about what you need:
 ## AADCloudSyncTools cmdlets
 
 > [!NOTE]
-> Before using AADCloudSyncTools module make sure the Azure AD Connect cloud provisioning agent is running and the configuration wizard has finished successfully. To troubleshoot wizard issues, you can find trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*, see [Cloud sync troubleshooting](how-to-troubleshoot.md) for more information.
+> Before using AADCloudSyncTools module make sure the Microsoft Entra Connect cloud provisioning agent is running and the configuration wizard has finished successfully. To troubleshoot wizard issues, you can find trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*, see [Cloud sync troubleshooting](how-to-troubleshoot.md) for more information.
 
 ### Connect-AADCloudSyncTools
 
-This cmdlet uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph.
+This cmdlet uses the MSAL.PS module to request a token for the Microsoft Entra administrator to access Microsoft Graph.
 
 ### Export-AADCloudSyncToolsLogs
 
@@ -80,19 +80,19 @@ You can use the following options to fine-tune your data collection:
 
 ### Get-AADCloudSyncToolsInfo
 
-This cmdlet shows Azure AD tenant details and the state of internal variables.
+This cmdlet shows Microsoft Entra tenant details and the state of internal variables.
 
 ### Get-AADCloudSyncToolsJob
 
-This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's information. You can also call it by using the specific sync job ID as a parameter.
+This cmdlet uses Microsoft Graph to get Microsoft Entra service principals and returns the sync job's information. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobSchedule
 
-This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schedule. You can also call it by using the specific sync job ID as a parameter.
+This cmdlet uses Microsoft Graph to get Microsoft Entra service principals and returns the sync job's schedule. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobSchema
 
-This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schema.
+This cmdlet uses Microsoft Graph to get Microsoft Entra service principals and returns the sync job's schema.
 
 ### Get-AADCloudSyncToolsJobScope
 
@@ -100,19 +100,19 @@ This cmdlet uses Microsoft Graph to get the sync job's schema for the provided s
 
 ### Get-AADCloudSyncToolsJobSettings
 
-This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's settings. You can also call it by using the specific sync job ID as a parameter.
+This cmdlet uses Microsoft Graph to get Microsoft Entra service principals and returns the sync job's settings. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobStatus
 
-This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's status. You can also call it by using the specific sync job ID as a parameter.
+This cmdlet uses Microsoft Graph to get Microsoft Entra service principals and returns the sync job's status. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsServicePrincipal
 
-This cmdlet uses Microsoft Graph to get the service principals for Azure AD and/or Azure Service Fabric. Without parameters, it will return only Azure AD service principals.
+This cmdlet uses Microsoft Graph to get the service principals for Microsoft Entra ID and/or Azure Service Fabric. Without parameters, it will return only Microsoft Entra service principals.
 
 ### Install-AADCloudSyncToolsPrerequisites
 
-This cmdlet checks for the presence of PowerShellGet v2.2.4.1 or later, the Azure AD module, and the MSAL.PS module. It installs these items if they're missing.
+This cmdlet checks for the presence of PowerShellGet v2.2.4.1 or later, the Azure AD PowerShell module, and the MSAL.PS module. It installs these items if they're missing.
 
 ### Invoke-AADCloudSyncToolsGraphQuery
 
@@ -120,7 +120,7 @@ This cmdlet invokes a web request for the URI, method, and body specified as par
 
 ### Repair-AADCloudSyncToolsAccount
 
-This cmdlet uses Azure AD PowerShell to delete the current account (if present). It then resets the sync account authentication with a new sync account in Azure AD.
+This cmdlet uses Azure AD PowerShell to delete the current account (if present). It then resets the sync account authentication with a new sync account in Microsoft Entra ID.
 
 ### Restart-AADCloudSyncToolsJob
 
@@ -142,7 +142,22 @@ This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to disable verbose
 
 This cmdlet pauses synchronization.
 
+### Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention
+
+Disables accidentalDeletionPrevention tenant feature
+``` powershell
+Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId <TenantId>
+```
+
+This cmdlet requires `TenantId` of the Microsoft Entra tenant. It will verify if Accidental Deletion Prevention feature, set on the tenant with Microsoft Entra Connect (ADSync, not cloud sync), is enabled and disables it.
+
+#### Example:
+``` powershell
+Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039-1234-5678-9012-28fe88f83980"
+```
+
+
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

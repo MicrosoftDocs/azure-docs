@@ -2,7 +2,7 @@
 title: Application Insights with containers
 description: This article shows you how to set-up Application Insights
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 10/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -72,7 +72,7 @@ For more information, see [Using Azure Monitor Application Insights with Spring 
 
 ## Java Application servers
 
-The following sections show how to set the Application Insights Java agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
+For information on setting up the Application Insights Java agent, see [Enabling Azure Monitor OpenTelemetry for Java](./opentelemetry-enable.md?tabs=java). The following sections provide additional details which may be helpful when configuring the `-javaagent:...` JVM arg on different application servers.
 
 ### Tomcat 8 (Linux)
 

@@ -4,7 +4,6 @@ description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
 manager: amycolannino
-editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
@@ -14,8 +13,6 @@ ms.reviewer:
 ---
 
 # Introduction to Microsoft Entra Verified ID
-
-[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Our digital and physical lives are increasingly linked to the apps, services, and devices we use to access a rich set of experiences. This digital transformation allows us to interact with hundreds of companies and thousands of other users in ways that were previously unimaginable.
 
@@ -82,7 +79,7 @@ Enables real people to use decentralized identities and Verifiable Credentials. 
 **4. Microsoft Resolver**.
 An API that looks up and resolves DIDs using the ```did:web``` or the ```did:ion``` methods and returns the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
-**5. Entra Verified ID Service**.
+**5. Microsoft Entra Verified ID Service**.
 An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:web``` or the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
@@ -126,7 +123,7 @@ The user is the person or entity that is requesting a VC. For example, Alice is 
 The verifier is a company or entity who needs to verify claims from one or more issuers they trust. For example, Proseware trusts Woodgrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, Proseware will use open standards such as SIOP and Presentation Exchange to request credentials from the User proving they are an employee of Woodgrove, Inc. For example, Proseware might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the request for a specific VC, which Authenticator will analyze and give Alice the ability to approve the request to prove her employment to Proseware. Proseware can use the verifiable credentials service API or SDK, to verify the authenticity of the verifiable presentation. Based on the information provided by Alice they give Alice the discount. If other companies and organizations know that Woodgrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the Woodgrove, Inc. verifiable credential to provide special offers reserved for Woodgrove, Inc. employees.
 
 > [!NOTE]
-> The verifier can use open standards to perform the presentation and verification, or simply [configure their own Azure AD tenant](verifiable-credentials-configure-tenant.md) to let the Azure AD Verifiable Credentials service perform most of the work.
+> The verifier can use open standards to perform the presentation and verification, or simply [configure their own Microsoft Entra tenant](verifiable-credentials-configure-tenant.md) to let the Microsoft Entra Verified ID service perform most of the work.
 
 ## Next steps
 

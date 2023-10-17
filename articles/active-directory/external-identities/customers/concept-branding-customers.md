@@ -17,13 +17,13 @@ ms.custom: it-pro
 
 # Customize the neutral default authentication experience for the customer tenant (preview)
 
-After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding will appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. 
+After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Microsoft Entra ID, the default Microsoft branding will appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. 
 
-Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
+Your Microsoft Entra ID for customers tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
 
 The customer tenant is unique in that it doesn't have any default branding, but instead has a neutral one. It is neutral, because it doesn't contain any existing Microsoft branding. This neutral default branding can be customized to meet the specific needs of your company. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It's also possible to add each custom branding property to the custom sign-in page individually. 
 
-The following list and image outline the elements of the default Microsoft sign-in experience in an Azure AD tenant: 
+The following list and image outline the elements of the default Microsoft sign-in experience in a Microsoft Entra tenant: 
 
 1. Microsoft background image and color.
 2. Microsoft favicon.
@@ -32,7 +32,7 @@ The following list and image outline the elements of the default Microsoft sign-
 5. Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
 6. Microsoft overlay.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/microsoft-branding.png":::
+   :::image type="content" source="media/how-to-customize-branding-customers/microsoft-branding.png" alt-text="Screenshot of the Microsoft Entra ID default Microsoft branding." lightbox="media/how-to-customize-branding-customers/microsoft-branding.png":::
 
 The following image displays the neutral default branding of the customer tenant:
    :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::

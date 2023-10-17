@@ -1,7 +1,7 @@
 ---
 
-title: Azure Active Directory (Azure AD) audit activity reference
-description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory.
+title: Microsoft Entra audit log activity reference
+description: Get an overview of the audit activities that can be logged in your audit logs in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,20 +14,22 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ---
-# Azure AD audit log categories and activities
+# Microsoft Entra audit log categories and activities
 
-Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
+Microsoft Entra audit logs collect all traceable activities within your Microsoft Entra tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us with feedback if you think there's a missing audit category or activity.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Microsoft Entra ID. Provide us with feedback if you think there's a missing audit category or activity.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
 1. Browse to **Identity** > **Monitoring & health** > **Audit logs**.
 1. Adjust the filters accordingly.
 1. Select a row from the resulting table to view the details.
 
-## AAD Management UX
+<a name='aad-management-ux'></a>
+
+## Microsoft Entra Management UX
 
 |Audit Category|Activity|
 |---|---|
@@ -68,7 +70,7 @@ Audit log activities and categories change periodically. The tables are updated 
 
 ## Access reviews
 
-With [Azure AD Identity Governance access reviews](../governance/manage-user-access-with-access-reviews.md), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
+With [Microsoft Entra ID Governance access reviews](../governance/manage-user-access-with-access-reviews.md), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
 
 |Audit Category|Activity|
 |---|---|
@@ -112,7 +114,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), is found in this log. The Account provisioning service only has one audit category in the logs.
+Each time an account is provisioned in your Microsoft Entra tenant, a log for that account is captured. Automated provisioning, such as with [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), is found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -164,7 +166,7 @@ If you're utilizing [Application Proxy](../app-proxy/what-is-application-proxy.m
 
 ## Authentication Methods
 
-The Audit logs for Authentication Methods can be used to make sure that your users have registered their mobile device properly to enable multi-factor authentication (MFA).
+The Audit logs for Authentication Methods can be used to make sure that your users have registered their mobile device properly to enable multifactor authentication.
 
 |Audit Category|Activity|
 |---|---|
@@ -217,9 +219,11 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |UserManagement|user started password reset|
 |UserManagement|User started security info registration|
 
-## Azure AD Recommendations
+<a name='azure-ad-recommendations'></a>
 
-[Azure AD Recommendations](overview-recommendations.md) monitors your Azure AD tenant and provides personalized insights and actionable guidance to implement best practices for Azure AD features and optimize your tenant configurations. These logs provide a history of the changes made to the status of a recommendation.
+## Microsoft Entra Recommendations
+
+[Microsoft Entra Recommendations](overview-recommendations.md) monitors your Microsoft Entra tenant and provides personalized insights and actionable guidance to implement best practices for Microsoft Entra features and optimize your tenant configurations. These logs provide a history of the changes made to the status of a recommendation.
 
 |Audit Category|Activity|
 |---|---|
@@ -227,9 +231,11 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |DirectoryManagement|Mark recommendation as complete|
 |DirectoryManagement|Postpone recommendation|
 
-## Azure AD MFA (Azure MFA)
+<a name='azure-ad-mfa-azure-mfa'></a>
 
-The Azure AD MFA audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Azure AD sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
+## Microsoft Entra multifactor authentication (Azure MFA)
+
+The Microsoft Entra multifactor authentication audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Microsoft Entra sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
 
 |Audit Category|Activity|
 |---|---|
@@ -810,7 +816,7 @@ Logs captured in the Core Directory service cover a wide variety of scenarios. C
 
 ## Device Registration Service
 
-If you need to manage [Azure AD and Hybrid Azure AD joined devices](../devices/overview.md), use the logs captured in the Device Registration Service to review changes to devices.
+If you need to manage [Microsoft Entra ID and Microsoft Entra hybrid joined devices](../devices/overview.md), use the logs captured in the Device Registration Service to review changes to devices.
 
 |Audit Category|Activity|
 |---|---|
@@ -835,7 +841,7 @@ If you need to manage [Azure AD and Hybrid Azure AD joined devices](../devices/o
 
 ## Entitlement Management
 
-If you're using Entitlement Management to streamline how you assign members of Azure AD security groups, grant licenses for Microsoft 365, or provide access to applications, you can use these logs to monitor changes to those settings. [Access reviews](#access-reviews) and [Lifecycle workflows](#lifecycle-workflows) have separate logs.
+If you're using Entitlement Management to streamline how you assign members of Microsoft Entra security groups, grant licenses for Microsoft 365, or provide access to applications, you can use these logs to monitor changes to those settings. [Access reviews](#access-reviews) and [Lifecycle workflows](#lifecycle-workflows) have separate logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -1027,7 +1033,7 @@ Use the [MyApps](../manage-apps/myapps-overview.md) audit logs to identify when 
 
 ## Privileged Identity Management (PIM)
 
-Many of the activities captured in the PIM audit logs are similar, so take note of details like *renew*, *timebound*, and *permanent*. PIM activities can generate many logs in a 24 hour period, so utilize the filters to narrow things down. For more information on the audit capabilities within the PIM service, see [View audit history for Azure AD roles in PIM](../privileged-identity-management/pim-how-to-use-audit-log.md)
+Many of the activities captured in the PIM audit logs are similar, so take note of details like *renew*, *timebound*, and *permanent*. PIM activities can generate many logs in a 24 hour period, so utilize the filters to narrow things down. For more information on the audit capabilities within the PIM service, see [View audit history for Microsoft Entra roles in PIM](../privileged-identity-management/pim-how-to-use-audit-log.md)
 
 |Audit Category|Activity|
 |---|---|
@@ -1354,6 +1360,6 @@ The Self-service password management logs provide insight into changes made to p
 
 ## Next steps
 
-- [Azure AD reports overview](overview-reports.md).
+- [Microsoft Entra monitoring and health overview](overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)
+- [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)

@@ -1,6 +1,6 @@
 ---
-title: Restore revoked permissions granted to applications in Azure Active Directory
-description: Learn how to review and restore revoked permissions for an application in Azure Active Directory.
+title: Restore revoked permissions granted to applications in Microsoft Entra ID
+description: Learn how to review and restore revoked permissions for an application in Microsoft Entra ID.
 services: active-directory
 author: Jackson-Woods
 manager: CelesteDG

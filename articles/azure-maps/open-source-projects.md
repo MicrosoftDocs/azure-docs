@@ -53,7 +53,7 @@ The following table lists the open-source projects that extend the capabilities 
 |--------------------------------|-------------|
 | [Azure Maps Code Samples] | A collection of code samples for using Azure Maps in web-based apps. |
 | [Azure Maps Gov Cloud Code Samples] | A collection of code samples for using Azure Maps through Azure Government Cloud. |
-| [Azure Maps & Azure Active Directory Samples] | A collection of samples that show how to use Azure Active Directory with Azure Maps. |
+| [Azure Maps & Microsoft Entra ID Samples] | A collection of samples that show how to use Microsoft Entra ID with Azure Maps. |
 | [LiveMaps] | A sample application that provides live indoor maps visualization of IoT data on top of Azure Maps using Azure Maps Creator. |
 | [Azure Maps Jupyter Notebook samples] | A collection of Python samples using the Azure Maps REST services. |
 | [Azure Maps .NET UWP IoT Remote Control] | A sample application that shows how to build a remotely controlled map using Azure Maps and IoT hub services. |

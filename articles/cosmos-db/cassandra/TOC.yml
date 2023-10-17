@@ -199,43 +199,7 @@
             - name: Security baseline
               href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
         - name: Optimize your Azure Cosmos DB costs
-          items:
-            - name: Overview
-              href: ../optimize-costs.yml
-            - name: Free tier
-              href: ../free-tier.md
-              displayName: free tier
-            - name: Limit total account throughput
-              displayName: cost, RUs, RU
-              href: ../limit-total-account-throughput.md
-            - name: Plan and manage costs
-              href: ../plan-manage-costs.md
-            - name: Pricing model
-              href: ../how-pricing-works.md
-            - name: Total Cost of Ownership (TCO)
-              href: ../total-cost-ownership.md
-            - name: Understand your bill
-              displayName: free tier
-              href: ../understand-your-bill.md
-            - name: Optimize provisioned throughput cost
-              displayName: request units, RUs, RU
-              href: ../optimize-cost-throughput.md
-            - name: Optimize request cost
-              displayName: request, cost, read, write, query, queries, RUs, RU
-              href: ../optimize-cost-reads-writes.md
-            - name: Optimize storage cost
-              href: ../optimize-cost-storage.md
-            - name: Optimize multi-region cost
-              href: ../optimize-cost-regions.md
-            - name: Optimize development/testing cost
-              displayName: free tier
-              href: ../optimize-dev-test.md
-            - name: Optimize cost with reserved capacity
-              href: ../reserved-capacity.md
-            - name: Optimize using rate limiting
-              href: ../rate-limiting-requests.md
-            - name: Use the emulator
-              href: ../local-emulator.md
+          href: ../optimize-costs.yml
         - name: Enterprise readiness
           items:
             - name: Service quotas
@@ -295,7 +259,7 @@
               href: connect-spark-configuration.md
             - name: Connect using Databricks
               href: spark-databricks.md
-            - name: Connect using HDInsight
+            - name: Connect from Spark on YARN
               href: spark-hdinsight.md
             - name: Create keyspace and table
               href: spark-ddl-operations.md
@@ -329,26 +293,10 @@
               href: migrate-data-striim.md
             - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
               href: oracle-migrate-cosmos-db-arcion.md
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md?pivots=api-apache-cassandra
         - name: Use developer tools
           items:
-            - name: Develop locally with emulator
-              items:
-                - name: Install and use the emulator
-                  href: ../local-emulator.md
-                - name: Run the emulator on Docker
-                  items:
-                    - name: Run the emulator on Docker for Windows
-                      href: ../local-emulator-on-docker-windows.md
-                - name: Export emulator certificates
-                  href: ../local-emulator-export-ssl-certificates.md
-                - name: Emulator command-line parameters
-                  href: ../emulator-command-line-parameters.md
-                - name: Emulator troubleshooting
-                  href: ../troubleshoot-local-emulator.md
-                - name: Emulator release notes
-                  href: ../local-emulator-release-notes.md
-                - name: Visual Studio Code extension
-                  href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
             - name: Use Azure Cosmos DB Explorer
@@ -539,6 +487,8 @@
       items:
         - name: Security overview
           href: ../../managed-instance-apache-cassandra/security.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Building resilient applications
+          href: ../../managed-instance-apache-cassandra/resilient-applications.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json          
         - name: Frequently asked questions
           displayName: cost, region, monitor, backup
           href: ../../managed-instance-apache-cassandra/faq.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json

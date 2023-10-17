@@ -22,7 +22,7 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 ## Add your privacy info
 
-Your privacy and technical information is located in the **Properties** area.
+Your privacy and technical information is located in the **Properties** area of the Microsoft Entra admin center.
 
 ### To access the properties area and add your privacy information
 
@@ -38,7 +38,7 @@ Your privacy and technical information is located in the **Properties** area.
 
    - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
     
-   - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services. If there's no person listed here, Microsoft contacts your Global Administrators. For Microsoft 365 related privacy incident notifications, see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
+   - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Microsoft Entra services. If there's no person listed here, Microsoft contacts your Global Administrators. For Microsoft 365 related privacy incident notifications, see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
 
    - **Privacy statement URL.** Type the link to your organization's document that describes how your organization handles both internal and external guest's data privacy.
 
@@ -50,5 +50,5 @@ Your privacy and technical information is located in the **Properties** area.
 1. Select **Save**.
 
 ## Next steps
-- [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
-- [Add or change profile information for a user in Azure Active Directory](./how-to-manage-user-profile-info.md)
+- [Microsoft Entra B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
+- [Add or change profile information for a user in Microsoft Entra ID](./how-to-manage-user-profile-info.md)

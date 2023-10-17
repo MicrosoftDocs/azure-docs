@@ -22,7 +22,7 @@ The Microsoft identity platform helps you build applications your users and cust
 There are several components that make up the Microsoft identity platform:
 
 - **OAuth 2.0 and OpenID Connect standard-compliant authentication service** enabling developers to authenticate several identity types, including:
-  - Work or school accounts, provisioned through Azure AD
+  - Work or school accounts, provisioned through Microsoft Entra ID
   - Personal Microsoft accounts (Skype, Xbox, Outlook.com)
   - Social or local accounts, by using Azure AD B2C
 - **Open-source libraries**: Microsoft Authentication Library (MSAL) and support for other standards-compliant libraries.
@@ -51,7 +51,7 @@ Choose your preferred [application scenario](authentication-flows-app-scenarios.
 
 For a more in-depth look at building applications using the Microsoft identity platform, see our multipart tutorial series for the following applications:
 
-- [React Single-page app (SPA)](single-page-app-tutorial-01-register-app.md)
+- [React Single-page app (SPA)](tutorial-single-page-app-react-register-app.md)
 - [.NET Web app](web-app-tutorial-01-register-application.md)
 - [.NET Web API](web-api-tutorial-01-register-app.md)
 
@@ -61,7 +61,7 @@ As you work with the Microsoft identity platform to integrate authentication and
 
 ## Learn authentication concepts
 
-Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles:
+Learn how core authentication and Microsoft Entra concepts apply to the Microsoft identity platform in this recommended set of articles:
 
 - [Authentication basics](./authentication-vs-authorization.md)
 - [Application and service principals](app-objects-and-service-principals.md)
@@ -75,13 +75,13 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
 
-[Azure AD B2B](../external-identities/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
+[Microsoft Entra B2B](../external-identities/what-is-b2b.md) - Invite external users into your Microsoft Entra tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
 ## Next steps
 
-If you have an Azure account, then you have access to an Azure Active Directory tenant. However, most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, known as a *dev tenant*.
+If you have an Azure account, then you have access to a Microsoft Entra tenant. However, most Microsoft identity platform developers need their own Microsoft Entra tenant for use while developing applications, known as a *dev tenant*.
 
 Learn how to create your own tenant for use while building your applications:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up an Azure AD tenant](quickstart-create-new-tenant.md)
+> [Quickstart: Set up a Microsoft Entra tenant](quickstart-create-new-tenant.md)
