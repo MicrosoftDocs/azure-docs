@@ -91,7 +91,7 @@ After a user requests to join a group, the request is forwarded to the group own
 ## Next steps
 
 - [Create and manage Microsoft Entra groups and group membership](how-to-manage-groups.md)
-- [Learn about group-based licensing in Microsoft Entra ID](./licensing-whatis-azure-portal.md)
+- [Learn about group-based licensing in Microsoft Entra ID](./concept-group-based-licensing.md)
 - [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
 - [Learn about Privileged Identity Management for Microsoft Entra roles](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)

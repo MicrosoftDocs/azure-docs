@@ -367,6 +367,6 @@ To help your customers with the transition, it's helpful to add a note: "Azure A
 
 - [Stay up-to-date with what's new in Microsoft Entra ID (formerly Azure AD)](./whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
-- [Learn more about Microsoft Entra ID with content from Microsoft Learn](/entra)
+- [Learn more about Microsoft Entra ID with content from Microsoft Learn](/entra/)
 
 <!-- docutune:ignore "Azure Active Directory" "Azure AD" "AAD" -->

@@ -32,7 +32,7 @@ Create your new directory by following the steps in [Create a new tenant for you
 > [!IMPORTANT]
 > The person who creates the tenant is automatically granted [Global Administrator](../roles/permissions-reference.md#global-administrator) privileges. The Global Administrator role is highly privileged and can add additional administrators to the tenant.
 
-For more information about subscription roles, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
+For more information about subscription roles, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 > [!TIP]
 > If you plan to federate on-premises Windows Server Active Directory with Microsoft Entra ID, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Microsoft Entra Connect tool to synchronize your directories.

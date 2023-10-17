@@ -66,7 +66,7 @@ Workload Identity Federation enables developers to use managed identities for th
 For more information, see: 
 - [Workload identity federation](../workload-identities/workload-identity-federation.md).
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](/azure/aks/workload-identity-overview)
 
 ---
 
@@ -563,7 +563,7 @@ We recognize that changing libraries isn't an easy task, and can't be accomplish
 
 ### How to find out which applications in my tenant are using Microsoft Authentication Library?
 
-Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying Microsoft Authentication Library apps with the help of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). 
+Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te) for details on identifying Microsoft Authentication Library apps with the help of [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 ### If I’m using Microsoft Authentication Library, what can I expect after the deadline? 
 
 - There will be no new releases (security or otherwise) to the library after June 2023. 
@@ -622,7 +622,7 @@ Developers can now use managed identities for their software workloads running a
 For more information, see: 
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
 - [Workload identity federation](../workload-identities/workload-identity-federation.md)
-- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](/azure/aks/workload-identity-overview)
 
 
 ---
@@ -1293,7 +1293,7 @@ For more information, see:[Customize app SAML token claims - Microsoft Entra](..
 
 You can now create trusts on both user and resource forests. On-premises AD DS users can't authenticate to resources in the Azure AD DS resource forest until you create an outbound trust to your on-premises AD DS. An outbound trust requires network connectivity to your on-premises virtual network on which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises AD forests that aren't synchronized to Azure AD DS.
 
-To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](../../active-directory-domain-services/concepts-forest-trust.md).
+To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](/entra/identity/domain-services/concepts-forest-trust).
  
  
 
@@ -1375,7 +1375,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Platform  
  
 
-Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](../reports-monitoring/overview-service-health-notifications.md).
+Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](/azure/service-health/service-health-portal-update).
 
  
 
@@ -1412,14 +1412,14 @@ End users are encouraged to enable the optional telemetry setting in the Authent
 Previously to set up and administer your AAD-DS instance you needed top level permissions of Azure Contributor and Azure AD Global Administrator. Now for both initial creation, and ongoing administration, you can utilize more fine grain permissions for enhanced security and control. The prerequisites now minimally require:
 
 - You need [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Groups Administrator](../roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
-- You need [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Azure AD DS resources.
+- You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor) Azure role to create the required Azure AD DS resources.
  
 
 Check out these resources to learn more:
 
-- [Tutorial - Create an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
+- [Tutorial - Create an Azure Active Directory Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance#prerequisites)
 - [Least privileged roles by task](../roles/delegate-by-task.md#domain-services)
-- [Azure built-in roles - Azure RBAC](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
+- [Azure built-in roles - Azure RBAC](/azure/role-based-access-control/built-in-roles#domain-services-contributor)
 
  
 
