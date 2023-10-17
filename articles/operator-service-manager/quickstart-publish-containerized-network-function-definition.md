@@ -94,7 +94,7 @@ Once the build is complete, examine the generated files to gain a better underst
 |configMappings     |    Maps the deployment parameters for the Network Function Definition Version (NFDV) to the parameters required for the Virtual Machine (VM) ARM template.     |
 |generatedValuesMappings    |   The yaml output of interactive mode that created configMappings. Edit and rerun the command if necessary.      |
 |schemas     |   Defines the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV).      |
-|cnfartifactmanifests.bicep    |    Bicep template for creating the publisher and artifact stores.     |
+|cnfartifactmanifests.bicep    |    Bicep template for creating the artifact manifest.     |
 |cnfdefinition.bicep	     |    Bicep template for creating the Network Function Definition Version (NFDV) itself.     |
 
 If errors were made during your interactive choices, there are two options to correct them:
