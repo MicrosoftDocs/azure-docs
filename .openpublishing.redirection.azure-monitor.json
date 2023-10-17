@@ -6334,6 +6334,16 @@
             "source_path_from_root": "/articles/azure-monitor/app/opencensus-python.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-dynamic-scope",
+            "redirect_url": "/azure/azure-monitor/essentials/metrics-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts",
+            "redirect_url": "/azure/azure-monitor/essentials/metrics-getting-started",
+            "redirect_document_id": false
+        }   
     ]
 }
