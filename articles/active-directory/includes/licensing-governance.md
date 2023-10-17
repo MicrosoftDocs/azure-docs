@@ -14,29 +14,29 @@ The following table shows what features are available with each license.  Note t
 
 |Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
 |-----|:-----:|:-----:|:-----:|:-----:| 
-|HR-driven Provisioning||x|x|x|
-|Automated user provisioning to SaaS apps|x|x|x|x|	 
-|Automated group provisioning to SaaS apps||x|x|x|	 
-|Automated provisioning to on-premises apps||x|x|x|
-|Conditional Access - Terms of use attestation||x|x|x| 
-|Entitlement management - Basic entitlement management|||x|x|  
-|Entitlement management - Conditional Access Scoping|||x|x| 
-|Entitlement management MyAccess Search|||x|x|  
-|Entitlement management with Verified ID||||x|  
-|Entitlement management + Custom Extensions (Logic Apps)||||x|  
-|Entitlement management + Auto Assignment Policies||||x|   
-|Entitlement management - Invite+Assign Any||||x| 
-|Entitlement management - Guest Conversion API||||x| 
-|Entitlement management - Grace Period - Public Preview|||x|x|  
-|Entitlement management - Sponsors Policy - Public Preview||||x| 
-|Privileged Identity Management (PIM)|||x|x| 
-|PIM For Groups|||x|x| 
-|PIM CA Controls|||x|x| 
-|Access Reviews - Basic access certifications and reviews|||x|x| 
-|Access reviews - PIM For Groups - Public Preview||||x| 
-|Access reviews - Inactive Users||||x| 
-|Access reviews - Machine learning assisted access certifications and reviews||||x| 
-|Lifecycle Workflows (LCW) J/M/L||||x|
-|LCW + Custom Extensions (Logic Apps)||||x|   
-|Identity governance dashboard - Public Preview||x|x|x|
-|Insights and reporting - Inactive guest accounts (Preview)||||x| 
+|HR-driven Provisioning|||:white_check_mark:|:white_check_mark:|
+|Automated user provisioning to SaaS apps|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|	 
+|Automated group provisioning to SaaS apps||:white_check_mark:|:white_check_mark:|:white_check_mark:|	 
+|Automated provisioning to on-premises apps||:white_check_mark:|:white_check_mark:|:white_check_mark:|
+|Conditional Access - Terms of use attestation||:white_check_mark:|:white_check_mark:|:white_check_mark:| 
+|Entitlement management - Basic entitlement management|||:white_check_mark:|:white_check_mark:|  
+|Entitlement management - Conditional Access Scoping|||:white_check_mark:|:white_check_mark:| 
+|Entitlement management MyAccess Search|||:white_check_mark:|:white_check_mark:|  
+|Entitlement management with Verified ID||||:white_check_mark:|  
+|Entitlement management + Custom Extensions (Logic Apps)||||:white_check_mark:|  
+|Entitlement management + Auto Assignment Policies||||:white_check_mark:|   
+|Entitlement management - Invite+Assign Any||||:white_check_mark:| 
+|Entitlement management - Guest Conversion API||||:white_check_mark:| 
+|Entitlement management - Grace Period - Public Preview|||:white_check_mark:|:white_check_mark:|  
+|Entitlement management - Sponsors Policy - Public Preview||||:white_check_mark:| 
+|Privileged Identity Management (PIM)|||:white_check_mark:|:white_check_mark:| 
+|PIM For Groups|||:white_check_mark:|:white_check_mark:| 
+|PIM CA Controls|||:white_check_mark:|:white_check_mark:| 
+|Access Reviews - Basic access certifications and reviews|||:white_check_mark:|:white_check_mark:| 
+|Access reviews - PIM For Groups - Public Preview||||:white_check_mark:| 
+|Access reviews - Inactive Users||||:white_check_mark:| 
+|Access reviews - Machine learning assisted access certifications and reviews||||:white_check_mark:| 
+|Lifecycle Workflows (LCW) J/M/L||||:white_check_mark:|
+|LCW + Custom Extensions (Logic Apps)||||:white_check_mark:|   
+|Identity governance dashboard - Public Preview||:white_check_mark:|:white_check_mark:|:white_check_mark:|
+|Insights and reporting - Inactive guest accounts (Preview)||||:white_check_mark:| 
