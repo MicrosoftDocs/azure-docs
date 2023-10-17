@@ -1,7 +1,7 @@
 ---
 title: Resiliency policies powered by Dapr
 titleSuffix: Azure Container Apps
-description: Learn how to apply container app to container app resiliency in Azure Container Apps.
+description: Learn about resiliency policies in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
 ms.service: container-apps

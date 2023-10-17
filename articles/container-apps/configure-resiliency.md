@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 10/17/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
+zone_pivot_group_filename: articles/container-apps/zone-pivot-groups.json
 zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
@@ -163,7 +164,106 @@ properties: {
 | ------ | ----------- |
 | `maxConnections` |  |
 
+
+::: zone-end 
+
+::: zone pivot="dapr-resiliency"  
+
+## Dapr component resiliency policies
+
+For resiliency between Dapr components using `dapr invoke`, you can define resiliency policies for:
+- Timeouts
+- Retries (HTTP)
+
+:::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
+
+The following examples demonstrate how resiliency policies are defined to provide resilient communication between your container apps.
+
+### Timeouts
+
+Timeouts are used to early-terminate long-running operations. The timeout policy includes the following metadata.
+
+```bicep
+properties: {
+  timeoutPolicy: {
+      responseTimeoutInSeconds: 15
+  }
+}
+```
+
+| Metadata | Description |
+| ------ | ----------- |
+| `responseTimeoutInSeconds` |  |
+
+### Retries
+
+Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
+
+#### `httpRetryPolicy`
+
+```bicep
+properties: {
+  outbound: {
+    httpRetryPolicy: {
+        maxRetries: 5
+        retryBackOff: {
+          initialDelayInMilliseconds: 1000
+          maxIntervalInMilliseconds: 10000
+        }
+        matches: {
+            headers: [
+                {
+                    headerMatch: {
+                        header: 'X-Content-Type'
+                        match: { 
+                            prefixMatch: 'GOATS'
+                        }
+                    }
+                }
+            ]
+            httpStatusCodes: [
+                502
+                503
+            ]
+            errors: [
+                5xx
+                connect-failure
+                reset          
+            ]
+        }
+    }
+  } 
+}
+```
+
+| Metadata | Description |
+| ------ | ----------- |
+| `maxRetries` |  |
+| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
+| `retryBackOff.initialDelayInMilliseconds` |  |
+| `retryBackOff.maxIntervalInMilliseconds` |  |
+| `matches` | Set match values to limit when the app should attempt a retry. |
+| `matches.headers` | Only retries when the app returns a certain header. |
+| `matches.httpStatusCodes` | Only retries when the app returns a specific status code. |
+| `matches.errors` | Only retries when the app returns a specific error code. |
+
+#### `tcpRetryPolicy`
+
+```bicep
+properties: {
+    tcpRetryPolicy: {
+        maxConnectAttempts: 3
+    }
+}
+```
+
+| Metadata | Description |
+| ------ | ----------- |
+| `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency resource. |
+
 ## Define your resiliency policies
+
+::: zone pivot="container-app-resiliency"  
 
 Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
 
@@ -303,101 +403,7 @@ Need
 
 ::: zone-end 
 
-::: zone pivot="container-app-resiliency"  
-
-## Dapr component resiliency policies
-
-For resiliency between Dapr components using `dapr invoke`, you can define resiliency policies for:
-- Timeouts
-- Retries (HTTP)
-
-:::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
-
-The following examples demonstrate how resiliency policies are defined to provide resilient communication between your container apps.
-
-### Timeouts
-
-Timeouts are used to early-terminate long-running operations. The timeout policy includes the following metadata.
-
-```bicep
-properties: {
-  timeoutPolicy: {
-      responseTimeoutInSeconds: 15
-  }
-}
-```
-
-| Metadata | Description |
-| ------ | ----------- |
-| `responseTimeoutInSeconds` |  |
-
-### Retries
-
-Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
-
-#### `httpRetryPolicy`
-
-```bicep
-properties: {
-  outbound: {
-    httpRetryPolicy: {
-        maxRetries: 5
-        retryBackOff: {
-          initialDelayInMilliseconds: 1000
-          maxIntervalInMilliseconds: 10000
-        }
-        matches: {
-            headers: [
-                {
-                    headerMatch: {
-                        header: 'X-Content-Type'
-                        match: { 
-                            prefixMatch: 'GOATS'
-                        }
-                    }
-                }
-            ]
-            httpStatusCodes: [
-                502
-                503
-            ]
-            errors: [
-                5xx
-                connect-failure
-                reset          
-            ]
-        }
-    }
-  } 
-}
-```
-
-| Metadata | Description |
-| ------ | ----------- |
-| `maxRetries` |  |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
-| `retryBackOff.initialDelayInMilliseconds` |  |
-| `retryBackOff.maxIntervalInMilliseconds` |  |
-| `matches` | Set match values to limit when the app should attempt a retry. |
-| `matches.headers` | Only retries when the app returns a certain header. |
-| `matches.httpStatusCodes` | Only retries when the app returns a specific status code. |
-| `matches.errors` | Only retries when the app returns a specific error code. |
-
-#### `tcpRetryPolicy`
-
-```bicep
-properties: {
-    tcpRetryPolicy: {
-        maxConnectAttempts: 3
-    }
-}
-```
-
-| Metadata | Description |
-| ------ | ----------- |
-| `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency resource. |
-
-## Define your resiliency policies
+::: zone pivot="dapr-resiliency"  
 
 Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
 
