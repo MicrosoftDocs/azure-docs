@@ -1,8 +1,8 @@
 ---
 title: Using Cross region copy VM Restore Points
 description: Using Cross region copy VM Restore Points
-author: aarthiv
-ms.author: aarthiv
+author: Aarthi-Vijaya-raghavan
+ms.author: Aarthi-Vijaya-raghavan
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual

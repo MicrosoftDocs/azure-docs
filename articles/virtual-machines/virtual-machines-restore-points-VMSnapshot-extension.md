@@ -1,8 +1,8 @@
 ---
 title: VMSnapshot extension using VM restore points
 description: VMSnapshot extension using VM restore points
-author: aarthiv
-ms.author: aarthiv
+author: Aarthi-Vijaya-raghavan
+ms.author: Aarthi-Vijaya-raghavan
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
