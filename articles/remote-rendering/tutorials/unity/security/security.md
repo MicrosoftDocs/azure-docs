@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
 
-## Why additional security is needed
+## Why extra security is needed
 
 The current state of the application and its access to your Azure resources looks like this:
 
@@ -90,9 +90,9 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     }
     ```
 
-    For the most part, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
+    Usually, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
 
-    The additional inputs `storageAccountName` and `blobName` have also been added to the arguments. We call this new **LoadModel** method from another method similar to the first **LoadTestModel** method we created in the first tutorial.
+    The extra inputs `storageAccountName` and `blobName` have also been added to the arguments. We call this new **LoadModel** method from another method similar to the first **LoadTestModel** method we created in the first tutorial.
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
@@ -156,7 +156,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
 1. For the time being, remove or disable the GameObject **TestModel**, to make room for your custom model to load.
 1. Play the scene and connect to a remote session.
-1. Right click on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.
+1. Right select on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.
     ![Load linked model](./media/load-linked-model.png)
 
 These steps have increased the security of the application by removing the SAS token from the local application.
@@ -367,11 +367,11 @@ With this change, the current state of the application and its access to your Az
 
 ![Even better security](./media/security-three.png)
 
-Since the User Credentials aren't stored on the device (or in this case even entered on the device), their exposure risk is low. Now the device is using a user-specific, time-limited Access Token to access ARR, which uses access control (IAM) to access the Blob Storage. These two steps have removed the "passwords" from the source code and increased security considerably. However, this isn't the most security available, moving the model and session management to a web service will improve security further. Additional security considerations are discussed in the [Commercial Readiness](../commercial-ready/commercial-ready.md) chapter.
+Since the User Credentials aren't stored on the device (or in this case even entered on the device), their exposure risk is low. Now the device is using a user-specific, time-limited Access Token to access ARR, which uses access control (IAM) to access the Blob Storage. These two steps have removed the "passwords" from the source code and increased security considerably. However, this isn't the most security available, moving the model and session management to a web service will improve security further. Extra security considerations are discussed in the [Commercial Readiness](../commercial-ready/commercial-ready.md) chapter.
 
 ### Testing AAD Auth
 
-In the Unity Editor, when AAD Auth is active, you'll need to authenticate every time you launch the application. On device, the authentication step happens the first time and only be required again when the token expires or is invalidated.
+In the Unity Editor, when AAD Auth is active, you need to authenticate every time you launch the application. On device, the authentication step happens the first time and only be required again when the token expires or is invalidated.
 
 1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
 
