@@ -31,7 +31,7 @@ Your university might have one or more Azure subscriptions. You use subscription
 The relationship between a lab plan and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab plan.
-- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant the ability to manage Azure Lab Services lab plans and labs. You can add someone as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
+- You can grant users in the subscription's Microsoft Entra tenant the ability to manage Azure Lab Services lab plans and labs. You can add someone as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
 
 Labs virtual machines (VMs) are managed and hosted for you within a subscription that is owned by Azure Lab Services.
 
@@ -173,7 +173,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 ## RBAC roles
 
-Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
+Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Microsoft Entra ID can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
 
 Learn more about [Azure role-based access control in Azure Lab Services](./concept-lab-services-role-based-access-control.md).
 
@@ -202,8 +202,10 @@ To obtain lab VMs with unique SID, create a lab without a template VM.  You must
 
 If you plan to use an endpoint management tool or similar software, we recommend that you don't use template VMs for your labs.
 
-## Azure AD register/join, Hybrid Azure AD join, or AD domain join
-To make labs easy to set up and manage, Azure Lab Services is designed with *no* requirement to register/join lab VMs to either Active Directory (AD) or Azure Active Directory (Azure AD).  As a result, Azure Lab Services *doesn’t* currently offer built-in support to register/join lab VMs.  Although it's possible to Azure AD register/join, Hybrid Azure AD join, or AD domain join lab VMs using other mechanisms, we do *not* recommend that you attempt to register/join lab VMs to either AD or Azure AD due to product limitations.
+<a name='azure-ad-registerjoin-hybrid-azure-ad-join-or-ad-domain-join'></a>
+
+## Microsoft Entra register/join, Microsoft Entra hybrid join, or AD domain join
+To make labs easy to set up and manage, Azure Lab Services is designed with *no* requirement to register/join lab VMs to either Active Directory (AD) or Microsoft Entra ID.  As a result, Azure Lab Services *doesn’t* currently offer built-in support to register/join lab VMs.  Although it's possible to Microsoft Entra register/join, Microsoft Entra hybrid join, or AD domain join lab VMs using other mechanisms, we do *not* recommend that you attempt to register/join lab VMs to either Active Directory or Microsoft Entra ID due to product limitations.
 
 ## Pricing
 

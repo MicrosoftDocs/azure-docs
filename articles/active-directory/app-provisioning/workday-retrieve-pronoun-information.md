@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/12/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
@@ -59,16 +59,15 @@ Once you confirm that pronoun data is available in the *Get_Workers* response, g
  
 <a name='updating-azure-ad-provisioning-app-to-retrieve-pronouns'></a>
 
-## Updating Microsoft Entra provisioning app to retrieve pronouns
+To retrieve pronouns from Workday, update your Microsoft Entra provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production.
 
-To retrieve pronouns from Workday, update your Microsoft Entra provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Open your *Workday to AD User provisioning* app OR *Workday to Microsoft Entra User provisioning* app. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your Workday to Active Directory / Microsoft Entra user provisioning application and go to **Provisioning** .
 1. In the **Admin Credentials** section, update the **Tenant URL** to include the Workday Web Service version v38.1 as shown.
 
      >[!div class="mx-imgBorder"] 
-     >![Screenshot of Azure portal provisioning app with Workday version.](./media/workday-pronoun-data/update-workday-version.png)
+     >![Screenshot of Microsoft Entra admin center provisioning app with Workday version.](./media/workday-pronoun-data/update-workday-version.png)
 
 1. Open the **Attribute mappings** blade. Scroll down and click **Show advanced options**. Click on **Edit attribute list for Workday**.
 1. If your provisioning app is configured to use the default WWS API version v21.1, then [reference this article to review and update the XPATHs for each attribute](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).
@@ -77,7 +76,7 @@ To retrieve pronouns from Workday, update your Microsoft Entra provisioning app 
      `/wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Personal_Information_Data/wd:Pronoun_Reference/@wd:Descriptor`
 
 1. Save your changes. 
-1. You can now add a new attribute mapping to flow the Workday attribute **PreferredPronoun** to any attribute in AD/Azure AD.
+1. You can now add a new attribute mapping to flow the Workday attribute **PreferredPronoun** to any attribute in AD/Microsoft Entra ID.
 1. If you want to incorporate pronoun information as part of display name, you can update the attribute mapping for displayName attribute to use the expression. 
 
      `Switch([PreferredPronoun], Join("", [PreferredNameData], " (", [PreferredPronoun], ")"), "", [PreferredNameData])`

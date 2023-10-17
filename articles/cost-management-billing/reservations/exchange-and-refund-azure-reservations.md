@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 09/25/2023
 ms.author: banders
 ---
 
@@ -52,7 +52,7 @@ You can exchange your reservation from the [Azure portal](https://portal.azure.c
 1. Review and complete the transaction.  
     [![Example image showing the VM product to purchase with an exchange, completing the return](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
 
-To refund a reservation, go into the Reservationthat you are looking to cancel and select **Return**.
+To refund a reservation, go into the Reservation that you're looking to cancel and select **Return**.
 
 ## Exchange multiple reservations
 
@@ -86,6 +86,12 @@ Money is added to the Azure Prepayment (previously called monetary commitment) f
 
 If the original reservation purchase was made from an overage, the refund is returned to you as a partial credit note. The refund doesn’t affect the original or later invoices.
 
+### Microsoft Customer Agreement customers
+
+For customers that pay by wire transfer, the refunded amount is automatically applied to the next month’s invoice. The return or refund doesn't generate a new invoice.
+
+For customers that pay by credit card, the refunded amount is returned to the credit card that was used for the original purchase. If you've changed your card, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
@@ -109,6 +115,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
+- Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. For more information about the exchange policy change, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
 
 **Refund policies**
 

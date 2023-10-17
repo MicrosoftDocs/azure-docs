@@ -96,7 +96,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     ---
 
-5. Enter the settings values for that match your framework preset choice.
+5. Enter the settings values that match your framework preset choice.
 
     # [No Framework](#tab/vanilla-javascript)
 

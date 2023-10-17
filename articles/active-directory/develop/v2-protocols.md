@@ -80,7 +80,7 @@ https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 
 To find the endpoints for an application you've registered, in the [Microsoft Entra admin center](https://entra.microsoft.com) navigate to:
 
-**Identity** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
+**Identity** > **Applications** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
 
 ## Next steps
 

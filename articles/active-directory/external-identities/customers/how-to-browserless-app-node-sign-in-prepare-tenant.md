@@ -17,7 +17,7 @@ ms.custom: developer, devx-track-js
 
 # Sign in users in your own Node.js browserless application - Prepare your tenant
 
-In this article, you prepare your Microsoft Entra External ID for customers tenant for authentication. To prepare your tenant, you do the following tasks:
+In this article, you prepare your Microsoft Entra ID for customers tenant for authentication. To prepare your tenant, you do the following tasks:
 
 - Register a browserless application in the Microsoft Entra admin center. 
 
@@ -48,7 +48,7 @@ If you've already registered a browserless application in the Microsoft Entra ad
 
 ## Next steps
 
-Prepare your app to sign in users in a Microsoft Entra External ID for customers tenant:
+Prepare your app to sign in users in a Microsoft Entra ID for customers tenant:
 
 > [!div class="nextstepaction"]
 > [Prepare your app to sign in users >](how-to-browserless-app-node-sign-in-prepare-app.md)

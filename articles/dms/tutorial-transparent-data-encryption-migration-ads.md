@@ -5,26 +5,28 @@ description: Learn how to migrate on-premises SQL Server TDE-enabled databases (
 author: croblesm
 ms.author: roblescarlos
 ms.reviewer: randolphwest
-ms.date: 02/03/2023
+ms.date: 10/10/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 # Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio
 
-For securing a SQL Server database, you can take precautions like designing a secure system, encrypting confidential assets, and building a firewall. However, physical theft of media like drives or tapes can still compromise the data. 
+For securing a SQL Server database, you can take precautions like designing a secure system, encrypting confidential assets, and building a firewall. However, physical theft of media like drives or tapes can still compromise the data.
 
 TDE provides a solution to this problem, with real-time I/O encryption/decryption of data at rest (data and log files) by using a symmetric database encryption key (DEK) secured by a certificate. For more information about migrating TDE certificates manually, see [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 
-When you migrate a TDE-protected database, the certificate (asymmetric key) used to open the database encryption key (DEK) must also be moved along with the source database. Therefore, you need to recreate the server certificate in the `master` database of the target SQL Server for that instance to access the database files. 
+When you migrate a TDE-protected database, the certificate (asymmetric key) used to open the database encryption key (DEK) must also be moved along with the source database. Therefore, you need to recreate the server certificate in the `master` database of the target SQL Server for that instance to access the database files.
 
 You can use the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to help you migrate TDE-enabled databases (preview) from an on-premises instance of SQL Server to Azure SQL.
 
 The TDE-enabled database migration process automates manual tasks such as backing up the database certificate keys (DEK), copying the certificate files from the on-premises SQL Server to the Azure SQL target, and then reconfiguring TDE for the target database again.
 
   > [!IMPORTANT]  
-  > Currently, only Azure SQL Managed Instance targets are supported.  
+  > Currently, only Azure SQL Managed Instance targets are supported.
 
-In this tutorial, you learn how to migrate the example `AdventureWorksTDE` encrypted database from an on-premises instance of SQL Server to an Azure SQL managed instance. 
+In this tutorial, you learn how to migrate the example `AdventureWorksTDE` encrypted database from an on-premises instance of SQL Server to an Azure SQL managed instance.
 
 > [!div class="checklist"]
 >  
@@ -106,7 +108,7 @@ To open the Migrate to Azure SQL wizard:
 
    > [!IMPORTANT]  
    > The **Info box** section describes the required permissions to export the DEK certificates.
-   >
+   >  
    > You must ensure the SQL Server service account has write access to network share path you will use to backup the DEK certificates. Also, the current user should have administrator privileges on the computer where this network path exists.
 
 1. Enter the **network path**.
@@ -132,13 +134,13 @@ To open the Migrate to Azure SQL wizard:
 
 ## Configure migration settings
 
-1. In **Step 3: Azure SQL target** in the Migrate to Azure SQL wizard, complete these steps for your target managed instance:
+In **Step 3: Azure SQL target** in the Migrate to Azure SQL wizard, complete these steps for your target managed instance:
 
-   1. Select your Azure account, Azure subscription, the Azure region or location, and the resource group that contains the managed instance.
+1. Select your Azure account, Azure subscription, the Azure region or location, and the resource group that contains the managed instance.
 
    :::image type="content" source="media/tutorial-transparent-data-encryption-migration-ads/configuration-azure-target.png" alt-text="Screenshot that shows Azure account details." lightbox="media/tutorial-transparent-data-encryption-migration-ads/configuration-azure-target.png":::
 
-   1. When you're ready, select **Migrate certificates** to start the TDE certificates migration.
+1. When you're ready, select **Migrate certificates** to start the TDE certificates migration.
 
 ## Start and monitor the TDE certificate migration
 
@@ -160,7 +162,7 @@ To open the Migrate to Azure SQL wizard:
 
 1. You can monitor the process for each TDE certificate by selecting **Migrate certificates**.
 
-1. Select **Next** to continue the migration wizard until you complete the database migration. 
+1. Select **Next** to continue the migration wizard until you complete the database migration.
 
    :::image type="content" source="media/tutorial-transparent-data-encryption-migration-ads/database-migration-continue.png" alt-text="Screenshot that shows how to continue the database migration." lightbox="media/tutorial-transparent-data-encryption-migration-ads/database-migration-continue.png":::
 
@@ -172,8 +174,8 @@ To open the Migrate to Azure SQL wizard:
 ## Post-migration steps
 
 Your target managed instance should now have the databases, and their respective certificates migrated. To verify the current status of the recently migrated database, copy and paste the following example into a new query window on Azure Data Studio while connected to your managed instance target. Then, select **Run**.
-  
-```sql  
+
+```sql
 USE master;
 GO
 
@@ -185,27 +187,27 @@ SELECT db_name(database_id),
 FROM sys.dm_database_encryption_keys
 WHERE database_id = DB_ID('Your database name');
 GO
-```  
+```
 
 The query returns the information about the database, the encryption status and the pending percent complete. In this case, it's zero because the TDE certificate has been already completed.
 
 :::image type="content" source="media/tutorial-transparent-data-encryption-migration-ads/tde-query.png" alt-text="Screenshot that shows the results returned by the TDE query provided in this section.":::
-  
-For more information about encryption with SQL Server, see: [Transparent data encryption (TDE).](/sql/relational-databases/security/encryption/transparent-data-encryption) 
+
+For more information about encryption with SQL Server, see [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption).
 
 ## Limitations
 
 The following table describes the current status of the TDE-enabled database migrations support by Azure SQL target:
 
 | Target | Support | Status |
-| ------------- | ------------- |:-------------:|
+| --- | --- | :---: |
 | Azure SQL Database | No | |
-| Azure SQL Managed Instance | Yes  | Preview |
+| Azure SQL Managed Instance | Yes | Preview |
 | SQL Server on Azure VM | No | |
 
-## Next steps
+## Related content
 
-- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)
+- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](tutorial-sql-server-azure-sql-database-offline.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](tutorial-sql-server-managed-instance-online-ads.md)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](tutorial-sql-server-to-virtual-machine-online-ads.md)

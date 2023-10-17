@@ -70,7 +70,7 @@ Set up a SAML federation trust between the BIG-IP to allow the Microsoft Entra B
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
-3. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.
+3. In the gallery, search for *F5* and select **F5 BIG-IP APM Azure AD integration**.
 4. Enter a name for the application.
 5. Select **Add** then **Create**. 
 6. The name, as an icon, appears in the Microsoft Entra admin center and Office 365 portal. 

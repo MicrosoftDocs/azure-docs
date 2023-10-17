@@ -112,7 +112,7 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 ## Best practices
 
-- Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don't support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Microsoft Entra ID access tokens even if they're still valid.
+- Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don't support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Microsoft Entra access tokens even if they're still valid.
 
   - Use [Microsoft Entra SaaS App Provisioning](../app-provisioning/user-provisioning.md). Microsoft Entra SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Microsoft Entra provisioning](../saas-apps/tutorial-list.md) to deprovision or deactivate disabled users in applications.
   

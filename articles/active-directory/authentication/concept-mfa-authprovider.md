@@ -1,6 +1,6 @@
 ---
-title: Microsoft Entra multifactor authenticationentication Providers
-description: When should you use an Auth Provider with Azure MFA?
+title: Microsoft Entra multifactor authentication providers
+description: When should you use an authentication provider with Microsoft Entra multifactor authentication (MFA)?
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Two-step verification is available by default for Global Administrators who have Microsoft Entra ID, and Microsoft 365 users. However, if you wish to take advantage of [advanced features](howto-mfa-mfasettings.md) then you should purchase the full version of Microsoft Entra multifactor authentication.
 
-A Microsoft Entra multifactor authenticationentication Provider is used to take advantage of features provided by Microsoft Entra multifactor authentication for users who **do not have licenses**.
+A Microsoft Entra multifactor authentication provider is used to take advantage of features provided by Microsoft Entra multifactor authentication for users who **do not have licenses**.
 
 ## Caveats related to the Azure MFA SDK
 
@@ -45,7 +45,7 @@ If your MFA provider isn't linked to a Microsoft Entra tenant, or you link the n
 > [!CAUTION]
 > There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
 
-Authentication providers can be found in the [Microsoft Entra admin center](https://entra.microsoft.com). Sign in as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator). Browse to **Protection** > **multifactor authentication** > **Providers**. Click the listed providers to see details and configurations associated with that provider.
+Authentication providers can be found in the [Microsoft Entra admin center](https://entra.microsoft.com). Sign in as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator). Browse to **Protection** > **Multifactor authentication** > **Providers**. Click the listed providers to see details and configurations associated with that provider.
 
 Before removing an authentication provider, take note of any customized settings configured in your provider. Decide what settings need to be migrated to general MFA settings from your provider and complete the migration of those settings. 
 

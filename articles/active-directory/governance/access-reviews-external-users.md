@@ -47,17 +47,35 @@ The output also includes the individual domains for each of these external ident
 
 If you have external identities using resources such as Teams or other applications not yet governed by Entitlement Management, you may want to review access to these resources regularly, too. Microsoft Entra [Access Reviews](create-access-review.md) gives you the ability to review external identities’ access by either letting the resource owner,external identities themselves, or another delegated person you trust attest to whether continued access it required. Access Reviews target a resource and create a review activity scoped to either Everyone who has access to the resource or Guest users only. The reviewer then sees the resulting list of users they need to review – either all users, including employees of your organization or external identities only.
 
-![using a group to review access](media/access-reviews-external-users/group-members.png)
-
 Establishing a resource owner-driven review culture helps govern access for external identities. Resource owners, accountable for access, availability, and security of the information they own, are, in most cases, your best audience to drive decisions around access to their resources and are closer to the users who access them than central IT or a sponsor who manages many externals.
 
 ## Create Access Reviews for external identities
 
 Users that no longer have access to any resources in your tenant can be removed if they no longer work with your organization. Before you block and delete these external identities, you may want to reach out to these external users and make sure you haven't overlooked a project, or standing access they have that they still need. When you create a group that contains all external identities as members that you found have no access to any resources in your tenant, you can use Access Reviews to have all externals self-attest to whether they still need or have access – or will still need access in the future. As part of the review, the review creator in Access Reviews can use the **Require reason on approval** function to require external users to provide a justification for continued access, through which you can learn where and how they still need access in your tenant. Also, you can enable the setting **Additional content for reviewer email** feature, to let users know that they'll be losing access if they don’t respond and, should they still need access, a justification is required. If you want to go ahead and let Access Reviews **disable and delete** external identities, should they fail to respond or provide a valid reason for continued access, you can use the Disable and delete option, as described in the next section.
 
-![limiting the scope of the review to guest users only](media/access-reviews-external-users/guest-users-only.png)
+To create an Access Review for external identities, you'd follow these steps:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity** > **Groups** > **All groups**.
+
+1. Search for the group that contains members that are external identities that do not have access to resources in your tenant and make note of this group. To automate creating a group with members that fit this criteria, see: [Gathering information around external identity proliferation](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse).
+
+1. Browse to **Identity governance** > **Access Reviews**.
+
+1. Select **+ New access review**.
+
+1. Select **Teams + Groups** and then select the group you noted earlier that contains the external identities to set the **Review scope**.
+
+1. Set the **Scope** as **Guest users only**. 
+    [ ![Screenshot of limiting the scope of the review to guest users only.](media/access-reviews-external-users/guest-users-only.png) ](media/access-reviews-external-users/guest-users-only.png#lightbox)
+1. In the **Upon completion settings** section, you can select **Block users from signing-in for 30 days, then remove user from the tenant** under the **Action to apply on denied users** option. For more information, see: [Disable and delete external identities with Microsoft Entra access reviews](access-reviews-external-users.md#disable-and-delete-external-identities-with-microsoft-entra-access-reviews).
+
+1. After the access review is created, the guest user must certify their access before the review finishes. This is done by the guest approving or not approving their access within the My Access portal. For a full step by step guide, see: [Review access to groups and applications in access reviews](perform-access-review.md).
 
 When the review finishes, the **Results** page shows an overview of the response given by every external identity. You can choose to apply results automatically and let Access Reviews disable and delete them. Alternatively, you can look through the responses given and decide whether you want to remove a user’s access or follow-up with them and get additional information before making a decision. If some users still have access to resources that you haven't reviewed yet, you can use the review as part of your discovery and enrich your next review and attestation cycle.
+
+For a detailed step by step guide, see: [Create an access review of groups and applications in Microsoft Entra ID](create-access-review.md).
 
 <a name='disable-and-delete-external-identities-with-azure-ad-access-reviews'></a>
 
@@ -66,8 +84,6 @@ When the review finishes, the **Results** page shows an overview of the response
 In addition to the option of removing unwanted external identities from resources such as groups or applications, Microsoft Entra access reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days. Once you select **Block user from signing-in for 30 days, then remove user from the tenant**, the review stays in the “applying” state for 30 days. During this period, settings, results, reviewers or Audit logs under the current review won't be viewable or configurable. 
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
-
-When creating a new Access Review, choose the **Select Teams + groups** option and limit the scope to **Guest users only**. In the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
 
 This setting allows you to identify, block, and delete external identities from your Microsoft Entra tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they're removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access isn't revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to sign in can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account and their access.
 

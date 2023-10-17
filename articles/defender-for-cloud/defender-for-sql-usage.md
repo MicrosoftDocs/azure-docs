@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 09/20/2023
+ms.date: 09/21/2023
 ---
 
 # Enable Microsoft Defender for SQL servers on machines
@@ -63,7 +63,7 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 
 1. On the Defender plans page, locate the Databases plan and select **Select types**.
 
-  :::image type="content" source="media/tutorial-enabledatabases-plan/select-types.png" alt-text="Screenshot that shows you where to select, select types on the Defender plans page." lightbox="media/tutorial-enabledatabases-plan/select-types.png":::
+    :::image type="content" source="media/tutorial-enabledatabases-plan/select-types.png" alt-text="Screenshot that shows you where to select, select types on the Defender plans page." lightbox="media/tutorial-enabledatabases-plan/select-types.png":::
 
 1. In the Resource types selection window, toggle the **SQL servers on machines** plan to **On**.
 

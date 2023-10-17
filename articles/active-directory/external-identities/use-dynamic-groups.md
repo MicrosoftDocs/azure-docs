@@ -1,6 +1,6 @@
 ---
 title: Dynamic groups and B2B collaboration
-description: Shows how to use Azure AD dynamic groups with Azure Active Directory B2B collaboration 
+description: Shows how to use Microsoft Entra dynamic groups with Microsoft Entra B2B collaboration 
 
 services: active-directory
 ms.service: active-directory
@@ -19,13 +19,13 @@ ms.custom: engagement-fy23
 # Customer intent: As a tenant administrator, I want to learn how to use dynamic groups with B2B collaboration. 
 ---
 
-# Create dynamic groups in Azure Active Directory B2B collaboration
+# Create dynamic groups in Microsoft Entra B2B collaboration
 
 ## What are dynamic groups?
-A dynamic group is a dynamic configuration of security group membership for Azure Active Directory (Azure AD) available in the [Microsoft Entra admin center](https://entra.microsoft.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Azure Active Directory](../fundamentals/how-to-manage-groups.md).
+A dynamic group is a dynamic configuration of security group membership for Microsoft Entra available in the [Microsoft Entra admin center](https://entra.microsoft.com). Administrators can set rules to populate groups that are created in Microsoft Entra ID based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Microsoft Entra ID](../fundamentals/how-to-manage-groups.md).
 
 ## Prerequisites
-[Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+[Microsoft Entra ID P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in [Create attribute-based rules for dynamic group membership in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
 
@@ -65,7 +65,7 @@ The following image shows the rule syntax for a dynamic group modified to includ
 
 ## Creating a group of guests only
 
-You might also find it useful to create a new dynamic group that contains only guest users, so that you can apply policies (such as Azure AD Conditional Access policies) to them. Create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
+You might also find it useful to create a new dynamic group that contains only guest users, so that you can apply policies (such as Microsoft Entra Conditional Access policies) to them. Create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
 
 ```
 (user.objectId -ne null) and (user.userType -eq "Guest")

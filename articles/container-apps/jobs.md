@@ -4,7 +4,7 @@ description: Learn about jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 08/17/2023
 ms.author: cshoe

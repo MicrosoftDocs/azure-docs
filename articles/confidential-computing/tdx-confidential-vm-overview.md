@@ -2,7 +2,7 @@
 title: Preview of DCesv5 & ECesv5 confidential VMs 
 description: Learn about Azure DCesv5 and ECesv5 series confidential virtual machines (confidential VMs). These series are for tenants with high security and confidentiality requirements.
 author: michamcr
-ms.author: michamcr
+ms.author: mmcrey
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview

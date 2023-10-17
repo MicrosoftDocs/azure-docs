@@ -281,6 +281,6 @@ To verify the container image, add the root certificate that signs the leaf cert
 
 ## Next steps
 
-See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).
+See [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli) and [Ratify on Azure](https://ratify.dev/docs/1.0/quickstarts/ratify-on-azure/) to get started into verifying and auditing signed images before deploying them on AKS. 
 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -32,7 +32,7 @@ See the following two sections for licensing and credentials prerequisites.
 
 There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires a Microsoft Entra ID P1 license to enable registration for Microsoft Entra multifactor authentication.
 
-Learn more: [Assign or remove licenses in the Microsoft Entra portal](/azure/active-directory/fundamentals/license-users-groups)
+Learn more: [Assign or remove licenses in the Microsoft Entra admin center](/azure/active-directory/fundamentals/license-users-groups)
 
 ### Enterprise Administrator credentials
 
@@ -133,7 +133,7 @@ Before you convert to Conditional Access, confirm the base MFA tenant settings f
 
     ![Screenshot of the multifactor authentication screen.](media/migrate-okta-sign-on-policies-conditional-access/legacy-portal.png)
 
-5. Confirm there are no users enabled for legacy MFA: On the **multifactor authentication** menu, on **multifactor authentication status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
+5. Confirm there are no users enabled for legacy MFA: On the **Multifactor authentication** menu, on **Multifactor authentication status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
 
     ![Screenshot of the multifactor authentication screen with the search feature highlighted.](media/migrate-okta-sign-on-policies-conditional-access/disable-user-portal.png)
 

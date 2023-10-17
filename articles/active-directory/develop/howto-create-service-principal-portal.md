@@ -120,9 +120,9 @@ To upload the certificate:
 
 After registering the certificate with your application in the application registration portal, enable the [confidential client application](authentication-flows-app-scenarios.md#single-page-public-client-and-confidential-client-applications) code to use the certificate.
 
-### Option 3: Create a new application secret
+### Option 3: Create a new client secret
 
-If you choose not to use a certificate, you can create a new application secret.
+If you choose not to use a certificate, you can create a new client secret.
 
 1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
@@ -130,7 +130,7 @@ If you choose not to use a certificate, you can create a new application secret.
 1. Provide a description of the secret, and a duration.
 1. Select **Add**.
 
-Once you've saved the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. You'll provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+Once you've saved the client secret, the value of the client secret is displayed. This is only displayed once, so copy this value and store it where your application can retrieve it, usually where your application keeps values like `clientId`, or `authoruty` in the source code. You'll provide the secret value along with with the application's client ID to sign in as the application.
 
    :::image type="content" source="media/howto-create-service-principal-portal/copy-secret.png" alt-text="Screenshot showing the client secret.":::
 
@@ -142,7 +142,7 @@ To configure access policies:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your key vault and select **Access policies**.
-1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
+1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application. Select the service principal you created previously.
 1. Select **Add** to add the access policy.
 1. **Save**.
 

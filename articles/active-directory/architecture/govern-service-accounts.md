@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Governing Microsoft Entra service accounts
 
-There are three types of service accounts in Microsoft Entra ID (Microsoft Entra ID): managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Microsoft Entra ID. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Microsoft Entra service account is managing creation, permissions, and lifecycle to ensure security and continuity.
+There are three types of service accounts in Microsoft Entra ID: managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Microsoft Entra ID. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Microsoft Entra service account is managing creation, permissions, and lifecycle to ensure security and continuity.
 
 Learn more:
 
@@ -119,12 +119,12 @@ Regularly review service account permissions and accessed scopes to see if they 
 
 * See, [Get-AzureADServicePrincipalOAuth2PermissionGrant](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant)
   * [Script to list all delegated permissions and application permissions in Microsoft Entra ID](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
-* See, [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment) and confirm validity
+* See, [`AzureADAssessment`](https://github.com/AzureAD/AzureADAssessment) and confirm validity
 * Don't set service principal credentials to **Never expire**
 * Use certificates or credentials stored in Azure Key Vault, when possible
   * [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
 
-The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment).
+The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [`AzureADAssessment`](https://github.com/AzureAD/AzureADAssessment).
 
 ### Recertify service account use
 

@@ -35,7 +35,7 @@ Follow these steps to set up alerts to monitor the trust relationship:
 
 After the environment is configured, the data flows as follows: 
 
- 1. Microsoft Entra ID Logs get populated per the activity in the tenant.  
+ 1. Microsoft Entra logs are populated per the activity in the tenant.  
  2. The log information flows to the Azure Log Analytics workspace.  
  3. A background job from Azure Monitor executes the log query based on the configuration of the Alert Rule in the configuration step (2) above.  
     ```
@@ -56,7 +56,7 @@ After the environment is configured, the data flows as follows:
 
 ## Next steps
 
-- [Integrate Microsoft Entra ID logs with Azure Monitor logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Integrate Microsoft Entra logs with Azure Monitor logs](../../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 - [Create, view, and manage log alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md)
 - [Manage AD FS trust with Microsoft Entra ID using Microsoft Entra Connect](how-to-connect-azure-ad-trust.md)
 - [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)

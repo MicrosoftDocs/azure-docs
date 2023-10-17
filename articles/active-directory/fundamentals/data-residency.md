@@ -25,7 +25,7 @@ The Core Store is made up of tenants stored in scale units, each of which contai
 
 Learn more: [Microsoft Entra Core Store Scale Units](https://www.youtube.com/watch?v=OcKO44GtHh8)
 
-Microsoft Entra ID is available in the following clouds
+Microsoft Entra ID is available in the following clouds:
 
 * Public
 * China
@@ -76,7 +76,7 @@ Learn more:
 
 ## Data residency across Microsoft Entra components
 
-Learn more: [Microsoft Entra ID, Product overview](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+Learn more: [Microsoft Entra product overview](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 
 > [!NOTE]
 > To understand service data location, such as Exchange Online, or Skype for Business, refer to the corresponding service documentation. 
@@ -115,6 +115,5 @@ For more information on data residency in Microsoft Cloud offerings, see the fol
 ## Next steps
 
 * [Microsoft Entra ID and data residency](data-residency.md) (You're here)
-
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md)

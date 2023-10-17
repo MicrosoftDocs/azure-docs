@@ -1,6 +1,6 @@
 ---
 
-title: Microsoft Entra audit activity reference
+title: Microsoft Entra audit log activity reference
 description: Get an overview of the audit activities that can be logged in your audit logs in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
@@ -1362,4 +1362,4 @@ The Self-service password management logs provide insight into changes made to p
 
 - [Microsoft Entra monitoring and health overview](overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)
+- [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)

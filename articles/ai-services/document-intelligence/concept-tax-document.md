@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Automate tax document data extraction with Document Intelligence's tax document models
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

@@ -218,17 +218,15 @@ The following browsers have been tested to see if they correctly redirect to the
 | ------------------- | :--------------: | -------------------------: | -------------: | -------------: | -------------: | -------------: |
 | Nexus 4 (API 17)    |       pass       |                       pass | not applicable | not applicable | not applicable | not applicable |
 | Samsung S7 (API 25) | pass<sup>1</sup> |                       pass |           pass |           pass |           fail |           pass |
-| Huawei (API 26)     | pass<sup>2</sup> |                       pass |           fail |           pass |           pass |           pass |
 | Vivo (API 26)       |       pass       |                       pass |           pass |           pass |           pass |           fail |
 | Pixel 2 (API 26)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
-| Oppo                |       pass       | not applicable<sup>3</sup> | not applicable | not applicable | not applicable | not applicable |
+| Oppo                |       pass       | not applicable<sup>2</sup> | not applicable | not applicable | not applicable | not applicable |
 | OnePlus (API 25)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | Nexus (API 28)      |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | MI                  |       pass       |                       pass |           pass |           pass |           fail |           pass |
 
 <sup>1</sup>Samsung's built-in browser is Samsung Internet.<br/>
-<sup>2</sup>Huawei's built-in browser is Huawei Browser.<br/>
-<sup>3</sup>The default browser can't be changed inside the Oppo device setting.
+<sup>2</sup>The default browser can't be changed inside the Oppo device setting.
 
 ## Next steps
 

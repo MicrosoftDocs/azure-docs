@@ -4,12 +4,25 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/30/2023
+ms.date: 02/09/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## September 2023
+
+In September 2023, we published the following changes:
+
+- A new article to [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md).
+- A new article to [Uninstall and reinstall Remote Desktop Connection](/windows-server/remote/remote-desktop-services/clients/uninstall-remote-desktop-connection) (MSTSC) on Windows 11 23H2.
+- A new article for [Azure Virtual Desktop (classic) retirement](virtual-desktop-fall-2019/classic-retirement.md).
+- Updated articles for custom images templates general availability:
+  - [Custom image templates](custom-image-templates.md).
+  - [Use Custom image templates to create custom images](create-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+- Updated [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor) for the general availability of using the Azure Monitor Agent with Azure Virtual Desktop Insights.
 
 ## August 2023
 

@@ -234,7 +234,7 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 > [!IMPORTANT]
 > Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
 > 
-> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Microsoft Entra account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: zhchia, arvinh
 ---
@@ -62,7 +62,7 @@ To help determine which integration option to use for your application, refer to
 | Access data beyond users and groups during provisioning Access to Microsoft 365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
 | Create, read, and update users based on business rules| √| √| √ |
 | Delete users based on business rules| √| √| X |
-| Manage automatic user provisioning for all applications from the Azure portal| √| X| √ |
+| Manage automatic user provisioning for all applications from the Microsoft Entra admin center| √| X| √ |
 | Support multiple identity providers| √| X| √ |
 | Support guest accounts (B2B)| √| √| √ |
 | Support non-enterprise accounts (B2C)| X| √| √ |

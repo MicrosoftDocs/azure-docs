@@ -174,7 +174,7 @@ To enable Microsoft Entra CBA and configure user bindings in the Microsoft Entra
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
 
 1. Click **Configure** to set up authentication binding and username binding.
-1. The protection level attribute has a default value of **Single-factor authentication**. Select **multifactor authentication** to change the default value to MFA. 
+1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multifactor authentication** to change the default value to MFA.
 
    >[!NOTE] 
    >The default protection level value will be in effect if no custom rules are added. If custom rules are added, the protection level defined at the rule level will be honored instead.
@@ -192,14 +192,14 @@ To enable Microsoft Entra CBA and configure user bindings in the Microsoft Entra
    To create a rule by certificate issuer, click **Certificate issuer**.
 
    1. Select a **Certificate issuer identifier** from the list box.
-   1. Click **multifactor authentication**.
+   1. Click **Multifactor authentication**.
 
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
    To create a rule by Policy OID, click **Policy OID**.
 
    1. Enter a value for **Policy OID**.
-   1. Click **multifactor authentication**.
+   1. Click **Multifactor authentication**.
 
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 

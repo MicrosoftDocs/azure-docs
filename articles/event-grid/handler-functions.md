@@ -21,7 +21,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 
 > [!NOTE]
 > - When you an Event Grid trigger to add an event subscription using an Azure function, Event Grid fetches the access key for the target function using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. 
-> - If you protect your Azure function with an **Azure Active Directory** application, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
+> - If you protect your Azure function with an **Microsoft Entra ID** application, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
 
 ## Tutorials
 
@@ -77,7 +77,7 @@ You can use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
 > [!NOTE]
-> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your azure function with an Azure Active Directory application, you have to take the generic web hook approach and use the HTTP Trigger.
+> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your azure function with a Microsoft Entra application, you have to take the generic web hook approach and use the HTTP Trigger.
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers.

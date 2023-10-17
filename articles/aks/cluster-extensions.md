@@ -27,13 +27,13 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 > For new clusters created with `az aks create`, managed identity is configured by default. For existing service principal-based clusters that need to be switched over to managed identity, it can be enabled by running `az aks update` with the `--enable-managed-identity` flag. For more information, see [Use managed identity][use-managed-identity].
 
 > [!NOTE]
-> If you have enabled [Azure AD pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
+> If you have enabled [Microsoft Entra pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
 > we recommend you first review [Workload identity overview][workload-identity-overview] to understand our
-> recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
+> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ## Currently available extensions
 

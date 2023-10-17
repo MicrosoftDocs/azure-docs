@@ -119,7 +119,7 @@ Enable Saviynt to perform user delete operations in Azure AD B2C.
 
 Learn more: [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. Install the latest version of Microsoft Graph PowerShell Module on a Windows workstation or server.
+1. Install the latest version of the Microsoft Graph PowerShell module on a Windows workstation or server.
 
 For more information, see [Microsoft Graph PowerShell documentation](/powershell/microsoftgraph/).
 

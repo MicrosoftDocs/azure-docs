@@ -5,8 +5,7 @@ description: Get started with the Speech devices. The Speech service works with 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 12/27/2021
 ms.author: eur

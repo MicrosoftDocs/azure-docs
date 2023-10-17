@@ -5,8 +5,7 @@ description: You have full control over your data. Learn how to view, export or 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 02/07/2019
 ms.author: pafarley

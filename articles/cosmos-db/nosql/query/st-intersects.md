@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -48,7 +48,7 @@ The following example shows how to find if two polygons intersect.
 - This function benefits from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_WITHIN`](st-within.md)

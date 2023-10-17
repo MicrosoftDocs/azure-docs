@@ -2,12 +2,13 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 07/26/2023
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
 
-[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as an additional authentication protocol issued by Azure Active Directory (Azure AD). You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Azure Active Directory (Azure AD) or other cloud provider identity and access management platform, to discover the API server's public signing keys.
+[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as an additional authentication protocol issued by Microsoft Entra ID. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
 
 AKS rotates the key automatically and periodically. If you don't want to wait, you can rotate the key manually and immediately. The maximum lifetime of the token issued by the OIDC provider is one day.
 
@@ -134,7 +135,7 @@ During key rotation, there is one additional key present in the discovery docume
 ## Next steps
 
 * See [configure creating a trust relationship between an app and an external identity provider](../active-directory/develop/workload-identity-federation-create-trust.md) to understand how a federated identity credential creates a trust relationship between an application on your cluster and an external identity provider.
-* Review [Azure AD workload identity][azure-ad-workload-identity-overview] (preview). This authentication method integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
+* Review [Microsoft Entra Workload ID][azure-ad-workload-identity-overview] (preview). This authentication method integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 * See [Secure pod network traffic][secure-pod-network-traffic] to understand how to use the Network Policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS.
 
 <!-- LINKS - external -->

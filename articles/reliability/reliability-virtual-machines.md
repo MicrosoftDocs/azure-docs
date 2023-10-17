@@ -11,13 +11,13 @@ ms.date: 07/18/2023
 
 # Reliability in Virtual Machines
 
-This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). 
+This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Reliability recommendations
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  
 
 [!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
  
@@ -47,7 +47,6 @@ This section contains recommendations for achieving resiliency and availability 
 |[**Compliance**](#compliance)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Ensure that your VMs are compliant with Azure Policies](#-ensure-that-your-vms-are-compliant-with-azure-policies) |
 |[**Monitoring**](#monitoring)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Enable VM Insights](#-enable-vm-insights) | 
 ||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Configure diagnostic settings for all Azure resources](#-configure-diagnostic-settings-for-all-azure-resources) | 
-
 
 ### High availability
  
@@ -470,14 +469,21 @@ Before you upgrade your next set of nodes in another zone, you should perform th
 
 To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
+- Move a VM to another subscription or resource group
+    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)
+    - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
+- [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
+- [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
+- [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
+  
+## Cross-region disaster recovery and business continuity
 
-## Disaster recovery and business continuity
-
-In the case of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more information on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
-### Multi-region geography disaster recovery
+### Disaster recovery in multi-region geography
+
 
 In the case of a region-wide service disruption, Microsoft works diligently to restore the virtual machine service. However, you still must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 
@@ -500,7 +506,7 @@ When setting up disaster recovery for virtual machines, understand what [Azure S
 - Fail over virtual machines to [another region](../site-recovery/azure-to-azure-tutorial-failover-failback.md)
 - Fail over virtual machines to the [primary region](../site-recovery/azure-to-azure-tutorial-failback.md#fail-back-to-the-primary-region)
 
-### Single-region geography disaster recovery
+### Disaster recovery in single-region geography
 
 With disaster recovery setup, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
 
@@ -510,7 +516,7 @@ For more information, see [Azure VMs architectural components](../site-recovery/
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./overview.md#shared-responsibility). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
+Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
 For deploying virtual machines, you can use [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
 
@@ -524,6 +530,4 @@ For deploying virtual machines, you can use [flexible orchestration](../virtual-
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/reliability/availability-zones-overview)
-
-
+> [Reliability in Azure](/azure/reliability/availability-zones-overview)

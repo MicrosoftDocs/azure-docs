@@ -27,7 +27,7 @@ Microsoft Entra ID, part of Microsoft Entra, supports applying sensitivity label
 
 To apply published labels to groups, you must first enable the feature. These steps enable the feature in Microsoft Entra ID.
 
-1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
+1. Open a PowerShell prompt on your computer. You can open it without elevated privileges.
 1. Run the following commands to prepare to run the cmdlets.
 
     ```powershell

@@ -25,6 +25,8 @@ items:
       href: concept-sign-in-log-activity-details.md
     - name: Provisioning logs
       href: concept-provisioning-logs.md
+    - name: Microsoft Graph activity logs
+      href: /graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json
   - name: How-to guides 
     expanded: true
     items:
@@ -90,14 +92,14 @@ items:
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
-    - name: Sign-ins using legacy authentication  
-      href: workbook-legacy authentication.md
+    - name: Multifactor authentication gaps 
+      href: workbook-mfa-gaps.md 
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
-    - name: Multifactor authentication gaps 
-      href: workbook-mfa-gaps.md   
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
 
 - name: Identity monitoring
   expanded: true

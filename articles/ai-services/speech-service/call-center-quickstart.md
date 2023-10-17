@@ -5,8 +5,7 @@ description: In this quickstart, you perform sentiment analysis and conversation
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 09/20/2022
 ms.author: eur
