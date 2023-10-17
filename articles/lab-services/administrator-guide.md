@@ -167,8 +167,8 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 | Large | 8 | 16  |  [Standard_F8s_v2](../virtual-machines/fsv2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
 | Large (nested virtualization) | 8 | 32 | [Standard_D8s_v4](../virtual-machines/dv4-dsv4-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 | Small GPU (Compute) | 8 | 56 | [Standard_NC8as_T4_v3](../virtual-machines/nct4-v3-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](../virtual-machines/nvv4-series.md) **Windows only* | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](../virtual-machines/nvv4-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md)  | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ### Alternative VM sizes
 
