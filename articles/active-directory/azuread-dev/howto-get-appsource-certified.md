@@ -119,7 +119,7 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
-[AAD-Howto-Multitenant-Overview]: ../develop/configure-app-multi-instancing.md
+[AAD-Howto-Multitenant-Overview]: ../develop/howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 <!--Image references-->
