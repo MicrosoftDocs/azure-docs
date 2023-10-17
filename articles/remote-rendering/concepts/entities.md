@@ -107,7 +107,7 @@ Quaternion& rotation = localTransform.Rotation;
 Float3& scale = localTransform.Scale;
 ```
 
-There is also a helper function to retrieve an entity's global (world space) transform:
+There's also a helper function to retrieve an entity's global (world space) transform:
 
 ```cs
 // global space transform of the entity
@@ -121,7 +121,7 @@ Transform globalTransform = entity->GetGlobalTransform();
 Double3 translation = globalTransform.Position;
 ```
 
-When `GlobalTransform` is called, the global transform is computed on-the-fly by traversing up the entity hierarchy. This involves significant computation, but compared to doing the same operations on the client side through class `Entity`, this is much faster. Still, calling `GlobalTransform` on a larger set of entities might impose a performance bottleneck.
+When `GlobalTransform` is called, the global transform is computed on-the-fly by traversing up the entity hierarchy. This traversal involves significant computation, but compared to doing the same operations on the client side through class `Entity`, the built-in function is faster. Still, calling `GlobalTransform` on a larger set of entities might impose a performance bottleneck.
 
 `LocalToGlobalMatrix` is a variant of `GlobalTransform` that computes the global transform as a matrix, which is convenient in Unity context:
 
