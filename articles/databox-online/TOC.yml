@@ -281,8 +281,10 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
-        - name: Use Azure Marketplace image
+        - name: Using Azure Marketplace image via portal
           href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
+        - name: Using Azure Marketplace image via Azure CLI
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)

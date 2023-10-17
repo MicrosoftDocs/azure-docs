@@ -11,6 +11,8 @@ This article describes the networking requirements for deploying Azure Arc resou
 
 ## General network requirements
 
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. 
+
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
@@ -67,3 +69,4 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
 - View [troubleshooting tips for networking issues](troubleshoot-resource-bridge.md#networking-issues).
+

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/05/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -78,13 +78,15 @@ In Azure portal, the process will require two clicks, the first update gets your
 
 From the local UI, you will have to run each update separately: update the device version to 2303, update Kubernetes version to 2210, update Kubernetes version to 2303, and then the third update gets both the device version and Kubernetes version to 2309.
 
+Each time you change the Kubernetes profile, you are prompted for the Kubernetes update. Go ahead and apply the update.
+
 ### Updates for a single-node vs two-node
 
 The procedure to update an Azure Stack Edge is the same whether it is a single-node device or a two-node cluster. This applies both to the Azure portal or the local UI procedure. 
 
 - **Single node** - For a single node device, installing an update or hotfix is disruptive and will restart your device. Your device will experience a downtime for the entire duration of the update.
 
-- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster may experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the device node when update is in progress. 
+- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster might experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the device node when update is in progress. 
 
     The Kubernetes worker VMs will go down when a node goes down. The Kubernetes master VM will fail over to the other node. Workloads will continue to run. For more information, see [Kubernetes failover scenarios for Azure Stack Edge](azure-stack-edge-gpu-kubernetes-failover-scenarios.md).
 
@@ -121,7 +123,7 @@ We recommend that you install updates through the Azure portal. The device autom
 > - Make sure that the device is healthy and status shows as **Your device is running fine!** before you proceed to install the updates.
 
 
-Depending on the software version that you are running, install process may differ slightly. 
+Depending on the software version that you are running, install process might differ slightly. 
 
 - If you are updating from 2106 to 2110 or later, you will have a one-click install. See the **version 2106 and later** tab for instructions.
 - If you are updating to versions prior to 2110, you will have a two-click install. See **version 2105 and earlier** tab for instructions.

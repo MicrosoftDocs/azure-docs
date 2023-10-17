@@ -26,7 +26,7 @@ If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you'
 ![Microsoft Defender for Cloud disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 > - Do not use BitLocker to manually decrypt a VM or disk that was encrypted through Azure Disk Encryption.
 
@@ -55,7 +55,7 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
-  - To get a token to connect to your key vault, the Windows VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
+  - To get a token to connect to your key vault, the Windows VM must be able to connect to a Microsoft Entra endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Windows VM must be able to connect to the key vault endpoint.
   - The Windows VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
   -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).    

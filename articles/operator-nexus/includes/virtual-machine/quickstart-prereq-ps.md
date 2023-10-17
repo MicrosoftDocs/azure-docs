@@ -4,7 +4,7 @@ ms.author: rajeshwarig
 ms.date: 09/19/2023
 ms.topic: include
 ms.service: azure-operator-nexus
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

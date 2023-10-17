@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra ID fundamentals documentation 
-summary: Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
+title: Microsoft Entra fundamentals documentation 
+summary: Learn basic Microsoft Entra concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
 
 metadata:
-  title: Microsoft Entra ID fundamentals documentation 
-  description: "Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
+  title: Microsoft Entra fundamentals documentation 
+  description: "Learn basic Microsoft Entra concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
   manager: amycolannino
   ms.author: barclayn
   ms.collection: na

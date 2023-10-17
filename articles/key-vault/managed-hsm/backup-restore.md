@@ -4,6 +4,7 @@ description: This document explains full backup/restore and selective restore
 services: key-vault
 author: mbaldwin
 tags: azure-key-vault
+ms.custom: devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: managed-hsm

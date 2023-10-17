@@ -303,10 +303,10 @@ In this article, an Azure Red Hat OpenShift cluster running OpenShift 4 was depl
 > * Deploy a cluster
 > * Connect to the cluster using the `kubeadmin` user
 
-Advance to the next article to learn how to configure the cluster for authentication using Azure Active Directory.
+Advance to the next article to learn how to configure the cluster for authentication using Microsoft Entra ID.
 
 
-* [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
+* [Configure authentication with Microsoft Entra ID using the command line](configure-azure-ad-cli.md)
 
 
-* [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)
+* [Configure authentication with Microsoft Entra ID using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)

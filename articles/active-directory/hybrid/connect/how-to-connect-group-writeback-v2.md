@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Microsoft Entra Connect Sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 
 > [!NOTE]
-> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality. You should not deploy the functionality to write back security groups in your production environment. We are planning to replace the AADConnect security group writeback functionality with the new Cloud Sync group writeback feature, and when this releases we will remove the AADConnect Group Writeback functionality. This does not impact M365 group writeback functionality, which will remain unchanged.
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality. You should not deploy the functionality to write back security groups in your production environment. We are planning to replace the AADConnect security group writeback functionality with the new cloud sync group writeback feature, and when this releases we will remove the AADConnect Group Writeback functionality. This does not impact M365 group writeback functionality, which will remain unchanged.
 
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
@@ -93,7 +93,7 @@ To verify if Active Directory has been prepared for Exchange, see [Prepare Activ
 ## Meet prerequisites for public preview 
 The following are prerequisites for group writeback:
 
-- A Microsoft Entra ID P1 or P2 1 license 
+- A Microsoft Entra ID P1 or P2 license 
 - Microsoft Entra Connect version 2.0.89.0 or later
 
 An optional prerequisite is Exchange Server 2016 CU15 or later. You need it only for configuring cloud groups with an Exchange hybrid. For more information, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites). If you haven't [prepared Active Directory for Exchange](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019&preserve-view=true), mail-related attributes of groups won't be written back. 

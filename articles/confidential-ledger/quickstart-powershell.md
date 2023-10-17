@@ -25,7 +25,7 @@ In this quickstart, you create a confidential ledger with [Azure PowerShell](/po
 
 ## Get your principal ID and tenant ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
+To create a confidential ledger, you'll need your Microsoft Entra principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
 
 ```azurepowershell
 Get-AzADUser -SignedIn

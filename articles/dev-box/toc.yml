@@ -72,6 +72,12 @@ items:
       href: how-to-request-quota-increase.md   
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
+- name: Troubleshooting and support
+  items:
+    - name: Troubleshoot dev box connectivity issues
+      href: how-to-troubleshoot-repair-dev-box.md
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md
 - name: Reference
   items:
     - name: Azure CLI - devcenter
@@ -86,8 +92,6 @@ items:
       href: https://azure.microsoft.com/roadmap/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md
     - name: FAQ
       href: dev-box-faq.yml
     - name: Report a problem

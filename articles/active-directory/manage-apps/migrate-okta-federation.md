@@ -19,6 +19,9 @@ In this tutorial, learn to federate Office 365 tenants with Okta for single sign
 
 You can migrate federation to Microsoft Entra ID in a staged manner to ensure a good authentication experience for users. In a staged migration, you can test reverse federation access to remaining Okta SSO applications.
 
+>[!NOTE]
+>Scenario described in this tutorial is only one possible way of implementing the migration. You should try to adapt the information to your specific setup.
+
 ## Prerequisites
 
 - An Office 365 tenant federated to Okta for SSO
@@ -57,7 +60,7 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 1. On the Microsoft Entra Connect server, open the **Microsoft Entra Connect** app.
 2. Select **Configure**.
 
-   ![Screenshot of the Microsoft Entra icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
+   ![Screenshot of the Microsoft Entra ID icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
 
 3. Select **Change user sign-in**.
 4. Select **Next**.

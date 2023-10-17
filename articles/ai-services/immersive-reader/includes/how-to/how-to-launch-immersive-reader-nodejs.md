@@ -10,7 +10,7 @@ ms.author: rwaller
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -32,11 +32,13 @@ yarn add request
 yarn add dotenv
 ```
 
-## Acquire an Azure AD authentication token
+<a name='acquire-an-azure-ad-authentication-token'></a>
 
-Next, write a backend API to retrieve an Azure AD authentication token.
+## Acquire a Microsoft Entra authentication token
 
-You need some values from the Azure AD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+Next, write a backend API to retrieve a Microsoft Entra authentication token.
+
+You need some values from the Microsoft Entra auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
 
 ````text
 TenantId     => Azure subscription TenantId
@@ -64,7 +66,7 @@ require('dotenv').config();
 
 Open the _routes\index.js_ file and replace its content with the following code.
 
-This code creates an API endpoint that acquires an Azure AD authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
+This code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
 
 ```javascript
 var request = require('request');

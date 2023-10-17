@@ -135,7 +135,9 @@ Reporting for monitoring and auditing B2B direct connect activity is available i
 
 <a name='azure-ad-monitoring-and-audit-logs'></a>
 
-### Microsoft Entra ID monitoring and audit logs
+<a name='microsoft-entra-id-monitoring-and-audit-logs'></a>
+
+### Microsoft Entra monitoring and audit logs
 
 Microsoft Entra ID includes information about cross-tenant access and B2B direct connect in the organization's Audit logs and Sign-in logs. These logs can be viewed in the Azure portal under **Monitoring**.
 

@@ -23,11 +23,11 @@ The time it takes to increase your quota varies depending on the VM size, region
 - Request extra capacity only if you need more than is already assigned to your subscription. 
 - Make incremental requests for VM cores rather than making large, bulk requests. Break requests for large numbers of cores into smaller requests for extra flexibility in how those requests are fulfilled.
 
-Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Prerequisites
 
-- To create a support request, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) role at the subscription level.
+- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
 - Before you create a support request for a limit increase, you need to gather additional information.
 
 ## Gather information for your request
@@ -135,4 +135,4 @@ To complete the support request, enter the following information:
 ## Related content
 
 - To learn how to check your quota usage, see [Determine usage and quota](./how-to-determine-your-quota-usage.md).
-- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#microsoft-dev-box-limits)
+- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits)

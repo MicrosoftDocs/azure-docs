@@ -54,7 +54,7 @@ sections:
         answer: |
           Yes, you can. Global Administrator and User Administrator have the power to put any group in an access package. Nothing changes for Global Administrator, but there's a slight change in User Administrator role permissions. To put a role-assignable group into an access package, you must be a User Administrator and also owner of the role-assignable group. Here's the full table showing who can create access package in Enterprise License Management:
           
-          Azure AD directory role | Entitlement management role | Can add security group\* | Can add Microsoft 365 group\* | Can add app | Can add SharePoint Online site
+          Microsoft Entra directory role | Entitlement management role | Can add security group\* | Can add Microsoft 365 group\* | Can add app | Can add SharePoint Online site
           ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
           Global Administrator | n/a | ✔️ | ✔️ | ✔️  | ✔️
           User Administrator  | n/a  | ✔️  | ✔️  | ✔️
@@ -114,5 +114,5 @@ additionalContent: |
 
   ## Next steps
   
-  - [Use Azure AD groups to manage role assignments](groups-concept.md)
+  - [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
   - [Create a role-assignable group](groups-create-eligible.md)

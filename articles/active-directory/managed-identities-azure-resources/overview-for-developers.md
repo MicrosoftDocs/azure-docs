@@ -370,4 +370,4 @@ Tokens should be treated like credentials. Don't expose them to users or other s
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
-* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra ID protected resources without managing secrets
+* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets
