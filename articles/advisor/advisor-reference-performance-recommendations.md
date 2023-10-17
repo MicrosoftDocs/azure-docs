@@ -294,7 +294,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your 
 
 Maximizing the efficiency of your system's resources is crucial for maintaining top-notch performance. Our system closely monitors CPU usage, and when it crosses the 90% threshold over a 12-hour period, a proactive alert is triggered. This alert not only informs Azure Cosmos DB for MongoDB vCore users of the elevated CPU consumption but also provides valuable guidance on scaling up to a higher tier. By upgrading to a more robust tier, you can unlock improved performance and ensure your system operates at its peak potential.
 
-Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](/azure/cosmos-db/mongodb/vcore/how-to-scale-cluster)
+Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](/azure/cosmos-db/mongodb/vcore/how-to-scale-cluster).
 
 ### PerformanceBoostervCore
 
@@ -669,7 +669,7 @@ Learn more about [Monitor - UpgradeToLatestAMSSdkVersion (Upgrade to the latest 
 
 in your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 will be retired and API calls will fail. Upgrade to newer version to prevent disruption to your services.
 
-Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](https://aka.ms/api-versions-being-retired-for-azure-api-management/).
+Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](/azure/updates/api-versions-being-retired-for-azure-api-management).
 
 
 
