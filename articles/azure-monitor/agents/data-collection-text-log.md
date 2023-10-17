@@ -16,10 +16,7 @@ Many applications log information to text files instead of standard logging serv
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). 
-
-    - If your virtual machine and Log Analytics workspace are in the same region, you need one data collection endpoint in the same region.
-    - If your virtual machine and Log Analytics workspace are in different regions, you need a data collection endpoint in each region.
+- One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region.
 
     For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
