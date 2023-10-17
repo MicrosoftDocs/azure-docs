@@ -2,13 +2,13 @@
 title: "Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider | Microsoft Docs"
 description: "In this quickstart, use the Azure App Configuration Kubernetes Provider to dynamically load updated key-values from App Configuration store."
 services: azure-app-configuration
-author: junbchen, linglingye
+author: junbchen
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 10/17/2023
-ms.author: junbchen, linglingye
+ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
@@ -88,7 +88,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
     > You can set `refresh.interval` field to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests to your App Configuration store.
 
     > [!IMPORTANT]
-    > Azure App Configuration Kubernetes provider updates the data in ConfigMap dynamically, when ConfigMap is used as mounted file, the kubelet checks whether the mounted ConfigMap is fresh on every periodic sync, therefore it will receive ConfigMap updates automatically without restart. Use Azure App Configuration Kubernetes Provider to generate a [file-style configMap](#placeholder-of-file-style-configmap-refrence-doc) would be helpful to consume the key-values as a file to avoid workloads restart.
+    > Azure App Configuration Kubernetes provider updates the data in ConfigMap dynamically, when ConfigMap is used as mounted file, the kubelet checks whether the mounted ConfigMap is fresh on every periodic sync, therefore it will receive ConfigMap updates automatically without restart. Use Azure App Configuration Kubernetes Provider to generate a [file-style configMap](./reference-kubernetes-provider.md#configmap-consumption) would be helpful to consume the key-values as a file to avoid workloads restart.
     >
     > When ConfigMap's data is used as container environment variables, restarting the deployment is required to pick up the changes in the ConfigMap. That's because environment variables are injected into the pods just at the start-up-time. There're third party solutions (for example [stakater/Reloader](https://github.com/stakater/Reloader)) which can be leveraged to automatically restart the workloads by watching the configMap update. 
 
