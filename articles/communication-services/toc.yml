@@ -209,6 +209,10 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
         - name: Try Advanced Messaging Sandbox
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+  - name: Managed Identity
+    items:
+    - name: Enable Managed Identity on ACS resources
+      href: how-tos/managed-identity.md
 - name: Tutorials
   items:
   - name: SMS
