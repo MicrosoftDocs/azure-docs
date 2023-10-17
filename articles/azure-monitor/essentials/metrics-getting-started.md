@@ -121,7 +121,7 @@ Chart lines are automatically assigned a color from a default palette. To change
 
 Customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
-## Configure time range
+## Configure the time range
 
 The **time picker** lets you configure the time range for your metric chart to view data that's relevant to your monitoring scenario. By default, the chart shows the most recent 24 hours of metrics data. 
 
@@ -148,7 +148,7 @@ You can configure the _time granularity_ of the chart data to support zoom in an
 
 :::image source="./media/metrics-getting-started/metrics-zoom-control.gif" alt-text="Animated screenshot that shows the zoom feature in metrics explorer." lightbox="./media/metrics-getting-started/metrics-zoom-control.gif":::
 
-## Configure time aggregation
+## Configure the time aggregation
 
 When you add a metric to a chart, metrics explorer applies a default aggregation. The default makes sense in basic scenarios, but you can use a different aggregation to gain more insights about the metric.
 
@@ -179,7 +179,7 @@ Metrics explorer hides the aggregations that are irrelevant and can't be used.
 
 For more information about how metric aggregation works, see [Azure Monitor metrics aggregation and display explained](metrics-aggregation-explained.md).
 
-## Implement dimension filters and splitting
+## Use dimension filters and splitting
 
 Filtering and splitting are powerful diagnostic tools for metrics that have dimensions. You can implement these options to analyze which segments of the metric contribute to the overall metric value and identify possible outliers in the metric data. These features show how various metric segments or dimensions affect the overall value of the metric.
 
@@ -268,7 +268,7 @@ If you lock the boundaries of the y-axis for a chart that tracks count, sum, min
 
 You choose a fixed time granularity because chart values change when the time granularity is automatically modified after a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the appearance of the chart, invalidating the selection of the y-axis range.
 
-## Alert rules
+## Set up alert rules
 
 You can use your visualization criteria to create a metric-based alert rule. The new alert rule includes your chart's target resource, metric, splitting, and filter dimensions. You can modify these settings by using the **Create an alert rule** pane.
 
@@ -316,7 +316,7 @@ Currently, **Drill into Logs** is available for select resource providers. Resou
 
    :::image source="./media/metrics-getting-started/ai-failure-blade.png" alt-text="Screenshot of the Application Insights failure pane." lightbox="./media/metrics-getting-started/ai-failure-blade.png":::
 
-## Share your metric chart
+## Share your charts
 
 The Azure Monitor metrics explorer **Share** menu includes several options for sharing your metric chart.
 
