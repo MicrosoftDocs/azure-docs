@@ -77,6 +77,7 @@ To create a service in Azure Spring Apps with zone-redundancy enabled using the 
 
 :::image type="content" source="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png":::
 
+---
 
 ### Enable your own resource with availability zones enabled
 
