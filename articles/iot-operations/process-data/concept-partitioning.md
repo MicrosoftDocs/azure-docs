@@ -86,5 +86,6 @@ When you're choosing a partitioning strategy for your pipeline:
 
 ## Related content
 
-- [jq expressions](concept-jq-expression.md)
-- [Configure a pipeline data source stage](howto-configure-datasource.md)
+- [Data processor messages](concept-message-structure.md)
+- [Supported formats](concept-supported-formats.md)
+- [What are configuration patterns?](concept-configuration-patterns.md)

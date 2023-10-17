@@ -155,3 +155,4 @@ Currently, you can define _batch_ based on time. To define batching, you need to
 
 - [Data processor messages](concept-message-structure.md)
 - [Supported formats](concept-supported-formats.md)
+- [What is partitioning?](concept-partitioning.md)

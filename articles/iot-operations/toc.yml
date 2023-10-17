@@ -6,7 +6,7 @@ items:
       items:
       - name: Overview
         href: get-started/overview-iot-operations.md
-      - name: Deploy IoT Operations
+      - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
     - name: Deploy
       items:
@@ -23,13 +23,19 @@ items:
         - name: OPC UA broker overview
           href: manage-devices-assets/concept-opcua-broker-overview.md
       - name: How to 
-        items: 
+        items:
+        - name: Configure an assets endpoint
+          href: manage-devices-assets/howto-configure-assets-endpoint.md
+        - name: Create assets and tags
+          href: manage-devices-assets/howto-add-assets.md
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
-        href: route-messages/overview-route-messages.md
+        href: pub-sub-mqtt/overview-iot-mq.md
+      - name: Secure communication
+        href: pub-sub-mqtt/concept-brokerlistener.md
     - name: Process messages
       items:
       - name: Overview
@@ -38,26 +44,64 @@ items:
         href: process-data/concept-message-structure.md
       - name: Supported message formats
         href: process-data/concept-supported-formats.md
-      - name: Pipeline contextualization
-        href: process-data/concept-contextualization.md
       - name: Pipeline partitioning
         href: process-data/concept-partitioning.md
-      - name: What is jq?
-        href: process-data/concept-jq.md
-      - name: jq paths
-        href: process-data/concept-jq-path.md
-      - name: jq expressions
-        href: process-data/concept-jq-expression.md
       - name: Configuration patterns
         href: process-data/concept-configuration-patterns.md
-      - name: Configure data source
+      - name: Edit and manage pipelines
+        href: process-data/howto-edit-pipelines.md
+      - name: Configure a pipeline data source stage
         href: process-data/howto-configure-datasource.md
-      - name: Configure reference data store
-        href: process-data/howto-configure-reference.md
+      - name: Aggregate data in a pipeline
+        href: process-data/howto-configure-aggregate-stage.md
+      - name: Filter data in a pipeline
+        href: process-data/howto-configure-filter-stage.md
+      - name: Call out to a gRPC endpoint from a pipeline
+        href: process-data/howto-configure-grpc-callout-stage.md
+      - name: Call out to an HTTP endpoint from a pipeline
+        href: process-data/howto-configure-http-callout-stage.md
+      - name: Use last known values in a pipeline
+        href: process-data/howto-configure-lkv-stage.md
+      - name: Transform data in a pipeline
+        href: process-data/howto-configure-transform-stage.md
+      - name: Send data to a gRPC endpoint
+        href: process-data/howto-configure-destination-grpc.md
+      - name: Publish data to an MQTT broker
+        href: process-data/howto-configure-destination-mq-broker.md
+      - name: Enrich messages
+        items:
+        - name: Pipeline contextualization
+          href: process-data/concept-contextualization.md
+        - name: Configure reference data store
+          href: process-data/howto-configure-reference.md
+        - name: Send data to the reference data store
+          href: process-data/howto-configure-destination-reference-store.md
+        - name: Configure enrich stage
+          href: process-data/howto-configure-enrich-stage.md
+      - name: jq
+        items:
+        - name: What is jq?
+          href: process-data/concept-jq.md
+        - name: jq paths
+          href: process-data/concept-jq-path.md
+        - name: jq expressions
+          href: process-data/concept-jq-expression.md
+
     - name: Connect to the cloud
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
+      - name: Configure MQTT bridge
+        href: connect-to-cloud/howto-configure-mqtt-bridge.md
+      - name: Connect to Event Grid
+        href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
+      - name: Connect to Messaging services
+        href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
+      - name: Send data to Azure Data Explorer from a pipeline
+        href: connect-to-cloud/howto-configure-destination-data-explorer.md
+      - name: Send data to Microsoft Fabric from a pipeline
+        href: connect-to-cloud/howto-configure-destination-fabric.md
+
     - name: Visualize and analyze telemetry
       items:
       - name: Overview
@@ -66,14 +110,39 @@ items:
       items:
       - name: Overview
         href: monitor/overview-monitor-health.md
+      - name: Monitor Azure MQ
+        href: monitor/howto-monitor-mq.md
     - name: Developer guide
       items:
       - name: Overview
         href: develop/overview-develop-customizations.md
+      - name: About the MQ state store
+        href: develop/concept-about-state-store.md
+      - name: About distributed apps
+        href: develop/concept-about-distributed-apps.md
+      - name: Develop Dapr apps
+        href: develop/howto-develop-dapr-apps.md
+      - name: Develop MQTTnet apps
+        href: develop/howto-develop-mqttnet-apps.md
+      - name: Develop Node-RED apps
+        href: develop/howto-develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview
         href: administer/overview-manage-solution.md
+      - name: Manage Azure MQ
+        items:
+        - name: Configure TLS
+          href: administer/howto-configure-tls.md
+        - name: Configure authentication
+          href: administer/howto-configure-authentication.md
+        - name: Configure authorization
+          href: administer/howto-configure-authorization.md
+        - name: Configure availability and scale
+          href: administer/howto-configure-availability-scale.md
+        - name: Configure disk buffer
+          href: administer/howto-configure-disk-buffer.md
+
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries

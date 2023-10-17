@@ -16,7 +16,7 @@ ms.date: 09/07/2023
 
 The Azure IoT Data Processor processes incoming messages by passing them through a series of pipeline stages. Each stage in the pipeline can transform the message before passing it to the next stage. This article describes the structure used to represent the messages as they move through the pipeline. Understanding the message structure is important when you configure pipeline stages to process your telemetry messages.
 
-The following example shows the JSON representation of a message that was read from Azure IoT Operations MQ Preview by a pipeline:
+The following example shows the JSON representation of a message that was read from Azure IoT MQ Preview by a pipeline:
 
 ```json
 {
@@ -119,5 +119,6 @@ All metadata that's not part of the primary data becomes top-level properties wi
 
 ## Related content
 
-- [Serialization and deserialization formats overview](concept-supported-formats.md)
-- [Configuration patterns](concept-configuration-patterns.md)
+- [Supported formats](concept-supported-formats.md)
+- [What is partitioning?](concept-partitioning.md)
+- [What are configuration patterns?](concept-configuration-patterns.md)

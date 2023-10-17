@@ -1,6 +1,6 @@
 ---
-title: OPC UA Broker overview
-description: Understand how OPC UA broker works and how it enables you to detect OPC UA assets. 
+title: Azure OPC UA Broker overview
+description: Understand how Azure OPC UA broker works and how it enables you to detect OPC UA assets.
 author: timlt
 ms.author: timlt
 # ms.subservice: opcua-broker
@@ -47,7 +47,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# OPC UA Broker overview
+# Azure OPC UA Broker overview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

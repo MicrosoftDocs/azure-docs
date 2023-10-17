@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure IoT Operations
-description: "Quickstart: Use the Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
+title: "Quickstart: Deploy Azure IoT Operations"
+description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
-ms.date: 09/20/2023
+ms.date: 10/10/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -34,7 +34,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
+# Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -217,21 +217,4 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 ## Next step
 
-TODO: Add your next step link(s)
-
-<!-- 
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-<!--
-- [Write concepts](article-concept.md)
-
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+[Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)

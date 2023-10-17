@@ -1,13 +1,13 @@
 ---
 title: Configure a pipeline data source stage
-description: Configure a pipeline data source stage to read messages from an Azure IoT Operations MQ for processing.
+description: Configure a pipeline data source stage to read messages from an Azure IoT MQ for processing.
 author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
 ms.date: 09/19/2023
 
-#CustomerIntent: As an operator, I want to configure an Azure IoT Data Processor pipeline data source stage so that I can read messages from Azure IoT Operations MQ for processing.
+#CustomerIntent: As an operator, I want to configure an Azure IoT Data Processor pipeline data source stage so that I can read messages from Azure IoT MQ for processing.
 ---
 
 # Configure a pipeline data source stage
@@ -19,8 +19,8 @@ The source stage is the first and required stage in a data processor pipeline. T
 ## Prerequisites
 
 - A functioning instance of Data Processor Preview is deployed.
-- An instance of the Operations MQ Preview broker is operational with all necessary raw data available.
-- Basic knowledge of Operations MQ and the corresponding MQTT topic structure.
+- An instance of the Azure IoT MQ Preview broker is operational with all necessary raw data available.
+- Basic knowledge of MQ and the corresponding MQTT topic structure.
 
 ## Configure the data source
 
@@ -46,7 +46,7 @@ The following table describes the data source configuration parameters:
 > [!NOTE]
 > For a persistent session `Clean Session` must be `FALSE`. The current release of data processor supports persistent sessions with the MQTT broker.
 
-The data processor doesn't reorder out-of-order data coming from the Operations MQ broker. If the data is received out of order from the broker, it remains so in the pipeline.
+The data processor doesn't reorder out-of-order data coming from the MQTT broker. If the data is received out of order from the broker, it remains so in the pipeline.
 
 ## Select the data format
 
@@ -95,3 +95,4 @@ To partition your data, specify a partitioning strategy and the number of partit
 ## Related content
 
 - [Serialization and deserialization formats](concept-supported-formats.md)
+- [What is partitioning?](concept-partitioning.md)

@@ -38,6 +38,7 @@ A Data Processor Preview pipeline contextualizes data by enriching the messages 
 
 ## Related content
 
-<!-- TODO: Add link to enrich stage -->
-
 - [Configure a reference dataset](howto-configure-reference.md)
+- [Send data to the reference data store](howto-configure-destination-reference-store.md)
+- [Enrich data in a pipeline](howto-configure-enrich-stage.md)
+- [Use last known values in a pipeline](howto-configure-lkv-stage.md)

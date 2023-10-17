@@ -1,6 +1,6 @@
 ---
 title: Manage assets and tags
-description: Manage the assets and tags that enable you to connect your OPC-UA servers to Operations MQ. Assets and tags let you map specific OPC-UA values to fields in the messages Operations MQ routes.
+description: Manage the assets and tags that enable you to connect your OPC-UA servers to Azure IoT MQ. Assets and tags let you map specific OPC-UA values to fields in the messages  MQ routes.
 author: dominicbetts
 ms.author: dobett
 ms.topic: conceptual #Required.
@@ -24,7 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Manage assets and tags in Azure IoT Operations
+# Manage assets and tags in Azure IoT Operations – enabled by Azure Arc Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
