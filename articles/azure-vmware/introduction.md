@@ -72,7 +72,7 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 **Azure VMware Solution stretched cluster private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched cluster private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched cluster private cloud. 
 
-## AV64 Cluster vSAN fault domain (FD) design and recommendations 
+### AV64 Cluster vSAN fault domain (FD) design and recommendations 
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan.doc/GUID-8491C4B0-6F94-4023-8C7A-FD7B40D0368D.html). 
 
@@ -105,8 +105,7 @@ The following three scenarios show examples of instances that would normally err
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
 
-**Identify the host that can be removed without causing a vSAN FD imbalance**
-A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
+**How to identify the host that can be removed without causing a vSAN FD imbalance**: A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
 
 ### AV64 supported RAID configuration 
 
