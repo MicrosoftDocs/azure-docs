@@ -23,7 +23,7 @@ This article lists the latest features, improvements, and changes in the Microso
 ## October 2023
 
 - [Quick Verified ID setup](verifiable-credentials-configure-tenant-quick.md) introduced as preview which enables an admin to onboard a Microsoft Entra tenant with just one click of a button.
-- [MyAccount available now to simplify issuance of Workplace Credentials](verifiable-credentials-configure-tenant-quick.md##myaccount-available-now-to-simplify-issuance-of-workplace-credentials)
+- [MyAccount available now to simplify issuance of Workplace Credentials](verifiable-credentials-configure-tenant-quick.md#myaccount-available-now-to-simplify-issuance-of-workplace-credentials)
 - [Manual Verified ID setup](verifiable-credentials-configure-tenant.md) still available as an option to `Quick Verified ID setup`.
 
 ## September 2023
