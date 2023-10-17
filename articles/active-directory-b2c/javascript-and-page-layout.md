@@ -31,7 +31,7 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
 	```
 
 
-2. Adding `async` attribute, it specifies that the script is downloaded in parallel to parsing the page, and executed as soon as it is available (before parsing completes).
+2. Adding `async` attribute that specifies that the script is downloaded in parallel to parsing the page, then the script is executed as soon as it is available (before parsing completes):
 
     ```javascript
 	<script src="my-script.js" async></script>
