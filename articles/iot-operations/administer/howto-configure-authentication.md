@@ -47,9 +47,9 @@ Also:
 
 The order of authentication methods in the array determines how E4K authenticates clients. E4K tries to authenticate the client's credentials using the first specified method and iterates through the array until it finds a match or reaches the end.
 
-For each method, E4K first checks if the client's credentials are *relevant* for that method. For example, [SAT authentication](/docs/mqtt-broker/authentication/sat/) requires a username starting with `sat://`, and [X.509 authentication](/docs/mqtt-broker/authentication/certificate/) requires a client certificate. If the client's credentials are relevant, E4K then verifies if they are valid.
+For each method, E4K first checks if the client's credentials are *relevant* for that method. For example, [SAT authentication](#service-account-token) requires a username starting with `sat://`, and [X.509 authentication](#certificate) requires a client certificate. If the client's credentials are relevant, E4K then verifies if they are valid.
 
-Specifically, for [custom authentication](/docs/mqtt-broker/authentication/custom-auth/), E4K treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets E4K fall back to other methods if the custom server is unreachable.
+Specifically, for [custom authentication](#custom), E4K treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets E4K fall back to other methods if the custom server is unreachable.
 
 The authentication flow ends when:
 
@@ -79,7 +79,7 @@ spec:
         # ...
 ```
 
-The example above specifies custom, SAT, and [username-password authentication](/docs/mqtt-broker/authentication/username-password/). When a client connects, E4K attempts to authenticate the client by using the specified methods in the given order **custom > SAT > username-password**.
+The example above specifies custom, SAT, and [username-password authentication](#username-and-password). When a client connects, E4K attempts to authenticate the client by using the specified methods in the given order **custom > SAT > username-password**.
 
 1. First, E4K checks if the client's credentials are valid for custom authentication. Since custom authentication relies on an external server to determine validity of credentials, the broker considers all credentials relevant to custom auth and forwards them to the custom authentication server.
 
@@ -116,7 +116,7 @@ Each client has the following required properties:
 
 - Username
 - Password ([PBKDF2 encoded](https://en.wikipedia.org/wiki/PBKDF2))
-- [Attributes for authorization](/docs/mqtt-broker/authorization/)
+- [Attributes for authorization](./howto-configure-authorization.md)
 
 For example, start with a `clients.toml` with identities and PBKDF2 encoded passwords.
 
@@ -144,7 +144,7 @@ floor = "floor2"
 site = "site1"
 ```
 
-To encode the password using PBKDF2, download and install [CLI](/docs/tools/cli/) tool to generate PBKDF2 password hashes from Windows, macOS or Linux machines.
+To encode the password using PBKDF2, download and install [CLI]() tool to generate PBKDF2 password hashes from Windows, macOS or Linux machines.
 
 ```bash
 az edge e4k get-password-hash --phrase TestPassword
@@ -186,9 +186,9 @@ It may take a few minutes for the changes to take effect.
 
 ## Prerequisites
 
-- E4K configured with [TLS enabled](/docs/mqtt-broker/listeners/).
+- E4K configured with [TLS enabled](../pub-sub-mqtt/concept-brokerlistener.md).
 - [Step-CLI](https://smallstep.com/docs/step-cli/installation/)
-- Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some. See example with [the X.509 tutorial](/docs/mqtt-broker/tutorials/tutorial-tls-and-x509/).
+- Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some.
 - Familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates.
 
 Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you are importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs.
@@ -196,7 +196,7 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 
 ## Enable X.509 client authentication
 
-To enable X.509 client authentication, [TLS must first be enabled](/docs/mqtt-broker/listeners/). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
+To enable X.509 client authentication, [TLS must first be enabled](../pub-sub-mqtt/concept-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
 
 ```yaml
 apiVersion: az-edge.com/v1alpha4 
@@ -254,7 +254,7 @@ To use authorization policies for clients using properties on the X.509 certific
 kubectl create secret generic x509-attributes --from-file=./attributes.toml 
 ```
 
-To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](/docs/mqtt-broker/authorization/#authorize-clients-that-use-x509-authentication).
+To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md).
 
 ## Connect mosquitto client to E4K with X.509 client certificate
 
@@ -276,7 +276,7 @@ Here:
   - When mosquitto client connects to E4K over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
   - When the E4K requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. E4K can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the database file needs to contain both the intermediate and root certificates.
 
-To learn more with an full example, see [Tutorial: setup TLS, X.509 client authentication, and authorization with E4K](/docs/mqtt-broker/tutorials/tutorial-tls-and-x509/).
+To learn more with an full example, see [Setup TLS, X.509 client authentication, and authorization with E4K]().
 
 ## Understand E4K X.509 client authentication flow
 
@@ -312,7 +312,7 @@ sequenceDiagram
 1. The CONNECT packet is routed to a frontend again.
 1. The frontend collects all credentials the client presented so far, like username/password fields, authentication data from the CONNECT packet, and the client certificate chain presented during the TLS handshake.
 1. The frontend sends these credentials to the authentication service. The authentication service checks the certificate chain once again and collects the subject names of all the certificates in the chain.
-1. The authentication service uses its [configured authorization rules](/docs/mqtt-broker/authorization/#authorize-clients-that-use-x509-authentication) to determine what attributes the connecting clients has. These attributes determine what operations the client can execute, including the CONNECT packet itself.
+1. The authentication service uses its [configured authorization rules](./howto-configure-authorization.md) to determine what attributes the connecting clients has. These attributes determine what operations the client can execute, including the CONNECT packet itself.
 1. Authentication service returns decision to frontend broker.
 1. Now, the frontend broker knows the client attributes and if it is allowed to connect. If it is, then the MQTT connection is completed and the client can continue to send and receive MQTT packets determined by its authorization rules.
 
@@ -362,7 +362,7 @@ kubectl create serviceaccount mqtt-client
 
 ## Add attributes for authorization
 
-Clients authentication via SAT must have their SATs annotated with attributes in order to be used with custom authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](/docs/mqtt-broker/authorization/#authorize-clients-that-use-kubernetes-service-account-tokens).
+Clients authentication via SAT must have their SATs annotated with attributes in order to be used with custom authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authentication.md).
 
 ## Test SAT authentication
 
@@ -418,7 +418,7 @@ The MQTT username must be set to `$sat`. The MQTT password should be set to the 
 
 Extend client authentication beyond the provided authentication methods with custom authentication. It's "pluggable" since the service can be anything as long as it adheres to the API.
 
-When a client connects to E4K and custom authentication is enabled, E4K delegates the verification of client credentials to a custom authentication server with an HTTP request along with all credentials the client presents. The custom authentication server responds with approval or denial for the client with the client's [attributes for authorization](/docs/mqtt-broker/authorization/).
+When a client connects to E4K and custom authentication is enabled, E4K delegates the verification of client credentials to a custom authentication server with an HTTP request along with all credentials the client presents. The custom authentication server responds with approval or denial for the client with the client's [attributes for authorization](./howto-configure-authorization.md).
 
 | Feature | Supported |
 |---|:---:|
@@ -438,7 +438,7 @@ A sample custom authentication server and instructions are available. Use this s
 
 ### API
 
-The API between E4K and the custom authentication server follow the [API specification for custom authentication](/docs/reference/custom-auth/).
+The API between E4K and the custom authentication server follow the [API specification for custom authentication]().
 
 ### HTTPS with TLS encryption is required
 
