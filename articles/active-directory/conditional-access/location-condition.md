@@ -164,7 +164,7 @@ If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in
 
 ### All Network Access locations of my tenant
 
-Organizations with access to Global Secure Access preview features have another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
+Organizations with access to Global Secure Access preview features have another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](/entra/global-secure-access/how-to-compliant-network#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 
@@ -195,7 +195,7 @@ When you use a cloud hosted proxy or VPN solution, the IP address Microsoft Entr
 
 When a cloud proxy is in place, a policy that requires a [Microsoft Entra hybrid joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
 
-We recommend organizations utilize Global Secure Access to enable [source IP restoration](../../global-secure-access/how-to-source-ip-restoration.md) to avoid this change in address and simplify management.
+We recommend organizations utilize Global Secure Access to enable [source IP restoration](/entra/global-secure-access/how-to-source-ip-restoration) to avoid this change in address and simplify management.
 
 ### When is a location evaluated?
 

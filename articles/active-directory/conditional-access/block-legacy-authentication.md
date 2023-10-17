@@ -63,7 +63,7 @@ The following messaging protocols support legacy authentication:
 - Authenticated SMTP - Used to send authenticated email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 - Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
-- Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multifactor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multifactor authentication](/powershell/exchange/connect-to-exchange-online-powershell).
 - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
 - IMAP4 - Used by IMAP email clients.
 - MAPI over HTTP (MAPI/HTTP) - Primary mailbox access protocol used by Outlook 2010 SP2 and later.
@@ -86,13 +86,13 @@ Before you can block legacy authentication in your directory, you need to first 
 1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 1. Add the **Client App** column if it isn't shown by clicking on **Columns** > **Client App**.
 1. Select **Add filters** > **Client App** > choose all of the legacy authentication protocols and select **Apply**.
-1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
+1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
 Filtering shows you sign-in attempts made by legacy authentication protocols. Clicking on each individual sign-in attempt shows you more details. The **Client App** field under the **Basic Info** tab indicates which legacy authentication protocol was used.
 
 These logs indicate where users are using clients that are still depending on legacy authentication. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
-Additionally, to help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
+Additionally, to help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../develop/configure-app-multi-instancing.md).
 
 #### Indicators from client
 
@@ -145,9 +145,9 @@ You can select all available grant controls for the **Other clients** condition;
 
 - [Determine effect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 - If you aren't familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Microsoft Entra Conditional Access](../authentication/tutorial-enable-azure-mfa.md) for an example.
-- For more information about modern authentication support, see [How modern authentication works for Office client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- For more information about modern authentication support, see [How modern authentication works for Office client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016)
 - [How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 - [Enable modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
-- [Enable Modern Authentication for Office 2013 on Windows devices](/office365/admin/security-and-compliance/enable-modern-authentication)
-- [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [How to use Modern Authentication with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
+- [Enable Modern Authentication for Office 2013 on Windows devices](/microsoft-365/admin/)
+- [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [How to use Modern Authentication with Skype for Business](/microsoft-365/enterprise/hybrid-modern-auth-overview)
