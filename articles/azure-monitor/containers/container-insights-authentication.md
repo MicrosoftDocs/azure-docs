@@ -6,7 +6,7 @@ ms.date: 07/31/2023
 ms.reviewer: aul
 ---
 
-# Authentication for Container Insights 
+# Legacy authentication for Container Insights 
 
 Container Insights defaults to managed identity authentication. This authentication model has a monitoring agent that uses the [cluster's managed identity](../../aks/use-managed-identity.md) to send data to Azure Monitor. It replaced the legacy certificate-based local authentication and removed the requirement of adding a Monitoring Metrics Publisher role to the cluster.
 
@@ -335,6 +335,34 @@ AKS clusters with system-assigned identity must first disable monitoring and the
       ```cli
       az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
       ```
+
+
+### Private link Without managed identity authentication
+Use the following procedure if you're not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+
+1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+
+2. Disable public Ingestion on your Log Analytics workspace. 
+
+    Use the following command to disable public ingestion on an existing workspace.
+
+    ```cli
+    az monitor log-analytics workspace update --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+    Use the following command to create a new workspace with public ingestion disabled.
+
+    ```cli
+    az monitor log-analytics workspace create --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
+
+4. Enable monitoring for the AKS cluster.
+
+    ```cli
+    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
+    ```
 
 
 ## Limitations 

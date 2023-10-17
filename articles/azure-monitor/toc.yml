@@ -579,7 +579,7 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
-        - name: Authentication
+        - name: Legacy authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md

@@ -16,7 +16,7 @@ The following cluster configurations are supported for this customization:
 
 - [AKS](../../aks/intro-kubernetes.md)
 - [Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md)
-- [AKS hybrid](../../aks/hybrid/aks-hybrid-options-overview.md)
+- [AKS hybrid](/aks/hybrid/aks-hybrid-options-overview)
 
 ## Prerequisites
 
