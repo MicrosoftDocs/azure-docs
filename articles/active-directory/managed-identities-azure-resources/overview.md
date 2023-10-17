@@ -48,7 +48,7 @@ There are two types of managed identities:
     - You authorize the managed identity to have access to one or more services.
     - The name of the system-assigned service principal is always the same as the name of the Azure resource it is created for. For a deployment slot, the name of its system-assigned identity is ```<app-name>/slots/<slot-name>```.
 
-- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
+- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](./how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:
     - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is managed separately from the resources that use it. 
     - User-assigned identities can be used by multiple resources.
     - You authorize the managed identity to have access to one or more services.
@@ -88,7 +88,7 @@ Resources that support system assigned managed identities allow you to:
 
 If you choose a user assigned managed identity instead:
 
-- You can [create, read, update, and delete](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) the identities.
+- You can [create, read, update, and delete](./how-to-manage-ua-identity-portal.md) the identities.
 - You can use RBAC role assignments to [grant permissions](howto-assign-access-portal.md).
 - User assigned managed identities can be used on more than one resource.
 - CRUD operations are available for review in [Azure Activity logs](/azure/azure-monitor/essentials/activity-log).

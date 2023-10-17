@@ -255,9 +255,8 @@ In this article, you create a user-assigned managed identity by using Azure Reso
 
 You can't list and delete a user-assigned managed identity by using a Resource Manager template. See the following articles to create and list a user-assigned managed identity:
 
-- [List user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#list-user-assigned-managed-identities)
-- [Delete user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#delete-a-user-assigned-managed-identity)
-
+- [List user-assigned managed identity](./how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
+- [Delete user-assigned managed identity](./how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
 ## Template creation and editing
 
 Resource Manager templates help you deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based. You can:

@@ -116,7 +116,7 @@ The following example shows you how to remove a system-assigned managed identity
 In this section, you assign a user-assigned managed identity to an Azure VM using Azure Resource Manager template.
 
 > [!NOTE]
-> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity).
+> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
 ### Assign a user-assigned managed identity to an Azure VM
 
