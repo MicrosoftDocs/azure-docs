@@ -364,7 +364,7 @@ Having access to sign-in activity, audits and risk events for Microsoft Entra ID
 
 #### Logs recommended reading
 
-- [Microsoft Entra ID audit API reference](/graph/api/resources/directoryaudit)
+- [Microsoft Entra audit API reference](/graph/api/resources/directoryaudit)
 - [Microsoft Entra sign-in activity report API reference](/graph/api/resources/signin)
 - [Get data using the Microsoft Entra reporting API with certificates](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - [Microsoft Graph for Microsoft Entra ID Protection](../identity-protection/howto-identity-protection-graph-api.md)

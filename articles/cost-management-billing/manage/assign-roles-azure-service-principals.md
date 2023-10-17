@@ -27,7 +27,7 @@ Before you begin, ensure that you're familiar with the following articles:
 
 ## Create and authenticate your service principal
 
-To automate EA actions by using an SPN, you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner.
+To automate EA actions by using an SPN, you need to create a Microsoft Entra application. It can authenticate in an automated manner.
 
 Follow the steps in these articles to create and authenticate your service principal.
 
@@ -40,13 +40,13 @@ Here's an example of the application registration page.
 
 ### Find your SPN and tenant ID
 
-You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications are registered in Azure AD in the tenant. Two types of objects get created when the app registration is completed:
+You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications are registered in Microsoft Entra ID in the tenant. Two types of objects get created when the app registration is completed:
 
-- Application object - The application object ID is what you see under App Registrations in Azure AD. The object ID should *not* be used to grant any EA roles.
+- Application object - The application object ID is what you see under App Registrations in Microsoft Entra ID. The object ID should *not* be used to grant any EA roles.
 
-- Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Azure AD. The object ID is used to grant EA roles to the SPN.
+- Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Microsoft Entra ID. The object ID is used to grant EA roles to the SPN.
 
-1. Open Azure Active Directory, and then select **Enterprise applications**.
+1. Open Microsoft Entra ID, and then select **Enterprise applications**.
 1. Find your app in the list.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enterprise-application.png" alt-text="Screenshot showing an example enterprise application." lightbox="./media/assign-roles-azure-service-principals/enterprise-application.png" :::
@@ -55,16 +55,16 @@ You also need the object ID of the SPN and the tenant ID of the app. You need th
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/application-id-object-id.png" alt-text="Screenshot showing an application ID and object ID for an enterprise application." lightbox="./media/assign-roles-azure-service-principals/application-id-object-id.png" :::
 
-1. Go to the Microsoft Azure AD **Overview** page to find the tenant ID.
+1. Go to the Microsoft Entra ID **Overview** page to find the tenant ID.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing the tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
 >[!NOTE]
->Your tenant ID might be called a principal ID, SPN, or object ID in other locations. The value of your Azure AD tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
+>Your tenant ID might be called a principal ID, SPN, or object ID in other locations. The value of your Microsoft Entra tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
 
 ## Permissions that can be assigned to the SPN
 
-Later in this article, you'll give permission to the Azure AD app to act by using an EA role. You can assign only the following roles to the SPN, and you need the role definition ID, exactly as shown.
+Later in this article, you'll give permission to the Microsoft Entra app to act by using an EA role. You can assign only the following roles to the SPN, and you need the role definition ID, exactly as shown.
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |

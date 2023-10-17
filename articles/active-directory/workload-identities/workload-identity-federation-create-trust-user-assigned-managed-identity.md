@@ -1,6 +1,6 @@
 ---
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
-description: Set up a trust relationship between a user-assigned managed identity in Microsoft Entra ID and an external identity provider.  This allows a software workload outside of Azure to access Microsoft Entra ID protected resources without using secrets or certificates.
+description: Set up a trust relationship between a user-assigned managed identity in Microsoft Entra ID and an external identity provider.  This allows a software workload outside of Azure to access Microsoft Entra protected resources without using secrets or certificates.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
-#Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Microsoft Entra ID protected resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Microsoft Entra protected resources without managing secrets.
 ---
 
 # Configure a user-assigned managed identity to trust an external identity provider
 
 This article describes how to manage a federated identity credential on a user-assigned managed identity in Microsoft Entra ID.  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity isn't supported.
 
-After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Microsoft Entra ID protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
+After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Microsoft Entra protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 

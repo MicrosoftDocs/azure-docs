@@ -182,7 +182,7 @@ To learn more, go read [Monitor AD FS using Microsoft Entra Connect Health](./ho
 
 ### Use Azure Monitor to collect data logs for analytics
 
-[Azure Monitor](../../../azure-monitor/overview.md) is a unified monitoring portal for all Microsoft Entra ID logs, which provides deep insights, advanced analytics, and smart machine learning. With Azure Monitor, you can consume metrics and logs within the portal and via APIs to gain more visibility into the state and performance of your resources. It enables a single pane of glass experience within the portal while enabling a wide range of product integrations via APIs and data export options that support traditional third-party SIEM systems. Azure Monitor also gives you the ability to configure alert rules to get notified or to take automated actions on issues impacting your resources.
+[Azure Monitor](../../../azure-monitor/overview.md) is a unified monitoring portal for all Microsoft Entra logs, which provides deep insights, advanced analytics, and smart machine learning. With Azure Monitor, you can consume metrics and logs within the portal and via APIs to gain more visibility into the state and performance of your resources. It enables a single pane of glass experience within the portal while enabling a wide range of product integrations via APIs and data export options that support traditional third-party SIEM systems. Azure Monitor also gives you the ability to configure alert rules to get notified or to take automated actions on issues impacting your resources.
 
 ![Azure Monitor](./media/four-steps/image1.png)
 

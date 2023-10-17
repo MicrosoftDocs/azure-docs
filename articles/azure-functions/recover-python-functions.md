@@ -161,6 +161,10 @@ Sometimes, the package might have been integrated into [Python Standard Library]
 
 However, if you're finding that the issue hasn't been fixed, and you're on a deadline, we encourage you to do some research to find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
+#### Disable dependency isolation flag
+
+Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies) to a value of `0`.
+
 ---
 
 ## Troubleshoot cannot import 'cygrpc'

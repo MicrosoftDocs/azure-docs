@@ -419,7 +419,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 > [!NOTE]
 >  The output is available from the Windows 10 May 2021 update (version 21H1).
 
-The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the Microsoft Entra analytics and operational logs.
+The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the [Microsoft Entra analytics and operational logs](/troubleshoot/windows-server/networking/diagnostic-logging-troubleshoot-workplace-join-issues#enable-workplace-join-debug-logging-by-using-event-viewer).
 
 ```
 +----------------------------------------------------------------------+

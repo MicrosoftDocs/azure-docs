@@ -3,17 +3,16 @@
 title: Plan reports & monitoring deployment
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
-author: gargi-sinha
-manager: martinco
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/20/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: plenzke 
 # Customer intent: For a Microsoft Entra administrator to monitor logs and report on access 
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra monitoring and health deployment dependencies
@@ -106,7 +105,7 @@ To better prioritize the use cases and solutions, organize the options by "requi
 
 With Microsoft Entra monitoring, you can route Microsoft Entra activity logs and retain them for long-term reporting and analysis to gain environment insights, and integrate it with SIEM tools. Use the following decision flow chart to help select an architecture.
 
-   ![Decision matrix for business-need architecture.](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+   ![Decision matrix for business-need architecture.](media/plan-monitoring-and-reporting/deploy-reporting-flow-diagram.png)
 
 #### Archive logs in a storage account
 

@@ -1,6 +1,6 @@
 ---
-title: 'Configure Azure VPN Client - Azure AD authentication - macOS'
-description: 'Learn how to configure a macOS VPN client to connect to a virtual network using VPN Gateway Point-to-Site and Azure Active Directory authentication.'
+title: 'Configure Azure VPN Client - Microsoft Entra authentication - macOS'
+description: 'Learn how to configure a macOS VPN client to connect to a virtual network using VPN Gateway Point-to-Site and Microsoft Entra authentication.'
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,12 +9,12 @@ ms.date: 04/07/2023
 ms.author: cherylmc
 
 ---
-# Configure the Azure VPN Client - Azure AD authentication - macOS
+# Configure the Azure VPN Client - Microsoft Entra authentication - macOS
 
-This article helps you configure a VPN client for a computer running macOS 10.15 and later to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site connections, see [About Point-to-Site connections](point-to-site-about.md).
+This article helps you configure a VPN client for a computer running macOS 10.15 and later to connect to a virtual network using Point-to-Site VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
 > [!NOTE]
-> * Azure AD authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN Client.
+> * Microsoft Entra authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN Client.
 > * The Azure VPN client for macOS is currently not available in France and China due to local regulations and requirements.
 >
 
@@ -27,7 +27,7 @@ If you want to configure multiple computers, you can create a client profile on 
 
 ## Prerequisites
 
-Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
 
 ## Download the Azure VPN Client
 
@@ -75,7 +75,7 @@ Before you can connect and authenticate using Azure AD, you must first configure
      * **Certificate Information:** The certificate CA.
      * **Server Secret:** The server secret.
    * **Client Authentication**
-     * **Authentication Type:** Azure Active Directory
+     * **Authentication Type:** Microsoft Entra ID
      * **Tenant:** Name of the tenant.
      * **Issuer:** Name of the issuer.
 1. After filling in the fields, click **Save**.
@@ -106,4 +106,4 @@ You can configure the Azure VPN Client with optional configuration settings such
 
 ## Next steps
 
-For more information, see [Create an Azure AD tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).

@@ -92,10 +92,10 @@ For more information, see [Regions that require endpoint modification](./create-
 
 #### Is the connection string a secret?
 
-The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Azure Active Directory (Azure AD).
+The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Microsoft Entra ID.
 
 > [!NOTE]
-> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Azure AD-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
+> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Microsoft Entra ID-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
 
 ## Connection string examples
 

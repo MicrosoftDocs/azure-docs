@@ -30,7 +30,7 @@ For storage and data lake snapshot-based sharing, you also need permission to cr
 |Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor
 |
 
-For SQL snapshot-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Azure Active Directory admin permission is required to create this user. Below is a summary of the permission required by the SQL user.
+For SQL snapshot-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Microsoft Entra admin permission is required to create this user. Below is a summary of the permission required by the SQL user.
 
 |**SQL Database Type**|**Data Provider SQL User Permission**|**Data Consumer SQL User Permission**|
 |---|---|---|
@@ -66,7 +66,7 @@ To create a role assignment for the data share resource's managed identity manua
 
 To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you're sharing data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
-For SQL snapshot-based sharing, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
+For SQL snapshot-based sharing, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Microsoft Entra authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 
 ### Data consumer
 
@@ -94,7 +94,7 @@ Alternatively, user can have owner of the storage account add the data share res
 
 To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you're receiving data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
-For SQL-based target, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
+For SQL-based target, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Microsoft Entra authentication. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 
 ## Resource provider registration 
 
