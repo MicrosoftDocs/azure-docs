@@ -17,7 +17,7 @@
     href: roles-interfaces.md
   - name: Helm Package Requirements
     href: helm-requirements.md
-  - name: Publisher Resource Preview Management
+  - name: Publisher Tenants, subscriptions, regions and preview management
     href: publisher-resource-preview-management.md
 - name: Quickstarts
   expanded: false
