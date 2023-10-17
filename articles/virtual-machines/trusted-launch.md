@@ -6,7 +6,7 @@ ms.author: howieasmerom
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 10/17/2023
 ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
