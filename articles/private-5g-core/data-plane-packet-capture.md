@@ -2,8 +2,8 @@
 title: Perform packet capture on a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to perform packet capture on the control plane or data plane on a packet core instance. 
-author: James-Green-Microsoft
-ms.author: jamesgreen
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 10/26/2023
@@ -21,10 +21,16 @@ Packet capture works by mirroring packets to a Linux kernel interface, which can
 
 ## Prerequisites
 
+You must have an AP5GC site deployed to perform packet capture.
+
+To perform packet capture using the command line, you must:
+
 - Identify the **Kubernetes - Azure Arc** resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
 - Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
-## Performing packet capture
+## Performing packet capture using the Azure portal
+
+## Performing packet capture using the command line
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
 
