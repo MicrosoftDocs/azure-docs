@@ -90,10 +90,8 @@ az connectedk8s connect --name ${clusterName} -g ${resourceGroup} --location $lo
 Create an extension:
 
 ```azurecli
-az k8s-extension create -g ${resourceGroup} --cluster-name ${clusterName} --cluster-type connectedClusters --name networkfunction-operator --extension-type microsoft.azure.hybridnetwork --release-train preview --scope cluster
-export ConnectedClusterResourceId=`az connectedk8s show -g ${resourceGroup} -n ${clusterName} --query id -o tsv`
-export ClusterExtensionResourceId=`az k8s-extension show -g ${resourceGroup} -c ${clusterName} --cluster-type connectedClusters --name ${extensionId} --query id -o tsv`
-``````
+az k8s-extension create -g ${resourceGroup} --cluster-name ${clusterName} --cluster-type connectedClusters --name ${extensionId} --extension-type microsoft.azure.hybridnetwork --release-train preview --scope cluster
+```
 
 ### Create custom location
 

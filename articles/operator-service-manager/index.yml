@@ -30,7 +30,7 @@ landingContent:
             url: helm-requirements.md
           - text: Roles and interfaces
             url: roles-interfaces.md
-          - text: Publisher resource preview management
+          - text: Publisher Tenants, subscriptions, regions and preview management
             url: publisher-resource-preview-management.md
 
   # Card

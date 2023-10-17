@@ -91,7 +91,7 @@ These files are created:
 |---------|---------|
 |**configMappings** |Maps the deployment parameters for the Network Function Definition Version (NFDV) to the parameters required for the Virtual Machine (VM) ARM template.
 |**schemas** | Defines the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV).
-|**vnfartifactmanifests.bicep** |Bicep template for creating the publisher and artifact stores.
+|**vnfartifactmanifests.bicep** |Bicep template for creating the artifact manifests.
 |**Vnfdefinition.bicep** |Bicep template for creating the Network Function Definition Version (NFDV) itself.
 
 > [!NOTE]

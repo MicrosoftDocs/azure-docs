@@ -30,9 +30,9 @@ Do my publisher and Site Network Service (SNS) resources need to be in the same 
   - Active = Site Network Service (**SNS**) is deployable in any *subscription*.
 - Publisher resources can be in different Azure Core or Nexus Regions to Site Network Service (**SNS**) resources. 
 
-## Network Function and Network Service Design definition version states
+## Network Function Definition and Network Service Design version states
 
-The following table provides Network Function (NF) and Network Service Design (NSD) definition version state information.
+The following table provides Network Function Definition (NFD) and Network Service Design (NSD) version state information.
 
 |State  |Description  |Users  |Is Immutable  |
 |---------|---------|---------|---------|
@@ -40,36 +40,14 @@ The following table provides Network Function (NF) and Network Service Design (N
 |**Active**    |   Signifies readiness for customer usage.      |    Access based on RBS, any subscription in same tenant.     |      Yes   |
 |**Deprecated**     |  Implies regression found; prevents new deployments from this version.       |    Can't be deployed.     |     Yes    |
 
-## Network Function and Network Service Design definition state machine
+## Network Function Definition and Network Service Design state machine
 
 - Preview is the default state.
 - Deprecated state is a terminal state but can be reversed.
 
-## NFDVersion state machine
-
-1. Preview (Default)
-1. Active
-1. Deprecated (Terminal)
-
-
-### Property explanation
-
-The following table contains property information.
-
-
-|Property  |Description |
-|---------|---------|
-|type    |      Enumeration of subscription or tenant.   |
-|name     |    Name of the defined type, which can be a subscription ID or tenant ID.     |
-|scope    |     Enumeration of the options shown here:
-| | **All:** Allows private access to all specified publisher resources.
-| |**NetworkFunctionDefinitionVersion:** Enables deployment of preview Network Function Definition Versions.
-| |**NetworkServiceDesignVersion:** Enables deployment of preview Network Service Design Versions.
-| | **Artifact:** Permits artifact download via the proxy API. An example use case is operator image scanning.
-
 ## Update Network Function definition version state
 
-Use the following API to update the state of a Network Function (NF) and Network Service Design (NSD) definition version.
+Use the following API to update the state of a Network Function Definition Version (NFDV).
 
 ### HTTP Method: POST
 
@@ -102,9 +80,9 @@ The following table describes the parameters used with the preceding URL.
 }
 ``````
 
-## Update Network Service Design Version (NSDV) definition version state
+## Update Network Service Design Version (NSDV) version state
 
-Use the following API to update the state of a Network Service Design Version (NSDV) definition version.
+Use the following API to update the state of a Network Service Design Version (NSDV).
 
 ### HTTP Method: POST
 
@@ -124,8 +102,8 @@ The following table describes the parameters used with the preceding URL.
 |subscriptionId     |  The subscription ID.
 |resourceGroupName    |       The name of the resource group.  |
 |publisherName    |      The name of the publisher.   |
-|networkfunctiondefinitiongroups | The name of the network function definition groups.
-|networkfunctiondefinitionversions | The network function definition version. |
+|nsdName | The name of the network service design.
+|nsdVersion | The network service design version. |
 |api-version | The API version to use for this operation. |
 
 
