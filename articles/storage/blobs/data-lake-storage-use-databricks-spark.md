@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 10/10/2023
+ms.date: 10/17/2023
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: py-fresh-zinc
@@ -246,31 +246,40 @@ Enter this script to run some basic analysis queries against the data.
 
 ```python
 # Run each of these queries, preferably in a separate cmd cell for separate analysis
-# Create a temporary sql view for querying flight information
+# create a temporary sql view for querying flight information
 flight_data = spark.read.parquet('/mnt/flightdata/parquet/flights')
 flight_data.createOrReplaceTempView('FlightTable')
 
-# Using spark sql, query the parquet file to return total flights in January and February 2016
-jan2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2016")
-num_jan2016_flights = jan2016_flights.count()
-feb2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
-num_feb2016_flights = feb2016_flights.count()
-print("Jan 2016 flights: ", num_jan2016_flights, " Feb 2016 flights: ", num_feb2016_flights)
-total = num_jan2016_flights+num_feb2016_flights
-print("Total flights combined: ", total)
-print() 
+# Print the total number of flights in Jan 2016 (the number of rows in the flight data).
+print("Number of flights in Jan 2016: ", flight_data.count())
+
+# Using spark sql, query the parquet file to return the total flights of each airline
+num_flights_by_airline=spark.sql("SELECT Reporting_Airline, count(*) AS NumFlights FROM FlightTable GROUP BY Reporting_Airline ORDER BY NumFlights DESC")
+num_flights_by_airline.show()
 
 # List out all the airports in Texas
 airports_in_texas = spark.sql(
-    "SELECT distinct(OriginCityName) FROM FlightTable WHERE OriginStateName = 'Texas'")
+    "SELECT DISTINCT(OriginCityName) FROM FlightTable WHERE OriginStateName = 'Texas'")
 print('Airports in Texas: ', airports_in_texas.count())
 airports_in_texas.show(100, False)
 
 # Find all airlines that fly from Texas
 airlines_flying_from_texas = spark.sql(
-    "SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
+    "SELECT DISTINCT(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', airlines_flying_from_texas.count())
-airlines_flying_from_texas.show(100)
+airlines_flying_from_texas.show(100, False)
+
+# List airlines by average arrival delay (negative values indicate early flights)
+avg_arrival_delay=spark.sql("SELECT Reporting_Airline, count(*) AS NumFlights, avg(DepDelay) AS AverageDepDelay, avg(ArrDelay) AS AverageArrDelay FROM FlightTable GROUP BY Reporting_Airline ORDER BY AverageArrDelay DESC")
+avg_arrival_delay.show()
+
+# List airlines by the highest percentage of delayed flights. A delayed flight is one with a  departure or arrival delay that is greater than 15 minutes
+spark.sql("DROP VIEW IF EXISTS totalFlights")
+spark.sql("DROP VIEW IF EXISTS delayedFlights")
+spark.sql("CREATE TEMPORARY VIEW totalFlights AS SELECT Reporting_Airline, count(*) AS NumFlights FROM FlightTable GROUP BY Reporting_Airline")
+spark.sql("CREATE TEMPORARY VIEW delayedFlights AS SELECT Reporting_Airline, count(*) AS NumDelayedFlights FROM FlightTable WHERE DepDelay>15 or ArrDelay>15 GROUP BY Reporting_Airline")
+percent_delayed_flights=spark.sql("SELECT totalFlights.Reporting_Airline, totalFlights.NumFlights, delayedFlights.NumDelayedFlights, delayedFlights.NumDelayedFlights/totalFlights.NumFlights*100 AS PercentFlightsDelayed FROM totalFlights INNER JOIN delayedFlights ON totalFlights.Reporting_Airline = delayedFlights.Reporting_Airline ORDER BY PercentFlightsDelayed DESC")
+percent_delayed_flights.show()
 ```
 
 ## Summary
@@ -289,7 +298,7 @@ In this tutorial, you:
 
 - Used DataFrames to explore the flight data and perform a simple query.
 
-- Used Apache Spark SQL to query the flight data for the number of total flights in month, the airports in Texas, and the airlines that fly from Texas.
+- Used Apache Spark SQL to query the flight data for the total number of flights for each airline in January 2016, the airports in Texas, the airlines that fly from Texas, the average arrival delay in minutes for each airline nationally, and the percentage of each airline's flights that have delayed departures or arrivals.
 
 ## Clean up resources
 
