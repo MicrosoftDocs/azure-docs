@@ -180,7 +180,7 @@ Create an environment definition:
 
 __sklearn-regression-env.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yaml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml" :::
 
 Then create it using:
 
@@ -266,7 +266,7 @@ To create a model package, create a package specification as follows:
 
 __package-moe.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yaml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yml" :::
 
 # [Python](#tab/sdk)
 
@@ -468,7 +468,7 @@ ws_connection = WorkspaceConnection(
 ml_client.connections.create_or_update(ws_connection)
 ```
 
-Once the connection is created, build the model package as described in the section for [Package a custom model](#package-a-custom-model). In the following example, the **base environment** of the package uses a private feed for the Python dependency `bar`, as specified in the following conda file:
+Once the connection is created, build the model package as described in the section for [Package a model](#package-a-model). In the following example, the **base environment** of the package uses a private feed for the Python dependency `bar`, as specified in the following conda file:
 
 __conda.yml__
 
@@ -527,7 +527,7 @@ The following code creates a package of the `t5-base` model from a registry:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="get_model" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/registry-model/deploy.sh" ID="get_model" :::
 
     # [Python](#tab/sdk)
     

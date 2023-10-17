@@ -239,7 +239,7 @@ Each workflow has different capabilities, particularly around which type of comp
 | Deploy to web services (ACI/AKS - with a scoring script) | Not supported<sup>3</sup> | Legacy support<sup>2</sup> | Legacy support<sup>2</sup> |
 
 > [!NOTE]
-> - <sup>1</sup> Deployment to online endpoints that are in workspaces with private link enabled requires you to [package models before deployment (preview)](how-to-package-models.md#package-a-custom-model).
+> - <sup>1</sup> Deployment to online endpoints that are in workspaces with private link enabled requires you to [package models before deployment (preview)](how-to-package-models.md).
 > - <sup>2</sup> We recommend switching to [managed online endpoints](concept-endpoints.md) instead.
 > - <sup>3</sup> MLflow (OSS) doesn't have the concept of a scoring script and doesn't support batch execution currently.
 
