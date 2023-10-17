@@ -196,7 +196,7 @@ Implement accurate logging and monitoring to detect, and respond to, security in
 
 Learn more: 
 
-* [What are Microsoft Entra reports?](../reports-monitoring/overview-reports.md)
+* [What are Microsoft Entra reports?](../reports-monitoring/overview-monitoring-health.md)
 * [Microsoft Entra built-in roles](../roles/permissions-reference.md)
 
 ### Multi-application environments: host outside the CDE
