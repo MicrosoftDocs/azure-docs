@@ -90,7 +90,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     }
     ```
 
-    Usually, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
+    This code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
 
     The extra inputs `storageAccountName` and `blobName` have also been added to the arguments. We call this new **LoadModel** method from another method similar to the first **LoadTestModel** method we created in the first tutorial.
 
@@ -156,7 +156,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
 1. For the time being, remove or disable the GameObject **TestModel**, to make room for your custom model to load.
 1. Play the scene and connect to a remote session.
-1. Right select on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.
+1. Open the context menu on **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.
     ![Load linked model](./media/load-linked-model.png)
 
 These steps have increased the security of the application by removing the SAS token from the local application.

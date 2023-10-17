@@ -83,7 +83,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     > In the scope of this tutorial, we stick with the Unity built-in render pipeline. If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
 
 1. Select **XR Plugin Management** from the left list menu
-    1. Select the **Install XR Plugin Management** button.
+    1. Click the **Install XR Plugin Management** button.
     1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
     1. Select the **Open XR** checkbox under **Plug-In Providers**
     1. If a dialog opens that asks you to enable the native platform backends for the new input system select **No**.
