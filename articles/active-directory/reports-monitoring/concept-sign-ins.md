@@ -16,7 +16,7 @@ ms.reviewer: egreenberg14
 
 Microsoft Entra logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
-Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Microsoft Entra ID are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
+Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Microsoft Entra ID are a powerful type of [activity log](./overview-monitoring-health.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
 
 The preview view of the sign-in logs includes interactive and non-interactive user sign-ins as well as service principal and managed identity sign-ins. You can still view the classic sign-in logs, which only include interactive sign-ins. 
 
@@ -208,7 +208,7 @@ You can access the Microsoft 365 activity logs programmatically by using the [Of
 
 ## Next steps
 
-- [Basic info in the Microsoft Entra sign-in logs](reference-basic-info-sign-in-logs.md)
+- [Basic info in the Microsoft Entra sign-in logs](./concept-sign-in-log-activity-details.md)
 
 - [How to download logs in Microsoft Entra ID](howto-download-logs.md)
 

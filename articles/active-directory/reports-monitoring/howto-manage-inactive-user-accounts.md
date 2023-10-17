@@ -63,7 +63,7 @@ The following details relate to the `lastSignInDateTime` property.
 
 - Each interactive sign-in attempt results in an update of the underlying data store. Typically, sign-ins show up in the related sign-in report within 6 hours. 
  
-- To generate a `lastSignInDateTime` timestamp, you must attempt a sign-in. Either a failed or successful sign-in attempt, as long as it's recorded in the [Microsoft Entra sign-in logs](concept-all-sign-ins.md), generates a `lastSignInDateTime` timestamp. The value of the `lastSignInDateTime` property may be blank if:
+- To generate a `lastSignInDateTime` timestamp, you must attempt a sign-in. Either a failed or successful sign-in attempt, as long as it's recorded in the [Microsoft Entra sign-in logs](./concept-sign-ins.md), generates a `lastSignInDateTime` timestamp. The value of the `lastSignInDateTime` property may be blank if:
     - The last attempted sign-in of a user took place before April 2020.
     - The affected user account was never used for a sign-in attempt.
 

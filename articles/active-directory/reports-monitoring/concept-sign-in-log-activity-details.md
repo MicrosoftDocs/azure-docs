@@ -137,5 +137,5 @@ The following scenarios are important to consider when you're reviewing sign-in 
 
 ## Next steps
 
-* [Learn about exporting Microsoft Entra sign-in logs](concept-activity-logs-azure-monitor.md)
+* [Learn about exporting Microsoft Entra sign-in logs](./concept-log-monitoring-integration-options-considerations.md)
 * [Explore the sign-in diagnostic in Microsoft Entra ID](./howto-use-sign-in-diagnostics.md)

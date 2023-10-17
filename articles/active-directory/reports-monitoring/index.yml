@@ -35,7 +35,7 @@ landingContent:
          - text: Audit logs
            url: concept-audit-logs.md
          - text: Sign-in logs
-           url: concept-all-sign-ins.md
+           url: ./concept-sign-ins.md
          - text: Provisioning logs
            url: concept-provisioning-logs.md
 

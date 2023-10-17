@@ -32,7 +32,7 @@ Activity logs help you understand the behavior of users in your organization. Th
 
 - [**Audit logs**](concept-audit-logs.md) include the history of every task performed in your tenant.
 
-- [**Sign-in logs**](concept-all-sign-ins.md) capture the sign-in attempts of your users and client applications.
+- [**Sign-in logs**](./concept-sign-ins.md) capture the sign-in attempts of your users and client applications.
 
 - [**Provisioning logs**](concept-provisioning-logs.md) provide information around users provisioned in your tenant through a third party service.
 
@@ -78,7 +78,7 @@ Reviewing Microsoft Entra activity logs is the first step in maintaining and imp
 Monitoring Microsoft Entra activity logs requires routing the log data to a monitoring and analysis solution. Endpoints include Azure Monitor logs, Microsoft Sentinel, or a third-party solution third-party Security Information and Event Management (SIEM) tool.
 
 - [Stream logs to an event hub to integrate with third-party SIEM tools.](howto-stream-logs-to-event-hub.md)
-- [Integrate logs with Azure Monitor logs.](howto-integrate-activity-logs-with-log-analytics.md)
+- [Integrate logs with Azure Monitor logs.](./howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Analyze logs with Azure Monitor logs and Log Analytics.](howto-analyze-activity-logs-log-analytics.md)
 
 

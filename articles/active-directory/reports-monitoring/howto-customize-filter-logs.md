@@ -159,7 +159,7 @@ The following table provides the details for each of the *Legacy authentication 
 |Autodiscover|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
 |Exchange ActiveSync| Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
-|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Online PowerShell|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/connect-to-exchange-online-powershell).|
 |Exchange Web Services|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
 |IMAP4|A legacy mail client using IMAP to retrieve email.|
 |MAPI over HTTP|Used by Outlook 2010 and later.|
