@@ -30,6 +30,8 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Metrics computation for Azure Database for MySQL - Flexible Server**
 "Host Memory Percent" metric will provide more accurate calculations of memory usage. It will now reflect the actual memory consumed by the server, excluding re-usable memory from the calculation. This improvement ensures that you have a more precise understanding of your server's memory utilization. After the completion of the [scheduled maintenance window](./concepts-maintenance.md), existing servers will benefit from this enhancement.
+- **Known Issues**
+When attempting to modify the User assigned managed identity and Key identifier in a single request while changing the CMK settings, the operation gets struck. We are working on the upcoming deployment for the permanent solution to address this issue, in the meantime, please ensure that you perform the two operations of updating the User Assigned Managed Identity and Key identifier in separate requests. The sequence of these operations is not critical, as long as the user-assigned identities have the necessary access to both Key Vault
 
 ## September 2023
 
@@ -195,7 +197,7 @@ Azure Database for MySQL Flexible Server now supports [generated invisible prima
 
 - **MySQL extension for Azure Data Studio (Preview)**
 
-  When working with multiple databases across data platforms and cloud deployment models, performing the most common tasks on all your databases using a single tool enhances productivity several fold. With the MySQL extension for Azure Data Studio, you can now connect to and modify MySQL databases along with your other databases, taking advantage of the modern editor experience and capabilities in Azure Data Studio, such as IntelliSense, code snippets, source control integration, native Jupyter Notebooks, an integrated terminal, and more. Use this new tooling with any MySQL server hosted on-premises, on virtual machines, on managed MySQL in other clouds, and on Azure Database for MySQL – Flexible Server. [Learn more](/sql/azure-data-studio/quickstart-mysql).
+  When working with multiple databases across data platforms and cloud deployment models, performing the most common tasks on all your databases using a single tool enhances productivity several fold. With the MySQL extension for Azure Data Studio, you can now connect to and modify MySQL databases along with your other databases, taking advantage of the modern editor experience and capabilities in Azure Data Studio, such as IntelliSense, code snippets, source control integration, native Jupyter Notebooks, an integrated terminal, and more. Use this new tooling with any MySQL server hosted on-premises, on virtual machines, on managed MySQL in other clouds, and on Azure Database for MySQL – Flexible Server. [Learn more](/azure-data-studio/quickstart-mysql).
 
 - **Enhanced metrics for better monitoring**
 
@@ -634,6 +636,7 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
 
 

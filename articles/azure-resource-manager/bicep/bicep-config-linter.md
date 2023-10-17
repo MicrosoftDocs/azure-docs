@@ -45,9 +45,15 @@ The following example shows the rules that are available for configuration.
         "max-variables": {
           "level": "warning"
         },
+        "nested-deployment-template-scoping": {
+          "level": "error"
+        }
         "no-conflicting-metadata" : {
           "level": "warning"
         },
+        "no-deployments-resources" : {
+          "level": "warning"
+        }
         "no-hardcoded-env-urls": {
           "level": "warning"
         },

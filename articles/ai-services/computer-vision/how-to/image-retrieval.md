@@ -53,7 +53,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?
 
 To vectorize a local image, you'd put the binary image data in the HTTP request body.
 
-The API call returns an **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
+The API call returns a **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 
 ```json
 { 
@@ -77,7 +77,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeText?a
 }"
 ```
 
-The API call returns an **vector** JSON object, which defines the text string's coordinates in the high-dimensional vector space.
+The API call returns a **vector** JSON object, which defines the text string's coordinates in the high-dimensional vector space.
 
 ```json
 { 

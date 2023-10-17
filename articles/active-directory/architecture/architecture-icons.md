@@ -35,14 +35,15 @@ Helping our customers design and architect new solutions is core to the Microsof
 
 | Month | Change description |
 |-------|--------------------|
-| August 2023 | Added a downloadable package that contains the Microsoft Entra architecture icons, branding playbook (which contains guidelines about the Microsoft Security visual identity), and terms of use. |
+| October 12, 2023 | Updated the downloadable package to include more Microsoft Entra product icons and updated branding playbook. |
+| August 15, 2023 | Added a downloadable package that contains the Microsoft Entra architecture icons, branding playbook (which contains guidelines about the Microsoft Security visual identity), and terms of use. |
 
 ## Icon terms
 
 Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
  > [!div class="button"]
- > [I agree to the above terms. Download icons.](https://download.microsoft.com/download/a/4/2/a4289cad-4eaf-4580-87fd-ce999a601516/Microsoft-Entra-architecture-icons.zip?wt.mc_id=microsoftentraicons_downloadmicrosoftentraicons_content_cnl_csasci)
+ > [I agree to the above terms. Download icons.](https://download.microsoft.com/download/3/1/a/31a56038-856a-4489-88e4-ee5a1c4352be/Microsoft%20Entra%20architecture%20icons%20-%20Oct%202023.zip?wt.mc_id=microsoftentraicons_downloadmicrosoftentraicons_content_cnl_csasci)
 
 ## More icon sets from Microsoft
 
