@@ -93,7 +93,7 @@ If certificates or network information is changed, select **Sync Network**. When
 
 ### Certificate renewal
 
-The certificate used by the gateway-required virtual network integration has a lifespan of 8 years. If you have apps with gateway-required virtual network integrations that live longer you will have to renew the certificate. You can validate if you certificate has expired or has less than 6 month to expiry by visiting the VNet Integration page in Azure portal.
+The certificate used by the gateway-required virtual network integration has a lifespan of 8 years. If you have apps with gateway-required virtual network integrations that live longer you will have to renew the certificate. You can validate if your certificate has expired or has less than 6 month to expiry by visiting the VNet Integration page in Azure portal.
 
 :::image type="content" source="./media/overview-vnet-integration/vnetint-gateway-cert-expiry.png" alt-text="Screenshot that shows a near expiry gateway-required virtual network integration certificate.":::
 
