@@ -10,133 +10,197 @@ ms.date: 10/02/2023
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
 # Configure Azure IoT MQ authorization
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the **BrokerAuthorization** resource.
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental "why would I want to do this?" question. Keep it short.
+You can set to one BrokerAuthorization for each listener. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+**Important**: to have the BrokerAuthorization configuration apply to a listener, at least one **BrokerAuthentication** must also be linked to that listener.
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
+## Configure BrokerAuthorization for listeners
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+The spec of a BrokerAuthorization resource has these fields:
 
--->
+- `listenerRef`: The names of the BrokerListener resources that this authorization policy applies to. This field is required and must match an existing BrokerListener resource in the same namespace.
+- `authorizationPolicies`: This field defines the settings for the authorization policies, such as:
+  - `enableCache`: A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`.
+  - `rules`: A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields:
+    - `principals`: This subfield defines the identities that represent the clients, such as:
+      - `usernames`: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
+      - `clientids`: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
+      - `attributes`: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
+    - `brokerResources`: This subfield defines the objects that represent the actions or topics, such as:
+      - `method`: The type of action that the clients can perform on the broker. This subfield is required and can be one of these values:
+        - `Connect`: This value indicates that the clients can connect to the broker.
+        - `Publish`: This value indicates that the clients can publish messages to topics on the broker.
+        - `Subscribe`: This value indicates that the clients can subscribe to topics on the broker.
+      - `topics`: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish.
 
-TODO: Add your introductory paragraph
+This example shows how to create a BrokerAuthorization resource that defines the authorization policies for a listener named "my-listener".
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+```yaml
+apiVersion: az-edge.com/v1alpha4
+kind: BrokerAuthorization
+metadata:
+  name: "my-authz-policies"
+  namespace: {{% namespace %}}
+spec:
+  listenerRef:
+    - "my-listener"
+  authorizationPolicies:
+    enableCache: true
+    rules:
+      - principals:
+          usernames:
+            - temperature-sensor
+            - humidity-sensor
+          attributes:
+            - city: "seattle"
+              organization: "contoso"
+        brokerResources:
+          - method: Connect
+          - method: Publish
+            topics:
+              - "/telemetry/{principal.username}"
+              - "/telemetry/{principal.attributes.organization}"
+          - method: Subscribe
+            topics:
+              - "/commands/{principal.attributes.organization}"
+```
 
--->
+This broker authorization allows clients with usernames `temperature-sensor` or `humidity-sensor`, or clients with attributes `organization` with value `contoso` and `city` with value `seattle`, to:
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+- Connect to the broker.
+- Publish messages to telemetry topics scoped with their usernames and organization. For example:
+  - `temperature-sensor` can publish to `/telemetry/temperature-sensor` and `/telemetry/contoso`.
+  - `humidity-sensor` can publish to `/telemetry/humidity-sensor` and `/telemetry/contoso`.
+  - `some-other-username` can publish to `/telemetry/contoso`.
+- Subscribe to commands topics scoped with their organization. For example:
+  - `temperature-sensor` can subscribe to `/commands/contoso`.
+  - `some-other-username` can subscribe to `/commands/contoso`.
 
-Required: Make Prerequisites the first H2 after the H1. 
+To create this BrokerAuthorization resource, apply the YAML manifest to your Kubernetes cluster.
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+## Authorize clients that use X.509 authentication
 
--->
+Clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) can be authorized to access resources based on information (X.509 properties) present on their certificate or their issuing certificates up the chain.
 
-## Prerequisites
+### With certificate (chain) properties using attributes
 
-TODO: List the prerequisites
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, a certificate-to-attributes mapping TOML file is required. For example:
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+```toml
+[root]
+subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+[root.attributes]
+organization = "contoso"
 
-For portal-based procedures, minimize bullets and numbering.
+[intermediate]
+subject = "CN = Contoso Intermediate CA"
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+[intermediate.attributes]
+city = "seattle"
+foo = "bar"
 
--->
+[smart-fan]
+subject = "CN = smart-fan"
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+[smart-fan.attributes]
+building = "17"
+```
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+The matching for attributes always starts from the leaf (client) certificate and then goes along the chain. The attribute assignment stops after the first match. In above example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+To apply the mapping, create a certificate-to-attribute mapping TOML file as a Kubernetes secret, and reference it in `authenticationMethods.x509.attributes` for the BrokerAuthentication resource.
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+Then, authorization rules can be applied to clients using X.509 certificates with these attributes.
 
--->
+### With client certificate subject common name (CN) as username
 
-## Next step
+To create authorization policies based on the *client* certificate subject common name only, create rules based on the CN.
 
-TODO: Add your next step link(s)
+For example, if a client has a certificate with subject `CN = smart-lock`, its username is `smart-lock`. From there, create authorization policies as normal.
 
+## Authorize clients that use Kubernetes Service Account Tokens
 
-<!-- OR -->
+Authorization attributes for SATs are set as part of the Service Account annotations. For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
 
-## Related content
+```bash
+kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=authz-sat
+```
 
-TODO: Add your next step link(s)
+Attribute annotations must begin with `azedge-broker-auth/` to distinguish them from other annotations.
 
+As the application has an authorization attribute called `authz-sat`, there is no need to provide a `clientId` or `username`. The corresponding BrokerAuthorization resource uses this attribute as a principle, for example:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+```yaml{hl_lines=[14]}
+apiVersion: az-edge.com/v1alpha4
+kind: BrokerAuthorization
+metadata:
+  name: "my-authz-policies"
+  namespace: {{% namespace %}}
+spec:
+  listenerRef:
+    - "az-mqtt-non-tls-listener"
+  authorizationPolicies:
+    enableCache: false
+    rules:
+      - principals:
+          attributes:
+            - group: "authz-sat"
+        brokerResources:
+          - method: Connect
+          - method: Publish
+            topics:
+              - "odd-numbered-orders"
+          - method: Subscribe
+            topics:
+              - "orders"                                       
+```
+
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
+
+## Key-value Store
+
+Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
+
+To setup authorization for clients that use the key-value store, give it:
+
+- Permission to publish to the system KV store `$store/<key>/#` topic
+- Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
+
+## Update authorization
+
+Broker authorization resources can be update at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
+
+```bash
+kubectl edit brokerauthorization my-authz-policies
+```
+
+## Disable authorization
+
+To disable authorization, set `authorizationEnabled: false` in the BrokerListener resource. When the policy is set to allow all clients, all [authenticated clients](./howto-configure-authentication.md) can access all operations.
+
+```yaml {hl_lines=9}
+apiVersion: az-edge.com/v1alpha4
+kind: BrokerListener
+metadata:
+  name: "my-listener"
+  namespace: {{% namespace %}}
+spec:
+  brokerRef: "my-broker"
+  authenticationEnabled: false
+  authorizationEnabled: false
+  port: 1883
+```
+
+## Unauthorized publish in MQTT 3.1.1
+
+With MQTT3.1.1, when a publish is denied, the client receives the PUBACK with no error because the protocol version doesn't support returning error code. MQTTv5 return PUBACK with reason code 135 (Not authorized) when publish is denied.
