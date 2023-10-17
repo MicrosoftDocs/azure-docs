@@ -38,18 +38,18 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 
 1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/gateway-configure-outbound-connectivity/confirm-sku-thumb.png":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/tutorial-gateway-outbound-connectivity/confirm-sku-thumb.png":::
 
 1. Return to your virtual machine.
 1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
 1. In **Network interface**, select **IP configurations** under **Settings**.
 6. Select **myFrontend** in **Gateway Load balancer**.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
 
 1. Select **Save**.
 
@@ -59,7 +59,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
 
 1. Navigate to **myLoadBalancer** or your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/frontend-settings.png" alt-text="Screenshot of frontend IP configuration.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/frontend-settings.png" alt-text="Screenshot of frontend IP configuration.":::
 
 1. Select **+ Add** to create a new frontend IP configuration
 1. In the **Add frontend IP configuration** page, enter or select the following information:
@@ -73,7 +73,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
     | Gateway Load balancer | Select **myGatewayLoadBalancerFrontEnd**. |    
 
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/add-frontend-ip-configuration.png" alt-text="Screenshot of Add frontend ip configuration screen.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/add-frontend-ip-configuration.png" alt-text="Screenshot of Add frontend ip configuration screen.":::
 
 1.	Select **Add**.
 
@@ -86,7 +86,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
 1. In **Load balancer**, select **Outbound rules** under **Settings**.
 2. Select **+ Add** in **Outbound rules** to add a rule.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/outbound-rules.png" alt-text="Screenshot of Load Balancer Outbound rules settings.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/outbound-rules.png" alt-text="Screenshot of Load Balancer Outbound rules settings.":::
 
 1. In **Add outbound rule** window, Enter or select the following information in:
 
@@ -106,16 +106,16 @@ In this section, you create a new frontend IP configuration for outbound traffic
     | Ports per instance | Enter the anticipated maximum number of backend instances. This example uses **2** backend instances.
 
     
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/add-outbound-rule.png" alt-text="Screenshot of Add Outbound Rule screen.":::
+    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/add-outbound-rule.png" alt-text="Screenshot of Add Outbound Rule screen.":::
 
 1. Select **Add**.
 
-> [!IMPORTANT]
->Gateway load balancer doesn't currently support chaining with NAT Gateway. Outbound traffic originating from Azure virtual machines, served through NAT Gateway, goes directly to the Internet. And that NAT Gateway takes precedence over any instance-level public IPs or load balancers for outbound traffic.
->
-> NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the GWLB to the Standard LB, while outbound traffic goes to the Internet directly.
->
-> If NVAs need to be inserted for outbound traffic, apply the methods described in this article. For example, chaining an instance-level public IP or outbound rules load balancer frontend to a gateway load balancer.
+    > [!IMPORTANT]
+    >Gateway load balancer doesn't currently support chaining with NAT Gateway. Outbound traffic originating from Azure virtual machines, served through NAT Gateway, goes directly to the Internet. And that NAT Gateway takes precedence over any instance-level public IPs or load balancers for outbound traffic.
+    >
+    > NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the gateway load balncer to the Standard load balancer, while outbound traffic goes to the Internet directly.
+    >
+    > If NVAs need to be inserted for outbound traffic, apply the methods described in this article. For example, chaining an instance-level public IP or outbound rules load balancer frontend to a gateway load balancer.
 
 ## Clean up resources
 
