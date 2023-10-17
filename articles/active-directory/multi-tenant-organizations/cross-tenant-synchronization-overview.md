@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: multi-tenant-organizations
+ms.subservice: multitenant-organizations
 ms.topic: overview
 ms.date: 10/17/2023
 ms.author: rolyon
@@ -21,8 +21,8 @@ ms.custom: it-pro
 
 Here are the primary goals of cross-tenant synchronization:
 
-- Seamless collaboration for a multi-tenant organization
-- Automate lifecycle management of B2B collaboration users in a multi-tenant organization
+- Seamless collaboration for a multitenant organization
+- Automate lifecycle management of B2B collaboration users in a multitenant organization
 - Automatically remove B2B accounts when a user leaves the organization 
 
 > [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
@@ -49,7 +49,7 @@ With cross-tenant synchronization, you can do the following:
 
 ## Teams and Microsoft 365
 
-Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. If your organization uses shared channels, please see the [known issues](../app-provisioning/known-issues.md) document for additional details. Over time, the `member` userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization.
+Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. If your organization uses shared channels, please see the [known issues](../app-provisioning/known-issues.md) document for additional details. Over time, the `member` userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multitenant organization.
 
 ## Properties
 
@@ -203,7 +203,7 @@ Can I sync a mesh between multiple tenants?
 - Cross-tenant synchronization only synchronizes users that are internal to the home/source tenant, ensuring that you can't end up with a loop where a user is written back to the same tenant.
 - Multiple topologies are supported. For more information, see [Topologies for cross-tenant synchronization](cross-tenant-synchronization-topology.md).
 
-Can I use cross-tenant synchronization across organizations (outside my multi-tenant organization)?
+Can I use cross-tenant synchronization across organizations (outside my multitenant organization)?
 
 -  For privacy reasons, cross-tenant synchronization is intended for use within an organization. We recommend using [entitlement management](../governance/entitlement-management-overview.md) for inviting B2B collaboration users across organizations.
 
@@ -227,7 +227,7 @@ How does cross-tenant synchronization relate to [B2B direct connect](../external
 - We recommend B2B collaboration for all other cross-tenant application access scenarios, including both Microsoft and non-Microsoft applications.
 - B2B direct connect and cross-tenant synchronization are designed to co-exist, and you can enable them both for broad coverage of cross-tenant scenarios.
 
-We're trying to determine the extent to which we'll need to utilize cross-tenant synchronization in our multi-tenant organization. Do you plan to extend support for B2B direct connect beyond Teams Connect?
+We're trying to determine the extent to which we'll need to utilize cross-tenant synchronization in our multitenant organization. Do you plan to extend support for B2B direct connect beyond Teams Connect?
 
 - There's no plan to extend support for B2B direct connect beyond Teams Connect shared channels.
 
