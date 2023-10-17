@@ -181,8 +181,6 @@
   items:
     - name: Overview
       href: resiliency-overview.md
-    - name: Configure
-      href: configure-resiliency.md
     - name: Container app to container app
       href: container-app-resiliency.md
     - name: Dapr component
