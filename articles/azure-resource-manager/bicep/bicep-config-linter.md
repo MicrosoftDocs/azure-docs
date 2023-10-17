@@ -168,7 +168,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
             "datalake.azure.net",
             "azuredatalakestore.net",
             "azuredatalakeanalytics.net",
-            "vault.azure.net",
             "api.loganalytics.io",
             "api.loganalytics.iov1",
             "asazure.windows.net",

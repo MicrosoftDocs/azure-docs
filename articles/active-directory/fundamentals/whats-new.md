@@ -615,13 +615,13 @@ The Converged Authentication Methods Policy enables you to manage all authentica
 
 ---
 
-### General Availability - Support for Directory Extensions using Azure AD Cloud Sync
+### General Availability - Support for Directory Extensions using Azure AD cloud sync
 
-**Type:** New feature   
-**Service category:** Provisioning                        
-**Product capability:** Azure Active Directory Connect Cloud Sync                
+**Type:** New feature
+**Service category:** Provisioning
+**Product capability:** Azure AD Connect cloud sync
 
-Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Connect cloud sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using the attribute mapping experience of cloud sync. For more information, see [Directory extensions and custom attribute mapping in cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md).
 
 ---
 
@@ -891,7 +891,7 @@ SAML/Ws-Fed based identity providers for authentication in Azure AD B2B are gene
 **Service category:** Azure Active Directory Domain Services                     
 **Product capability:** Azure Active Directory Domain Services            
 
-Azure Active Directory Domain Services will now support synchronizing custom attributes from Azure AD for on-premises accounts. For more information, see: [Custom attributes for Azure Active Directory Domain Services](/azure/active-directory-domain-services/concepts-custom-attributes).
+Azure Active Directory Domain Services will now support synchronizing custom attributes from Azure AD for on-premises accounts. For more information, see: [Custom attributes for Azure Active Directory Domain Services](/entra/identity/domain-services/concepts-custom-attributes).
 
 ---
 

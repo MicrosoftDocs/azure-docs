@@ -24,12 +24,13 @@ The Microsoft Entra Connect synchronization services (Microsoft Entra Connect Sy
 This topic is the home for **Microsoft Entra Connect Sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Microsoft Entra Connect, see [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
 
 The sync service consists of two components, the on-premises **Microsoft Entra Connect Sync** component and the service side in Microsoft Entra ID called **Microsoft Entra Connect Sync service**.
->[!IMPORTANT]
->Microsoft Entra Cloud Sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. It accomplishes this by using the Microsoft Entra Cloud provisioning agent instead of the Microsoft Entra Connect application. Microsoft Entra Cloud Sync is replacing Microsoft Entra Connect Sync, which will be retired after Cloud Sync has full functional parity with Connect sync. The remainder of this article is about AADConnect sync, but we encourage customers to review the features and advantages of Cloud Sync before deploying AADConnect sync. 
+
+> [!IMPORTANT]
+> Microsoft Entra Connect cloud sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. It accomplishes this by using the Microsoft Entra cloud provisioning agent instead of the Microsoft Entra Connect application. Microsoft Entra Connect cloud sync is replacing Microsoft Entra Connect Sync, which will be retired after cloud sync has full functional parity with Microsoft Entra Connect Sync. The remainder of this article is about Microsoft Entra Connect Sync, but we encourage customers to review the features and advantages of cloud sync before deploying AADConnect sync. 
 >
->To find out if you are already eligible for Cloud Sync, please verify your requirements in [this wizard](https://admin.microsoft.com/adminportal/home?Q=setupguidance#/modernonboarding/identitywizard).
+> To find out if you are already eligible for cloud sync, please verify your requirements in [this wizard](https://admin.microsoft.com/adminportal/home?Q=setupguidance#/modernonboarding/identitywizard).
 >
->To learn more about Cloud Sync please read [this article](../cloud-sync/what-is-cloud-sync.md), or watch this [short video](https://www.microsoft.com/videoplayer/embed/RWJ8l5).
+> To learn more about cloud sync, please read [this article](../cloud-sync/what-is-cloud-sync.md), or watch this [short video](https://www.microsoft.com/videoplayer/embed/RWJ8l5).
 >
 
 

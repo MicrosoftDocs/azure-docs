@@ -330,7 +330,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 | **NTE_BAD_KEYSET** (0x80090016/-2146893802) | The Trusted Platform Module (TPM) operation failed or was invalid. | The failure likely results from a bad sysprep image. Ensure that the machine from which the sysprep image was created isn't Microsoft Entra joined, Microsoft Entra hybrid joined, or Microsoft Entra registered. |
 | **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641) | Generic TPM error. | Disable TPM on devices with this error. Windows 10 versions 1809 and later automatically detect TPM failures and complete Microsoft Entra hybrid join without using the TPM. |
 | **TPM_E_NOTFIPS** (0x80280036/-2144862154) | TPM in FIPS mode isn't currently supported. | Disable TPM on devices with this error. Windows 10 version 1809 automatically detects TPM failures and completes the Microsoft Entra hybrid join without using the TPM. |
-| **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775) | TPM is locked out. | Transient error. Wait for the cool-down period. The join attempt should succeed after a while. For more information, see [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering). |
+| **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775) | TPM is locked out. | Transient error. Wait for the cool-down period. The join attempt should succeed after a while. For more information, see [TPM fundamentals](/windows/security/hardware-security/tpm/tpm-fundamentals#anti-hammering). |
 | | |
 
 
