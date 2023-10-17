@@ -30,7 +30,7 @@ Deploying a new resource bridge consists of downloading the appliance image (~3.
 
 Overall, the upgrade generally takes at least 30 minutes, depending on network speeds. A short intermittent downtime may happen during the handoff between the old Arc resource bridge to the new Arc resource bridge. Additional downtime may occur if prerequisites are not met, or if a change in the network (DNS, firewall, proxy, etc.) impacts the Arc resource bridge's ability to communicate.
 
-Upgrade takes your Arc resource bridge to the next appliance version, which may not be the latest available appliance version. Multiple upgrades may be needed to reach the minimum n-3 supported version.
+Upgrading takes your Arc resource bridge to the next appliance version, which may not be the latest available appliance version. Multiple upgrades may be needed to reach the minimum n-3 supported version. You can check your appliance version by checking the Azure resource of your Arc resource bridge.
 
 There are two ways to upgrade Arc resource bridge: cloud-managed upgrades managed by Microsoft, or manual upgrades where Azure CLI commands are performed by an admin.
 
@@ -71,7 +71,7 @@ For example, to upgrade a resource bridge on Azure Stack HCI, run: `az arcapplia
 
 ## Private cloud providers
 
-Partner products that use Arc resource bridge may choose to handle upgrades differently, including enabling cloud-managed upgrade by default. This article will be updated to reflect any such changes.
+Private cloud providers may differ in how to upgrade of an Arc resource bridge. 
 
 For Arc-enabled VMware, both cloud-managed upgrade and manual upgrade are supported.
 
