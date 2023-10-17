@@ -58,7 +58,7 @@ export interface CallingWidgetComponentProps {
 }
 ```
 
-Now, we need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This includes adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it looks a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
+Now, we need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This includes adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it looks a lot like the logic in `NewWindowCallScreen.tsx`. Adding the adapter to the widget will look something like this:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -78,6 +78,7 @@ import { useCallback, useMemo } from 'react';
 ```
 `CallingWidgetComponent.tsx`
 ```ts
+    // add this before the React template
     const credential = useMemo(() => {
         try {
             return new AzureCommunicationTokenCredential(adapterArgs.token);
@@ -108,12 +109,11 @@ Let's also add a `afterCreate` function like before, to do a few things with our
 
 `CallingWidgetComponent.tsx`
 ```ts
-
+    // add this just before the React template
     const afterCreate = useCallback(async (adapter: CallAdapter): Promise<CallAdapter> => {
         adapter.on('callEnded',() => {
             setDisplayName(undefined);
             setWidgetState('new');
-            adapter.dispose();
         });
         return adapter;
     },[])
@@ -126,16 +126,14 @@ Once we again have an adapter we need to update the template to account for a ne
 
 `CallingWidgetComponent.tsx`
 ```ts
-
 const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new');
-
 ```
 
 Next, we'll need to add new logic to our Start Call button so that it checks to see whether the call is to be in a new window or embedded. That logic is as follows:
 
 `CallingWidgetComponent.tsx`
 ```ts
-
+    // replace the primary button in the template with this
     <PrimaryButton
         styles={startCallButtonStyles(theme)}
         onClick={() => {
@@ -164,7 +162,7 @@ Next, lets go back to our style sheet for the widget. We need to add new styles 
 
 `CallingWidgetComponent.styles.ts`
 ```ts
-export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => {
+export const callingWidgetInCallContainerStyles = (theme: Theme): IStackStyles => {
   return {
     root: {
       width: '35rem',
@@ -185,7 +183,7 @@ export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => 
 
 Finally, in the widget we need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows, lets also import our new styles:
 ```ts
-import { clickToCallInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
+import { callingWidgetInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
 ```
 
 `CallingWidgetComponent.tsx`

@@ -36,7 +36,7 @@ Now let's introduce an interface containing the props that the component uses.
 
 `CallingWidgetComponent.tsx`
 ```ts
-export interface clickToCallComponentProps {
+export interface CallingWidgetComponentProps {
   /**
    * Handler to start a new call.
    */
@@ -96,7 +96,7 @@ export const CallingWidgetComponent = (
   if (widgetState === "setup" && onSetDisplayName && onSetUseVideo) {
     return (
       <Stack
-        styles={clicktoCallSetupContainerStyles(theme)}
+        styles={callingWidgetSetupContainerStyles(theme)}
         tokens={{ childrenGap: "1rem" }}
       >
         <IconButton
@@ -156,7 +156,7 @@ export const CallingWidgetComponent = (
     <Stack
       horizontalAlign="center"
       verticalAlign="center"
-      styles={clickToCallContainerStyles(theme)}
+      styles={callingWidgetContainerStyles(theme)}
       onClick={() => {
         setWidgetState("setup");
       }}
@@ -198,7 +198,7 @@ export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
   };
 };
 
-export const clickToCallContainerStyles = (theme: Theme): IStackStyles => {
+export const callingWidgetContainerStyles = (theme: Theme): IStackStyles => {
   return {
     root: {
       width: "5rem",
@@ -218,7 +218,7 @@ export const clickToCallContainerStyles = (theme: Theme): IStackStyles => {
   };
 };
 
-export const clicktoCallSetupContainerStyles = (theme: Theme): IStackStyles => {
+export const callingWidgetSetupContainerStyles = (theme: Theme): IStackStyles => {
   return {
     root: {
       width: "18rem",
@@ -287,10 +287,10 @@ These styles should already be added to the widget as seen in the snippet earlie
 
 // add to other imports
 import {
-    clicktoCallSetupContainerStyles,
+    callingWidgetSetupContainerStyles,
     checkboxStyles,
     startCallButtonStyles,
-    clickToCallContainerStyles,
+    callingWidgetContainerStyles,
     callIconStyles,
     logoContainerStyles,
     collapseButtonStyles
