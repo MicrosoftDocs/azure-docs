@@ -29,9 +29,9 @@ This dashboard is designed to empower organizations with rich insights and actio
 
 To access this new dashboard, you need: 
 
-- Azure Active Directory Free, or Azure AD Premium P1, or Azure AD Premium P2 licenses for your users.
+- Microsoft Entra ID Free, or Microsoft Entra ID P1, or Microsoft Entra ID P2 licenses for your users.
 - Users must have at least the [Security Reader](../roles/permissions-reference.md#security-reader) role assigned.
-- To view a comprehensive list of recommendations and select the recommended action links, you need Azure AD Premium P2 licenses.
+- To view a comprehensive list of recommendations and select the recommended action links, you need Microsoft Entra ID P2 licenses.
 
 ## Access the dashboard
 
@@ -106,8 +106,8 @@ Two filters can be applied to the graph:
 | MCAS Anonymous IP | T1078 | Access using a valid account (Detected Offline) |
 | Verified Threat Actor IP | T1078 | Access using a valid account (Detected Offline) |
 | Suspicious browser | T1078 | Access using a valid account (Detected Offline) |
-| Azure AD threat intelligence (user) | T1078 | Access using a valid account (Detected Offline) |
-| Azure AD threat intelligence (sign-in) | T1078 | Access using a valid account (Detected Offline) |
+| Microsoft Entra threat intelligence (user) | T1078 | Access using a valid account (Detected Offline) |
+| Microsoft Entra threat intelligence (sign-in) | T1078 | Access using a valid account (Detected Offline) |
 | Anomalous User activity | T1098 | Account Manipulation |
 | Password spray | T1110.003 | Brute Force: Password Spraying |
 | Mass access to sensitive files | TA0009 | Collection |

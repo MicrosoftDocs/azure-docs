@@ -3,8 +3,7 @@ title: include file
 description: include file
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 author: jcodella
@@ -77,7 +76,7 @@ using System.Linq;
 
 The Personalizer client is a [PersonalizerClient](/dotnet/api/azure.ai.personalizer.personalizerclient?branch=main) object that authenticates to Azure using Azure.AzureKeyCredential, which contains your key.
 
-To ask for the single best item of the content for each slot, create a [PersonalizerRankMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrankmultislotoptions?branch=main) object, then pass it to [PersonalizerClient.RankMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rankmultislot?branch=main#azure-ai-personalizer-personalizerclient-rankmultislot(azure-ai-personalizer-personalizerrankmultislotoptions-system-threading-cancellationtoken). The RankMultiSlot method returns a [PersonalizerMultiSlotRankResult](/dotnet/api/azure.ai.personalizer.personalizermultislotrankresult?branch=main).
+To ask for the single best item of the content for each slot, create a [PersonalizerRankMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrankmultislotoptions?branch=main) object, then pass it to [PersonalizerClient.RankMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rankmultislot#azure-ai-personalizer-personalizerclient-rankmultislot(azure-ai-personalizer-personalizerrankmultislotoptions-system-threading-cancellationtoken)). The RankMultiSlot method returns a [PersonalizerMultiSlotRankResult](/dotnet/api/azure.ai.personalizer.personalizermultislotrankresult?branch=main).
 
 To send a reward score to Personalizer, create a [PersonalizerRewardMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrewardmultislotoptions?branch=main), then pass it to the [PersonalizerClient.RewardMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rewardmultislot?branch=main#azure-ai-personalizer-personalizerclient-rewardmultislot(system-string-azure-ai-personalizer-personalizerrewardmultislotoptions-system-threading-cancellationtoken)) method along with the corresponding event ID.
 

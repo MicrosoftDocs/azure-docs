@@ -1,6 +1,6 @@
 ---
-title: Secure hybrid access with Azure AD and Silverfort
-description: In this tutorial, learn how to integrate Silverfort with Azure AD for secure hybrid access 
+title: Secure hybrid access with Microsoft Entra ID and Silverfort
+description: In this tutorial, learn how to integrate Silverfort with Microsoft Entra ID for secure hybrid access 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,15 +14,17 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort  
+# Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Silverfort  
 
-[Silverfort](https://www.silverfort.com/) uses agent-less and proxy-less technology to connect your assets on-premises and in the cloud to Azure Active Directory (Azure AD). This solution enables organizations to apply identity protection, visibility, and user experience across environments in Azure AD. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and helps to prevent threats.  
+[Silverfort](https://www.silverfort.com/) uses agent-less and proxy-less technology to connect your assets on-premises and in the cloud to Microsoft Entra ID. This solution enables organizations to apply identity protection, visibility, and user experience across environments in Microsoft Entra ID. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and helps to prevent threats.  
 
-In this tutorial, learn how to integrate your on-premises Silverfort implementation with Azure AD.
+<!-- docutune:ignore "Azure A ?D" -->
 
-Learn more: [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md).
+In this tutorial, learn how to integrate your on-premises Silverfort implementation with Microsoft Entra ID.
 
-Silverfort connects assets with Azure AD. These bridged assets appear as regular applications in Azure AD and can be protected with [Conditional Access](../conditional-access/overview.md), single-sign-on (SSO), multi-factor authentication (MFA), auditing and more. Use Silverfort to connect assets including:
+Learn more: [Microsoft Entra hybrid joined devices](../devices/concept-hybrid-join.md).
+
+Silverfort connects assets with Microsoft Entra ID. These bridged assets appear as regular applications in Microsoft Entra ID and can be protected with [Conditional Access](../conditional-access/overview.md), single-sign-on (SSO), multifactor authentication, auditing and more. Use Silverfort to connect assets including:
 
 - Legacy and homegrown applications
 - Remote desktop and Secure Shell (SSH)
@@ -30,11 +32,13 @@ Silverfort connects assets with Azure AD. These bridged assets appear as regular
 - File shares and databases
 - Infrastructure and industrial systems
 
-Silverfort integrates your corporate assets and third-party Identity and Access Management (IAM) platforms. This includes Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multicloud environments.
+Silverfort integrates your corporate assets and third-party Identity and Access Management (IAM) platforms. This includes Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) in Microsoft Entra ID, including hybrid and multicloud environments.
 
-Use this tutorial to configure and test the Silverfort Azure AD bridge in your Azure AD tenant to communicate with your Silverfort implementation. After configuration, you can create Silverfort authentication policies that bridge authentication requests from identity sources to Azure AD for SSO. After an application is bridged, you can manage it in Azure AD.
+Use this tutorial to configure and test the Silverfort Azure AD bridge in your Microsoft Entra tenant to communicate with your Silverfort implementation. After configuration, you can create Silverfort authentication policies that bridge authentication requests from identity sources to Microsoft Entra ID for SSO. After an application is bridged, you can manage it in Microsoft Entra ID.
 
-## Silverfort with Azure AD authentication architecture
+<a name='silverfort-with-azure-ad-authentication-architecture'></a>
+
+## Silverfort with Microsoft Entra authentication architecture
 
 The following diagram shows the authentication architecture orchestrated by Silverfort, in a hybrid environment.
 
@@ -44,8 +48,8 @@ The following diagram shows the authentication architecture orchestrated by Silv
 
 1. User sends authentication request to the original Identity Provider (IdP) through protocols such as Kerberos, SAML, NTLM, OIDC, and LDAP(s)
 2. The response is routed as-is to Silverfort for validation to check authentication state
-3. Silverfort provides visibility, discovery, and a bridge to Azure AD
-4. If the application is bridged, the authentication decision passes to Azure AD. Azure AD evaluates Conditional Access policies and validates authentication.
+3. Silverfort provides visibility, discovery, and a bridge to Microsoft Entra ID
+4. If the application is bridged, the authentication decision passes to Microsoft Entra ID. Microsoft Entra ID evaluates Conditional Access policies and validates authentication.
 5. The authentication state response goes as-is from Silverfort to the IdP
 6. IdP grants or denies access to the resource
 7. User is notified if access request is granted or denied 
@@ -54,7 +58,7 @@ The following diagram shows the authentication architecture orchestrated by Silv
 
 You need Silverfort deployed in your tenant or infrastructure to perform this tutorial. To deploy Silverfort in your tenant or infrastructure, go to silverfort.com [Silverfort](https://www.silverfort.com/) to install the Silverfort desktop app on your workstations.
 
-Set up Silverfort Azure AD Adapter in your Azure AD tenant:
+Set up Silverfort Azure AD Adapter in your Microsoft Entra tenant:
 
 - An Azure account with an active subscription
   - You can create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -63,7 +67,7 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
   - Cloud Application Administrator
   - Application Administrator
   - Service Principal Owner
-- The Silverfort Azure AD Adapter application in the Azure AD gallery is pre-configured to support SSO. From the gallery, add the Silverfort Azure AD Adapter to your tenant as an Enterprise application.
+- The Silverfort Azure AD Adapter application in the Microsoft Entra gallery is pre-configured to support SSO. From the gallery, add the Silverfort Azure AD Adapter to your tenant as an Enterprise application.
 
 ## Configure Silverfort and create a policy
 
@@ -73,7 +77,7 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 4. Select **Save Changes**.
 5. On the **Permissions requested** dialog, select **Accept**.
 
-   ![image shows azure ad bridge connector](./media/silverfort-integration/bridge-connector.png)
+   ![image shows Azure A D bridge connector](./media/silverfort-integration/bridge-connector.png)
 
    ![image shows registration confirmation](./media/silverfort-integration/grant-permission.png)
 
@@ -83,9 +87,9 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 
 7. On the **Settings** page, select **Save Changes**.
 
-   ![image shows the azure ad adapter](./media/silverfort-integration/silverfort-adapter.png)
+   ![image shows the Azure A D Adapter](./media/silverfort-integration/silverfort-adapter.png)
 
-8. Sign in to your Azure AD console. In the left pane, select **Enterprise applications**. The **Silverfort Azure AD Adapter** application appears as registered.
+8. Sign in to your Microsoft Entra account. In the left pane, select **Enterprise applications**. The **Silverfort Azure AD Adapter** application appears as registered.
 
    ![image shows enterprise application](./media/silverfort-integration/enterprise-application.png)
 
@@ -96,7 +100,7 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 
 11. Select the **Auth Type**, and **Protocol**.
 
-12. In the **Users and Groups** field, select the **edit** icon to configure users affected by the policy. These users' authentication bridges to Azure AD.
+12. In the **Users and Groups** field, select the **edit** icon to configure users affected by the policy. These users' authentication bridges to Microsoft Entra ID.
 
    ![image shows user and groups](./media/silverfort-integration/user-groups.png)
 
@@ -116,9 +120,9 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 
     ![image shows destination](./media/silverfort-integration/destination.png)
 
-17. For Action, select **AZURE AD BRIDGE**.
+17. For Action, select **Azure AD BRIDGE**.
 
-    ![image shows save azure ad bridge](./media/silverfort-integration/save-bridge.png)
+    ![image shows save Azure A D bridge](./media/silverfort-integration/save-bridge.png)
 
 18. Select **Save**. You're prompted to turn on the policy. 
 
@@ -128,12 +132,12 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 
     ![image shows add policy](./media/silverfort-integration/add-policy.png)
 
-20. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application appears. You can include this application in Conditional Access policies. 
+20. Return to the Microsoft Entra account, and navigate to **Enterprise applications**. The new Silverfort application appears. You can include this application in Conditional Access policies. 
 
-Learn more: [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy).
+Learn more: [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy).
 
 ## Next steps
 
-- [Silverfort Azure AD adapter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.silverfortazureadadapter?tab=overview)
+- [Silverfort Azure AD Adapter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.silverfortazureadadapter?tab=overview)
 - [Silverfort resources](https://www.silverfort.com/resources/)
 - [Silverfort, company contact](https://www.silverfort.com/company/contact/)

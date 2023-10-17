@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a workload classifier - Portal'
+title: "Quickstart: Create a workload classifier - Portal"
 description: Use Azure portal to create a workload classifier with high importance.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-manager: craigg
 ms.reviewer: sngun
 ms.date: 05/04/2020
-ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: azure-synapse, mode-ui
+ms.topic: quickstart
+ms.custom:
+  - azure-synapse
+  - mode-ui
 ---
 
 # Quickstart: Create a dedicated SQL pool workload classifier using the Azure portal

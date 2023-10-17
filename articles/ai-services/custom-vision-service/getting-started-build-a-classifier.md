@@ -5,8 +5,7 @@ description: In this quickstart, you'll learn how to use the Custom Vision web p
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: quickstart
 ms.date: 11/03/2022
 ms.author: pafarley

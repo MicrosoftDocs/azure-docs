@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure AD Connect'
-  description: Answers to frequently asked questions about Azure Active Directory Seamless Single Sign-On.
+  title: 'Microsoft Entra Connect'
+  description: Answers to frequently asked questions about Microsoft Entra seamless single sign-on.
   services: active-directory
   keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
@@ -17,8 +17,8 @@ metadata:
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-title: 'Azure Active Directory Seamless Single Sign-On: Frequently asked questions'
-summary: In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
+title: 'Microsoft Entra seamless single sign-on: Frequently asked questions'
+summary: In this article, we address frequently asked questions about Microsoft Entra seamless single sign-on (Seamless SSO). Keep checking back for new content.
 
 
 sections:
@@ -32,7 +32,7 @@ sections:
       - question: |
           Is Seamless SSO a free feature?
         answer: |
-          Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it.
+          Seamless SSO is a free feature and you don't need any paid editions of Microsoft Entra ID to use it.
 
       - question: |
           Is Seamless SSO available in the Microsoft Azure Germany cloud and the Microsoft Azure Government cloud?
@@ -42,7 +42,7 @@ sections:
       - question: |
           What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
         answer: |
-          The table has a list of applications that can send these parameters to Azure AD. This action provides users a silent sign-on experience using Seamless SSO.:
+          The table has a list of applications that can send these parameters to Microsoft Entra ID. This action provides users a silent sign-on experience using Seamless SSO.:
           
           | Application name | Application URL to be used |
           | -- | -- |
@@ -50,12 +50,12 @@ sections:
           | Outlook on Web | https:\//outlook.office365.com/contoso.com |
           | Office 365 portals | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
           
-          In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https:\//login.microsoftonline.com/contoso.com/<..> or https:\//login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https:\//login.microsoftonline.com/common/<...>. The table has a list of applications that make these types of sign-in requests.
+          In addition, users get a silent sign-on experience if an application sends sign-in requests to Microsoft Entra endpoints set up as tenants - that is, https:\//login.microsoftonline.com/contoso.com/<..> or https:\//login.microsoftonline.com/<tenant_ID>/<..> - instead of the Microsoft Entra common endpoint - that is, https:\//login.microsoftonline.com/common/<...>. The table has a list of applications that make these types of sign-in requests.
           
           | Application name | Application URL to be used |
           | -- | -- |
           | SharePoint Online | https:\//contoso.sharepoint.com |
-          | Azure portal | https:\//portal.azure.com/contoso.com |
+          | [Microsoft Entra admin center](https://entra.microsoft.com) | https:\//portal.azure.com/contoso.com |
           
           In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
           
@@ -64,29 +64,29 @@ sections:
       - question: |
           Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
         answer: |
-          Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
+          Yes. Seamless SSO supports `Alternate ID` as the username when configured in Microsoft Entra Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
           
       - question: |
-          What is the difference between the single sign-on experience provided by Azure AD Join and Seamless SSO?
+          What is the difference between the single sign-on experience provided by Microsoft Entra join and Seamless SSO?
         answer: |
-          [Azure AD Join](../../devices/overview.md) provides SSO to users if their devices are registered with Azure AD. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Microsoft Edge browser. It also works on Chrome with the use of a browser extension.
+          [Microsoft Entra join](../../devices/overview.md) provides SSO to users if their devices are registered with Microsoft Entra ID. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Microsoft Edge browser. It also works on Chrome with the use of a browser extension.
           
-          You can use Azure AD Join and Seamless SSO on your tenant. These two features are complementary. If both features are turned on, then SSO from Azure AD Join takes precedence over Seamless SSO.
+          You can use Microsoft Entra join and Seamless SSO on your tenant. These two features are complementary. If both features are turned on, then SSO from Microsoft Entra join takes precedence over Seamless SSO.
           
       - question: |
-          I want to register non-Windows 10 devices with Azure AD, without using AD FS. Can I use Seamless SSO instead?
+          I want to register non-Windows 10 devices with Microsoft Entra ID, without using AD FS. Can I use Seamless SSO instead?
         answer: |
           Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
           
       - question: |
-          How can I roll-over the Kerberos decryption key of the `AZUREADSSO` computer account?
+          How can I roll over the Kerberos decryption key of the `AZUREADSSO` computer account?
         answer: |
-          It's important to frequently roll-over the Kerberos decryption key of the `AZUREADSSO` computer account (which represents Azure AD) created in your on-premises AD forest.
+          It's important to frequently roll over the Kerberos decryption key of the `AZUREADSSO` computer account (which represents Microsoft Entra ID) created in your on-premises AD forest.
           
           >[!IMPORTANT]
-          >We highly recommend that you roll-over the Kerberos decryption key at least every 30 days.
+          >We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
           
-          Follow these steps on the on-premises server where you're running Azure AD Connect:
+          Follow these steps on the on-premises server where you're running Microsoft Entra Connect:
           
              > [!NOTE]
              >You'll need domain administrator and global administrator/hybrid identity administrator credentials for the steps.
@@ -95,7 +95,7 @@ sections:
              **Step 1. Get list of AD forests where Seamless SSO has been enabled**
           
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-             2. Navigate to the `$env:programfiles"\Microsoft Azure Active Directory Connect"` folder.
+             2. Navigate to the `$env:programfiles"\Microsoft Entra Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
              4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Administrator credentials.
              5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
@@ -110,15 +110,15 @@ sections:
              >[!NOTE]
              >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
           
-             2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
+             2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Microsoft Entra ID.
              
              3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
              
             >[!NOTE]
-             >If you're updating a forest, other than the Azure AD Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
+             >If you're updating a forest, other than the Microsoft Entra Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
           
              >[!IMPORTANT]
-             >This doesn't need to be done on servers running Azure AD Connect in staging mode.
+             >This doesn't need to be done on servers running Microsoft Entra Connect in staging mode.
              >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once per forest. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
           
       - question: |
@@ -126,23 +126,23 @@ sections:
         answer: |
              **Step 1. Disable the feature on your tenant**
           
-             **Option A: Disable using Azure AD Connect**
+             **Option A: Disable using Microsoft Entra Connect**
               
-             1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
-             2. Uncheck the **Enable single sign on** option. Continue through the wizard.
+             1. Run Microsoft Entra Connect, choose **Change user sign-in page** and click **Next**.
+             2. Uncheck the **Enable single sign-on** option. Continue through the wizard.
           
-             After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
+             After completing the wizard, Seamless SSO will be disabled on your tenant. However, you'll see a message on screen that reads as follows:
           
              "Single sign-on is now disabled, but there are other manual steps to perform in order to complete clean-up. [Learn more](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
           
-             To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you're running Azure AD Connect.
+             To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you're running Microsoft Entra Connect.
           
              **Option B: Disable using PowerShell**
           
-             Run the following steps on the on-premises server where you're running Azure AD Connect:
+             Run the following steps on the on-premises server where you're running Microsoft Entra Connect:
           
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-             2. Navigate to the `$env:ProgramFiles"\Microsoft Azure Active Directory Connect"` folder.
+             2. Navigate to the `$env:ProgramFiles"\Microsoft Entra Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
              4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Administrator credentials.
              5. Call `Enable-AzureADSSO -Enable $false`.
@@ -150,14 +150,14 @@ sections:
              At this point Seamless SSO is disabled but the domains will remain configured in case you would like to enable Seamless SSO back. If you would like to remove the domains from Seamless SSO configuration completely, call the following cmdlet after you completed step 5 above: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
           
              >[!IMPORTANT]
-             >Disabling Seamless SSO using PowerShell won't change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
+             >Disabling Seamless SSO using PowerShell won't change the state in Microsoft Entra Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
           
              **Step 2. Get list of AD forests where Seamless SSO has been enabled**
           
-             Follow tasks 1 through 4 if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5.
+             Follow tasks 1 through 4 if you have disabled Seamless SSO using Microsoft Entra Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5.
           
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-             2. Navigate to the `$env:ProgramFiles"\Microsoft Azure Active Directory Connect"` folder.
+             2. Navigate to the `$env:ProgramFiles"\Microsoft Entra Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
              4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Administrator credentials.
              5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
@@ -167,7 +167,7 @@ sections:
 additionalContent: |
 
   ## Next steps
-  - [**Quickstart**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
+  - [**Quickstart**](how-to-connect-sso-quick-start.md) - Get up and running Microsoft Entra Seamless SSO.
   - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
   - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
   - [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

@@ -1,6 +1,6 @@
 ---
-title: Administrative units in Azure Active Directory
-description: Use administrative units for more granular delegation of permissions in Azure Active Directory.
+title: Administrative units in Microsoft Entra ID
+description: Use administrative units for more granular delegation of permissions in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,9 +15,9 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
-# Administrative units in Azure Active Directory
+# Administrative units in Microsoft Entra ID
 
-This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users, groups, or devices.
+This article describes administrative units in Microsoft Entra ID. An administrative unit is a Microsoft Entra resource that can be a container for other Microsoft Entra resources. An administrative unit can contain only users, groups, or devices.
 
 Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) role to regional support specialists, so they can manage users only in the region that they support.
 
@@ -31,7 +31,7 @@ A central administrator could:
 
 - Create an administrative unit for the School of Business.
 - Populate the administrative unit with only students and staff within the School of Business.
-- Create a role with administrative permissions over only Azure AD users in the School of Business administrative unit.
+- Create a role with administrative permissions over only Microsoft Entra users in the School of Business administrative unit.
 - Add the business school IT team to the role, along with its scope.
 
 ![Screenshot of Devices and Administrative units page with Remove from administrative unit option.](./media/administrative-units/admin-unit-overview.png)
@@ -41,7 +41,7 @@ A central administrator could:
 Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
-- Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
+- Administrative units are currently not available in [Microsoft Entra ID Governance](../governance/identity-governance-overview.md).
 
 ## Groups
 
@@ -61,22 +61,22 @@ In order for the [User Administrator](permissions-reference.md#user-administrato
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires a Microsoft Entra ID P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and a Microsoft Entra ID Free license for each administrative unit member. Creating administrative units is available with a Microsoft Entra ID Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires a Microsoft Entra ID P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
-You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
+You can manage administrative units by using the Microsoft Entra admin center, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](admin-units-members-dynamic.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
 - [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
 
 ### Plan your administrative units
 
-You can use administrative units to logically group Azure AD resources. An organization whose IT department is scattered globally might create administrative units that define relevant geographical boundaries. In another scenario, where a global organization has suborganizations that are semi-autonomous in their operations, administrative units could represent the suborganizations.
+You can use administrative units to logically group Microsoft Entra resources. An organization whose IT department is scattered globally might create administrative units that define relevant geographical boundaries. In another scenario, where a global organization has suborganizations that are semi-autonomous in their operations, administrative units could represent the suborganizations.
 
 The criteria on which administrative units are created are guided by the unique requirements of an organization. Administrative units are a common way to define structure across Microsoft 365 services. We recommend that you prepare your administrative units with their use across Microsoft 365 services in mind. You can get maximum value out of administrative units when you can associate common resources across Microsoft 365 under an administrative unit.
 
@@ -88,7 +88,7 @@ You can expect the creation of administrative units in the organization to go th
 
 ## Currently supported scenarios
 
-As a Global Administrator or a Privileged Role Administrator, you can use the Azure portal to:
+As a Global Administrator or a Privileged Role Administrator, you can use the Microsoft Entra admin center to:
 
 - Create administrative units
 - Add users, groups, or devices as members of administrative units
@@ -97,16 +97,16 @@ As a Global Administrator or a Privileged Role Administrator, you can use the Az
 
 Administrative unit-scoped admins can use the Microsoft 365 admin center for basic management of users in their administrative units. A group administrator with administrative unit scope can manage groups by using PowerShell, Microsoft Graph, and the Microsoft 365 admin centers.
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Microsoft Entra admin center, PowerShell, and other Microsoft services.
 
 >[!Note]
->Only the features described in this section are available in the Microsoft 365 admin center. No organization-level features are available for an Azure AD role with administrative unit scope.
+>Only the features described in this section are available in the Microsoft 365 admin center. No organization-level features are available for a Microsoft Entra role with administrative unit scope.
 
 The following sections describe current support for administrative unit scenarios.
 
 ### Administrative unit management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Add or remove members | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -116,7 +116,7 @@ The following sections describe current support for administrative unit scenario
 
 ### User management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user licenses | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -125,7 +125,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Group management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped creation and deletion of groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of group properties and membership for Microsoft 365 groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -134,7 +134,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Device management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Enable, disable, or delete devices | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Read BitLocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |

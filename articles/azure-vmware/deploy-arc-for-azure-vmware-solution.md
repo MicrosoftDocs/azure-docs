@@ -4,7 +4,7 @@ description: Learn how to set up and enable Arc for your Azure VMware Solution p
 ms.topic: how-to 
 ms.service: azure-vmware
 ms.date: 08/28/2023
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 
@@ -31,7 +31,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - A resource pool with minimum-free capacity of 16 GB of RAM, 4 vCPUs. 
 - A datastore with minimum 100 GB of free disk space that is available through the resource pool. 
 - On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
-- Please validate the regional support before starting the onboarding. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
+- Please validate the regional support before starting the onboarding. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview).
 - The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 [Azure Arc resource bridge (preview) network requirements](../azure-arc/resource-bridge/network-requirements.md)
 
@@ -406,7 +406,7 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 **Region support for Azure VMware Solution**
  
-Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
+Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview).
 
 **How does support work?**
 

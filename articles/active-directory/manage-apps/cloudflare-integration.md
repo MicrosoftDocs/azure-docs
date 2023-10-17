@@ -1,6 +1,6 @@
 ---
-title: Configure Cloudflare with Azure Active Directory for secure hybrid access
-description: In this tutorial, learn how to integrate Cloudflare with Azure AD for secure hybrid access 
+title: Configure Cloudflare with Microsoft Entra ID for secure hybrid access
+description: In this tutorial, learn how to integrate Cloudflare with Microsoft Entra ID for secure hybrid access 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,32 +14,36 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access
+# Tutorial: Configure Cloudflare with Microsoft Entra ID for secure hybrid access
 
-In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Cloudflare Zero Trust. Build rules based on user identity and group membership. Users authenticate with Azure AD credentials and connect to Zero Trust protected applications.
+In this tutorial, learn to integrate Microsoft Entra ID with Cloudflare Zero Trust. Build rules based on user identity and group membership. Users authenticate with Microsoft Entra credentials and connect to Zero Trust protected applications.
 
 ## Prerequisites
 
-* An Azure AD subscription
+* A Microsoft Entra subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
+* A Microsoft Entra tenant linked to the Microsoft Entra subscription
+  * See, [Quickstart: Create a new tenant in Microsoft Entra ID](../fundamentals/create-new-tenant.md)
 * A Cloudflare Zero Trust account
   * If you don't have one, go to [Get started with Cloudflare's Zero Trust platform](https://dash.cloudflare.com/sign-up/teams)
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
+
 
 ## Integrate organization identity providers with Cloudflare Access
 
 Cloudflare Zero Trust Access helps enforce default-deny, Zero Trust rules that limit access to corporate applications, private IP spaces, and hostnames. This feature connects users faster and safer than a virtual private network (VPN). Organizations can use multiple identity providers (IdPs), reducing friction when working with partners or contractors.
 
-To add an IdP as a sign-in method, sign in to Cloudflare on the [Cloudflare sign in page](https://dash.teams.cloudflare.com/) and Azure AD.
+To add an IdP as a sign-in method, sign in to Cloudflare on the [Cloudflare sign in page](https://dash.teams.cloudflare.com/) and Microsoft Entra ID.
 
 The following architecture diagram shows the integration.
 
-   ![Diagram of the Cloudflare and Azure AD integration architecture.](./media/cloudflare-integration/cloudflare-architecture-diagram.png)
+   ![Diagram of the Cloudflare and Microsoft Entra integration architecture.](./media/cloudflare-integration/cloudflare-architecture-diagram.png)
 
-## Integrate a Cloudflare Zero Trust account with Azure AD
+<a name='integrate-a-cloudflare-zero-trust-account-with-azure-ad'></a>
 
-Integrate Cloudflare Zero Trust account with an instance of Azure AD.
+## Integrate a Cloudflare Zero Trust account with Microsoft Entra ID
+
+Integrate Cloudflare Zero Trust account with an instance of Microsoft Entra ID.
 
 1. Sign in to the Cloudflare Zero Trust dashboard on the [Cloudflare sign in page](https://dash.teams.cloudflare.com/).
 2. Navigate to **Settings**.
@@ -48,30 +52,31 @@ Integrate Cloudflare Zero Trust account with an instance of Azure AD.
 
    ![Screenshot of the Login methods option on Authentication.](./media/cloudflare-integration/login-methods.png)
 
-5. Under **Select an identity provider**, select **Azure AD.**
+5. Under **Select an identity provider**, select **Microsoft Entra ID**.
 
-   ![Screenshot of the Azure AD option under Select an identity provider.](./media/cloudflare-integration/idp.png)
+   ![Screenshot of the Microsoft Entra option under Select an identity provider.](./media/cloudflare-integration/idp.png)
 
 6. The **Add Azure ID** dialog appears. 
-7. Enter Azure AD instance credentials and make needed selections.
+7. Enter Microsoft Entra instance credentials and make needed selections.
 
-   ![Screenshot of options and selections for Add Azure AD.](./media/cloudflare-integration/add-idp.png)
+   ![Screenshot of options and selections for Add Microsoft Entra ID.](./media/cloudflare-integration/add-idp.png)
 
 8. Select **Save**.
 
-## Register Cloudflare with Azure AD
+<a name='register-cloudflare-with-azure-ad'></a>
+
+## Register Cloudflare with Microsoft Entra ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Use the instructions in the following three sections to register Cloudflare with Azure AD.
+Use the instructions in the following three sections to register Cloudflare with Microsoft Entra ID.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Under **Azure Services**, select **Azure Active Directory**.
-3. In the left menu, under **Manage**, select **App registrations**.
-4. Select the **+ New registration** tab.
-5. Enter an application **Name**
-6. Enter a team name with **callback** at the end of the path. For example, `https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback`
-7. Select **Register**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations**.
+3. Select **New registration**.
+4. Enter an application **Name**.
+5. Enter a team name with **callback** at the end of the path. For example, `https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback`
+6. Select **Register**.
 
 See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#team-domain) definition in the Cloudflare Glossary.
 
@@ -131,21 +136,21 @@ See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#
 
 7. On the Cloudflare Zero Trust dashboard, navigate to **Settings > Authentication**.
 8. Under **Login methods**, select **Add new**.
-9. Select **Azure AD**.
+9. Select **Microsoft Entra ID**.
 10. Enter values for **Application ID**, **Application Secret**, and **Directory ID**.
 11. Select **Save**.
 
   >[!NOTE]
-  >For Azure AD groups, in **Edit your Azure AD identity provider**, for **Support Groups** select **On**.
+  >For Microsoft Entra groups, in **Edit your Microsoft Entra identity provider**, for **Support Groups** select **On**.
 
 ## Test the integration
 
 1. On the Cloudflare Zero Trust dashboard, navigate to **Settings** > **Authentication**.
-2. Under **Login methods**, for Azure AD select **Test**.
+2. Under **Login methods**, for Microsoft Entra ID select **Test**.
 
    ![Screenshot of login methods.](./media/cloudflare-integration/login-methods-test.png)
 
-3. Enter Azure AD credentials.
+3. Enter Microsoft Entra credentials.
 4. The **Your connection works** message appears.
 
    ![Screenshot of the Your connection works message.](./media/cloudflare-integration/connection-success-screen.png)

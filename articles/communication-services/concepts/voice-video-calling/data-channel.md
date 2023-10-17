@@ -142,5 +142,5 @@ These measures are in place to prevent flooding when a significant number of par
 ## Next steps
 For more information, see the following articles:
 
-- Learn about [QuickStart - Add messaging to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
+- Learn about [QuickStart - Add data channel to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
 - Learn more about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)

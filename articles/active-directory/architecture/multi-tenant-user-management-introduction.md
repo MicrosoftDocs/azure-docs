@@ -1,6 +1,6 @@
 ---
-title: Configuring multi-tenant user management in Azure Active Directory
-description: Learn about the different patterns used to configure user access across Azure Active Directory tenants with guest accounts 
+title: Configuring multi-tenant user management in Microsoft Entra ID
+description: Learn about the different patterns used to configure user access across Microsoft Entra tenants with guest accounts 
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -15,33 +15,35 @@ ms.collection: M365-identity-device-management
 ---
 # Multi-tenant user management introduction
 
-This article is the first in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
+This article is the first in a series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments. The following articles in the series provide more information as described.
 
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
 
-The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
 
-Provisioning users into a single Azure Active Directory (Azure AD) tenant provides a unified view of resources and a single set of policies and controls. This approach enables consistent user lifecycle management.
+Provisioning users into a single Microsoft Entra tenant provides a unified view of resources and a single set of policies and controls. This approach enables consistent user lifecycle management.
 
-Microsoft recommends a single tenant when possible. Having multiple tenants can result in unique cross-tenant collaboration and management requirements. When consolidation to a single Azure AD tenant isn't possible, multi-tenant organizations may span two or more Azure AD tenants for reasons that include the following.
+Microsoft recommends a single tenant when possible. Having multiple tenants can result in unique cross-tenant collaboration and management requirements. When consolidation to a single Microsoft Entra tenant isn't possible, multi-tenant organizations may span two or more Microsoft Entra tenants for reasons that include the following.
 
 - Mergers
 - Acquisitions
 - Divestitures
 - Collaboration across public, sovereign, and regional clouds
-- Political or organizational structures that prohibit consolidation to a single Azure AD tenant
+- Political or organizational structures that prohibit consolidation to a single Microsoft Entra tenant
 
-## Azure AD B2B collaboration
+<a name='azure-ad-b2b-collaboration'></a>
 
-Azure AD B2B collaboration (B2B) enables you to securely share your company's applications and services with external users. When users can come from any organization, B2B helps you maintain control over access to your IT environment and data.
+## Microsoft Entra B2B collaboration
+
+Microsoft Entra B2B collaboration (B2B) enables you to securely share your company's applications and services with external users. When users can come from any organization, B2B helps you maintain control over access to your IT environment and data.
 
 You can use B2B collaboration to provide external access for your organization's users to access multiple tenants that you manage. Traditionally, B2B external user access can authorize access to users that your own organization doesn't manage. However, external user access can manage access across multiple tenants that your organization manages.
 
-An area of confusion with Azure AD B2B collaboration surrounds the [properties of a B2B guest user](../external-identities/user-properties.md). The difference between internal versus external user accounts and member versus guest user types contributes to confusion. Initially, all internal users are member users with **UserType** attribute set to *Member* (member users). An internal user has an account in your Azure AD that is authoritative and authenticates to the tenant where the user resides. A member user is a licensed user with default [member-level permissions](../fundamentals/users-default-permissions.md) in the tenant. Treat member users as employees of your organization.
+An area of confusion with Microsoft Entra B2B collaboration surrounds the [properties of a B2B guest user](../external-identities/user-properties.md). The difference between internal versus external user accounts and member versus guest user types contributes to confusion. Initially, all internal users are member users with **UserType** attribute set to *Member* (member users). An internal user has an account in your Microsoft Entra ID that is authoritative and authenticates to the tenant where the user resides. A member user is a licensed user with default [member-level permissions](../fundamentals/users-default-permissions.md) in the tenant. Treat member users as employees of your organization.
 
-You can invite an internal user of one tenant into another tenant as an external user. An external user signs in with an external Azure AD account, social identity, or other external identity provider. External users authenticate outside the tenant to which you invite the external user. At the B2B first release, all external users were of **UserType** *Guest* (guest users). Guest users have [restricted permissions](../fundamentals/users-default-permissions.md) in the tenant. For example, guest users can't enumerate the list of all users nor groups in the tenant directory.
+You can invite an internal user of one tenant into another tenant as an external user. An external user signs in with an external Microsoft Entra account, social identity, or other external identity provider. External users authenticate outside the tenant to which you invite the external user. At the B2B first release, all external users were of **UserType** *Guest* (guest users). Guest users have [restricted permissions](../fundamentals/users-default-permissions.md) in the tenant. For example, guest users can't enumerate the list of all users nor groups in the tenant directory.
 
 For the **UserType** property on users, B2B supports flipping the bit from internal to external, and vice versa, which contributes to the confusion.
 
@@ -55,36 +57,36 @@ Most documentation for B2B refers to an external user as a guest user. It confla
 
 [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) enables multi-tenant organizations to provide seamless access and collaboration experiences to end users, leveraging existing B2B external collaboration capabilities. The feature doesn't allow cross-tenant synchronization across Microsoft sovereign clouds (such as Microsoft 365 US Government GCC High, DOD or Office 365 in China). See [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md#cross-tenant-synchronization) for help with automated and custom cross-tenant synchronization scenarios.
 
-Watch Arvind Harinder talk about the cross-tenant sync capability in Azure AD (embedded below).
+Watch Arvind Harinder talk about the cross-tenant sync capability in Microsoft Entra ID (embedded below).
 
 > [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
-The following conceptual and how-to articles provide information about Azure AD B2B collaboration and cross-tenant synchronization.
+The following conceptual and how-to articles provide information about Microsoft Entra B2B collaboration and cross-tenant synchronization.
 
 ### Conceptual articles
 
 - [B2B best practices](../external-identities/b2b-fundamentals.md) features recommendations for providing the smoothest experience for users and administrators.
 - [B2B and Office 365 external sharing](../external-identities/what-is-b2b.md) explains the similarities and differences among sharing resources through B2B, Office 365, and SharePoint/OneDrive.
-- [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md) describes the properties and states of the external user object in Azure AD. The description provides details before and after invitation redemption.
+- [Properties on a Microsoft Entra B2B collaboration user](../external-identities/user-properties.md) describes the properties and states of the external user object in Microsoft Entra ID. The description provides details before and after invitation redemption.
 - [B2B user tokens](../external-identities/user-token.md) provides examples of the bearer tokens for B2B for an external user.
 - [Conditional Access for B2B](../external-identities/authentication-conditional-access.md) describes how Conditional Access and MFA work for external users.
-- [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
-- [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
+- [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Microsoft Entra organizations collaborate with you (inbound access) and how your users collaborate with external Microsoft Entra organizations (outbound access).
+- [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) explains how to automate creating, updating, and deleting Microsoft Entra B2B collaboration users across tenants in an organization.
 
 ### How-to articles
 
-- [Use PowerShell to bulk invite Azure AD B2B collaboration users](../external-identities/bulk-invite-powershell.md) describes how to use PowerShell to send bulk invitations to external users.
+- [Use PowerShell to bulk invite Microsoft Entra B2B collaboration users](../external-identities/bulk-invite-powershell.md) describes how to use PowerShell to send bulk invitations to external users.
 - [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md) explains how you can use Conditional Access and MFA policies to enforce tenant, app, or individual external user authentication levels.
-- [Email one-time passcode authentication](../external-identities/one-time-passcode.md) describes how the Email one-time passcode feature authenticates external users when they can't authenticate through other means like Azure AD, a Microsoft account (MSA), or Google Federation.
+- [Email one-time passcode authentication](../external-identities/one-time-passcode.md) describes how the Email one-time passcode feature authenticates external users when they can't authenticate through other means like Microsoft Entra ID, a Microsoft account (MSA), or Google Federation.
 
 ## Terminology
 
-The following terms in Microsoft content refer to multi-tenant collaboration in Azure AD.
+The following terms in Microsoft content refer to multi-tenant collaboration in Microsoft Entra ID.
 
-- **Resource tenant:** The Azure AD tenant containing the resources that users want to share with others.
-- **Home tenant:** The Azure AD tenant containing users that require access to the resources in the resource tenant.
+- **Resource tenant:** The Microsoft Entra tenant containing the resources that users want to share with others.
+- **Home tenant:** The Microsoft Entra tenant containing users that require access to the resources in the resource tenant.
 - **Internal user:** An internal user has an account that is authoritative and authenticates to the tenant where the user resides.
-- **External user:** An external user has an external Azure AD account, social identity, or other external identity provider to sign in. The external user authenticates somewhere outside the tenant to which you have invited the external user.
+- **External user:** An external user has an external Microsoft Entra account, social identity, or other external identity provider to sign in. The external user authenticates somewhere outside the tenant to which you have invited the external user.
 - **Member user:** An internal or external member user is a licensed user with default member-level permissions in the tenant. Treat member users as employees of your organization.
 - **Guest user:** An internal or external guest user has restricted permissions in the tenant. Guest users aren't employees of your organization (such as users for partners). Most B2B documentation refers to B2B Guests, which primarily refers to external guest user accounts.
 - **User lifecycle management:** The process of provisioning, managing, and deprovisioning user access to resources.
@@ -130,6 +132,6 @@ Microsoft mechanisms for creating and managing the lifecycle of your external us
 ## Next steps
 
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
-- [Multi-tenant synchronization from Active Directory](../hybrid/connect/plan-connect-topologies.md) describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution.
+- [Multi-tenant synchronization from Active Directory](../hybrid/connect/plan-connect-topologies.md) describes various on-premises and Microsoft Entra topologies that use Microsoft Entra Connect Sync as the key integration solution.

@@ -1,12 +1,12 @@
 ---
-title: Combined registration for SSPR and Azure AD Multi-Factor Authentication
-description: Learn about the combined registration experience for Azure Active Directory to let users register for both Azure AD Multi-Factor Authentication and self-service password reset
+title: Combined registration for SSPR and Microsoft Entra multifactor authentication
+description: Learn about the combined registration experience for Microsoft Entra ID to let users register for both Microsoft Entra multifactor authentication and self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -15,16 +15,16 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Combined security information registration for Azure Active Directory overview
+# Combined security information registration for Microsoft Entra overview
 
-Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
+Before combined registration, users registered authentication methods for Microsoft Entra multifactor authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Microsoft Entra ID](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 
 ![My Account showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is available for Azure US Government but not Microsoft Azure operated by 21Vianet.
+Microsoft Entra ID combined security information registration is available for Azure US Government but not Microsoft Azure operated by 21Vianet.
 
 *My Account* pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages continue to render in the last language used. If you clear the cache, the pages re-render.
 
@@ -56,7 +56,7 @@ Combined registration supports the authentication methods and actions in the fol
 >
 > Office phone can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode* from [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) without this requirement.
 >
-> App passwords are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy.
+> App passwords are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Microsoft Entra multifactor authentication by a Conditional Access policy.
 >
 > FIDO2 security keys, can only be added in *Manage mode* on [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 
@@ -70,7 +70,7 @@ Users can set one of the following options as the default multifactor authentica
 >[!NOTE]
 >Virtual phone numbers aren't supported for Voice calls or SMS messages.
 
-Third party authenticator apps don't provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
+Third party authenticator apps don't provide push notification. As we continue to add more authentication methods to Microsoft Entra ID, those methods become available in combined registration.
 
 ## Combined registration modes
 
@@ -79,7 +79,7 @@ There are two modes of combined registration: interrupt and manage.
 - **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
 - **Manage mode** is part of the user profile and allows users to manage their security info.
 
-For both modes, users who have previously registered a method that can be used for Azure AD Multi-Factor Authentication need to perform multifactor authentication before they can access their security info. Users must confirm their information before continuing to use their previously registered methods. 
+For both modes, users who have previously registered a method that can be used for Microsoft Entra multifactor authentication need to perform multifactor authentication before they can access their security info. Users must confirm their information before continuing to use their previously registered methods. 
 
 
 
@@ -89,9 +89,9 @@ Combined registration adheres to both multifactor authentication and SSPR polici
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 
-- *Multifactor authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *multifactor authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *multifactor authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *multifactor authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
 - *SSPR registration enforced:* Users are asked to register during sign-in. They register only SSPR methods.
 - *SSPR refresh enforced:* Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
@@ -123,14 +123,14 @@ Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https:/
 ## Key usage scenarios
 
 ### Protect Security info registration with Conditional Access
-To secure when and how users register for Azure AD Multi-Factor Authentication and self-service password reset, you can use user actions in Conditional Access policy. This functionality may be enabled in organizations that want users to register for Azure AD Multi-Factor Authentication and SSPR from a central location, such as a trusted network location during HR onboarding. Learn more on how to configure [common Conditional Access policies for securing security info registration.](../conditional-access/howto-conditional-access-policy-registration.md)
+To secure when and how users register for Microsoft Entra multifactor authentication and self-service password reset, you can use user actions in Conditional Access policy. This functionality may be enabled in organizations that want users to register for Microsoft Entra multifactor authentication and SSPR from a central location, such as a trusted network location during HR onboarding. Learn more on how to configure [common Conditional Access policies for securing security info registration.](../conditional-access/howto-conditional-access-policy-registration.md)
 
 
 ### Set up security info during sign-in
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Microsoft Entra admin center. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Microsoft Entra admin center.
 
 ### Set up security info from My Account
 
@@ -161,7 +161,7 @@ For example, a user sets Microsoft Authenticator app push notification as the pr
 This user is also configured with SMS/Text option on a resource tenant. 
 If this user removes SMS/Text as one of the authentication options on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
 
-To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
+To switch the directory in the Microsoft Entra admin center, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
@@ -180,8 +180,8 @@ Or, you can specify a tenant by URL to access security information.
 
 ## Next steps
 
-To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 
 Learn how to [enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md) or [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-You can also review the [available methods for Azure AD Multi-Factor Authentication and SSPR](concept-authentication-methods.md).
+You can also review the [available methods for Microsoft Entra multifactor authentication and SSPR](concept-authentication-methods.md).

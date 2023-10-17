@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: B2B collaboration FAQs
-  description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
+  description: Get answers to frequently asked questions about Microsoft Entra B2B collaboration.
   
   services: active-directory
   ms.service: active-directory
@@ -13,9 +13,9 @@ metadata:
   manager: celestedg
   ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
   ms.collection: M365-identity-device-management
-title: Azure Active Directory B2B collaboration FAQs
+title: Microsoft Entra B2B collaboration FAQs
 summary: |
-  These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
+  These frequently asked questions (FAQs) about Microsoft Entra business-to-business (B2B) collaboration are periodically updated to include new topics.
   
   > [!IMPORTANT]
   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you're using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
@@ -62,7 +62,7 @@ sections:
       - question: |
           What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and Microsoft Entra hybrid joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Microsoft Entra organizations.
 
       - question: |
           How many organizations can I add in cross-tenant access settings?
@@ -85,18 +85,17 @@ sections:
           Absolutely. For more information, see [Adding guest users to a role](./add-users-administrator.md).
           
       - question: |
-          Does Azure AD B2B collaboration allow B2B users to access the Azure portal?
+          Does Microsoft Entra B2B collaboration allow B2B users to access the Microsoft Entra admin center?
         answer: |
-          Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
+          Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Microsoft Entra admin center. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
       - question: |
-          Can I block access to the Azure portal for guest users?
+          Can I block access to the Microsoft Entra admin center for guest users?
         answer: |
-          Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Azure portal. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
+          Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Microsoft Entra admin center. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
-          1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
-          2. In the Azure portal, select **Azure Active Directory**. 
-          3. Under **Manage**, select **Security**.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as a security administrator or a Conditional Access administrator.
+          2. In the Microsoft Entra admin center, under **Protection**, select **Security Center**. 
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.
           5. On the **New** page, in the **Name** textbox, enter a name for the policy (for example "Block guests from accessing the portal").
           6. Under **Assignments**, select **Users and groups**.
@@ -108,31 +107,31 @@ sections:
           13. On the **Cloud apps or actions** page, select **Done**.
           
       - question: |
-          Does Azure AD B2B collaboration support multifactor authentication and consumer email accounts?
+          Does Microsoft Entra B2B collaboration support multifactor authentication and consumer email accounts?
         answer: |
-          Yes. Multifactor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
+          Yes. Multifactor authentication and consumer email accounts are both supported for Microsoft Entra B2B collaboration.
 
       - question: |
-          Do you support password reset for Azure AD B2B collaboration users?
+          Do you support password reset for Microsoft Entra B2B collaboration users?
         answer: |
-          If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/users-reset-password-azure-portal.md) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
+          If your Microsoft Entra tenant is the home directory for a user, you can [reset the user's password](../fundamentals/users-reset-password-azure-portal.md) from the Microsoft Entra admin center. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Microsoft Entra directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
            
-          * Guest users in an Azure AD tenant that are marked "Guest" (UserType==Guest) can't register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
+          * Guest users in a Microsoft Entra tenant that are marked "Guest" (UserType==Guest) can't register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
           * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
           * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider's SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
           * If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../enterprise-users/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
           
-          * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Azure portal.
+          * If the guest user's home directory is your Microsoft Entra tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Microsoft Entra admin center.
           
       - question: |
-          Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
+          Does Microsoft Dynamics 365 provide online support for Microsoft Entra B2B collaboration?
         answer: |
-          Yes, Dynamics 365 (online) supports Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+          Yes, Dynamics 365 (online) supports Microsoft Entra B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Microsoft Entra B2B collaboration](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
           
       - question: |
           What is the lifetime of an initial password for a newly created B2B collaboration user?
         answer: |
-          Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that aren't federated with another identity provider, such as 
+          Microsoft Entra ID has a fixed set of character, password strength, and account lockout requirements that apply equally to all Microsoft Entra cloud user accounts. Cloud user accounts are accounts that aren't federated with another identity provider, such as 
           * Microsoft account
           * Facebook
           * Active Directory Federation Services
@@ -148,34 +147,34 @@ sections:
       - question: |
           Where can I find a B2B collaboration community to share solutions and to submit ideas?
         answer: |
-          We're constantly listening to your feedback, to improve B2B collaboration. Please share your user scenarios, best practices, and what you like about Azure AD B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+          We're constantly listening to your feedback, to improve B2B collaboration. Please share your user scenarios, best practices, and what you like about Microsoft Entra B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
            
           We also invite you to submit your ideas and vote for future features at [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
           
       - question: |
           Can we send an invitation that is automatically redeemed, so that the user is just “ready to go”? Or does the user always have to click through to the redemption URL?
         answer: |
-          You can invite other users in the partner organization by using the UI, PowerShell scripts, or APIs. You can then send the guest user a direct link to a shared app. In most cases, there's no longer a need to open the email invitation and click a redemption URL. See [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md).
+          You can invite other users in the partner organization by using the UI, PowerShell scripts, or APIs. You can then send the guest user a direct link to a shared app. In most cases, there's no longer a need to open the email invitation and click a redemption URL. See [Microsoft Entra B2B collaboration invitation redemption](redemption-experience.md).
           
       - question: |
           How does B2B collaboration work when the invited partner is using federation to add their own on-premises authentication?
         answer: |
-          If the partner has an Azure AD tenant that is federated to the on-premises authentication infrastructure, on-premises single sign-on (SSO) is automatically achieved. If the partner doesn't have an Azure AD tenant, an Azure AD account is created for new users. 
+          If the partner has a Microsoft Entra tenant that is federated to the on-premises authentication infrastructure, on-premises single sign-on (SSO) is automatically achieved. If the partner doesn't have a Microsoft Entra tenant, a Microsoft Entra account is created for new users. 
 
       - question: |
-          I thought Azure AD B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
+          I thought Microsoft Entra B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
         answer: |
-          We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](external-identities-overview.md).
+          We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Microsoft Entra ID](external-identities-overview.md).
           
       - question: |
-          Can an Azure AD B2C local account be invited to an Azure AD tenant for B2B collaboration?
+          Can an Azure AD B2C local account be invited to a Microsoft Entra tenant for B2B collaboration?
         answer: |
-          No. An Azure AD B2C local account can only be used to sign in to the Azure AD B2C tenant. The account can't be used to sign into an Azure AD tenant. Inviting an Azure AD B2C local account to an Azure AD tenant for B2B collaboration isn't supported.
+          No. An Azure AD B2C local account can only be used to sign in to the Azure AD B2C tenant. The account can't be used to sign into a Microsoft Entra tenant. Inviting an Azure AD B2C local account to a Microsoft Entra tenant for B2B collaboration isn't supported.
 
       - question: |
           What applications and services support Azure B2B guest users?
         answer: |
-          All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
+          All Microsoft Entra integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
           
       - question: |
           Can we force multifactor authentication for B2B guest users if our partners don't have multifactor authentication?
@@ -185,21 +184,21 @@ sections:
       - question: |
           In SharePoint, you can define an "allow" or "deny" list for external users. Can we do this in Azure?
         answer: |
-          Yes. Azure AD B2B collaboration supports allowlists and blocklists. 
+          Yes. Microsoft Entra B2B collaboration supports allowlists and blocklists. 
 
       - question: |
-          What licenses do we need to use Azure AD B2B?
+          What licenses do we need to use Microsoft Entra B2B?
         answer: |
-          For information about what licenses your organization needs to use Azure AD B2B, see [External Identities pricing](external-identities-pricing.md).
+          For information about what licenses your organization needs to use Microsoft Entra B2B, see [External Identities pricing](external-identities-pricing.md).
 
       - question: |
           What happens if I invite a user whose email and UPN don’t match?
         answer: |
-          It depends. By default, Azure AD only allows UPN for login ID. When UPN and email are the same, Azure AD B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to sign in.
-          When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](redemption-experience.md#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Azure AD or a federated identity provider) is configured to allow email as an alternative login ID. 
+          It depends. By default, Microsoft Entra-only allows UPN for login ID. When UPN and email are the same, Microsoft Entra B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to sign in.
+          When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](redemption-experience.md#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Microsoft Entra ID or a federated identity provider) is configured to allow email as an alternative login ID. 
           This issue can be mitigated by:
-          1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Azure AD tenant
-          2. Enabling the federated identity provider to support email as login ID (if Azure AD is federated to another identity provider) or
+          1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Microsoft Entra tenant
+          2. Enabling the federated identity provider to support email as login ID (if Microsoft Entra ID is federated to another identity provider) or
           3. Instructing the user to redeem/sign-in using their UPN.
 
           To avoid this issue entirely, administrators should ensure users’ UPN and email are the same value.
@@ -221,4 +220,4 @@ additionalContent: |
 
   ## Next steps
   
-  [What is Azure AD B2B collaboration?](what-is-b2b.md)
+  [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)

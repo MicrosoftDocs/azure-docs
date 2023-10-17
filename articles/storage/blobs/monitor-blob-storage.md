@@ -5,7 +5,7 @@ recommendations: false
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 08/08/2023
 ms.author: normesta
@@ -172,7 +172,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### List the account-level metric definition
 

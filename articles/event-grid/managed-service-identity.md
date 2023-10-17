@@ -2,6 +2,7 @@
 title: Event delivery, managed service identity, and private link 
 description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 03/25/2021
 ---
 

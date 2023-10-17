@@ -1,6 +1,6 @@
 ---
 title: 'Properties of an enterprise application'
-description: Learn about the properties of an enterprise application in Azure Active Directory.
+description: Learn about the properties of an enterprise application in Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: jomondi
 ms.reviewer: ergreenl
 ms.custom: enterprise-apps
 
-#Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
 
 # Properties of an enterprise application
 
-This article describes the properties that you can configure for an enterprise application in your Azure Active Directory (Azure AD) tenant. To configure the properties, see [Configure enterprise application properties](add-application-portal-configure.md).
+This article describes the properties that you can configure for an enterprise application in your Microsoft Entra tenant. To configure the properties, see [Configure enterprise application properties](add-application-portal-configure.md).
 
 ## Enabled for users to sign in?
 
@@ -34,13 +34,13 @@ It's recommended that you choose a name that users can understand. This is impor
 
 ## Homepage URL
 
-If the application is custom-developed, the homepage URL is the URL that a user can use to sign in to the application. For example, it's the URL that is launched when the application is selected in the My Apps portal. If this application is from the Azure AD Gallery, this URL is where you can go to learn more about the application or its vendor.
+If the application is custom-developed, the homepage URL is the URL that a user can use to sign in to the application. For example, it's the URL that is launched when the application is selected in the My Apps portal. If this application is from the Microsoft Entra Gallery, this URL is where you can go to learn more about the application or its vendor.
 
 The homepage URL can't be edited within enterprise applications. The homepage URL must be edited on the application object.
 
 ## Logo
 
-This is the application logo that users see on the My Apps portal and the Office 365 application launcher. Administrators also see the logo in the Azure AD gallery.
+This is the application logo that users see on the My Apps portal and the Office 365 application launcher. Administrators also see the logo in the Microsoft Entra gallery.
 
 Custom logos must be exactly 215x215 pixels in size and be in the PNG format. You should use a solid color background with no transparency in your application logo. The logo file size can't be over 100 KB.
 
@@ -70,7 +70,7 @@ This option only applies to the following types of applications and services:
 - OpenID Connect
 - OAuth 2.0
 - WS-Federation for user sign
-- Application Proxy applications with Azure AD preauthentication enabled
+- Application Proxy applications with Microsoft Entra preauthentication enabled
 - Applications or services for which other applications or service are requesting access tokens
 
 ## Visible to users

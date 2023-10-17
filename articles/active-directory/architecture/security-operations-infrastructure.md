@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory security operations for infrastructure
+title: Microsoft Entra security operations for infrastructure
 description: Learn how to monitor and alert on infrastructure components to identify security threats.
 services: active-directory
 author: janicericketts
@@ -26,9 +26,9 @@ Infrastructure has many components where vulnerabilities can occur if not proper
 
 * Subscriptions
 
-Monitoring and alerting the components of your authentication infrastructure is critical. Any compromise can lead to a full compromise of the whole environment. Many enterprises that use Azure AD operate in a hybrid authentication environment. Cloud and on-premises components should be included in your monitoring and alerting strategy. Having a hybrid authentication environment also introduces another attack vector to your environment.
+Monitoring and alerting the components of your authentication infrastructure is critical. Any compromise can lead to a full compromise of the whole environment. Many enterprises that use Microsoft Entra ID operate in a hybrid authentication environment. Cloud and on-premises components should be included in your monitoring and alerting strategy. Having a hybrid authentication environment also introduces another attack vector to your environment.
 
-We recommend all the components be considered Control Plane / Tier 0 assets, and the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
+We recommend all the components be considered Control Plane / Tier 0 assets, and the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for a Microsoft Entra tenant.
 
 A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
 
@@ -36,7 +36,7 @@ A first step in being able to detect unexpected events and potential attacks is 
 
 The log files you use for investigation and monitoring are:
 
-* [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
+* [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
@@ -44,7 +44,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-From the Azure portal, you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
@@ -52,7 +52,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
@@ -80,28 +80,28 @@ The following are links to specific articles that focus on monitoring and alerti
 
 | What to monitor| Risk level| Where| Notes |
 | - | - | - | - |
-| Extranet lockout trends| High| Azure AD Connect Health| See, [Monitor AD FS using Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lock-out trends. |
+| Extranet lockout trends| High| Microsoft Entra Connect Health| See, [Monitor AD FS using Microsoft Entra Connect Health](../hybrid/connect/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lock-out trends. |
 | Failed sign-ins|High | Connect Health Portal| Export or download the Risky IP report and follow the guidance at [Risky IP report (public preview)](../hybrid/connect/how-to-connect-health-adfs-risky-ip.md) for next steps. |
-| In privacy compliant| Low| Azure AD Connect Health| Configure Azure AD Connect Health to disable data collections and monitoring using the [User privacy and Azure AD Connect Health](../hybrid/connect/reference-connect-health-user-privacy.md) article. |
+| In privacy compliant| Low| Microsoft Entra Connect Health| Configure Microsoft Entra Connect Health to disable data collections and monitoring using the [User privacy and Microsoft Entra Connect Health](../hybrid/connect/reference-connect-health-user-privacy.md) article. |
 | Potential brute force attack on LDAP| Medium| Microsoft Defender for Identity| Use sensor to help detect potential brute force attacks against LDAP. |
 | Account enumeration reconnaissance| Medium| Microsoft Defender for Identity| Use sensor to help perform account enumeration reconnaissance. |
-| General correlation between Azure AD and Azure AD FS|Medium | Microsoft Defender for Identity| Use capabilities to correlate activities between your Azure AD and Azure AD FS environments. |
+| General correlation between Microsoft Entra ID and Azure AD FS|Medium | Microsoft Defender for Identity| Use capabilities to correlate activities between your Microsoft Entra ID and Azure AD FS environments. |
 
 ### Pass-through authentication monitoring
 
-Azure Active Directory (Azure AD) Pass-through Authentication signs users in by validating their passwords directly against on-premises Active Directory.
+Microsoft Entra pass-through authentication signs users in by validating their passwords directly against on-premises Active Directory.
 
 The following are specific things to look for:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80001 – Unable to connect to Active Directory| Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they can connect to Active Directory. |
-| Azure AD pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS8002 - A timeout occurred connecting to Active Directory| Check to ensure that Active Directory is available and is responding to requests from the agents. |
-| Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80004 - The username passed to the agent was not valid| Ensure the user is attempting to sign in with the right username. |
-| Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80005 - Validation encountered unpredictable WebException| A transient error. Retry the request. If it continues to fail, contact Microsoft support. |
-| Azure AD pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80007 - An error occurred communicating with Active Directory| Check the agent logs for more information and verify that Active Directory is operating as expected. |
-| Azure AD pass-through authentication errors|High | Win32 LogonUserA function API| Log on events 4624(s): An account was successfully logged on<br>- correlate with –<br>4625(F): An account failed to log on| Use with the suspected usernames on the domain controller that is authenticating requests. Guidance at [LogonUserA function (winbase.h)](/windows/win32/api/winbase/nf-winbase-logonusera) |
-| Azure AD pass-through authentication errors| Medium| PowerShell script of domain controller| See the query after the table. | Use the information at [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/connect/tshoot-connect-pass-through-authentication.md)for guidance. |
+| Microsoft Entra pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80001 – Unable to connect to Active Directory| Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they can connect to Active Directory. |
+| Microsoft Entra pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS8002 - A timeout occurred connecting to Active Directory| Check to ensure that Active Directory is available and is responding to requests from the agents. |
+| Microsoft Entra pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80004 - The username passed to the agent was not valid| Ensure the user is attempting to sign in with the right username. |
+| Microsoft Entra pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80005 - Validation encountered unpredictable WebException| A transient error. Retry the request. If it continues to fail, contact Microsoft support. |
+| Microsoft Entra pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80007 - An error occurred communicating with Active Directory| Check the agent logs for more information and verify that Active Directory is operating as expected. |
+| Microsoft Entra pass-through authentication errors|High | Win32 LogonUserA function API| Log on events 4624(s): An account was successfully logged on<br>- correlate with –<br>4625(F): An account failed to log on| Use with the suspected usernames on the domain controller that is authenticating requests. Guidance at [LogonUserA function (winbase.h)](/windows/win32/api/winbase/nf-winbase-logonusera) |
+| Microsoft Entra pass-through authentication errors| Medium| PowerShell script of domain controller| See the query after the table. | Use the information at [Microsoft Entra Connect: Troubleshoot Pass-through Authentication](../hybrid/connect/tshoot-connect-pass-through-authentication.md)for guidance. |
 
 ```Kusto
 
@@ -116,19 +116,21 @@ The following are specific things to look for:
 </QueryList>
 ```
 
-## Monitoring for creation of new Azure AD tenants
+<a name='monitoring-for-creation-of-new-azure-ad-tenants'></a>
 
-Organizations might need to monitor for and alert on the creation of new Azure AD tenants when the action is initiated by identities from their organizational tenant. Monitoring for this scenario provides visibility on how many tenants are being created and could be accessed by end users.
+## Monitoring for creation of new Microsoft Entra tenants
+
+Organizations might need to monitor for and alert on the creation of new Microsoft Entra tenants when the action is initiated by identities from their organizational tenant. Monitoring for this scenario provides visibility on how many tenants are being created and could be accessed by end users.
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Creation of a new Azure AD tenant, using an identity from your tenant. | Medium | Azure AD Audit logs | Category: Directory Management<br><br>Activity: Create Company | Target(s) shows the created TenantID |
+| Creation of a new Microsoft Entra tenant, using an identity from your tenant. | Medium | Microsoft Entra audit logs | Category: Directory Management<br><br>Activity: Create Company | Target(s) shows the created TenantID |
 
 ### AppProxy Connector
 
-Azure AD and Azure AD Application Proxy give remote users a single sign-on (SSO) experience. Users securely connect to on-premises apps without a virtual private network (VPN) or dual-homed servers and firewall rules. If your Azure AD Application Proxy connector server is compromised, attackers could alter the SSO experience or change access to published applications.
+Microsoft Entra ID and Microsoft Entra application proxy give remote users a single sign-on (SSO) experience. Users securely connect to on-premises apps without a virtual private network (VPN) or dual-homed servers and firewall rules. If your Microsoft Entra application proxy connector server is compromised, attackers could alter the SSO experience or change access to published applications.
 
-To configure monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Azure AD audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
+To configure monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
@@ -140,39 +142,41 @@ To configure monitoring for Application Proxy, see [Troubleshoot Application Pro
 
 For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols the preferred entry points for attackers. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302).
 
-Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
+Legacy authentication is captured in the Microsoft Entra sign-in log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Microsoft Entra reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Legacy authentications|High | Azure AD Sign-ins log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications aren't recorded and don't appear in the log. |
+| Legacy authentications|High | Microsoft Entra sign-in log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications aren't recorded and don't appear in the log. |
 
-## Azure AD Connect
+<a name='azure-ad-connect'></a>
 
-Azure AD Connect provides a centralized location that enables account and attribute synchronization between your on-premises and cloud-based Azure AD environment. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. It provides the following features:
+## Microsoft Entra Connect
 
-* [Password hash synchronization](../hybrid/connect/whatis-phs.md) - A sign-in method that synchronizes a hash of a user’s on-premises AD password with Azure AD.
+Microsoft Entra Connect provides a centralized location that enables account and attribute synchronization between your on-premises and cloud-based Microsoft Entra environment. Microsoft Entra Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. It provides the following features:
+
+* [Password hash synchronization](../hybrid/connect/whatis-phs.md) - A sign-in method that synchronizes a hash of a user’s on-premises AD password with Microsoft Entra ID.
 
 * [Synchronization](../hybrid/connect/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects. And, making sure identity information for your on-premises users and groups matches the cloud. This synchronization also includes password hashes.
 
-* [Health Monitoring](../hybrid/connect/whatis-azure-ad-connect.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.
+* [Health Monitoring](../hybrid/connect/whatis-azure-ad-connect.md) - Microsoft Entra Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.
 
 Synchronizing identity between your on-premises environment and your cloud environment introduces a new attack surface for your on-premises and cloud-based environment. We recommend:
 
-* You treat your Azure AD Connect primary and staging servers as Tier 0 Systems in your control plane.
+* You treat your Microsoft Entra Connect primary and staging servers as Tier 0 Systems in your control plane.
 
 * You follow a standard set of policies that govern each type of account and its usage in your environment.
 
-* You install Azure AD Connect and Connect Health. These primarily provide operational data for the environment.
+* You install Microsoft Entra Connect and Connect Health. These primarily provide operational data for the environment.
 
-Logging of Azure AD Connect operations occurs in different ways:
+Logging of Microsoft Entra Connect operations occurs in different ways:
 
-* The Azure AD Connect wizard logs data to \ProgramData\AADConnect . Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
+* The Microsoft Entra Connect wizard logs data to `\ProgramData\AADConnect`. Each time the wizard is invoked, a timestamped trace log file is created. The trace log can be imported into Sentinel or other 3<sup data-htmlnode="">rd</sup> party security information and event management (SIEM) tools for analysis.
 
 * Some operations initiate a PowerShell script to capture logging information. To collect this data, you must make sure script block logging in enabled.
 
 ### Monitoring configuration changes
 
-Azure AD uses Microsoft SQL Server Data Engine or SQL to store Azure AD Connect configuration information. Therefore, monitoring and auditing of the log files associated with configuration should be included in your monitoring and auditing strategy. Specifically, include the following tables in your monitoring and alerting strategy.
+Microsoft Entra ID uses Microsoft SQL Server Data Engine or SQL to store Microsoft Entra Connect configuration information. Therefore, monitoring and auditing of the log files associated with configuration should be included in your monitoring and auditing strategy. Specifically, include the following tables in your monitoring and alerting strategy.
 
 | What to monitor| Where| Notes |
 | - | - | - |
@@ -188,22 +192,22 @@ For information on what and how to monitor configuration information refer to:
 
 * For Microsoft Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/connect/whatis-azure-ad-connect.md)
+* For information on configuring and using Microsoft Entra Connect, see [What is Microsoft Entra Connect?](../hybrid/connect/whatis-azure-ad-connect.md)
 
 ### Monitoring and troubleshooting synchronization
 
- One function of Azure AD Connect is to synchronize hash synchronization between a user’s on-premises password and Azure AD. If passwords aren't synchronizing as expected, the synchronization might affect a subset of users or all users. Use the following to help verify proper operation or troubleshoot issues:
+ One function of Microsoft Entra Connect is to synchronize hash synchronization between a user’s on-premises password and Microsoft Entra ID. If passwords aren't synchronizing as expected, the synchronization might affect a subset of users or all users. Use the following to help verify proper operation or troubleshoot issues:
 
-* Information for checking and troubleshooting hash synchronization, see [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md).
+* Information for checking and troubleshooting hash synchronization, see [Troubleshoot password hash synchronization with Microsoft Entra Connect Sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md).
 
-* Modifications to the connector spaces, see [Troubleshoot Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes).
+* Modifications to the connector spaces, see [Troubleshoot Microsoft Entra Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes).
 
 **Important resources on monitoring**
 
 | What to monitor | Resources |
 | - | - |
-| Hash synchronization validation|See [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md) |
- Modifications to the connector spaces|see [Troubleshoot Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) |
+| Hash synchronization validation|See [Troubleshoot password hash synchronization with Microsoft Entra Connect Sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md) |
+ Modifications to the connector spaces|see [Troubleshoot Microsoft Entra Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) |
 | Modifications to rules you configured| Monitor changes to: filtering, domain and OU, attribute, and group-based changes |
 | SQL and MSDE changes | Changes to logging parameters and addition of custom functions |
 
@@ -212,7 +216,7 @@ For information on what and how to monitor configuration information refer to:
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
 | Scheduler changes|High | PowerShell| Set-ADSyncScheduler| Look for modifications to schedule |
-| Changes to scheduled tasks| High | Azure AD Audit logs| Activity = 4699(S): A scheduled task was deleted<br>-or-<br>Activity = 4701(s): A scheduled task was disabled<br>-or-<br>Activity = 4702(s): A scheduled task was updated| Monitor all |
+| Changes to scheduled tasks| High | Microsoft Entra audit logs| Activity = 4699(S): A scheduled task was deleted<br>-or-<br>Activity = 4701(s): A scheduled task was disabled<br>-or-<br>Activity = 4702(s): A scheduled task was updated| Monitor all |
 
 * For more information on logging PowerShell script operations, see [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
@@ -220,13 +224,13 @@ For information on what and how to monitor configuration information refer to:
 
 ### Monitoring seamless single sign-on
 
-Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without other on-premises components. SSO uses the pass-through authentication and password hash synchronization capabilities provided by Azure AD Connect.
+Microsoft Entra seamless single sign-on (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without other on-premises components. SSO uses the pass-through authentication and password hash synchronization capabilities provided by Microsoft Entra Connect.
 
 Monitoring single sign-on and Kerberos activity can help you detect general credential theft attack patterns. Monitor using the following information:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Errors associated with SSO and Kerberos validation failures|Medium | Azure AD Sign-ins log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
+| Errors associated with SSO and Kerberos validation failures|Medium | Microsoft Entra sign-in log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
 | Query for troubleshooting errors|Medium | PowerShell| See query following table. check in each forest with SSO enabled.| Check in each forest with SSO enabled. |
 | Kerberos-related events|High | Microsoft Defender for Identity monitoring| | Review guidance available at [Microsoft Defender for Identity Lateral Movement Paths (LMPs)](/defender-for-identity/use-case-lateral-movement-path) |
 
@@ -244,11 +248,11 @@ Monitoring single sign-on and Kerberos activity can help you detect general cred
 
 ## Password protection policies
 
-If you deploy Azure AD Password Protection, monitoring and reporting are essential tasks. The following links provide details to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
+If you deploy Microsoft Entra Password Protection, monitoring and reporting are essential tasks. The following links provide details to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Microsoft Entra Password Protection.
 
 The domain controller (DC) agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software doesn't install a PowerShell module.
 
-Detailed information for planning and implementing on-premises password protection is available at [Plan and deploy on-premises Azure Active Directory Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md). For monitoring details, see [Monitor on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-monitor.md). On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to the following local event log:
+Detailed information for planning and implementing on-premises password protection is available at [Plan and deploy on-premises Microsoft Entra Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md). For monitoring details, see [Monitor on-premises Microsoft Entra Password Protection](../authentication/howto-password-ban-bad-on-premises-monitor.md). On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to the following local event log:
 
 * \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
 
@@ -256,16 +260,17 @@ Detailed information for planning and implementing on-premises password protecti
 
 * \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
 
-The DC agent Admin log is the primary source of information for how the software is behaving. By default, the Trace log is off and must be enabled before data is logged. To troubleshoot application proxy problems and error messages, detailed information is available at [Troubleshoot Azure Active Directory Application Proxy](../app-proxy/application-proxy-troubleshoot.md). Information for these events is logged in:
+The DC agent Admin log is the primary source of information for how the software is behaving. By default, the Trace log is off and must be enabled before data is logged. To troubleshoot application proxy problems and error messages, detailed information is available at [Troubleshoot Microsoft Entra application proxy](../app-proxy/application-proxy-troubleshoot.md). Information for these events is logged in:
 
 * Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin
 
-* Azure AD Audit Log, Category Application Proxy
+* Microsoft Entra audit log, Category Application Proxy
 
-Complete reference for Azure AD audit activities is available at [Azure Active Directory (Azure AD) audit activity reference](../reports-monitoring/reference-audit-activities.md).
+Complete reference for Microsoft Entra audit activities is available at [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md).
 
 ## Conditional Access
-In Azure AD, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure your Conditional Access policies work as expected to ensure that your resources are protected. Monitoring and alerting on changes to the Conditional Access service ensures policies defined by your organization for access to data are enforced. Azure AD logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
+
+In Microsoft Entra ID, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure your Conditional Access policies work as expected to ensure that your resources are protected. Monitoring and alerting on changes to the Conditional Access service ensures policies defined by your organization for access to data are enforced. Microsoft Entra logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
 
 **Workbook Links**
 
@@ -277,15 +282,15 @@ Monitor changes to Conditional Access policies using the following information:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| New Conditional Access Policy created by non-approved actors|Medium | Azure AD Audit logs|Activity: Add Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name | Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
-|Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Delete Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-|Conditional Access Policy updated by non-approved actors|Medium|Azure AD Audit logs|Activity: Update Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-|Removal of a user from a group used to scope critical Conditional Access policies|Medium|Azure AD Audit logs|Activity: Remove member from group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been removed.<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
-|Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| New Conditional Access Policy created by non-approved actors|Medium | Microsoft Entra audit logs|Activity: Add Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name | Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+|Conditional Access Policy removed by non-approved actors|Medium|Microsoft Entra audit logs|Activity: Delete Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+|Conditional Access Policy updated by non-approved actors|Medium|Microsoft Entra audit logs|Activity: Update Conditional Access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ConditionalAccessPolicyModifiedbyNewUser.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+|Removal of a user from a group used to scope critical Conditional Access policies|Medium|Microsoft Entra audit logs|Activity: Remove member from group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been removed.<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+|Addition of a user to a group used to scope critical Conditional Access policies|Low|Microsoft Entra audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Next steps
 
-[Azure AD security operations overview](security-operations-introduction.md)
+[Microsoft Entra security operations overview](security-operations-introduction.md)
 
 [Security operations for user accounts](security-operations-user-accounts.md)
 

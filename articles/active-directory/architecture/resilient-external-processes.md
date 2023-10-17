@@ -34,7 +34,7 @@ Identity experience framework (IEF) policies allow you to call an external syste
 
 - Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either After federating with an identity provider during sign-up or before creating the user. Since the user flows are already extensively tested, it's likely that you don't have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
 
-- Azure AD RESTful API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTful API profile implements a retry logic and a timeout that is built into the policy.
+- Azure AD B2C RESTful API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTful API profile implements a retry logic and a timeout that is built into the policy.
 
 - For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](../../storage/queues/storage-queues-introduction.md) can be used. This practice will make the API return efficiently and increase the policy execution performance.  
 

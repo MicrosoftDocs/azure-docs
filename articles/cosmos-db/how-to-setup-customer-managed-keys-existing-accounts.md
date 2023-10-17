@@ -57,7 +57,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
 
 
-1. Configure managed identity to your cosmos account [Configure managed identities with Azure AD for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
+1. Configure managed identity to your cosmos account [Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
 
 1. Update cosmos account to set default identity to point to managed identity added in previous step
 
@@ -90,7 +90,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
 ## Monitor the progress of the resulting encryption
 
-Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](https://learn.microsoft.com/azure/azure-resource-manager/management/async-operations) article.
+Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](/azure/azure-resource-manager/management/async-operations) article.
 
 The Cosmos DB account can continue to be used and data can continue to be written without waiting for the asynchronous operation to succeed. CLI command for enabling CMK waits for the completion of encryption of data.
 

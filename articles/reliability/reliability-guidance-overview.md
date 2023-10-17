@@ -36,7 +36,7 @@ Azure reliability guidance contains the following:
 [Azure SQL](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Storage: Blob Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Storage Mover](reliability-azure-storage-mover.md)|
-[Azure Virtual Machine Scale Sets](../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+[Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)|
 [Azure Virtual Machines](reliability-virtual-machines.md)|
 [Azure Virtual Machines Image Builder](reliability-image-builder.md)|
 [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|

@@ -28,7 +28,7 @@ To give a user or a group the access to a data catalog and set permissions:
 
 3. Select **Add**.
 
-4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Azure Active Directory (Azure AD) associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
+4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Entra ID associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
 
    :::image type="content" source="media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png" alt-text="Example user name and security groups added in the space, with a comma separating the two.":::
 

@@ -6,9 +6,9 @@ manager: nitinme
 ms.custom: seodec18
 ms.author: aahi
 author: aahill
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.date: 04/14/2021
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: include
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Create an Azure AD app and service principal in the portal
-description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
+title: Create a Microsoft Entra app and service principal in the portal
+description: Create a new Microsoft Entra app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -13,34 +13,35 @@ ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps, devx-track-arm-template
 ---
 
-# Create an Azure Active Directory application and service principal that can access resources
+# Create a Microsoft Entra application and service principal that can access resources
 
-In this article, you'll learn how to create an Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you register a new application in Azure AD, a service principal is automatically created for the app registration. The service principal is the app's identity in the Azure AD tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
+In this article, you'll learn how to create a Microsoft Entra application and service principal that can be used with the role-based access control. When you register a new application in Microsoft Entra ID, a service principal is automatically created for the app registration. The service principal is the app's identity in the Microsoft Entra tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
 
 In this article, you'll create a single tenant application in the Azure portal. This example is applicable for line-of-business applications used within one organization. You can also [use Azure PowerShell](howto-authenticate-service-principal-powershell.md) or the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
 
 > [!IMPORTANT]
-> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Microsoft Entra authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
-For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
+For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Microsoft Entra ID](app-objects-and-service-principals.md).
 
 ## Prerequisites
 
-To register an application in your Azure AD tenant, you need:
+To register an application in your Microsoft Entra tenant, you need:
 
-- An Azure AD user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Permissions required for registering an app
 
-You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription. To complete these tasks, you require `Application.ReadWrite.All`permission.
+You must have sufficient permissions to register an application with your Microsoft Entra tenant, and assign to the application a role in your Azure subscription. To complete these tasks, you require `Application.ReadWrite.All`permission.
 
-## Register an application with Azure AD and create a service principal
+<a name='register-an-application-with-azure-ad-and-create-a-service-principal'></a>
+
+## Register an application with Microsoft Entra ID and create a service principal
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and Select **Azure Active Directory**.
-1. Select **App registrations**, then select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **App registrations** then select **New registration**.
 1. Name the application, for example "example-app". 
 1. Select a supported account type, which determines who can use the application. 
 1. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to.
@@ -48,7 +49,7 @@ You must have sufficient permissions to register an application with your Azure 
 
    :::image type="content" source="media/howto-create-service-principal-portal/create-app.png" alt-text="Type a name for your application.":::
 
-You've created your Azure AD application and service principal.
+You've created your Microsoft Entra application and service principal.
 
 ## Assign a role to the application
 
@@ -63,7 +64,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 1. In the **Role** tab, select the role you wish to assign to the application in the list. For example, to allow the application to execute actions like reboot, start and stop instances, select the **Contributor** role.
 1. Select the **Next**.
 1. On the **Members** tab. Select **Assign access to**, then select **User, group, or service principal**
-1. Select **Select members**. By default, Azure AD applications aren't displayed in the available options. To find your application, Search for it by its name. 
+1. Select **Select members**. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, Search for it by its name. 
 1. Select the **Select** button, then select **Review + assign**.
 
     :::image type="content" source="media/howto-create-service-principal-portal/add-role-assignment.png" alt-text="Screenshot showing role assignment.":::
@@ -76,8 +77,7 @@ The next section shows how to get values that are needed when signing in program
 
 When programmatically signing in, pass the tenant ID and the application ID in your authentication request. You also need a certificate or an authentication key. To obtain the directory (tenant) ID and application ID:
 
-1. Search for select **Azure Active Directory**.
-1. From **App registrations** in Azure AD, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. On the app's overview page, copy the Directory (tenant) ID value and store it in your application code.
 1. Copy the Application (client) ID value and store it in your application code.
 
@@ -89,8 +89,7 @@ There are two types of authentication available for service principals: password
 
 To upload the certificate file:
 
-1. Search for and select **Azure Active Directory**.
-1. From **App registrations** in Azure AD, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
 1. Select **Certificates**, then select **Upload certificate** and then select the certificate file to upload.
 1. Select **Add**. Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
@@ -114,26 +113,24 @@ Export this certificate to a file using the [Manage User Certificate](/dotnet/fr
 
 To upload the certificate:
 
-1. Search for and select **Azure Active Directory**.
-1. From **App registrations** in Azure AD, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
 1. Select **Certificates**, then select **Upload certificate** and then select the certificate (an existing certificate or the self-signed certificate you exported).
 1. Select **Add**.
 
 After registering the certificate with your application in the application registration portal, enable the [confidential client application](authentication-flows-app-scenarios.md#single-page-public-client-and-confidential-client-applications) code to use the certificate.
 
-### Option 3: Create a new application secret
+### Option 3: Create a new client secret
 
-If you choose not to use a certificate, you can create a new application secret.
+If you choose not to use a certificate, you can create a new client secret.
 
-1. Search for and select **Azure Active Directory**.
-1. Select **App registrations** and select your application from the list.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
 1. Select **Client secrets**, and then Select **New client secret**.
 1. Provide a description of the secret, and a duration.
 1. Select **Add**.
 
-Once you've saved the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. You'll provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+Once you've saved the client secret, the value of the client secret is displayed. This is only displayed once, so copy this value and store it where your application can retrieve it, usually where your application keeps values like `clientId`, or `authoruty` in the source code. You'll provide the secret value along with with the application's client ID to sign in as the application.
 
    :::image type="content" source="media/howto-create-service-principal-portal/copy-secret.png" alt-text="Screenshot showing the client secret.":::
 
@@ -145,7 +142,7 @@ To configure access policies:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your key vault and select **Access policies**.
-1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
+1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application. Select the service principal you created previously.
 1. Select **Add** to add the access policy.
 1. **Save**.
 

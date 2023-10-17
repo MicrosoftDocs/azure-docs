@@ -133,20 +133,20 @@
       items:
         - name: React
           items:
-          - name: 1 - Register your app
-            href: single-page-app-tutorial-01-register-app.md
-          - name: 2 - Prepare your app
-            href: single-page-app-tutorial-02-prepare-spa.md
-          - name: 3 - Sign in users
-            href: single-page-app-tutorial-03-sign-in-users.md
-          - name: 4 - Get user data from web API
-            href: single-page-app-tutorial-04-call-api.md
+          - name: Register your app
+            href: tutorial-single-page-app-react-register-app.md
+          - name: Prepare your app
+            href: tutorial-single-page-app-react-prepare-spa.md
+          - name: Sign in users
+            href: tutorial-single-page-app-react-sign-in-users.md
+          - name: Get user data from web API
+            href: tutorial-single-page-app-react-call-api.md
         - name: Angular
           href: tutorial-v2-angular-auth-code.md
-        - name: Blazor WebAssembly
-          href: tutorial-blazor-webassembly.md
         - name: JavaScript
           href: tutorial-v2-javascript-auth-code.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#single-page-applications
@@ -465,7 +465,7 @@
           href: reference-v2-libraries.md
         - name: Prepare for development
           items:
-            - name: Get an Azure AD tenant
+            - name: Get a Microsoft Entra tenant
               href: quickstart-create-new-tenant.md
             - name: Register app or web API
               href: quickstart-register-app.md
@@ -600,7 +600,7 @@
           items:
             - name: Publish to App Source
               href: v2-howto-get-appsource-certified.md
-            - name: Publish to Azure AD App Gallery
+            - name: Publish to Microsoft Entra App Gallery
               href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Publish to Microsoft 365 App Stores
               href: /office/dev/store/add-in-submission-guide
@@ -643,6 +643,8 @@
         - name: National clouds and MSAL
           displayName: china, germany, gov, 21vianet
           href: msal-national-cloud.md
+        - name: Application configuration
+          href: msal-client-application-configuration.md
         - name: MSAL Android
           items:
             - name: Library initialization
@@ -708,20 +710,7 @@
             - name: Migrate to MSAL.iOS / macOS
               href: migrate-objc-adal-msal.md
         - name: MSAL Java
-          items:
-            - name: Custom token cache serialization
-              href: msal-java-token-cache-serialization.md
-            - name: Get and remove accounts from the token cache
-              href: msal-java-get-remove-accounts-token-cache.md
-            - name: Migrate to MSAL for Java
-              href: migrate-adal-msal-java.md
-            - name: AD FS support in MSAL for Java
-              href: msal-java-adfs-support.md
-            - name: Handle errors and exceptions in MSAL for Java
-              displayName: handling, catch
-              href: msal-error-handling-java.md
-            - name: Logging in MSAL for Java
-              href: msal-logging-java.md
+          href: /entra/msal/java
         - name: MSAL.js
           displayName: Angular, JavaScript, Node.js, React
           items:
@@ -761,66 +750,12 @@
                   href: msal-js-known-issues-ie-edge-browsers.md
         - name: MSAL.NET
           displayName: ASP.NET Core, Xamarin
-          items:
-            - name: Library initialization
-              items:
-                - name: Microsoft.Identity.Web (MSAL wrapper)
-                  displayName: auth, library, .NET Core, msal
-                  href: microsoft-identity-web.md
-                - name: Application configuration
-                  href: msal-client-application-configuration.md
-                - name: Application initialization
-                  href: msal-net-initializing-client-applications.md
-                - name: Confidential client instantiation
-                  href: msal-net-instantiate-confidential-client-config-options.md
-                - name: Confidential client credentials (cert, secret, assertion)
-                  displayName: certificate
-                  href: msal-net-client-assertions.md
-                - name: Public client instantiation
-                  href: msal-net-instantiate-public-client-config-options.md
-                - name: Instantiation with custom HttpClient
-                  href: msal-net-provide-httpclient.md
-                - name: Web browser interaction (system and embedded)
-                  href: msal-net-web-browsers.md
-                - name: Universal Windows Platform
-                  href: msal-net-uwp-considerations.md
-            - name: Authentication and single sign-on (SSO)
-              displayName: caching, token caching, caching tokens
-              items:
-                - name: Get a token from the cache
-                  displayName: acquire access token
-                  href: msal-net-acquire-token-silently.md
-                - name: Clear the token cache
-                  href: msal-net-clear-token-cache.md
-                - name: Serialize the token cache
-                  displayName: serialization
-                  href: msal-net-token-cache-serialization.md
-                - name: Get consent for several resources
-                  href: msal-net-user-gets-consent-for-multiple-resources.md
-            - name: Connections and integrations
-              items:
-                - name: Integrate with AD FS
-                  href: msal-net-adfs-support.md
-                - name: Integrate with Azure AD B2C
-                  href: msal-net-b2c-considerations.md
-            - name: Logging and error handling
-              displayName: MSAL.NET
-              items:
-                - name: Handle errors and exceptions in MSAL.NET
-                  displayName: handling, catch
-                  href: msal-error-handling-dotnet.md
-                - name: Logging in MSAL.NET
-                  href: msal-logging-dotnet.md
-            - name: Migration to MSAL.NET
-              items:
-                - name: Migrate from ADAL.NET to MSAL.NET
-                  href: msal-net-migration.md
-                - name: Migrate confidential client apps to MSAL.NET
-                  href: msal-net-migration-confidential-client.md
-                - name: Migrate public client apps to MSAL.NET
-                  href: msal-net-migration-public-client.md
-                - name: Differences between ADAL.NET and MSAL.NET
-                  href: msal-net-differences-adal-net.md
+          href: /entra/msal/dotnet
+        - name: Microsoft.Identity.Web (MSAL wrapper)
+          displayName: auth, library, .NET Core, msal
+          href: /entra/msal/dotnet/microsoft-identity-web/
+        - name: Application configuration
+          href: msal-client-application-configuration.md
         - name: MSAL Node
           displayName: Node.js
           items:
@@ -830,18 +765,7 @@
               displayName: persistent, serialize, deserialize
               href: msal-node-extensions.md
         - name: MSAL Python
-          items:
-            - name: Custom token cache serialization
-              href: msal-python-token-cache-serialization.md
-            - name: Migrate to MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: AD FS support in MSAL Python
-              href: msal-python-adfs-support.md
-            - name: Handle errors and exceptions in MSAL for Python
-              displayName: handling, catch
-              href: msal-error-handling-python.md
-            - name: Logging in MSAL for Python
-              href: msal-logging-python.md
+          href: /entra/msal/python/
     - name: Protocol reference (OAuth, OIDC, SAML)
       items:
         - name: OAuth 2.0 and OpenID Connect (OIDC)
@@ -875,7 +799,7 @@
               href: userinfo.md            
         - name: SAML 2.0
           items:
-            - name: How Azure AD uses the SAML protocol
+            - name: How Microsoft Entra ID uses the SAML protocol
               href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
@@ -884,6 +808,10 @@
               href: single-sign-out-saml-protocol.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
+        - name: WS-Federation
+          items:
+          - name: Federation metadata
+            href: federation-metadata.md
     - name: App registration reference
       items:
         - name: Application manifest
@@ -924,7 +852,7 @@
       href: identity-videos.md
     - name: "Blog: Microsoft 365 Developer - Microsoft identity platform"
       href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
-    - name: "Blog: Azure AD - Identity"
+    - name: "Blog: Microsoft Entra ID - Identity"
       href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
     - name: Azure roadmap - security and identity
       href: https://azure.microsoft.com/roadmap/?category=security-identity

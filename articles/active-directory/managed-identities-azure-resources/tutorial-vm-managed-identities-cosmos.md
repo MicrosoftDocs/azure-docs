@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 # How to use managed identities to connect to Azure Cosmos DB from an Azure virtual machine
 
-In this article, we set up a virtual machine to use managed identities to connect to Azure Cosmos DB. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Azure AD authentication using an identity managed by Azure.
+In this article, we set up a virtual machine to use managed identities to connect to Azure Cosmos DB. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Microsoft Entra authentication using an identity managed by Azure.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ For this tutorial, you need an Azure virtual machine(VM). Create a virtual machi
 
 ### Create a VM with a system-assigned managed identity
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra role assignments are required.
 
 # [Portal](#tab/azure-portal)
 
@@ -152,7 +152,7 @@ Create a Linux virtual machine with a user assigned managed identity specified.
 ```powershell
 New-AzVm `
     -Name "<Linux VM name>" `
-    -image CentOS
+    -image CentOS85Gen2
     -ResourceGroupName "<Your resource group>" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
@@ -214,7 +214,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
 
 >[!NOTE]
-> Managed identities may be used to access any Azure resource that supports Azure Active Directory authentication. This tutorial assumes that your Azure Cosmos DB account will be configured as shown below.
+> Managed identities may be used to access any Azure resource that supports Microsoft Entra authentication. This tutorial assumes that your Azure Cosmos DB account will be configured as shown below.
 
  |Setting|Value|Description |
    |---|---|---|

@@ -5,12 +5,11 @@ description: Learn how to create an encryption scope to isolate blob data at the
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.date: 05/10/2023
 ms.topic: conceptual
 ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
@@ -258,7 +257,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 To create a container with a default encryption scope with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command, specifying the scope for the `--default-encryption-scope` parameter. To force all blobs in a container to use the container's default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
 
-The following example uses your Azure AD account to authorize the operation to create the container. You can also use the account access key. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+The following example uses your Microsoft Entra account to authorize the operation to create the container. You can also use the account access key. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \

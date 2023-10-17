@@ -34,11 +34,15 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-kubernetes-cluster-deployment-powershell.md
     - name: Deploy Nexus Virtual Machine
       expanded: true
       items:
         - name: Use the Azure CLI
           href: quickstarts-tenant-workload-deployment.md
+        - name: Use Azure PowerShell
+          href: quickstarts-tenant-workload-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
@@ -87,6 +91,10 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
+        - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
+          href: howto-disable-cgroupsv2.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -120,8 +128,6 @@
   items:
     - name: Troubleshoot Bare Metal Machine
       href: troubleshoot-reboot-reimage-replace.md
-    - name: Troubleshoot AKS-Hybrid
-      href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
       href: troubleshoot-isolation-domain.md
     - name: Troubleshoot Internet host virtual machine
@@ -155,3 +161,5 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Nexus Kubernetes service VM SKUs
+      href: reference-nexus-kubernetes-cluster-sku.md

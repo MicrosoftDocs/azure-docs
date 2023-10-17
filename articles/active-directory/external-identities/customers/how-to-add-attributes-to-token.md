@@ -16,13 +16,13 @@ ms.custom: it-pro
 
 # Add user attributes to token claims  
 
-User attributes are values collected from the user during self-service sign-up. In addition to built-in user attributes, you can create custom attributes when you need to collect additional information. Because your application might rely on certain user attributes to function as designed, you can add any of these attributes to the token that is sent from Azure AD to your application.
+User attributes are values collected from the user during self-service sign-up. In addition to built-in user attributes, you can create custom attributes when you need to collect additional information. Because your application might rely on certain user attributes to function as designed, you can add any of these attributes to the token that is sent from Microsoft Entra ID to your application.
 
-You can specify which built-in or custom attributes you want to include as claims in the token that Azure AD sends to your application.
+You can specify which built-in or custom attributes you want to include as claims in the token that Microsoft Entra ID sends to your application.
 
 ## Prerequisites
 
-- [Register the application](how-to-register-ciam-app.md) with Azure AD.
+- [Register the application](how-to-register-ciam-app.md) with Microsoft Entra ID.
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md) and selected the attributes you want to collect during sign-up.
 - [Create the custom attributes](how-to-define-custom-attributes.md) you want to include.
 

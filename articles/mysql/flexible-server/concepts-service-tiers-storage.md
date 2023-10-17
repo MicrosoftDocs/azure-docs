@@ -101,7 +101,7 @@ To get more details about the compute series available, refer to Azure VM docume
 
 
 >[!NOTE]
->For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md).
 
 ## Storage
 

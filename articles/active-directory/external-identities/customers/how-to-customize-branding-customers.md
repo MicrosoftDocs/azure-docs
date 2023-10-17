@@ -17,45 +17,40 @@ ms.custom: it-pro
 
 # Customize the neutral branding in your customer tenant (preview)
 
-After creating a new customer tenant, you can customize the end-user experience. Create a custom look and feel for users signing in to your web-based apps by configuring **Company branding** settings for your tenant. With these settings, you can add your own background images, colors, company logos, and text to customize the sign-in experiences across your apps.  
+After creating a new customer tenant, you can customize the end-user experience. Create a custom look and feel for users signing in to your apps by configuring **Company branding** settings for your tenant. With these settings, you can add your own background images, colors, company logos, and text to customize the sign-in experiences across your apps.  
 You can also create user flows programmatically using the Company Branding Graph API.
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, create one now.
+- If you haven't already created your own Microsoft Entra customer tenant, create one now.
 - [Register an application](how-to-register-ciam-app.md).  
 - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
 [!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
-## Comparing the default sign-in experiences between the customer tenant and the Azure AD tenant
+<a name='comparing-the-default-sign-in-experiences-between-the-customer-tenant-and-the-azure-ad-tenant'></a>
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. The default branding experiences between the customer tenant and the default Azure AD tenant are distinct.
+## Branding elements
 
-Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
+By default, Microsoft offers a neutral branding for your tenant that can be personalized to suit your company's specific requirements. This default branding doesn't include any pre-existing Microsoft branding. In the event that the custom company branding fails to load, the sign-in page will automatically switch back to this neutral branding. Additionally, each custom branding property can be manually added to the custom sign-in page.  
 
-Microsoft provides a neutral branding as the default for the customer tenant, which can be customized to meet the specific needs of your company. The default branding for the customer tenant is neutral and doesn't include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It's also possible to add each custom branding property to the custom sign-in page individually.
+You can customize this neutral branding with a custom background image or color, favicon, layout, header, and footer. You can also customize the sign-in form and add custom text to different instances or upload [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
+The following image displays the neutral default branding of the tenant. You can find the numbered branding elements and their corresponding descriptions after the image.
 
-The following list and image outline the elements of the default Microsoft sign-in experience in an Azure AD tenant: 
-
-1. Microsoft background image and color.
-2. Microsoft favicon.
-3. Microsoft banner logo.
-4. Footer as a page layout element.
-5. Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
-6. Microsoft overlay.
-
-   :::image type="content" source="media/how-to-customize-branding-customers/microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/microsoft-branding.png":::
-
-The following image displays the neutral default branding of the customer tenant:
    :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::
+
+1. Neutral background.
+2. Favicon.
+3. Banner logo.
+4. Footer as a page layout element.
+5. Footer hyperlinks, such as Privacy & cookies, Terms of use.
 
 ## How to customize the default sign-in experience
 
 Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. Browse to **Company Branding** > **Default sign-in** > **Edit**.
 
@@ -142,13 +137,13 @@ Before you customize any settings, the neutral default branding will appear in y
       - **Account collection display text** – Enter link text to display in place of the Microsoft default text “Can’t access your account” text. 
       - **Password collection display text** – Enter link text to display in place of the Microsoft default “Forgot password” text. 
  
-      :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset ." lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
+      :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset. " lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
 
 1. Select **Next: Review** and review all your modifications. Then select **Save** if you would like to save your changes or **Previous** if you would like to continue customizing.
 
 ### To customize user attributes
 
-For your customer tenant, you might have different requirements for the information you want to collect during sign-up and sign-in. The customer tenant comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. You can create custom attributes in your customer tenant using the  Microsoft Graph API or in the portal under the **Text** tab in **Company Branding**. 
+For your tenant, you might have different requirements for the information you want to collect during sign-up and sign-in. The tenant comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. You can create custom attributes in your tenant using the  Microsoft Graph API or in the portal under the **Text** tab in **Company Branding**. 
 
 1. On the **Text** tab select **Add Custom Text**.
 1. Select any of the options:
@@ -168,11 +163,11 @@ For your customer tenant, you might have different requirements for the informat
 
 ## How to customize the tenant name
 
-Your customer tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your tenant's name in the Properties area.
+Your tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your tenant's name in the Properties area.
 
 :::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name." lightbox="media/how-to-customize-branding-customers/tenant-name.png":::
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Properties**.
 1. Edit the **Name** field. 
@@ -181,30 +176,11 @@ Your customer tenant name replaces the Microsoft banner logo in the neutral defa
 
 5. Select **Save**.
 
-## Clean up resources via the portal
+## Customize your branding with the Microsoft Graph API
 
-When no longer needed, you can remove the sign-in customization from your customer tenant via the Azure portal.  
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. Browse to **Company branding** > **Default sign-in experience** > **Edit**.
-1. Remove the elements you no longer need.
-1. Once finished select **Review + save**. 
-1. Wait a few minutes for the changes to take effect.
-
-## Clean up resources via the Microsoft Graph API
-
-When no longer needed, you can remove the sign-in customization from your customer tenant via the  Microsoft Graph API.
-
-1. Sign in to the [MS Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) with your customer tenant account:  `https://developer.microsoft.com/en-us/graph/graph-explorer?tenant=<your-tenant-name.onmicrosoft.com>`.
-
-1. Query the default branding object using the Microsoft Graph API beta version: `https://graph.microsoft.com/beta/organization/<your-tenant-ID>/branding/localizations`. To confirm that you're signed in to your customer tenant, verify the tenant name on the right side of the screen.
-
-   :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in." lightbox="media/how-to-customize-branding-customers/msgraph-ciam-branding.png":::
-
-3. [Remove default branding object](/graph/api/organizationalbrandinglocalization-delete) using the Microsoft Graph API beta version and the DELETE request.
-4. Wait a few minutes for the changes to take effect.
+You can use the Microsoft Graph API to customize a few items programmatically. For example, you can use the API to upload a custom background image, change the color of the sign-in page, and add a custom logo.For more information, see the [update default branding](/graph/api/organizationalbranding-update) article. 
 
 ## Next steps
 
-- [Language customization](how-to-customize-languages-customers.md)
+In this article we learned how to customize the look and feel of the customer sign-in and sing-up experience. To learn more about customizing the language of the tenant, see the [Language customization](how-to-customize-languages-customers.md) article.
+For an understanding of the differences in workforce tenant branding, see the article [How to customize branding for your workforce](/azure/active-directory/fundamentals/how-to-customize-branding).

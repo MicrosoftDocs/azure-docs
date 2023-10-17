@@ -1,14 +1,13 @@
 ---
 title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
-author:  mstehrani
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 07/20/2020
+author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
+ms.date: 07/20/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -20,7 +19,9 @@ In this article, you'll find recommendations and examples for using the IDENTITY
 
 A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.
 > [!NOTE]
-> In Azure Synapse Analytics, the IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
+> In Azure Synapse Analytics: 
+> - The IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
+> - UPDATE on distribution column does not guarantee IDENTITY value to be unique. Use [DBCC CHECKIDENT (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=azure-sqldw-latest) after UPDATE on distribution column to verify uniqueness.
 
 
 ## Creating a table with an IDENTITY column

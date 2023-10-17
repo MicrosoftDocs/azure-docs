@@ -2,14 +2,14 @@
 title: Quickstart API-driven inbound provisioning with cURL
 description: Learn how to get started with API-driven inbound provisioning using cURL.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/07/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -40,8 +40,8 @@ ms.reviewer: cmmdesai
 
 ## Verify processing of the bulk request payload
 
-1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
-1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
+1. Browse to **Microsoft Entra ID -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.
 1. Click on **View provisioning logs** to open the provisioning logs blade. Alternatively, you can click on the menu option **Monitor -> Provisioning logs**.

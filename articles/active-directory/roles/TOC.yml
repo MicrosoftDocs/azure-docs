@@ -1,8 +1,8 @@
-- name: Azure AD roles documentation
+- name: Microsoft Entra roles documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure AD RBAC?
+  - name: What is Microsoft Entra RBAC?
     href: custom-overview.md
 - name: Quickstarts
   items:
@@ -10,11 +10,11 @@
     href: ../fundamentals/how-subscriptions-associated-directory.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   items:
-  - name: Understand Azure AD roles
+  - name: Understand Microsoft Entra roles
     href: concept-understand-roles.md
   - name: Compare roles
     items:
-    - name: Compare Azure and Azure AD roles    
+    - name: Compare Azure and Microsoft Entra roles    
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
@@ -108,7 +108,7 @@
       href: groups-faq-troubleshooting.yml
     - name: Troubleshoot administrative units
       href: admin-units-faq-troubleshoot.yml
-    - name: Get support for Azure AD
+    - name: Get support for Microsoft Entra ID
       href: ../fundamentals/how-to-get-support.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
   items:
@@ -132,7 +132,7 @@
       href: custom-user-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
-  - name: Azure AD service limits
+  - name: Microsoft Entra service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name:  Azure AD PowerShell
     href: /powershell/module/azuread/#directory-roles

@@ -1,8 +1,8 @@
 ---
 title: High availability for Service Connector 
 description: This article covers availability zones, zone redundancy, disaster recovery, and cross-region failover for Service Connector.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 05/24/2022

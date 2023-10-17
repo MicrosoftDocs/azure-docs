@@ -1,6 +1,6 @@
 ---
-title: LDAP authentication with Azure Active Directory
-description: Architectural guidance on achieving LDAP authentication with Azure Active Directory.
+title: LDAP authentication with Microsoft Entra ID
+description: Architectural guidance on achieving LDAP authentication with Microsoft Entra ID.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,13 +16,13 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# LDAP authentication with Azure Active Directory
+# LDAP authentication with Microsoft Entra ID
 
 Lightweight Directory Access Protocol (LDAP) is an application protocol for working with various directory services. Directory services, such as Active Directory, [store user and account information](https://www.dnsstuff.com/active-directory-service-accounts), and security information like passwords. The service then allows the information to be shared with other devices on the network. Enterprise applications such as email, customer relationship managers (CRMs), and Human Resources (HR) software can use LDAP to authenticate, access, and find information. 
 
-Azure Active Directory (Azure AD) supports this pattern via Azure AD Domain Services (AD DS). It allows organizations that are adopting a cloud-first strategy to modernize their environment by moving off their on-premises LDAP resources to the cloud. The immediate benefits will be: 
+Microsoft Entra ID supports this pattern via Microsoft Entra Domain Services (AD DS). It allows organizations that are adopting a cloud-first strategy to modernize their environment by moving off their on-premises LDAP resources to the cloud. The immediate benefits will be: 
 
-* Integrated with Azure AD. Additions of users and groups, or attribute changes to their objects are automatically synchronized from your Azure AD tenant to AD DS. Changes to objects in on-premises Active Directory are synchronized to Azure AD, and then to AD DS.
+* Integrated with Microsoft Entra ID. Additions of users and groups, or attribute changes to their objects are automatically synchronized from your Microsoft Entra tenant to AD DS. Changes to objects in on-premises Active Directory are synchronized to Microsoft Entra ID, and then to AD DS.
 
 * Simplify operations. Reduces the need to manually keep and patch on-premises infrastructures. 
 
@@ -44,23 +44,24 @@ There is a need to for an application or service to use LDAP authentication.
 
 * **Legacy applications**: Applications or server workloads that require LDAP deployed either in a virtual network in Azure, or which have visibility to AD DS instance IPs via networking routes. 
 
-* **Azure AD**: Synchronizes identity information from organization’s on-premises directory via Azure AD Connect.
+* **Microsoft Entra ID**: Synchronizes identity information from organization’s on-premises directory via Microsoft Entra Connect.
 
-* **Azure AD Domain Services (AD DS)**: Performs a one-way synchronization from Azure AD to provide access to a central set of users, groups, and credentials. The AD DS instance is assigned to a virtual network. Applications, services, and VMs in Azure that connect to the virtual network assigned to AD DS can use common AD DS features such as LDAP, domain join, group policy, Kerberos, and NTLM authentication.
+* **Microsoft Entra Domain Services (AD DS)**: Performs a one-way synchronization from Microsoft Entra ID to provide access to a central set of users, groups, and credentials. The AD DS instance is assigned to a virtual network. Applications, services, and VMs in Azure that connect to the virtual network assigned to AD DS can use common AD DS features such as LDAP, domain join, group policy, Kerberos, and NTLM authentication.
    > [!NOTE]
    >  In environments where the organization cannot synchronize password hashes, or users sign-in using smart cards, we recommend that you use a resource forest in AD DS. 
 
-* **Azure AD Connect**: A tool for synchronizing on premises identity information to Microsoft Azure AD. The deployment wizard and guided experiences help you configure prerequisites and components required for the connection, including sync and sign on from Active Directory to Azure AD. 
+* **Microsoft Entra Connect**: A tool for synchronizing on premises identity information to Microsoft Entra ID. The deployment wizard and guided experiences help you configure prerequisites and components required for the connection, including sync and sign on from Active Directory to Microsoft Entra ID. 
 
 * **Active Directory**: Directory service that stores [on-premises identity information such as user and account information](https://www.dnsstuff.com/active-directory-service-accounts), and security information like passwords.
 
-## Implement LDAP authentication with Azure AD
+<a name='implement-ldap-authentication-with-azure-ad'></a>
 
-* [Create and configure an Azure AD DS instance](../../active-directory-domain-services/tutorial-create-instance.md) 
+## Implement LDAP authentication with Microsoft Entra ID
 
-* [Configure virtual networking for an Azure AD DS instance](../../active-directory-domain-services/tutorial-configure-networking.md) 
+* [Create and configure a Microsoft Entra Domain Services instance](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configure Secure LDAP for an Azure AD DS managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
+* [Configure virtual networking for a Microsoft Entra Domain Services instance](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Create an outbound forest trust to an on-premises domain in Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
+* [Configure Secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
+* [Create an outbound forest trust to an on-premises domain in Microsoft Entra Domain Services](../../active-directory-domain-services/tutorial-create-forest-trust.md)

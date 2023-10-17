@@ -1,6 +1,6 @@
 ---
 title: 'Phase 3: Plan migration and testing'
-description: This article describes phase 3 of planning migration of applications from AD FS to Azure Active Directory
+description: This article describes phase 3 of planning migration of applications from AD FS to Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -15,15 +15,15 @@ ms.collection: M365-identity-device-management
 ---
 # Phase 3: Plan migration and testing
 
-Once you've gained business buy-in, the next step is to start migrating these apps to Azure AD authentication.
+Once you've gained business buy-in, the next step is to start migrating these apps to Microsoft Entra authentication.
 
 ## Migration tools and guidance
 
-Use the tools and guidance provided to follow the precise steps needed to migrate your applications to Azure AD:
+Use the tools and guidance provided to follow the precise steps needed to migrate your applications to Microsoft Entra ID:
 
-- **General migration guidance** – Use the whitepaper, tools, email templates, and applications questionnaire in the [Azure AD apps migration toolkit](./migration-resources.md) to discover, classify, and migrate your apps.
-- **SaaS applications** – See our list of [SaaS app tutorials](../saas-apps/tutorial-list.md) and the [Azure AD SSO deployment plan](plan-sso-deployment.md) to walk through the end-to-end process.
-- **Applications running on-premises** – Learn all [about the Azure AD Application Proxy](../app-proxy/application-proxy.md) and use the complete [Azure AD Application Proxy deployment plan](https://aka.ms/AppProxyDPDownload) to get going quickly or consider our [Secure Hybrid Access partners](secure-hybrid-access.md), which you may already own.
+- **General migration guidance** – Use the whitepaper, tools, email templates, and applications questionnaire in the [Microsoft Entra apps migration toolkit](./migration-resources.md) to discover, classify, and migrate your apps.
+- **SaaS applications** – See our list of [SaaS app tutorials](../saas-apps/tutorial-list.md) and the [Microsoft Entra SSO deployment plan](plan-sso-deployment.md) to walk through the end-to-end process.
+- **Applications running on-premises** – Learn all [about the Microsoft Entra application proxy](../app-proxy/application-proxy.md) and use the complete [Microsoft Entra application proxy deployment plan](https://aka.ms/AppProxyDPDownload) to get going quickly or consider our [Secure Hybrid Access partners](secure-hybrid-access.md), which you may already own.
 - **Apps you’re developing** – Read our step-by-step [integration](../develop/quickstart-register-app.md) and [registration](../develop/quickstart-register-app.md) guidance.
 
 > [!VIDEO https://www.youtube.com/embed/PvI4Q4P_HfU]
@@ -32,7 +32,7 @@ Use the tools and guidance provided to follow the precise steps needed to migrat
 
 During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment isn't currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application.
 
-You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant starts in a clean state and won't be configured to sync with any system.
+You may choose to set up a separate test Microsoft Entra tenant to use as you develop your app configurations. This tenant starts in a clean state and won't be configured to sync with any system.
 
 Depending on how you configure your app, verify that SSO works properly.
 
@@ -63,7 +63,7 @@ Consider the following suggestions for actions you can take to mitigate migratio
 
 ### Employee communication
 
-While the planned outage window itself can be minimal, you should still plan on communicating these timeframes proactively to employees while switching from AD FS to Azure AD. Ensure that your app experience has a feedback button, or pointers to your helpdesk for issues.
+While the planned outage window itself can be minimal, you should still plan on communicating these timeframes proactively to employees while switching from AD FS to Microsoft Entra ID. Ensure that your app experience has a feedback button, or pointers to your helpdesk for issues.
 
 Once deployment is complete, you can inform users of the successful deployment and remind them of any steps that they need to take.
 

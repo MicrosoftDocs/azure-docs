@@ -5,8 +5,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: aahi

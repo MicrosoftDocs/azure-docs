@@ -5,8 +5,7 @@ description: Pattern Matching with the IntentRecognizer helps you get started qu
 author: chschrae
 ms.author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2021
 keywords: intent recognition pattern matching

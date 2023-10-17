@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: A listing of all Document Intelligence container image tags.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar

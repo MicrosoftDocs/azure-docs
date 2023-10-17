@@ -2,11 +2,11 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure PowerShell and Azure attribute-based access control (Azure ABAC).
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.date: 03/15/2023
@@ -118,7 +118,7 @@ Here is what the condition looks like in code:
 
 1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
-1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
+1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the anonymous access level to **Private (no anonymous access)**.
 
 1. Use [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) to upload a text file to the container.
 

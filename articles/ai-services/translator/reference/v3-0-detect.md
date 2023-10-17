@@ -6,13 +6,13 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/19/2023
 ms.author: lajanuar
 ---
 
+<!-- markdownlint-disable MD033 -->
 # Translator 3.0: Detect
 
 Identifies the language of a piece of text.
@@ -23,7 +23,10 @@ Send a `POST` request to:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
+
 ```
+
+_See_ [**Virtual Network Support**](v3-0-reference.md#virtual-network-support) for Translator service selected network and private endpoint configuration and support.
 
 ## Request parameters
 
@@ -31,20 +34,20 @@ Request parameters passed on the query string are:
 
 | Query parameter | Description |
 | --- | --- |
-| api-version | *Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`. |
+| api-version | *Required parameter*.<br>Version of the API requested by the client. Value must be `3.0`. |
 
 Request headers include:
 
 | Headers | Description |
 | --- | --- |
-| Authentication header(s) | <em>Required request header</em>.<br/>See [available options for authentication](./v3-0-reference.md#authentication)</a>. |
-| Content-Type | *Required request header*.<br/>Specifies the content type of the payload. Possible values are: `application/json`. |
-| Content-Length | *Required request header*.<br/>The length of the request body. |
-| X-ClientTraceId | *Optional*.<br/>A client-generated GUID to uniquely identify the request. Note that you can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
+| Authentication header(s) | <em>Required request header</em>.<br>See [available options for authentication](./v3-0-reference.md#authentication)</a>. |
+| Content-Type | *Required request header*.<br>Specifies the content type of the payload. Possible values are: `application/json`. |
+| Content-Length | *Required request header*.<br>The length of the request body. |
+| X-ClientTraceId | *Optional*.<br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. The language auto-detection works better with longer input text. A sample request body looks like that:
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. The language autodetection works better with longer input text. A sample request body looks like that:
 
 ```json
 [
@@ -55,21 +58,21 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request cannot exceed 50,000 characters including spaces.
+* The entire text included in the request can't exceed 50,000 characters including spaces.
 
 ## Response body
 
 A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
 
-  * `language`: Code of the detected language.
+* `language`: Code of the detected language.
 
-  * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
+* `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-  * `isTranslationSupported`: A boolean value which is true if the detected language is one of the languages supported for text translation.
+* `isTranslationSupported`: A boolean value that is true if the detected language is one of the languages supported for text translation.
 
-  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for transliteration.
-  
-  * `alternatives`: An array of other possible languages. Each element of the array is another object with the same properties listed above: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
+* `isTransliterationSupported`: A boolean value that is true if the detected language is one of the languages supported for transliteration.
+
+* `alternatives`: An array of other possible languages. Each element of the array is another object the following properties: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
 
 An example JSON response is:
 
@@ -95,23 +98,23 @@ An example JSON response is:
 
 | Headers | Description |
 | --- | --- |
-| X-RequestId | Value generated by the service to identify the request. It is used for troubleshooting purposes. |
+| X-RequestId | Value generated by the service to identify the request. It's used for troubleshooting purposes. |
 
 ## Response status codes
 
-The following are the possible HTTP status codes that a request returns. 
+The following are the possible HTTP status codes that a request returns.
 
 | Status Code | Description |
 | --- | --- |
 | 200 | Success. |
 | 400 | One of the query parameters is missing or not valid. Correct request parameters before retrying. |
-| 401 | The request could not be authenticated. Check that credentials are specified and valid. |
-| 403 | The request is not authorized. Check the details error message. This often indicates that all free translations provided with a trial subscription have been used up. |
+| 401 | The request couldn't be authenticated. Check that credentials are specified and valid. |
+| 403 | The request isn't authorized. Check the details error message. This code often indicates that all free translations provided with a trial subscription have been used up. |
 | 429 | The server rejected the request because the client has exceeded request limits. |
 | 500 | An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`. |
 | 503 | Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`. |
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors). 
+If an error occurs, the request returns a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors).
 
 ## Examples
 

@@ -103,7 +103,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 |[InvalidFhirServiceException](#invalidfhirserviceexception)|
 |[InvalidQuantityFhirValueException](#invalidquantityfhirvalueexception)|
 |[InvalidTemplateException](#invalidtemplateexception)|
-|[ManagedIdentityCredentialNotFound](#managedidentitycredentialnotfound)
+|[ManagedIdentityCredentialNotFound](#managedidentitycredentialnotfound)|
 |[MultipleResourceFoundException](#multipleresourcefoundexception)|
 |[NormalizationDataMappingException](#normalizationdatamappingexception)|
 |[PatientDeviceMismatchException](#patientdevicemismatchexception)|

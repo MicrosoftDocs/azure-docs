@@ -1,6 +1,6 @@
 ---
 title: B2B collaboration API and customization
-description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
+description: Microsoft Entra B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
 
 services: active-directory
 ms.service: active-directory
@@ -16,9 +16,9 @@ manager: celestedg
 ms.collection: engagement-fy23, M365-identity-device-management
 # Customer intent: As a tenant administrator, I want to customize the invitation process with the API.
 ---
-# Azure Active Directory B2B collaboration API and customization
+# Microsoft Entra B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process. [With our API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
+[With the Microsoft Graph REST API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 
@@ -51,7 +51,7 @@ The API offers the following capabilities:
 
 4. And choose to cc: people you want to keep in the loop about your inviting this collaborator.
 
-5. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Azure AD.
+5. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Microsoft Entra ID.
 
     ```
     "sendInvitationMessage": false
@@ -120,7 +120,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Make sure you have the latest version of the AzureAD PowerShell module or AzureADPreview PowerShell module. 
+> Make sure you have the latest version of the Azure AD PowerShell module or AzureADPreview PowerShell module. 
 
 ## See also
 
@@ -128,6 +128,6 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 
 ## Next steps
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [Add and invite guest users](add-users-administrator.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)

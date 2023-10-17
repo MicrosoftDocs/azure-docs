@@ -22,7 +22,6 @@
 
 Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra restrictions:
 
-- Currently, incremental snapshots of Premium SSD v2 and Ultra Disks can't be taken in the Azure portal.
 - Snapshots with a 512 logical sector size are stored as VHD, and can be used to create any disk type. Snapshots with a 4096 logical sector size are stored as VHDX and can only be used to create Ultra Disks and Premium SSD v2 disks, they can't be used to create other disk types. To determine which sector size your snapshot is, see [check sector size](#check-sector-size).
 - Up to five disks may be simultaneously created from a snapshot of a Premium SSD v2 or an Ultra Disk.
 - When an incremental snapshot of either a Premium SSD v2 or an Ultra Disk is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any more snapshots of that disk can be created.

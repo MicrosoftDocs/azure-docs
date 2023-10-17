@@ -23,7 +23,7 @@ This article describes how you can create  and manage group-based permissions in
 
 1. To display the **User Management** dashboard, select **User** (your initials) in the upper right of the screen, and then select **User Management**.
 1. Select the **Groups** tab, and then press the **Create Permission** button in the upper right of the table.
-1. In the **Set Group Permission** box, begin typing the name of an **Azure Active Directory Security Group** in your tenant.
+1. In the **Set Group Permission** box, begin typing the name of an **Microsoft Entra Security Group** in your tenant.
 
 1. Select the permission setting you want:
 2.

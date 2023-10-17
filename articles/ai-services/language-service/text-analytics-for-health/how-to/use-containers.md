@@ -5,8 +5,7 @@ description: Learn how to extract and label medical information on premises usin
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: jboback
