@@ -66,6 +66,6 @@ Public workbook templates are built, updated, and deprecated to reflect the need
 
 ## Next steps
 
-- Learn [how to use Azure Workbooks for Microsoft Entra ID](./howto-use-workbooks.md)
+- Learn [how to use Azure Workbooks for Microsoft Entra ID](howto-use-azure-monitor-workbooks.md)
 - [Create your own workbook](/azure/azure-monitor/visualize/workbooks-create-workbook)
 - Create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace)

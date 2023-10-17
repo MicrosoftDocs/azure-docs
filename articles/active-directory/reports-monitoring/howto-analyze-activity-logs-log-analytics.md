@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 # Analyze Microsoft Entra activity logs with Log Analytics
 
-After you [integrate Microsoft Entra activity logs with Azure Monitor logs](./howto-integrate-activity-logs-with-azure-monitor-logs.md), you can use the power of Log Analytics and Azure Monitor logs to gain insights into your environment.
+After you [integrate Microsoft Entra activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Log Analytics and Azure Monitor logs to gain insights into your environment.
 
  * Compare your Microsoft Entra sign-in logs against security logs published by Microsoft Defender for Cloud.
   
@@ -73,7 +73,7 @@ For more information on Microsoft Entra built-in roles, see [Microsoft Entra bui
 
 ## Access Log Analytics
 
-To view the Microsoft Entra ID Log Analytics, you must already be sending your activity logs from Microsoft Entra ID to a Log Analytics workspace. This process is covered in the [How to integrate activity logs with Azure Monitor](./howto-integrate-activity-logs-with-azure-monitor-logs.md) article.
+To view the Microsoft Entra ID Log Analytics, you must already be sending your activity logs from Microsoft Entra ID to a Log Analytics workspace. This process is covered in the [How to integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md) article.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
