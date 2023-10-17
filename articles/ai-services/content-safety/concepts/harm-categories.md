@@ -35,11 +35,9 @@ Classification can be multi-labeled. For example, when a text sample goes throug
 
 Every harm category the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
-Text
-The current version of the text model supports the full 0-7 severity scale. The classifier will detect amongst all severities along this scale.
+**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier will detect amongst all severities along this scale.
 
-Image
-The current version of the Content Safety supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier will only return severities 0, 2, 4, and 6; every two adjacent levels are mapped to a single level.    
+**Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier will only return severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
 
 
 | 4 Severity Levels          |8 Severity Levels          | Label |
