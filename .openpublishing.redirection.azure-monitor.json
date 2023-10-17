@@ -6375,12 +6375,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-dynamic-scope",
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-dynamic-scope.md",
             "redirect_url": "/azure/azure-monitor/essentials/metrics-getting-started",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts",
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts.md",
             "redirect_url": "/azure/azure-monitor/essentials/metrics-getting-started",
             "redirect_document_id": false
         }   
