@@ -266,7 +266,7 @@ sections:
           
           To run the PowerShell script, [download the script](/samples/browse/?redirectedfrom=TechNet-Gallery) and run it on your Microsoft Entra Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
           
-          To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
+          To manually upgrade, you must download and run the latest version of the `AADConnect.msi` file.
            
           -  If your current version is older than 1.1.750.0, [download and upgrade to the latest version](https://www.microsoft.com/download/details.aspx?id=47594).
           - If your Microsoft Entra Connect version is 1.1.750.0 or later, no further action is required. You’re already using the version that contains the auto-upgrade fix. 
@@ -362,7 +362,7 @@ sections:
           Microsoft Entra multifactor authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
           
           **Follow the Microsoft Entra Connect server security guidelines**
-          The Microsoft Entra Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
+          The Microsoft Entra Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your Microsoft Entra Connect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
           
           **Enable PHS for leaked credentials detection**
           Password Hash Sync also enables [leaked credential detection](../../identity-protection/concept-identity-protection-risks.md) for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of your users, the associated account is moved to high risk. 

@@ -17,7 +17,7 @@ ms.reviewer: nicholepet
 
 # New name for Azure Active Directory
 
-Microsoft has reamed Azure Active Directory (Azure AD) to Microsoft Entra ID for the following reasons: (1) to communicate the multicloud, multiplatform functionality of the products, (2) to alleviate confusion with Windows Server Active Directory, and (3) to unify the [Microsoft Entra](/entra) product family.  
+Microsoft has renamed Azure Active Directory (Azure AD) to Microsoft Entra ID for the following reasons: (1) to communicate the multicloud, multiplatform functionality of the products, (2) to alleviate confusion with Windows Server Active Directory, and (3) to unify the [Microsoft Entra](/entra) product family.  
 
 ## No interruptions to usage or service
 

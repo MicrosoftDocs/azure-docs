@@ -149,7 +149,7 @@ Depending on the type of issue you may have, you need to look in different place
 
 ### Microsoft Entra Connect logs
 
-For errors related to installation, check the Microsoft Entra Connect logs at **%ProgramData%\AADConnect\trace-\*.log**.
+For errors related to installation, check the Microsoft Entra Connect logs at `%ProgramData%\AADConnect\trace-*.log`.
 
 ### Authentication Agent event logs
 

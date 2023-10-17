@@ -450,6 +450,6 @@ If you open the Live Metrics pane, the SDKs switch to a higher frequency mode an
 ## Next steps
 
 * [Monitor usage with Application Insights](./usage-overview.md)
-* [Use Diagnostic Search](./diagnostic-search.md)
+* [Use Diagnostic Search](./search-and-transaction-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

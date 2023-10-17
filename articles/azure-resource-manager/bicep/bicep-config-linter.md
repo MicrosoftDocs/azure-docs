@@ -45,6 +45,9 @@ The following example shows the rules that are available for configuration.
         "max-variables": {
           "level": "warning"
         },
+        "nested-deployment-template-scoping": {
+          "level": "error"
+        }
         "no-conflicting-metadata" : {
           "level": "warning"
         },
@@ -165,7 +168,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
             "datalake.azure.net",
             "azuredatalakestore.net",
             "azuredatalakeanalytics.net",
-            "vault.azure.net",
             "api.loganalytics.io",
             "api.loganalytics.iov1",
             "asazure.windows.net",

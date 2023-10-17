@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 10/16/2023
 ms.author: anfdocs
 ---
 
@@ -22,6 +22,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## October 2023
+
+* [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md) 
+
+    The **diagnose and solve problems** tool simplifies the troubleshooting process, making it effortless to identify and resolve any issues affecting your Azure NetApp Files deployment. With the tool's proactive troubleshooting, user-friendly guidance, and seamless integration with Azure Support, you can more easily manage and maintain a reliable and high-performance Azure NetApp Files storage environment. Experience enhanced issue resolution and optimization capabilities today, ensuring a smoother Azure NetApp Files management experience.
 
 * [Snapshot manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
 

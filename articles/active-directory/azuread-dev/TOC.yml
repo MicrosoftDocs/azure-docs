@@ -126,7 +126,7 @@
     - name: Add app roles in your application
       href: ../develop/howto-add-app-roles-in-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Branding guidelines
-      href: /azure/active-directory/develop/howto-add-branding-in-apps
+      href: ../develop/howto-add-branding-in-apps.md
     - name: Terms of Service and Privacy Statement
       href: ../develop/howto-add-terms-of-service-privacy-statement.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Bring an app to market
@@ -134,7 +134,7 @@
     - name: Publish to App Source
       href: howto-get-appsource-certified.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/add-in-submission-guide
+      href: /partner-center/marketplace/add-in-submission-guide
   - name: Azure Access Control Service
     displayName: ACS
     items:

@@ -7,7 +7,7 @@ ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 10/17/2023
 ---
 
 # Download a Linux VHD from Azure

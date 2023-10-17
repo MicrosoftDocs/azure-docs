@@ -69,7 +69,7 @@ When two users in the source tenant have the same mail, and they both need to be
 ### Usage of Microsoft Entra B2B collaboration for cross-tenant access
 
 - B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there's no directory picker.
-- To learn about Azure Virtual Desktop support for B2B users, see [Prerequisites for Azure Virtual Desktop](../../virtual-desktop/prerequisites.md?tabs=portal).
+- To learn about Azure Virtual Desktop support for B2B users, see [Prerequisites for Azure Virtual Desktop](/azure/virtual-desktop/prerequisites?tabs=portal).
 - B2B users with UserType Member aren't currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Microsoft Entra B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi)
 - Converting a guest account into a Microsoft Entra member account or converting a Microsoft Entra member account into a guest isn't supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
 ::: zone-end
