@@ -59,7 +59,7 @@ However, while zone-redundancy ensures that underlying VM nodes are distributed 
 
 You can enable zone-redundancy in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To create a service in Azure Spring Apps with zone-redundancy enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service, as shown in the following example:
 
@@ -71,7 +71,7 @@ az spring create \
     --zone-redundant true
 ```
 
-### [Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To create a service in Azure Spring Apps with zone-redundancy enabled using the Azure portal, select the **Zone Redundant** option when you create the instance.
 
