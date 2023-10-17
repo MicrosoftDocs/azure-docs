@@ -669,7 +669,7 @@ Learn more about [Monitor - UpgradeToLatestAMSSdkVersion (Upgrade to the latest 
 
 in your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 will be retired and API calls will fail. Upgrade to newer version to prevent disruption to your services.
 
-Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](/azure/updates/api-versions-being-retired-for-azure-api-management).
+Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](../../updates/api-versions-being-retired-for-azure-api-management).
 
 
 
