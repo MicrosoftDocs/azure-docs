@@ -84,5 +84,5 @@ When you invite a guest user, you became their sponsor by default. If you need t
 ## Next steps
 
 - [Add and invite guest users](add-users-administrator.md)
-- [Create a new access package](../governance/entitlement-management-access-package-create.md#approval)
+- [Create a new access package](../governance/entitlement-management-access-package-create.md)
 - [Manage user profile info](../fundamentals/how-to-manage-user-profile-info.md)
