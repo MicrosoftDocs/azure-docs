@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/19/2022
+ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'

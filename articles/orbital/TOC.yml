@@ -7,9 +7,6 @@ items:
     href: overview.md
   - name: Get started with Azure Orbital Ground Station
     href: get-started.md
-  - name: What is the Azure Space Partner Community?
-    href: space-partner-program-overview.md
-
 - name: Quickstart
   items:
   - name: Register a spacecraft
@@ -38,6 +35,8 @@ items:
     href: modem-chain.md 
   - name: Receive real-time telemetry
     href: receive-real-time-telemetry.md
+  - name: Azure Resource Graph Queries
+    href: resource-graph-samples.md
   - name: Update the spacecraft TLE
     href: update-tle.md
   - name: Cancel a contact

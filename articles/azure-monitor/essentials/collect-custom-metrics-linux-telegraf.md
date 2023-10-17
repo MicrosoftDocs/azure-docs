@@ -14,7 +14,7 @@ ms.date: 08/01/2023
 This article explains how to deploy and configure the [InfluxData](https://www.influxdata.com/) Telegraf agent on a Linux virtual machine to send metrics to Azure Monitor. 
 
 > [!NOTE]
-> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues wuth the Telegraf connector, please refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
+> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, please refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
 
 ## InfluxData Telegraf agent 
 

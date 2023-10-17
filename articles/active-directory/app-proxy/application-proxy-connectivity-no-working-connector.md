@@ -1,6 +1,6 @@
 ---
-title: No working connector group found for an Azure Active Directory Application Proxy app
-description: Address problems you might encounter when there is no working Connector in a Connector Group for your application with the Azure Active Directory Application Proxy
+title: No working connector group found for a Microsoft Entra application proxy app
+description: Address problems you might encounter when there is no working Connector in a Connector Group for your application with the Microsoft Entra application proxy
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
 
 # No working connector group found for an Application Proxy application
 
-This article helps to resolve the common issues faced when there is not a connector detected for an Application Proxy application integrated with Azure Active Directory.
+This article helps to resolve the common issues faced when there is not a connector detected for an Application Proxy application integrated with Microsoft Entra ID.
 
 ## Overview of steps
 If there is no working Connector in a Connector Group for your application, there are a few ways to resolve the problem:
@@ -34,11 +34,11 @@ If there is no working Connector in a Connector Group for your application, ther
 
 To figure out the issue, open the “Application Proxy” menu in your Application, and look at the Connector Group warning message. If there are no connectors in the group, the warning message specifies the group needs at least one Connector. If you have no active Connectors, the warning message explains that. It is common to have inactive Connectors. 
 
-   ![Connector group selection in Azure portal](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
+   ![Connector group selection in Microsoft Entra admin center](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-For details on each of these options, see the corresponding section below. The instructions assume that you are starting from the Connector management page. If you are looking at the error message above, you can go to this page by clicking on the warning message. You can also get to the page by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **Application Proxy.**
+For details on each of these options, see the corresponding section below. The instructions assume that you are starting from the Connector management page. If you are looking at the error message above, you can go to this page by clicking on the warning message. You can also get to the page by going to **Microsoft Entra ID**, clicking on **Enterprise Applications**, then **Application Proxy.**
 
-   ![Connector group management in Azure portal](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
+   ![Connector group management in Microsoft Entra admin center](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## Download a new Connector
 
@@ -46,7 +46,7 @@ To download a new Connector, use the “Download Connector” button at the top 
 
 Install the connector on a machine with direct line of sight to the backend application. Typically, the connector is installed on the same server as the application. After downloading, the Connector should appear in this menu. click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group. Save the change.
 
-   ![Download the connector from the Azure portal](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
+   ![Download the connector from the Microsoft Entra admin center](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
 ## Move an Active Connector
 
@@ -59,6 +59,4 @@ If the only Connectors in the group are inactive, they are likely on a machine t
 see the ports Troubleshoot document for details on investigating this problem.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-
-
+[Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)

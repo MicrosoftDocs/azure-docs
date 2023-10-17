@@ -3,7 +3,7 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/30/2023
+ms.date: 09/13/2023
 ---
 
 # User-defined functions in Bicep (Preview)
@@ -65,7 +65,6 @@ output addNameArray array = addNameArray('John')
 
 The outputs from the preceding examples are:
 
-
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | azureUrl | String | https://microsoft.com/azure |
@@ -73,6 +72,29 @@ The outputs from the preceding examples are:
 | greetingObject | Object | {"hello":"Hi John!"} |
 | nameArray | Array | ["John"] |
 | addNameArray | Array | ["Mary","Bob","John"] |
+
+User-defined functions support using [user-defined data types](./user-defined-data-types.md).  For example:
+
+```bicep
+@minValue(0)
+type positiveInt = int
+
+func typedArg(input string[]) positiveInt => length(input)
+
+param inArray array = [
+  'Bicep'
+  'ARM'
+  'Terraform'
+]
+
+output elements positiveInt = typedArg(inArray)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| elements | positiveInt | 3 |
 
 ## Limitations
 

@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/14/2022
 author: eur
@@ -24,7 +24,7 @@ curl --location --request POST 'https://INSERT_REGION_HERE.stt.speech.microsoft.
 --data-binary @'INSERT_AUDIO_FILE_PATH_HERE'
 ```
 
-You should receive a response with a JSON body like the following one:
+You should receive a response with a JSON body like the following example:
 
 ```json
 {

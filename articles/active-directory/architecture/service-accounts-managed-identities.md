@@ -1,6 +1,6 @@
 ---
-title: Securing managed identities in Azure Active Directory
-description: Learn to find, assess, and increase the security of managed identities in Azure AD
+title: Securing managed identities in Microsoft Entra ID
+description: Learn to find, assess, and increase the security of managed identities in Microsoft Entra ID
 services: active-directory
 author: jricketts
 manager: martinco
@@ -15,29 +15,29 @@ ms.custom: it-pro, seodec18, ignite-2022, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Securing managed identities in Azure Active Directory
+# Securing managed identities in Microsoft Entra ID
 
-In this article, learn about managing secrets and credentials to secure communication between services. Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD). Applications use managed identities to connect to resources that support Azure AD authentication, and to obtain Azure AD tokens, without credentials management.
+In this article, learn about managing secrets and credentials to secure communication between services. Managed identities provide an automatically managed identity in Microsoft Entra ID. Applications use managed identities to connect to resources that support Microsoft Entra authentication, and to obtain Microsoft Entra tokens, without credentials management.
 
 ## Benefits of managed identities
 
 Benefits of using managed identities:
 
-* With managed identities, credentials are fully managed, rotated, and protected by Azure. Identities are provided and deleted with Azure resources. Managed identities enable Azure resources to communicate with services that support Azure AD authentication.
+* With managed identities, credentials are fully managed, rotated, and protected by Azure. Identities are provided and deleted with Azure resources. Managed identities enable Azure resources to communicate with services that support Microsoft Entra authentication.
 
 * No one, including the Global Administrator, has access to the credentials, which can't be accidentally leaked by being included in code.
 
 ## Using managed identities
 
-Managed identities are best for communications among services that support Azure AD authentication. A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure virtual machine (VM), Azure Function instance, and Azure App Services instances support managed identities.
+Managed identities are best for communications among services that support Microsoft Entra authentication. A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure virtual machine (VM), Azure Function instance, and Azure App Services instances support managed identities.
 
 Learn more in the video, [What can a managed identity be used for?](https://www.youtube.com/embed/5lqayO_oeEo)
 
 ### Authentication and authorization
 
-With managed identities, the source system obtains a token from Azure AD without owner credential management. Azure manages the credentials. Tokens obtained by the source system are presented to the target system for authentication. 
+With managed identities, the source system obtains a token from Microsoft Entra ID without owner credential management. Azure manages the credentials. Tokens obtained by the source system are presented to the target system for authentication. 
 
-The target system authenticates and authorizes the source system to allow access. If the target service supports Azure AD authentication, it accepts an access token issued by Azure AD. 
+The target system authenticates and authorizes the source system to allow access. If the target service supports Microsoft Entra authentication, it accepts an access token issued by Microsoft Entra ID. 
 
 Azure has a control plane and a data plane. You create resources in the control plane, and access them in the data plane. For example, you create an Azure Cosmos DB database in the control plane, but query it in the data plane.
 
@@ -69,7 +69,9 @@ User-assigned managed identity
 * Assign user-assigned managed identity to zero or more Azure resources
 * Create an identity ahead of time, and then assigned it to a resource later
 
-## Find managed identity service principals in Azure AD
+<a name='find-managed-identity-service-principals-in-azure-ad'></a>
+
+## Find managed identity service principals in Microsoft Entra ID
 
 To find managed identities, you can use:
 
@@ -78,7 +80,7 @@ To find managed identities, you can use:
 
 ### The Azure portal
 
-1. In the Azure portal, in the left navigation, select **Azure Active Directory**.
+1. In the Azure portal, in the left navigation, select **Microsoft Entra ID**.
 2. In the left navigation, select **Enterprise applications**.
 3. In the **Application type** column, under **Value**, select the down-arrow to select **Managed Identities**.
 
@@ -111,7 +113,7 @@ To assess managed identity security:
 
 ## Move to managed identities
 
-If you're using a  service principal or an Azure AD user account, evaluate the use of managed identities. You can eliminate the need to protect, rotate, and manage credentials. 
+If you're using a  service principal or a Microsoft Entra user account, evaluate the use of managed identities. You can eliminate the need to protect, rotate, and manage credentials. 
 
 ## Next steps
 
@@ -122,5 +124,5 @@ If you're using a  service principal or an Azure AD user account, evaluate the u
 
 * [Securing cloud-based service accounts](secure-service-accounts.md)
 * [Securing service principals](service-accounts-principal.md)
-* [Governing Azure AD service accounts](govern-service-accounts.md)
+* [Governing Microsoft Entra service accounts](govern-service-accounts.md)
 * [Securing on-premises service accounts](service-accounts-on-premises.md)

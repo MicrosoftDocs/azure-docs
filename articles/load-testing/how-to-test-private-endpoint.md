@@ -4,11 +4,11 @@ titleSuffix: Azure Load Testing
 description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.author: nicktrog
 author: ntrogh
 ms.date: 05/12/2023
 ms.topic: how-to
-ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
@@ -35,10 +35,6 @@ When you start the load test, Azure Load Testing service injects the following A
 - An Azure Load Balancer.
 
 These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
-
-> [!NOTE]
-> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East Asia, East US, East US 2, North Europe, South Central US, Sweden Central, UK South, West Europe, West US 2 and West US 3.
-> 
 
 ## Prerequisites
 

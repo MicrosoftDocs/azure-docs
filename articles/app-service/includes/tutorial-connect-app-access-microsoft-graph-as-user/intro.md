@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: include
 ms.workload: identity
-ms.date: 11/02/2021
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
@@ -21,7 +21,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="../../media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Azure Active Directory (Azure AD).
+You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Microsoft Entra ID.
 
 In this tutorial, you learn how to:
 
@@ -38,9 +38,9 @@ In this tutorial, you learn how to:
 
 ## Grant front-end access to call Microsoft Graph
 
-Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by an Azure AD application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Azure AD application the permissions to access the Microsoft Graph Azure AD application for the user.)
+Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by a Microsoft Entra application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Microsoft Entra application the permissions to access the Microsoft Graph Microsoft Entra application for the user.)
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select **Azure Active Directory** from any page.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications**.
 
 1. Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your web app name, and then select **API permissions**.
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/11/2023
+ms.date: 09/01/2023
 ms.author: jasteppe
 ---
 

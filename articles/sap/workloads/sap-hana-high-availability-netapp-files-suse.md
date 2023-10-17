@@ -11,7 +11,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 07/11/2023
+ms.date: 09/15/2023
 ms.author: ampatel
 ---
 
@@ -473,7 +473,7 @@ Create a dummy file system cluster resource, which monitors and reports failures
    ```bash
    sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
-       directory="/hana/shared/check/" fstype=nfs4  \
+       directory="/hana/shared/check/" fstype=nfs  \
        options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \

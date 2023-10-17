@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: A tutorial introducing how to use Document intelligence with Logic Apps.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: bemabonsu

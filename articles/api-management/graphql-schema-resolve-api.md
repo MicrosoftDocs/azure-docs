@@ -107,6 +107,9 @@ type User {
 1. Select **Create**. 
 1. To resolve data for another field in the schema, repeat the preceding steps to create a resolver. 
 
+> [!TIP]
+> As you edit a resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
+
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 
 ## Secure your GraphQL API

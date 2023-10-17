@@ -3,14 +3,14 @@
 ## FRONT MATTER START
 title: Microsoft identity platform documentation
 summary: >
-  Use the Microsoft identity platform and our open-source authentication libraries to sign in users with Azure AD accounts, Microsoft accounts, and social accounts like Facebook and Google.
+  Use the Microsoft identity platform and our open-source authentication libraries to sign in users with Microsoft Entra accounts, Microsoft personal accounts, and social accounts like Facebook and Google.
   Protect your web APIs and access protected APIs like Microsoft Graph to work with your users' and organization's data.
 brand: azure
 
 metadata:
   title: Microsoft identity platform documentation
   description: >
-   Use Azure Active Directory (Azure AD) with OAuth 2.0 and OpenID Connect (OIDC) to protect the apps and web APIs you build. Learn how to sign in users and
+   Use Microsoft Entra ID with OAuth 2.0 and OpenID Connect (OIDC) to protect the apps and web APIs you build. Learn how to sign in users and
    manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
 
   author: Dickson-Mwendia
@@ -208,8 +208,8 @@ additionalContent:
       ## CARD 2 ######################
       - title: Connect to Microsoft Graph
         summary: >
-          Programmatic access to organizational, user, and application data stored in Azure Active Directory. Call Microsoft Graph from your application to
-          create and manage Azure AD users and groups, get and modify your users' data like their profiles, calendars, email, and more.
+          Programmatic access to organizational, user, and application data stored in Microsoft Entra ID. Call Microsoft Graph from your application to
+          create and manage Microsoft Entra users and groups, get and modify your users' data like their profiles, calendars, email, and more.
         links:
         - url: /graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
           text: Microsoft Graph API documentation
@@ -217,7 +217,7 @@ additionalContent:
       - title: Manage and market your apps
         summary: >
           Make existing SaaS applications like Dropbox, Salesforce, and ServiceNow available to your organization's users, configure SSO, and manage security.
-          Or, become an independent software vendor (ISV) by publishing your own SaaS application for use by _other_ organizations that use Azure AD.
+          Or, become an independent software vendor (ISV) by publishing your own SaaS application for use by _other_ organizations that use Microsoft Entra ID.
         links:
         - url: ../manage-apps/what-is-application-management.md
           text: Application management documentation

@@ -1,6 +1,6 @@
 ---
-title: Upgrade PhoneFactor to Azure AD Multi-Factor Authentication Server
-description: Get started with Azure AD Multi-Factor Authentication Server when you upgrade from the older phonefactor agent.
+title: Upgrade PhoneFactor to Azure Multi-Factor Authentication Server
+description: Get started with Azure Multi-Factor Authentication Server when you upgrade from the older phonefactor agent.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# Upgrade the PhoneFactor Agent to Azure AD Multi-Factor Authentication Server
+# Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server
 
-To upgrade the PhoneFactor Agent v5.x or older to Azure AD Multi-Factor Authentication Server, uninstall the PhoneFactor Agent and affiliated components first. Then the Multi-Factor Authentication Server and its affiliated components can be installed.
+To upgrade the PhoneFactor Agent v5.x or older to Azure Multi-Factor Authentication Server, uninstall the PhoneFactor Agent and affiliated components first. Then the Multi-Factor Authentication Server and its affiliated components can be installed.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure AD Multi-Factor Authentication Server. Beginning September 30, 2024, Azure AD Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
 
-> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 
 
 ## Uninstall the PhoneFactor Agent
@@ -46,6 +46,10 @@ To upgrade the PhoneFactor Agent v5.x or older to Azure AD Multi-Factor Authenti
 
 5. Uninstall the PhoneFactor Agent through Windows Programs and Features.
 
+<a name='install-the-multi-factor-authentication-server'></a>
+
+<a name='install-the-multifactor-authentication-server'></a>
+
 ## Install the Multi-Factor Authentication Server
 
 The installation path is picked up from the registry from the previous PhoneFactor Agent installation, so it should install in the same location (for example, C:\Program Files\PhoneFactor). New installations have a different default install path (for example, C:\Program Files\Multi-Factor Authentication Server). The data file left by the previous PhoneFactor Agent should be upgraded during installation, so your users and settings should still be there after installing the new Multi-Factor Authentication Server.
@@ -56,7 +60,7 @@ The installation path is picked up from the registry from the previous PhoneFact
 
    The default virtual directory name is now **MultiFactorAuthWebServiceSdk** instead of **PhoneFactorWebServiceSdk**. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you have to change the URL in any applications that reference the Web Service SDK (like the User portal and Mobile App Web Service) to point at the correct location.
 
-3. If the User portal was previously installed on the PhoneFactor Agent Server, install the new Multi-Factor Authentication User portal through the Multi-Factor Authentication Server User Interface.
+3. If the User portal was previously installed on the PhoneFactor Agent Server, install the new multifactor authentication User portal through the Multi-Factor Authentication Server User Interface.
 
    The default virtual directory name is now **MultiFactorAuth** instead of **PhoneFactor**. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User portal icon in the Multi-Factor Authentication Server and update the User portal URL on the Settings tab.
 
@@ -75,6 +79,6 @@ The installation path is picked up from the registry from the previous PhoneFact
 
 ## Next steps
 
-- [Install the users portal](howto-mfaserver-deploy-userportal.md) for the Azure AD Multi-Factor Authentication Server.
+- [Install the users portal](howto-mfaserver-deploy-userportal.md) for the Azure Multi-Factor Authentication Server.
 
 - [Configure Windows Authentication](howto-mfaserver-windows.md) for your applications. 

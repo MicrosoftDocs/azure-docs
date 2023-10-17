@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ms.custom: enterprise-apps
 ---
 
-# Azure Active Directory admin consent workflow frequently asked questions
+# Microsoft Entra admin consent workflow frequently asked questions
 
 ## I enabled a workflow, but when testing the functionality, why can’t I see the new “Approval required” prompt that allows me to request access?
 

@@ -1,6 +1,6 @@
 ---
 title: Set expiration for Microsoft 365 groups
-description: How to set up expiration for Microsoft 365 groups in Azure Active Directory
+description: How to set up expiration for Microsoft 365 groups in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn                   
 ms.reviewer: jodah
 ms.custom: it-pro, has-azure-ad-ps-ref
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Configure the expiration policy for Microsoft 365 groups
 
-This article tells you how to manage the lifecycle of Microsoft 365 groups by setting an expiration policy for them. You can set expiration policy only for  Microsoft 365 groups in Azure Active Directory (Azure AD), part of Microsoft Entra.
+This article tells you how to manage the lifecycle of Microsoft 365 groups by setting an expiration policy for them. You can set expiration policy only for  Microsoft 365 groups in Microsoft Entra ID, part of Microsoft Entra.
 
 Once you set a group to expire:
 
@@ -30,18 +30,18 @@ Once you set a group to expire:
 - Any group that is not renewed is deleted.
 - Any Microsoft 365 group that is deleted can be restored within 30 days by the group owners or the administrator.
 
-Currently, only one expiration policy can be configured for all Microsoft 365 groups in an Azure AD organization.
+Currently, only one expiration policy can be configured for all Microsoft 365 groups in a Microsoft Entra organization.
 
 > [!NOTE]
-> Configuring and using the expiration policy for Microsoft 365 groups requires you to possess but not necessarily assign Azure AD Premium licenses for the members of all groups to which the expiration policy is applied.
+> Configuring and using the expiration policy for Microsoft 365 groups requires you to possess but not necessarily assign Microsoft Entra ID P1 or P2 licenses for the members of all groups to which the expiration policy is applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document to SharePoint, visit a Teams channel, send an email to the group in Outlook, or view a post in Yammer, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications. 
+With Microsoft Entra intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document to SharePoint, visit a Teams channel, send an email to the group in Outlook, or view a post in Yammer, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications. 
 
-For example, consider an expiration policy that is set so that a group expires after 30 days of inactivity. However, to keep from sending an expiration email the day that group expiration is enabled (because there's no record activity yet), Azure AD first waits five days. If there is activity in those five days, the expiration policy works as expected. If there is no activity within five days, we send an expiration/renewal email. Of course, if the group was inactive for five days, an email was sent, and then the group was active, we will autorenew it and start the expiration period again.
+For example, consider an expiration policy that is set so that a group expires after 30 days of inactivity. However, to keep from sending an expiration email the day that group expiration is enabled (because there's no record activity yet), Microsoft Entra first waits five days. If there is activity in those five days, the expiration policy works as expected. If there is no activity within five days, we send an expiration/renewal email. Of course, if the group was inactive for five days, an email was sent, and then the group was active, we will autorenew it and start the expiration period again.
 
 ### Activities that automatically renew group expiration
 
@@ -54,28 +54,26 @@ The following user actions cause automatic group renewal:
 
 ### Auditing and reporting
 
-Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
+Administrators can get a list of automatically renewed groups from the activity audit logs in Microsoft Entra ID.
 
 ![Automatic renewal of groups based on activity](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## Roles and permissions
 
-The following are roles that can configure and use expiration for Microsoft 365 groups in Azure AD.
+The following are roles that can configure and use expiration for Microsoft 365 groups in Microsoft Entra ID.
 
 Role | Permissions
 -------- | --------
 Global administrator, Group administrator, or User administrator | Can create, read, update, or delete the Microsoft 365 groups expiration policy settings<br>Can renew any Microsoft 365 group
 User | Can renew a Microsoft 365 group that they own<br>Can restore a Microsoft 365 group that they own<br>Can read the expiration policy settings
 
-For more information on permissions to restore a deleted group, see [Restore a deleted Microsoft 365 group in Azure Active Directory](groups-restore-deleted.md).
+For more information on permissions to restore a deleted group, see [Restore a deleted Microsoft 365 group in Microsoft Entra ID](groups-restore-deleted.md).
 
 ## Set group expiration
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
-
-2. Browse to **Azure Active Directory** > **Groups**, then select **Expiration** to open the expiration settings.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups**, **All groups** then select **Expiration** to open the expiration settings.
   
    ![Expiration settings for groups](./media/groups-lifecycle/expiration-settings.png)
 
@@ -98,7 +96,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Email notifications
 
-If groups are not automatically renewed, email notifications such as this one are sent to the Microsoft 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group. The language of the email is determined by groups owner's preferred language or Azure AD language setting. If the group owner has defined a preferred language, or multiple owners have the same preferred language, then that language is used. For all other cases, Azure AD language setting is used.
+If groups are not automatically renewed, email notifications such as this one are sent to the Microsoft 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group. The language of the email is determined by groups owner's preferred language or Microsoft Entra language setting. If the group owner has defined a preferred language, or multiple owners have the same preferred language, then that language is used. For all other cases, Microsoft Entra language setting is used.
 
 ![Expiration email notifications](./media/groups-lifecycle/expiration-notification.png)
 
@@ -111,7 +109,7 @@ When a group expires, the group is deleted one day after the expiration date. An
 
 ![Group deletion email notifications](./media/groups-lifecycle/deletion-notification.png)
 
-The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Microsoft 365 group in Azure Active Directory](groups-restore-deleted.md). Please note that the 30-day group restoration period is not customizable.
+The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Microsoft 365 group in Microsoft Entra ID](groups-restore-deleted.md). Please note that the 30-day group restoration period is not customizable.
 
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 
@@ -120,7 +118,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of a Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
-> In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.
+> In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Microsoft Entra groups General Setting.
 
 ## How Microsoft 365 group expiration works with a mailbox on legal hold
 
@@ -132,7 +130,7 @@ The retention policy is configured by way of the Security & Compliance Center. I
 
 ## PowerShell examples
 
-Here are examples of how you can use PowerShell cmdlets to configure the expiration settings for Microsoft 365 groups in your Azure AD organization:
+Here are examples of how you can use PowerShell cmdlets to configure the expiration settings for Microsoft 365 groups in your Microsoft Entra organization:
 
 1. Install the PowerShell v2.0 module and sign in at the PowerShell prompt:
 
@@ -141,7 +139,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Connect-AzureAD
    ```
 
-1. Configure the expiration settings Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Microsoft 365 groups in the Azure AD organization to 365 days. Renewal notifications for Microsoft 365 groups without owners will be sent to `emailaddress@contoso.com`
+1. Configure the expiration settings Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Microsoft 365 groups in the Microsoft Entra organization to 365 days. Renewal notifications for Microsoft 365 groups without owners will be sent to `emailaddress@contoso.com`
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -150,7 +148,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
 1. Retrieve the existing policy Get-AzureADMSGroupLifecyclePolicy: This cmdlet retrieves the current Microsoft 365 group expiration  settings that have been configured. In this example, you can see:
 
    - The policy ID
-   - The lifetime for all Microsoft 365 groups in the Azure AD organization is set to 365 days
+   - The lifetime for all Microsoft 365 groups in the Microsoft Entra organization is set to 365 days
    - Renewal notifications for Microsoft 365 groups without owners will be sent to 'emailaddress@contoso.com.'
   
    ```powershell
@@ -192,7 +190,7 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 
 ## Next steps
 
-These articles provide additional information on Azure AD groups.
+These articles provide additional information on Microsoft Entra groups.
 
 - [See existing groups](../fundamentals/groups-view-azure-portal.md)
 - [Manage settings of a group](../fundamentals/how-to-manage-groups.md)

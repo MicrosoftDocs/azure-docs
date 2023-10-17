@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 09/06/2023
 ms.author: duau
 ms.custom: references_regions, ignite-2022
 ---
@@ -160,7 +160,7 @@ To enable connectivity to other Azure services and infrastructure services, you 
 
 ## <a name="bgp"></a>Support for BGP communities
 
-This section provides an overview of how BGP communities get used with ExpressRoute. Microsoft advertises routes in the private, Microsoft and public (deprecated) peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are describe as followed. Microsoft, however doesn't honor any community values tagged to routes advertised to Microsoft.
+This section provides an overview of how BGP communities get used with ExpressRoute. Microsoft advertises routes in the private, Microsoft and public (deprecated) peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are describe as followed. Microsoft, however, doesn't honor any community values tagged to routes advertised to Microsoft.
 
 For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
 
@@ -244,18 +244,21 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Skype For Business Online (2) and (3) | 12076:5030 |
 | CRM Online (4) |12076:5040 |
 | Azure Global Services (1) | 12076:5050 |
-| Azure Active Directory |12076:5060 |
+| Microsoft Entra ID |12076:5060 |
 | Azure Resource Manager |12076:5070 |
-| Other Office 365 Online services** | 12076:5100 |
+| Other Office 365 Online services (2) | 12076:5100 |
 | Microsoft Defender for Identity | 12076:5220 |
+| Microsoft PSTN services (5) | 12076:5250 |
 
 (1) Azure Global Services includes only Azure DevOps at this time.
 
-(2) Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)
+(2) Authorization required from Microsoft. See [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md).
 
 (3) This community also publishes the needed routes for Microsoft Teams services.
 
 (4) CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
+
+(5) Use of Microsoft Peering with PSTN services is restricted to specific use cases. See [Using ExpressRoute for Microsoft PSTN services](using-expressroute-for-microsoft-pstn.md).
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
@@ -285,7 +288,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| Azure Active Directory |12076:5160 |
+| Microsoft Entra ID |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
 * *Office 365 communities aren't supported over Microsoft Peering for Microsoft Azure operated by 21Vianet region.*

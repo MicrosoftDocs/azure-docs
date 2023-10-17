@@ -1,6 +1,6 @@
 ---
-title: Best practices to secure with Azure Active Directory 
-description: Best practices we recommend you follow to secure your isolated environments in Azure Active Directory.
+title: Best practices to secure with Microsoft Entra ID 
+description: Best practices we recommend you follow to secure your isolated environments in Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The following are design considerations for all isolation configurations. Throughout this content, there are many links. We link to content, rather than duplicate it here, so you'll always have access to the most up-to-date information.
 
-For general guidance on how to configure Azure Active Directory (Azure AD) tenants (isolated or not), refer to the [Azure AD feature deployment guide](../fundamentals/concept-secure-remote-workers.md).
+For general guidance on how to configure Microsoft Entra tenants (isolated or not), refer to the [Microsoft Entra feature deployment guide](../fundamentals/concept-secure-remote-workers.md).
 
 >[!NOTE]
 >For all isolated tenants we suggest you use clear and differentiated branding to help avoid human error of working in the wrong tenant.
@@ -28,7 +28,7 @@ For general guidance on how to configure Azure Active Directory (Azure AD) tenan
 
 When designing isolated environments, it's important to consider the following principles:
 
-* **Use only modern authentication** - Applications deployed in isolated environments must use claims-based modern authentication (for example, SAML, * Auth, OAuth2, and OpenID Connect) to use capabilities such as federation, Azure AD B2B collaboration, delegation, and the consent framework. This way, legacy applications that have dependency on legacy authentication methods such as NT LAN Manager (NTLM) won't carry forward in isolated environments.
+* **Use only modern authentication** - Applications deployed in isolated environments must use claims-based modern authentication (for example, SAML, * Auth, OAuth2, and OpenID Connect) to use capabilities such as federation, Microsoft Entra B2B collaboration, delegation, and the consent framework. This way, legacy applications that have dependency on legacy authentication methods such as NT LAN Manager (NTLM) won't carry forward in isolated environments.
 
 * **Enforce strong authentication** - Strong authentication must always be used when accessing the isolated environment services and infrastructure. Whenever possible, [passwordless authentication](../authentication/concept-authentication-passwordless.md) such as [Windows for Business Hello](/windows/security/identity-protection/hello-for-business/hello-overview) or a [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key.md)) should be used.
 
@@ -44,18 +44,18 @@ When designing isolated environments, it's important to consider the following p
 
 * **Directory-level role assignments** - Avoid or reduce numbers of directory-level role assignments (User Administrator on directory scope instead of AU-scoping) or service-specific directory roles with control plane actions (Knowledge Admin with permissions to manage security group memberships).
 
-In addition to the guidance in the [Azure Active Directory general operations guide](./ops-guide-ops.md), we also recommend the following considerations for isolated environments.
+In addition to the guidance in the [Microsoft Entra general operations guide](./ops-guide-ops.md), we also recommend the following considerations for isolated environments.
 
 ## Human identity provisioning
 
 ### Privileged Accounts
 
-Provision accounts in the isolated environment for administrative personnel and IT teams who operate the environment. This enables you to add stronger security policies such as device-based access control for [secure workstations](/security/compass/privileged-access-deployment). As discussed in previous sections, nonproduction environments can potentially utilize Azure AD B2B collaboration to onboard privileged accounts to the non-production tenants using the same posture and security controls designed for privileged access in their production environment.
+Provision accounts in the isolated environment for administrative personnel and IT teams who operate the environment. This enables you to add stronger security policies such as device-based access control for [secure workstations](/security/compass/privileged-access-deployment). As discussed in previous sections, nonproduction environments can potentially utilize Microsoft Entra B2B collaboration to onboard privileged accounts to the non-production tenants using the same posture and security controls designed for privileged access in their production environment.
 
-Cloud-only accounts are the simplest way to provision human identities in an Azure AD tenant and it's a good fit for green field environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described herein is used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
+Cloud-only accounts are the simplest way to provision human identities in a Microsoft Entra tenant and it's a good fit for green field environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described herein is used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
 
 >[!NOTE]
->There are no technical controls to do identity proofing for Azure AD B2B accounts. External identities provisioned with Azure AD B2B are bootstrapped with a single factor. The mitigation is for the organization to have a process to proof the required identities prior to a B2B invitation being issued, and regular access reviews of external identities to manage the lifecycle. Consider enabling a Conditional Access policy to control the MFA registration.
+>There are no technical controls to do identity proofing for Microsoft Entra B2B accounts. External identities provisioned with Microsoft Entra B2B are bootstrapped with a single factor. The mitigation is for the organization to have a process to proof the required identities prior to a B2B invitation being issued, and regular access reviews of external identities to manage the lifecycle. Consider enabling a Conditional Access policy to control the MFA registration.
 
 ### Outsourcing high risk roles
 
@@ -65,7 +65,7 @@ To mitigate inside threats, it's possible to outsource access to the global admi
 
 ### Emergency access accounts
 
-Provision [emergency access accounts](../roles/security-emergency-access.md) for "break glass" scenarios where normal administrative accounts can't be used in the event you're accidentally locked out of your Azure AD organization. For on-premises environments using federation systems such as Active Directory Federation Services (AD FS) for authentication, maintain alternate cloud-only credentials for your global administrators to ensure service delivery during an on-premises infrastructure outage.
+Provision [emergency access accounts](../roles/security-emergency-access.md) for "break glass" scenarios where normal administrative accounts can't be used in the event you're accidentally locked out of your Microsoft Entra organization. For on-premises environments using federation systems such as Active Directory Federation Services (AD FS) for authentication, maintain alternate cloud-only credentials for your global administrators to ensure service delivery during an on-premises infrastructure outage.
 
 ### Azure managed identities
 
@@ -75,23 +75,23 @@ If managed identities aren't supported or not possible, consider [provisioning s
 
 ### Hybrid service accounts
 
-Some hybrid solutions might require access to both on-premises and cloud resources. An example of a use case would be an Identity Governance solution that uses a service account on premises for access to AD DS and requires access to Azure AD.
+Some hybrid solutions might require access to both on-premises and cloud resources. An example of a use case would be an Identity Governance solution that uses a service account on premises for access to AD DS and requires access to Microsoft Entra ID.
 
-On-premises service accounts typically don't have the ability to sign in interactively, which means that in cloud scenarios they can't fulfill strong credential requirements such as multi-factor authentication (MFA). In this scenario, don't use a service account that has been synced from on-premises, but instead use a managed identity \ service principal. For service principal (SP), use a certificate as a credential, or [protect the SP with Conditional Access](../conditional-access/workload-identity.md).
+On-premises service accounts typically don't have the ability to sign in interactively, which means that in cloud scenarios they can't fulfill strong credential requirements such as multifactor authentication. In this scenario, don't use a service account that has been synced from on-premises, but instead use a managed identity \ service principal. For service principal (SP), use a certificate as a credential, or [protect the SP with Conditional Access](../conditional-access/workload-identity.md).
 
 If there are technical constraints that don't make this possible and the same account must be used for both on-premises and cloud, then implement compensating controls such as Conditional Access to lock down the hybrid account to come from a specific network location.
 
 ## Resource assignment
 
-An enterprise solution may be composed of multiple Azure resources and its access should be managed and governed as a logical unit of assignment - a resource group. In that scenario, Azure AD security groups can be created and associated with the proper permissions and role assignment across all solution resources, so that adding or removing users from those groups results in allowing or denying access to the entire solution.
+An enterprise solution may be composed of multiple Azure resources and its access should be managed and governed as a logical unit of assignment - a resource group. In that scenario, Microsoft Entra security groups can be created and associated with the proper permissions and role assignment across all solution resources, so that adding or removing users from those groups results in allowing or denying access to the entire solution.
 
 We recommend you use security groups to grant access to Microsoft services that rely on licensing to provide access (for example, Dynamics 365, Power BI).
 
-Azure AD cloud native groups can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../governance/access-reviews-overview.md). Organizations who already have on-premises group governance tools can continue to use those tools and rely on identity synchronization with Azure AD Connect to reflect group membership changes.
+Microsoft Entra cloud native groups can be natively governed from the cloud when combined with [Microsoft Entra access reviews](../governance/access-reviews-overview.md) and [Microsoft Entra entitlement management](../governance/access-reviews-overview.md). Organizations who already have on-premises group governance tools can continue to use those tools and rely on identity synchronization with Microsoft Entra Connect to reflect group membership changes.
 
-Azure AD also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](./ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
+Microsoft Entra ID also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Microsoft Entra access reviews](../governance/access-reviews-overview.md) and [Microsoft Entra entitlement management](./ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
 
-Some scenarios might require granting access to on-premises resources through on-premises Active Directory security groups. For those cases, consider the synchronization cycle to Azure AD when designing processes SLA.
+Some scenarios might require granting access to on-premises resources through on-premises Active Directory security groups. For those cases, consider the synchronization cycle to Microsoft Entra ID when designing processes SLA.
 
 ## Authentication management
 
@@ -101,7 +101,7 @@ This section describes the checks to perform and actions to take for credential 
 
 #### Strong credentials
 
-All human identities (local accounts and external identities provisioned through B2B collaboration) in the isolated environment must be provisioned with strong authentication credentials such as multi-factor authentication or a FIDO key. Environments with an underlying on-premises infrastructure with strong authentication such as smart card authentication can continue using smart card authentication in the cloud.
+All human identities (local accounts and external identities provisioned through B2B collaboration) in the isolated environment must be provisioned with strong authentication credentials such as multifactor authentication or a FIDO key. Environments with an underlying on-premises infrastructure with strong authentication such as smart card authentication can continue using smart card authentication in the cloud.
 
 #### Passwordless credentials
 
@@ -109,7 +109,7 @@ A [passwordless solution](../authentication/concept-authentication-passwordless.
 
 #### Password protection
 
-If the environment is synchronized from an on-premises Active Directory forest, you should deploy [Azure AD password protection](../authentication/concept-password-ban-bad-on-premises.md) to eliminate weak passwords in your organization. [Azure AD smart lockout](../authentication/howto-password-smart-lockout.md) should also be used in hybrid or cloud-only environments to lock out bad actors who are trying to guess your users' passwords or use brute-force methods to get in.
+If the environment is synchronized from an on-premises Active Directory forest, you should deploy [Microsoft Entra password protection](../authentication/concept-password-ban-bad-on-premises.md) to eliminate weak passwords in your organization. [Microsoft Entra smart lockout](../authentication/howto-password-smart-lockout.md) should also be used in hybrid or cloud-only environments to lock out bad actors who are trying to guess your users' passwords or use brute-force methods to get in.
 
 #### Self-service password management
 
@@ -117,7 +117,7 @@ Users needing to change or reset their passwords is one of the biggest sources o
 
 #### External identities passwords
 
-By using Azure AD B2B collaboration, an [invitation and redemption process](../external-identities/what-is-b2b.md) lets external users such as partners, developers, and subcontractors use their own credentials to access your company's resources. This mitigates the need to introduce more passwords into the isolated tenants.
+By using Microsoft Entra B2B collaboration, an [invitation and redemption process](../external-identities/what-is-b2b.md) lets external users such as partners, developers, and subcontractors use their own credentials to access your company's resources. This mitigates the need to introduce more passwords into the isolated tenants.
 
 >[!Note]
 >Some applications, infrastructure, or workflows might require a local credential. Evaluate this on a case-by-case basis.
@@ -132,7 +132,7 @@ Check this example to [create service principals with self-signed certificate](.
 
 ### Access policies
 
-In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [Conditional Access Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](./ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
+In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [Conditional Access Best practices](../conditional-access/overview.md), [Microsoft Entra Operations Guide](./ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
 
 * Define [Conditional Access policies](../conditional-access/workload-identity.md) for the [Microsoft Azure Management](../authentication/howto-password-smart-lockout.md) cloud app to enforce identity security posture when accessing Azure Resource Manager. This should include controls on MFA and device-based controls to enable access only through secure workstations (more on this in the Privileged Roles section under Identity Governance). Additionally, use [Conditional Access to filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
@@ -146,9 +146,9 @@ In the following sections are recommendations for Azure solutions. For general g
 
 ### Authentication Challenges
 
-* External identities provisioned with Azure AD B2B might need to reprovision multi-factor authentication (MFA) credentials in the resource tenant. This might be necessary if a cross-tenant access policy hasn't been set up with the resource tenant. This means that onboarding to the system is bootstrapped with a single factor. With this approach, the risk mitigation is for the organization to have a process to proof the user and credential risk profile prior to a B2B invitation being issued. Additionally, define Conditional Access to the registration process as described previously.
+* External identities provisioned with Microsoft Entra B2B might need to reprovision multifactor authentication credentials in the resource tenant. This might be necessary if a cross-tenant access policy hasn't been set up with the resource tenant. This means that onboarding to the system is bootstrapped with a single factor. With this approach, the risk mitigation is for the organization to have a process to proof the user and credential risk profile prior to a B2B invitation being issued. Additionally, define Conditional Access to the registration process as described previously.
 
-* Use [External identities cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](../external-identities/cross-tenant-access-settings-b2b-direct-connect.md).
+* Use [External identities cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) to manage how they collaborate with other Microsoft Entra organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](../external-identities/cross-tenant-access-settings-b2b-direct-connect.md).
 
 * For specific device configuration and control, you can use device filters in Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md). This enables you to restrict access to Azure management tools from a designated secure admin workstation (SAW). Other approaches you can take include using [Azure Virtual desktop](../../virtual-desktop/terminology.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview).
 
@@ -160,7 +160,7 @@ In the following sections are recommendations for Azure solutions. For general g
 
 Below are some identity governance principles to consider across all the tenant configurations for isolation.
 
-* **No standing access** - No human identities should have standing access to perform privileged operations in isolated environments. Azure Role-based access control (RBAC) integrates with [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM). PIM provides just-in-time activation determined by security gates such as Multi-Factor Authentication, approval workflow, and limited duration.
+* **No standing access** - No human identities should have standing access to perform privileged operations in isolated environments. Azure Role-based access control (RBAC) integrates with [Microsoft Entra Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM). PIM provides just-in-time activation determined by security gates such as multifactor authentication, approval workflow, and limited duration.
 
 * **Number of admins** - Organizations should define minimum and maximum number of humans holding a privileged role to mitigate business continuity risks. With too few privileged roles, there may not be enough time-zone coverage. Mitigate security risks by having as few administrators as possible, following the least-privilege principle.
 
@@ -180,15 +180,15 @@ Some approaches you can use for [using secure devices as part of your privileged
 
   * Qualification of humans with privileged roles (for example, full-time employee/vendor, clearance level, citizenship)
 
-  * Explicit incompatibility of roles (also known as separation of duties). Examples include teams with Azure AD directory roles shouldn't be responsible for managing Azure Resource Manager privileged roles, etc.
+  * Explicit incompatibility of roles (also known as separation of duties). Examples include teams with Microsoft Entra directory roles shouldn't be responsible for managing Azure Resource Manager privileged roles, etc.
 
   * Whether direct user or groups assignments are preferred for which roles.
 
 ### Resource access  
 
-* **Attestation** - Identities that hold privileged roles should be reviewed periodically to keep membership current and justified. [Azure AD Access Reviews](../governance/access-reviews-overview.md) integrate with Azure RBAC roles, group memberships and Azure AD B2B external identities.
+* **Attestation** - Identities that hold privileged roles should be reviewed periodically to keep membership current and justified. [Microsoft Entra access reviews](../governance/access-reviews-overview.md) integrate with Azure RBAC roles, group memberships and Microsoft Entra B2B external identities.
 
-* **Lifecycle** - Privileged operations might require access to multiple resources such as line of business applications, SaaS Applications, and Azure resource groups and subscriptions. [Azure AD Entitlement Management](../governance/entitlement-management-overview.md) allows defining access packages that represent a set resource that is assigned to users as a unit, establish a validity period, approval workflows, etc.
+* **Lifecycle** - Privileged operations might require access to multiple resources such as line of business applications, SaaS Applications, and Azure resource groups and subscriptions. [Microsoft Entra Entitlement Management](../governance/entitlement-management-overview.md) allows defining access packages that represent a set resource that is assigned to users as a unit, establish a validity period, approval workflows, etc.
 
 ### Governance challenges
 
@@ -198,11 +198,11 @@ Some approaches you can use for [using secure devices as part of your privileged
 
 * [Microsoft Customer Agreement](../../cost-management-billing/understand/mca-overview.md) (MCA) roles don't integrate natively with PIM. To mitigate this, use dedicated MCA accounts and monitor usage of these accounts.
 
-* Monitoring IAM assignments outside Azure AD PIM isn't automated through Azure Policies. The mitigation is to not grant Subscription Owner or User Access Administrator roles to engineering teams. Instead create groups assigned to least privileged roles such as Contributor and delegate the management of those groups to engineering teams.
+* Monitoring IAM assignments outside Microsoft Entra PIM isn't automated through Azure Policies. The mitigation is to not grant Subscription Owner or User Access Administrator roles to engineering teams. Instead create groups assigned to least privileged roles such as Contributor and delegate the management of those groups to engineering teams.
 
-* Privileged roles in Azure AD B2C tenants aren't integrated with Azure AD PIM. The mitigation is to create dedicated accounts in the organization's Azure AD tenant, onboard them in the Azure AD B2C tenant and apply Conditional Access policies to these dedicated administration accounts.
+* Privileged roles in Azure AD B2C tenants aren't integrated with Microsoft Entra PIM. The mitigation is to create dedicated accounts in the organization's Microsoft Entra tenant, onboard them in the Azure AD B2C tenant and apply Conditional Access policies to these dedicated administration accounts.
 
-* Azure AD B2C tenant privileged roles aren't integrated with Azure AD Access Reviews. The mitigation is to create dedicated accounts in the organization's Azure AD tenant, add these accounts to a group and perform regular access reviews on this group.
+* Azure AD B2C tenant privileged roles aren't integrated with Microsoft Entra access reviews. The mitigation is to create dedicated accounts in the organization's Microsoft Entra tenant, add these accounts to a group and perform regular access reviews on this group.
 
 * There are no technical controls to subordinate the creation of tenants to an organization. However, the activity is recorded in the Audit log. The onboarding to the billing plane is a compensating control at the gate. This needs to be complemented with monitoring and alerts instead.
 
@@ -212,9 +212,9 @@ Some approaches you can use for [using secure devices as part of your privileged
 
 ### Tenant lifecycle
 
-* We recommend implementing a process to request a new corporate Azure AD tenant. The process should account for:
+* We recommend implementing a process to request a new corporate Microsoft Entra tenant. The process should account for:
 
-  * Business justification to create it. Creating a new Azure AD tenant will increase complexity significantly, so it's key to ascertain if a new tenant is necessary.
+  * Business justification to create it. Creating a new Microsoft Entra tenant will increase complexity significantly, so it's key to ascertain if a new tenant is necessary.
 
   * The Azure cloud in which it should be created (for example, Commercial, Government, etc.).
 
@@ -226,9 +226,9 @@ Some approaches you can use for [using secure devices as part of your privileged
 
   * Training and understanding of common security requirements.
 
-* Upon approval, the Azure AD tenant will be created, configured with necessary baseline controls, and onboarded in the billing plane, monitoring, etc.
+* Upon approval, the Microsoft Entra tenant will be created, configured with necessary baseline controls, and onboarded in the billing plane, monitoring, etc.
 
-* Regular review of the Azure AD tenants in the billing plane needs to be implemented to detect and discover tenant creation outside the governed process. Refer to the *Inventory and Visibility* section of this document for further details.
+* Regular review of the Microsoft Entra tenants in the billing plane needs to be implemented to detect and discover tenant creation outside the governed process. Refer to the *Inventory and Visibility* section of this document for further details.
 
 * Azure AD B2C tenant creation can be controlled using Azure Policy. The policy executes when an Azure subscription is associated to the B2C tenant (a pre-requisite for billing). Customers can limit the creation of Azure AD B2C tenants to specific management groups.
 
@@ -238,7 +238,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 * Define a taxonomy of applications and solutions that require Azure resources. All teams requesting subscriptions should supply their "product identifier" when requesting subscriptions. This information taxonomy will determine:
 
-  * Azure AD tenant to provision the subscription
+  * Microsoft Entra tenant to provision the subscription
 
   * Azure EA account to use for subscription creation
 
@@ -250,13 +250,13 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 * Don't allow ad-hoc subscription creation through the portals or by other means. Instead consider managing [subscriptions programmatically using Azure Resource Manager](../../cost-management-billing/manage/programmatically-create-subscription.md) and pulling consumption and billing reports [programmatically](/rest/api/consumption/). This can help limit subscription provisioning to authorized users and enforce your policy and taxonomy goals. Guidance on following [AZOps principals](https://github.com/azure/azops/wiki/introduction) can be used to help create a practical solution.
 
-* When a subscription is provisioned, create Azure AD cloud groups to hold standard Azure Resource Manager Roles needed by application teams such as Contributor, Reader and approved custom roles. This enables you to manage Azure RBAC role assignments with governed privileged access at scale.
+* When a subscription is provisioned, create Microsoft Entra cloud groups to hold standard Azure Resource Manager Roles needed by application teams such as Contributor, Reader and approved custom roles. This enables you to manage Azure RBAC role assignments with governed privileged access at scale.
 
-  1. Configure the groups to become eligible for Azure RBAC roles using Azure AD PIM with the corresponding controls such as activation policy, access reviews, approvers, etc.
+  1. Configure the groups to become eligible for Azure RBAC roles using Microsoft Entra PIM with the corresponding controls such as activation policy, access reviews, approvers, etc.
 
   1. Then [delegate the management of the groups](../enterprise-users/groups-self-service-management.md) to solution owners.
 
-  1. As a guardrail, don't assign product owners to User Access Administrator or Owner roles to avoid inadvertent direct assignment of roles outside Azure AD PIM, or potentially changing the subscription to a different tenant altogether.
+  1. As a guardrail, don't assign product owners to User Access Administrator or Owner roles to avoid inadvertent direct assignment of roles outside Microsoft Entra PIM, or potentially changing the subscription to a different tenant altogether.
 
   1. For customers who choose to enable cross-tenant subscription management in non-production tenants through Azure Lighthouse, make sure that the same access policies from the production privileged account (for example, privileged access only from [secured workstations](/security/compass/privileged-access-deployment)) are enforced when authenticating to manage subscriptions.
 
@@ -266,15 +266,15 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 ### Azure AD B2C tenants
 
-* In an Azure AD B2C tenant, the built-in roles don't support PIM. To increase security, we recommend using Azure AD B2B collaboration to onboard the engineering teams managing Customer Identity Access Management (CIAM) from your Azure tenant, and assign them to Azure AD B2C privileged roles.
+* In an Azure AD B2C tenant, the built-in roles don't support PIM. To increase security, we recommend using Microsoft Entra B2B collaboration to onboard the engineering teams managing Customer Identity Access Management (CIAM) from your Azure tenant, and assign them to Azure AD B2C privileged roles.
 
-* Following the emergency access guidelines for Azure AD above, consider creating equivalent [emergency access accounts](../roles/security-emergency-access.md) in addition to the external administrators described above.
+* Following the emergency access guidelines for Microsoft Entra ID above, consider creating equivalent [emergency access accounts](../roles/security-emergency-access.md) in addition to the external administrators described above.
 
-* We recommend the logical ownership of the underlying Azure AD subscription of the B2C tenant aligns with the CIAM engineering teams, in the same way that the rest of Azure subscriptions are used for the B2C solutions.
+* We recommend the logical ownership of the underlying Microsoft Entra subscription of the B2C tenant aligns with the CIAM engineering teams, in the same way that the rest of Azure subscriptions are used for the B2C solutions.
 
 ## Operations
 
-The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./ops-guide-ops.md) for detailed guidance to operate individual environments.
+The following are additional operational considerations for Microsoft Entra ID, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Microsoft Entra Operations guide](./ops-guide-ops.md) for detailed guidance to operate individual environments.
 
 ### Cross-environment roles and responsibilities
 
@@ -320,7 +320,7 @@ The following are additional operational considerations for Azure AD, specific t
 
 * Deployment of security stack per agreed upon cybersecurity architecture, including diagnostic settings, SIEM onboarding, CASB onboarding, PIM onboarding, etc.
 
-* Configuration of Azure AD roles based on agreed upon delegation.
+* Configuration of Microsoft Entra roles based on agreed upon delegation.
 
 * Configuration and distribution of initial privileged workstations.
 
@@ -332,7 +332,7 @@ The following are additional operational considerations for Azure AD, specific t
 
 ### Inventory and visibility
 
-**Azure subscription discovery** - For each discovered tenant, an Azure AD global administrator can [elevate access](../../role-based-access-control/elevate-access-global-admin.md) to gain visibility of all subscriptions in the environment. This elevation will assign the global administrator the User Access Administrator built-in role at the root management group.
+**Azure subscription discovery** - For each discovered tenant, a Microsoft Entra Global Administrator can [elevate access](../../role-based-access-control/elevate-access-global-admin.md) to gain visibility of all subscriptions in the environment. This elevation will assign the global administrator the User Access Administrator built-in role at the root management group.
 
 >[!NOTE]
 >This action is highly privileged and might give the admin access to subscriptions that hold extremely sensitive information if that data has not been properly isolated.
@@ -345,11 +345,11 @@ The following are additional operational considerations for Azure AD, specific t
 
 **Central security log management** - Ingest logs from each environment in a [centralized way](/security/benchmark/azure/security-control-logging-monitoring), following consistent best practices across environments (for example, diagnostics settings, log retention, SIEM ingestion, etc.). [Azure Monitor](../../azure-monitor/overview.md) can be used to ingest logs from different sources such as endpoint devices, network, operating systems' security logs, etc.
 
-Detailed information on using automated or manual processes and tools to monitor logs as part of your security operations is available at [Azure Active Directory security operation guide](https://github.com/azure/azops/wiki/introduction).
+Detailed information on using automated or manual processes and tools to monitor logs as part of your security operations is available at [Microsoft Entra security operation guide](https://github.com/azure/azops/wiki/introduction).
 
 Some environments might have regulatory requirements that limit which data (if any) can leave a given environment. If centralized monitoring across environments isn't possible, teams should have operational procedures to correlate activities of identities across environments for auditing and forensics purposes such as cross-environment lateral movement attempts. It's recommended that the object unique identifiers human identities belonging to the same person is discoverable, potentially as part of the identity provisioning systems.
 
-The log strategy must include the following Azure AD logs for each tenant used in the organization:
+The log strategy must include the following Microsoft Entra logs for each tenant used in the organization:
 
 * Sign-in activity
 
@@ -357,11 +357,11 @@ The log strategy must include the following Azure AD logs for each tenant used i
 
 * Risk events
 
-Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](/graph/tutorial-riskdetection-api).
+Microsoft Entra ID provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](/graph/tutorial-riskdetection-api).
 
 The following diagram shows the different data sources that need to be incorporated as part of the monitoring strategy:
 
-Azure AD B2C tenants can be [integrated with Azure Monitor](../../active-directory-b2c/azure-monitor.md). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Azure AD.
+Azure AD B2C tenants can be [integrated with Azure Monitor](../../active-directory-b2c/azure-monitor.md). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Microsoft Entra ID.
 
 Subscriptions that have enabled cross-tenant management with Azure Lighthouse can enable cross-tenant monitoring if the logs are collected by Azure Monitor. The corresponding Log Analytics workspaces can reside in the resource tenant and can be analyzed centrally in the managing tenant using Azure Monitor workbooks. To learn more, check [Monitor delegated resources at scale - Azure Lighthouse](../../lighthouse/how-to/monitor-at-scale.md).
 
@@ -371,7 +371,7 @@ All hybrid identity infrastructure OS logs should be archived and carefully moni
 
 * AD FS servers and Web Application Proxy
 
-* Azure AD Connect
+* Microsoft Entra Connect
 
 * Application Proxy Agents
 
@@ -379,9 +379,9 @@ All hybrid identity infrastructure OS logs should be archived and carefully moni
 
 * Password Protection Gateway machines
 
-* NPS that has the Azure AD Multi-Factor Authentication RADIUS extension
+* NPS that has the Microsoft Entra multifactor authentication RADIUS extension
 
-[Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md) must be deployed to monitor identity synchronization and federation (when applicable) for all environments.
+[Microsoft Entra Connect Health](../hybrid/connect/whatis-azure-ad-connect.md) must be deployed to monitor identity synchronization and federation (when applicable) for all environments.
 
 **Log storage retention** - All environments should have a cohesive log storage retention strategy, design, and implementation to facilitate a consistent toolset (for example, SIEM systems such as Azure Sentinel), common queries, investigation, and forensics playbooks. Azure Policy can be used to set up diagnostic settings.
 
@@ -389,9 +389,9 @@ All hybrid identity infrastructure OS logs should be archived and carefully moni
 
 The following scenarios must be explicitly monitored and investigated:
 
-* **Suspicious activity** - All [Azure AD risk events](../identity-protection/overview-identity-protection.md) should be monitored for suspicious activity. All tenants should define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center. It's recommended that any risk detection investigation includes all the environments the identity is provisioned (for example, if a human identity has an active risk detection in the corporate tenant, the team operating the customer facing tenant should also investigate the activity of the corresponding account in that environment).
+* **Suspicious activity** - All [Microsoft Entra risk events](../identity-protection/overview-identity-protection.md) should be monitored for suspicious activity. All tenants should define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center. It's recommended that any risk detection investigation includes all the environments the identity is provisioned (for example, if a human identity has an active risk detection in the corporate tenant, the team operating the customer facing tenant should also investigate the activity of the corresponding account in that environment).
 
-* **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/defender-cloud-apps/mdi-integration). MCAS reads signals from Azure AD Identity Protection.
+* **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/defender-cloud-apps/mdi-integration). MCAS reads signals from Microsoft Entra ID Protection.
 
 * **Emergency access accounts activity** - Any access using [emergency access accounts](./security-operations-privileged-accounts.md) should be monitored and [alerts](../roles/security-emergency-access.md) created for investigations. This monitoring must include:
 
@@ -413,7 +413,7 @@ The following scenarios must be explicitly monitored and investigated:
 
   * Assignment to Azure resources using dedicated accounts for MCA billing tasks.
 
-* **Privileged role activity** - Configure and review security [alerts generated by Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
+* **Privileged role activity** - Configure and review security [alerts generated by Microsoft Entra PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
 
 * **Classic role assignments** - Organizations should use the modern Azure RBAC role infrastructure instead of the classic roles. As a result, the following events should be monitored:
 
@@ -425,9 +425,9 @@ The following scenarios must be explicitly monitored and investigated:
 
   * Updating branding
 
-  * Azure AD B2B allow/block list
+  * Microsoft Entra B2B allow/block list
 
-  * Azure AD B2B allowed identity providers (SAML IDPs through direct federation or Social Logins)
+  * Microsoft Entra B2B allowed identity providers (SAML IDPs through direct federation or Social Logins)
 
   * Conditional Access Policies changes
 
@@ -461,13 +461,13 @@ The following scenarios must be explicitly monitored and investigated:
 
 **Cross-environment** tooling design considerations:
 
-* Whenever possible, operational tools that will be used across multiple tenants should be designed to run as an Azure AD multi-tenant application to avoid redeployment of multiple instances on each tenant and avoid operational inefficiencies. The implementation should include authorization logic in to ensure that isolation between users and data is preserved.
+* Whenever possible, operational tools that will be used across multiple tenants should be designed to run as a Microsoft Entra multi-tenant application to avoid redeployment of multiple instances on each tenant and avoid operational inefficiencies. The implementation should include authorization logic in to ensure that isolation between users and data is preserved.
 
 * Add alerts and detections to monitor any cross-environment automation (for example, identity provisioning) and threshold limits for fail-safes. For example, you may want an alert if deprovisioning of user accounts reaches a specific level, as it may indicate a bug or operational error that could have broad impact.
 
 * Any automation that orchestrates cross-environment tasks should be operated as highly privileged system. This system should be homed to the highest security environment and pull from outside sources if data from other environments is required. Data validation and thresholds need to be applied to maintain system integrity. A common cross-environment task is identity lifecycle management to remove identities from all environments for a terminated employee.
 
-**IT service management tools** - Organizations using IT Service Management (ITSM) systems such as ServiceNow should configure [Azure AD PIM role activation settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to request a ticket number as part of the activation purposes.
+**IT service management tools** - Organizations using IT Service Management (ITSM) systems such as ServiceNow should configure [Microsoft Entra PIM role activation settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to request a ticket number as part of the activation purposes.
 
 Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Service Management Connector](../../azure-monitor/alerts/itsmc-overview.md).
 
@@ -477,7 +477,7 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * Activity of Service Principal Monitoring is limited for some scenarios
 
-* Azure AD PIM alerts don't have an API. The mitigation is to have a regular review of those PIM alerts.
+* Microsoft Entra PIM alerts don't have an API. The mitigation is to have a regular review of those PIM alerts.
 
 * Azure EA Portal doesn't provide monitoring capabilities. The mitigation is to have dedicated administration accounts and monitor the account activity.
 
@@ -497,7 +497,7 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](./secure-fundamentals.md)
+* [Microsoft Entra fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

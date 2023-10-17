@@ -6,11 +6,11 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: storage-common-concepts
 ---
 
 # Configure Azure Storage connection strings
@@ -34,7 +34,7 @@ Your application needs to access the connection string at runtime to authorize r
 - An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 
 > [!WARNING]
-> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Azure AD authorization for access to your storage account.
+> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Microsoft Entra authorization for access to your storage account.
 
 ## Configure a connection string for Azurite
 

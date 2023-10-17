@@ -1,6 +1,6 @@
 ---
-title: Get AppSource certified for Azure Active Directory| Microsoft Docs
-description: Learn details about how to get your application AppSource certified for Azure Active Directory.
+title: Get AppSource certified for Microsoft Entra ID| Microsoft Docs
+description: Learn details about how to get your application AppSource certified for Microsoft Entra ID.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,28 +15,28 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ---
 
-# Get AppSource certified for Azure Active Directory
+# Get AppSource certified for Microsoft Entra ID
 
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
-To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory (Azure AD). The sign-in process must use the [OpenID Connect](v2-protocols-oidc.md) or [OAuth 2.0](v2-oauth2-auth-code-flow.md) protocols. SAML integration is not accepted for AppSource certification.
+To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Microsoft Entra ID. The sign-in process must use the [OpenID Connect](v2-protocols-oidc.md) or [OAuth 2.0](v2-oauth2-auth-code-flow.md) protocols. SAML integration is not accepted for AppSource certification.
 
 ## Multi-tenant applications
 
-A *multi-tenant application* is an application that accepts sign-ins from users from any company or organization that have Azure AD without requiring a separate instance, configuration, or deployment. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
+A *multi-tenant application* is an application that accepts sign-ins from users from any company or organization that have Microsoft Entra ID without requiring a separate instance, configuration, or deployment. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
 
 To enable multi-tenancy on your application, follow these steps:
-1. Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). By default, applications created in the Azure portal are configured as *[single-tenant](#single-tenant-applications)*.
+1. Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). By default, applications created in the Microsoft Entra admin center are configured as *[single-tenant](#single-tenant-applications)*.
 1. Update your code to send requests to the `common` endpoint. To do this, update the endpoint from `https://login.microsoftonline.com/{yourtenant}` to `https://login.microsoftonline.com/common*`.
 1. For some platforms, like ASP.NET, you need also to update your code to accept multiple issuers.
 
-For more information about multi-tenancy, see [How to sign in any Azure Active Directory (Azure AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md).
+For more information about multi-tenancy, see [How to sign in any Microsoft Entra user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md).
 
 ### Single-tenant applications
 
-A *single-tenant application* is an application that only accepts sign-ins from users of a defined Azure AD instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Azure AD instance that the application is registered. 
+A *single-tenant application* is an application that only accepts sign-ins from users of a defined Microsoft Entra instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Microsoft Entra instance that the application is registered. 
 
-You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/integrate-with-app-code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](../external-identities/self-service-portal.md).
+You can add users as guest accounts to Microsoft Entra ID through the [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/integrate-with-app-code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Microsoft Entra B2B collaboration sign-up](../external-identities/self-service-portal.md).
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 
@@ -100,7 +100,7 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Get support
 
-For Azure AD integration, we use [Microsoft Q&A](/answers/topics/azure-active-directory.html) with the community to provide support.
+For Microsoft Entra integration, we use [Microsoft Q&A](/answers/topics/azure-active-directory.html) with the community to provide support.
 
 We highly recommend you ask your questions on [Microsoft Q&A](/answers/topics/azure-active-directory.html) first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]`](/answers/topics/azure-active-directory.html).
 
@@ -108,5 +108,5 @@ Use the following comments section to provide feedback and help us refine and sh
 
 ## Next steps
 
-- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
+- For more information on building applications that support Microsoft Entra sign-ins, see [Authentication scenarios for Microsoft Entra ID](authentication-flows-app-scenarios.md).
 - For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)

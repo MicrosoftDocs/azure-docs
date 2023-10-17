@@ -1,8 +1,8 @@
 ---
 title: Clustering point data in the Android SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Android SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps

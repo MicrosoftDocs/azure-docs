@@ -72,7 +72,7 @@ items:
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
       - name: All Azure AI containers
-        href: ../containers/index.yml
+        href: ../cognitive-services-container-support.md
         maintainContext: true
   - name: Reference
     items:
@@ -103,7 +103,11 @@ items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
   - name: Vision SDK
-    href: how-to/install-sdk.md
+    items:
+    - name: Overview
+      href: sdk/overview-sdk.md
+    - name: Install the SDK
+      href: sdk/install-sdk.md
   - name: Quickstarts
     items:
     - name: Version 4.0 quickstart (preview)
@@ -128,8 +132,6 @@ items:
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
       - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Azure AI services Go SDK Samples
-        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
@@ -242,6 +244,8 @@ items:
         href: /python/api/azure-ai-vision
       - name: C++
         href: /cpp/cognitive-services/vision
+      - name: Java
+        href: /java/api/com.azure.ai.vision.imageanalysis
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
@@ -292,7 +296,7 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Face detection (open to all)
+    - name: Face detection
       items:
       - name: Detect and analyze faces
         href: how-to/identity-detect-faces.md
@@ -389,14 +393,14 @@ items:
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
       - name: All Azure AI containers
-        href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
+        href: ../cognitive-services-container-support.md?context=%2fazure%2fai-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
-    - name: Use Azure AD Authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 

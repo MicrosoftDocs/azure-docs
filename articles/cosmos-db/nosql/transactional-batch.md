@@ -89,7 +89,7 @@ if (response.IsSuccessStatusCode)
 ```
 
 > [!IMPORTANT]
-> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). The status code enables one to identify the cause of transaction failure.
+> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). If the operation fails because it tries to create an item that already exists, a status code of 409 (conflict) is returned. The status code enables one to identify the cause of transaction failure.
 
 ### [Java](#tab/java)
 
@@ -136,7 +136,7 @@ if (response.isSuccessStatusCode())
 ```
 
 > [!IMPORTANT]
-> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). The status code enables one to identify the cause of transaction failure.
+> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). If the operation fails because it tries to create an item that already exists, a status code of 409 (conflict) is returned. The status code enables one to identify the cause of transaction failure.
 
 ---
 

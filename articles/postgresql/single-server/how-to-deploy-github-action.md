@@ -8,9 +8,7 @@ ms.date: 04/28/2023
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
-ms.custom:
-  - github-actions-azure
-  - mode-other
+ms.custom: github-actions-azure, mode-other, devx-track-azurecli
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL

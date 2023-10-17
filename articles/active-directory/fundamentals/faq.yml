@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions (FAQ)
-  description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
+  description: Common questions and answers about Azure and Microsoft Entra ID, password management, and application access.
   services: active-directory
   author: barclayn
   manager: amycolannino
@@ -14,37 +14,36 @@ metadata:
   ms.author: barclayn
   ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
   ms.collection: M365-identity-device-management
-title: Frequently asked questions about Azure Active Directory
+title: Frequently asked questions about Microsoft Entra ID
 summary: |
-  Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
+  Microsoft Entra ID is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
   
-  For more information, see [What is Azure Active Directory?](./whatis.md).
+  For more information, see [What is Microsoft Entra ID?](./whatis.md).
   
   
 
 sections:
-  - name: Access Azure and Azure Active Directory
+  - name: Access Azure and Microsoft Entra ID
     questions:
       - question: |
-          Why do I get "No subscriptions found" when I try to access Azure AD in the Azure portal?
+          Why do I get "No subscriptions found" when I try to access the Microsoft Entra admin center or the Azure portal?
         answer: |
-          To access the Azure portal, each user needs permissions with an Azure subscription. If you don't have a paid Microsoft 365 or Azure AD subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/
-          ) or a paid subscription.
+          To access the Microsoft Entra admin center or the Azure portal, each user needs permissions with a subscription. If you don't have a paid Microsoft 365 or Microsoft Entra subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/) or a paid subscription.
           
           For more information, see:
           
-          * [How Azure subscriptions are associated with Azure Active Directory](./how-subscriptions-associated-directory.md)
+          * [How Azure subscriptions are associated with Microsoft Entra ID](./how-subscriptions-associated-directory.md)
           
           
           
       - question: |
-          What's the relationship between Azure AD, Microsoft 365, and Azure?
+          What's the relationship between Microsoft Entra ID, Microsoft 365, and Azure?
         answer: |
-          Azure AD provides you with common identity and access capabilities to all web services. Whether you are using Microsoft 365, Microsoft Azure, Intune, or others, you're already using Azure AD to help turn on sign-on and access management for all these services.
+          Microsoft Entra ID provides you with common identity and access capabilities to all web services. Whether you are using Microsoft 365, Microsoft Azure, Intune, or others, you're already using Microsoft Entra ID to help turn on sign-on and access management for all these services.
           
-          All users who are set up to use web services are defined as user accounts in one or more Azure AD instances. You can set up these accounts for free Azure AD capabilities like cloud application access.
+          All users who are set up to use web services are defined as user accounts in one or more Microsoft Entra instances. You can set up these accounts for free Microsoft Entra capabilities like cloud application access.
           
-          Azure AD paid services like Enterprise Mobility + Security complement other web services like Microsoft 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
+          Microsoft Entra paid services like Enterprise Mobility + Security complement other web services like Microsoft 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
           
           
           
@@ -55,14 +54,14 @@ sections:
           
           If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
           
-          By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](./how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
+          By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Microsoft Entra directory features. Microsoft Entra ID has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Microsoft Entra directory admins and their roles, see [Assign a user to administrator roles in Microsoft Entra ID](./how-subscriptions-associated-directory.md) and [Assigning administrator roles in Microsoft Entra ID](../roles/permissions-reference.md).
           
-          Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
+          Additionally, Microsoft Entra paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
           
           
           
       - question: |
-          Is there a report that shows when my Azure AD user licenses will expire?
+          Is there a report that shows when my Microsoft Entra user licenses will expire?
         answer: |
           No.  This isn't currently available.
           
@@ -81,7 +80,7 @@ sections:
           * *.entra.microsoftonline.cn    
     
           
-  - name: Get started with Hybrid Azure AD
+  - name: Get started with Hybrid Microsoft Entra ID
     questions:
       - question: |
           How do I leave a tenant when I'm added as a collaborator?
@@ -91,38 +90,38 @@ sections:
           
           
       - question: |
-          How can I connect my on-premises directory to Azure AD?
+          How can I connect my on-premises directory to Microsoft Entra ID?
         answer: |
-          You can connect your on-premises directory to Azure AD by using Azure AD Connect.
+          You can connect your on-premises directory to Microsoft Entra ID by using Microsoft Entra Connect.
           
-          For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+          For more information, see [Integrating your on-premises identities with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
           
           
           
       - question: |
           How do I set up SSO between my on-premises directory and my cloud applications?
         answer: |
-          You only need to set up single sign-on (SSO) between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
+          You only need to set up single sign-on (SSO) between your on-premises directory and Microsoft Entra ID. As long as you access your cloud applications through Microsoft Entra ID, the service automatically drives your users to correctly authenticate with their on-premises credentials.
           
-          Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
+          Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Microsoft Entra Connect configuration wizard.
           
-          For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+          For more information, see [Integrating your on-premises identities with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
           
           
           
       - question: |
-          Does Azure AD provide a self-service portal for users in my organization?
+          Does Microsoft Entra ID provide a self-service portal for users in my organization?
         answer: |
-          Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are a Microsoft 365 customer, you can find many of the same capabilities in the [Office 365 portal](https://portal.office.com).
+          Yes, Microsoft Entra ID provides you with the [Microsoft Entra ID Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are a Microsoft 365 customer, you can find many of the same capabilities in the [Office 365 portal](https://portal.office.com).
           
           For more information, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
           
           
           
       - question: |
-          Does Azure AD help me manage my on-premises infrastructure?
+          Does Microsoft Entra ID help me manage my on-premises infrastructure?
         answer: |
-          Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
+          Yes. The Microsoft Entra ID P1 or P2 edition provides you with Microsoft Entra Connect Health. Microsoft Entra Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
           
           For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/connect/whatis-azure-ad-connect.md).  
           
@@ -130,9 +129,9 @@ sections:
   - name: Password management
     questions:
       - question: |
-          Can I use Azure AD password write-back without password sync? (In this scenario, is it possible to use Azure AD self-service password reset (SSPR) with password write-back and not store passwords in the cloud?)
+          Can I use Microsoft Entra password write-back without password sync? (In this scenario, is it possible to use Microsoft Entra self-service password reset (SSPR) with password write-back and not store passwords in the cloud?)
         answer: |
-          You do not need to synchronize your Active Directory passwords to Azure AD to enable write-back. In a federated environment, Azure AD single sign-on (SSO) relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Azure AD.
+          You do not need to synchronize your Active Directory passwords to Microsoft Entra ID to enable write-back. In a federated environment, Microsoft Entra single sign-on (SSO) relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Microsoft Entra ID.
           
           
           
@@ -155,13 +154,13 @@ sections:
           
           
       - question: |
-          What can I do if I can't remember my existing Microsoft 365/Azure AD password while trying to change my password?
+          What can I do if I can't remember my existing Microsoft 365 / Microsoft Entra password while trying to change my password?
         answer: |
           For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](../authentication/howto-sspr-deployment.md).
           
           For Microsoft 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
           
-          For Azure AD accounts, admins can reset passwords by using one of the following:
+          For Microsoft Entra accounts, admins can reset passwords by using one of the following:
           
           - [Reset accounts in the Azure portal](./users-reset-password-azure-portal.md)
           - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
@@ -188,32 +187,32 @@ sections:
   - name: Application access
     questions:
       - question: |
-          Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?
+          Where can I find a list of applications that are pre-integrated with Microsoft Entra ID and their capabilities?
         answer: |
-          Azure AD has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
+          Microsoft Entra ID has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
           
           For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
           
           
           
       - question: |
-          What if the application I need is not in the Azure AD marketplace?
+          What if the application I need is not in the Microsoft Entra marketplace?
         answer: |
-          With Azure AD Premium, you can add and configure any application that you want. Depending on your application's capabilities and your preferences, you can configure SSO and automated provisioning.  
+          With Microsoft Entra ID P1 or P2, you can add and configure any application that you want. Depending on your application's capabilities and your preferences, you can configure SSO and automated provisioning.  
           
           For more information, see:
           
-          * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../develop/single-sign-on-saml-protocol.md)
-          * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+          * [Configuring single sign-on to applications that are not in the Microsoft Entra application gallery](../develop/single-sign-on-saml-protocol.md)
+          * [Using SCIM to enable automatic provisioning of users and groups from Microsoft Entra ID to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
           
           
           
       - question: |
-          How do users sign in to applications by using Azure AD?
+          How do users sign in to applications by using Microsoft Entra ID?
         answer: |
-          Azure AD provides several ways for users to view and access their applications, such as:
+          Microsoft Entra ID provides several ways for users to view and access their applications, such as:
           
-          * The Azure AD access panel
+          * The Microsoft Entra access panel
           * The Microsoft 365 application launcher
           * Direct sign-in to federated apps
           * Deep links to federated, password-based, or existing apps
@@ -223,22 +222,22 @@ sections:
           
           
       - question: |
-          What are the different ways Azure AD enables authentication and single sign-on to applications?
+          What are the different ways Microsoft Entra ID enables authentication and single sign-on to applications?
         answer: |
-          Azure AD supports many standardized protocols for authentication and authorization, such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Azure AD also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
+          Microsoft Entra ID supports many standardized protocols for authentication and authorization, such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Microsoft Entra ID also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
           
           For more information, see:
           
-          * [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md)
+          * [Authentication Scenarios for Microsoft Entra ID](../develop/authentication-vs-authorization.md)
           * [Active Directory authentication protocols](/previous-versions/azure/dn151124(v=azure.100))
-          * [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
+          * [Single sign-on for applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md)
           
           
           
       - question: |
           Can I add applications I'm running on-premises?
         answer: |
-          Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
+          Microsoft Entra application proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Microsoft Entra ID. There is no need for a VPN or to change your network infrastructure.  
           
           For more information, see [How to provide secure remote access to on-premises applications](../app-proxy/application-proxy.md).
           
@@ -247,22 +246,22 @@ sections:
       - question: |
           How do I require multi-factor authentication for users who access a particular application?
         answer: |
-          With Azure AD Conditional Access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
+          With Microsoft Entra Conditional Access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
           
-          For more information, see [Securing access to Microsoft 365 and other apps connected to Azure Active Directory](../conditional-access/overview.md).
+          For more information, see [Securing access to Microsoft 365 and other apps connected to Microsoft Entra ID](../conditional-access/overview.md).
           
           
           
       - question: |
           What is automated user provisioning for SaaS apps?
         answer: |
-          Use Azure AD to automate the creation, maintenance, and removal of user identities in many popular cloud SaaS apps.
+          Use Microsoft Entra ID to automate the creation, maintenance, and removal of user identities in many popular cloud SaaS apps.
           
-          For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+          For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
           
           
           
       - question: |
-          Can I set up a secure LDAP connection with Azure AD?
+          Can I set up a secure LDAP connection with Microsoft Entra ID?
         answer: |
-           No. Azure AD doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Azure AD Domain Services (Azure AD DS) instance on your Azure AD tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+           No. Microsoft Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Microsoft Entra Domain Services instance on your Microsoft Entra tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)

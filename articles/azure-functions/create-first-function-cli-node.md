@@ -31,7 +31,7 @@ Before you begin, you must have the following prerequisites:
     + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 ::: zone pivot="nodejs-model-v3" 
-+ [Node.js](https://nodejs.org/) version 18 or 16. 
++ [Node.js](https://nodejs.org/) version 14 or above. 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
@@ -41,7 +41,7 @@ Before you begin, you must have the following prerequisites:
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ::: zone pivot="nodejs-model-v4" 
-+ Make sure you install version v4.0.5095 of the Core Tools, or a later version.  
++ Make sure you install version v4.0.5382 of the Core Tools, or a later version.  
 ::: zone-end
 
 ## Create a local function project
@@ -126,8 +126,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     {
         "Values": {       
             "AzureWebJobsStorage": "<Azure Storage connection information>",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+            "FUNCTIONS_WORKER_RUNTIME": "node"
         }
     }
     ```
@@ -151,7 +150,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It's recommended that you use the latest LTS version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -159,35 +158,13 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 18 -FunctionsVersion 4 -Location <REGION>
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest LTS version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     ---
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
-
-::: zone pivot="nodejs-model-v4" 
-## Update app settings
-
-To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-Run the following command to add this setting to your new function app in Azure. Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli 
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
-```
-
----
-::: zone-end
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

@@ -14,7 +14,7 @@ ms.reviewer: phsignor, yuhko, ergreenl
 ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 
-#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
+#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Microsoft Entra ID
 ---
 
 # Configure group and team owner consent to applications
@@ -23,9 +23,9 @@ In this article, you'll learn how to configure the way group and team owners con
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
 
-Group owner consent can be managed in two separate ways: through *directory settings* and *app consent policy*. In the directory settings, you can enable all groups owner, enable selected group owner, or disable group owners' ability to give consent to applications. On the other hand, by utilizing the app consent policy, you can specify which app consent policy governs the group owner consent for applications. You then have the flexibility to assign either a Microsoft built-in policy or create your own custom policy to effectively manage the consent process for group owners.
+Group owner consent can be managed in two separate ways: through Microsoft Entra admin center and creation of app consent policies. In the Microsoft Entra admin center, you can enable all groups owner, enable selected group owner, or disable group owners' ability to give consent to applications. On the other hand, app consent policies enable you to specify which app consent policy governs the group owner consent for applications. You then have the flexibility to assign either a Microsoft built-in policy or create your own custom policy to effectively manage the consent process for group owners.
 
-Before utilizing the app consent policy to manage your group owner consent, you need to disable the group owner consent setting that is managed by directory settings. Disabling this setting allows for group owner consent subject to app consent policies. You can learn how to disable the group owner consent setting in various ways in this article. Learn more about [managing group owner consent by app consent policies](manage-group-owner-consent-policies.md) tailored to your needs. 
+Before creating the app consent policy to manage your group owner consent, you need to disable the group owner consent setting through the Microsoft Entra admin center. Disabling this setting allows for group owner consent subject to app consent policies. You can learn how to disable the group owner consent setting in various ways in this article. Learn more about [managing group owner consent by app consent policies](manage-group-owner-consent-policies.md) tailored to your needs. 
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
@@ -34,7 +34,7 @@ Before utilizing the app consent policy to manage your group owner consent, you 
 To configure group and team owner consent, you need:
 
 - A user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Global Administrator or Privileged Administrator role.
+- A Global Administrator role.
 
 ## Manage group owner consent to apps by directory settings
 
@@ -44,12 +44,12 @@ You can configure which users are allowed to consent to apps accessing their gro
 
 :::zone pivot="portal"
 
-To configure group and team owner consent settings through the Azure portal:
+To configure group and team owner consent settings through the Microsoft Entra admin center:
 
 Follow these steps to manage group owner consent to apps accessing group data:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-2. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 3. Under **Group owner consent for apps accessing data** select the option you'd like to enable.
 4. Select **Save** to save your settings.
 
@@ -60,13 +60,11 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 :::zone pivot="ms-powershell"
 
-To manage group and team owner consent settings through directory setting by Microsoft Graph PowerShell:
-
-You can use the [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) module to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own. The cmdlets used here are included in the [Microsoft.Graph.Identity.SignIns](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.SignIns) module.
+You can use the [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) module to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own. The cmdlets in this section are part of the [Microsoft.Graph.Identity.SignIns](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.SignIns) module.
 
 ### Connect to Microsoft Graph PowerShell
 
-Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*.
+Connect to Microsoft Graph PowerShell and sign in as a [global administrator](../roles/permissions-reference.md#global-administrator). For reading the current user consent settings, use `Policy.Read.All` permission. For reading and changing the user consent settings, use `Policy.ReadWrite.Authorization` permission.
 
 change the profile to beta by using the `Select-MgProfile` command
 ```powershell
@@ -158,11 +156,13 @@ Update-MgDirectorySetting -DirectorySettingId $settings.Id -Values $settings.Val
 
 :::zone pivot="ms-graph"
 
-To manage group and team owner consent settings through directory setting by [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) :
+To manage group and team owner consent settings through directory setting using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer):
+
+You need to sign in as a [global administrator](../roles/permissions-reference.md#global-administrator). For reading the current user consent settings, consent to `Policy.Read.All` permission. For reading and changing the user consent settings, consent to `Policy.ReadWrite.Authorization` permission.
 
 ### Retrieve the current setting through directory settings
 
-Retrieve the current value for the **Consent Policy Settings** from directory settings in your tenant. This requires checking if the directory settings for this feature have been created, and if not, using the second MS Graph call to create the corresponding directory settings.
+Retrieve the current value for the **Consent Policy Settings** from directory settings in your tenant. This requires checking if the directory settings for this feature have been created, and if not, using the second Microsoft Graph call to create the corresponding directory settings.
 ```http
 GET https://graph.microsoft.com/beta/settings
 ```
@@ -492,4 +492,4 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 To get help or find answers to your questions:
 
-- [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Microsoft Entra ID on Microsoft Q&A](/answers/topics/azure-active-directory.html)

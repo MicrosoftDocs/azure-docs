@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Block access by location
 
-With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic shouldn't come from. For more information about IPv6 support, see the article [IPv6 support in Azure Active Directory](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
+With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic shouldn't come from. For more information about IPv6 support, see the article [IPv6 support in Microsoft Entra ID](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
 
 > [!NOTE]
 > Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
@@ -35,7 +35,7 @@ With the location condition in Conditional Access, you can control access to you
 1. Select **Create**
 
 More information about the location condition in Conditional Access can be found in the article, 
-[What is the location condition in Azure Active Directory Conditional Access](location-condition.md)
+[What is the location condition in Microsoft Entra Conditional Access](location-condition.md)
 
 ## Create a Conditional Access policy
 

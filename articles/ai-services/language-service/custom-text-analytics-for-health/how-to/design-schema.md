@@ -5,8 +5,7 @@ description: Learn about how to select and prepare data, to be successful in cre
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/14/2023
 ms.author: aahi

@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Collect user attributes during sign-up  
 
-User attributes are values collected from the user during self-service sign-up. In the user flow settings, you can select from a set of *built-in user attributes* you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. Azure AD provides the following built-in user attributes:
+User attributes are values collected from the user during self-service sign-up. In the user flow settings, you can select from a set of *built-in user attributes* you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. Microsoft Entra ID provides the following built-in user attributes:
 
   - City
   - Country/Region
@@ -49,7 +49,7 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 1. Select **Create**. The custom attribute is now available in the list of user attributes and can be [added to your user flows](#include-custom-attributes-in-a-sign-up-flow).
 
-### About referencing custom attributes
+### Referencing custom attributes
 
 The custom attributes you create are added to the *b2c-extensions-app* registered in your customer tenant. If you want to call a custom attribute from an application or manage it via Microsoft Graph, use the naming convention `extension_<b2c-extensions-app-id>_<custom-attribute-name>` where:
 

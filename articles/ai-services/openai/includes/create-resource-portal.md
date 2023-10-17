@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to use the Azure portal to create an Azure OpenAI resource and manage deployments with the Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/25/2023
 keywords: 

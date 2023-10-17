@@ -41,6 +41,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Australia East
 *   Australia Southeast
 *   Brazil South
+*   Brazil Southeast 
 *   Canada Central
 *   Canada East
 *   Central India
@@ -70,6 +71,8 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   UAE North
 *   UK South
 *   UK West
+*   US Gov Texas (public preview)
+*	US Gov Virginia (public preview)
 *	West Europe
 *   West US
 *   West US 2
@@ -82,9 +85,11 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Australia East
 * Australia Southeast 
 * Brazil South
+* Brazil Southeast 
 * Canada Central
 * Canada East
 * Central India
+* Central US
 * East Asia
 * East US 
 * East US 2 
@@ -100,6 +105,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Norway West 
 * Qatar Central 
 * South Africa North
+* South Central US 
 * South India
 * Southeast Asia 
 * Sweden Central

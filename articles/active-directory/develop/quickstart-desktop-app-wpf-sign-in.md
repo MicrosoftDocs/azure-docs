@@ -33,7 +33,7 @@ You have two options to start your quickstart application:
 
 ### Option 1: Register and auto configure your app and then download your code sample
 
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)quickstart experience.
+1. Go to the [Microsoft Entra admin center - App registrations](https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)quickstart experience.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application with just one click.
 
@@ -45,10 +45,9 @@ You have two options to start your quickstart application:
 
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 1. Select **Register** to create the application.
@@ -76,19 +75,19 @@ To register your application and add the app's registration information to your 
 Where:
 - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
    
-    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
+    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Microsoft Entra admin center.
 - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`.
 
-    To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+    To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Microsoft Entra admin center.
 
 #### Step 4: Run the application
 
 To build and run the sample application in Visual Studio, select the **Debug menu** > **Start Debugging**, or press the F5 key. Your application's MainWindow is displayed.
 
-When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
+When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Microsoft Entra account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
 
 If you're running the application for the first time, you'll be prompted to provide consent to allow the application to access your user profile and sign you in. After consenting to the requested permissions, the application displays that you've successfully logged in. You should see some basic token information and user data obtained from the call to the Microsoft Graph API.
 
@@ -123,7 +122,7 @@ IPublicClientApplication publicClientApp = PublicClientApplicationBuilder.Create
 
 |Where: | Description |
 |---------|---------|
-| `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+| `ClientId` | Is the **Application (client) ID** for the application registered in the Microsoft Entra admin center. You can find this value in the app's **Overview** page in the Microsoft Entra admin center. |
 
 ### Requesting tokens
 

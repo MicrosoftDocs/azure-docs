@@ -1,10 +1,10 @@
 ---
-title: Sample query logs and results from Azure Update Manager (preview)
-description: The article provides details of sample query logs from Azure Update Manager (preview) in Azure using Azure Resource Graph
+title: Sample query logs and results from Azure Update Manager
+description: The article provides details of sample query logs from Azure Update Manager in Azure using Azure Resource Graph
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 
@@ -80,5 +80,5 @@ maintenanceresources
 ```
 
 ## Next steps
-- Review logs and search results from Update Manager (preview) in Azure using [Azure Resource Graph](query-logs.md).
-- Troubleshoot issues in Update Manager (preview), see the [Troubleshoot](troubleshoot.md).
+- Review logs and search results from Update Manager in Azure using [Azure Resource Graph](query-logs.md).
+- Troubleshoot issues in Update Manager, see the [Troubleshoot](troubleshoot.md).

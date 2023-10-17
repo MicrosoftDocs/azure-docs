@@ -32,11 +32,11 @@ For more information on these customizable parameters, see [Common email task pa
 
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
-## Customize email by using the Azure portal
+## Customize email by using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations the same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent from tasks within workflows by using the Azure portal:
+When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations the same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent from tasks within workflows by using the Microsoft Entra admin center:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
@@ -91,8 +91,8 @@ You can customize emails that you send via lifecycle workflows to have your own 
 
 To enable these features, you need the following prerequisites:
 
-- A verified domain. To add a custom domain, see [Managing custom domain names in Azure Active Directory](../enterprise-users/domains-manage.md).
-- Custom branding set within Azure AD if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding](../fundamentals/how-to-customize-branding.md).
+- A verified domain. To add a custom domain, see [Managing custom domain names in Microsoft Entra ID](../enterprise-users/domains-manage.md).
+- Custom branding set within Microsoft Entra ID if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding](../fundamentals/how-to-customize-branding.md).
 
 > [!NOTE]
 > For compliance with the [RFC for sending and receiving email](https://www.ietf.org/rfc/rfc2142.txt), we recommend using a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX. [Learn more about Exchange Online email routing](/exchange/mail-flow-best-practices/mail-flow-best-practices).

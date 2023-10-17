@@ -3,8 +3,7 @@ title: Data schema requirements
 titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin

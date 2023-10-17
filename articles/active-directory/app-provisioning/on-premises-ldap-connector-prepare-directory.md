@@ -1,6 +1,6 @@
 ---
-title: Preparing for Azure AD Provisioning to Active Directory Lightweight Directory Services
-description: This document describes how to configure Azure AD to provision users into Active Directory Lightweight Directory Services as an example of an LDAP directory.
+title: Preparing for Microsoft Entra provisioning to Active Directory Lightweight Directory Services
+description: This document describes how to configure Microsoft Entra ID to provision users into Active Directory Lightweight Directory Services as an example of an LDAP directory.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: billmath
 ms.reviewer: arvinh
 ---
 
-# Prepare Active Directory Lightweight Directory Services for provisioning from Azure AD
+# Prepare Active Directory Lightweight Directory Services for provisioning from Microsoft Entra ID
 
-The following documentation provides tutorial information demonstrating how to prepare an Active Directory Lightweight Directory Services (AD LDS) installation.  This can be used as an example LDAP directory for troubleshooting or to demonstrate [how to provision users from Azure AD into an LDAP directory](on-premises-ldap-connector-configure.md).  
+The following documentation provides tutorial information demonstrating how to prepare an Active Directory Lightweight Directory Services (AD LDS) installation.  This can be used as an example LDAP directory for troubleshooting or to demonstrate [how to provision users from Microsoft Entra ID into an LDAP directory](on-premises-ldap-connector-configure.md).  
 
 ## Prepare the LDAP directory
 
@@ -101,7 +101,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  6. Close the Local Group Policy editor
  
 
-Next, continue in the guidance to [provision users from Azure AD into an LDAP directory](on-premises-ldap-connector-configure.md) to download and configure the provisioning agent.  
+Next, continue in the guidance to [provision users from Microsoft Entra ID into an LDAP directory](on-premises-ldap-connector-configure.md) to download and configure the provisioning agent.  
 
 ## Appendix A - Install AD LDS PowerShell script
 The following PowerShell script can be used to automate the installation of Active Directory Lightweight Directory Services. You'll need to edit the script to match your environment; in particular, change `APP3` to the hostname of your computer.

@@ -1,6 +1,6 @@
 ---
-title: Restricted management administrative units in Azure Active Directory (Preview)
-description: Use restricted management administrative units for more sensitive resources in Azure Active Directory.
+title: Restricted management administrative units in Microsoft Entra ID (Preview)
+description: Use restricted management administrative units for more sensitive resources in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,7 +16,7 @@ ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Restricted management administrative units in Azure Active Directory (Preview)
+# Restricted management administrative units in Microsoft Entra ID (Preview)
 
 > [!IMPORTANT]
 > Restricted management administrative units are currently in PREVIEW.
@@ -39,7 +39,7 @@ Here are some reasons why you might use restricted management administrative uni
 
 Here are the objects that can be members of restricted management administrative units.
 
-| Azure AD object type | Administrative unit | Administrative unit with restricted management setting enabled |
+| Microsoft Entra object type | Administrative unit | Administrative unit with restricted management setting enabled |
 | --- | :---: | :---: |
 | Users | Yes | Yes |
 | Devices | Yes | Yes |
@@ -50,23 +50,23 @@ Here are the objects that can be members of restricted management administrative
 
 ## What types of operations are blocked?
 
-For administrators not explicitly assigned at the restricted management administrative unit scope, operations that directly modify the Azure AD properties of objects in restricted management administrative units are blocked, whereas operations on related objects in Microsoft 365 services aren't affected.
+For administrators not explicitly assigned at the restricted management administrative unit scope, operations that directly modify the Microsoft Entra properties of objects in restricted management administrative units are blocked, whereas operations on related objects in Microsoft 365 services aren't affected.
 
 | Operation type | Blocked | Allowed |
 | --- | :---: | :---: |
 | Read standard properties like user principal name, user photo |  | :heavy_check_mark: |
-| Modify any Azure AD properties of the user, group, or device | :x: |  |
+| Modify any Microsoft Entra properties of the user, group, or device | :x: |  |
 | Delete the user, group, or device | :x: |  |
 | Update password for a user | :x: |  |
 | Modify owners or members of the group in the restricted management administrative unit | :x: |  |
-| Add users, groups, or devices in a restricted management administrative unit to groups in Azure AD |  | :heavy_check_mark: |
+| Add users, groups, or devices in a restricted management administrative unit to groups in Microsoft Entra ID |  | :heavy_check_mark: |
 | Modify email & mailbox settings in Exchange for the user in the restricted management administrative unit |  | :heavy_check_mark: |
 | Apply policies to a device in a restricted management administrative unit using Intune |  | :heavy_check_mark: |
 | Add or remove a group as a site owner in SharePoint |  | :heavy_check_mark: |
 
 ## Who can modify objects?
 
-Only administrators with an explicit assignment at the scope of a restricted management administrative unit can change the Azure AD properties of objects in the restricted management administrative unit.
+Only administrators with an explicit assignment at the scope of a restricted management administrative unit can change the Microsoft Entra properties of objects in the restricted management administrative unit.
 
 | User role | Blocked | Allowed |
 | --- | :---: | :---: |
@@ -83,7 +83,7 @@ Only administrators with an explicit assignment at the scope of a restricted man
 Here are some of the limits and constraints for restricted management administrative units.
 
 - The restricted management setting must be applied during administrative unit creation and can't be changed once the administrative unit is created.
-- Groups in a restricted management administrative unit can't be managed with [Azure AD Privileged Identity Management](../privileged-identity-management/groups-discover-groups.md).
+- Groups in a restricted management administrative unit can't be managed with [Microsoft Entra Privileged Identity Management](../privileged-identity-management/groups-discover-groups.md).
 - Role-assignable groups, when added to a restricted management administrative unit, can't have their membership modified.  Group owners aren't allowed to manage groups in restricted management administrative units and only Global Administrators and Privileged Role Administrators (neither of which can be assigned at administrative unit scope) can modify membership.
 - Certain actions may not be possible when an object is in a restricted management administrative unit, if the required role isn't one of the roles that can be assigned at administrative unit scope.  For example, a Global Administrator in a restricted management administrative unit can't have their password reset by any other administrator in the system, because there's no admin role that can be assigned at the administrative unit scope that can reset the password of a Global Administrator. In such scenarios, the Global Administrator would need to be removed from the restricted management administrative unit first, and then have their password reset by another Global Administrator or Privileged Role Administrator.
 - When deleting a restricted management administrative unit, it can take up to 30 minutes to remove all protections from the former members.
@@ -94,10 +94,10 @@ Applications can't modify objects in restricted management administrative units 
 
 ## License requirements
 
-Restricted management administrative units require an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Restricted management administrative units require a Microsoft Entra ID P1 license for each administrative unit administrator, and Microsoft Entra ID Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
 - [Create, update, or delete administrative units](admin-units-manage.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)

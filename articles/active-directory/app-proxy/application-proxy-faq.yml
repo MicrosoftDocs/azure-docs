@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Active Directory Application Proxy frequently asked questions
-  description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
+  title: Microsoft Entra application proxy frequently asked questions
+  description: Learn answers to frequently asked questions (FAQ) about using Microsoft Entra application proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
   manager: 
@@ -9,11 +9,11 @@ metadata:
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: faq
-  ms.date: 11/17/2022
+  ms.date: 10/02/2023
   ms.author: kenwith
   ms.reviewer: ashishj
-title: Active Directory (Azure AD) Application Proxy frequently asked questions
-summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
+title: Microsoft Entra application proxy frequently asked questions
+summary: This page answers frequently asked questions about Microsoft Entra application proxy.
 
 
 sections:
@@ -21,32 +21,32 @@ sections:
     questions:
 
       - question: |
-         Can I modify an App Proxy app from the **App registrations** page in the Azure portal?
+         Can I modify an App Proxy app from the **App registrations** page in the Microsoft Entra admin center?
         answer: |
             No, the following configuration items are being used by app proxy and should not be altered or deleted:
             -	Enable/Disable “Allow public clients flows”.
             -	CWAP_AuthSecret (Client secrets).
             -	API Permissions.
-            Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
+            Modifying any of the above configuration items on the App registration page breaks preauthentication for Microsoft Entra application proxy.
 
       - question: |
-         Can I delete an App Proxy app from the App registrations page in the Azure portal? 
+         Can I delete an App Proxy app from the App registrations page in the Microsoft Entra admin center? 
         answer: |
-              No. You should delete an App Proxy app from the **Enterprise applications** area of the Azure portal. If you delete the App Proxy app from the **App registrations** area of the Azure portal then you could experience issues.
+              No. You should delete an App Proxy app from the **Enterprise applications** area of the Microsoft Entra admin center. If you delete the App Proxy app from the **App registrations** area of the Microsoft Entra admin center, then you could experience issues.
       - question: |
-         What license is required to use Azure AD Application Proxy?
+         What license is required to use Microsoft Entra application proxy?
         answer: |
-              To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+              To use Microsoft Entra application proxy, you must have a Microsoft Entra ID P1 or P2 license. For more information about licensing, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
           
       - question: |
-         What happens to Azure AD Application Proxy in my tenant, if my license expires?
+         What happens to Microsoft Entra application proxy in my tenant, if my license expires?
         answer: |
-              If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
+              If your license expires, Application Proxy is automatically disabled. Your application information is saved for up to one year.
 
       - question: |
          Why is the "Enable Application Proxy button grayed out?
         answer: |
-              Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
+              Make sure you have at least a Microsoft Entra ID P1 or P2 license and a Microsoft Entra application proxy Connector installed. After you successfully install your first connector, the Microsoft Entra application proxy service is enabled automatically.
 
   - name: Connector configuration
     questions:
@@ -58,21 +58,21 @@ sections:
               The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
           
               > [!IMPORTANT]
-              > Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
+              > Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Microsoft Entra application proxy: Version release history](./application-proxy-release-version-history.md).
           
               To manually upgrade a connector:
           
-              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure portal. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
-              -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
-              -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
+              - Download the latest version of the connector. (You can find it under Application Proxy on the Microsoft Entra admin center. You can also find the link at [Microsoft Entra application proxy: Version release history](./application-proxy-release-version-history.md).
+              -	The installer restarts the Microsoft Entra Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+              -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector is not re-registered.
           
       - question: |
          Can Application Proxy Connector services run in a different user context than the default?
         answer: |
           No, this scenario isn't supported. The default settings are:
           
-          - Microsoft Azure Active Directory Application Proxy Connector - WAPCSvc - Network Service
-          - Microsoft Azure Active Directory Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+          - Microsoft Entra application proxy Connector - WAPCSvc - Network Service
+          - Microsoft Entra application proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
           
       - question: |
          Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
@@ -100,45 +100,45 @@ sections:
               Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md).
           
       - question: |
-         Should I create a dedicated account to register the connector with Azure AD Application Proxy?
+         Should I create a dedicated account to register the connector with Microsoft Entra application proxy?
         answer: |
-              There's no reason to. Any Global Administrator or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
+              There's no reason to. Any Global Administrator or application administrator account works. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
       - question: |
-         How can I monitor the performance of the Azure AD Application Proxy connector?
+         How can I monitor the performance of the Microsoft Entra application proxy connector?
         answer: |
           There are Performance Monitor counters that are installed along with the connector. To view them:  
           
           1. Select **Start**, type "Perfmon", and press ENTER.
           2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
+          3. Add the **Microsoft Entra application proxy Connector** counters you want to monitor.
           
       - question: |
-         Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
+         Does the Microsoft Entra application proxy connector have to be on the same subnet as the resource?
         answer: |
-              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
+              The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Microsoft Entra application proxy](application-proxy-network-topology.md).
           
       - question: |
          What versions of Windows Server can I install a connector on?
         answer: |
-          Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you will need to add the following registry key and restart the server:
+          Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you need to add the registry key and restart the server:
           
           ```
           HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
           ```
           
       - question: |
-         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Microsoft Entra admin center after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
-           There is no way to remove the Inactive connector manually from the Azure portal.
+           There is no way to remove the Inactive connector manually from the Microsoft Entra admin center.
           
   - name: Application configuration
     questions:
       - question: |
          Can I use the domain suffixes [tenantname].onmicrosoft.com or [tenantname].mail.onmicrosoft.com in the external URL?
         answer: |
-            Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
+            Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Microsoft Entra application proxy. If you use these domain suffixes, the created Microsoft Entra application proxy application won't work.
             You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
 
       - question: |
@@ -164,50 +164,52 @@ sections:
       - question: |
          What happens if I delete CWAP_AuthSecret (the client secret) in the app registration?
         answer: |
-              The client secret, also called *CWAP_AuthSecret*, is automatically added to the application object (app registration) when the Azure AD Application Proxy app is created.
+              The client secret, also called *CWAP_AuthSecret*, is automatically added to the application object (app registration) when the Microsoft Entra application proxy app is created.
           
               The client secret is valid for one year. A new one-year client secret is automatically created before the current valid client secret expires. Three CWAP_AuthSecret client secrets are kept in the application object at all times. 
           
               > [!IMPORTANT]
-              > Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
+              > Deleting CWAP_AuthSecret breaks preauthentication for Microsoft Entra Application Proxy. Don't delete CWAP_AuthSecret.
 
       - question: |
-         I'm using or want to use Azure Active Directory Application Proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](../../microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
+         I'm using or want to use Microsoft Entra application proxy. Can I replace the "onmicrosoft.com" fallback domain of my tenant in Microsoft 365 as suggested in the article "Add and replace your onmicrosoft.com fallback domain in Microsoft 365"? 
         answer: |
-              No. You must use the original fallback domain.  
+              No. You must use the original fallback domain.
+              
+              Article mentioned in question: [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)
 
          
       - question: |
          How do I change the landing page my application loads?
         answer: |
-              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](application-proxy-configure-custom-home-page.md)
+              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page is loaded when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Microsoft Entra application proxy](application-proxy-configure-custom-home-page.md)
 
       - question: |
          Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
         answer: |
-              If Azure AD pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Azure AD (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Azure AD authentication is done the user will be redirected to `https://www.contoso.com/`.
+              If Microsoft Entra preauthentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Microsoft Entra ID (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Microsoft Entra authentication is done the user is redirected to `https://www.contoso.com/`.
               This behavior is by design due to how the “#” character is handled by the browser.
               
               Possible solutions/  alternatives:
 
               - Setup a redirection from `https://www.contoso.com` to `https://contoso.com/#/home/index.html`. The user must first access `https://www.contoso.com`.
               - The URL used for the first access attempt must include the “#” character in encoded form (%23). The published server might not accept this.
-              - Configure passthrough pre-authentication type (not recommended).
+              - Configure passthrough preauthentication type (not recommended).
               
       - question: |
          Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
         answer: |
-              No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use pre-authentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
+              No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use preauthentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
 
       - question: |
          Can I configure Application Proxy to add the HSTS header?
         answer: |
-              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
+              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it maintains the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
 
       - question: |
          Can I use a custom port number in the external URL?
         answer: |
-              No, if the protocol `http` is configured in the external URL then the Azure AD Application Proxy endpoint accepts incoming request on the port TCP 80, if the protocol `https` then on the port TCP 443.
+              No, if the protocol `http` is configured in the external URL then the Microsoft Entra application proxy endpoint accepts incoming request on the port TCP 80, if the protocol `https` then on the port TCP 443.
 
       - question: |
          Can I use a custom port number in the internal URL?
@@ -259,39 +261,39 @@ sections:
               The PrincipalsAllowedToDelegateToAccount method is used when connector servers are in a different domain from the web application service account. It requires the use of Resource-based Constrained Delegation.
               If the connector servers and the web application service account are in the same domain, you can use Active Directory Users and Computers to configure the delegation settings on each of the connector machine accounts, allowing them to delegate to the target SPN.
           
-              If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you'll need to use PowerShell.
+              If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you need to use PowerShell.
               For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper).
           
       - question: |
-         Does NTLM authentication work with Azure AD Application Proxy?
+         Does NTLM authentication work with Microsoft Entra application proxy?
         answer: |
-              NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+              NTLM authentication can’t be used as a preauthentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
 
       - question: |
          Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
         answer: |
-              No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
+              No, this won’t work, because a guest user in Microsoft Entra ID doesn't have the attribute that is required by any of the logon identities mentioned above.
           
-              In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
+              In this case there is a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Microsoft Entra ID access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
           
   - name: Pass-through authentication
     questions:
       - question: |
          Can I use Conditional Access Policies for applications published with pass-through authentication?
         answer: |
-              Conditional Access Policies are only enforced for successfully pre-authenticated users in Azure AD. Pass-through authentication doesn’t trigger Azure AD authentication, so Conditional Access Policies can't be enforced. With pass-through authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling pre-authentication with Azure AD Application Proxy.
+              Conditional Access Policies are only enforced for successfully pre-authenticated users in Microsoft Entra ID. Pass-through authentication doesn’t trigger Microsoft Entra authentication, so Conditional Access Policies can't be enforced. With pass-through authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling preauthentication with Microsoft Entra application proxy.
 
       - question: |
          Can I publish a web application with client certificate authentication requirement?
         answer: |
-              No, this scenario isn't supported because Application Proxy will terminate TLS traffic.  
+              No, this scenario isn't supported because Application Proxy terminates TLS traffic.  
 
   - name: Remote Desktop Gateway publishing
     questions:
       - question: |
-         How can I publish Remote Desktop Gateway over Azure AD Application Proxy?
+         How can I publish Remote Desktop Gateway over Microsoft Entra application proxy?
         answer: |
-              Refer to [Publish Remote Desktop with Azure AD Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md).
+              Refer to [Publish Remote Desktop with Microsoft Entra application proxy](./application-proxy-integrate-with-remote-desktop-services.md).
           
       - question: |
          Can I use Kerberos Constrained Delegation (Single Sign-On - Windows Integrated Authentication) in the Remote Desktop Gateway publishing scenario?
@@ -299,57 +301,57 @@ sections:
               No, this scenario isn't supported.  
 
       - question: |
-         My users don't use Internet Explorer 11 and the pre-authentication scenario doesn’t work for them. Is this expected?
+         My users don't use Internet Explorer 11 and the preauthentication scenario doesn’t work for them. Is this expected?
         answer: |
-              Yes, it’s expected. The pre-authentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
+              Yes, it’s expected. The preauthentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
 
       - question: |
          Is the Remote Desktop Web Client (HTML5) supported?
         answer: |
-              Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Azure AD Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md).
+              Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Microsoft Entra application proxy](./application-proxy-integrate-with-remote-desktop-services.md).
           
       - question: |
-          After I configured the pre-authentication scenario, I realized that the user has to authenticate twice: first on the Azure AD sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
-        answer:     Yes, it's expected. If the user’s computer is Azure AD joined, the user signs in to Azure AD automatically. The user needs to provide their credentials only on the RDWeb sign-in form.
+          After I configured the preauthentication scenario, I realized that the user has to authenticate twice: first on the Microsoft Entra sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
+        answer:     Yes, it's expected. If the user’s computer is Microsoft Entra joined, the user signs in to Microsoft Entra ID automatically. The user needs to provide their credentials only on the RDWeb sign-in form.
 
       - question: |
-          Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Azure AD pre-authentication scenario?
-        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why this will not work.
+          Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Microsoft Entra preauthentication scenario?
+        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the preauthentication natively. That's why the scenario doesn't work.
 
   - name: SharePoint publishing
     questions:
       - question: |
-         How can I publish SharePoint over Azure AD Application Proxy?
+         How can I publish SharePoint over Microsoft Entra application proxy?
         answer: |
-              Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](./application-proxy-integrate-with-sharepoint-server.md).
+              Refer to [Enable remote access to SharePoint with Microsoft Entra application proxy](./application-proxy-integrate-with-sharepoint-server.md).
           
       - question: |
          Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint Server?
         answer: |
-              The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
+              The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Microsoft Entra preauthentication currently.
           
   
   - name: Active Directory Federation Services (AD FS) publishing
     questions:
       - question: |
-         Can I use Azure AD Application Proxy as AD FS proxy (like Web Application Proxy)?
+         Can I use Microsoft Entra application proxy as AD FS proxy (like Web Application Proxy)?
         answer: |
-              No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t fulfill the requirements to act as an AD FS proxy.
+              No. Microsoft Entra application proxy is designed to work with Microsoft Entra ID and doesn’t fulfill the requirements to act as an AD FS proxy.
 
       - question: |
-         Can I use Azure AD Application Proxy to publish any AD FS endpoint (like /adfs/portal/updatepassword/)?
+         Can I use Microsoft Entra application proxy to publish any AD FS endpoint (like /adfs/portal/updatepassword/)?
         answer: |
               No, this is not supported.
                        
   - name: WebSocket
     questions:
       - question: |
-         Does Azure AD Application Proxy support the WebSocket protocol?
+         Does Microsoft Entra application proxy support the WebSocket protocol?
         answer: |
               Applications that use the WebSocket protocol, for example QlikSense and Remote Desktop Web Client (HTML5), are now supported. The following are known limitations:
               * Application proxy discards the cookie that is set on the server response while opening the WebSocket connection.
               * There is no SSO applied to the WebSocket request.
-              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Microsoft Entra Application Proxy.
               
               The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           
@@ -360,7 +362,7 @@ sections:
         answer: |
               Yes. Link translation affects performance. The Application Proxy service scans the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. 
           
-              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](./application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).
+              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](./application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Microsoft Entra application proxy](./application-proxy-configure-hard-coded-link-translation.md).
           
   - name: Wildcards
     questions:
@@ -369,7 +371,7 @@ sections:
         answer: |
           This scenario isn't supported directly. Your options for this scenario are:
           
-          1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
+          1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration works since they have different external URLS.
           
           2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
              - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)

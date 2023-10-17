@@ -5,8 +5,7 @@ description: In this article, you learn about concepts and definitions for Custo
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: eur

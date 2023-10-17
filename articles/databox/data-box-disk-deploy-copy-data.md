@@ -2,13 +2,13 @@
 title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
 description: In this tutorial, learn how to copy data from your host computer to Azure Data Box Disk and then generate checksums to verify data integrity.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.date: 11/18/2022
-ms.author: alkohli
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---

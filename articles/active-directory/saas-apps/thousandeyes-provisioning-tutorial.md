@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: User provisioning for ThousandEyes'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to ThousandEyes.
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to ThousandEyes.
 services: active-directory
 author: ArvindHarinder1
 manager: CelesteDG
@@ -14,43 +14,46 @@ ms.author: arvinh
 
 # Tutorial: Configure ThousandEyes for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in ThousandEyes and Azure AD to automatically provision and de-provision user accounts from Azure AD to ThousandEyes. 
+The objective of this tutorial is to show you the steps you need to perform in ThousandEyes and Microsoft Entra ID to automatically provision and de-provision user accounts from Microsoft Entra ID to ThousandEyes. 
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* An Azure Active directory tenant
+* A Microsoft Entra tenant
 * A ThousandEyes tenant with the [Standard plan](https://www.thousandeyes.com/pricing) or better enabled 
 * A user account in ThousandEyes with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), which is available to ThousandEyes teams on the Standard plan or better.
+> The Microsoft Entra provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), which is available to ThousandEyes teams on the Standard plan or better.
 
 ## Assigning users to ThousandEyes
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized. 
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Microsoft Entra ID is synchronized. 
 
-Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your ThousandEyes app. Once decided, you can assign these users to your ThousandEyes app by following the instructions here:
+Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Microsoft Entra ID represent the users who need access to your ThousandEyes app. Once decided, you can assign these users to your ThousandEyes app by following the instructions here:
 
 [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to ThousandEyes
 
-* It is recommended that a single Azure AD user is assigned to ThousandEyes to test the provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to ThousandEyes to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to ThousandEyes, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
 
 ## Configuring user provisioning to ThousandEyes 
 
-This section guides you through connecting your Azure AD to ThousandEyes's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ThousandEyes based on user and group assignment in Azure AD.
+This section guides you through connecting your Microsoft Entra ID to ThousandEyes's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ThousandEyes based on user and group assignment in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enabled SAML-based Single Sign-On for ThousandEyes, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
-### Configure automatic user account provisioning to ThousandEyes in Azure AD
+<a name='configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### Configure automatic user account provisioning to ThousandEyes in Microsoft Entra ID
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -71,7 +74,7 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 
 	![Screenshot shows where to find the Account Settings link for the Current Account Group.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your ThousandEyes app. If the connection fails, ensure your ThousandEyes account has Admin permissions and try step 5 again.
+6. Select **Test Connection** to ensure Microsoft Entra ID can connect to your ThousandEyes app. If the connection fails, ensure your ThousandEyes account has Admin permissions and try step 5 again.
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -79,9 +82,9 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 
 8. Click **Save**.
 
-9. Under the Mappings section, select **Synchronize Azure Active Directory Users to ThousandEyes**.
+9. Under the Mappings section, select **Synchronize Microsoft Entra users to ThousandEyes**.
 
-10. Review the user attributes that are synchronized from Azure AD to ThousandEyes in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Parsable for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Parsable API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+10. Review the user attributes that are synchronized from Microsoft Entra ID to ThousandEyes in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Parsable for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Parsable API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
  	 |Attribute|Type|Supported for filtering|
   	 |---|---|---|
@@ -95,7 +98,7 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. To enable the Azure AD provisioning service for ThousandEyes, change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Microsoft Entra provisioning service for ThousandEyes, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -107,9 +110,9 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -119,7 +122,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

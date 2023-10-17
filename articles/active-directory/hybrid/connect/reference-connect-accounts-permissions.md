@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Accounts and permissions'
-description: Learn about accounts that are used and created and the permissions that are required to install and use Azure AD Connect.
+title: 'Microsoft Entra Connect: Accounts and permissions'
+description: Learn about accounts that are used and created and the permissions that are required to install and use Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,48 +15,52 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect: Accounts and permissions
+# Microsoft Entra Connect: Accounts and permissions
 
-Learn about accounts that are used and created and the permissions that are required to install and use Azure AD Connect.
+Learn about accounts that are used and created and the permissions that are required to install and use Microsoft Entra Connect.
 
-:::image type="content" source="media/reference-connect-accounts-permissions/account5.png" border="false" alt-text="Diagram that shows an overview of Azure AD Connect required accounts.":::
+:::image type="content" source="media/reference-connect-accounts-permissions/account5.png" border="false" alt-text="Diagram that shows an overview of Microsoft Entra Connect required accounts.":::
 
-## Accounts used for Azure AD Connect
+<a name='accounts-used-for-azure-ad-connect'></a>
 
-Azure AD Connect uses three accounts to *synchronize information* from on-premises Windows Server Active Directory (Windows Server AD) to Azure Active Directory (Azure AD):
+## Accounts used for Microsoft Entra Connect
+
+Microsoft Entra Connect uses three accounts to *synchronize information* from on-premises Windows Server Active Directory (Windows Server AD) to Microsoft Entra ID:
 
 - **AD DS Connector account**: Used to read and write information to Windows Server AD by using Active Directory Domain Services (AD DS).
 
 - **ADSync service account**: Used to run the sync service and access the SQL Server database.
 
-- **Azure AD Connector account**: Used to write information to Azure AD.
+- **Microsoft Entra Connector account**: Used to write information to Microsoft Entra ID.
 
-You also need the following accounts to *install* Azure AD Connect:
+You also need the following accounts to *install* Microsoft Entra Connect:
 
-- **Local Administrator account**: The administrator who is installing Azure AD Connect and who has local Administrator permissions on the computer.
+- **Local Administrator account**: The administrator who is installing Microsoft Entra Connect and who has local Administrator permissions on the computer.
 
 - **AD DS Enterprise Administrator account**: Optionally used to create the required AD DS Connector account.
 
-- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../../roles/view-assignments.md).
+- **Microsoft Entra Global Administrator account**:  Used to create the Microsoft Entra Connector account and to configure Microsoft Entra ID. You can view Global Administrator and Hybrid Identity Administrator accounts in the [Microsoft Entra admin center](https://entra.microsoft.com). See [List Microsoft Entra role assignments](../../roles/view-assignments.md).
 
-- **SQL SA account (optional)**: Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Azure AD Connect installation. This account can be the same account as the Enterprise Administrator account.
+- **SQL SA account (optional)**: Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Microsoft Entra Connect installation. This account can be the same account as the Enterprise Administrator account.
 
-   Provisioning the database can now be performed out-of-band by the SQL Server administrator and then installed by the Azure AD Connect administrator if the account has database owner (DBO) permissions. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
+   Provisioning the database can now be performed out-of-band by the SQL Server administrator and then installed by the Microsoft Entra Connect administrator if the account has database owner (DBO) permissions. For more information, see [Install Microsoft Entra Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
 
 > [!IMPORTANT]
 > Beginning in build 1.4.###.#, you no longer can use an Enterprise Administrator account or a Domain Administrator account as the AD DS Connector account. If you attempt to enter an account that is an Enterprise Administrator or Domain Administrator for **Use existing account**, the wizard displays an error message and you can't proceed.
 
 > [!NOTE]
-> You can manage the administrative accounts that are used in Azure AD Connect by using an *enterprise access model*. An organization can use an enterprise access model to host administrative accounts, workstations, and groups in an environment that has stronger security controls than a production environment. For more information, see [Enterprise access model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> You can manage the administrative accounts that are used in Microsoft Entra Connect by using an *enterprise access model*. An organization can use an enterprise access model to host administrative accounts, workstations, and groups in an environment that has stronger security controls than a production environment. For more information, see [Enterprise access model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 >
-> The Global Administrator role isn't required after initial setup. After setup, the only required account is the Directory Synchronization Accounts role account. Instead of removing the account that has the Global Administrator role, we recommend that you change the role to a role that has a lower level of permissions. Completely removing the account might introduce issues if you ever need to run the wizard again. You can add permissions if you need to use the Azure AD Connect wizard again.
+> The Global Administrator role isn't required after initial setup. After setup, the only required account is the Directory Synchronization Accounts role account. Instead of removing the account that has the Global Administrator role, we recommend that you change the role to a role that has a lower level of permissions. Completely removing the account might introduce issues if you ever need to run the wizard again. You can add permissions if you need to use the Microsoft Entra Connect wizard again.
 
-## Azure AD Connect installation
+<a name='azure-ad-connect-installation'></a>
 
-The Azure AD Connect installation wizard offers two paths:
+## Microsoft Entra Connect installation
 
-- **Express settings**: In Azure AD Connect express settings, the wizard requires more permissions so that it can easily configure your installation. The wizard creates users and sets up permissions so that you don't have to.
-- **Custom settings**: In Azure AD Connect custom settings, you have more choices and options in the wizard. However, for some scenarios, it's important to ensure that you have the correct permissions yourself.
+The Microsoft Entra Connect installation wizard offers two paths:
+
+- **Express settings**: In Microsoft Entra Connect express settings, the wizard requires more permissions so that it can easily configure your installation. The wizard creates users and sets up permissions so that you don't have to.
+- **Custom settings**: In Microsoft Entra Connect custom settings, you have more choices and options in the wizard. However, for some scenarios, it's important to ensure that you have the correct permissions yourself.
 
 <a name="express-settings-installation"></a>
 
@@ -65,17 +69,19 @@ The Azure AD Connect installation wizard offers two paths:
 In express settings, you enter this information in the installation wizard:
 
 - AD DS Enterprise Administrator credentials
-- Azure AD Global Administrator credentials
+- Microsoft Entra Global Administrator credentials
 
 ### AD DS Enterprise Administrator credentials
 
 The AD DS Enterprise Administrator account is used to configure Windows Server AD. These credentials are used only during installation. The Enterprise Administrator, not the Domain Administrator, should make sure that the permissions in Windows Server AD can be set in all domains.
 
-If you're upgrading from DirSync, the AD DS Enterprise Administrator credentials are used to reset the password for the account that DirSync used. Azure AD Global Administrator credentials also are required.
+If you're upgrading from DirSync, the AD DS Enterprise Administrator credentials are used to reset the password for the account that DirSync used. Microsoft Entra Global Administrator credentials also are required.
 
-### Azure AD Global Administrator credentials
+<a name='azure-ad-global-administrator-credentials'></a>
 
-Credentials for the Azure AD Global Administrator account are used only during installation. The account is used to create the Azure AD Connector account that syncs changes to Azure AD. The account also enables sync as a feature in Azure AD.
+### Microsoft Entra Global Administrator credentials
+
+Credentials for the Microsoft Entra Global Administrator account are used only during installation. The account is used to create the Microsoft Entra Connector account that syncs changes to Microsoft Entra ID. The account also enables sync as a feature in Microsoft Entra ID.
 
 For more information, see [Global Administrator](../../roles/permissions-reference.md#global-administrator).
 
@@ -96,14 +102,14 @@ The AD DS Connector account is created to read and write to Windows Server AD. T
 
 In an express settings installation, the wizard creates some accounts and settings for you.
 
-:::image type="content" source="media/how-to-connect-install-express/express.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect.":::
+:::image type="content" source="media/how-to-connect-install-express/express.png" alt-text="Screenshot that shows the Express Settings page in Microsoft Entra Connect.":::
 
 The following table is a summary of the express settings wizard pages, the credentials that are collected, and what they're used for:
 
 | Wizard page | Credentials collected | Permissions required | Purpose |
 | --- | --- | --- | --- |
 | N/A |The user that's running the installation wizard. |Administrator of the local server. |Used to create the ADSync service account that's used to run the sync service. |
-| Connect to Azure AD |Azure AD directory credentials. |Global Administrator role in Azure AD. |- Used to enable sync in the Azure AD directory.<br /> - Used to create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
+| Connect to Microsoft Entra ID |Microsoft Entra directory credentials. |Global Administrator role in Microsoft Entra ID. |- Used to enable sync in the Microsoft Entra directory.<br /> - Used to create the Microsoft Entra Connector account that's used for ongoing sync operations in Microsoft Entra ID. |
 | Connect to AD DS |Windows Server AD credentials. |Member of the Enterprise Admins group in Windows Server AD. |Used to create the AD DS Connector account in Windows Server AD and grant permissions to it. This created account is used to read and write directory information during sync. |
 
 <a name="custom-installation-settings"></a>
@@ -112,7 +118,7 @@ The following table is a summary of the express settings wizard pages, the crede
 
 In a custom settings installation, you have more choices and options in the wizard.
 
-:::image type="content" source="media/reference-connect-accounts-permissions/customize.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect, with the Customize button highlighted.":::
+:::image type="content" source="media/reference-connect-accounts-permissions/customize.png" alt-text="Screenshot that shows the Express Settings page in Microsoft Entra Connect, with the Customize button highlighted.":::
 
 ### Custom settings wizard
 
@@ -122,21 +128,21 @@ The following table is a summary of the custom settings wizard pages, the creden
 | --- | --- | --- | --- |
 | N/A |The user that's running the installation wizard. |- Administrator of the local server.<br />- If using an instance of full SQL Server, the user must be System Administrator (sysadmin) in SQL Server.</li> |By default, used to create the local account that's used as the sync engine service account. The account is created only when the admin doesn't specify an account. |
 | Install synchronization services, service account option |The Windows Server AD or local user account credentials. |User and permissions are granted by the installation wizard. |If the admin specifies an account, this account is used as the service account for the sync service. |
-| Connect to Azure AD |Azure AD directory credentials. |Global Administrator role in Azure AD. |- Used to enable sync in the Azure AD directory.<br />- Used to create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
-| Connect your directories |Windows Server AD credentials for each forest that is connected to Azure AD. |The permissions depend on which features you enable and can be found in [Create the AD DS Connector account](#create-the-ad-ds-connector-account). |This account is used to read and write directory information during sync. |
+| Connect to Microsoft Entra ID |Microsoft Entra directory credentials. |Global Administrator role in Microsoft Entra ID. |- Used to enable sync in the Microsoft Entra directory.<br />- Used to create the Microsoft Entra Connector account that's used for ongoing sync operations in Microsoft Entra ID. |
+| Connect your directories |Windows Server AD credentials for each forest that is connected to Microsoft Entra ID. |The permissions depend on which features you enable and can be found in [Create the AD DS Connector account](#create-the-ad-ds-connector-account). |This account is used to read and write directory information during sync. |
 | AD FS Servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |The Domain Administrator account. |Used during installation and configuration of the Active Directory Federation Services (AD FS) server role. |
 | Web application proxy servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |Local admin on the target machine. |Used during installation and configuration of the web application proxy (WAP) server role. |
 | Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the federation services (FS)). |The domain account that's a Local Administrator of the AD FS server. |Initial enrollment of the FS-WAP trust certificate. |
-| AD FS Service Account page **Use a domain user account option** |The Windows Server AD user account credentials. |A domain user. |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
+| AD FS Service Account page **Use a domain user account option** |The Windows Server AD user account credentials. |A domain user. |The Microsoft Entra user account whose credentials are provided is used as the sign-in account of the AD FS service. |
 
 ### Create the AD DS Connector account
 
 > [!IMPORTANT]
-> A new PowerShell Module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Azure AD DS Connector account.
+> A new PowerShell module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Microsoft Entra Domain Services Connector account.
 >
-> For more information, see [Azure AD Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
+> For more information, see [Microsoft Entra Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
 
-The account you specify on the **Connect your directories** page must be created in Windows Server AD as a normal user object (VSA, MSA, or gMSA aren't supported) before installation. Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the AD DS Connector account that's used to connect to Windows Server AD.
+The account you specify on the **Connect your directories** page must be created in Windows Server AD as a normal user object (VSA, MSA, or gMSA aren't supported) before installation. Microsoft Entra Connect version 1.1.524.0 and later has the option to let the Microsoft Entra Connect wizard create the AD DS Connector account that's used to connect to Windows Server AD.
 
 The account you specify also must have the required permissions. The installation wizard doesn't verify the permissions, and any issues are found only during the sync process.
 
@@ -156,7 +162,7 @@ Which permissions you require depends on the optional features you enable. If yo
 
 ## Permissions required to upgrade
 
-When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
+When you upgrade from one version of Microsoft Entra Connect to a new release, you need the following permissions:
 
 | Principal | Permissions required | Purpose |
 | --- | --- | --- |
@@ -165,32 +171,32 @@ When you upgrade from one version of Azure AD Connect to a new release, you need
 | The user that's running the installation wizard |If you use a full instance of SQL Server: DBO (or similar) of the sync engine database |Used to make database-level changes, such as updating tables with new columns. |
 
 > [!IMPORTANT]
-> In build 1.1.484, a regression bug was introduced in Azure AD Connect. The bug requires sysadmin permissions to upgrade the SQL Server database. The bug is corrected in build 1.1.647. To upgrade to this build, you must have sysadmin permissions. In this scenario, DBO permissions aren't sufficient. If you attempt to upgrade Azure AD Connect without sysadmin permissions, the upgrade fails and Azure AD Connect no longer functions correctly.
+> In build 1.1.484, a regression bug was introduced in Microsoft Entra Connect. The bug requires sysadmin permissions to upgrade the SQL Server database. The bug is corrected in build 1.1.647. To upgrade to this build, you must have sysadmin permissions. In this scenario, DBO permissions aren't sufficient. If you attempt to upgrade Microsoft Entra Connect without sysadmin permissions, the upgrade fails and Microsoft Entra Connect no longer functions correctly.
 
 ## Created accounts details
 
-The following sections give you more information about created accounts in Azure AD Connect.
+The following sections give you more information about created accounts in Microsoft Entra Connect.
 
 ### AD DS Connector account
 
 If you use express settings, an account that's used for syncing is created in Windows Server AD. The created account is located in the forest root domain in the Users container. The account name is prefixed with *MSOL_*. The account is created with a long, complex password that doesn't expire. If you have a password policy in your domain, make sure that long and complex passwords are allowed for this account.
 
-:::image type="content" source="media/reference-connect-accounts-permissions/adsyncserviceaccount.png" alt-text="Screenshot that shows an AD DS Connector account with the MSOL prefix in Azure AD Connect.":::
+:::image type="content" source="media/reference-connect-accounts-permissions/adsyncserviceaccount.png" alt-text="Screenshot that shows an AD DS Connector account with the MSOL prefix in Microsoft Entra Connect.":::
 
 If you use custom settings, you're responsible for creating the account before you start the installation. See [Create the AD DS Connector account](#create-the-ad-ds-connector-account).
 
 ### ADSync service account
 
-The sync service can run under different accounts. It can run under a *virtual service account* (VSA), a *group managed service account* (gMSA), a *standalone managed service* (sMSA), or a regular user account. The supported options were changed with the 2017 April release of Azure AD Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these other options aren't available.
+The sync service can run under different accounts. It can run under a *virtual service account* (VSA), a *group managed service account* (gMSA), a *standalone managed service* (sMSA), or a regular user account. The supported options were changed with the 2017 April release of Microsoft Entra Connect when you do a fresh installation. If you upgrade from an earlier release of Microsoft Entra Connect, these other options aren't available.
 
 | Type of account | Installation option | Description |
 | --- | --- | --- |
 | [VSA](#vsa) | Express and custom, 2017 April and later | This option is used for all express settings installations, except for installations on a domain controller. For custom settings, it's the default option. |
 | [gMSA](#gmsa) | Custom, 2017 April and later | If you use a remote instance of SQL Server, we recommend that you use a gMSA. |
-| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with *AAD_* is created during installation only when Azure AD Connect is installed on Windows Server 2008 and when it's installed on a domain controller. |
+| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with *AAD_* is created during installation only when Microsoft Entra Connect is installed on Windows Server 2008 and when it's installed on a domain controller. |
 | [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with *AAD_* is created during installation. In a custom installation, you can specify a different account. |
 
-If you use Azure AD Connect with a build from 2017 March or earlier, don't reset the password on the service account. Windows destroys the encryption keys for security reasons. You can't change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, you can change the password on the service account, but you can't change the account that's used.
+If you use Microsoft Entra Connect with a build from 2017 March or earlier, don't reset the password on the service account. Windows destroys the encryption keys for security reasons. You can't change the account to any other account without reinstalling Microsoft Entra Connect. If you upgrade to a build from 2017 April or later, you can change the password on the service account, but you can't change the account that's used.
 
 > [!IMPORTANT]
 > You can set the service account only on first installation. You can't change the service account after installation is finished.
@@ -221,7 +227,7 @@ A VSA is a special type of account that doesn't have a password and is managed b
 
 The VSA is intended to be used with scenarios in which the sync engine and SQL Server are on the same server. If you use remote SQL Server, we recommend that you use a gMSA instead of a VSA.
 
-The VSA feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, the installation falls back to using a [user account](#user-account) instead of a VSA.
+The VSA feature requires Windows Server 2008 R2 or later. If you install Microsoft Entra Connect on Windows Server 2008, the installation falls back to using a [user account](#user-account) instead of a VSA.
 
 #### gMSA
 
@@ -237,7 +243,7 @@ The sMSA feature requires Windows Server 2012 or later. If you need to use an ea
 
 #### User account
 
-A local service account is created by the installation wizard (unless you specify in custom settings the account to use). The account is prefixed with *AAD_* and is used for the actual sync service to run as. If you install Azure AD Connect on a domain controller, the account is created in the domain. The *AAD_* service account must be located in the domain if:
+A local service account is created by the installation wizard (unless you specify in custom settings the account to use). The account is prefixed with *AAD_* and is used for the actual sync service to run as. If you install Microsoft Entra Connect on a domain controller, the account is created in the domain. The *AAD_* service account must be located in the domain if:
 
 - You use a remote server running SQL Server.
 - You use a proxy that requires authentication.
@@ -252,37 +258,39 @@ If you use a full instance of SQL Server, the service account is the DBO of the 
 
 The account is also granted permissions to files, registry keys, and other objects related to the sync engine.
 
-### Azure AD Connector account
+<a name='azure-ad-connector-account'></a>
 
-An account in Azure AD is created for the sync service to use. You can identify this account by its display name.
+### Microsoft Entra Connector account
 
-:::image type="content" source="media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png" alt-text="Screenshot that shows the Azure AD account with the DC1 prefix.":::
+An account in Microsoft Entra ID is created for the sync service to use. You can identify this account by its display name.
+
+:::image type="content" source="media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png" alt-text="Screenshot that shows the Microsoft Entra account with the DC1 prefix.":::
 
 The name of the server the account is used on can be identified in the second part of the username. In the preceding figure, the server name is DC1. If you have staging servers, each server has its own account.
 
-A server account is created with a long, complex password that doesn't expire. The account is granted a special Directory Synchronization Accounts role that has permissions to perform only directory synchronization tasks. This special built-in role can't be granted outside of the Azure AD Connect wizard. The Azure portal shows this account with the User role.
+A server account is created with a long, complex password that doesn't expire. The account is granted a special Directory Synchronization Accounts role that has permissions to perform only directory synchronization tasks. This special built-in role can't be granted outside of the Microsoft Entra Connect wizard. The [Microsoft Entra admin center](https://entra.microsoft.com) shows this account with the User role.
 
-Azure AD has a limit of 20 sync service accounts. To get the list of existing Azure AD service accounts in your Azure AD instance, run the following Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Microsoft Entra ID has a limit of 20 sync service accounts. To get the list of existing Microsoft Entra service accounts in your Microsoft Entra instance, run the following Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+To remove unused Microsoft Entra service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 > [!NOTE]
-> Before you can use these PowerShell commands, you must install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) and connect to your instance of Azure AD by using [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
+> Before you can use these PowerShell commands, you must install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) and connect to your instance of Microsoft Entra ID by using [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
 
-For more information about how to manage or reset the password for the Azure AD Connect account, see [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md).
+For more information about how to manage or reset the password for the Microsoft Entra Connect account, see [Manage the Microsoft Entra Connect account](how-to-connect-azureadaccount.md).
 
 ## Related articles
 
-For more information about Azure AD Connect, see these articles:
+For more information about Microsoft Entra Connect, see these articles:
 
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
-|Install by using express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
-|Install by using customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
-|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|
+|Download Microsoft Entra Connect | [Download Microsoft Entra Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
+|Install by using express settings | [Express installation of Microsoft Entra Connect](how-to-connect-install-express.md)|
+|Install by using customized settings | [Custom installation of Microsoft Entra Connect](./how-to-connect-install-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD Sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|
 |After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ## Next steps
 
-Learn more about [integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

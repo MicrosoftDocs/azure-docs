@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab plan by using Bicep or ARM templates.
 ms.topic: how-to
 ms.date: 08/28/2023
-ms.custom: mode-api, devx-track-bicep
+ms.custom: mode-api, devx-track-bicep, devx-track-arm-template
 ---
 
 # Create a lab plan using a Bicep file or ARM template

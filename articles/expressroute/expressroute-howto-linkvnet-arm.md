@@ -20,6 +20,8 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 
 This tutorial helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
 
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Connect a virtual network in the same subscription to a circuit
@@ -210,24 +212,28 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ### FastPath and Private Link for 100-Gbps ExpressRoute Direct
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This is Generally Available for connections associated to 100-Gb ExpressRoute Direct circuits. To enable, follow the below guidance:
-1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
+1. Send an email to **ExRPM@microsoft.com**, providing the following information: 
 * Azure Subscription ID
 * Virtual Network (virtual network) Resource ID
 * Azure Region where the Private Endpoint/Private Link service is deployed
+* Virtual Network Connection Resource ID
+* Number of Private Endpoints/Private Link services deployed to the virtual network
+* Target bandwidth to the Private Endpoints/Private Link services
 
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+$connection = Get-AzVirtualNetworkGatewayConnection -ResourceGroupName <resource-group> -ResourceName <connection-name>
+$connection.ExpressRouteGatewayBypass = $true
+$connection.EnablePrivateLinkFastPath = $true
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
-3. Disable and Enable FastPath on the target connection(s) to enable the changes. Once this step is complete. 100 Gb Private Link traffic over ExpressRoute will bypass the ExpressRoute Virtual Network Gateway in the data path.
-
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 > 
 
 > [!NOTE]
-> FastPath and Private Link feature onboarding requires time to be enabled after request. You can expect about two weeks of delay until request is completed, so we encourage you to plan your deployment in advance with these timelines into consideration.
+> Enabling FastPath Private Link support for limited GA scenarios may take upwards of 2 weeks to complete. Please plan your deployment(s) in advance.
 > 
 
 ## Enroll in ExpressRoute FastPath features (preview)

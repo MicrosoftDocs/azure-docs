@@ -110,6 +110,10 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
+# [.NET 8 (Preview)](#tab/net8)
+
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+
 ---
 
 ### Package and namespace changes
@@ -133,6 +137,10 @@ When migrating to run in an isolated worker process, you must add the following 
 # [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+
+# [.NET 8 (Preview)](#tab/net8)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
 ---
 
@@ -201,6 +209,22 @@ public IActionResult Run(
 # [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+
+
+# [.NET 8 (Preview)](#tab/net8)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+
+You can also leverage [ASP.NET Core integration] to instead have the function look more like the following example:
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
 
 ---
 

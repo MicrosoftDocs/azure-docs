@@ -1,57 +1,59 @@
 ---
-title: Enable periodic assessment using policy
-description: This article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
+title: Enable Periodic Assessment using policy
+description: This article shows how to manage update settings for your Windows and Linux machines managed by Azure Update Manager.
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 
-# Automate assessment at scale using Policy to see latest update status
+# Automate assessment at scale by using Azure Policy
 
-This article describes how to enable Periodic Assessment for your machines at scale using Azure Policy. Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Update Manager (preview) fetches updates on your machine once every 24 hours.
+This article describes how to enable Periodic Assessment for your machines at scale by using Azure Policy. **Periodic Assessment** is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. After you enable this setting, Update Manager fetches updates on your machine once every 24 hours.
 
+## Enable Periodic Assessment for your Azure machines by using Azure Policy
 
-## Enable Periodic assessment for your Azure machines using Policy
-1. Go to **Policy** from the Azure portal and under **Authoring**, go to **Definitions**. 
-1. From the **Category** dropdown, select **Update management center**. Select *[Preview]: Configure periodic checking for missing system updates on Azure virtual machines* for Azure machines.
-1. When the Policy Definition opens, select Assign.
-1. In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope and select Next.
-1. In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select *AutomaticByPlatform*, select *Operating system* and select **Next**. You need to create separate policies for Windows and Linux.
-1. In **Remediation**, check **Create a remediation task**, so that periodic assessment is enabled on your machines and click **Next**.
-1. In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine doesn't have periodic assessment enabled.* Select **Review+Create.**
-1. On the **Review+Create** tab, select **Create**. This action triggers Assignment and Remediation Task creation, which can take a minute or so. 
+1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
+1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Configure periodic checking for missing system updates on Azure virtual machines** for Azure machines.
+1. When **Policy definition** opens, select **Assign**.
+1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
+1. On the **Parameters** tab, clear **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select **AutomaticByPlatform** > **Operating system** > **Next**. You need to create separate policies for Windows and Linux.
+1. On the **Remediation** tab, select **Create a remediation task** so that periodic assessment is enabled on your machines. Select **Next**.
+1. On the **Non-compliance message** tab, provide the message that you want to see if there was noncompliance. For example, use **Your machine doesn't have periodic assessment enabled.** Select **Review + Create.**
+1. On the **Review + Create** tab, select **Create** to trigger **Assignment and Remediation Task** creation, which can take a minute or so.
 
-You can monitor the compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
+You can monitor the compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
 
-## Enable Periodic assessment for your Arc machines using Policy
+## Enable Periodic Assessment for your Azure Arc-enabled machines by using Azure Policy
 
-1. Go to **Policy** from the Azure portal and under **Authoring**, **Definitions**. 
-1. From the **Category** dropdown, select **Update Manager**. Select *[Preview]: Configure periodic checking for missing system updates on Azure Arc-enabled servers* for Arc-enabled machines. 
-1. When the Policy Definition opens, select **Assign**.
-1. In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope and select **Next**.
-1. In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select *AutomaticByPlatform*, select *Operating system* and select **Next**. You need to create separate policies for Windows and Linux.
-1. In **Remediation**, check *Create a remediation task*, so that periodic assessment is enabled on your machines and click on Next.
-1. In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine doesn't have periodic assessment enabled.* Click **Review+Create.**
-1. In **Review+Create**, select **Create** to trigger Assignment and Remediation Task creation which can take a minute or so. 
+1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
+1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Configure periodic checking for missing system updates on Azure Arc-enabled servers** for Azure Arc-enabled machines.
+1. When **Policy definition** opens, select **Assign**.
+1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
+1. On the **Parameters** tab, clear **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select **AutomaticByPlatform** > **Operating system** > **Next**. You need to create separate policies for Windows and Linux.
+1. On the **Remediation** tab, select **Create a remediation task** so that periodic assessment is enabled on your machines. Select **Next**.
+1. On the **Non-compliance message** tab, provide the message that you want to see if there was noncompliance. For example, use **Your machine doesn't have periodic assessment enabled.** Select **Review + Create.**
+1. On the **Review + Create** tab, select **Create** to trigger **Assignment and Remediation Task** creation, which can take a minute or so.
 
-You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
+You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
 
-## Monitor if Periodic Assessment is enabled for your machines (both Azure and Arc-enabled machines)
+## Monitor if Periodic Assessment is enabled for your machines
 
-1. Go to **Policy** from the Azure portal and under **Authoring**, go to **Definitions**. 
-1. From the Category dropdown above, select **Update Manager**. Select *[Preview]: Machines should be configured to periodically check for missing system updates*. 
-1. When the Policy Definition opens, select **Assign**.
-1. In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope. Select **Next.**
-1. In **Parameters** and **Remediation**, select **Next.**
-1. In **Non-compliance message**, provide the message that you would like to see in case of non-compliance. For example: *Your machine doesn't have periodic assessment enabled.* and select **Review+Create.**
-1. In **Review+Create**, click **Create** to trigger Assignment and Remediation Task creation which can take a minute or so. 
+This procedure applies to both Azure and Azure Arc-enabled machines.
 
-You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** from the Policy home page.
+1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
+1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Machines should be configured to periodically check for missing system updates**.
+1. When **Policy definition** opens, select **Assign**.
+1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
+1. On the **Parameters** and **Remediation** tabs, select **Next**.
+1. On the **Non-compliance message** tab, provide the message that you want to see if there was noncompliance. For example, use **Your machine doesn't have periodic assessment enabled.** Select **Review + Create.**
+1. On the **Review + Create** tab, select **Create** to trigger **Assignment and Remediation Task** creation, which can take a minute or so.
+
+You can monitor compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
 
 ## Next steps
 
-* [View assessment compliance](view-updates.md) and [deploy updates](deploy-updates.md) for a selected Azure VM or Arc-enabled server, or across [multiple machines](manage-multiple-machines.md) in your subscription in the Azure portal.
-* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).
+* [View assessment compliance](view-updates.md) and [deploy updates](deploy-updates.md) for a selected Azure VM or Azure Arc-enabled server, or across [multiple machines](manage-multiple-machines.md) in your subscription in the Azure portal.
+* To view update assessment and deployment logs generated by Update Manager, see [Query logs](query-logs.md).
+* To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).

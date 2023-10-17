@@ -2,7 +2,7 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 09/12/2023
 ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
@@ -27,7 +27,7 @@ Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Azure Monitor FAQ](../faq.yml#can-i-monitor-an-intranet-web-server-). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](./ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
 - Sovereign or hybrid cloud environments:
 
@@ -92,10 +92,10 @@ For more information, see [Regions that require endpoint modification](./create-
 
 #### Is the connection string a secret?
 
-The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Azure Active Directory (Azure AD).
+The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Microsoft Entra ID.
 
 > [!NOTE]
-> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Azure AD-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
+> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Microsoft Entra ID-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
 
 ## Connection string examples
 
@@ -255,6 +255,18 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 ---
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions *require* the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
+
+### Should I use connection strings or instrumentation keys?
+
+We recommend that you use connection strings instead of instrumentation keys.
+
 ## Next steps
 
 Get started at runtime with:
@@ -269,4 +281,4 @@ Get started at development time with:
 * [ASP.NET Core](./asp-net-core.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)

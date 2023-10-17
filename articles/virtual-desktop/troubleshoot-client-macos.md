@@ -25,7 +25,7 @@ In this section you'll find troubleshooting guidance for authentication and iden
 
 ### Account switch detected
 
-If you see the error **Account switch detected**, you need to refresh the Azure AD token. To refresh the Azure AD token, do the following:
+If you see the error **Account switch detected**, you need to refresh the Microsoft Entra token. To refresh the Microsoft Entra token, do the following:
 
 1. Delete any workspaces from the Remote Desktop client. For more information, see [Edit, refresh, or delete a workspace](users/client-features-macos.md#edit-refresh-or-delete-a-workspace).
 

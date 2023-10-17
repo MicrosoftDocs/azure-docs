@@ -5,17 +5,16 @@ description: Use this article to find the natural languages supported by Key Phr
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 09/18/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021, ignite-2022
 ---
 
 # Language support for Key Phrase Extraction
 
-Use this article to find the natural languages supported by Key Phrase Analysis. 
+Use this article to find the natural languages supported by Key Phrase Extraction. Both the cloud-based API and [Docker containers](./how-to/use-containers.md) support the same languages.
 
 ## Supported languages 
 

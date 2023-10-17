@@ -19,8 +19,8 @@ ms.author: henrymbugua
    :::column-end:::
    :::column span="":::
       **Web API**
-        - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)
-        - [ADAL Python to MSAL Python](../migrate-python-adal-msal.md)
+        - [ADAL Java to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
+        - [ADAL Python to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)
         - [ADAL.NET to MSAL.NET](../msal-net-migration.md)
    :::column-end:::
 :::row-end:::
@@ -28,8 +28,8 @@ ms.author: henrymbugua
 :::row:::
    :::column span="":::
       **Desktop app**
-        - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)
-        - [ADAL Python to MSAL Python](../migrate-python-adal-msal.md)
+        - [ADAL Java to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
+        - [ADAL Python to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)
         - [ADAL.NET to MSAL.NET](../msal-net-migration.md)
    :::column-end:::
    :::column span="":::
@@ -41,9 +41,9 @@ ms.author: henrymbugua
    :::column-end:::
    :::column span="":::
       **Service / daemon app**
-        - [ADAL Python to MSAL Python](../migrate-python-adal-msal.md)
+        - [ADAL Python to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)
         - [ADAL.NET to MSAL.NET](../msal-net-migration.md) 
         - [ADAL Node to MSAL Node](../msal-node-migration.md)
-        - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)
+        - [ADAL Java to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
    :::column-end:::
 :::row-end:::
