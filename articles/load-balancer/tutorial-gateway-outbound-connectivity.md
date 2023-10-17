@@ -37,9 +37,6 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 1. Navigate to your existing virtual machine. This example uses a virtual machine named **myVM1**. 
 
 1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/tutorial-gateway-outbound-connectivity/confirm-sku-thumb.png":::
-
 1. Return to your virtual machine.
 1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
@@ -129,4 +126,5 @@ In this tutorial, you learned how to:
 - Created a new load balancer frontend IP configuration.
 - Created an outbound rule for virtual machine traffic.
 
-Learn how to [deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
+> [!div class="nextstepaction"]
+> Learn how to [deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
