@@ -252,7 +252,6 @@ Many of the terms in this glossary are related to the OAuth 2.0 and OpenID Conne
 [AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:./authentication-vs-authorization.md
-[AAD-Dev-Guide]:./configure-app-multi-instancing.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
 [Graph-Sp-Resource]: /graph/api/resources/serviceprincipal
