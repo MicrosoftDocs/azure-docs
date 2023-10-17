@@ -71,7 +71,7 @@ For example, to upgrade a resource bridge on Azure Stack HCI, run: `az arcapplia
 
 ## Private cloud providers
 
-Private cloud providers may differ in how to upgrade of an Arc resource bridge. 
+Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. 
 
 For Arc-enabled VMware, both cloud-managed upgrade and manual upgrade are supported.
 
