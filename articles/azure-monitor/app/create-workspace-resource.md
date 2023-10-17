@@ -249,7 +249,7 @@ The legacy continuous export functionality isn't supported for workspace-based r
 > Diagnostic settings export might increase costs. For more information, see [Export telemetry from Application Insights](export-telemetry.md#diagnostic-settings-based-export).
 > For pricing information for this feature, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Prior to the start of billing, notifications will be sent. If you continue to use telemetry export after the notice period, you'll be billed at the applicable rate.
 
-# How many Application Insights resources should I deploy?
+## How many Application Insights resources should I deploy?
 
 When you're developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version.
 
@@ -261,13 +261,13 @@ If your system is an instance of Azure Cloud Services, there's [another method o
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## About resources and instrumentation keys
+### About resources and instrumentation keys
 
 When you set up Application Insights monitoring for your web app, you create an Application Insights resource in Azure. You open this resource in the Azure portal to see and analyze the telemetry collected from your app. The resource is identified by an instrumentation key. When you install the Application Insights package to monitor your app, you configure it with the instrumentation key so that it knows where to send the telemetry.
 
 Each Application Insights resource comes with metrics that are available out of the box. If separate components report to the same Application Insights resource, it might not make sense to alert on these metrics.
 
-### When to use a single Application Insights resource
+#### When to use a single Application Insights resource
 
 Use a single Application Insights resource:
 
@@ -283,7 +283,7 @@ Use a single Application Insights resource:
 > [!NOTE]
 > If you want to consolidate multiple Application Insights resources, you can point your existing application components to a new, consolidated Application Insights resource. The telemetry stored in your old resource won't be transferred to the new resource. Only delete the old resource when you have enough telemetry in the new resource for business continuity.
 
-### Other considerations
+#### Other considerations
 
 Be aware that:
 
@@ -291,7 +291,7 @@ Be aware that:
 - For Azure Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these services. For all other types of apps, you'll likely need to set this explicitly.
 - Live Metrics doesn't support splitting by role name.
 
-## <a name="dynamic-instrumentation-key"></a> Dynamic instrumentation key
+### <a name="dynamic-instrumentation-key"></a> Dynamic instrumentation key
 
 To make it easier to change the instrumentation key as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded or static value.
 
@@ -309,7 +309,7 @@ protected void Application_Start()
 
 In this example, the instrumentation keys for the different resources are placed in different versions of the web configuration file. Swapping the web configuration file, which you can do as part of the release script, will swap the target resource.
 
-### Webpages
+#### Webpages
 The instrumentation key is also used in your app's webpages, in the [script that you got from the quickstart pane](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
 
 ```javascript
@@ -326,19 +326,19 @@ var appInsights = window.appInsights || function(config){ ...
 //...
 ```
 
-## Create more Application Insights resources
+### Create more Application Insights resources
 
 To create an Applications Insights resource, see [Create an Application Insights resource](./create-workspace-resource.md).
 
 > [!WARNING]
 > You may incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
-### Get the instrumentation key
+#### Get the instrumentation key
 The instrumentation key identifies the resource that you created.
 
 You need the instrumentation keys of all the resources to which your app will send data.
 
-## Filter on the build number
+### Filter on the build number
 When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
 
 You can set the **Application Version** property so that you can filter [search](../../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search) and [metric explorer](../../azure-monitor/essentials/metrics-charts.md) results.
@@ -378,7 +378,7 @@ There are several different methods of setting the **Application Version** prope
 
     To allow the Microsoft Build Engine to generate version numbers, set the version like `1.0.*` in `AssemblyReference.cs`.
 
-## Version and release tracking
+### Version and release tracking
 To track the application version, make sure `buildinfo.config` is generated by your Microsoft Build Engine process. In your `.csproj` file, add:
 
 ```xml
@@ -392,7 +392,7 @@ When the Application Insights web module has the build information, it automatic
 
 The build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 
-### Release annotations
+#### Release annotations
 
 If you use Azure DevOps, you can [get an annotation marker](./release-and-work-item-insights.md?tabs=release-annotations) added to your charts whenever you release a new version.
 
