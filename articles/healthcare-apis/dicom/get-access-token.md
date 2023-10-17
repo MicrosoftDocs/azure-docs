@@ -5,13 +5,13 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/6/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
 # Get an access token
 
-To use the DICOM service, users and applications need to prove their identity and permissions by getting an access token. An access token is a string that identifies a user or an application and grants them permission to access a resource. Using access tokens enhances security by preventing unauthorized access and reducing the need for repeated authentication. 
+To use the DICOM&reg; service, users and applications need to prove their identity and permissions by getting an access token. An access token is a string that identifies a user or an application and grants them permission to access a resource. Using access tokens enhances security by preventing unauthorized access and reducing the need for repeated authentication. 
 
 ## Use the Azure command-line interface
 
@@ -68,3 +68,5 @@ You can use a token with the DICOM service [using cURL](dicomweb-standard-apis-c
 Try It
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
