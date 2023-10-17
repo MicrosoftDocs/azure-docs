@@ -89,7 +89,7 @@ $params = @{
 $adminUnitObj = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
-Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?branch=main&viewFallbackFrom=graph-powershell-beta&view=graph-powershell-1.0&preserve-view=true) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
+Use the [New-MgBetaDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.beta.identity.directorymanagement/new-mgbetadirectoryadministrativeunit) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
 
 ```powershell
 Select-MgProfile -Name beta
