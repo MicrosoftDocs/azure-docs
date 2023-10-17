@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Pull delivery with HTTP (Preview)
 
-This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
+This article builds on the [What is Azure Event Grid?](overview.md) article to provide essential information before you start using Event Grid’s pull delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!NOTE]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
@@ -20,7 +20,7 @@ This article builds on [What is Azure Event Grid?](overview.md) to provide essen
 
 ### CloudEvents
 
-Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). This means that your solutions publish and consume event messages using a format like the following example:
+Event Grid conforms to Cloud Native Computing Foundation (CNCF)’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). It means that your solutions publish and consume event messages using a format like the following example:
 
 ```json
 {
@@ -74,14 +74,14 @@ You use an event subscription to define the filtering criteria for events and in
 
 One or more consumers connects to Event Grid to receive events.
 
-- A **receive** operation is used to read one or more events using a single request to Event Grid. The broker waits for up to 60 seconds for events to become available. For example new events available because they were just published. A successful receive request returns zero or more events. If events are available, it returns as many available events as possible up to the event count requested. Event Grid also returns a lock token for every event read.
+- A **receive** operation is used to read one or more events using a single request to Event Grid. The broker waits for up to 60 seconds for events to become available. For example, new events are available because they were just published. A successful receive request returns zero or more events. If events are available, it returns as many available events as possible up to the event count requested. Event Grid also returns a lock token for every event read.
 - A **lock token** is a kind of handle that identifies an event for event state control purposes.
-- Once a consumer application receives an event and processes it, it  **acknowledges** the event. This instructs Event Grid to delete the event so it isn't redelivered to another client. The consumer application acknowledges one or more tokens with a single request by specifying their lock tokens before they expire.
+- Once a consumer application receives an event and processes it, it  **acknowledges** the event. This process instructs Event Grid to delete the event so it isn't redelivered to another client. The consumer application acknowledges one or more tokens with a single request by specifying their lock tokens before they expire.
 
-In some other occasions, your consumer application may want to release or reject events.
+In some other occasions, your consumer application might want to release or reject events.
 
 - Your consumer application **releases** a received event to signal Event Grid that it isn't ready to process the event and to make it available for redelivery.
-- You may want to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
+- You might want to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
 
 [!INCLUDE [pull-preview-note](./includes/differences-between-consumption-modes.md)]
 
