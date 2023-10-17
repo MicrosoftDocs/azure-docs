@@ -18,50 +18,55 @@ Most operations, support, and troubleshooting performed by Microsoft personnel a
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
-## Supported services and scenarios
+## Supported services
 
-### General Availability
-
-The following services are generally available for Customer Lockbox:
+The following services are supported for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
+- Azure Batch
 - Azure Cognitive Search
-- Azure AI services
+- Azure Cognitive Services
 - Azure Container Registry
 - Azure Data Box
 - Azure Data Explorer
 - Azure Data Factory
+- Azure Data Manager for Energy
 - Azure Database for MySQL
 - Azure Database for MySQL Flexible Server
 - Azure Database for PostgreSQL
 - Azure Databricks
 - Azure Edge Zone Platform Storage
+- Azure Edge Zone Platform Storage
+- Azure Energy
 - Azure Functions
 - Azure HDInsight
 - Azure Health Bot
+- Azure Health Bot
 - Azure Intelligent Recommendations
 - Azure Kubernetes Service
+- Azure Load Testing (CloudNative Testing)
 - Azure Logic Apps
+- Azure Logic Apps
+- Azure Machine Learning
 - Azure Monitor
-- Azure OpenAI
+- Azure Red Hat OpenShift
 - Azure Spring Apps
 - Azure SQL Database
-- Azure SQL managed Instance
+- Azure SQL Managed Instance
 - Azure Storage
-- Azure subscription transfers
+- Azure Subscription Transfers
 - Azure Synapse Analytics
 - Azure Unified Vision Service
+- Commerce AI (Intelligent Recommendations)
+- DevCenter / DevBox
+- ElasticSan
+- Kusto (Dashboards)
 - Microsoft Azure Attestation
-- Azure Data Manager for Energy Preview
-- Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
-
-
-### Public Preview
-The following services are currently in preview for Customer Lockbox:
-
-- Azure Machine Learning
-- Azure Batch
+- OpenAI
+- Spring Cloud
+- Unified Vision Service
+- Virtual Machines in Azure
 
 ## Enable Customer Lockbox
 
