@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-functions-dapr-extension",
+      "url": "https://github.com/Azure/azure-functions-dapr-extension",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-docs-snippets-pr",
       "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
       "branch": "main",
@@ -468,6 +474,12 @@
       "path_to_root": "azureml-examples-featurestore",
       "url": "https://github.com/Azure/azureml-examples",
       "branch": "featurestore/pup",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-temp-fix",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "temp-fix-doc-error",
       "branch_mapping": {}
     },
     {
@@ -1184,7 +1196,6 @@
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
-  "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
   "articles/communications-gateway/.openpublishing.redirection.communications-gateway.json",

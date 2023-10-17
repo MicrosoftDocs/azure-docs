@@ -175,7 +175,7 @@ To try out this scenario, see our [React SPA calling Node.js web API using on-be
 ## See also
 
 * To learn more about the capabilities, see [Conditional Access in Microsoft Entra ID](../conditional-access/overview.md).
-* For more Microsoft Entra ID code samples, see [samples](sample-v2-code.md).
+* For more Microsoft Entra code samples, see [samples](sample-v2-code.md).
 * For more info on the MSAL SDK's and access the reference documentation, see the [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
 * Learn more about [Conditional Access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

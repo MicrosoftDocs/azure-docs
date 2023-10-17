@@ -17,7 +17,9 @@ When using Active Directory for other Azure Resources, you should be using Manag
 
 If your development environment doesn't support single sign-on or login via a web browser, then you can use a registered application to authenticate from the development environment.
 
-### Creating an Azure Active Directory Registered Application
+<a name='creating-an-azure-active-directory-registered-application'></a>
+
+### Creating a Microsoft Entra registered Application
 
 To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you're logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application and service principal.
 

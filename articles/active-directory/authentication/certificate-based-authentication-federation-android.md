@@ -63,7 +63,7 @@ As a best practice, you should update your organization's AD FS error pages with
 
 For more information, see [Customizing the AD FS Sign-in Pages](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
-Office apps with modern authentication enabled send '*prompt=login*' to Azure AD in their request. By default, Azure AD translates '*prompt=login*' in the request to AD FS as '*wauth=usernamepassworduri*' (asks AD FS to do U/P Auth) and '*wfresh=0*' (asks AD FS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Set the '*PromptLoginBehavior*' in your federated domain settings to '*Disabled*'.
+Office apps with modern authentication enabled send '*prompt=login*' to Microsoft Entra ID in their request. By default, Microsoft Entra ID translates '*prompt=login*' in the request to AD FS as '*wauth=usernamepassworduri*' (asks AD FS to do U/P Auth) and '*wfresh=0*' (asks AD FS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Microsoft Entra behavior. Set the '*PromptLoginBehavior*' in your federated domain settings to '*Disabled*'.
 You can use Set-MgDomainFederationConfiguration to perform this task:
 
 ```powershell

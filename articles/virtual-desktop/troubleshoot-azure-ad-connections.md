@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot connections to Azure AD-joined VMs -  Azure Virtual Desktop
-description: How to resolve issues when connecting to Azure AD-joined VMs in Azure Virtual Desktop.
+title: Troubleshoot connections to Microsoft Entra joined VMs -  Azure Virtual Desktop
+description: How to resolve issues when connecting to Microsoft Entra joined VMs in Azure Virtual Desktop.
 author: Heidilohr
 manager: femila
 ms.topic: troubleshooting
 ms.date: 08/24/2022
 ms.author: helohr
 ---
-# Troubleshoot connections to Azure AD-joined VMs
+# Troubleshoot connections to Microsoft Entra joined VMs
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects.
 
-Use this article to resolve issues with connections to Azure Active Directory (Azure AD)-joined session host VMs in Azure Virtual Desktop.
+Use this article to resolve issues with connections to Microsoft Entra joined session host VMs in Azure Virtual Desktop.
 
 ## All clients
 

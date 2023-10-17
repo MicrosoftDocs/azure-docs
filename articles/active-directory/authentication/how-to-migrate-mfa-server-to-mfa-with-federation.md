@@ -173,7 +173,7 @@ For step-by-step directions on this process, see [Configure the AD FS servers](/
 
 Once you've configured the servers, you can add Microsoft Entra multifactor authentication as an additional authentication method. 
 
-![Screen shot showing the Edit authentication methods screen with Microsoft Entra multifactor authentication and Azure multifactor authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
+![Screen shot showing the Edit authentication methods screen with Microsoft Entra multifactor authentication and Azure Multi-Factor Authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
 
 <a name='prepare-azure-ad-and-implement-migration'></a>
 
@@ -348,7 +348,7 @@ This change ensures only Microsoft Entra multifactor authentication is used as a
 
 1. Under **Services**, right-click on **Authentication Methods**, and select **Edit multifactor authentication Methods**. 
 
-1. Uncheck the box next to **Azure multifactor authentication Server**. 
+1. Uncheck the box next to **Azure Multi-Factor Authentication Server**. 
 
 ### Decommission the MFA Server
 
@@ -358,7 +358,7 @@ Possible considerations when decommissions the MFA Servers include:
 
 * Review MFA Servers' logs to ensure no users or applications are using it before you remove the server.
 
-* Uninstall multifactor authentication Server from the Control Panel on the server
+* Uninstall Multi-Factor Authentication Server from the Control Panel on the server
 
 * Optionally clean up logs and data directories that are left behind after backing them up first. 
 

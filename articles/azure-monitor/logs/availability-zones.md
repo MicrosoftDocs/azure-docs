@@ -25,6 +25,9 @@ ms.custom: references_regions
 
 Availability zones protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. 
 
+> [!NOTE]
+> Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
+    
 Azure Monitor currently supports data resilience for availability-zone-enabled dedicated clusters in these regions:
 
   | Americas | Europe | Middle East | Africa | Asia Pacific |

@@ -93,13 +93,13 @@ Each replica you create has its dedicated endpoint. If your application resides 
 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
 
-Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Azure Active Directory (Azure AD) authentication or a list of connection strings for access key-based authentication.
+Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra authentication or a list of connection strings for access key-based authentication.
 
 ### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
-**Connect with Azure AD**
+**Connect with Microsoft Entra ID**
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
@@ -143,7 +143,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
 
-**Connect with Azure AD**
+**Connect with Microsoft Entra ID**
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"

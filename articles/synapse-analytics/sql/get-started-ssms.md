@@ -118,5 +118,4 @@ Now that you've established a database connection, you can query the data.
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to Synapse SQL](../sql/sql-authentication.md).
-
+To configure your environment for Microsoft Entra authentication, see [Authenticate to Synapse SQL](../sql/sql-authentication.md).

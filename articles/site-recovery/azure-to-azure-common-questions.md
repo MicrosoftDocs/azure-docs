@@ -48,8 +48,8 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 - Site Recovery supports ADE for Azure VMs running Windows.
 - Site Recovery supports:
-    - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
-    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Microsoft Azure VMs must have managed disks.
+    - ADE version 0.1, which has a schema that requires Microsoft Entra ID.
+    - ADE version 1.1, which doesn't require Microsoft Entra ID. For version 1.1, Microsoft Azure VMs must have managed disks.
     - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
@@ -68,7 +68,7 @@ Yes, you can delete it if you don't need it.
 
 ### Can I replicate VMs to another subscription?
 
-Yes, you can replicate Azure VMs to any subscription within the same Azure AD tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
+Yes, you can replicate Azure VMs to any subscription within the same Microsoft Entra tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
 
 ### Can I replicate VMs in an availability zone to another region?
 

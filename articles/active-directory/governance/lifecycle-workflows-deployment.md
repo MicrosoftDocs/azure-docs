@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/31/2023
+ms.date: 10/12/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -92,7 +92,7 @@ Communication is critical to the success of any new business process. Proactivel
 
 ### Communicate changes in accountability
 
-Lifecycle Workflows support shifting responsibility of manual processes to business owners. Decoupling these processes from the IT department drives more accuracy and automation.  This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
+Lifecycle Workflows support shifting responsibility of manual processes to business owners. Establish clear process and understanding of each team’s responsibilities. Decoupling these processes from the IT department drives more accuracy and automation. This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
 
 
@@ -109,7 +109,7 @@ The following information is important information about your organization and t
 
 |Item|Description|Documentation|
 |-----|-----|-----|
-|Inbound Provisioning|You have a process to create user accounts for employees in Microsoft Entra such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Microsoft Entra ID.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Microsoft Entra ID](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Microsoft Entra ID](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect-v2.md)<br><br>[Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)|
+|Inbound Provisioning|You have a process to create user accounts for employees in Microsoft Entra such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Microsoft Entra ID.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Microsoft Entra ID](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Microsoft Entra ID](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect-v2.md)<br><br>[Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)<br><br>[API-driven inbound provisioning (Public preview)](../app-provisioning/inbound-provisioning-api-configure-app.md)|
 |Attribute synchronization|The accounts in Microsoft Entra ID have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Microsoft Entra Connect or cloud sync. You have extra attributes that are used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
@@ -136,7 +136,7 @@ The following table provides information that you need to be aware of as you cre
 
 The following is additional information you should be aware of.
 
- -    You can't enable the schedule for the Real-Time Leaver scenario.  This is by design.
+ -    You can't enable the schedule for the Real-Time **Leaver** and **Mover** scenario.  This is by design.
 
 
 
@@ -163,6 +163,8 @@ Before building a Lifecycle Workflow in the portal, you should determine which s
 |Pre-Offboarding of an employee|Remove user from selected groups</br>Remove user from selected Teams|
 |Offboard an employee|Disable User Account</br>Remove user from all groups</br>Remove user from all Teams|
 |Post-Offboarding of an employee|Remove all licenses for user</br>Remove user from all Teams</br>Delete User Account|
+|Real-time employee change|Run a Custom Task Extension|
+|Real-time employee termination|Remove users from all Groups and Teams and delete the user account|
 
 For more information on the built-in templates, see [Lifecycle Workflow templates.](lifecycle-workflow-templates.md)
 
@@ -204,8 +206,8 @@ Now that we've determined the scenario and the who and when, you should consider
 
 |Task|Description|Relevant Scenarios|
 |-----|-----|-----|
-|Add user to groups|Add user to selected groups| Joiner - Leaver|
-|Add user to selected teams| Add user to Teams| Joiner - Leaver|
+|Add user to groups|Add user to selected groups| Joiner - Leaver - Mover|
+|Add user to selected teams| Add user to Teams| Joiner - Leaver - Mover|
 |Delete User Account| Delete user account in Microsoft Entra ID| Leaver|
 |Disable User Account| Disable user account in the directory| Joiner - Leaver|
 |Enable User Account| Enable user account in the directory| Joiner - Leaver|
@@ -213,13 +215,18 @@ Now that we've determined the scenario and the who and when, you should consider
 |Remove all licenses of user| Remove all licenses assigned to the user| Leaver|
 |Remove user from all groups| Remove user from all Microsoft Entra group memberships| Leaver|
 |Remove user from all Teams| Remove user from all Teams memberships| Leaver|
-|Remove user from selected groups| Remove user from membership of selected Microsoft Entra groups| Joiner - Leaver|
-|Remove user from selected Teams| Remove user from membership of selected Teams| Joiner - Leaver|
-|Run a Custom Task Extension| Run a Custom Task Extension to callout to an external system| Joiner - Leaver|
+|Remove user from selected groups| Remove user from membership of selected Microsoft Entra groups| Joiner - Leaver - Mover|
+|Remove user from selected Teams| Remove user from membership of selected Teams| Joiner - Leaver - Mover|
+|Run a Custom Task Extension| Run a Custom Task Extension to callout to an external system| Joiner - Leaver - Mover|
 |Send email after user's last day| Send offboarding email to user's manager after the last day of work| Leaver|
 |Send email before user's last day| Send offboarding email to user's manager before the last day of work| Leaver|
 |Send email on user's last day| Send offboarding email to user's manager on the last day of work| Leaver|
 |Send Welcome Email| Send welcome email to new hire| Joiner|
+|Send onboarding reminder email|Send onboarding reminder email to user’s manager| Joiner|
+|Request user access package assignment|Request user assignement to selected access packages|Joiner-Mover|
+|Remove access package assignement for user|Remove user assignment from selected access packages| Leaver=Mover|
+|Remove all access package assignments for user|Remove all access packages assigned to the user|Leaver|
+|Cancel all pending access package assignement requests for users|Cancel all pending access package assignement requests for users|Leaver|
 
 
 For more information on tasks, see [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md).
