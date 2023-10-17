@@ -25,11 +25,11 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 - If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge using the Azure portal](deploy-portal.md).
 
-- Install [Azure Data Studio](/sql/azure-data-studio/download).
+- Install [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 
 - Install Python packages needed for this quickstart:
 
-  1. Open [New Notebook](/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel.
+  1. Open [New Notebook](/azure-data-studio/notebooks/sql-kernel) connected to the Python 3 Kernel.
   1. Select **Manage Packages**
   1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages aren't installed, select the **Add New** tab, search for the package, and select **Install**.
      - **scikit-learn**
