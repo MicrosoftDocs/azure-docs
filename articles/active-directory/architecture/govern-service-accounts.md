@@ -77,7 +77,7 @@ We recommend the following practices for service account privileges.
 
 After you understand the purpose, scope, and permissions, create your service account, use the instructions in the following articles. 
 
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md?tabs=dotnet)
+* [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=dotnet)
 * [Create a Microsoft Entra application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
 
 Use a managed identity when possible. If you can't use a managed identity, use a service principal. If you can't use a service principal, then use a Microsoft Entra user account.
@@ -96,9 +96,9 @@ Use one of the following monitoring methods:
 
 * Microsoft Entra sign-in logs in the Azure portal
 * Export the Microsoft Entra sign-in logs to 
-  * [Azure Storage documentation](../../storage/index.yml)
-  * [Azure Event Hubs documentation](../../event-hubs/index.yml), or 
-  * [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)
+  * [Azure Storage documentation](/azure/storage/)
+  * [Azure Event Hubs documentation](/azure/event-hubs/), or 
+  * [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
 
 Use the following screenshot to see service principal sign-ins.
 
@@ -122,7 +122,7 @@ Regularly review service account permissions and accessed scopes to see if they 
 * See, [`AzureADAssessment`](https://github.com/AzureAD/AzureADAssessment) and confirm validity
 * Don't set service principal credentials to **Never expire**
 * Use certificates or credentials stored in Azure Key Vault, when possible
-  * [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
+  * [What is Azure Key Vault?](/azure/key-vault/general/basic-concepts)
 
 The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [`AzureADAssessment`](https://github.com/AzureAD/AzureADAssessment).
 

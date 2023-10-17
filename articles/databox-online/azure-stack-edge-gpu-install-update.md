@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/17/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -43,7 +43,7 @@ For information on what's new in this update, go to [Release notes](azure-stack-
  
   *Update package cannot be installed as its dependencies are not met.*
 
-- You can update to 2203 from 2207 or later, and then install 2309.
+- You can update to 2303 from 2207 or later, and then install 2309.
 
 Supported update paths:
 

@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant for P2S Microsoft Entr
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -42,12 +42,12 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
 ## <a name="enable-authentication"></a>Configure authentication for the gateway
 
+> [!IMPORTANT]
+> [!INCLUDE [Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
+
 1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](../active-directory/fundamentals/how-to-find-tenant.md).
 
-1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway.
-
-    > [!IMPORTANT]
-    > The Basic SKU is not supported for OpenVPN.
+1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
 
@@ -61,7 +61,7 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
    For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
-   * **Tenant:** TenantID for the Microsoft Entra tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end. 
+   * **Tenant:** TenantID for the Microsoft Entra tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` at the end. 
 
      * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}`
      * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID}`
@@ -75,7 +75,7 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
      * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
      * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 
-   * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection may fail.
+   * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail.
 
      * `https://sts.windows.net/{AzureAD TenantID}/`
 
