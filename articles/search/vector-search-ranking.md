@@ -21,7 +21,7 @@ In vector query execution, the search engine looks for similar vectors to find t
 
 Scoring algorithms are exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
 
-Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It finds the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations.
+Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It finds the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations. Another use is to build a dataset to evaluate approximate nearest neighbor algorithm recall. Exhaustive KNN can be used to build the ground truth set of nearest neighbors.
 
 HNSW is an algorithm used for efficient approximate nearest neighbor (ANN) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
