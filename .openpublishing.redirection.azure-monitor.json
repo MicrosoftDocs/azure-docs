@@ -6375,7 +6375,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys",
+            "source_path_from_root": "/articles/azure-monitor/app/separate-resources#about-resources-and-instrumentation-keys",
             "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#about-resources-and-instrumentation-keys",
             "redirect_document_id": false
         },
