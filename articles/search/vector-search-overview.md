@@ -120,7 +120,7 @@ For example, documents that talk about different species of dogs would be cluste
 
 ### Nearest neighbors search
 
-In vector search, the search engine scans the embedding space for vectors that are the closest match to the query vector. This process is described as *nearest neighbor search*. The ability of the search engine to quickly find near neighbors requires that the system has an understanding about the distance or dispersion of nodes in vector space. Vector search algorithms provide the mechanism for computing this distance.
+In vector search, the search engine searches through the vectors within the embedding space to identify those that are near to the query vector. This technique is called *nearest neighbor search*. Nearest neighbors help quantify the similarity between items. A high degree of vector similarity indicates that the original data was similar too. To facilitate fast nearest neighbor search, the search engine will perform optimizations or employ data structures or data partitioning to reduce the search space. Each vector search algorithm will have different approaches to this problem, trading off different characteristics such as latency, throughput, recall, and memory. To compute similarity, similarity metrics provide the mechanism for computing this distance.
 
 Supported algorithms include:
 
