@@ -19,7 +19,7 @@ In vector query execution, the search engine looks for similar vectors to find t
 
 ## Determine relevance in vector search
 
-The algorithms that determine relevance are exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
+The algorithms used in vector search are used to navigate the vector database and find matching vectors. Supported algorithms include exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
 
 Exhaustive KNN performs a brute-force search that enables users to search the entire vector space for matches that are most similar to the query. It does this by calculating the distances between all pairs of data points and finding the exact `k` nearest neighbors for a query point. 
 
@@ -81,7 +81,8 @@ In the HNSW algorithm, a vector query search operation is executed by navigating
 
 ## Similarity metrics used to measure nearness
 
-A similarity metric measures the distance between neighboring vectors.
+Once an algorithm finds matching vectors, a similarity metric calculation compares neighboring vectors and measures the distance.
+The score and rank of results comes from this metric calculation.
 
 | Metric | Description |
 |--------|-------------|
@@ -95,7 +96,7 @@ Whenever results are ranked, **`@search.score`** property contains the value use
 
 | Search method | Parameter | Scoring algorithm | Range |
 |---------------|-----------|-------------------|-------|
-| vector search | `@search.score` | HNSW or KNN algorithm, using the similarity metric specified in the algorithm configuration. | 0.333 - 1.00 (Cosine) | 
+| vector search | `@search.score` | Cosine | 0.333 - 1.00 | 
 
 If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
