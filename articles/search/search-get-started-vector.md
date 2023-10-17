@@ -237,7 +237,7 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) for property descriptions.
 
-+ The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and eKNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
++ The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
 
 + [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
 
