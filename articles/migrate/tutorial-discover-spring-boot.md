@@ -49,13 +49,13 @@ After you have performed server discovery and software inventory using the Azure
 
 **Support** | **Details**
 ---- | ----
-**Validated Kubernetes distros** | See [Azure Arc-enabled Kubernetes validation](https://learn.microsoft.com/azure/azure-arc/kubernetes/validation-program).
+**Validated Kubernetes distros** | See [Azure Arc-enabled Kubernetes validation](../azure-arc/kubernetes/validation-program.md).
 **Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
-**Network Requirements** | Access to the following endpoints: <br/><br/> - api.snapcraft.io <br/><br/> - https://dc.services.visualstudio.com/v2/track <br/><br/> - [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud) <br/><br/> - [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
+**Network Requirements** | Access to the following endpoints: <br/><br/> - api.snapcraft.io <br/><br/> - https://dc.services.visualstudio.com/v2/track <br/><br/> - [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud) <br/><br/> - [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 #### Bring your own Kubernetes cluster (alternate option)
 
-1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you do not have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
+1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you do not have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
 
     > [!Note]
     > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project
@@ -73,7 +73,7 @@ After you have performed server discovery and software inventory using the Azure
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
+    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
 

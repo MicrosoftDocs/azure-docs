@@ -17,7 +17,8 @@ keywords:
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models-preview) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
-- Necessary [Role-based access control permissions](../how-to/role-based-access-control.md). To perform all the actions described requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+- Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
@@ -343,7 +344,7 @@ When you're done with your custom model, you can delete the deployment and model
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
-You can delete the deployment for your custom model on the **Deployments** pane in Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
+You can delete the deployment for your custom model on the **Deployments** pane in Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment.
 
 ### Delete your custom model
 
