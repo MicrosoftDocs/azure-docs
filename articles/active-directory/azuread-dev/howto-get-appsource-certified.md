@@ -109,7 +109,7 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Get support
 
-For Azure AD integration, we use [Microsoft Q&A](/answers/) with the community to provide support.
+For Azure AD integration, we use [Microsoft Q&A](/answers/products/) with the community to provide support.
 
 We highly recommend you ask your questions on Microsoft Q&A first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]`](/answers/topics/azure-active-directory.html).
 
@@ -119,7 +119,6 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
-[AAD-Howto-Multitenant-Overview]: ../develop/howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 <!--Image references-->
