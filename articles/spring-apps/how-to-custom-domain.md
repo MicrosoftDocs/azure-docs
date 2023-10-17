@@ -248,7 +248,7 @@ You may also enable or disable this feature for a certificate that has already b
 
 #### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to enable or disable auto sync for your imported certificate:
+Use the following steps to enable or disable auto sync for an imported certificate:
 
 1. Go to the list of **Private Key Certificates** or **Public Key Certificates**.
 1. Scroll to the right.
