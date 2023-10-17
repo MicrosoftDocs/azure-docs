@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 Start by enabling the access of the Microsoft Entra login and the Microsoft Entra configuration feature within MediusFlow by performing the following steps:
 
 #### User login
-To enable the login flow to Microsoft 365/Azure AD refer to [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
+To enable the login flow to Microsoft 365 / Microsoft Entra ID, refer to [this](https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
 To enable the configuration portal of the users for provisioning from Microsoft Entra ID refer to [this](

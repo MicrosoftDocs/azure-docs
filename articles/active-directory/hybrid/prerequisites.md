@@ -17,13 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 
 # Prerequisites for integrating with Active Directory
-The following document provides the prerequisites for integrating with Active Directory.  
+The following document provides the prerequisites for integrating with Active Directory.
 
-## Cloud Sync
-
+## Cloud sync
 
 ### Hardware and software
-
 
 |Requirement|Description and more requirements|
 |-----|-----|

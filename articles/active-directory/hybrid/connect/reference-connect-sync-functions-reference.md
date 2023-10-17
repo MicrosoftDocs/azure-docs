@@ -710,7 +710,7 @@ Returns the position where the substring was found or 0 if not found.
 
 **Example:**  
 `InStr("The quick brown fox","quick")`  
-Evalues to 5
+Evaluates to 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Evaluates to 7

@@ -62,7 +62,7 @@ The key's randomart image is:
 
 **Q:** I'm unable to connect to my Windows virtual machine that is domain-joined.
 
-**A:** Azure Bastion supports domain-joined VM sign-in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined and Azure AD-joined) virtual machines. It isn't supported for Azure AD-joined-only virtual machines.
+**A:** Azure Bastion supports domain-joined VM sign-in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined and Microsoft Entra joined) virtual machines. It isn't supported for Microsoft Entra joined-only virtual machines.
 
 ## <a name="connectivity"></a> Unable to connect to virtual machine
 

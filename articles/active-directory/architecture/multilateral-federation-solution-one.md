@@ -56,7 +56,7 @@ Here are some of the advantages of implementing Microsoft Entra ID with Cirrus B
 
   * This solution is the only architecture that enables you to configure granular Microsoft Entra Conditional Access for both multilateral federation apps and CAS apps.  
 
-* **Use of other Microsoft Entra ID-related solutions for all apps**
+* **Use of other Microsoft Entra related solutions for all apps**
 
   * You can use Intune and Microsoft Entra join for device management.
 

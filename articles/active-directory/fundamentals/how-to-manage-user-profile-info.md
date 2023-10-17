@@ -37,14 +37,14 @@ When new users are created, only a few details are added to their user profile. 
 
 1. After making any changes, select the **Save** button. 
 
-If you selected the **Edit properties option**:
+If you selected the **Edit properties** option:
    - The full list of properties appears in edit mode on the **All** category.
    - To edit properties based on the category, select a category from the top of the page.
    - Select the **Save** button at the bottom of the page to save any changes.
     
    ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/how-to-manage-user-profile-info/user-profile-properties-tabbed-view.png)
     
-If you selected the **Properties tab option**:
+If you selected the **Properties** tab option:
    - The full list of properties appears for you to review.
    - To edit a property, select the pencil icon next to the category heading.
    - Select the **Save** button at the bottom of the page to save any changes.
@@ -112,9 +112,6 @@ The following settings can be managed from **User settings**.
 ## Next steps
 
 - [Add or delete users](./add-users.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Create a basic group and add members](./how-to-manage-groups.md)
-
-- [View Microsoft Entra enterprise user management documentation](../enterprise-users/index.yml).
+- [View Microsoft Entra enterprise user management documentation](../enterprise-users/index.yml)

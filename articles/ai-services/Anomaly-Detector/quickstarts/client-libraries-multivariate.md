@@ -17,6 +17,8 @@ ms.custom: mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js,
 
 # Quickstart: Use the Multivariate Anomaly Detector client library
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/anomaly-detector-client-library-csharp-multivariate.md)]

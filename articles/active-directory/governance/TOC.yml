@@ -52,21 +52,23 @@
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-m365group?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+      - name: Review access for guest users - Microsoft Graph
+        href: /graph/tutorial-accessreviews-m365group?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to security groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-securitygroup?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Lifecycle Workflows
       items:
-      - name: Automate employee onboarding tasks - Microsoft Entra portal
+      - name: Automate employee onboarding tasks - Microsoft Entra admin center
         href: tutorial-onboard-custom-workflow-portal.md 
       - name: Automate employee onboarding tasks - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-onboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-      - name: Offboarding employees in real-time - Microsoft Entra portal
+      - name: Offboarding employees in real-time - Microsoft Entra admin center
         href: tutorial-offboard-custom-workflow-portal.md
       - name: Offboarding employees in real-time - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-offboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-      - name: Automate employee offboarding tasks - Microsoft Entra portal
+      - name: Automate employee offboarding tasks - Microsoft Entra admin center
         href: tutorial-scheduled-leaver-portal.md  
       - name: Automate employee offboarding tasks - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-scheduled-leaver?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
@@ -195,6 +197,10 @@
       href: deploy-access-reviews.md
     - name: Create access review history report
       href: access-reviews-downloadable-review-history.md
+    - name: Configure the scope - Microsoft Graph
+      href: /graph/accessreviews-scope-concept?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: Assign reviewers - Microsoft Graph
+      href: /graph/accessreviews-reviewers-concept?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Access packages
       items:
         - name: Create an access review

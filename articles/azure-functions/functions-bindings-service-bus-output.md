@@ -41,9 +41,13 @@ This article supports both programming models.
 
 # [Isolated worker model](#tab/isolated-process)
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
+This code defines and initializes the `ILogger`: 
 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
 
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a message and writes it to a second queue:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
 # [In-process model](#tab/in-process)
 
@@ -462,6 +466,8 @@ When the parameter value is null when the function exits, Functions doesn't crea
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
