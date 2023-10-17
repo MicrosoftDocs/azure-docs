@@ -3,7 +3,7 @@ title: What is Trino? (Preview)
 description: An introduction to Trino.
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 08/29/2023
+ms.date: 10/17/2023
 ---
 
 # What is Trino? (Preview)
