@@ -36,7 +36,7 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
     ```javascript
 	<script src="my-script.js" async></script>
 
-3. Using `addEventListener()` method that attaches an event handler to a document.
+3. Using `addEventListener()` method that attaches an event handler to a document:
         ```javascript
 	  <script>
 	      document.addEventListener("DOMContentLoaded", function () {
