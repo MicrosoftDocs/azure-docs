@@ -35,7 +35,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-These steps use AZD to initialize the Pet Clinic application from the Azure Developer CLI templates.
+Use the following steps to initialize the Pet Clinic application using Azure Developer CLI templates:
 
 1. Open a terminal, create a new, empty folder, and then navigate to it.
 
@@ -47,7 +47,7 @@ These steps use AZD to initialize the Pet Clinic application from the Azure Deve
 
    The following list describes the command interaction:
 
-    - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
+   - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -71,8 +71,6 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-Use the following steps to create an Azure Spring Apps instance:
-
 ### 3.1. Sign in to the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com) and enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -83,7 +81,7 @@ Use the following steps to create the service instance:
 
 1. Select **Create a resource** in the corner of the Azure portal.
 
-1. Select **Compute** > **Azure Spring Apps** on the **Azure Services** tab.
+1. On the **Azure Services** tab, select **Compute** > **Azure Spring Apps**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal that shows the Create a Resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png":::
 
@@ -110,7 +108,7 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page with the Create new Application Insights resource pane showing." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
-1. Select **Review and Create** to review your selections. Then select **Create** to provision the Azure Spring Apps instance.
+1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 
 1. Select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard** to create a shortcut on your Azure portal dashboard to the service's **Overview** page.
 
@@ -118,7 +116,9 @@ Use the following steps to create the service instance:
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Config Server** in the navigation pane, then on the **Config Server** page, for **URI**, enter *`https://github.com/Azure-Samples/spring-petclinic-microservices-config.git`*, and then select **Validate**.
+1. Select **Config Server** in the navigation pane.
+
+1. On the **Config Server** page, for **URI**, enter *`https://github.com/Azure-Samples/spring-petclinic-microservices-config.git`*, and then select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
@@ -148,8 +148,8 @@ Use the following steps to create the required resources:
 
    The following list describes the command interactions:
 
-    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
-    - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+   - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+   - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
 
    The console outputs messages similar to the following example:
 

@@ -19,7 +19,7 @@ The **Deploy to Azure** button in the next section launches an Azure portal expe
 
 ## 3. Prepare the cloud environment
 
-The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
+The main resource you need to run this sample is an Azure Spring Apps instance. This section describes how to create this resource.
 
 This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
 
@@ -45,9 +45,9 @@ Use the following steps to create all the Azure resources that the app depends o
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal that shows the custom deployment for microservice." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::
 
-1. Select **Review and Create** to review your selections. Then select **Create** to deploy the app to Azure Spring Apps.
+1. Select **Review and Create** to review your selections. Then, select **Create** to deploy the app to Azure Spring Apps.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the custom deployment notifications pane open." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png":::
 

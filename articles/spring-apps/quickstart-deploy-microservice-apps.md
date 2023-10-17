@@ -35,22 +35,12 @@ The diagram shows the following architectural flows and relationships of the Pet
 > 
 > The deployed app `admin-server` exposes public access, which is a risk point. The production environment needs to secure the Spring Boot Admin application.
 
-This article provides the following options for deploying to Azure Spring Apps:
-
 ::: zone pivot="sc-standard"
 
 This article provides the following options for deploying to Azure Spring Apps:
 
 - The **Azure portal and Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
 - The **Azure Developer CLI** option is a more efficient way to automatically create resources and deploy applications through simple commands. The Azure Developer CLI uses a template to provision the Azure resources needed and to deploy the application code. This option is suitable for Spring developers who are familiar with Azure cloud services.
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-This article provides the following option for deploying to Azure Spring Apps:
-
-- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
 
 ::: zone-end
 
