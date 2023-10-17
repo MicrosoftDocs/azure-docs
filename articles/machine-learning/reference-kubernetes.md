@@ -397,6 +397,8 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+|Oct 11, 2023 | 1.1.35|  Fix vulnerable image. Bug fixes. |
+|Aug 25, 2023 | 1.1.34|  Fix vulnerable image. Return more detailed identity error. Bug fixes. |
 |July 18, 2023 | 1.1.29|  Add new identity operator errors. Bug fixes. |
 |June 4, 2023 | 1.1.28 | Improve auto-scaler to handle multiple node pool. Bug fixes. |
 | Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
