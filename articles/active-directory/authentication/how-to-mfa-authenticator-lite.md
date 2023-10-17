@@ -168,8 +168,6 @@ Authenticator Lite enforces number matching in every authentication. If your ten
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
 ## Common questions
-### Are users on the legacy policy eligible for Authenticator Lite? 
-No, only those users configured for Authenticator app via the modern authentication methods policy are eligible for this experience. If your tenant is currently on the legacy policy and you are interested in this feature, please migrate your users to the modern auth policy.
 
 ### Does Authenticator Lite work as a broker app?
 No, Authenticator Lite is only available for push notifications and TOTP. 
