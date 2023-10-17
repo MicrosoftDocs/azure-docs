@@ -33,4 +33,10 @@ A Trino worker is a server in a Trino installation, which is responsible for exe
 
 :::image type="content" source="./media/trino-overview/trino-architecture.png" alt-text="Diagram showing Trino architecture.":::
 
+## Trademarks
+
+Product names, other names, logos and other material used on this site are registered trademarks of various entities including, but not limited to, the following trademark owners and names:
+- [Apache Software Foundation](https://apache.org/) which may contain referecens to Apache Hadoop, Apache Hive, Apache Kafka, and other names
+- [Apache Trademark Listing](https://www.apache.org/foundation/marks/list/)
+
 
