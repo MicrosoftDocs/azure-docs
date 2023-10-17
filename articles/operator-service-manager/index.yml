@@ -50,6 +50,8 @@ landingContent:
             url: how-to-delete-operator-resources.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
+          - text: Use Azure Operator Service Manager (AOSM) CLI extension
+            url: how-to-use-azure-operator-service-manager-cli-extension.md
 
   # Card
   - title: Additional Resources

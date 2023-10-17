@@ -62,6 +62,8 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
+  - name: Use Azure Operator Service Manager (AOSM) CLI extension
+    href: how-to-use-azure-operator-service-manager-cli-extension.md
 - name: Resources
   expanded: false
   items:
