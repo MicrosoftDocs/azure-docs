@@ -30,11 +30,9 @@ You can select any element on the page to get more detailed information.
 
 ## Prerequisites
 
-Sensitive data discovery is available in the Defender CSPM or Defender for Storage plans.
+Sensitive data discovery is available in the Defender CSPM.
 
-As a minimum requirement, you must enable Defender CSPM in order to receive the benefits of sensitive data discovery. In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan.
-
-When you enable one of the plans, make sure the sensitive data discovery extension is also turned on as part of the plan.
+In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extensions button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan.
 
 :::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
 
@@ -42,18 +40,22 @@ The feature is turned on at the subscription level.
 
 ## Required Permissions and Roles
 
-The following permissions are required to view the dashboard for each subscription:
+- The following permissions are required to view the dashboard for each subscription:
 
-- Microsoft.Security/assessments/read
-- Microsoft.Security/assessments/subassessments/read
-- Microsoft.Security/alerts/read
+  - Microsoft.Security/assessments/read
+  - Microsoft.Security/assessments/subassessments/read
+  - Microsoft.Security/alerts/read
 
-The minimum privileged RBAC role required is  **Security Reader**.
+- The minimum privileged RBAC role required is  **Security Reader**.
 
 - Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
 
-    1. Sign-in to the Azure Portal.
+    1. Sign-in to the Azure portal.
     1. Select the affected subscription.
+    1. In the left-side menu, select the resource provider.
+
+        :::image type="content" source="media/data-aware-security-dashboard/select-resource-provider.png" alt-text="Screenshot that shows where to select the resource provider." lightbox="media/data-aware-security-dashboard/select-resource-provider.png":::
+
     1. Search for and select the **Microsoft.Security** resource provider from the list.
     1. Select **Register**.
 
