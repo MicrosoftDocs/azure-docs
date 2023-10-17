@@ -35,7 +35,7 @@ To select and mount the snapshot, do the following:
 
 1. On the **Restore Point** pane, choose **Select**.
 
-   :::image type="content" source="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
+   :::image type="content" source="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point." lightbox="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-restore-point.png":::
 
    >[!Note]
    >**Attach and mount only** option creates disks from the selected snapshot point and mounts to the targeted VM. After the restore is complete, use *HANA studio* to initiate the restore-from-snapshot process and complete the *system database* restore to the latest recovery point. Then run the *pre-registration script* on the target VM to reset the backup user credentials. Then proceed to complete the tenant DB restore process, to the same snapshot or logpoint-in-time via backing
@@ -59,7 +59,7 @@ To restore the system database using the Azure portal, follow these steps:
 
 1. Go to the **Restore** pane, and then select **System Database (Including attach and mount)**.
 
-   :::image type="content" source="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-and-attach-mount-disk.png" alt-text="Screenshot shows how to restore database including attach and mount disks to target VM.":::
+   :::image type="content" source="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-and-attach-mount-disk.png" alt-text="Screenshot shows how to restore database including attach and mount disks to target VM." lightbox="./media/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point/restore-system-database-and-attach-mount-disk.png":::
 
    >[!Note]
    >This option creates disks from the selected snapshot restore point and attaches these disks to the specified target VM. It also restores the *system database* on the target VM.

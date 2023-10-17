@@ -144,13 +144,18 @@ This section provides you with an understanding about the backup process of an H
 
 ### Backup architecture for database instance snapshot
 
-
+Azure Backup integrates Azure-managed disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
 
 **SAP HANA database instance snapshot backup**
+
+Below backup architecture talks about different permissions that are required for Azure Backup service, which resides on a HANA virtual machine (VM), to take snapshots of the managed disks and place them in a user-specified resource group that's mentioned in the policy. To do so, you can use the system-assigned managed identity of the source VM.
+
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-backup-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot backup architecture.":::
 
 **SAP HANA database instance snapshot restore**
+
+Below architecture talks about different permissions required during the restore, Azure Backup uses the target VM’s managed identity to read disk snapshots from a user-specified resource group, create disks in a target resource group, and attach them to the target VM.
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-restore-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot restore architecture.":::
 
