@@ -82,7 +82,8 @@ If there is no intersection between the schema of the delta table and the schema
 
 At the failure of schema conversion, the job behavior will follow the [output data error handing policy](stream-analytics-output-error-policy.md) configured at the job level.
 
-### Delta Log Checkpoints
+### Delta Log checkpoints
+
 
 The Stream Analytics job will create Delta Log checkpoints periodically.
 
