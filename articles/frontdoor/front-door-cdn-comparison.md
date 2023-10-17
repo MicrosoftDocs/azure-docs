@@ -34,7 +34,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | HTTPS support | Yes | Yes | Yes | Yes | Yes | Yes |
 | Custom domain HTTPS | Yes | Yes | Yes | Yes | Yes | Yes |
 | Bring your own certificate | Yes | Yes | Yes | Yes | Yes | Yes |
-| Supported TLS Versions | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS 1.2, TLS 1.0/1.1 | "TLS 1.2, TLS 1.3" | TLS 1.2, TLS 1.3 |
+| Supported TLS Versions | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS 1.2, TLS 1.0/1.1 | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | **Caching** | | | | | | |
 | Query string caching | Yes | Yes | Yes | Yes | Yes | Yes |
 | Cache manage (purge, rules, and compression) | Yes | Yes | Yes | Yes | Yes | Yes |
