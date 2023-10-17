@@ -109,7 +109,7 @@ The following requirements apply to the Microsoft Entra Password Protection DC a
 * All machines where the Microsoft Entra Password Protection DC agent will be installed must have .NET 4.7.2 installed.
     * If .NET 4.7.2 is not already installed, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Any Active Directory domain that runs the Microsoft Entra Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
-   * If your domain isn't already using DFSR, you must migrate before installing Microsoft Entra Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * If your domain isn't already using DFSR, you must migrate before installing Microsoft Entra Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](/windows-server/storage/dfs-replication/migrate-sysvol-to-dfsr)
 
     > [!WARNING]
     > The Microsoft Entra Password Protection DC agent software will currently install on domain controllers in domains that are still using FRS (the predecessor technology to DFSR) for sysvol replication, but the software will NOT work properly in this environment.
