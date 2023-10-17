@@ -38,12 +38,12 @@ You learn how to:
 
 - Sign in to the [Azure portal](https://portal.azure.com)
 
-- [Create a Windows virtual machine](../../virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-- To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
+    - Use the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can open using the **Try It** button on the top-right corner of code blocks.
     - Run scripts locally with Azure PowerShell, as described in the next section.
 
 ### Configure Azure PowerShell locally
@@ -181,4 +181,4 @@ The response contains the specific Resource Group information, similar to the fo
 In this tutorial, you learned how to create a user-assigned identity and attach it to an Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+>[Azure Resource Manager](/azure/azure-resource-manager/management/overview)

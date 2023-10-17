@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
+This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](/azure/key-vault/general/overview). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -35,9 +35,9 @@ You learn how to:
 
 - A basic understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - You also need a Linux Virtual machine that has system assigned managed identities enabled.
-  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](/azure/virtual-machines/linux/quick-create-portal#create-virtual-machine)
 
 
 ## Create a Key Vault  
@@ -92,7 +92,7 @@ The managed identity used by the virtual machine needs to be granted access to r
 
 ## Access data
 
-To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 >[!IMPORTANT]
 > All Azure SDKs support the Azure.Identity library that makes it easy to acquire Microsoft Entra tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
@@ -144,11 +144,11 @@ Once you've retrieved the secret from the Key Vault, you can use it to authentic
 
 When you want to clean up the resources, sign in to the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
 
-Alternatively you may also do this via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
+Alternatively you may also do this via [PowerShell or the CLI](/azure/azure-resource-manager/management/delete-resource-group)
 
 ## Next steps
 
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](../../key-vault/general/overview.md)
+>[Azure Key Vault](/azure/key-vault/general/overview)
