@@ -106,15 +106,17 @@ When using an ARM template, Bicep template, or direct REST API PUT operation to 
 
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Queries using Azure AD authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
+|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
-### Queries using Azure AD authentication fails after 1 hour
+<a name='queries-using-azure-ad-authentication-fails-after-1-hour'></a>
 
-SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+### Queries using Microsoft Entra authentication fails after 1 hour
+
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 

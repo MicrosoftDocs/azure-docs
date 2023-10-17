@@ -464,6 +464,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
+- If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
 - A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).

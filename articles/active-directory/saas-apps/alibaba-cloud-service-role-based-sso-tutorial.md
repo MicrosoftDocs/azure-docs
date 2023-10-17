@@ -155,71 +155,75 @@ the **Note** field, click **Upload** to upload the federation metadata file you 
 
 6. In the **RAM Role Name** field enter `AADrole`, select `AAD` from the **Select IdP** drop-down list and click OK.
 
-    >[!NOTE]
-    >You can grant permission to the role as needed. After creating the IdP and the corresponding role, we recommend that you save the ARNs of the IdP and the role for subsequent use. You can obtain the ARNs on the IdP information page and the role information page.
+   >[!NOTE]
+   >You can grant permission to the role as needed. After creating the IdP and the corresponding role, we recommend that you save the ARNs of the IdP and the role for subsequent use. You can obtain the ARNs on the IdP information page and the role information page.
 
 7. Associate the Alibaba Cloud RAM role (AADrole) with the Microsoft Entra user (u2):
-To associate the RAM role with the Microsoft Entra user, you must create a role in Microsoft Entra ID by following these steps:
 
-    a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   To associate the RAM role with the Microsoft Entra user, you must create a role in Microsoft Entra ID by following these steps:
 
-    b. Click **modify permissions** to obtain required permissions for creating a role.
+   1. Sign in to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-    ![Graph config1](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+   1. Click **modify permissions** to obtain required permissions for creating a role.
 
-    c. Select the following permissions from the list and click **Modify Permissions**, as shown in the following figure.
+       ![Graph config1](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
 
-    ![Graph config2](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+   1. Select the following permissions from the list and click **Modify Permissions**, as shown in the following figure.
 
-    >[!NOTE]
-    >After permissions are granted, log on to the Graph Explorer again.
+       ![Graph config2](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
 
-    d. On the Graph Explorer page, select **GET** from the first drop-down list and **beta** from the second drop-down list. Then enter `https://graph.microsoft.com/beta/servicePrincipals` in the field next to the drop-down lists, and click **Run Query**.
+       > [!NOTE]
+       > After permissions are granted, sign in to the Graph Explorer again.
 
-    ![Graph config3](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+   1. On the Graph Explorer page, select **GET** from the first drop-down list and **beta** from the second drop-down list. Then enter `https://graph.microsoft.com/beta/servicePrincipals` in the field next to the drop-down lists, and click **Run Query**.
 
-    >[!NOTE]
-    >If you are using multiple directories, you can enter `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` in the field of the query.
+       ![Graph config3](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 
-    e. In the **Response Preview** section, extract the appRoles property from the 'Service Principal' for subsequent use.
+       > [!NOTE]
+       > If you are using multiple directories, you can enter `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` in the field of the query.
 
-    ![Graph config4](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+   1. In the **Response Preview** section, extract the appRoles property from the 'Service Principal' for subsequent use.
 
-    >[!NOTE]
-    >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Microsoft Entra ID **Properties** page.
+       ![Graph config4](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
 
-    f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
-    ```
-    { 
-      "appRoles": [
-        { 
-          "allowedMemberTypes":[
-            "User"
-          ],
-          "description": "msiam_access",
-          "displayName": "msiam_access",
-          "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
-          "isEnabled": true,
-          "origin": "Application",
-          "value": null
-        },
-        { "allowedMemberTypes": [
-            "User"
-        ],
-        "description": "Admin,AzureADProd",
-        "displayName": "Admin,AzureADProd",
-        "id": "68adae10-8b6b-47e6-9142-6476078cdbce",
-        "isEnabled": true,
-        "origin": "ServicePrincipal",
-        "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
-        }
-      ]
-    }
-    ```
-    > [!NOTE]
-    > The `value` is the ARNs of the IdP and the role you created in the RAM console. Here, you can add multiple roles as needed. Microsoft Entra ID will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+       > [!NOTE]
+       > You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Microsoft Entra ID **Properties** page.
 
-    g. After the 'Service Principal' is patched with the required role, attach the role with the Microsoft Entra user (u2) by following the steps of **Assign the Microsoft Entra test user** section of the tutorial.
+   1. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
+
+       ```json
+         {
+           "appRoles": [
+             {
+               "allowedMemberTypes": [
+                 "User"
+               ],
+               "description": "msiam_access",
+               "displayName": "msiam_access",
+               "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+               "isEnabled": true,
+               "origin": "Application",
+               "value": null
+             },
+             {
+               "allowedMemberTypes": [
+                 "User"
+               ],
+               "description": "Admin,AzureADProd",
+               "displayName": "Admin,AzureADProd",
+               "id": "68adae10-8b6b-47e6-9142-6476078cdbce",
+               "isEnabled": true,
+               "origin": "ServicePrincipal",
+               "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
+             }
+           ]
+         }
+       ```
+
+       > [!NOTE]
+       > The `value` is the ARNs of the IdP and the role you created in the RAM console. Here, you can add multiple roles as needed. Microsoft Entra ID will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+
+   1. After the 'Service Principal' is patched with the required role, attach the role with the Microsoft Entra user (u2) by following the steps of **Assign the Microsoft Entra test user** section of the tutorial.
 
 ### Configure Alibaba Cloud Service (Role-based SSO) SSO
 

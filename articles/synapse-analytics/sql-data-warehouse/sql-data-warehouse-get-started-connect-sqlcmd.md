@@ -44,9 +44,9 @@ For example, your connection string might look like the following:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
+To use Microsoft Entra integrated authentication, you need to add the Microsoft Entra parameters:
 
-* **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
+* **Microsoft Entra authentication (-G):** use Microsoft Entra ID for authentication
 
 For example, your connection string might look like the following:
 
@@ -55,7 +55,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> You need to [enable Microsoft Entra authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
 
 ## 2. Query
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/12/2023
 ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -31,7 +31,9 @@ PIM enables you to allow a specific set of actions at a particular scope. Key fe
 
 * Require **approval** to activate privileged roles
 
-* Enforce **multifactor authentication** to activate any role
+* Enforce **Multifactor authentication** to activate any role
+
+* Enforce **Conditional Access policies** to activate any role (Public preview)
 
 * Use **justification** to understand why users activate
 
@@ -55,7 +57,7 @@ Today, you can use PIM with:
 
 * **Azure roles** – The role-based access control (RBAC) roles in Azure that grants access to management groups, subscriptions, resource groups, and resources.
 
-* **PIM for Groups** – To set up just-in-time access to member and owner role of a Microsoft Entra security group. PIM for Groups not only gives you an alternative way to set up PIM for Microsoft Entra roles and Azure roles, but also allows you to set up PIM for other permissions across Microsoft online services like Intune, Azure Key Vaults, and Azure Information Protection. 
+* **PIM for Groups** – To set up just-in-time access to member and owner role of a Microsoft Entra security group. PIM for Groups not only gives you an alternative way to set up PIM for Microsoft Entra roles and Azure roles, but also allows you to set up PIM for other permissions across Microsoft online services like Intune, Azure Key Vaults, and Azure Information Protection. If the group is configured for app provisioning, activation of group membership triggers provisioning of group membership (and the user account, if it wasn’t provisioned) to the application using the System for Cross-Domain Identity Management (SCIM) protocol.
 
 You can assign the following to these roles or groups: 
 
@@ -124,7 +126,7 @@ The following table shows an example test case:
 
 | Role| Expected behavior during activation| Actual results |
 | --- | --- | --- |
-|Global Administrator| <li> Require MFA <br><li>  Require Approval <br><li>  Approver receives notification and can approve <br><li>  Role expires after preset time|
+|Global Administrator| <li> Require MFA <br><li> Require approval <br><li> Require Conditional Access context (Public preview) <br><li> Approver receives notification and can approve <br><li>  Role expires after preset time|
 
 For both Microsoft Entra ID and Azure resource role, make sure that you have users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
 
@@ -160,17 +162,19 @@ First, ensure that all Global and Security admin roles are managed using PIM bec
 
 <a name='configure-pim-settings-for-azure-ad-roles'></a>
 
+You can use the Privileged label to identify roles with high privileges that you can manage with PIM. Privileged label is present on [**Roles and Administrator**](../roles/privileged-roles-permissions.md?tabs=admin-center) in Microsoft Entra ID admin center. See the article, [Microsoft Entra built-in roles](../roles/permissions-reference.md) to learn more.
+
 ### Configure PIM settings for Microsoft Entra roles
 
 [Draft and configure your PIM settings](pim-how-to-change-default-settings.md) for every privileged Microsoft Entra role that your organization uses. 
 
 The following table shows example settings:
 
-| Role| Require MFA| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
+| Role| Require MFA| Require Conditional Access| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
 | --- | --- | --- |--- |--- |--- |--- |--- |
-| Global Administrator| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Administrator| 1 Hour| Emergency access accounts |
-| Exchange Admin| :heavy_check_mark:| :heavy_check_mark:| :x:| :x:| None| 2 Hour| None |
-| Helpdesk Admin| :x:| :x:| :heavy_check_mark:| :x:| None| 8 Hour| None |
+| Global Administrator| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other Global Administrator| 1 Hour| Emergency access accounts |
+| Exchange Admin| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |None| 2 Hour| None |
+| Helpdesk Admin| :x: | | :x: | :heavy_check_mark: | :x: | None| 8 Hour| None |
 
 
 <a name='assign-and-activate-azure-ad-roles-'></a>
@@ -240,10 +244,10 @@ For subscriptions or resources that aren’t as critical, you won’t need to se
 
 The following table shows example settings:
 
-| Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration|
+| Role| Require MFA| Notification| Require Conditional Access| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration|
 | --- | --- | --- |--- |--- |--- |--- |---|---|
-| Owner of critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the subscription| 1 Hour| None| n/a| 3 months |
-| User Access Administrator of less critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :x:| None| 1 Hour| None| n/a| 3 months |
+| Owner of critical subscriptions| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the subscription| 1 Hour| None| n/a| 3 months |
+| User Access Administrator of less critical subscriptions| :heavy_check_mark: | :heavy_check_mark: | | :x: | None| 1 Hour| None| n/a| 3 months |
 
 ### Assign and activate Azure Resource role
 
@@ -292,17 +296,17 @@ To manage a Microsoft Entra role-assignable group as a PIM for Groups, you must 
 
 The following table shows example settings:
 
-| Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration |
+| Role| Require MFA| Notification| Require Conditional Access| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration |
 | --- | --- | --- |--- |--- |--- |--- |---|---|
-| Owner| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the resource| One Hour| None| n/a| Three months |
-| Member| :heavy_check_mark:| :heavy_check_mark:| :x:| None| Five Hours| None| n/a| 3 months |
+| Owner| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the resource| One Hour| None| n/a| Three months |
+| Member| :heavy_check_mark: | :heavy_check_mark: |  | :x: | None| Five Hours| None| n/a| 3 months |
 
 ### Assign eligibility for PIM for Groups
 
 You can [assign eligibility to members or owners of the PIM for Groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
->You can assign the group to one or more Microsoft Entra ID and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Microsoft Entra organization (tenant).
+>You can assign the group to one or more Microsoft Entra ID and Azure resource roles in the same way as you assign roles to users. A maximum of 500 role-assignable groups can be created in a single Microsoft Entra organization (tenant).
 
 ![Diagram of assign eligibility for PIM for Groups.](media/pim-deployment-plan/pim-for-groups.png)
 

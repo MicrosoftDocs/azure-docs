@@ -39,7 +39,7 @@ To automate provisioning to an application, it requires building and integrating
 
 1. [Optional] [Publish your application to the Microsoft Entra application gallery](#publish-your-application-to-the-azure-ad-application-gallery) - Make it easy for customers to discover your application and easily configure provisioning. 
 
-![Diagram that shows the required steps for integrating a SCIM endpoint with Azure AD.](media/use-scim-to-provision-users-and-groups/process.png)
+![Diagram that shows the required steps for integrating a SCIM endpoint with Microsoft Entra ID.](media/use-scim-to-provision-users-and-groups/process.png)
 
 ## Design your user and group schema
 

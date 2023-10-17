@@ -70,7 +70,7 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+1. Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
 
    ```azurecli
    export AZ_IDENTITY_RESOURCE_ID=$(az identity create \

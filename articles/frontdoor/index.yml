@@ -140,17 +140,16 @@ landingContent:
         links:
           - text: Azure Storage
             url: integrate-storage-account.md
-
-      - linkListType: architecture
-        links:
           - text: Azure API Management
             url: ../api-management/front-door-api-management.md
           - text: Azure Open AI
             url: ../web-application-firewall/afds/protect-azure-open-ai.md
-          - text: Azure Spring Apps
-            url: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy
           - text: Azure Static Web Apps
             url: ../static-web-apps/front-door-manual.md
+      - linkListType: architecture
+        links:
+          - text: Azure Spring Apps
+            url: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy
           - text: Scalable and secure WordPress on Azure
             url: /azure/architecture/example-scenario/infrastructure/wordpress
 

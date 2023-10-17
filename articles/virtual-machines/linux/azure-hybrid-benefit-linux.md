@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2023
 ms.author: dkulkarni
 ms.reviewer: mattmcinnes
-ms.custom: kr2b-contr-experiment, devx-track-linux
+ms.custom: kr2b-contr-experiment, devx-track-linux, devx-track-azurecli
 ---
 
 # Azure Hybrid Benefit for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines
@@ -473,5 +473,3 @@ If you use Azure Hybrid Benefit BYOS to PAYG capability for SLES and want more i
 
 * [Learn how to create and update virtual machines and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm)
 * [Learn about Azure Hybrid Benefit on Virtual Machine Scale Sets for RHEL and SLES and how to use it](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md)
-
-

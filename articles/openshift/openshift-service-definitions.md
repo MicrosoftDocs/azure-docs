@@ -250,9 +250,9 @@ The following sections provide information about Azure OpenShift security.
 
 Azure Red Hat OpenShift clusters aren't configured with any authentication providers.
 
-Customers need to configure their own providers, such as Azure Active Directory. For information about configuring providers, see the following articles:
+Customers need to configure their own providers, such as Microsoft Entra ID. For information about configuring providers, see the following articles:
 
-* [Azure Active Directory Authentication](./configure-azure-ad-cli.md)
+* [Microsoft Entra authentication](./configure-azure-ad-cli.md)
 * [OpenShift identity providers](https://docs.openshift.com/container-platform/4.7/authentication/understanding-identity-provider.html)
 
 ### Regulatory compliance

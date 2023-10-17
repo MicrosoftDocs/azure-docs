@@ -27,7 +27,7 @@ In IoT Central, you can configure and manage security in the following areas:
 
 ## Manage user access
 
-Every user must have a user account before they can sign in and access an IoT Central application. IoT Central currently supports Microsoft accounts and Azure Active Directory accounts, but not Azure Active Directory groups.
+Every user must have a user account before they can sign in and access an IoT Central application. IoT Central currently supports Microsoft accounts and Microsoft Entra accounts, but not Microsoft Entra groups.
 
 *Roles* enable you to control who within your organization is allowed to do various tasks in IoT Central. Each role has a specific set of permissions that determine what a user in the role can see and do in the application. There are three built-in roles you can assign to users of your application. You can also create custom roles with specific permissions if you require finer-grained control.
 
@@ -67,7 +67,7 @@ Every IoT Central REST API call requires an authorization header that IoT Centra
 
 To access an IoT Central application using the REST API, you can use an:
 
-- *Azure Active Directory bearer token*. A bearer token is associated with either an Azure Active Directory user account or a service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
+- *Microsoft Entra bearer token*. A bearer token is associated with either a Microsoft Entra user account or a service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
 
 To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -98,4 +98,3 @@ Audit logs let administrators track activity within your IoT Central application
 ## Next steps
 
 Now that you've learned about security in your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-roles.md) in Azure IoT Central.
-

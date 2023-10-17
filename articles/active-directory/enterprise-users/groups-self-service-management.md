@@ -49,7 +49,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 2. Select **All groups** > **Groups**, and then select **General** settings.
 
  > [!NOTE]
- > This setting only restricts access of group information in **My Groups**. It does not restrict access to group information via other methods like Microsoft Graph API calls or the Entra Admin Center
+ > This setting only restricts access of group information in **My Groups**. It does not restrict access to group information via other methods like Microsoft Graph API calls or the Microsoft Entra admin center.
 
  ![Microsoft Entra groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
    > [!NOTE]
@@ -73,7 +73,7 @@ You can also use **Owners who can assign members as group owners in the Azure po
 When users can create groups, all users in your organization are allowed to create new groups and then can, as the default owner, add members to these groups. You can't specify individuals who can create their own groups. You can specify individuals only for making another group member a group owner.
 
 > [!NOTE]
-> A Microsoft Entra ID P1 or P2 (P1 or P2) license is required for users to request to join a security group or Microsoft 365 group and for owners to approve or deny membership requests. Without a Microsoft Entra ID P1 or P2 license, users can still manage their groups in the MyApp Groups Access panel, but they can't create a group that requires owner approval and they can't request to join a group.
+> A Microsoft Entra ID P1 or P2 license is required for users to request to join a security group or Microsoft 365 group and for owners to approve or deny membership requests. Without a Microsoft Entra ID P1 or P2 license, users can still manage their groups in the MyApp Groups Access panel, but they can't create a group that requires owner approval and they can't request to join a group.
 
 ## Group settings
 

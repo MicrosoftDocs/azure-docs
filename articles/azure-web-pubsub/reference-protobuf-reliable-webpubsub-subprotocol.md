@@ -14,9 +14,6 @@ This document describes the subprotocol `protobuf.reliable.webpubsub.azure.v1`.
 
 When a client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
-> [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in future.
-
 ## Overview
 
 Subprotocol `protobuf.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.

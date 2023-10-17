@@ -34,7 +34,7 @@ In previous tutorials, you created a container image and uploaded it to an ACR i
 
 AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8s-rbac], which allows you to define access to resources based on roles assigned to users. If a user is assigned multiple roles, permissions are combined. Permissions can be scoped to either a single namespace or across the whole cluster.
 
-To learn more about AKS and Kubernetes RBAC, see [Control access to cluster resources using Kubernetes RBAC and Azure Active Directory identities in AKS][aks-k8s-rbac].
+To learn more about AKS and Kubernetes RBAC, see [Control access to cluster resources using Kubernetes RBAC and Microsoft Entra identities in AKS][aks-k8s-rbac].
 
 
 ### [Azure CLI](#tab/azure-cli)

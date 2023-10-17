@@ -57,7 +57,10 @@ If in-place major version upgrade pre-check operations fail then it aborts with 
 
 - In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce** and **postgres_fdw** are unsupported for all PostgreSQL versions. 
 
--	Please ensure that the **PostGIS** extensions, installed within a specific schema, are included in your search_path server parameter. It is necessary to update this server parameter to encompass those schemas before proceeding with major version upgrade.
+-	When upgrading servers with PostGIS extension installed, set the 'search_path' server parameter to explicitly include the schemas of the PostGIS extension, extensions that depend on PostGIS, and extensions that serve as dependencies for the below extensions.
+  
+ **e.g postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,address_standardizer,address_standardizer_data_us,fuzzystrmatch (required for postgis_tiger_geocoder).**
+
 
 -	Servers configured with logical replication slots aren't supported. 
 

@@ -15,11 +15,11 @@ This article describes how to submit a support request for increasing the number
 
 If your organization uses Deployment Environments extensively, you may encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Prerequisites
 
-- To create a support request, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) role at the subscription level.
+- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
 - Before you create a support request for a limit increase, you need to gather additional information.
 
 ## Gather information for your request
@@ -119,4 +119,4 @@ To complete the support request, enter the following information:
  
 ## Related content
 
-- Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-deployment-environments-limits)
+- Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-deployment-environments-limits)
