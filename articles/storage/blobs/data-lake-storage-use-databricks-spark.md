@@ -216,7 +216,7 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 DataFrames provide a rich set of functions (select columns, filter, join, aggregate) that allow you to solve common data analysis problems efficiently.
 
-To load a DataFrame from your previously saved parquet flight data and explore some of the supported functionality, run the following script:
+To load a DataFrame from your previously saved parquet flight data and explore some of the supported functionality, enter this script into a new cell and run it.
 
 ```python
 # Read the existing parquet file for the flights database that was created earlier
@@ -242,7 +242,7 @@ flight_df.select("FlightDate", "Reporting_Airline", "Flight_Number_Reporting_Air
 display(flight_df)
 ```
 
-Enter this script to run some basic analysis queries against the data. You can choose to run the entire block, highlight each query and run it separately with **CTRL + SHIFT + ENTER**, or enter each query into a separate cmd cell and run it there.
+Enter this script in a new cell to run some basic analysis queries against the data. You can choose to run the entire script (**SHIFT + ENTER**), highlight each query and run it separately with **CTRL + SHIFT + ENTER**, or enter each query into a separate cell and run it there.
 
 ```python
 # create a temporary sql view for querying flight information
