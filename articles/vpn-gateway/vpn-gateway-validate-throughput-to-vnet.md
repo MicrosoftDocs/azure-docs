@@ -39,7 +39,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 1. Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 1. Determine the [Azure VM throughput guidance](../virtual-machines/sizes.md) for your VM size.
 1. Determine your Internet Service Provider (ISP) bandwidth.
-1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8).
+1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8). This will give you Megabytes-per-second. 
 
 If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/resize-vm.md). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
 
