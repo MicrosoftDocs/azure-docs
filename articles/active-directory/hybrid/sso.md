@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Get started with single sign-on
 
-
 Setting up single sign-on, depends on which synchronization tool you are using and what your business goals are.  Use the tables to determine which features you would
 
 ## Cloud sync
-After installing the Microsoft Entra Provisioning Agent, you will need to configure single sign-on for cloud sync.  The following table provides a list of steps required for using single sign-on.
+
+After installing the Microsoft Entra Connect provisioning agent, you will need to configure single sign-on for cloud sync.  The following table provides a list of steps required for using single sign-on.
   
 |Task|Description|
 |-----|-----|

@@ -345,13 +345,13 @@ For more information about Microsoft cloud settings for B2B collaboration, see: 
 
 ### Public Preview - Support for Directory Extensions using Azure AD cloud sync
 
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Azure AD Connect Cloud Sync         
+**Type:** New feature
+**Service category:** Provisioning
+**Product capability:** Azure AD Connect cloud sync
 
-Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Connect cloud sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using the  attribute mapping experience of cloud sync.
 
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
+For more information on how to enable this feature, see [Directory extensions and custom attribute mapping in cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 ---
