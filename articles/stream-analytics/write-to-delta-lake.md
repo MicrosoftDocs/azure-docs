@@ -12,13 +12,11 @@ ms.custom: seodec18, ignite-2022, build-2023
 
 # Azure Stream Analytics - write to Delta Lake table 
 
-
 Delta Lake is an open format that brings reliability, quality and performance to data lakes. Azure Stream Analytics allows you to directly write streaming data to your delta lake tables without writing a single line of code.
 
 A stream analytics job can be configured to write through a native delta lake output connector, either to a new or a pre-created Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to delta tables in append mode and also provides exactly once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad-hoc interactive or batch analytics.  
 
 ## Delta Lake configuration
-
 
 To write data in Delta Lake, you need to connect to an Azure Data Lake Storage Gen2 account. The below table lists the properties related to Delta Lake configuration.
 
@@ -31,7 +29,6 @@ To write data in Delta Lake, you need to connect to an Azure Data Lake Storage G
 To see the full list of ADLS Gen2 configuration, see [ALDS Gen2 Overview](blob-storage-azure-data-lake-gen2-output.md).
 
 ### Delta Path name
-
 
 The Delta Path Name is used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2.
 
@@ -59,14 +56,13 @@ Example output files:
 2. Under the chosen container, directory path would be `Test`, delta table folder name would be **demo**.
 3. Under the chosen container, delta table folder name would be **mytable**.
    
-
 ## Creating a new table
 
-If there is not already a Delta Lake table with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analaytics will create a new Delta Table. This new table will be created with the same configuration:
+If there is not already a Delta Lake table with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analaytics will create a new Delta Table. This new table will be created with the following configuration:
 - [Writer Version 2 ](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#writer-version-requirements)
-- [Reader Version 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#writer-version-requirements)
+- [Reader Version 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements)
 - The table will be [Append-Only](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#append-only-tables)
-- The table schema will be created with the first record encountered.
+- The table schema will be created with the schema of the first record encountered.
 
 ## Writing to the table
 
@@ -74,11 +70,9 @@ If there's already a Delta Lake table existing with the same name and in the loc
 
 ### Exactly once delivery
 
-
 The transaction log enables Delta Lake to guarantee exactly once processing. Azure Stream Analytics also provides exactly once delivery when outputting data to Azure Data Lake Storage Gen2 during a single job run.
 
 ### Schema enforcement
-
 
 Schema enforcement means that all new writes to a table are enforced to be compatible with the target table's schema at write time, to ensure data quality.
 
