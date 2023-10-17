@@ -57,7 +57,7 @@ The minimum privileged RBAC role required is  **Security Reader**.
     1. Search for and select the **Microsoft.Security** resource provider from the list.
     1. Select **Register**.
 
-Learn more about [how to register for Azure resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+Learn more about [how to register for Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Data security overview section
 
