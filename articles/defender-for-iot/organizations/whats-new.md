@@ -16,7 +16,7 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## October 2023
+## November 2023
 
 |Service area  |Updates  |
 |---------|---------|
@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Enterprise IoT security monitoring with Defender for IoT adds extra security value, including vulnerabilities and recommendations, that are purpose-built for eIoT devices.
 
-Starting October 16, 2023, Defender for IoT enterprise IoT (eIoT) monitoring is automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, supporting up to 5 devices per user license. For example, if you have 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 eIoT devices.
+Starting November 1, 2023, Defender for IoT enterprise IoT (eIoT) monitoring is automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, supporting up to 5 devices per user license. For example, if you have 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 eIoT devices.
 
 - **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, at no additional charge, and with no action item required from you.
 
