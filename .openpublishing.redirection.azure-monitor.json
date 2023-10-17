@@ -6373,6 +6373,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/transaction-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/azure/azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings",
+            "redirect_url": "/azure/azure-monitor/essentials/create-diagnostic-settings",
+            "redirect_document_id": true
         }
     ]
 }
