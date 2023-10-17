@@ -17,11 +17,11 @@ ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups
 
-If you restore individual files no longer available in an online snapshot for [single-file snapshot restore](snapshots-restore-file-single.md), you can rely on your Azure NetApp Files backup to restore individual files. With single-file restore from backup, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory in the volume.
+To restore individual files no longer available in an online snapshot [single-file snapshot restore](snapshots-restore-file-single.md), you can rely on your Azure NetApp Files backup to restore individual files. With single-file restore from backup, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory in the volume.
 
 ## Considerations
 
-* If no destination path is provided during the restore operation, the given file(s) is restored in the original file location. If the file already exists, it will be overwritten.
+* If no destination path is provided during the restore operation (in which case you still need to enter a slash (/) in the Destination path), the given file(s) is restored in the original file location. If the file already exists, it will be overwritten.
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore cannot create new directories. 
 * If the destination path provided is invalid (non-existent in the Active file system), the operation will fail.
 * A maximum of eight (8) files can be restored to a volume in a single operation. You must wait for a restore operation to complete before initiating another operation to restore more files to that volume.
@@ -64,7 +64,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * **Destination volume**: This field specifies the volume to which the files will be restored. If no value is specified, the files will be restored to the original volume.
 
-    * **Destination path**: The field specifies the directory to which the files will be restored. The destination path must already exist in the destination volume.  If no value is specified, the files will be restored to the original volume.
+    * **Destination path**: The field specifies the directory to which the files will be restored. The destination path must already exist in the destination volume.  This field cannot be left blank. Enter a slash ( / ) to restore files to their original path locations.
 
     :::image type="content" source="./media/restore-single-file-backup/restore-files-file-path.jpg" alt-text="Screenshot of restore interface." lightbox="./media/restore-single-file-backup/restore-files-file-path.jpg":::
 
