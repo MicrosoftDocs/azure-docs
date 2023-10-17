@@ -33,13 +33,7 @@ Make sure that you have:
 
 - Access to the Microsoft 365 Defender portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
-- The following user roles:
-
-    |Identity management  |Roles required  |
-    |---------|---------|
-    |**In Microsoft Entra ID**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
-    |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
-
+- Access to Microsoft 365 Defender as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin).
 
 ## Turn on enterprise IoT monitoring
 
