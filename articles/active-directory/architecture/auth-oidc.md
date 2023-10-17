@@ -1,6 +1,6 @@
 ---
-title: OpenID Connect authentication with Azure Active Directory
-description: Architectural guidance on achieving OpenID Connect authentication with Azure Active Directory.
+title: OpenID Connect authentication with Microsoft Entra ID
+description: Architectural guidance on achieving OpenID Connect authentication with Microsoft Entra ID.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# OpenID Connect authentication with Azure Active Directory
+# OpenID Connect authentication with Microsoft Entra ID
 
 OpenID Connect (OIDC) is an authentication protocol based on the OAuth2 protocol (which is used for authorization). OIDC uses the standardized message flows from OAuth2 to provide identity services. 
 
@@ -40,16 +40,18 @@ There is a need for user consent and for web sign in.
 
 * **Application**: The application, or Resource Server, is where the resource or data resides. It trusts the identity provider to securely authenticate and authorize the trusted agent. 
 
-* **Azure AD**: The OIDC provider, also known as the identity provider, securely manages anything to do with the user's information, their access, and the trust relationships between parties in a flow. It authenticates the identity of the user, grants and revokes access to resources, and issues tokens. 
+* **Microsoft Entra ID**: The OIDC provider, also known as the identity provider, securely manages anything to do with the user's information, their access, and the trust relationships between parties in a flow. It authenticates the identity of the user, grants and revokes access to resources, and issues tokens. 
 
-## Implement OIDC with Azure AD
+<a name='implement-oidc-with-azure-ad'></a>
 
-* [Integrating applications with Azure AD](../saas-apps/tutorial-list.md) 
+## Implement OIDC with Microsoft Entra ID
 
-* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](../develop/active-directory-v2-protocols.md) 
+* [Integrating applications with Microsoft Entra ID](../saas-apps/tutorial-list.md) 
+
+* [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](../develop/v2-protocols.md) 
 
 * [Microsoft identity platform and OpenID Connect protocol](../develop/v2-protocols-oidc.md) 
 
 * [Web sign-in with OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Secure your application by using OpenID Connect and Azure AD](/training/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Secure your application by using OpenID Connect and Microsoft Entra ID](/training/modules/secure-app-with-oidc-and-azure-ad/) 

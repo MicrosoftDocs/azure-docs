@@ -47,7 +47,7 @@ The following table of `locale` with out of the box translations. If you want to
 | Spanish | es | es |
 | Spanish (Spain) | esES | es-ES |
 | Turkish | tr | tr |
-| Turkish (Turkey) | trTR | tr-TR |
+| Turkish (Türkiye) | trTR | tr-TR |
 
 You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
 

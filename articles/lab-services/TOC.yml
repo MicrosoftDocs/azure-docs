@@ -134,11 +134,9 @@
       items:
       - name: Create & manage lab plans (Azure portal)
         href: how-to-manage-lab-plans.md
-      - name: Create a lab plan (ARM template)
-        href: how-to-create-lab-plan-template.md
       - name: Create a lab plan (PowerShell)
         href: how-to-create-lab-plan-powershell.md
-      - name: Create a lab plan (Bicep)
+      - name: Create a lab plan (Bicep/ARM template)
         href: how-to-create-lab-plan-bicep.md
       - name: Create a lab plan (Python)
         href: how-to-create-lab-plan-python.md
@@ -189,11 +187,9 @@
     items:
     - name: Create labs (ARM/PowerShell/Bicep/Python)
       items:
-      - name: Create a lab (ARM template)
-        href: how-to-create-lab-template.md
       - name: Create a lab (PowerShell)
         href: how-to-create-lab-powershell.md
-      - name: Create a lab (Bicep)
+      - name: Create a lab (Bicep/ARM template)
         href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
@@ -229,8 +225,6 @@
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
       href: how-to-enable-shutdown-disconnect.md      
-    - name: View support information
-      href: lab-creator-support-information.md
   - name: Connect to lab VMs (student)
     items:
     - name: Access a lab VM
@@ -245,12 +239,10 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Redeploy or reset a lab VM
+    - name: Redeploy or reimage a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
-    - name: View support information
-      href: lab-user-support-information.md
   - name: Use labs within Teams & Canvas
     items:
       - name: Configure Canvas to use the service

@@ -24,32 +24,38 @@ An upload indicators API call has five components:
 1. Optionally process the HTTP response message header
 1. Optionally process the HTTP response message body
 
-## Register your client application with Azure AD
+<a name='register-your-client-application-with-azure-ad'></a>
 
-In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Azure AD access token. For more information on application registration, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+## Register your client application with Microsoft Entra ID
+
+In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+
+## Permissions
+
+This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
 ## Create the request
 
-This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Azure AD, which you use to assemble your request message header.
+This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Microsoft Entra ID, which you use to assemble your request message header.
 
 ### Acquire an access token
 
-Acquire an Azure AD access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) are valid tokens accepted by the API.
+Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) are valid tokens accepted by the API.
 
 To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/token`
-- Headers for using Azure AD App:
+- Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
-- client_id: {Client ID of Azure AD App}
-- client_secret: {Client secret of Azure AD App}
+- client_id: {Client ID of Microsoft Entra App}
+- client_secret: {Client secret of Microsoft Entra App}
 - resource: `"https://management.azure.com/"`
 
 To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
-- Headers for using Azure AD App:
+- Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
-- client_id: {Client ID of Azure AD App}
-- client_secret: {secret of Azure AD App}
+- client_id: {Client ID of Microsoft Entra App}
+- client_secret: {secret of Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
 
 The resource/scope value is the audience of the token. This API only accepts the following audiences:
@@ -85,6 +91,8 @@ Create the array of indicators using the STIX 2.1 indicator format specification
 |`id` (required)| string | An ID used to identify the indicator. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
+|`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
+|`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
 |`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |

@@ -5,7 +5,7 @@ description: Learn how to create a blob container in your Azure Storage account 
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: pauljewell
@@ -14,6 +14,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Create a blob container with Java
+
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

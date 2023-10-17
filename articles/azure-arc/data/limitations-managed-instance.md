@@ -34,7 +34,7 @@ This article describes limitations of Azure Arc-enabled SQL Managed Instance.
 
 - Transactional replication is currently not supported.
 - Log shipping is currently blocked.
-- Creating a database using SQL Server Management Studio does not work currently. Use the T-SQL command `CREATE DATABASE` to create databases.
+- All user databases need to be in a full recovery model because they participate in an always-on-availability group
 
 ## Roles and responsibilities
 

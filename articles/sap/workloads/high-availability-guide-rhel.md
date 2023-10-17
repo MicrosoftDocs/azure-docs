@@ -756,7 +756,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Simulate node crash
+2. Simulate node crash
 
    Resource state before starting the test:
 
@@ -826,7 +826,43 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill message server process
+3. Blocking network communication
+
+   Resource state before starting the test:
+
+   ```text
+   rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   ```
+
+   Execute firewall rule to block the communication on one of the nodes.
+
+   ```bash
+    # Execute iptable rule on nw1-cl-0 (10.0.0.7) to block the incoming and outgoing traffic to nw1-cl-1 (10.0.0.8)
+    iptables -A INPUT -s 10.0.0.8 -j DROP; iptables -A OUTPUT -d 10.0.0.8 -j DROP
+   ```
+
+   When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes will try to simultaneously fence each other, resulting in fence race. To avoid such situation, it's recommended to set [priority-fencing-delay](https://access.redhat.com/solutions/5110521) property in cluster configuration (applicable only for  [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
+
+   By enabling priority-fencing-delay property, the cluster introduces an additional delay in the fencing action specifically on the node hosting ASCS resource, allowing the node to win the fence race.
+
+   Execute below command to delete the firewall rule.
+
+   ```bash
+    # If the iptables rule set on the server gets reset after a reboot, the rules will be cleared out. In case they have not been reset, please proceed to remove the iptables rule using the following command.
+    iptables -D INPUT -s 10.0.0.8 -j DROP; iptables -D OUTPUT -d 10.0.0.8 -j DROP
+   ```
+
+4. Kill message server process
 
    Resource state before starting the test:
 
@@ -873,7 +909,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Kill enqueue server process
+5. Kill enqueue server process
 
    Resource state before starting the test:
 
@@ -924,7 +960,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill enqueue replication server process
+6. Kill enqueue replication server process
 
    Resource state before starting the test:
 
@@ -974,7 +1010,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill enqueue sapstartsrv process
+7. Kill enqueue sapstartsrv process
 
    Resource state before starting the test:
 

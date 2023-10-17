@@ -5,8 +5,7 @@ description: Use the Speech containers with Docker to perform speech recognition
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: eur
@@ -23,8 +22,7 @@ By using containers, you can use a subset of the Speech service features in your
 ## Prerequisites
 
 You must meet the following prerequisites before you use Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. You need:
-
-* You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container.
+    
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure.
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
@@ -205,6 +203,6 @@ To run disconnected containers (not connected to the internet), you must submit 
 * Review [configure containers](speech-container-configuration.md) for configuration settings.
 * Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
 * Deploy and run containers on [Azure Container Instance](../containers/azure-container-instance-recipe.md)
-* Use more [Azure AI services containers](../cognitive-services-container-support.md).
+* Use more [Azure AI containers](../cognitive-services-container-support.md).
 
 

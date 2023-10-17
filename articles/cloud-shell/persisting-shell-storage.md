@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
-ms.date: 04/25/2023
+ms.date: 10/03/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: devx-track-linux
@@ -38,13 +38,10 @@ This fileshare is used for both Bash and PowerShell.
 
 ## Use existing resources
 
-Using the advanced option, you can associate existing resources. When selecting a Cloud Shell region,
-you must select a backing storage account co-located in the same region. For example, if your
-assigned region is West US then you must associate a fileshare that resides within West US as well.
-
-When the storage setup prompt appears, select **Show advanced settings** to view more options. The
-populated storage options filter for locally redundant storage (LRS), geo-redundant storage (GRS),
-and zone-redundant storage (ZRS) accounts.
+Using the advanced option, you can associate existing resources. When the storage setup prompt
+appears, select **Show advanced settings** to view more options. The populated storage options
+filter for locally redundant storage (LRS), geo-redundant storage (GRS), and zone-redundant storage
+(ZRS) accounts.
 
 > [!NOTE]
 > Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file
@@ -56,7 +53,7 @@ and zone-redundant storage (ZRS) accounts.
 ## Securing storage access
 
 For security, each user should create their own storage account. For Azure role-based access control
-(Azure RBAC), users must have contributor access or above at the storage account level.
+(Azure RBAC), users must have contributor access or higher at the storage account level.
 
 Cloud Shell uses an Azure fileshare in a storage account, inside a specified subscription. Due to
 inherited permissions, users with sufficient access rights to the subscription can access all the
@@ -82,9 +79,7 @@ Cloud Shell machines exist in the following regions:
 | Europe       | North Europe, West Europe          |
 | Asia Pacific | India Central, Southeast Asia      |
 
-Customers should choose a primary region, unless they have a requirement that their data at rest be
-stored in a particular region. If they have such a requirement, a secondary storage region should be
-used.
+You should choose a region that meets your requirements.
 
 ### Secondary storage regions
 
@@ -102,10 +97,9 @@ of their fileshare.
 
 ## Restrict resource creation with an Azure resource policy
 
-Storage accounts that you create in Cloud Shell are tagged with
-`ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts
-in Cloud Shell, create an [Azure resource policy for tags][02] that is triggered by this specific
-tag.
+Storage accounts that created in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`.
+If you want to disallow users from creating storage accounts in Cloud Shell, create an
+[Azure resource policy for tags][02] that's triggered by this specific tag.
 
 ## How Cloud Shell storage works
 
@@ -156,11 +150,6 @@ shm                                                    65536       0      65536 
 
 You can update the fileshare that's associated with Cloud Shell using the `clouddrive mount`
 command.
-
-If you mount an existing fileshare, the storage accounts must be located in your select Cloud Shell
-region. Retrieve the location by running `env` and checking the `ACC_LOCATION`.
-
-#### The `clouddrive mount` command
 
 > [!NOTE]
 > If you're mounting a new fileshare, a new user image is created for your `$HOME` directory. Your
@@ -239,7 +228,7 @@ file storage GUI when you refresh the blade.
    ![Screenshot of the download dialog box in Cloud Shell.][10]
 
    You can only download files located under your `$HOME` folder.
-1. Click the **Download** button.
+1. Select the **Download** button.
 
 ### Upload files
 
@@ -259,9 +248,8 @@ You should now see the files that are accessible in your `clouddrive` directory 
 ### Upload files in Azure Cloud Shell
 
 1. In an Azure Cloud Shell session, select the **Upload/Download files** icon and select the
-   **Upload** option.
-1. Your browser will open a file dialog. Select the file you want to upload then click the **Open**
-   button.
+   **Upload** option. Your browser opens a file dialog box.
+1. Choose the file you want to upload then select the **Open** button.
 
 The file is uploaded to the root of your `$HOME` folder. You can move the file after it's uploaded.
 

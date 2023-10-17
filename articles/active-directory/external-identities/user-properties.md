@@ -1,33 +1,32 @@
 ---
 title: Properties of a B2B guest user
-description: Azure Active Directory B2B collaboration guest user properties and states before and after invitation redemption. 
+description: Microsoft Entra B2B collaboration guest user properties and states before and after invitation redemption. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/18/2023
+ms.date: 09/27/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
-
-# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption. 
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption.
 ---
 
-# Properties of an Azure Active Directory B2B collaboration user
+# Properties of a Microsoft Entra B2B collaboration user
 
-B2B collaboration is a capability of Azure AD External Identities that lets you collaborate with users and partners outside of your organization. With B2B collaboration, an external user is invited to sign in to your Azure AD organization using their own credentials. This B2B collaboration user can then access the apps and resources you want to share with them. A user object is created for the B2B collaboration user in the same directory as your employees. B2B collaboration user objects have limited privileges in your directory by default, and they can be managed like employees, added to groups, and so on. This article discusses the properties of this user object and ways to manage it.
+B2B collaboration is a capability of Microsoft Entra External ID that lets you collaborate with users and partners outside of your organization. With B2B collaboration, an external user is invited to sign in to your Microsoft Entra organization using their own credentials. This B2B collaboration user can then access the apps and resources you want to share with them. A user object is created for the B2B collaboration user in the same directory as your employees. B2B collaboration user objects have limited privileges in your directory by default, and they can be managed like employees, added to groups, and so on. This article discusses the properties of this user object and ways to manage it.
 
 The following table describes B2B collaboration users based on how they authenticate (internally or externally) and their relationship to your organization (guest or member).
 
 ![Diagram showing B2B collaboration users.](media/user-properties/table-user-properties.png)
 
-- **External guest**: Most users who are commonly considered external users or guests fall into this category. This B2B collaboration user has an account in an external Azure AD organization or an external identity provider (such as a social identity), and they have guest-level permissions in the resource organization. The user object created in the resource Azure AD directory has a UserType of Guest.
-- **External member**: This B2B collaboration user has an account in an external Azure AD organization or an external identity provider (such as a social identity) and member-level access to resources in your organization. This scenario is common in organizations consisting of multiple tenants, where users are considered part of the larger organization and need member-level access to resources in the organization’s other tenants. The user object created in the resource Azure AD directory has a UserType of Member.
-- **Internal guest**: Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
-- **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
+- **External guest**: Most users who are commonly considered external users or guests fall into this category. This B2B collaboration user has an account in an external Microsoft Entra organization or an external identity provider (such as a social identity), and they have guest-level permissions in the resource organization. The user object created in the resource Microsoft Entra directory has a UserType of Guest.
+- **External member**: This B2B collaboration user has an account in an external Microsoft Entra organization or an external identity provider (such as a social identity) and member-level access to resources in your organization. This scenario is common in organizations consisting of multiple tenants, where users are considered part of the larger organization and need member-level access to resources in the organization’s other tenants. The user object created in the resource Microsoft Entra directory has a UserType of Member.
+- **Internal guest**: Before Microsoft Entra B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
+- **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Microsoft Entra ID, and the user object created in the resource Microsoft Entra directory has a UserType of Member.
 
 The user type you choose has the following limitations for apps or services (but aren't limited to):
     
@@ -38,7 +37,7 @@ The user type you choose has the following limitations for apps or services (but
 
 ## Invitation redemption
 
-Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
+Now, let's see what a Microsoft Entra B2B collaboration user looks like in Microsoft Entra External ID.
 
 ### Before invitation redemption
 
@@ -54,11 +53,13 @@ After the B2B collaboration user accepts the invitation, the **Identities** prop
 
    ![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
 
-- If the B2B collaboration user is using credentials from another Azure AD organization, **Identities** is **External Azure AD**.
+- If the B2B collaboration user is using credentials from another Microsoft Entra organization, **Identities** is **ExternalAzureAD**.
 
-- For external users who are using internal credentials, the **Identities** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
+- For external users who are using internal credentials, the **Identities** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Microsoft Entra ID, or **No** if the account is a cloud-only Microsoft Entra account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
 
-## Key properties of the Azure AD B2B collaboration user
+<a name='key-properties-of-the-azure-ad-b2b-collaboration-user'></a>
+
+## Key properties of the Microsoft Entra B2B collaboration user
 
 ### User Principal Name
 
@@ -80,25 +81,29 @@ This property indicates the relationship of the user to the host tenancy. This p
 This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
-> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
+> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType.
 
 Identities property value | Sign-in state
 --------------------- | -------------------------
-External Azure AD | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization.
+ExternalAzureAD | This user is homed in an external organization and authenticates by using a Microsoft Entra account that belongs to the other organization.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account.
-{host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
+{host’s domain} | This user authenticates by using a Microsoft Entra account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
-{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
+mail | This user has signed up by using Microsoft Entra External ID email one-time passcode (OTP).
+{issuer URI} | This user is homed in an external organization that doesn't use Microsoft Entra ID as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
+
+Phone sign-in is not supported for external users. B2B accounts cannot use `phone`value as an identity provider. 
 
 ### Directory synced
 
-The **Directory synced** property indicates whether the user is being synced with on-premises Active Directory and is authenticated on-premises. This property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. In Microsoft Graph, the Directory synced property corresponds to `onPremisesSyncEnabled`.
+The **Directory synced** property indicates whether the user is being synced with on-premises Active Directory and is authenticated on-premises. This property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Microsoft Entra ID, or **No** if the account is a cloud-only Microsoft Entra account. In Microsoft Graph, the Directory synced property corresponds to `onPremisesSyncEnabled`.
 
-## Can Azure AD B2B users be added as members instead of guests?
+<a name='can-azure-ad-b2b-users-be-added-as-members-instead-of-guests'></a>
 
-Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azure AD B2B collaboration user is added as a user with **UserType** set to **Guest** by default. However, in some cases, the partner organization is a member of a larger organization to which the host organization also belongs. If so, the host organization might want to treat users in the partner organization as members instead of guests. Use the Azure AD B2B Invitation Manager APIs to add or invite a user from the partner organization to the host organization as a member.
+## Can Microsoft Entra B2B users be added as members instead of guests?
+
+Typically, a Microsoft Entra B2B user and guest user are synonymous. Therefore, a Microsoft Entra B2B collaboration user is added as a user with **UserType** set to **Guest** by default. However, in some cases, the partner organization is a member of a larger organization to which the host organization also belongs. If so, the host organization might want to treat users in the partner organization as members instead of guests. Use the Microsoft Entra B2B Invitation Manager APIs to add or invite a user from the partner organization to the host organization as a member.
 
 ## Filter for guest users in the directory
 
@@ -119,7 +124,7 @@ Guest users have [default restricted directory permissions](../fundamentals/user
 
 B2B guest users are not supported in Microsoft Teams shared channels. For access to shared channels see [B2B direct connect.](b2b-direct-connect-overview.md)
 
-There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
+There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Microsoft Entra External ID](../enterprise-users/users-restrict-guest-permissions.md) article.
 
 ![Screenshot showing the External users option in the user settings.](media/user-properties/remove-guest-limitations.png)
 
@@ -129,7 +134,7 @@ Yes. By default, guest objects aren't visible in your organization's global addr
 
 ## Can I update a guest user's email address?
 
-If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](/graph/api/resources/user). You can update the mail property via the Microsoft Graph API, the Exchange admin center, or [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). The change will be reflected in the Azure AD guest user object.
+If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](/graph/api/resources/user). You can update the mail property via the Microsoft Graph API, the Exchange admin center, or [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). The change will be reflected in the Microsoft Entra guest user object.
 
 ## Next steps
 

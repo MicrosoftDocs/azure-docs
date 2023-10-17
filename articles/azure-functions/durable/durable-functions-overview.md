@@ -5,7 +5,7 @@ author: cgillum
 ms.topic: overview
 ms.date: 02/13/2023
 ms.author: cgillum
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
 ms.reviewer: azfuncdf
 zone_pivot_groups: df-languages
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -23,18 +23,15 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | - | - | - | - |
 | .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process | n/a |
 | JavaScript/TypeScript (V3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
-| JavaScript/TypeScript (V4 prog. model) | Functions 4.16.5+ | Node 18+ | 3.15+ bundles |
+| JavaScript/TypeScript (V4 prog. model) | Functions 4.25+ | Node 18+ | 3.15+ bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 ::: zone pivot="javascript"
-> [!NOTE]
-> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more flexible and intuitive for JavaScript/TypeScript developers. Learn more about the differences between the models in the [Node.js upgrade guide](../functions-node-upgrade-v4.md).
-
+[!INCLUDE [functions-nodejs-model-tabs-description](../../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
-
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -111,7 +108,7 @@ You can use the `context` parameter to invoke other functions by name, pass para
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -133,7 +130,7 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -310,7 +307,7 @@ The automatic checkpointing that happens at the `await` call on `Task.WhenAll` e
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -336,7 +333,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -507,7 +504,7 @@ Content-Type: application/json
 
 Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
 
-The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by a Microsoft Entra authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
 
 For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
 
@@ -587,7 +584,7 @@ public static async Task Run(
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -615,7 +612,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -851,7 +848,7 @@ To create the durable timer, call `context.CreateTimer`. The notification is rec
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -876,7 +873,7 @@ module.exports = df.orchestrator(function*(context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1062,7 +1059,7 @@ public static async Task Run(
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1074,7 +1071,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1210,7 +1207,7 @@ Durable entities are currently not supported in the .NET-isolated worker.
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1232,7 +1229,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1352,7 +1349,7 @@ Durable entities are currently not supported in the .NET-isolated worker.
 ::: zone-end
 ::: zone pivot="javascript"
 
-# [V3 model](#tab/v3-model)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1365,7 +1362,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [V4 model](#tab/v4-model)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require("durable-functions");

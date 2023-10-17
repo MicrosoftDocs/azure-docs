@@ -155,5 +155,4 @@ If you're using a partner integration that's not listed here, confirm with the p
 
 ## Next steps
 
-- [How to use the migration tool](alerts-using-migration-tool.md)
 - [Understand how the migration tool works](alerts-understand-migration.md)

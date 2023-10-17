@@ -2,7 +2,7 @@
 title: Create a simplified node communication pool without public IP addresses
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 8/14/2023
 ms.custom: references_regions, devx-track-arm-template, devx-track-linux
 ---
 
@@ -29,7 +29,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 - Use simplified compute node communication. For more information, see [Use simplified compute node communication](simplified-compute-node-communication.md).
 
-- The Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- The Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 - Create your pool in an [Azure virtual network (VNet)](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (Azure CLI), or other methods.
 
@@ -53,6 +53,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
 1. [Custom endpoint configuration](pool-endpoint-configuration.md) for Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
+1. The [task authentication token](/rest/api/batchservice/task/add?tabs=HTTP#request-body) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
 
 ## Create a pool without public IP addresses in the Azure portal
 

@@ -228,7 +228,7 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
           },
           {
             "name": "Computer Vision API",
-            "url": "https://azure.microsoft.com/services/cognitive-services/computer-vision/",
+            "url": "https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab",
             "snippet": "Extract the data you need from images using optical character recognition and image analytics with Computer Vision APIs from Microsoft Azure."
           },
           {

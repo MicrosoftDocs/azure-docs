@@ -1,8 +1,8 @@
 ---
 title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/23/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -31,10 +31,7 @@ The following image shows a screenshot of the complete working sample that demon
 <!------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>Drawing tools events</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true]
 
 -------------------------------------------------------------------->
 
@@ -53,10 +50,7 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
 <!-------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select data in drawn polygon area</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result]
 ---------------------------------------------------------------->
 
 ### Draw and search in polygon area
@@ -70,10 +64,7 @@ For a complete working sample of how to use the drawing tools to search for poin
 <!-------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw and search in polygon area</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true]
 ---------------------------------------------------------------->
 
 ### Create a measuring tool
@@ -85,10 +76,7 @@ For a complete working sample of how to use the drawing tools to measure distanc
 :::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
 
 <!-------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Measuring tool" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Measuring tool</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true]
 ---------------------------------------------------------------->
 
 ## Next steps

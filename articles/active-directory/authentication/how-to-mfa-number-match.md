@@ -1,5 +1,5 @@
 ---
-title: How number matching works in multifactor authentication (MFA) push notifications for Microsoft Authenticator
+title: How number matching works in multifactor authentication push notifications for Microsoft Authenticator
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
@@ -9,9 +9,9 @@ ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to explain how number matching in MFA push notifications from Authenticator in Azure AD works in different use cases.
+# Customer intent: As an identity administrator, I want to explain how number matching in MFA push notifications from Authenticator in Microsoft Entra ID works in different use cases.
 ---
-# How number matching works in multifactor authentication (MFA) push notifications for Authenticator - Authentication methods policy
+# How number matching works in multifactor authentication push notifications for Authenticator - Authentication methods policy
 
 This topic covers how number matching in Microsoft Authenticator push notifications improves user sign-in security. 
 Number matching is a key security upgrade to traditional second factor notifications in Authenticator. 
@@ -34,7 +34,7 @@ Number matching isn't supported for push notifications for Apple Watch or Androi
 
 ### Multifactor authentication
 
-When a user responds to an MFA push notification using Authenticator, they'll be presented with a number. They need to type that number into the app to complete the approval. For more information about how to set up MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+When a user responds to an MFA push notification using Authenticator, they'll be presented with a number. They need to type that number into the app to complete the approval. For more information about how to set up MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 
 ![Screenshot of user entering a number match.](media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
@@ -48,7 +48,7 @@ Combined registration with Authenticator requires number matching. When a user g
 
 ### AD FS adapter
 
-AD FS adapter requires number matching on supported versions of Windows Server. On earlier versions, users continue to see the **Approve**/**Deny** experience and don’t see number matching until you upgrade. The AD FS adapter supports number matching only after you install one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Azure Active Directory (Azure AD) Multi-Factor Authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
+AD FS adapter requires number matching on supported versions of Windows Server. On earlier versions, users continue to see the **Approve**/**Deny** experience and don’t see number matching until you upgrade. The AD FS adapter supports number matching only after you install one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Azure Multi-Factor Authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 >[!NOTE]
 >Unpatched versions of Windows Server don't support number matching. Users continue to see the **Approve**/**Deny** experience and don't see number matching unless these updates are applied.
@@ -98,7 +98,7 @@ In addition:
   >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
   >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications.
 
-If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Authenticator push notifications, the user can't meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in fails. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Authenticator.
+If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Authenticator push notifications, the user can't meet the Microsoft Entra multifactor authentication challenge and Remote Desktop Gateway sign-in fails. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Authenticator.
 
 ## FAQs
 
@@ -119,10 +119,6 @@ Users who are enabled for MFA push notifications in the legacy MFA policy will a
 
 :::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
 
-### Why does the portal still show the control to enable number matching?
-
-You might need to refresh the browser to update the portal after number matching is enabled by default beginning May 8, 2023. 
-
 ### Is number matching supported with MFA Server?
 
 No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
@@ -141,4 +137,4 @@ In the Authenticator release in January 2023 for iOS, there is no companion app 
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+[Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)

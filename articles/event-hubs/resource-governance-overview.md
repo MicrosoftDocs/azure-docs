@@ -15,9 +15,9 @@ Azure Event Hubs enables you to govern event streaming workloads of client appli
 
 ## Application groups
 
-An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group can be scoped to a single Event Hubs namespace or event hubs (entity) within a namespace and should use a uniquely identifying condition such as the security context - shared access signatures (SAS) or Azure Active Directory (Azure AD) application ID - of the client application. 
+An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group can be scoped to a single Event Hubs namespace or event hubs (entity) within a namespace and should use a uniquely identifying condition such as the security context - shared access signatures (SAS) or Microsoft Entra application ID - of the client application. 
 
-Event Hubs currently supports using security contexts for creating application groups. Therefore, each application group must have a unique SAS policy or Azure AD application ID associated with them. If preferred, you can use security context at event hub level to use an application group with a specific event hub within a namespace. 
+Event Hubs currently supports using security contexts for creating application groups. Therefore, each application group must have a unique SAS policy or Microsoft Entra application ID associated with them. If preferred, you can use security context at event hub level to use an application group with a specific event hub within a namespace. 
 
 Application groups are logical entities that are created at the namespace level. Therefore, client applications interacting with event hubs don't need to be aware of the existence of an application group. Event Hubs can associate any client application to an application group by using the identifying condition. 
 
@@ -33,7 +33,7 @@ These are the key attributes of an application group:
 | Parameter | Description | 
 | ---- | ----------- | 
 | name | Unique name of an application group. |
-| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Azure AD application ID). |
+| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Microsoft Entra application ID). |
 | policies | List of policies, such as throttling policies that control event streaming between client applications and the Event Hubs namespace|
 | isEnabled | Determine whether the client applications of an application group can access Event Hubs namespaces or not. |
 

@@ -62,7 +62,7 @@
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
     - name: Build models
-      items: 
+      items:
         - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
@@ -86,7 +86,7 @@
         # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Develop and operationalize features
+    - name: Managed feature store
       items:
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
@@ -96,6 +96,10 @@
           href: tutorial-experiment-train-models-using-features.md
         - name: Enable recurrent materialization and run batch inference
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+        - name: Enable online materialization and run online inference
+          href: tutorial-online-materialization-inference.md
+        - name: Network isolation with feature store
+          href: tutorial-network-isolation-for-feature-store.md
     # v1
     - name: Python get started (Day 1)
       items:
@@ -171,7 +175,7 @@
           - name: Manage compute sessions
             href: how-to-manage-compute-sessions.md
       - name: VS Code
-        items: 
+        items:
           - name: Launch VS Code remote
             displayName: Visual Studio Code, VSCode, debug, bugs
             href: how-to-launch-vs-code-remote.md
@@ -266,7 +270,7 @@
   - name: Import Data from external sources
     items:
     - name: Create connections to external data sources
-      displayName: 
+      displayName:
       href: how-to-connection.md
     - name: Import data
       href: how-to-import-data-assets.md
@@ -357,7 +361,7 @@
     items:
     - name: Overview
       href: apache-spark-azure-ml-concepts.md
-    - name: Configure Apache Spark jobs 
+    - name: Configure Apache Spark jobs
       href: quickstart-spark-jobs.md
     - name: Submit Spark Jobs
       displayName: Submit Spark jobs in Azure Machine Learning
@@ -492,6 +496,8 @@
       - name: Inference image models with ONNX model
         displayName: automl, image, image model, computer vision
         href: how-to-inference-onnx-automl-image-models.md
+      - name: Troubleshoot automated ML
+        href: how-to-troubleshoot-auto-ml.md
       # v1
       - name: Local inference using ONNX
         displayName: SDK, automl
@@ -518,7 +524,7 @@
     href: how-to-train-with-ui.md
   - name: CLI and Python SDK v2 expressions
     href: concept-expressions.md
-  - name: Using secrets in training 
+  - name: Using secrets in training
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
     items:
@@ -586,16 +592,16 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to use Azure OpenAI models 
+    - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
 - name: Use Generative AI
   items:
-    - name: Build AI solutions with Prompt flow 
+    - name: Build AI solutions with Prompt flow
       items:
-        - name: What is Prompt flow? 
+        - name: What is Prompt flow?
           href: ./prompt-flow/overview-what-is-prompt-flow.md
         - name: Concepts
-          items: 
+          items:
             - name: Connections
               href: ./prompt-flow/concept-connections.md
             - name: Runtimes
@@ -606,14 +612,20 @@
               href: ./prompt-flow/concept-tools.md
             - name: Variants
               href: ./prompt-flow/concept-variants.md
+            - name: Evaluation monitoring metrics
+              href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Set up infrastructure
-          items: 
+          items:
             - name: Create and manage runtime
               href: ./prompt-flow/how-to-create-manage-runtime.md
             - name: Customize environment for runtime
               href: ./prompt-flow/how-to-customize-environment-runtime.md
+            - name: Migrate from managed online endpoint/deployment runtime
+              href: ./prompt-flow/migrate-managed-inference-runtime.md
+            - name: Network isolation in prompt flow
+              href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
           items:
             - name: Develop a standard flow
@@ -626,12 +638,30 @@
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
         - name: Evaluate flows
           items:
-            - name: Bulk test and evaluate a flow
+            - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
             - name: Develop a customized evaluation flow
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
-        - name: Deploy flows for real-time inference
+            - name: Evaluate your Semantic Kernel with Prompt flow
+              href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
+        - name: Deploy a flow to online endpoint for real-time inference with UI
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: "Code first: Dev to Prod"
+          items:
+            - name: Community Ecosystem
+              href: ./prompt-flow/community-ecosystem.md
+            - name: Integrate Prompt Flow with LLM-based application DevOps 
+              href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
+            - name: Deploy a flow to online endpoint for real-time inference with CLI 
+              href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: How to use streaming endpoints deployed from prompt flow
+              href: ./prompt-flow/how-to-enable-streaming-mode.md
+            - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
+              href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
+            - name: Custom tool package creation and usage
+              href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+        - name: Monitor generative AI applications in production
+          href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -654,6 +684,8 @@
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
+            - name: Troubleshoot Guidance
+              href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
       items:
         - name: What is RAG
@@ -666,8 +698,12 @@
           href: how-to-create-vector-index.md
         - name: How to create an RAG pipeline
           href: how-to-use-pipelines-prompt-flow.md
+        - name: How to secure RAG workflows
+          href: how-to-secure-rag-workflows.md
+        - name: RAG cloud to local 
+          href: how-to-retrieval-augmented-generation-cloud-to-local.md
 - name: Responsibly develop & monitor
-  items: 
+  items:
   - name: Responsible AI overview
     items:
       - name: What is Responsible AI?
@@ -691,7 +727,7 @@
         href: concept-data-analysis.md
       - name: Counterfactuals analysis and what-if
         href: concept-counterfactual-analysis.md
-  - name: Configure Responsible AI insights and evaluation 
+  - name: Configure Responsible AI insights and evaluation
     items:
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
@@ -701,7 +737,7 @@
       href: how-to-responsible-ai-vision-insights.md
     - name: Responsible AI text insights
       href: how-to-responsible-ai-text-insights.md
-  - name: Configure Responsible AI dashboards 
+  - name: Configure Responsible AI dashboards
     items:
     - name: Responsible AI dashboard overview
       href: concept-responsible-ai-dashboard.md
@@ -754,7 +790,7 @@
         href: ./v1/how-to-designer-python.md
     # end v1
   - name: How to create pipelines with components
-    items: 
+    items:
     - name: Create ML pipelines using components (Python SDK v2)
       href: how-to-create-component-pipeline-python.md
     - name: Create ML pipelines using components (CLI v2)
@@ -762,11 +798,13 @@
     - name: Create ML pipelines using components (UI)
       href: how-to-create-component-pipelines-ui.md
   - name: Use Azure Machine Learning jobs in pipelines
-    items: 
+    items:
     - name: How to use parallel job in pipeline
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
+  - name: How to manage inputs and ouputs in pipeline
+    href: how-to-manage-inputs-outputs-pipeline.md
   - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md
   - name: Schedule a pipeline job
@@ -846,9 +884,12 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authenticate to endpoints
+            - name: Authentication for endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: concept-secure-online-endpoint.md
+            - name: Secure your managed online endpoints with network isolation
               displayName: network, vnet, secure
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
@@ -881,10 +922,10 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
-        - name: Create jobs and input data for batch endpoints	
+        - name: Create jobs and input data for batch endpoints
           href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
-          href: how-to-troubleshoot-batch-endpoints.md	
+          href: how-to-troubleshoot-batch-endpoints.md
         - name: Security
           items:
           - name: Authorization on batch endpoints
@@ -974,7 +1015,7 @@
       href: ./v1/how-to-deploy-package-models.md
     # end v1
 - name: Operationalize with MLOps
-  items: 
+  items:
     - name: Overview
       items:
         - name: MLOps capabilities
@@ -1029,15 +1070,17 @@
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
+      - name: Set up LLMOps with Prompt Flow and GitHub 
+        href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
 - name: Monitor your models
   items:
     - name: Model data collection
       href: concept-data-collection.md
-    - name: Model monitoring
-      href: concept-model-monitoring.md
     - name: Collect inferencing data from production
       displayName: model data collection, data drift, data quality, model quality
       href: how-to-collect-production-data.md
+    - name: Model monitoring
+      href: concept-model-monitoring.md
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md
@@ -1046,6 +1089,7 @@
     - name: Tutorials & templates
       items:
         - name: "Tutorial: Create a secure workspace in Azure portal"
+          displayName: managed virtual network
           href: tutorial-create-secure-workspace.md
         - name: "Tutorial: Create a secure workspace with templates"
           href: tutorial-create-secure-workspace-template.md
@@ -1094,8 +1138,16 @@
           href: how-to-managed-network.md
         - name: Troubleshoot managed virtual network
           href: how-to-troubleshoot-managed-network.md
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
+        - name: Use custom DNS
+          href: how-to-custom-dns.md
         - name: Use Azure Virtual Network
           items:
+            - name: "Tutorial: Create a secure workspace with a VNet"
+              displayName: azure virtual network
+              href: tutorial-create-secure-workspace-vnet.md
             - name: Secure workspace resources
               displayName: vnet, workspace, network isolation, container registry
               href: how-to-secure-workspace-vnet.md
@@ -1121,9 +1173,6 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use private endpoint
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             # v1
             - name: Use private endpoint
               displayName: private endpoint
@@ -1132,8 +1181,6 @@
               displayName: ssl, tls
               href: ./v1/how-to-secure-web-service.md
             # end v1
-            - name: Use custom DNS
-              href: how-to-custom-dns.md
             - name: Configure required network traffic
               displayName: firewall, user-defined route, udr
               href: how-to-access-azureml-behind-firewall.md
@@ -1257,6 +1304,8 @@
           href: how-to-troubleshoot-kubernetes-compute.md
         - name: Reference for configuring Kubernetes cluster
           href: reference-kubernetes.md
+        - name: Monitor Kubernetes Online Endpoint inference server logs
+          href: how-to-monitor-kubernetes-online-enpoint-inference-server-log.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -1274,48 +1323,74 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
-- name: Troubleshoot & debug
+- name: Troubleshoot & known issues
   items:
-    - name: Troubleshoot secure workspace connectivity
-      href: how-to-troubleshoot-secure-connection-workspace.md
-    - name: Troubleshoot SerializationError
-      href: ./v1/how-to-troubleshoot-serialization-error.md
-    - name: Troubleshoot descriptor error
-      displayName: descriptors cannot not be created directly
-      href: how-to-troubleshoot-protobuf-descriptor-error.md
-    - name: How to troubleshoot data access
-      displayName: troubleshoot, data, debug, image
-      href: how-to-troubleshoot-data-access.md
-    - name: Troubleshoot validation for schema failed error
-      href: how-to-troubleshoot-validation-for-schema-failed-error.md
-    - name: How to troubleshoot environments
-      displayName: troubleshoot, environment, debug, image
-      href: how-to-troubleshoot-environments.md
-    - name: Troubleshoot online endpoints
-      href: how-to-troubleshoot-online-endpoints.md
-    - name: Troubleshoot batch endpoints
-      href: how-to-troubleshoot-batch-endpoints.md
-    - name: Troubleshoot Kubernetes Compute
-      href: how-to-troubleshoot-kubernetes-compute.md
-    - name: Troubleshoot Azure Machine Learning extension
-      href: how-to-troubleshoot-kubernetes-extension.md
-    # v1
-    - name: Pipeline issues
+    - name: Troubleshoot
       items:
-        - name: Troubleshoot pipelines
-          displayName: designer
-          href: ./v1/how-to-debug-pipelines.md
-        - name: Log pipeline data to Application Insights
-          href: ./v1/how-to-log-pipelines-application-insights.md
-        - name: Troubleshoot the ParallelRunStep
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: ./v1/how-to-debug-parallel-run-step.md
-    - name: Visual Studio Code
+      - name: Troubleshoot secure workspace connectivity
+        href: how-to-troubleshoot-secure-connection-workspace.md
+      - name: Troubleshoot SerializationError
+        href: ./v1/how-to-troubleshoot-serialization-error.md
+      - name: Troubleshoot descriptor error
+        displayName: descriptors cannot not be created directly
+        href: how-to-troubleshoot-protobuf-descriptor-error.md
+      - name: How to troubleshoot data access
+        displayName: troubleshoot, data, debug, image
+        href: how-to-troubleshoot-data-access.md
+      - name: Troubleshoot validation for schema failed error
+        href: how-to-troubleshoot-validation-for-schema-failed-error.md
+      - name: How to troubleshoot environments
+        displayName: troubleshoot, environment, debug, image
+        href: how-to-troubleshoot-environments.md
+      - name: Troubleshoot online endpoints
+        href: how-to-troubleshoot-online-endpoints.md
+      - name: Troubleshoot batch endpoints
+        href: how-to-troubleshoot-batch-endpoints.md
+      - name: Troubleshoot Kubernetes Compute
+        href: how-to-troubleshoot-kubernetes-compute.md
+      - name: Troubleshoot Azure Machine Learning extension
+        href: how-to-troubleshoot-kubernetes-extension.md
+      # v1
+      - name: Pipeline issues
+        items:
+          - name: Troubleshoot pipelines
+            displayName: designer
+            href: ./v1/how-to-debug-pipelines.md
+          - name: Log pipeline data to Application Insights
+            href: ./v1/how-to-log-pipelines-application-insights.md
+          - name: Troubleshoot the ParallelRunStep
+            displayName: debug_batch consume pipeline parallelrunstep inference
+            href: ./v1/how-to-debug-parallel-run-step.md
+      - name: Visual Studio Code
+        items:
+          - name: VS Code interactive debugging
+            displayName: vscode,remote,debug,pipelines,deployments,ssh
+            href: ./v1/how-to-debug-visual-studio-code.md
+      # end v1
+    - name: Known issues
       items:
-        - name: VS Code interactive debugging
-          displayName: vscode,remote,debug,pipelines,deployments,ssh
-          href: ./v1/how-to-debug-visual-studio-code.md
-    # end v1
+        - name: Active known issues for Azure Machine Learning
+          href: ./known-issues/azure-machine-learning-known-issues.md
+        - name: Compute instance known issues
+          items:
+          - name: Jupyter R Kernel does not start in new compute instance images
+            href: ./known-issues/jupyter-r-kernel-not-starting.md
+          - name: Provisioning error when creating a compute instance with A10 SKU
+            href: ./known-issues/compute-a10-sku-not-supported.md
+          - name: Idleshutdown property in Bicep template causes error
+            href: ./known-issues/compute-idleshutdown-bicep.md
+          - name: Slowness in compute instance terminal from a mounted path
+            href: ./known-issues/compute-slowness-terminal-mounted-path.md
+          - name: Creating compute instance after a workspace move causes Etag conflict error
+            href: ./known-issues/workspace-move-compute-instance-same-name.md
+          - name: Application Sharing Policy isn't supported 
+            href: ./known-issues/application-sharing-policy-not-supported.md 
+        - name: Inferencing known issues
+          items:
+          - name: Existing Kubernetes compute cannot be updated
+            href: ./known-issues/inferencing-updating-kubernetes-compute-appears-to-succeed.md
+          - name: Invalid certificate error during deployment
+            href: ./known-issues/inferencing-invalid-certificate.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -1368,7 +1443,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          items: 
+          items:
             - name: Job
               href: reference-yaml-schedule.md
             - name: Data Import
@@ -1455,7 +1530,7 @@
               href: reference-yaml-component-spark.md
             - name: Command
               href: reference-yaml-component-command.md
-            - name: Pipeline 
+            - name: Pipeline
               href: reference-yaml-component-pipeline.md
         - name: Registry
           items:
@@ -1484,7 +1559,7 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md
-    - name: Azure Container for PyTorch 
+    - name: Azure Container for PyTorch
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
     - name: Azure CLI
@@ -1498,7 +1573,7 @@
     - name: Image data schemas for AutoML (v1)
       href: ./v1/reference-automl-images-schema.md
     - name: Migrate from ML Studio (classic)
-      items: 
+      items:
       - name: Migration overview
         href: ./v1/migrate-overview.md
       - name: Migrate datasets

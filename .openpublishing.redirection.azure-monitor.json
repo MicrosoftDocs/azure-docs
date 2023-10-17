@@ -2502,8 +2502,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-nagios-zabbix-scom.md",
-            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution"
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-solution-alert-management.md",
@@ -6281,8 +6280,33 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-hybrid-setup.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters",
+            "source_path_from_root": "/articles/azure-monitor/azure-cli-metrics-alert-sample.md",
+            "redirect_url": "/azure/azure-monitor/alerts/azure-cli-metrics-alert-sample",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/terminology.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/create-pipeline-datacollector-api.md",
+            "redirect_url": "/azure/azure-monitor/logs/data-collector-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/vmext-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/agents/vmext-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/unify-app-resource-data.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-agenthealth.md",
+            "redirect_url": "/azure/azure-monitor/agents/solution-agenthealth",
             "redirect_document_id": false
         },
         {
@@ -6296,8 +6320,58 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-hybrid.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python-dependency.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python-dependency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python-request.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python-request",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/remove-application-insights.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-core#how-can-i-uninstall-the-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/continuous-monitoring.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=continuous-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/annotations.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=release-annotations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opentelemetry-nodejs-exporter.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable?tabs=nodejs",
+            "redirect_document_id": false
+            },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/work-item-integration.md",
+            "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=work-item-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/diagnostic-search.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing-telemetry-correlation.md",
+            "redirect_url": "/dotnet/api/microsoft.applicationinsights.extensibility.operationcorrelationtelemetryinitializer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/transaction-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics",
             "redirect_document_id": false
         }
     ]

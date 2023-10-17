@@ -49,8 +49,6 @@ items:
         href: tutorial.md
       - name: Deployment DevOps hands-on lab
         href: devops-tutorial.md
-      - name: Manual infrastructure deployment
-        href: manual-deployment.md
       - name: Sample deployment configurations
         href: new-vs-existing.md
     - name: SAP Bill of Materials
@@ -70,7 +68,7 @@ items:
         - name: Bash scripts for automation framework
           href: reference-bash.md
         - name: Deploying the control plane using shell scripts
-          href: bash/prepare-region.md
+          href: bash/deploy-controlplane.md
         - name: Deploying the workload zone using shell scripts
           href: bash/install-workloadzone.md
         - name: Deploying the SAP system using shell scripts
@@ -80,7 +78,7 @@ items:
         - name: Bootstrapping the Library using shell scripts
           href: bash/install-library.md
         - name: Removing the control plane using shell scripts
-          href: bash/remove-region.md
+          href: bash/remove-controlplane.md
         - name: Removing the SAP system using shell scripts
           href: bash/remover.md
         - name: Set the Keyvault secrets using shell scripts

@@ -1,6 +1,6 @@
 ---
 title: Passwordless security key sign-in to on-premises resources
-description: Learn how to enable passwordless security key sign-in to on-premises resources by using Azure Active Directory
+description: Learn how to enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -15,26 +15,26 @@ ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to on-premises resources by using Azure AD 
+# Enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Microsoft Entra joined* and *Microsoft Entra hybrid joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
-Azure AD can issue Kerberos ticket-granting tickets (TGTs) for one or more of your Active Directory domains. With this functionality, users can sign in to Windows with modern credentials, such as FIDO2 security keys, and then access traditional Active Directory-based resources. Kerberos Service Tickets and authorization continue to be controlled by your on-premises Active Directory domain controllers (DCs).
+Microsoft Entra ID can issue Kerberos ticket-granting tickets (TGTs) for one or more of your Active Directory domains. With this functionality, users can sign in to Windows with modern credentials, such as FIDO2 security keys, and then access traditional Active Directory-based resources. Kerberos Service Tickets and authorization continue to be controlled by your on-premises Active Directory domain controllers (DCs).
 
-An Azure AD Kerberos Server object is created in your on-premises Active Directory instance and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory domain.
+A Microsoft Entra Kerberos server object is created in your on-premises Active Directory instance and then securely published to Microsoft Entra ID. The object isn't associated with any physical servers. It's simply a resource that can be used by Microsoft Entra ID to generate Kerberos TGTs for your Active Directory domain.
 
-:::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a TGT from Azure AD and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
+:::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a TGT from Microsoft Entra ID and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
 
-1. A user signs in to a Windows 10 device with an FIDO2 security key and authenticates to Azure AD.
-1. Azure AD checks the directory for a Kerberos Server key that matches the user's on-premises Active Directory domain.
+1. A user signs in to a Windows 10 device with an FIDO2 security key and authenticates to Microsoft Entra ID.
+1. Microsoft Entra ID checks the directory for a Kerberos Server key that matches the user's on-premises Active Directory domain.
 
-   Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
+   Microsoft Entra ID generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
 
-1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
+1. The TGT is returned to the client along with the user's Microsoft Entra Primary Refresh Token (PRT).
 1. The client machine contacts an on-premises Active Directory Domain Controller and trades the partial TGT for a fully formed TGT.
-1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
+1. The client machine now has a Microsoft Entra PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ You must also meet the following system requirements:
 
 - Have the credentials required to complete the steps in the scenario:
     - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
-    - An Azure Active Directory user who is a member of the Global Administrators role. Referred to as **$cloudCred**.
+    - A Microsoft Entra user who is a member of the Global Administrators role. Referred to as **$cloudCred**.
  
 ### Supported scenarios
 
@@ -71,34 +71,36 @@ The following scenarios aren't supported:
 - *Run as* by using a security key.
 - Log in to a server by using a security key.
 
-## Install the Azure AD Kerberos PowerShell module
+<a name='install-the-azure-ad-kerberos-powershell-module'></a>
 
-The [Azure AD Kerberos PowerShell module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
+## Install the `AzureADHybridAuthenticationManagement` module
+
+The [`AzureADHybridAuthenticationManagement` module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
 
 1. Open a PowerShell prompt using the Run as administrator option.
-1. Install the Azure AD Kerberos PowerShell module:
+1. Install the `AzureADHybridAuthenticationManagement` module:
 
    ```powershell
    # First, ensure TLS 1.2 for PowerShell gallery access.
    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-   # Install the Azure AD Kerberos PowerShell Module.
+   # Install the AzureADHybridAuthenticationManagement PowerShell module.
    Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    ```
 
 > [!NOTE]
-> - The Azure AD Kerberos PowerShell module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Azure Active Directory management features. If the [AzureAD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
-> - You can install the Azure AD Kerberos PowerShell module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Azure AD Connect solution.
-> - The Azure AD Kerberos PowerShell module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
+> - The `AzureADHybridAuthenticationManagement` module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Microsoft Entra management features. If the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
+> - You can install the `AzureADHybridAuthenticationManagement` module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Microsoft Entra Connect solution.
+> - The `AzureADHybridAuthenticationManagement` module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
 
 ## Create a Kerberos Server object
 
-Administrators use the Azure AD Kerberos PowerShell module to create an Azure AD Kerberos Server object in their on-premises directory.
+Administrators use the `AzureADHybridAuthenticationManagement` module to create a Microsoft Entra Kerberos server object in their on-premises directory.
 
-Run the following steps in each domain and forest in your organization that contain Azure AD users:
+Run the following steps in each domain and forest in your organization that contain Microsoft Entra users:
 
 1. Open a PowerShell prompt using the Run as administrator option.
-1. Run the following PowerShell commands to create a new Azure AD Kerberos Server object both in your on-premises Active Directory domain and in your Azure Active Directory tenant.
+1. Run the following PowerShell commands to create a new Microsoft Entra Kerberos server object both in your on-premises Active Directory domain and in your Microsoft Entra tenant.
 
 ### Example 1 prompt for all credentials
 
@@ -178,48 +180,56 @@ Run the following steps in each domain and forest in your organization that cont
    Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName
    ```
 
-### View and verify the Azure AD Kerberos Server
+<a name='view-and-verify-the-azure-ad-kerberos-server'></a>
 
-You can view and verify the newly created Azure AD Kerberos Server by using the following command:
+### View and verify the Microsoft Entra Kerberos server
+
+You can view and verify the newly created Microsoft Entra Kerberos server by using the following command:
+
 
 ```powershell
-Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+ # When prompted to provide domain credentials use the userprincipalname format for the username instead of domain\username
+Get-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential (get-credential)
 ```
 
-This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
+This command outputs the properties of the Microsoft Entra Kerberos server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
+> Running against another domain by supplying the credential in domain\username format will connect over NTLM, and then it fails. However, using the userprincipalname format for the domain administrator will ensure RPC bind to the DC is attempted using Kerberos correctly. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |
 | ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as its *slot* or its *branch ID*. |
 | DomainDnsName | The DNS domain name of the Active Directory domain. |
-| ComputerAccount | The computer account object of the Azure AD Kerberos Server object (the DC). |
-| UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The domain name of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |
-| KeyVersion | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication metadata and likely greater than one. For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*. The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
-| KeyUpdatedOn | The date and time that the Azure AD Kerberos Server TGT encryption key was updated or created. |
-| KeyUpdatedFrom | The DC where the Azure AD Kerberos Server TGT encryption key was last updated. |
-| CloudId | The ID from the Azure AD object. Must match the ID from the first line of the table. |
-| CloudDomainDnsName | The *DomainDnsName* from the Azure AD object. Must match the *DomainDnsName* from the second line of the table. |
-| CloudKeyVersion | The *KeyVersion* from the Azure AD object. Must match the *KeyVersion* from the fifth line of the table. |
-| CloudKeyUpdatedOn | The *KeyUpdatedOn* from the Azure AD object. Must match the *KeyUpdatedOn* from the sixth line of the table. |
+| ComputerAccount | The computer account object of the Microsoft Entra Kerberos server object (the DC). |
+| UserAccount | The disabled user account object that holds the Microsoft Entra Kerberos server TGT encryption key. The domain name of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |
+| KeyVersion | The key version of the Microsoft Entra Kerberos server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication metadata and likely greater than one. For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*. The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
+| KeyUpdatedOn | The date and time that the Microsoft Entra Kerberos server TGT encryption key was updated or created. |
+| KeyUpdatedFrom | The DC where the Microsoft Entra Kerberos server TGT encryption key was last updated. |
+| CloudId | The ID from the Microsoft Entra object. Must match the ID from the first line of the table. |
+| CloudDomainDnsName | The *DomainDnsName* from the Microsoft Entra object. Must match the *DomainDnsName* from the second line of the table. |
+| CloudKeyVersion | The *KeyVersion* from the Microsoft Entra object. Must match the *KeyVersion* from the fifth line of the table. |
+| CloudKeyUpdatedOn | The *KeyUpdatedOn* from the Microsoft Entra object. Must match the *KeyUpdatedOn* from the sixth line of the table. |
 | | |
 
-### Rotate the Azure AD Kerberos Server key
+<a name='rotate-the-azure-ad-kerberos-server-key'></a>
 
-The Azure AD Kerberos Server encryption *krbtgt* keys should be rotated on a regular basis. We recommend that you follow the same schedule you use to rotate all other Active Directory DC *krbtgt* keys.
+### Rotate the Microsoft Entra Kerberos server key
+
+The Microsoft Entra Kerberos server encryption *krbtgt* keys should be rotated on a regular basis. We recommend that you follow the same schedule you use to rotate all other Active Directory DC *krbtgt* keys.
 
 > [!WARNING]
-> There are other tools that could rotate the *krbtgt* keys. However, you must use the tools mentioned in this document to rotate the *krbtgt* keys of your Azure AD Kerberos Server. This ensures that the keys are updated in both on-premises Active Directory and Azure AD.
+> There are other tools that could rotate the *krbtgt* keys. However, you must use the tools mentioned in this document to rotate the *krbtgt* keys of your Microsoft Entra Kerberos server. This ensures that the keys are updated in both on-premises Active Directory and Microsoft Entra ID.
 
 ```powershell
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
 ```
 
-### Remove the Azure AD Kerberos Server
+<a name='remove-the-azure-ad-kerberos-server'></a>
 
-If you want to revert the scenario and remove the Azure AD Kerberos Server from both the on-premises Active Directory and Azure AD, run the following command:
+### Remove the Microsoft Entra Kerberos server
+
+If you want to revert the scenario and remove the Microsoft Entra Kerberos server from both the on-premises Active Directory and Microsoft Entra ID, run the following command:
 
 ```powershell
 Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
@@ -227,11 +237,11 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 ### Multiforest and multidomain scenarios
 
-The Azure AD Kerberos Server object is represented in Azure AD as a *KerberosDomain* object. Each on-premises Active Directory domain is represented as a single *KerberosDomain* object in Azure AD.
+The Microsoft Entra Kerberos server object is represented in Microsoft Entra ID as a *KerberosDomain* object. Each on-premises Active Directory domain is represented as a single *KerberosDomain* object in Microsoft Entra ID.
 
-For example, let's say that your organization has an Active Directory forest with two domains, `contoso.com` and `fabrikam.com`. If you choose to allow Azure AD to issue Kerberos TGTs for the entire forest, there are two *KerberosDomain* objects in Azure AD, one *KerberosDomain* object for `contoso.com` and the other for `fabrikam.com`. If you have multiple Active Directory forests, there is one *KerberosDomain* object for each domain in each forest.
+For example, let's say that your organization has an Active Directory forest with two domains, `contoso.com` and `fabrikam.com`. If you choose to allow Microsoft Entra ID to issue Kerberos TGTs for the entire forest, there are two *KerberosDomain* objects in Microsoft Entra ID, one *KerberosDomain* object for `contoso.com` and the other for `fabrikam.com`. If you have multiple Active Directory forests, there is one *KerberosDomain* object for each domain in each forest.
 
-Follow the instructions in [Create a Kerberos Server object](#create-a-kerberos-server-object) in each domain and forest in your organization that contains Azure AD users.
+Follow the instructions in [Create a Kerberos Server object](#create-a-kerberos-server-object) in each domain and forest in your organization that contains Microsoft Entra users.
 
 ## Known behavior
 
@@ -271,11 +281,13 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the [Azure portal](https://portal.azure.com), and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [myaccount.microsoft.com](https://myaccount.microsoft.com/), and then go to the **Security info** page.
 
-### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
+<a name='what-can-i-do-if-im-unable-to-use-the-fido-security-key-immediately-after-i-create-a-hybrid-azure-ad-joined-machine'></a>
 
-If you're clean-installing a hybrid Azure AD-joined machine, after the domain join and restart process, you must sign in with a password and wait for the policy to sync before you can use the FIDO security key to sign in.
+### What can I do if I'm unable to use the FIDO security key immediately after I create a Microsoft Entra hybrid joined machine?
+
+If you're clean-installing a Microsoft Entra hybrid joined machine, after the domain join and restart process, you must sign in with a password and wait for the policy to sync before you can use the FIDO security key to sign in.
 
 - Check your current status by running `dsregcmd /status` in a Command Prompt window, and check to ensure that both the **AzureAdJoined** and **DomainJoined** statuses are showing as *YES*.
 - This delay in syncing is a known limitation of domain-joined devices and isn't FIDO-specific.

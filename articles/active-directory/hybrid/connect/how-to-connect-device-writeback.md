@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Enabling device writeback'
-description: This document details how to enable device writeback using Azure AD Connect
+title: 'Microsoft Entra Connect: Enabling device writeback'
+description: This document details how to enable device writeback using Microsoft Entra Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,27 +16,31 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect: Enabling device writeback
+# Microsoft Entra Connect: Enabling device writeback
 > [!NOTE]
-> A subscription to Azure AD Premium is required for device writeback.
+> A subscription to Microsoft Entra ID P1 or P2 is required for device writeback.
 > 
 > 
 
-The following documentation provides information on how to enable the device writeback feature in Azure AD Connect. Device Writeback is used in the following scenarios:
+The following documentation provides information on how to enable the device writeback feature in Microsoft Entra Connect. Device Writeback is used in the following scenarios:
 
 * Enable [Windows Hello for Business using hybrid certificate trust deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Enable Conditional Access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../../conditional-access/overview.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../devices/overview.md).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../../conditional-access/overview.md) and [Setting up On-premises Conditional Access using Microsoft Entra Device Registration](../../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
-> <li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature isn't compatible with a topology where the on-premises Active Directory is synchronized to multiple Azure AD directories.</li>
+> <li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature isn't compatible with a topology where the on-premises Active Directory is synchronized to multiple Microsoft Entra directories.</li>
 
-## Part 1: Install Azure AD Connect
-Install Azure AD Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
+<a name='part-1-install-azure-ad-connect'></a>
 
-## Part 2: Enable device writeback in Azure AD Connect
+## Part 1: Install Microsoft Entra Connect
+Install Microsoft Entra Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
+
+<a name='part-2-enable-device-writeback-in-azure-ad-connect'></a>
+
+## Part 2: Enable device writeback in Microsoft Entra Connect
 1. Run the installation wizard again. Select **Configure device options** from the Additional Tasks page and click **Next**. 
 
     ![Configure device options](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -52,16 +56,16 @@ Install Azure AD Connect using Custom or Express settings. Microsoft recommends 
 
 4. **Device container** page provides option of preparing the active directory by using one of the two available options:
 
-    a. **Provide enterprise administrator credentials**: If the enterprise administrator credentials are provided for the forest where devices need to be written back, Azure AD Connect will prepare the forest automatically during the configuration of device writeback.
+    a. **Provide enterprise administrator credentials**: If the enterprise administrator credentials are provided for the forest where devices need to be written back, Microsoft Entra Connect will prepare the forest automatically during the configuration of device writeback.
 
-    b. **Download PowerShell script**: Azure AD Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials can't be provided in Azure AD Connect, it's suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.ps1** to the enterprise administrator of the forest where devices will be written back to.
+    b. **Download PowerShell script**: Microsoft Entra Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials can't be provided in Microsoft Entra Connect, it's suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.ps1** to the enterprise administrator of the forest where devices will be written back to.
     ![Prepare active directory forest](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     The following operations are performed for preparing the active directory forest:
     * If they don't exist already, creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
     * If they don't exist already, creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
-    * Sets necessary permissions on the Azure AD Connector account, to manage devices on your Active Directory.
-    * Only needs to run on one forest, even if Azure AD Connect is being installed on multiple forests.
+    * Sets necessary permissions on the Microsoft Entra Connector account, to manage devices on your Active Directory.
+    * Only needs to run on one forest, even if Microsoft Entra Connect is being installed on multiple forests.
 
 ## Verify Devices are synchronized to Active Directory
 Device writeback should now be working properly. Be aware that it can take up to 3 hours for device objects to be written-back to AD.  To verify that your devices are being synced properly, do the following after the sync rules complete:
@@ -76,7 +80,7 @@ Device writeback should now be working properly. Be aware that it can take up to
    ![Active Directory Admin Center Registered Devices List](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## Enable Conditional Access
-Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../devices/overview.md).
+Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Microsoft Entra Device Registration](../../devices/overview.md).
 
 ## Troubleshooting
 ### The writeback checkbox is still disabled
@@ -120,7 +124,7 @@ Verify configuration in Active Directory:
 
 ## Additional Information
 * [Managing Risk With Conditional Access](../../conditional-access/overview.md)
-* [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../devices/overview.md)
+* [Setting up On-premises Conditional Access using Microsoft Entra Device Registration](../../devices/overview.md)
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

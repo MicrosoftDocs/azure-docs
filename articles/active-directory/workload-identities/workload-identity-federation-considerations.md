@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 10/04/2023
 ms.author: ryanwi
-ms.reviewer: shkhalid, udayh, cbrooks
+ms.reviewer: shkhalid
 ms.custom: aaddev, references_regions
 
 ---
 
 # Important considerations and restrictions for federated identity credentials
 
-This article describes important considerations, restrictions, and limitations for federated identity credentials on Azure AD apps and user-assigned managed identities.  
+This article describes important considerations, restrictions, and limitations for federated identity credentials on Microsoft Entra apps and user-assigned managed identities.  
 
 For more information on the scenarios enabled by federated identity credentials, see [workload identity federation overview](workload-identity-federation.md).
 
@@ -26,9 +26,9 @@ For more information on the scenarios enabled by federated identity credentials,
 
 *Applies to: applications and user-assigned managed identities*
 
-Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf, someone in the Application Administrator or Application Owner roles.
+Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch is set to **No** in the **Users->User Settings** blade in the [Microsoft Entra admin center](https://entra.microsoft.com), however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf, someone in the Application Administrator or Application Owner roles.
 
-Federated identity credentials don't consume the Azure AD tenant service principal object quota.
+Federated identity credentials don't consume the Microsoft Entra tenant service principal object quota.
 
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
@@ -46,9 +46,6 @@ The creation of federated identity credentials is available on user-assigned man
 - Brazil Southeast
 - Malaysia South
 - Poland Central
-- UK North
-- UK South2
-
 
 Support for creating federated identity credentials in these regions will be rolled out gradually except East Asia where support won't be provided.
 
@@ -60,18 +57,20 @@ Resources in these regions can still use federated identity credentials created 
 
 Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but haven't been tested.
 
-## Azure Active Directory issuers aren't supported
+<a name='azure-active-directory-issuers-arent-supported'></a>
+
+## Microsoft Entra issuers aren't supported
 
 *Applies to: applications and user-assigned managed identities*
 
-Creating a federation between two Azure AD identities from the same or different tenants isn't supported. When creating a federated identity credential, configuring the *issuer* (the URL of the external identity provider) with the following values isn't supported:
+Creating a federation between two Microsoft Entra identities from the same or different tenants isn't supported. When creating a federated identity credential, configuring the *issuer* (the URL of the external identity provider) with the following values isn't supported:
 
 - *.login.microsoftonline.com
 - *.login.windows.net
 - *.login.microsoft.com
 - *.sts.windows.net
 
-While it's possible to create a federated identity credential with an Azure AD issuer, attempts to use it for authorization fail with error `AADSTS700222: AAD-issued tokens may not be used for federated identity flows`.
+While it's possible to create a federated identity credential with a Microsoft Entra issuer, attempts to use it for authorization fail with error `AADSTS700222: AAD-issued tokens may not be used for federated identity flows`.
 
 ## Time for federated credential changes to propagate
 
@@ -190,7 +189,7 @@ It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) 
 
 The following table describes limits on requests to the user-assigned managed identities REST APIS.  If you exceed a throttling limit, you receive an HTTP 429 error.
 
-| Operation         | Requests-per-second per Azure AD tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
+| Operation         | Requests-per-second per Microsoft Entra tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
 |-------------------|----------------|----------------|----------------|
 | [Create or update](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
 | [Get](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/get) requests | 30 | 10 | 0.5 |

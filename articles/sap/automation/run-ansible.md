@@ -1,6 +1,6 @@
 ---
-title: Run Ansible to configure SAP system
-description: Configure the environment and install SAP using Ansible playbooks with the SAP on Azure Deployment Automation Framework.
+title: Run Ansible to configure the SAP system
+description: Configure the environment and install SAP by using Ansible playbooks with SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,9 +11,9 @@ ms.subservice: sap-automation
 ms.custom: devx-track-ansible
 ---
 
-# Get started Ansible configuration
+# Get started with Ansible configuration
 
-When you use the [SAP on Azure Deployment Automation Framework](deployment-framework.md), you have the option to do an [automated infrastructure deployment](get-started.md), However, you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
+When you use [SAP Deployment Automation Framework](deployment-framework.md), you can perform an [automated infrastructure deployment](get-started.md). You can also do the required operating system configurations and install SAP by using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
 
 | Filename                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |
@@ -26,15 +26,15 @@ When you use the [SAP on Azure Deployment Automation Framework](deployment-frame
 | `playbook_05_02_sap_pas_install.yaml`      | SAP primary application server (PAS) installation |
 | `playbook_05_03_sap_app_install.yaml`      | SAP application server installation               |
 | `playbook_05_04_sap_web_install.yaml`      | SAP web dispatcher installation                   |
-| `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA HA configuration                         |
+| `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA high-availability configuration                         |
 
 ## Prerequisites
 
-The Ansible playbooks require the following files `sap-parameters.yaml` and `SID_host.yaml` in the current directory.
+The Ansible playbooks require the `sap-parameters.yaml` and `SID_host.yaml` files in the current directory.
 
 ### Configuration files
 
-The **sap-parameters.yaml** contains information that Ansible uses for configuration of the SAP infrastructure
+The `sap-parameters.yaml` file contains information that Ansible uses for configuration of the SAP infrastructure.
 
 ```yaml
 ---
@@ -59,12 +59,12 @@ scs_high_availability:         false
 # SCS Instance Number
 scs_instance_number:           "00"
 # scs_lb_ip is the SCS IP address of the load balancer in 
-# from of the SAP Central Services virtual machines
+# front of the SAP Central Services virtual machines
 scs_lb_ip:                     10.110.32.26
 # ERS Instance Number
 ers_instance_number:           "02"
 # ecs_lb_ip is the ERS IP address of the load balancer in
-# from of the SAP Central Services virtual machines
+# front of the SAP Central Services virtual machines
 ers_lb_ip:                     
 
 # sap_sid is the database SID
@@ -75,7 +75,7 @@ platform:                      HANA
 # db_high_availability is a boolean flag indicating if the 
 # SAP database servers are deployed using high availability
 db_high_availability:          false
-# db_lb_ip is the IP address of the load balancer in from of the database virtual machines
+# db_lb_ip is the IP address of the load balancer in front of the database virtual machines
 db_lb_ip:                      10.110.96.13
 
 disks:
@@ -95,7 +95,7 @@ disks:
 ...
 ```
 
-The **`X01_hosts.yaml`** is the inventory file Ansible uses for configuration of the SAP infrastructure. 'X01' may differ for your deployments.
+The `X01_hosts.yaml` file is the inventory file that Ansible uses for configuration of the SAP infrastructure. The `X01` label might differ for your deployments.
 
 ```yaml
 X01_DB:
@@ -154,10 +154,9 @@ X01_WEB:
 
 ## Run a playbook
 
-Make sure you've [downloaded the SAP software](software.md) to your Azure environment before running this step.
+Make sure that you [download the SAP software](software.md) to your Azure environment before you run this step.
 
-To execute a playbook or multiple playbooks, use the command `ansible-playbook` as follows. The example below runs the Operating System configuration playbook.
-
+To run a playbook or multiple playbooks, use the following `ansible-playbook` command. This example runs the operating system configuration playbook.
 
 ```bash
 
@@ -203,27 +202,28 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-### Operating System Configuration
+### Operating system configuration
 
-The Operating System Configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks:
+The operating system configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks.
 
 # [Linux](#tab/linux)
 
 The following tasks are executed on Linux virtual machines:
-- Enables logging for sudo operations
+
+- Enables logging for `sudo` operations
 - Ensures that the Azure virtual machine agent is configured correctly
 - Ensures that all the repositories are registered and enabled
-- Ensures that all the packaged are installed
-- Creates to volume groups and logical volumes
+- Ensures that all the packages are installed
+- Creates volume groups and logical volumes
 - Configures the kernel parameters
-- Configures routing for additional network interfaces (if required)
-- Crates the user accounts and groups
-- Configures the banners displayed when logged in
+- Configures routing for more network interfaces (if necessary)
+- Creates the user accounts and groups
+- Configures the banners displayed when signed in
 - Configures the services required
 
 # [Windows](#tab/windows)
 
-- Ensures that all the components are installed
+- Ensures that all the components are installed:
     - StorageDsc
     - NetworkingDsc
     - ComputerManagementDsc
@@ -232,7 +232,7 @@ The following tasks are executed on Linux virtual machines:
     - ServerManager
     - SecurityPolicyDsc
     - Visual C++ runtime libraries
-    - ODBC Drivers    
+    - ODBC drivers
 - Configures the swap file size
 - Initializes the disks
 - Configures Windows Firewall
@@ -240,39 +240,42 @@ The following tasks are executed on Linux virtual machines:
 
 ---
 
-### SAP Specific Operating System Configuration
+### SAP-specific operating system configuration
 
-The SAP Specific Operating System Configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks:
+The SAP-specific operating system configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks.
 
 # [Linux](#tab/linux)
 
 The following tasks are executed on Linux virtual machines:
+
 - Configures the hosts file
-- Ensures that all the SAP specific repositories are registered and enabled
-- Ensures that all the SAP specific packaged are installed
+- Ensures that all the SAP-specific repositories are registered and enabled
+- Ensures that all the SAP-specific packages are installed
 - Performs the disk mount operations
-- Configures the SAP specific services
+- Configures the SAP-specific services
 - Implements configurations defined in the relevant SAP Notes
 
 # [Windows](#tab/windows)
 
-- Add local groups and permissions
+- Adds local groups and permissions
 - Connects to the Windows file shares
 
 ---
 
 ### Local software download
 
-This playbooks downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the Central Services instance or from Azure Files or Azure NetApp Files.
+This playbook downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the central services instance or from Azure Files or Azure NetApp Files.
 
 # [Linux](#tab/linux)
 
-The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+The following tasks are executed on the central services instance virtual machine:
+
+- Download the software from the storage account and make it available for the other virtual machines.
 
 # [Windows](#tab/windows)
 
-The following tasks are executed on the Central services instance virtual machine:
-- Download the software
+The following tasks are executed on the central services instance virtual machine:
+
+- Download the software from the storage account and make it available for the other virtual machines.
 
 ---

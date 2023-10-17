@@ -1,7 +1,7 @@
 ---
 
 title: Add Google as an identity provider for B2B
-description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail accounts.
+description: Federate with Google to enable guest users to sign in to your Microsoft Entra apps with their own Gmail accounts.
 
 services: active-directory
 ms.service: active-directory
@@ -12,11 +12,14 @@ ms.date: 01/20/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan, has-adal-ref"
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
 # Add Google as an identity provider for B2B guest users
+
+> [!TIP]
+> This article describes adding Google as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Google as an identity provider](customers/how-to-google-federation-customers.md) for customers.
 
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts. After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google.
 
@@ -27,12 +30,12 @@ By setting up federation with Google, you can allow invited users to sign in to 
 
 > [!IMPORTANT]
 >
-> - **Starting July 12, 2021**, if Azure AD B2B customers set up new Google integrations for use with self-service sign-up or for inviting external users for their custom or line-of-business applications, authentication could be blocked for Gmail users (with the error screen shown below in [What to expect](#what-to-expect)). This issue occurs only if you create Google integration for self-service sign-up user flows or invitations after July 12, 2021 and Gmail authentications in your custom or line-of-business applications haven’t been moved to system web-views. Because system web-views are enabled by default, most apps will not be affected. To avoid the issue, we strongly advise you to move Gmail authentications to system browsers before creating any new Google integrations for self-service sign-up. Please refer to [Action needed for embedded web-views](#action-needed-for-embedded-frameworks).
-> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for external user invitations or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](#deprecation-of-web-view-sign-in-support).
+> - **Starting July 12, 2021**, if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up or for inviting external users for their custom or line-of-business applications, authentication could be blocked for Gmail users (with the error screen shown below in [What to expect](#what-to-expect)). This issue occurs only if you create Google integration for self-service sign-up user flows or invitations after July 12, 2021 and Gmail authentications in your custom or line-of-business applications haven’t been moved to system web-views. Because system web-views are enabled by default, most apps will not be affected. To avoid the issue, we strongly advise you to move Gmail authentications to system browsers before creating any new Google integrations for self-service sign-up. Please refer to [Action needed for embedded web-views](#action-needed-for-embedded-frameworks).
+> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for external user invitations or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
-You can invite a Google user to B2B collaboration in various ways. For example, you can [add them to your directory via the Azure portal](b2b-quickstart-add-guest-users-portal.md). When they redeem your invitation, their experience varies depending on whether they're already signed in to Google:
+You can invite a Google user to B2B collaboration in various ways. For example, you can [add them to your directory via the Microsoft Entra admin center](b2b-quickstart-add-guest-users-portal.md). When they redeem your invitation, their experience varies depending on whether they're already signed in to Google:
 
 - Guest users who aren't signed in to Google will be prompted to do so.
 - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
@@ -55,14 +58,14 @@ You can also give Google guest users a direct link to an application or resource
 
 ## Deprecation of web-view sign-in support
 
-Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
+Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
 - Microsoft apps (e.g. Teams and Power Apps) on Windows 
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
-- [Apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [Apps using ADAL](../develop/howto-get-list-of-all-auth-library-apps.md)
 
 This change does not affect:
 - Web apps
@@ -137,7 +140,7 @@ Follow [Google’s guidance](https://developers.googleblog.com/2016/08/modernizi
 
 ## Step 1: Configure a Google developer project
 
-First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
+First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Microsoft Entra External ID. 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
 
 1. Accept the terms of service if you're prompted to do so.
@@ -168,16 +171,16 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Select **Create credentials**, and then select **OAuth client ID**.
 
-1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Azure AD B2B`. Under **Authorized redirect URIs**, add the following URIs:
+1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Microsoft Entra B2B`. Under **Authorized redirect URIs**, add the following URIs:
 
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
    
     > [!NOTE]
-    > To find your tenant ID, sign in to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+    > To find your tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Identity**, select **Overview** and copy the **Tenant ID**.
 
-1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
+1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Microsoft Entra admin center.
 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
 
@@ -186,15 +189,15 @@ First, create a new project in the Google Developers Console to obtain a client 
    > [!NOTE]
    > In some cases, your app might require verification by Google (for example, if you update the application logo). For more information, see Google's [verification status help](https://support.google.com/cloud/answer/10311615#verification-status).
 
-## Step 2: Configure Google federation in Azure AD 
+<a name='step-2-configure-google-federation-in-azure-ad-'></a>
 
-You'll now set the Google client ID and client secret. You can use the Azure portal or PowerShell to do so. Be sure to test your Google federation configuration by inviting yourself. Use a Gmail address and try to redeem the invitation with your invited Google account. 
+## Step 2: Configure Google federation in Microsoft Entra External ID 
 
-**To configure Google federation in the Azure portal** 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
-2. In the left pane, select **Azure Active Directory**.
-3. Select **External Identities**.
-4. Select **All identity providers**, and then select the **Google** button.
+You'll now set the Google client ID and client secret. You can use the Microsoft Entra admin center or PowerShell to do so. Be sure to test your Google federation configuration by inviting yourself. Use a Gmail address and try to redeem the invitation with your invited Google account. 
+
+**To configure Google federation in the Microsoft Entra admin center** 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers** and then select the **Google** button.
 5. Enter the client ID and client secret you obtained earlier. Select **Save**:
 
    ![Screenshot that shows the Add Google identity provider page.](media/google-federation/google-identity-provider.png)
@@ -215,11 +218,10 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
-**To delete Google federation in the Azure portal**
-1. Sign in to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**.
-2. Select **External Identities**.
-3. Select **All identity providers**.
-4. On the **Google** line, select the ellipsis button (**...**) and then select **Delete**. 
+**To delete Google federation in the Microsoft Entra admin center**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
+1. On the **Google** line, select the ellipsis button (**...**) and then select **Delete**. 
    
    ![Screenshot that shows the Delete button for the social identity provider.](media/google-federation/google-social-identity-providers.png)
 

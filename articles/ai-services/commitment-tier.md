@@ -4,7 +4,7 @@ description: Learn how to sign up for commitment tier pricing, which is differen
 author: aahill
 ms.author: aahi
 ms.custom: subject-cost-optimization, mode-other
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---

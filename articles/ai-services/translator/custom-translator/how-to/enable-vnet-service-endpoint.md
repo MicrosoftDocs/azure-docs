@@ -5,8 +5,7 @@ description: This article describes how to use Custom Translator service with an
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 08/08/2023
 ms.author: moelghaz
 ms.topic: how-to
@@ -91,14 +90,14 @@ The following table describes Custom Translator project accessibility per Transl
 
    :::image type="content" source="../media/how-to/allow-network-access.png" alt-text="Screenshot of allowed network access section in the Azure portal.":::
 
-> [!IMPORTANT]
- > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal and your Translator resource. However, you can still use the Translator resource outside of the Custom Translator portal.
+ > [!IMPORTANT]
+ > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal to create workspaces to train and publish models. However, you can still use the Translator resource with [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
 | All networks | &bullet; No restrictions |
-| Selected Networks and Private Endpoints | &bullet; Not accessible from allowed VNET IP addresses. </br>&#9679; Use [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models. |
-| Disabled | &#9679; Not accessible |
+| Selected Networks and Private Endpoints | &bullet; Not accessible. Use [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models. |
+| Disabled | &bullet; Not accessible |
 
 To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround:
 
@@ -110,7 +109,15 @@ To use Custom Translator without relaxing network access restrictions on your pr
 
 ## Billing region codes
 
-The following table lists the billing region code for each supported billing region:
+Use a billing region code, listed in the following table, with the 'Create a workspace' API for each supported billing region:
+
+##### Create a workspace POST request
+
+   ```bash
+   curl -X POST "https://<resource-name>.cognitiveservices.azure.com/translator/customtranslator/api/texttranslator/v1.0/workspaces" --header "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:<resource-key>" --data "{'Name': '<workspace-name>', 'Subscription': {'SubscriptionKey': '<resource-key>', 'BillingRegionCode': '<billing-region-code>' }}"
+   ```
+
+##### Supported billing code regions and codes
 
 |Billing Region Name|Billing Region Code|
 |:----|:----|

@@ -71,6 +71,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     ml_client.models.create_or_update(run_model)
     ```
 
+For more information about models, see [Work with models in Azure Machine Learning](how-to-manage-models.md).
+
 ## Mapping of key functionality in SDK v1 and SDK v2
 
 |Functionality in SDK v1|Rough mapping in SDK v2|

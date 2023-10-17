@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
 ms.custom: event-tier1-build-2022
-ms.date: 07/26/2022 
+ms.date: 07/26/2022
 ---
 
 # Backup and restore in Azure Database for MySQL - Flexible Server
@@ -84,7 +84,10 @@ The Backup and Restore blade in the Azure portal provides a complete list of the
 In Azure Database for MySQL, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
-- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to the geo-paired region. Geo-restore to other regions is not supported currently. 
+- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other azure supported region where flexible server is available. Please note, feature of geo-restore to other regions is currently supported in public preview.
+
+> [!NOTE]
+> Universal Geo Restore (Geo-restore to other regions which is different from a paired region) in Azure Database for MySQL - Flexible Server is currently in **public preview**. Few regions that are currently not supported for universal geo-restore feature in public preview are "Brazil South", "USGov Virginia" and "West US 3".
 
 The estimated time for the recovery of the server depends on several factors: 
 
@@ -129,7 +132,7 @@ The estimated time of recovery depends on several factors including the database
 
 ## Geo-restore
 
-You can restore a server to it's [geo-paired region](overview.md#azure-regions) where the service is available if you have configured your server for geo-redundant backups. Geo-restore to other regions is not supported currently. 
+You can restore a server to it's [geo-paired region](overview.md#azure-regions) where the service is available if you have configured your server for geo-redundant backups. Geo-restore to other regions is supported currently in public preview.
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. 
 
@@ -222,3 +225,6 @@ The estimated time for the recovery of the server depends on several factors:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
+
+

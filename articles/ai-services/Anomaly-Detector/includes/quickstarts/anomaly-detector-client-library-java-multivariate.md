@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
@@ -142,8 +142,8 @@ Instantiate a `anomalyDetectorClient` object with your endpoint and credentials.
 HttpHeaders headers = new HttpHeaders()
     .put("Accept", ContentType.APPLICATION_JSON);
 
-HttpPipelinePolicy authPolicy = new AzureKeyCredentialPolicy(key,
-    new AzureKeyCredential(key));
+HttpPipelinePolicy authPolicy = new AzureKeyCredentialPolicy("Ocp-Apim-Subscription-Key",
+ new AzureKeyCredential(key));
 AddHeadersPolicy addHeadersPolicy = new AddHeadersPolicy(headers);
 
 HttpPipeline httpPipeline = new HttpPipelineBuilder().httpClient(HttpClient.createDefault())

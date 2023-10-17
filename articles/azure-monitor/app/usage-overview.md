@@ -2,7 +2,7 @@
 title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/12/2023
 ms.reviewer: mmcc
 ---
 
@@ -16,7 +16,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./opentelemetry-enable.md?tabs=java), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
-    * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
+    * If you don't want to install server code, [create an Application Insights resource](./create-workspace-resource.md).
 
 1. **Webpage code:** Use the JavaScript SDK to collect data from webpages. See [Get started with the JavaScript SDK](./javascript-sdk.md).
     

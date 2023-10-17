@@ -20,7 +20,8 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 ## Prerequisites
 
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
@@ -34,7 +35,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 WhoIAM Rampart is built in Azure and runs in the Azure environment. The following components comprise the Rampart solution with Azure AD B2C:
 
-* **An Azure AD tenant** - the Azure AD B2C tenant stores users and manages access (and scope) in Rampart
+* **a Microsoft Entra tenant** - the Azure AD B2C tenant stores users and manages access (and scope) in Rampart
 * **Custom B2C policies** - to integrate with Rampart 
 * **A resource group** - hosts Rampart functionality
 
@@ -68,4 +69,3 @@ A list of user-created applications in your Azure AD B2C tenant appears. Likewis
 - [Set-up Guide, Authorization Policy Execution](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution)
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-

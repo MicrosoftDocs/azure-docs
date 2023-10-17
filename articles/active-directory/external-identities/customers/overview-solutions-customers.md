@@ -1,6 +1,6 @@
 ---
 title: Overview of the Woodgrove Groceries demo
-description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Azure AD for customers.
+description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Microsoft Entra ID for customers.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ---
 # Overview of the Woodgrove Groceries demo
 
-Azure Active Directory (Azure AD) for customers offers solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
+Microsoft Entra ID for customers offers solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
 
 ## Get started
 
@@ -51,7 +51,7 @@ To allow your customers to sign up and sign in using their social accounts, you 
 
 ### Sign-up with a one-time passcode
 
-Email one-time passcode sign-in method is a type of passwordless authentication option for your email account identity provider. With email one-time passcode, users can sign up and sign-in to your app using an email as their primary sign-in identifier. They don't need to create and remember passwords. During the sign-in, users are asked to enter their email address, to which Azure AD sends a one-time passcode. The users then open they mailbox and enter the passcode set to them into the sign-in page.
+Email one-time passcode sign-in method is a type of passwordless authentication option for your email account identity provider. With email one-time passcode, users can sign up and sign-in to your app using an email as their primary sign-in identifier. They don't need to create and remember passwords. During the sign-in, users are asked to enter their email address, to which Microsoft Entra ID sends a one-time passcode. The users then open they mailbox and enter the passcode set to them into the sign-in page.
 
 :::image type="content" source="media/overview-solutions-customers/use-case-passcode.png" alt-text="Screenshot of the one-time passcode use case.":::
 
@@ -59,9 +59,9 @@ You can enable email one-time passcode in the admin center under **Authenticatio
 
 ### Sign-in using your own business logic
 
-When users authenticate to your application with Azure Active Directory, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles. Beyond the default set of claims that are contained in the security token you can define your own custom claims from external systems using a REST API you develop.
+When users authenticate to your application with Microsoft Entra ID, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles. Beyond the default set of claims that are contained in the security token you can define your own custom claims from external systems using a REST API you develop.
  
-In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the top bar select your name and check your profile. It contains information that return by the Azure AD custom extension REST API.
+In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the top bar select your name and check your profile. It contains information that return by the Microsoft Entra custom extension REST API.
 
 If you want to understand how custom extensions work, you can refer to the [Custom extension overview](/azure/active-directory/develop/custom-extension-overview) article. For information on custom claims providers, you can check out the [Custom claims provider](/azure/active-directory/develop/custom-claims-provider-overview) article.
 
@@ -79,6 +79,5 @@ To delete your account on the **Woodgrove Groceries** page, select the icon with
 
 ## Next steps
 
-- Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md).
+- Learn more about [planning for Microsoft Entra ID for customers](concept-planning-your-solution.md).
 - [Create a tenant](quickstart-tenant-setup.md).
-

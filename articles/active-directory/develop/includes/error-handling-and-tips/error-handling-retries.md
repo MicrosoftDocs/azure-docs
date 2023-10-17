@@ -10,7 +10,7 @@ ms.topic: include
 ---
 ## Retrying after errors and exceptions
 
-You're expected to implement your own retry policies when calling MSAL. MSAL makes HTTP calls to the Azure AD service, and occasionally failures can occur. For example the network can go down or the server is overloaded.  
+You're expected to implement your own retry policies when calling MSAL. MSAL makes HTTP calls to the Microsoft Entra service, and occasionally failures can occur. For example the network can go down or the server is overloaded.  
 
 ### HTTP 429
 

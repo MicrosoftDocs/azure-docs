@@ -2,12 +2,12 @@
 title: Scalability targets for the Azure Storage resource provider
 description: Scalability and performance targets for operations against the Azure Storage resource provider. The resource provider implements Azure Resource Manager for Azure Storage.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---

@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 09/27/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -79,7 +79,8 @@ Connect-AzAccount
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
-# for the object. It must be 20 characters or less and has certain character restrictions. 
+# for the object. It must be 20 characters or less and has certain character restrictions.
+# Make sure that you provide the SamAccountName without the trailing '$' sign.
 # See https://learn.microsoft.com/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
@@ -153,13 +154,19 @@ Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 
 The cmdlets should return the key value. Once you have the kerb1 key, create either a [computer account](/powershell/module/activedirectory/new-adcomputer) or [service account](/powershell/module/activedirectory/new-adserviceaccount) in AD under your OU, and use the key as the password for the AD identity.
 
-1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name and `<ADAccountName>` with your AD account name):
+1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name and `<ADAccountName>` with your AD account name).
 
    ```shell
    Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
-2. Set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges):
+2. If you have a user account, modify the UPN to match the SPN for the AD object (you must have AD PowerShell cmdlets installed and execute the cmdlets in PowerShell 5.1 with elevated privileges).
+
+   ```powershell
+   Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
+   ```
+
+3. Set the AD account password to the value of the kerb1 key.
 
    ```powershell
    Set-ADAccountPassword -Identity servername$ -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "kerb1_key_value_here" -Force)
@@ -167,7 +174,7 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
 
-Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represents the storage account doesn't need to be synced to Azure AD.
+Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represents the storage account doesn't need to be synced to Microsoft Entra ID.
 
 ### Enable the feature on your storage account
 

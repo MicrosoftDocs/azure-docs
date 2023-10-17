@@ -4,8 +4,7 @@ description: In this quickstart, get started with the Image Analysis 4.0 client 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
@@ -14,10 +13,9 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart defines a method `AnalyzeAsync()`, which uses the client object to analyze a remote image and print the results to the console. 
+Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console. 
 
-[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis
-) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -25,7 +23,7 @@ Use the Image Analysis client SDK for C# to analyze an image to read text and ge
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or higher installed.
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
@@ -42,7 +40,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
 
 #### [CLI](#tab/cli)
 
@@ -75,6 +73,8 @@ Within the application directory, install the Azure AI Vision client SDK for .NE
 ```dotnet
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 ```
+
+For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
     
 ---
 
@@ -85,9 +85,9 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
 
 > [!TIP]
-> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) repository for scenarios involving local images.
+> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/quick-start/program.cs?name=snippet_single)]
 
 
 Then, build and run the application. You should see output similar to the one shown here.
@@ -107,9 +107,9 @@ dotnet run
 
 ---
 
-
-
 ## Output
+
+The console output should show something similar to the following text:
 
 ```console
 Caption:

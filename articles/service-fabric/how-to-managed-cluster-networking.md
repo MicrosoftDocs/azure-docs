@@ -332,11 +332,11 @@ The following steps describe enable public IP on your node.
 
     ```json
     {
-        "name": "Secondary Node Type", 
+        "name": "<secondary_node_type_name>", 
         "apiVersion": "2023-02-01-preview", 
         "properties": { 
             "isPrimary" : false, 
-            "vmImageResourceId": "/subscriptions/<SubscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/images/<MyCustomImage>", 
+            "vmImageResourceId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Compute/images/<your_custom_image>", 
             "vmSize": "Standard_D2", 
             "vmInstanceCount": 5, 
             "dataDiskSizeGB": 100, 
@@ -364,14 +364,14 @@ The following steps describe enable public IP on your node.
         "ipAddress": "<ip_address_0>",
         "ipConfiguration": {
           "id": "<configuration_id_0>",
-          "resourceGroup": "<your_resource_group"
+          "resourceGroup": "<your_resource_group>"
         },
         "ipTags": [],
         "name": "<name>",
         "provisioningState": "Succeeded",
         "publicIPAddressVersion": "IPv4",
         "publicIPAllocationMethod": "Static",
-        "resourceGroup": "<your_resource_group",
+        "resourceGroup": "<your_resource_group>",
         "resourceGuid": "resource_guid_0",
         "sku": {
           "name": "Standard"
@@ -384,7 +384,7 @@ The following steps describe enable public IP on your node.
         "ipAddress": "<ip_address_1>",
         "ipConfiguration": {
           "id": "<configuration_id_1>",
-          "resourceGroup": "<your_resource_group"
+          "resourceGroup": "<your_resource_group>"
         },
         "ipTags": [],
         "name": "<name>",
@@ -404,7 +404,7 @@ The following steps describe enable public IP on your node.
         "ipAddress": "<ip_address_2>",
         "ipConfiguration": {
           "id": "<configuration_id_2>",
-          "resourceGroup": "<your_resource_group"
+          "resourceGroup": "<your_resource_group>"
         },
         "ipTags": [],
         "name": "<name>",

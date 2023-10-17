@@ -8,7 +8,7 @@ ms.reviewer: damendo
 
 # Syslog collection with Container Insights (preview)
 
-Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane componemts like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
+Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 > [!IMPORTANT]
 > Syslog collection with Container Insights is a preview feature. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -18,8 +18,8 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 - You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.45.0 (link to release notes)](/cli/azure/release-notes-azure-cli#february-07-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
-  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
-  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
+  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
 
@@ -158,8 +158,8 @@ Select the minimum log level for each facility that you want to collect.
 ## Next steps
 
 Once setup customers can start sending Syslog data to the tools of their choice
-- Send Syslog to Microsoft Sentinel: https://learn.microsoft.com/azure/sentinel/connect-syslog  
-- Export data from Log Analytics: https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export?tabs=portal 
+- [Send Syslog to Microsoft Sentinel](/azure/sentinel/connect-syslog)
+- [Export data from Log Analytics](/azure/azure-monitor/logs/logs-data-export?tabs=portal)
 
 Read more  
 - [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)

@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with migrations from MongoDB to Azure Cosmos DB using the Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 05/18/2022
 ms.service: dms
 ms.topic: troubleshooting
@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - kr2b-contr-experiment
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Known issues with migrations from MongoDB to Azure Cosmos DB

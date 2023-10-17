@@ -13,8 +13,6 @@ ms.custom: public_preview
 
 # Enable Closed captions with Teams Interoperability
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
 Closed captions are a textual representation of a voice or video conversation that is displayed to users in real-time. Azure Communication Services Closed captions offer developers the ability to allow users to select when they wish to toggle captions on or off. These captions are only available during the call/meeting for the user that has selected to enable captions, Azure Communication Services does **not** store these captions anywhere. Closed captions can be accessed through Azure Communication Services client-side SDKs for Web, Windows, iOS and Android.
 
 In this document, we're going to be looking at specifically Teams interoperability scenarios. For example, an Azure Communication Services user joins a Teams meeting and enabling captions or two Microsoft 365 users using Azure Communication Calling SDK to join a call or meeting. 

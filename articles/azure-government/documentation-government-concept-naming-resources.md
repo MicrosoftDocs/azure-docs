@@ -3,8 +3,8 @@ title: Considerations for naming Azure resources
 description: Guidance on naming Azure resources to prevent accidental spillage of sensitive data.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
 ms.date: 01/28/2022
 ---

@@ -30,11 +30,17 @@ This video provides an overview of how to change an access package.
 
 ## Check catalog for resources
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you need to add resources to an access package, you should check whether the resources you need are available in the access package's catalog. If you're an access package manager, you can't add resources to a catalog, even if you own them. You're restricted to using the resources available in the catalog.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open the access package you want to check catalog for resources for.
 
 1. In the left menu, select **Catalog** and then open the catalog.
 
@@ -44,8 +50,8 @@ If you need to add resources to an access package, you should check whether the 
 
 1. If the resources aren't already in the catalog, and you're an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog). The types of resources you can add are groups, applications, and SharePoint Online sites. For example:
 
-   * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give users access to an application that uses AD security group memberships, create a new group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md). Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
-   * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. If your application hasn't yet been integrated with Azure AD, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Azure AD](identity-governance-applications-integrate.md).
+   * Groups can be cloud-created Microsoft 365 Groups or cloud-created Microsoft Entra security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Microsoft Entra ID. To give users access to an application that uses AD security group memberships, create a new group in Microsoft Entra ID, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md). Groups that originate in Exchange Online as Distribution groups can't be modified in Microsoft Entra ID either.
+   * Applications can be Microsoft Entra enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Microsoft Entra ID. If your application hasn't yet been integrated with Microsoft Entra ID, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Microsoft Entra ID](identity-governance-applications-integrate.md).
    * Sites can be SharePoint Online sites or SharePoint Online site collections.
 
 1. If you're an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
@@ -56,11 +62,13 @@ A resource role is a collection of permissions associated with a resource.  Reso
 
 If you want some users to receive different roles than others, then you need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so users can't request access to access packages that would give them excessive access.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open the access package you want to add resource roles to.
 
 1. In the left menu, select **Resource roles**.
 
@@ -77,10 +85,10 @@ You can have entitlement management automatically add users to a group or a team
 - When a group or team is part of an access package and a user is assigned to that access package, the user is added to that group or team, if not already present.
 - When a user's access package assignment expires, they're removed from the group or team, unless they currently have an assignment to another access package that includes that same group or team.
 
-You can select any [Azure AD security group or Microsoft 365 Group](../fundamentals/active-directory-groups-create-azure-portal.md). Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they're owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
+You can select any [Microsoft Entra security group or Microsoft 365 Group](../fundamentals/how-to-manage-groups.md). Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they're owner of the group. Keep the following Microsoft Entra constraints in mind when selecting a group:
 
 - When a user, including a guest, is added as a member to a group or team, they can see all the other members of that group or team.
-- Azure AD can't change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
+- Microsoft Entra ID can't change the membership of a group that was synchronized from Windows Server Active Directory using Microsoft Entra Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups can't be updated by adding or removing a member, so dynamic group memberships aren't suitable for use with entitlement management.
 - Microsoft 365 groups have additional constraints, described in the [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups), including a limit of 100 owners per group, limits on how many members can access Group conversations concurrently, and 7000 groups per member.
 
@@ -115,9 +123,9 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 ## Add an application resource role
 
-You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications integrated with Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD issues federation tokens for users assigned to the application.
+You can have Microsoft Entra ID automatically assign users access to a Microsoft Entra enterprise application, including both SaaS applications and your organization's applications integrated with Microsoft Entra ID, when a user is assigned an access package. For applications that integrate with Microsoft Entra ID through federated single sign-on, Microsoft Entra ID issues federation tokens for users assigned to the application.
 
-Applications can have multiple app roles defined in their manifest. When you add an application to an access package, if that application has more than one app role, you need to specify the appropriate role for those users in each access package. If you're developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
+Applications can have multiple app roles defined in their manifest. When you add an application to an access package, if that application has more than one app role, you need to specify the appropriate role for those users in each access package. If you're developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/enterprise-app-role-management.md). If you're using the Microsoft Authentication Libraries, there is also a [code sample](../develop/sample-v2-code.md) for how to use app roles for access control.
 
 > [!NOTE]
 > If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all those application's roles.  If instead you want users to only have some of the application's roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the application roles.
@@ -130,7 +138,7 @@ Once an application role is part of an access package:
 Here are some considerations when selecting an application:
 
 - Applications may also have groups assigned to their app roles as well.  You can choose to add a group in place of an application role in an access package, however then the application won't be visible to the user as part of the access package in the My Access portal.
-- Azure portal may also show service principals for services that can't be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they can't be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
+- Microsoft Entra admin center may also show service principals for services that can't be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they can't be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 - Applications that only support Personal Microsoft Account users for authentication, and don't support organizational accounts in your directory, don't have application roles and can't be added to access package catalogs.
 
 1. On the **Add resource roles to access package** page, select **Applications** to open the Select applications pane.
@@ -151,7 +159,7 @@ Here are some considerations when selecting an application:
 
 ## Add a SharePoint site resource role
 
-Azure AD can automatically assign users access to a SharePoint Online site or SharePoint Online site collection when they're assigned an access package.
+Microsoft Entra ID can automatically assign users access to a SharePoint Online site or SharePoint Online site collection when they're assigned an access package.
 
 1. On the **Add resource roles to access package** page, select **SharePoint sites** to open the Select SharePoint Online sites pane.
 
@@ -185,21 +193,21 @@ You can add a resource role to an access package using Microsoft Graph. A user i
 
 ### Add resource roles to an access package with Microsoft PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
-First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
+First, you would retrieve the ID of the catalog, and of the resource and its roles in that catalog that you wish to include in the access package, using a script similar to the following.  This assumes there is a single application resource in the catalog.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
 
-$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
-$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
-$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+$catalog = Get-MgBetaEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc.Id + "')"
+$rr = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
 ```
 
-Then, assign the resource roles to the access package.  For example, if you wished to include the second resource role of the first resource returned earlier as a resource role of an access package, you would use a script similar to the following.
+Then, assign the resource role from that resource to the access package.  For example, if you wished to include the second resource role of the resource returned earlier as a resource role of an access package, you would use a script similar to the following.
 
 ```powershell
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
@@ -210,27 +218,29 @@ $rparams = @{
 	   DisplayName = $rr[2].DisplayName
 	   OriginSystem = $rr[2].OriginSystem
 	   AccessPackageResource = @{
-	      Id = $rsc[0].Id
-	      ResourceType = $rsc[0].ResourceType
-	      OriginId = $rsc[0].OriginId
-	      OriginSystem = $rsc[0].OriginSystem
+	      Id = $rsc.Id
+	      ResourceType = $rsc.ResourceType
+	      OriginId = $rsc.OriginId
+	      OriginSystem = $rsc.OriginSystem
 	   }
 	}
 	AccessPackageResourceScope = @{
-	   OriginId = $rsc[0].OriginId
-	   OriginSystem = $rsc[0].OriginSystem
+	   OriginId = $rsc.OriginId
+	   OriginSystem = $rsc.OriginSystem
 	}
 }
-New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid -BodyParameter $rparams
+New-MgBetaEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid -BodyParameter $rparams
 ```
 
 ## Remove resource roles
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open the access package you want to remove resource roles for.
 
 1. In the left menu, select **Resource roles**.
 
@@ -242,16 +252,16 @@ New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid
 
 ## When changes are applied
 
-In entitlement management, Azure AD processes bulk changes for assignment and resources in your access packages several times a day. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Azure AD, plus the amount of time it takes to propagate those changes to other Microsoft Online Services or connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Azure AD, after which other Azure AD components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change takes longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role. You can monitor the progress through the Azure AD audit log, the Azure AD provisioning log, and the SharePoint site audit logs.
+In entitlement management, Microsoft Entra ID processes bulk changes for assignment and resources in your access packages several times a day. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Microsoft Entra ID, plus the amount of time it takes to propagate those changes to other Microsoft Online Services or connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Microsoft Entra ID, after which other Microsoft Entra components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change takes longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role. You can monitor the progress through the Microsoft Entra audit log, the Microsoft Entra provisioning log, and the SharePoint site audit logs.
 
 When you remove a member of a team, they're removed from the Microsoft 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
 
 When a resource role is added to an access package by an admin, users who are in that resource role, but don't have assignments to the access package, will remain in the resource role, but won't be assigned to the access package. For example, if a user is a member of a group and then an access package is created and that group's member role is added to an access package, the user won't automatically receive an assignment to the access package.
 
-If you want the users to also be assigned to the access package, you can [directly assign users](entitlement-management-access-package-assignments.md#directly-assign-a-user) to an access package using the Azure portal, or in bulk via Graph or PowerShell. The users will then also receive access to the other resource roles in the access package.  However, as those users already have access prior to being added to the access package, when their access package assignment is removed, they remain in the resource role.  For example, if a user was a member of a group, and was assigned to an access package that included group membership for that group as a resource role, and then that user's access package assignment was removed, the user would retain their group membership.
+If you want the users to also be assigned to the access package, you can [directly assign users](entitlement-management-access-package-assignments.md#directly-assign-a-user) to an access package using the Microsoft Entra admin center, or in bulk via Graph or PowerShell. The users will then also receive access to the other resource roles in the access package.  However, as those users already have access prior to being added to the access package, when their access package assignment is removed, they remain in the resource role.  For example, if a user was a member of a group, and was assigned to an access package that included group membership for that group as a resource role, and then that user's access package assignment was removed, the user would retain their group membership.
 
 ## Next steps
 
-- [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md)
+- [Create a basic group and add members using Microsoft Entra ID](../fundamentals/how-to-manage-groups.md)
+- [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/enterprise-app-role-management.md)
 - [Introduction to SharePoint Online](/sharepoint/introduction)

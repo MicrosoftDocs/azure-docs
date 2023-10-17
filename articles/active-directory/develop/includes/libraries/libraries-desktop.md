@@ -10,7 +10,7 @@
 | React Native | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
 
-<sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
+<sup>1</sup> [Universal License Terms for Online Services][preview-tos] apply to libraries in *Public preview*.
 
 <!--Image references-->
 
@@ -20,4 +20,4 @@
 
 <!--Reference-style links -->
 
-[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all

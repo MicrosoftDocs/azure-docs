@@ -5,7 +5,7 @@ services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 09/27/2022
+ms.date: 08/10/2023
 ms.author: clemensv
 ms.custom: include file
 
@@ -18,9 +18,8 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
 ### Add the Relay NuGet package
 
 1. Right-click the newly created project, and then select **Manage NuGet Packages**.
-2. Select **Include prerelease** option. 
-3. Select **Browse**, and then search for **Microsoft.Azure.Relay**. In the search results, select  **Microsoft Azure Relay**.
-5. Select **Install** to complete the installation. Close the dialog box.
+2. Select **Browse**, and then search for **Microsoft.Azure.Relay**. In the search results, select  **Microsoft Azure Relay**.
+3. Select **Install** to complete the installation. Close the dialog box.
 
 ### Write code to receive messages
 
@@ -109,6 +108,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         using System.Threading;
         using System.Threading.Tasks;
         using Microsoft.Azure.Relay;
+        using System.Net;
    
         public class Program
         {

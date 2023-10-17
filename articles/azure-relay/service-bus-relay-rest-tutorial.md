@@ -3,7 +3,7 @@ title: 'Tutorial: REST tutorial using Azure Relay'
 description: 'Tutorial: Build an Azure Relay host application that exposes a REST-based interface.'
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 06/21/2022
+ms.date: 08/11/2023
 ---
 
 # Tutorial: Azure WCF Relay REST tutorial
@@ -59,7 +59,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
     This step adds references to Service Bus and *System.ServiceModel.dll*. This package automatically adds references to the Service Bus libraries and the WCF `System.ServiceModel`.
 
 1. Explicitly add a reference to `System.ServiceModel.Web.dll` to the project. In **Solution Explorer**, right-click **References** under the project folder, and select **Add Reference**.
-1. In **Add Reference**, select **Framework** and enter *System.ServiceModel.Web* in **Search**. Select the **System.ServiceModel.Web** check box, then click **OK**.
+1. In **Add Reference**, select **Framework** and enter *System.ServiceModel.Web* in **Search**. Select the **System.ServiceModel.Web** check box, then select **OK**.
 
 Next, make the following code changes to the project:
 
@@ -251,7 +251,7 @@ As with the previous steps, there's little difference between implementing a RES
 
 1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor.
 
-    The *App.config* file includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
+    The *App.config* file includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference here's that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
 
 1. The `<system.serviceModel>` XML element is a WCF element that defines one or more services. Here, it's used to define the service name and endpoint. At the bottom of the `<system.serviceModel>` element, but still within `<system.serviceModel>`, add a `<bindings>` element that has the following content:
 

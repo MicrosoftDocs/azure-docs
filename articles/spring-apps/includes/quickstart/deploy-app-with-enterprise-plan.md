@@ -2,12 +2,12 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: include
 ms.date: 08/09/2023
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Enterprise plan.
 
 [!INCLUDE [deploy-event-driven-app-with-enterprise-plan](includes/quickstart/deploy-app-with-enterprise-plan.md)]
@@ -16,15 +16,19 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-## [Azure CLI](#tab/Azure-CLI)
+### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]
+The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [spring-cloud-azure-tools releases](https://github.com/Azure/spring-cloud-azure-tools/releases) page on GitHub. No local preparation steps are needed.
 
-## [IntelliJ](#tab/IntelliJ)
+### [Azure CLI](#tab/Azure-CLI)
 
-[!INCLUDE [generate-spring-project](../../includes/quickstart/generate-spring-project.md)]
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
-## [Visual Studio Code](#tab/visual-studio-code)
+### [IntelliJ](#tab/IntelliJ)
+
+[!INCLUDE [generate-spring-project](generate-spring-project.md)]
+
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To prepare the Spring project, follow the steps in the [Before you begin](https://code.visualstudio.com/docs/java/java-spring-apps#_before-you-begin) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
@@ -32,9 +36,13 @@ To prepare the Spring project, follow the steps in the [Before you begin](https:
 
 ## 3. Prepare the cloud environment
 
-Use the following steps to create an Azure Spring Apps service instance.
+This section describes how to create an Azure Spring Apps service instance and prepare the Azure cloud environment.
 
-## [Azure CLI](#tab/Azure-CLI)
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
 
@@ -107,9 +115,9 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az term accept \
-      --publisher vmware-inc \
-      --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan asa-ent-hr-mtr
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance:
@@ -135,7 +143,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-## [IntelliJ](#tab/IntelliJ)
+### [IntelliJ](#tab/IntelliJ)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -143,9 +151,9 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
-## [Visual Studio Code](#tab/visual-studio-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To create an Azure Spring Apps instance, follow the steps in the [Create an app on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps#_create-an-app-on-azure-spring-apps) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
@@ -153,9 +161,11 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 ## 4. Deploy the app to Azure Spring Apps
 
-This section provides the steps to deploy your application to Azure Spring Apps.
+### [Azure portal](#tab/Azure-portal-ent)
 
-## [Azure CLI](#tab/Azure-CLI)
+[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to deploy the *.jar* file for the app:
 
@@ -163,18 +173,21 @@ Use the following command to deploy the *.jar* file for the app:
 az spring app deploy \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
-    --artifact-path target/demo-0.0.1-SNAPSHOT.jar
+    --artifact-path target/demo-0.0.2-SNAPSHOT.jar
 ```
 
 Deploying the application can take a few minutes.
 
-## [IntelliJ](#tab/IntelliJ)
+### [IntelliJ](#tab/IntelliJ)
+
+This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### 4.1. Import the project
 
 Use the following steps to import the project:
 
-1. Open IntelliJ IDEA and then select **Open**.
+1. Open IntelliJ IDEA and select **Open**.
+
 1. In the **Open File or Project** dialog box, select the *demo* folder.
 
    :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA that shows the Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
@@ -193,16 +206,20 @@ Use the following steps to build and deploy your app:
    :::image type="content" source="../../media/quickstart/intellij-deploy-azure.png" alt-text="Screenshot of the IntelliJ IDEA menu that shows the Deploy to Azure Spring Apps option." lightbox="../../media/quickstart/intellij-deploy-azure.png":::
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
+
 1. In the **Artifact** textbox, select **Maven:demo(Java 17)**.
+
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Create an Azure Spring Apps instance](#32-create-an-azure-spring-apps-instance) section.
+
+1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created.
+
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of the IntelliJ IDEA that shows the Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
 
 1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select **More settings**.
-1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**.
-1. Select **OK**.
+
+1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**. Then, select **OK**.
 
    :::image type="content" source="../../media/quickstart/intellij-more-settings.png" alt-text="Screenshot of IntelliJ IDEA Create app dialog box with public endpoint Disable button highlighted." lightbox="../../media/quickstart/intellij-more-settings.png":::
 
@@ -214,11 +231,11 @@ Use the following steps to build and deploy your app:
 
    :::image type="content" source="../../media/quickstart/intellij-maven-goal-command-line.png" alt-text="Screenshot of IntelliJ IDEA Select Maven Goal dialog box with Command Line value highlighted." lightbox="../../media/quickstart/intellij-maven-goal-command-line.png":::
 
-1. To start the deployment, select the **Run** button at the bottom of the **Deploy to Azure** dialog box. The plug-in runs the command `mvn package -DskipTests` on the `demo` app and deploys the *.jar* file generated by the `package` command.
+1. To start the deployment, select the **Run** button at the bottom of the **Deploy to Azure** dialog box. The plug-in runs the Maven command `package -DskipTests` on the `demo` app and deploys the *.jar* file generated by the `package` command.
 
-Deploying the application can take a few minutes.
+Deploying the application can take a few minutes. You can see the public URL of the application in the output console log.
 
-## [Visual Studio Code](#tab/visual-studio-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To deploy the app to Azure Spring Apps, follow the steps in the [Build and deploy the app](https://code.visualstudio.com/docs/java/java-spring-apps#_build-and-deploy-the-app) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 

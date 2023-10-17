@@ -22,7 +22,7 @@ This article shows you how to use the Microsoft 365 license center to assign lic
 > [!NOTE]
 > Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the Usage location property on the user.
 >
-> For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Azure AD. For example, configure Azure AD Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
+> For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Microsoft Entra ID. For example, configure Microsoft Entra Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
 
 ## Assign a license
 
@@ -48,7 +48,7 @@ This article shows you how to use the Microsoft 365 license center to assign lic
 
    ![Screenshot of the portal section that allows you to choose assign after selecting the group](./media/licensing-admin-center/choose-assign.png)
 
-When assign licenses to a group, Azure AD processes all existing members of that group. This process might take some time depending on the size of the group.
+When assign licenses to a group, Microsoft Entra ID processes all existing members of that group. This process might take some time depending on the size of the group.
 
    ![Screenshot of message telling the administrator that they have assigned a license to a group](./media/licensing-admin-center/licenses-assignment-message.png)
 
@@ -67,5 +67,5 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-- [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)

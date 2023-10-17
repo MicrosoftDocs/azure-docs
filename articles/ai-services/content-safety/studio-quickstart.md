@@ -5,8 +5,7 @@ description: In this quickstart, get started with the Content Safety service usi
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023, build-2023-dataai
 ms.topic: quickstart
 ms.date: 04/27/2023

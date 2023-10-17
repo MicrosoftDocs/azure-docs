@@ -2,13 +2,15 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 08/11/2023
 ms.reviewer: saars
 ---
 
 # IP addresses used by Azure Monitor
 
 [Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
+
+:::image type="content" source="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.
@@ -249,3 +251,48 @@ Managing changes to source IP addresses can be time consuming. Using *service ta
 | Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I monitor an intranet web server?
+
+Yes, but you need to allow traffic to our services by either firewall exceptions or proxy redirects:
+
+- QuickPulse `https://rt.services.visualstudio.com:443`
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443`
+- TelemetryChannel `https://dc.services.visualstudio.com:443`
+          
+See [IP addresses used by Azure Monitor](./ip-addresses.md) to review our full list of services and IP addresses.
+          
+### How do I reroute traffic from my server to a gateway on my intranet?
+          
+Route traffic from your server to a gateway on your intranet by overwriting endpoints in your configuration. If the `Endpoint` properties aren't present in your config, these classes use the default values shown in the following ApplicationInsights.config example.
+          
+Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
+          
+#### Example ApplicationInsights.config with default endpoints:
+          
+```xml
+<ApplicationInsights>
+...
+<TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+    <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+</TelemetryModules>
+    ...
+<TelemetryChannel>
+    <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+</TelemetryChannel>
+...
+<ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+</ApplicationIdProvider>
+...
+</ApplicationInsights>
+```
+
+> [!NOTE]
+> `ApplicationIdProvider` is available starting in v2.6.0.

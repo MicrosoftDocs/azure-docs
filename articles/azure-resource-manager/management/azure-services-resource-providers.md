@@ -18,10 +18,10 @@ The resources providers that are marked with **- registered** are registered by 
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
-| Microsoft.ADHybridHealthService - [registered](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft.ADHybridHealthService - [registered](#registration) | [Microsoft Entra ID](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -33,7 +33,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
-| Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft.AzureActiveDirectory | [Microsoft Entra ID B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureArcData | Azure Arc-enabled data services |
 | Microsoft.AzureData | SQL Server registry |
 | Microsoft.AzureStack | core |
@@ -83,13 +83,12 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
 | Microsoft.DeviceUpdate | [Device Update for IoT Hub](../../iot-hub-device-update/index.yml)
-| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](../../app-service/index.yml) |
-| Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index ) |
+| Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
 | Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
@@ -178,7 +177,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
@@ -195,7 +194,7 @@ Resource providers marked with **- registered** in the previous section are auto
 > [!IMPORTANT]
 > Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription. A malicious user can't use unregistered resource providers.
 >
-> Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
+> Registering unnecessary resource providers may result in unrecognized apps appearing in your Microsoft Entra tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
 
 ## Find resource provider
 

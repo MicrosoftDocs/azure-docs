@@ -4,10 +4,9 @@ metadata:
   description: Frequently asked questions about Document Intelligence service.
   author: laujan
   manager: nitinme
-  ms.service: applied-ai-services
-  ms.subservice: forms-recognizer
+  ms.service: azure-ai-document-intelligence
   ms.topic: faq
-  ms.date: 08/02/2023
+  ms.date: 08/17/2023
   ms.author: lajanuar
   monikerRange: '<=doc-intel-3.1.0'
 
@@ -24,20 +23,28 @@ sections:
           What is Azure AI Document Intelligence and what happened to Form Recognizer?
         answer: |
 
-          - Form Recognizer is now Azure AI Document Intelligence!
-
           - Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
           - Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
-          - As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+          - As of July 2023, Form Recognizer is now Azure AI Document Intelligence!
+
+          -  Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+
+           - There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
+
+           - There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
+           - Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
+
+
 
       - question: |
           How is Document Intelligence related to Document Generative AI?
         answer: |
 
           A Document Generative AI solution can enable you to chat with your documents, generate captivating content from them and access the power of Azure OpenAI models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural languages, easily find answers and gain valuable insights, effortlessly generate new and engaging content from your existing documents. Check for more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
-      
+
       - question: |
           Which Document Intelligence use cases require special consideration?
         answer: |
@@ -188,7 +195,7 @@ sections:
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://oss.sonatype.org/#nexus-search; quick-azure-ai-formrecognizer)
+          - [Java](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
@@ -206,7 +213,7 @@ sections:
             | JavaScript | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
             | Python | [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) |[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
-           For more information, *see* [Supported clients](sdk-overview.md#supported-clients)
+           For more information, *see* [Supported clients](sdk-overview-v3-1.md#supported-clients)
 
 
       - question: |
@@ -444,7 +451,7 @@ sections:
 
           - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
 
-          - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
@@ -517,7 +524,7 @@ sections:
 
           - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Microsoft Entra ID.
 
           - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 

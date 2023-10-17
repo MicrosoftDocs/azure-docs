@@ -1,16 +1,38 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 07/31/2023
 ms.author: eur
 ---
 
+### Upcoming plans for Linux and Android users:
+
+* With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This will streamline usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
+* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
+
+### Upcoming Plans for JavaScript SDK:
+
+* JS SDK is planning to move our compiled JS output target from ES5 to ES6 with the 1.33 release.
+
+### Speech SDK 1.32.1: September 2023 release    
+
+#### Bug fixes
+* Android packages updates with latest security fixes from OpenSSL1.1.1v
+* JS – WebWorkerLoadType property added to allow bypass of data URL load for timeout worker	
+* JS – Fix Conversation Translation disconnect after 10 minutes
+* JS – Conversation Translation auth token from Conversation now propagates to Translation service connection
+    
+
+#### Samples
+
+* [conversation transcription with Swift APIs](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/conversation-transcription/README.md)
+
 ### Speech SDK 1.31.0: August 2023 release
 
 #### New Features
 
-* Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python. 
+* Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, Python and Objective-C/Swift.
 
 * Synchronized speech synthesis word boundary and viseme events with audio playback
 
@@ -35,10 +57,15 @@ This table shows the previous and new object names for real-time diarization and
 #### Bug fixes
 
 * Fixed macOS minimum supported version https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2017
-
+* Fixed Pronunciation Assessment bug:
+  - Addressed phoneme accuracy scores issue, ensuring they now accurately reflect only the specific mispronounced phoneme. https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1917
+  - Resolved an issue where the Pronunciation Assessment feature was inaccurately identifying entirely correct pronunciations as erroneous, particularly in situations where words could have multiple valid pronunciations. https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1530
+  
 #### Samples
 
 * **CSharp**
+
+    * [New C# conversation transcription quickstart](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/README.md)
 
     * [New C# meeting transcription quickstart](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/meeting-transcription/README.md)
 
