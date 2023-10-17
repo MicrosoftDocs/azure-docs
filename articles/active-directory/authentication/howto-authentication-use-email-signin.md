@@ -64,6 +64,7 @@ In the current preview state, the following limitations apply to email as an alt
     * [Microsoft Entra joined devices](../devices/concept-directory-join.md)
     * [Microsoft Entra registered devices](../devices/concept-device-registration.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
+    * [Single Sign-On and App Protection Policies on Mobile Platform](../develop/mobile-sso-support-overview.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
 
