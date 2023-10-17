@@ -106,7 +106,7 @@ In cluster configurations, make iSCSI initiator names unique across all nodes th
 
 Update /etc/iscsi/iscsid.conf file with the following values:
 
-|Description  |Value  |
+|Description  |Parameter and value  |
 |---------|---------|
 |# Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB     |node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144         |
 |# Set maximum SCSI payload that the initiator negotiates with the target to 256 KB     |node.session.iscsi.MaxBurstLength = 262144         |
