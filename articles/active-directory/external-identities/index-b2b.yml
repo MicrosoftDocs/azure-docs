@@ -99,5 +99,5 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure cross-tenant synchronization
-            url: ../multi-tenant-organizations/cross-tenant-synchronization-overview
+            url: /azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-overview
              
