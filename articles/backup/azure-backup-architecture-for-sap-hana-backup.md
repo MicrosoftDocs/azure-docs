@@ -142,6 +142,19 @@ This section provides you with an understanding about the backup process of an H
 >[!Note]
 >For the HANA VMs that are already backed-up as individual machines, you can do the grouping only for future backups.  
 
+### Backup architecture for database instance snapshot
+
+
+
+**SAP HANA database instance snapshot backup**
+
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-backup-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot backup architecture.":::
+
+**SAP HANA database instance snapshot restore**
+
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-restore-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot restore architecture.":::
+
+
 ## Next steps
 
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
