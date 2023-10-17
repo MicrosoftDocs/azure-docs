@@ -24,7 +24,6 @@ The following services are currently supported for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
-- Azure Batch
 - Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
@@ -45,7 +44,6 @@ The following services are currently supported for Customer Lockbox:
 - Azure Kubernetes Service
 - Azure Load Testing (CloudNative Testing)
 - Azure Logic Apps
-- Azure Machine Learning
 - Azure Monitor
 - Azure Red Hat OpenShift
 - Azure Spring Apps
