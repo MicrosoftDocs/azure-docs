@@ -67,7 +67,7 @@ If you are developing a Web application that includes a backend, and consuming a
 <!--Image references-->
 
 <!--Reference style links in use-->
-[ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
+[ACOM-How-And-Why-Apps-Added-To-AAD]: ../develop/configure-app-multi-instancing.md
 [ACOM-How-To-Integrate]: ../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
