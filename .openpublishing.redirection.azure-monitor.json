@@ -6375,21 +6375,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/separate-resources#about-resources-and-instrumentation-keys",
-            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#about-resources-and-instrumentation-keys",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/app/separate-resources.md#when-to-use-a-single-application-insights-resource",
-            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#when-to-use-a-single-application-insights-resource",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region",
-            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/app/separate-resources.md",
             "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#how-many-application-insights-resources-should-i-deploy",
             "redirect_document_id": false
