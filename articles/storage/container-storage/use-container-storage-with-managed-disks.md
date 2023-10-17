@@ -30,7 +30,7 @@ ms.custom: references_regions
 First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
 
 > [!IMPORTANT]
-> If you want to use your own keys to encrypt your volumes instead of using Microsoft-managed keys, don't define your storage pool using the steps in this section. Instead, go to [Enable server-side encryption with customer-managed keys](#enable-server-side-encryption-with-customer-managed-keys) and follow the steps there.
+> If you want to use your own keys to encrypt your volumes instead of using Microsoft-managed keys, don't create your storage pool using the steps in this section. Instead, go to [Enable server-side encryption with customer-managed keys](#enable-server-side-encryption-with-customer-managed-keys) and follow the steps there.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -73,18 +73,22 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 ## Enable server-side encryption with customer-managed keys
 
-If you already created a storage pool or you prefer to use Microsoft-managed encryption keys, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+If you already created a storage pool or you prefer to use the default Microsoft-managed encryption keys, skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
 
-All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) to use to encrypt your persistent volumes that are created from an Azure Disk storage pool. To do this, you must have an Azure Key Vault with a key. Learn more about customer-managed keys on Linux and Windows.
+All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) to encrypt the persistent volumes that you'll create from an Azure Disk storage pool. To do this, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key, and you need to define CMK parameters when creating your storage pool. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
 
-> [!NOTE]
-> All persistent volumes created from the same storage pool will be encrypted using the same key.
+The required CMK encryption parameters are:
+
+- **keyVersion** specifies the version of the key to use
+- **keyName** is the name of your key
+- **keyVaultUri** is the uniform resource identifier of the Azure Key Vault, for example `https://user.vault.azure.net`
+- **Identity** specifies a managed identity with access to the vault, for example `/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/MC_user-acstor-westus2-rg_user-acstor-westus2_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-acstor-westus2-agentpool`
+
+Follow these steps to create a storage pool using your own encryption key. All persistent volumes created from this storage pool will be encrypted using the same key.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool-cmk.yaml`.
 
-1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
-
-   The required CMK parameters are as follows: **keyVersion** specifies the version of the key to use, **keyName** is the name of your key, and **keyVaultUri** is the uniform resource identifier of the Azure Key Vault, for example `https://user.vault.azure.net`. **Identity** is a string that specifies a managed identity with access to the vault, for example `/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/MC_user-acstor-westus2-rg_user-acstor-westus2_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-acstor-westus2-agentpool`.
+1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Be sure to supply the encryption parameters.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1beta1
