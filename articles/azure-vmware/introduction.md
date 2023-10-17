@@ -108,7 +108,7 @@ The following three scenarios show examples of instances that would normally err
 **Identify the host that can be removed without causing a vSAN FD imbalance**
 A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
 
-### AV64 Supported RAID Configuration 
+### AV64 supported RAID configuration 
 
 This table provides the list of RAID configuration supported and host requirements in AV64 cluster. 
 
