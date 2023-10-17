@@ -11,7 +11,7 @@ ms.author: jsuri
 
 ## Configure snapshot backup
 
-Before you configure a snapshot backup in this section, [configure the backup for the database](./articles/backup/backup-azure-sap-hana-database.md#configure-backup).
+Before you configure a snapshot backup in this section, [configure the backup for the database](/azure/backup/backup-azure-sap-hana-database#configure-backup).
 
 Then, to configure a snapshot backup, do the following:
 

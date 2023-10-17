@@ -34,7 +34,7 @@ According to SAP, it's mandatory to run a weekly full backup of all databases wi
 
 >[!Important]
 >- As per SAP advisory, we recommend you to configure *Database via Backint* with *weekly fulls + log backup only* policy before configuring *DB Instance via Snapshot* backup. If *weekly fulls + logs backup only using Backint based backup* isn't enabled, snapshot backup configuration will fail.
->
+>     :::image type="content" source="./media/sap-hana-database-instances-backup/backup-goal-database-via-backint.png" alt-text="Screenshot shows the 'Database via Backint' backup goal.":::
 >- Because the policy doesn’t call for differential or incremental backups, we do *not* recommend that you trigger on-demand differential backups from any client.
 
 To summarize the backup policy:
