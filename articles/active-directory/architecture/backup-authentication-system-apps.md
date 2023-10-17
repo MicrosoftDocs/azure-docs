@@ -49,8 +49,8 @@ Native applications are public client applications that run directly on desktop 
 
 Native applications are protected by the backup authentication system when all the following are true: 
 
-1. Your application persists the token cache for at least three days. Applications should use the device’s token cache location or the [token cache serialization API](../develop/msal-net-token-cache-serialization.md) to persist the token cache even when the user closes the application. 
-1. Your application makes use of the MSAL [AcquireTokenSilent API](../develop/msal-net-acquire-token-silently.md) to retrieve tokens using cached Refresh Tokens. The use of the [AcquireTokenInteractive API](../develop/scenario-desktop-acquire-token-interactive.md) may fail to acquire a token from the backup authentication system if user interaction is required. 
+1. Your application persists the token cache for at least three days. Applications should use the device’s token cache location or the [token cache serialization API](/entra/msal/dotnet/how-to/token-cache-serialization) to persist the token cache even when the user closes the application. 
+1. Your application makes use of the MSAL [AcquireTokenSilent API](/entra/msal/dotnet/acquiring-tokens/acquire-token-silently) to retrieve tokens using cached Refresh Tokens. The use of the [AcquireTokenInteractive API](../develop/scenario-desktop-acquire-token-interactive.md) may fail to acquire a token from the backup authentication system if user interaction is required. 
 
 The backup authentication system doesn't currently support the [device authorization grant](../develop/v2-oauth2-device-code.md).
 

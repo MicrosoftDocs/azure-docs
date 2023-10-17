@@ -52,7 +52,7 @@ To transform groups and distribution lists:
 
 * For self-managed group capabilities provided by Microsoft Identity Manager, replace the capability with self-service group management.
 
-* You can [convert distribution lists to Microsoft 365 groups](/microsoft-365/admin/manage/upgrade-distribution-lists) in Outlook. This approach is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
+* You can [convert distribution lists to Microsoft 365 groups](/microsoft-365/admin/create-groups/office-365-groups) in Outlook. This approach is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
 
 * Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](/exchange/decommission-on-premises-exchange).
 
@@ -106,7 +106,7 @@ You can integrate non-Windows workstations with Microsoft Entra ID to enhance th
 
     * Deploy the [Microsoft Enterprise SSO (single sign-on) plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
-    * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319).
+    * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319).
 
 * For Linux, you can [sign in to a Linux virtual machine (VM) by using Microsoft Entra credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
@@ -128,7 +128,7 @@ This project has two primary initiatives:
 
 For more information, see:
 
-* [Deploy Microsoft Entra joined VMs in Azure Virtual Desktop](../../virtual-desktop/azure-ad-joined-session-hosts.md)
+* [Deploy Microsoft Entra joined VMs in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts)
 
 * [Windows 365 planning guide](/windows-365/enterprise/planning-guide)
 
@@ -214,9 +214,9 @@ Use the following table to determine what Azure-based tools you can use to repla
 | Management area | On-premises (Active Directory) feature | Equivalent Microsoft Entra feature |
 | - | - | -|
 | Security policy management| GPO, Microsoft Configuration Manager| [Microsoft 365 Defender for Cloud](https://azure.microsoft.com/services/security-center/) |
-| Update management| Microsoft Configuration Manager, Windows Server Update Services| [Azure Automation Update Management](../../automation/update-management/overview.md) |
-| Configuration management| GPO, Microsoft Configuration Manager| [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) |
-| Monitoring| System Center Operations Manager| [Azure Monitor Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) |
+| Update management| Microsoft Configuration Manager, Windows Server Update Services| [Azure Automation Update Management](/azure/automation/update-management/overview) |
+| Configuration management| GPO, Microsoft Configuration Manager| [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) |
+| Monitoring| System Center Operations Manager| [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) |
 
 Here's more information that you can use for application server management:
 
@@ -244,7 +244,7 @@ To reduce or eliminate those dependencies, you have three main approaches.
 
 In the most preferred approach, you undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Microsoft Entra ID directly:
 
-1. Deploy Microsoft Entra Domain Services into an Azure virtual network and [extend the schema](/azure/active-directory-domain-services/concepts-custom-attributes) to incorporate additional attributes needed by the applications.
+1. Deploy Microsoft Entra Domain Services into an Azure virtual network and [extend the schema](/entra/identity/domain-services/concepts-custom-attributes) to incorporate additional attributes needed by the applications.
 
 2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Microsoft Entra Domain Services.
 
@@ -253,7 +253,7 @@ In the most preferred approach, you undertake projects to migrate from legacy ap
 4. As legacy apps retire through attrition, eventually decommission Microsoft Entra Domain Services running in the Azure virtual network.
 
 >[!NOTE]
->* Use Microsoft Entra Domain Services if the dependencies are aligned with [common deployment scenarios for Microsoft Entra Domain Services](../../active-directory-domain-services/scenarios.md). 
+>* Use Microsoft Entra Domain Services if the dependencies are aligned with [common deployment scenarios for Microsoft Entra Domain Services](/entra/identity/domain-services/scenarios). 
 >* To validate if Microsoft Entra Domain Services is a good fit, you might use tools like [Service Map in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [automatic dependency mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
 >* Validate that your SQL Server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
@@ -300,7 +300,7 @@ This approach enables you to decouple the app from the existing Active Directory
 
 ### Move VPN authentication
 
-This project focuses on moving your VPN authentication to Microsoft Entra ID. It's important to know that different configurations are available for VPN gateway connections. You need to determine which configuration best fits your needs. For more information on designing a solution, see [VPN gateway design](../../vpn-gateway/design.md). 
+This project focuses on moving your VPN authentication to Microsoft Entra ID. It's important to know that different configurations are available for VPN gateway connections. You need to determine which configuration best fits your needs. For more information on designing a solution, see [VPN gateway design](/azure/vpn-gateway/design). 
 
 Here are key points about usage of Microsoft Entra ID for VPN authentication:
 
@@ -310,7 +310,7 @@ Here are key points about usage of Microsoft Entra ID for VPN authentication:
 
   * [Tutorial: Microsoft Entra SSO integration with Palo Alto Networks GlobalProtect](../saas-apps/palo-alto-networks-globalprotect-tutorial.md) 
 
-* For Windows 10 devices, consider integrating [Microsoft Entra ID support into the built-in VPN client](/windows-server/remote/remote-access/vpn/ad-ca-vpn-connectivity-windows10).
+* For Windows 10 devices, consider integrating [Microsoft Entra ID support into the built-in VPN client](/windows-server/remote/remote-access/how-to-aovpn-conditional-access).
 
 * After you evaluate this scenario, you can implement a solution to remove your dependency with on-premises to authenticate to VPN.
 
@@ -320,7 +320,7 @@ To simplify your environment, you can use [Microsoft Entra application proxy](..
 
 It's important to mention that enabling remote access to an application by using the preceding technologies is an interim step. You need to do more work to completely decouple the application from Active Directory. 
 
-Microsoft Entra Domain Services allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Microsoft Entra application proxy to enable remote access. To learn more about this scenario, check [Deploy Microsoft Entra application proxy for Microsoft Entra Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
+Microsoft Entra Domain Services allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Microsoft Entra application proxy to enable remote access. To learn more about this scenario, check [Deploy Microsoft Entra application proxy for Microsoft Entra Domain Services](/entra/identity/domain-services/deploy-azure-app-proxy).
 
 ## Next steps
 
