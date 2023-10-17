@@ -124,13 +124,13 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-With the Web trust system, updating your linked domain isn't supported. You have to opt-out and re-onboard.
+With the Web trust system, updating your linked domain isn't supported. You have to opt out and re-onboard.
 
 ## Linked Domain domain made easy for developers
 
 The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name is, other than it contains your storage account name as part of it's hostname.
 
-Follow these steps to quickly setup a domain to use for Linked Domain:
+Follow these steps to quickly set up a domain to use for Linked Domain:
 
 1. Create an **Azure Storage account**. During storage account creation, choose StorageV2 (general-purpose v2 account) and Locally redundant storage (LRS).
 1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you can't see the **Static website** menu item, you didn't create a **V2** storage account.

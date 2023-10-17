@@ -53,7 +53,7 @@ The retired API endpoints will not work after October 2023, 2023.
 
 ## August 2023
 
-The `presentation_verified` callback from the Request Service API now returns when a Verified ID credential was issued and when it expires. Business rules can use these values to see the time windoww of when the presented Verified ID credential is valid. An example of this is that it expires in an hour while the business required in needs to be valid until the end of the day.
+The `presentation_verified` callback from the Request Service API now returns when a Verified ID credential was issued and when it expires. Business rules can use these values to see the time window of when the presented Verified ID credential is valid. An example of this is that it expires in an hour while the business required in needs to be valid until the end of the day.
 
 ## June 2023
 
@@ -72,7 +72,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 - Admin API now supports [application access tokens](admin-api.md#authentication) and in addition to user bearer tokens.
 - Introducing the Entra Verified ID [Services partner gallery](services-partners.md) listing trusted partners that can help accelerate your Entra Verified ID implementation.
 - Improvements to our Administrator onboarding experience in the [Admin portal](verifiable-credentials-configure-tenant.md#register-decentralized-id-and-verify-domain-ownership) based on customer feedback.
-- Updates to our samples in [github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
+- Updates to our samples in [Github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
 
 ## February 2023
 
