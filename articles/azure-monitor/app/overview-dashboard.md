@@ -48,7 +48,7 @@ A "resource not found" error can occur if you move or rename your Application In
 
 To work around this behavior, delete the default dashboard and select **Application Dashboard** again to re-create a new one.
 
-# Create custom KPI dashboards using Application Insights
+## Create custom KPI dashboards using Application Insights
 
 You can create multiple dashboards in the Azure portal that include tiles visualizing data from multiple Azure resources across different resource groups and subscriptions. You can pin different charts and views from Application Insights to create custom dashboards that provide you with a complete picture of the health and performance of your application. This tutorial walks you through the creation of a custom dashboard that includes multiple types of data and visualizations from Application Insights.
 
@@ -61,7 +61,7 @@ You can create multiple dashboards in the Azure portal that include tiles visual
 > * Add a custom metric chart based on Application Insights to the dashboard.
 > * Add the results of a Log Analytics query to the dashboard.
 
-## Prerequisites
+### Prerequisites
 
 To complete this tutorial:
 
@@ -71,11 +71,11 @@ To complete this tutorial:
 > [!NOTE]
 > Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](../../azure-portal/azure-portal-dashboard-share-access.md).
 
-## Sign in to Azure
+### Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a new dashboard
+### Create a new dashboard
 
 > [!WARNING]
 > If you move your Application Insights resource over to a different resource group or subscription, you'll need to manually update the dashboard by removing the old tiles and pinning new tiles from the same Application Insights resource at the new location.
@@ -99,7 +99,7 @@ A single dashboard can contain resources from multiple applications, resource gr
 
 1. Select **Done customizing** at the top of the screen to exit tile customization mode.
 
-## Add health overview
+### Add health overview
 
 A dashboard with static text isn't very interesting, so add a tile from Application Insights to show information about your application. You can add Application Insights tiles from the **Tile Gallery**. You can also pin them directly from Application Insights screens. In this way, you can configure charts and views that you're already familiar with before you pin them to your dashboard.
 
@@ -113,7 +113,7 @@ Start by adding the standard health overview for your application. This tile req
 
     :::image type="content" source="media/overview-dashboard/dashboard-edit-mode.png" lightbox="media/overview-dashboard/dashboard-edit-mode.png" alt-text="Screenshot that shows the dashboard in edit mode.":::
 
-## Add custom metric chart
+### Add custom metric chart
 
 You can use the **Metrics** panel to graph a metric collected by Application Insights over time with optional filters and grouping. Like everything else in Application Insights, you can add this chart to the dashboard. This step does require you to do a little customization first.
 
@@ -129,7 +129,7 @@ You can use the **Metrics** panel to graph a metric collected by Application Ins
 
 1. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Select and drag the tile into position and then select **Done customizing**.
 
-## Add a logs query
+### Add a logs query
 
 Application Insights Logs provides a rich query language that you can use to analyze all the data collected by Application Insights. Like with charts and other views, you can add the output of a logs query to your dashboard.
 
@@ -164,7 +164,7 @@ Application Insights Logs provides a rich query language that you can use to ana
 1. The results of the queries are added to your dashboard in the format that you selected. Select and drag each result into position. Then select **Done customizing**.
 1. Select the pencil icon :::image type="content" source="media/overview-dashboard/pencil.png" lightbox="media/overview-dashboard/pencil.png" alt-text="Pencil icon"::: on each title and use it to make the titles descriptive.
 
-## Share dashboard
+### Share dashboard
 
 1. At the top of the dashboard, select **Share** to publish your changes.
 1. You can optionally define specific users who should have access to the dashboard. For more information, see [Share Azure dashboards by using Azure role-based access control](../../azure-portal/azure-portal-dashboard-share-access.md).
