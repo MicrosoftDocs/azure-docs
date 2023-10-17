@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 [Microsoft Entra Workload ID](workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
-Program](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../../lighthouse/concepts/cloud-solution-provider.md). Azure and Microsoft 365 subscribers can also purchase Workload
+Program](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](/azure/lighthouse/concepts/cloud-solution-provider). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
 
 For more information, see [what are workload identities?](workload-identities-overview.md)
@@ -82,7 +82,7 @@ suspicious changes to accounts.
 Enables delegation of reviews to the right people, focused on the most
 important privileged roles.
 
-- [App health recommendations](/azure/active-directory/reports-monitoring/howto-use-recommendations): Provides recommendations for addressing identity hygiene gaps in your application portfolio so you can improve the security and resilience posture of a tenant. 
+- [App health recommendations](../reports-monitoring/howto-use-recommendations.md): Provides recommendations for addressing identity hygiene gaps in your application portfolio so you can improve the security and resilience posture of a tenant. 
 
 ## What do the numbers in each category on the [Workload identities - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) mean?
 
