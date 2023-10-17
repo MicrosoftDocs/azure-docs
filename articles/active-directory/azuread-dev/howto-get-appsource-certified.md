@@ -43,7 +43,7 @@ For more information about multi-tenancy, see [How to sign in any Azure Active D
 
 A *single-tenant application* is an application that only accepts sign-ins from users of a defined Azure AD instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Azure AD instance that the application is registered. 
 
-You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/integrate-with-app-code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](../external-identities/self-service-portal.md).
+You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](/azure/active-directory-b2c/integrate-with-app-code-samples). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](../external-identities/self-service-portal.md).
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 
@@ -119,7 +119,6 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
-[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 <!--Image references-->

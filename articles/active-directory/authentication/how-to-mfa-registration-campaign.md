@@ -325,11 +325,11 @@ A nudge won't appear if a user is in scope for a Conditional Access policy that 
 
 **Do users see a nudge when there is a terms of use (ToU) screen presented to the user during sign-in?**
 
-A nudge won't appear if a user is presented with the [terms of use (ToU)](/azure/active-directory/conditional-access/terms-of-use) screen during sign-in.
+A nudge won't appear if a user is presented with the [terms of use (ToU)](../conditional-access/terms-of-use.md) screen during sign-in.
 
 **Do users see a nudge when Conditional Access custom controls are applicable to the sign-in?**
 
-A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](/azure/active-directory/conditional-access/controls) settings.
+A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](../conditional-access/controls.md) settings.
 
 ## Next steps
 
