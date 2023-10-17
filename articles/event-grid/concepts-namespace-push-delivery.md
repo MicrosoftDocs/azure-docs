@@ -1,18 +1,16 @@
 ---
-title: Azure Event Grid concepts (pull delivery)
-description: Describes Azure Event Grid and its concepts in the pull delivery model. Defines several key components of Event Grid.
+title: Azure Event Grid concepts (push delivery) for namespaces
+description: Describes Azure Event Grid and its concepts in the push delivery model. Defines several key components of Event Grid.
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 10/12/2023
 ---
 
-# Azure Event Grid's pull delivery (Preview) - Concepts
+# Azure Event Grid push delivery for namespaces (Preview) - Concepts
 
 This article describes the main concepts related to the new resource model that uses namespaces.
 
 > [!NOTE]
 > For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
-
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Events
 
@@ -28,7 +26,7 @@ The following table shows the current support for CloudEvents specification:
 |--------------|-----------|
 | [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |
 | [Structured JSON batched](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#33-batched-content-mode)      | Yes  |
-|[Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | No|
+|[Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | Yes|
 
 The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [CloudEvents schema](cloud-event-schema.md).
 
@@ -81,7 +79,7 @@ Namespace topics support [pull delivery](pull-delivery-overview.md). See [when t
 A subscription tells Event Grid which events on a namespace topic you're interested in receiving. You can filter the events consumers receive. You can filter by event type or event subject, for example. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
 
 > [!NOTE]
-> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics. For more information, see Create, view, and managed [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
+> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics. For more information, see [create, view, and managed event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
 
 For an example of creating subscriptions for namespace topics, refer to:
 

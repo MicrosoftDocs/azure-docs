@@ -24,7 +24,7 @@ Here are the articles that we recommend you read through to learn about these fe
 
 ### Pull delivery using HTTP (preview)
 
-- [Introduction to pull delivery of events](pull-delivery-overview.md#pull-delivery-1)
+- [Introduction to pull delivery of events](pull-delivery-overview.md)
 - [Publish and subscribe using namespace topics](publish-events-using-namespace-topics.md)
 - [Create, view, and manage namespaces](create-view-manage-namespaces.md)
 - [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md)

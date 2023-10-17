@@ -7,17 +7,17 @@ ms.date: 08/25/2023
 
 # Choose the right Event Grid tier for your solution
 
-Azure Event Grid has two tiers with different capabilities. This article will share details on both. 
+Azure Event Grid has two tiers with different capabilities. This article will share details on both.
 
 ## Event Grid standard tier
 
-Event Grid standard tier enables pub-sub using MQTT broker functionality and pull delivery of messages through the Event Grid namespace.
+Event Grid standard tier enables pub-sub using MQTT broker functionality and push/pull delivery of messages through the Event Grid namespace.
 
 Use this tier:
 
 - If you want to publish and consume MQTT messages.
-- If you want to build applications with flexible consumption patterns, e. g. pull delivery.
-- If you want to go beyond 5 MB/s in ingress and egress throughput, up to 20 MB/s (ingress) and 40 MB/s (egress).
+- If you want to build applications with flexible consumption patterns, e. g. pull delivery or push delivery to Event Hubs.
+- If you want to go beyond 5 MB/s in ingress and egress throughput for push or pull delivery, up to 40 MB/s (ingress) and 80 MB/s (egress).
 
 For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
 
@@ -35,15 +35,15 @@ For more information, see quotas and limits for [custom topics, system topics an
 
 ## Basic and standard tiers
 
-The standard tier of Event Grid is focused on providing support for higher ingress and egress rates, support for IoT solutions that require the use of bidirectional communication capabilities, and support pull delivery for multiple consumers. The basic tier is focused on providing push delivery support to trigger actions based on events. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see Quotas and limits.
+The standard tier of Event Grid is focused on providing support for higher ingress and egress rates, support for IoT solutions that require the use of bidirectional communication capabilities, and support pull delivery for multiple consumers. The basic tier is focused on providing push delivery support to trigger actions based on events. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).
 
 | Feature                                                                                                                            | Standard                                           | Basic                                  |
 |------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------|
-| Throughput                                                                                                                         | High, up to 20 MB/s (ingress) and 40 MB/s (egress) | Low, up to 5 MB/s (ingress and egress) |
+| Throughput                                                                                                                         | High, up to 40 MB/s (ingress) and 80 MB/s (egress) | Low, up to 5 MB/s (ingress and egress) |
 | MQTT v5 and v3.1.1                                                                                                                 | Yes                                                |                                        |
 | Pull delivery                                                                                                                      | Yes                                                |                                        |
 | Publish and subscribe to custom events                                                                                             | Yes                                                |                                        |
-| Push delivery to Event Hubs                                                                                                        |                                                    | Yes                                    |
+| Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
 | Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
 | Subscribe to partner events                                                                                                        |                                                    | Yes                                    |

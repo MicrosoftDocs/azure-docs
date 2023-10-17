@@ -16,3 +16,4 @@
 - [Service Bus queues and topics](../handler-service-bus.md)
 - [Relay hybrid connections](../handler-relay-hybrid-connections.md)
 - [Storage queues](../handler-storage-queues.md)
+- [Azure Monitor alerts (from Azure Key Vault source only)](../handler-azure-monitor-alerts.md)

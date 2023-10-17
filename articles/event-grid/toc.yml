@@ -66,7 +66,7 @@ items:
           items:
           - name: Automotive Messaging
             href: mqtt-automotive-connectivity-and-data-solution.md
-      - name: How-to guides
+      - name: How-to
         items:
         - name: Create and manage namespaces
           href: create-view-manage-namespaces.md
@@ -90,31 +90,49 @@ items:
             href: configure-firewall-mqtt.md
           - name: Allow access via private endpoints
             href: configure-private-endpoints-mqtt.md
-    - name: Pull delivery
-      items:    
-      - name: Overview
-        items:
-        - name: Pull delivery overview
-          href: pull-delivery-overview.md
-      - name: Concepts
-        items:
-        - name: Pull delivery terminology      
-          href: concepts-pull-delivery.md
-        - name: Publisher and subscriber operations
-          href: publisher-subscriber-operations.md
-        - name: Dead lettering for event subscriptions 
-          href: dead-letter-event-subscriptions-namespace-topics.md
-        - name: Event retention
-          href: event-retention.md          
+    - name: Namespace topics
+      items:
+      - name: Pull delivery overview
+        href: pull-delivery-overview.md
+      - name: Push delivery overview
+        href: namespace-push-delivery-overview.md
       - name: Quickstarts
         items:
-        - name: Publish and subscribe using namespace topics
-          href: publish-events-using-namespace-topics.md
-        - name: Send and pull messages
+        - name: Pull delivery
           items:
-          - name: .NET
-            href: event-grid-dotnet-get-started-pull-delivery.md
-      - name: How-to 
+          - name: Publish and subscribe using namespace topics
+            href: publish-events-using-namespace-topics.md
+          - name: Send and pull messages
+            items:
+            - name: .NET
+              href: event-grid-dotnet-get-started-pull-delivery.md
+      - name: Concepts
+        items:
+        - name: Pull delivery
+          items:
+          - name: Terminology
+            href: concepts-pull-delivery.md         
+        - name: Push delivery
+          items:
+          - name: Terminology
+            href: concepts-namespace-push-delivery.md
+          - name: Event handlers
+            items:
+            - name: Event Hubs
+              href: namespace-handler-event-hubs.md
+          - name: Delivery properties
+            href: namespace-delivery-properties.md
+        - name: Publisher and subscriber operations
+          href: publisher-subscriber-operations.md     
+        - name: Dead lettering for event subscriptions
+          href: dead-letter-event-subscriptions-namespace-topics.md
+        - name: Event retention
+          href: event-retention.md
+        - name: Event delivery
+          items:
+            - name: Event filtering
+              href: namespace-event-filtering.md
+      - name: How-to
         items:
         - name: Create, view, and manage namespaces
           href: create-view-manage-namespaces.md
@@ -126,50 +144,22 @@ items:
           href: event-grid-namespace-managed-identity.md
         - name: Authenticate publishing clients using Microsoft Entra ID
           href: authenticate-with-active-directory-namespaces.md
-      - name: Monitor
+      - name: Monitoring
         items:
-        - name: Monitoring data reference (pull delivery)
+        - name: Pull delivery data reference
           href: monitor-pull-reference.md
+        - name: Push delivery data reference
+          href: monitor-namespace-push-reference.md
       - name: Secure
         items:
         - name: Allow access from specific IP addresses
           href: configure-firewall-mqtt.md
         - name: Allow access via private endpoints
-          href: configure-private-endpoints-pull.md          
-    - name: Push delivery
-      items:    
-      - name: Overview
-        items:
-        - name: Push delivery overview
-          href:           
-      - name: Concepts
-        items:
-        - name: Push delivery Terminology
-          href: 
-      - name: Quickstarts
-        items:
-        - name: Deliver events using namespace topics
-          href: 
-      - name: How-to 
-        items:
-        - name: Create, view, and manage namespaces
-          href: create-view-manage-namespaces.md
-        - name: Create, view, and manage namespace topics
-          href: create-view-manage-namespace-topics.md
-        - name: Create, view, and manage event subscriptions
-          href: create-view-manage-event-subscriptions.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md      
-      - name: Monitor
-        items:
-        - name: Monitoring data reference (push delivery)
-          href: 
-  - name: Event Grid Basic
+          href: configure-private-endpoints-pull.md
+  - name: Event Grid basic
     items:
     - name: Overview
-      items:
-      - name: Push delivery overview
-        href: push-delivery-overview.md
+      href: push-delivery-overview.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe using custom topics
@@ -263,7 +253,7 @@ items:
         href: /samples/browse/?term=Event+Grid
     - name: Concepts
       items:
-      - name: Event Grid terminology
+      - name: Terminology
         href: concepts.md
       - name: Event Grid on Kubernetes documentation
         href: kubernetes/index.yml
@@ -387,6 +377,8 @@ items:
           href: handler-relay-hybrid-connections.md
         - name: Storage queues
           href: handler-storage-queues.md
+        - name: Azure Monitor alerts
+          href: handler-azure-monitor-alerts.md
       - name: Event delivery
         items:
         - name: Event filtering
@@ -426,7 +418,7 @@ items:
         items:
         - name: Use cases for domains
           href: event-domains-use-cases.md
-    - name: How-to guides
+    - name: How-to
       items:
       - name: Create, view, and manage system topics
         items:
