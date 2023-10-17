@@ -77,7 +77,7 @@ Dev Box service configuration begins with the creation of a dev center, which re
 
 Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Microsoft Entra ID. Use a Microsoft Entra join to connect exclusively to cloud-based resources, or use a Microsoft Entra hybrid join to connect to on-premises resources and cloud-based resources.
 
-Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
+Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in [Azure Compute Gallery](how-to-configure-azure-compute-gallery.md). Specify a SKU with compute and storage to complete the dev box definition.
 
 Dev Box projects are the point of access for development teams. You assign the Dev Box User role to a project to give a developer access to the dev box pools that are associated with the project.
 
@@ -91,7 +91,7 @@ When the configuration of the service is complete, developers can create and man
 
 Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
 
-When configuring Dev Box, you may see Deployment Environments resources and components. You may even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
+When configuring Dev Box, you might see Deployment Environments resources and components. You might even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
 
 For example, as you create a project, you might see this informational message about catalogs: 
 

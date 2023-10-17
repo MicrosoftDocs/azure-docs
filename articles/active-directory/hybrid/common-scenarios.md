@@ -42,10 +42,10 @@ For additional information, see [Supported topologies for cloud sync](cloud-sync
 
 
 ## Additional information
-- You can sync users & groups from the same domain using Connect Sync and Cloud Sync if:
+- You can sync users & groups from the same domain using Connect Sync and cloud sync if:
     - Scoping filters in each sync is mutually exclusive
     - If inclusive, don’t have the same attributes values clashing (Precedence isn’t supported)
-- You can sync users & groups using Connect Sync while using Cloud Sync’s net new capabilities (*called out in Roadmap)
+- You can sync users & groups using Connect Sync while using cloud sync’s net new capabilities (*called out in Roadmap)
 - You can sync objects from a single AD to multiple Azure ADs if writeback capabilities are enabled only in a single Microsoft Entra tenant.
 
 

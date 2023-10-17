@@ -38,13 +38,13 @@ To complete this article, you must have sufficient permissions in both your Micr
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Assign the application to a role
-To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains. To allow the application to execute actions like reboot, start and stop instances, select the *Contributor* role.
 
 ## Create service principal with self-signed certificate
 
-The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Reader](/azure/role-based-access-control/built-in-roles#reader) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 > [!NOTE]
 > The New-SelfSignedCertificate cmdlet and the PKI module are currently not supported in PowerShell Core. 
@@ -101,7 +101,7 @@ Connect-AzAccount -ServicePrincipal `
 
 ## Create service principal with certificate from Certificate Authority
 
-The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Reader](../../role-based-access-control/built-in-roles.md#reader) role. If an error occurs during the role assignment, it retries the assignment.
+The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Reader](/azure/role-based-access-control/built-in-roles#reader) role. If an error occurs during the role assignment, it retries the assignment.
 
 ```powershell
 Param (

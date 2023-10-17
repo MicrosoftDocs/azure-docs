@@ -311,7 +311,7 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
 #### Conditional Access policies and password changes
-Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Microsoft Entra Conditional Access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Microsoft Entra Conditional Access policies](../conditional-access/overview.md) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
 Compatible events and policies are documented in the following sections:
 
@@ -321,10 +321,10 @@ When a user resets their password, all tokens that were issued before that will 
 <a name='azure-ad-multi-factor-authentication'></a>
 
 ##### Microsoft Entra multifactor authentication
-[Multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multifactor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multifactor authentication in the first application that requires it. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+[Multifactor authentication](../authentication/concept-mfa-howitworks.md) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multifactor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multifactor authentication in the first application that requires it. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ##### User sign-in frequency
-[Sign-in frequency](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, a user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, a user will be asked to sign in to the first application that participates in SSO. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active.
+[Sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, a user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, a user will be asked to sign in to the first application that participates in SSO. Microsoft Enterprise SSO plug-in will show its own user interface on top of the application that is currently active.
 
 ### Required network configuration
 The Microsoft Enterprise SSO plug-in relies on Apple's [enterprise SSO](https://developer.apple.com/documentation/authenticationservices) framework. Apple's enterprise SSO framework ensures that only an approved SSO plug-in can work for each identity provider by utilizing a technology called [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains). To verify the identity of the SSO plug-in, each Apple device will send a network request to an endpoint owned by the identity provider and read information about approved SSO plug-ins. In addition to reaching out directly to the identity provider, Apple has also implemented another caching for this information. 
@@ -354,7 +354,7 @@ Other Apple URLs that may need to be allowed are documented in their support art
 
 You can use Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For example, you can use Intune to enable the plug-in and add old apps to an allowlist so they get SSO. 
 
-For more information, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
+For more information, see the [Intune configuration documentation](/mem/intune/configuration/ios-device-features-settings).
 
 ## Use the SSO plug-in in your application
 

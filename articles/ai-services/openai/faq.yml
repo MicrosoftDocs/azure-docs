@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 10/12/2023
+  ms.date: 10/16/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -128,6 +128,10 @@ sections:
         answer: |
           Consult the Azure OpenAI [model availability guide](./concepts/models.md#model-summary-table-and-region-availability) for region availability.
       - question: |
+          How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio.  
+        answer: |
+          In order to successfully access fine-tuning you need Cognitive Services OpenAI Contributor assigned. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
+      - question: |
           What is the difference between a base model and a fine-tuned model?
         answer:
           A base model is a model that hasn't been customized or fine-tuned for a specific use case. Fine-tuned models are customized versions of base models where a model's weights are trained on a unique set of prompts. Fine-tuned models let you achieve better results on a wider number of tasks without needing to provide detailed examples for in-context learning as part of your completion prompt. To learn more, review our [fine-tuning guide](./how-to/fine-tuning.md?pivots=programming-language-studio).
@@ -196,9 +200,9 @@ sections:
         answer:
           Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
-          Is there a token limit on the system message?
+          Is there a token limit on the system message? 
         answer: 
-          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored.
+          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored. This limitation only applies to the Azure OpenAI [on your data feature](/azure/ai-services/openai/concepts/use-your-data).
       - question: |
           Do the query language and the data source language need to be the same?
         answer:
