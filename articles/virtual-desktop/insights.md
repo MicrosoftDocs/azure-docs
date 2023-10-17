@@ -49,7 +49,7 @@ To start using Azure Virtual Desktop Insights, you'll need at least one Log Anal
 
 ## Set up the configuration workbook
 
-If it's your first time opening Azure Virtual Desktop Insights, you'll need set up Azure Virtual Desktop Insights for your Azure Virtual Desktop environment. To configure your resources:
+If it's your first time opening Azure Virtual Desktop Insights, you'll need to set up Azure Virtual Desktop Insights for your Azure Virtual Desktop environment. To configure your resources:
 
 1. Open Azure Virtual Desktop Insights in the Azure portal at [`aka.ms/avdi`](https://aka.ms/avdi).
 1. Select **Workbooks**, then select **Check Configuration**.
