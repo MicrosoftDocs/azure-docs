@@ -29,13 +29,13 @@ sections:
           In which Azure regions can I deploy Azure Operator Insights Data Products?
         answer: |
           The following regions are currently available: 
-          - South Central US
-          - UK South
-          - West Europe
           - East US 
-          - Australia East 
-          - North Europe 
-          - Canada Central 
+          - South Central US
           - West Central US
+          - Canada Central 
+          - UK South
+          - North Europe 
+          - West Europe
+          - Australia East 
 
-          We will be enabling other regions. If your region is not in the list, contact your local Microsoft Support.
+          We will be enabling other regions. If your region is not in the list, contact Microsoft Support.
