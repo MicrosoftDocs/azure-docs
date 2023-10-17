@@ -11,3 +11,11 @@ groups:
     title: Python
   - id: csharp
     title: .NET
+- id: resiliency-options
+  title: Resiliency options
+  prompt: Choose whether you're using Dapr with your container app
+  pivots:
+  - id: non-dapr
+    title: Non-Dapr
+  - id: dapr
+    title: Dapr-enabled

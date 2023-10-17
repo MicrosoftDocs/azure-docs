@@ -14,11 +14,11 @@ ms.custom: ignite-fall-2023
 
 # Dapr component policies
 
-When using `dapr invoke` for service-to-service invocation between your Dapr sidecar and a component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
+If your container app uses a Dapr component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
 
 :::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
 
-Dapr component policies include outbound and inbound operation directions. 
+You can configure resiliecy policies for the following outbound and inbound operation directions via a Dapr component: 
 
 - **Outbound operations:** Calls from the sidecar to a component, such as:
    - Persisting or retrieving state
@@ -53,13 +53,12 @@ properties: {
 
 | Metadata | Description | Example |
 | -------- | ----------- | ------- |
-| `responseTimeoutInSeconds` |  |  |
+| `responseTimeoutInSeconds` | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
 
 ### Retries
 
-Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
+Define an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
 
-#### `httpRetryPolicy`
 
 ```bicep
 properties: {
@@ -84,12 +83,12 @@ properties: {
 }
 ```
 
-| Metadata | Description |
-| ------ | ----------- |
-| `maxRetries` |  |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
-| `retryBackOff.initialDelayInMilliseconds` |  |
-| `retryBackOff.maxIntervalInMilliseconds` |  |
+| Metadata | Description | Example |
+| -------- | ----------- | ------- |
+| `maxRetries` | Maximum retries to be executed for a failed http-request. | `5` |
+| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `retryBackOff.initialDelayInMilliseconds` | Delay between first error and first retry. | `1000` |
+| `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
 
 ## Define your resiliency policies
 
