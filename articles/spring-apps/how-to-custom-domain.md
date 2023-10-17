@@ -234,10 +234,10 @@ az spring certificate list \
 
 Certificate stored in key vault may get renewed before it expires. DevOps team in your organization may also replace it with a new one regularly, since your organization may have some security policies in certificate management. Once you enable auto sync for a certificate, Azure Spring Apps will start to poll your key vault for a new version regularly (usually every 24 hours). If a new version is found, Azure Spring Apps will import it, and then reload it for various components using the certificate without causing any downtime. The components include:
 - App custom domain
-- VMware Spring Cloud Gateway custom domain
-- API portal for VMware Tanzu custom domain
-- VMware Tanzu Application Accelerator custom domain
-- Application Configuration Service for Tanzu
+- [VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) custom domain
+- [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md) custom domain
+- [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md) custom domain
+- [Application Configuration Service for Tanzu](./how-to-enterprise-application-configuration-service.md)
 
 > [!NOTE]
 > This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
