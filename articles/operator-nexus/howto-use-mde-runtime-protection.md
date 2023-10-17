@@ -9,12 +9,15 @@ ms.date: 10/15/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Introduction to the Microsoft Defender runtime protection service
+# Introduction to the Microsoft Defender for Endpoint runtime protection service
 
-The Microsoft Defender (MDE) runtime protection service provides the tools to configure and manage runtime protection for a Nexus cluster.
+The Microsoft Defender for Endpoint (MDE) runtime protection service provides the tools to configure and manage runtime protection for a Nexus cluster.
 
 The Azure CLI allows you to configure runtime protection ***Enforcement Level*** and the ability to trigger ***MDE Scan*** on all nodes.
 This document provides the steps to execute those tasks.
+
+> [!NOTE]
+> The MDE runtime protection service integrates with [Microsoft Defender for Endpoint](../defender-for-cloud/integration-defender-for-endpoint.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender for Endpoint integration, you can spot abnormalities and detect vulnerabilities.
 
 ## Before you begin
 
