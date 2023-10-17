@@ -95,7 +95,7 @@ A single dashboard can contain resources from multiple applications, resource gr
 1. Locate the **Markdown** tile and drag it on to your dashboard. With this tile, you can add text formatted in Markdown, which is ideal for adding descriptive text to your dashboard. To learn more, see [Use a Markdown tile on Azure dashboards to show custom content](../../azure-portal/azure-portal-markdown-tile.md).
 1. Add text to the tile's properties and resize it on the dashboard canvas.
 
-    [:::image type="content" source="media/overview-dashboard/markdown.png" lightbox="media/overview-dashboard/markdown.png" alt-text="Screenshot that shows the Edit Markdown tile.":::
+    :::image type="content" source="media/overview-dashboard/markdown.png" lightbox="media/overview-dashboard/markdown.png" alt-text="Screenshot that shows the Edit Markdown tile.":::
 
 1. Select **Done customizing** at the top of the screen to exit tile customization mode.
 
@@ -111,7 +111,7 @@ Start by adding the standard health overview for your application. This tile req
 1. At the top right, a notification appears that your tile was pinned to your dashboard. Select **Pinned to dashboard** in the notification to return to your dashboard or use the **Dashboard** pane.
 1. Select **Edit** to change the positioning of the tile you added to your dashboard. Select and drag it into position and then select **Done customizing**. Your dashboard now has a tile with some useful information.
 
-    [:::image type="content" source="media/overview-dashboard/dashboard-edit-mode.png" lightbox="media/overview-dashboard/dashboard-edit-mode.png" alt-text="Screenshot that shows the dashboard in edit mode.":::
+    :::image type="content" source="media/overview-dashboard/dashboard-edit-mode.png" lightbox="media/overview-dashboard/dashboard-edit-mode.png" alt-text="Screenshot that shows the dashboard in edit mode.":::
 
 ## Add custom metric chart
 
@@ -121,7 +121,7 @@ You can use the **Metrics** panel to graph a metric collected by Application Ins
 1. Select **Metrics**.
 1. An empty chart appears, and you're prompted to add a metric. Add a metric to the chart and optionally add a filter and a grouping. The following example shows the number of server requests grouped by success. This chart gives a running view of successful and unsuccessful requests.
 
-	[:::image type="content" source="media/overview-dashboard/metrics.png" lightbox="media/overview-dashboard/metrics.png" alt-text="Screenshot that shows adding a metric.":::
+	:::image type="content" source="media/overview-dashboard/metrics.png" lightbox="media/overview-dashboard/metrics.png" alt-text="Screenshot that shows adding a metric.":::
 
 1. Select **Pin to dashboard** on the right.
 
@@ -158,7 +158,7 @@ Application Insights Logs provides a rich query language that you can use to ana
 
 1. Select **Chart** and then select **Doughnut** to visualize the output.
 
-	[:::image type="content" source="media/overview-dashboard/logs-doughnut.png" lightbox="media/overview-dashboard/logs-doughnut.png" alt-text="Screenshot that shows the doughnut chart with the preceding query.":::
+	:::image type="content" source="media/overview-dashboard/logs-doughnut.png" lightbox="media/overview-dashboard/logs-doughnut.png" alt-text="Screenshot that shows the doughnut chart with the preceding query.":::
 
 1. Select the pin icon :::image type="content" source="media/overview-dashboard/pushpin.png" lightbox="media/overview-dashboard/pushpin.png" alt-text="Pin icon"::: at the top right to pin the chart to your dashboard. Then return to your dashboard.
 1. The results of the queries are added to your dashboard in the format that you selected. Select and drag each result into position. Then select **Done customizing**.
