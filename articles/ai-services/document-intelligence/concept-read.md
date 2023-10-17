@@ -1,5 +1,5 @@
 ---
-title: OCR for documents - Document Intelligence (formerly Form Recognizer)
+title: Document Intelligence (formerly Form Recognizer) Read model - OCR for documents
 titleSuffix: Azure AI services
 description: Extract print and handwritten text from scanned and digital documents with Document Intelligence's Read OCR model.
 author: laujan
