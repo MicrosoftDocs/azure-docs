@@ -27,7 +27,7 @@ This content covers the technical aspects of planning for a verifiable credentia
 
 Supporting technologies that aren't specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment isn't covered in detail.
 
-As you plan your verification solution, you must consider what business capability is being added or modified. You must also consider what IT capabilities can be reused, and what capabilities must be added to create the solution. Also consider what training is needed for the people involved in the business process and the people that support the end users and staff of the solution. These articles aren't covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for information covering these articles.
+As you plan your verification solution, you must consider what business capability is being added or modified. You must also consider what IT capabilities can be reused, and what capabilities must be added to create the solution. Also consider what training is needed for the people involved in the business process and the people that support the end users and staff of the solution. These articles aren't covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) for information covering these articles.
 
 ## Components of the solution
 
@@ -270,11 +270,11 @@ The following provides areas to consider when planning for performance:
 
 * Model based on throughput:
 
-   * VC verification capacity is subject to [Azure Key Vault service limits](../../key-vault/general/service-limits.md). 
+   * VC verification capacity is subject to [Azure Key Vault service limits](/azure/key-vault/general/service-limits). 
 
    * Each verification of a VC requires one Key Vault signature operation.
 
-   * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
+   * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling) so that you understand how throttling might impact performance. 
 
 ## Plan for reliability
 
@@ -282,7 +282,7 @@ To best plan for high availability and disaster recovery, we suggest the followi
 
 * Microsoft Entra Verified ID service is deployed in the West Europe, North Europe, West US 2, and West Central US Azure regions. Consider deploying your supporting web servers and supporting applications in one of those regions, specifically in the ones from which you expect most of your validation traffic to originate. 
 
-* Review and incorporate best practices from [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md) as you design for your availability and redundancy goals.
+* Review and incorporate best practices from [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) as you design for your availability and redundancy goals.
 
 ## Plan for security
 
@@ -294,7 +294,7 @@ As you are designing for security, consider the following:
 
 * Only the Microsoft Entra Verified ID service and the website service principals should have permissions to use Key Vault to sign messages with the private key. 
 
-* Don't assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, see [Azure Security Baseline for Key Vault](../../key-vault/general/security-baseline.md).
+* Don't assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, see [Azure Security Baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline).
 
 * Review [Securing Azure environments with Microsoft Entra ID](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
 
@@ -322,11 +322,11 @@ As part of your operational planning, consider monitoring the following:
 
    * Monitor underlying dependencies used by the verification solution. 
 
-   * Follow [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md).
+   * Follow [Azure Key Vault monitoring and alerting](/azure/key-vault/general/alert).
 
 * **For security**:
 
-   * Enable logging for Key Vault to track signing operations, and to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
+   * Enable logging for Key Vault to track signing operations, and to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](/azure/key-vault/general/howto-logging) for more information.
 
    * Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
 

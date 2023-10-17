@@ -41,7 +41,7 @@ Opting out is a one-way operation. After you opt-out, your Microsoft Entra Verif
 
 When you complete opting out of the Microsoft Entra Verified ID service, the following actions take place:
 
-- The DID keys in Key Vault are [soft deleted](../../key-vault/general/soft-delete-overview.md).
+- The DID keys in Key Vault are [soft deleted](/azure/key-vault/general/soft-delete-overview).
 - The issuer object is deleted from our database.
 - The tenant identifier is deleted from our database.
 - All of the verifiable credentials contracts are deleted from our database.

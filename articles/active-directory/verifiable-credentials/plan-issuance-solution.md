@@ -176,7 +176,7 @@ The following provides areas to consider when planning for performance:
 * To limit latency, deploy your issuance frontend website and key vault in the region listed above that is closest to where requests are expected to originate.
 
 Model based on throughput:
-* The Issuer service is subject to [Azure Key Vault service limits](../../key-vault/general/service-limits.md). 
+* The Issuer service is subject to [Azure Key Vault service limits](/azure/key-vault/general/service-limits). 
 
 *  For Azure Key Vault, there are three signing operations involved in each a VC issuance:
 
@@ -186,7 +186,7 @@ Model based on throughput:
 
       * One for the contract download
 
-* You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
+* You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling). 
 
 * If you are planning a large rollout and onboarding of VCs, consider batching VC creation to ensure you don't exceed limits.
 
@@ -216,7 +216,7 @@ For scalability, consider implementing metrics for the following:
 
 * Monitor Azure Key Vault using the following:
 
-   * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md)
+   * [Azure Key Vault monitoring and alerting](/azure/key-vault/general/alert)
 
 * Monitor the components used for your business logic layer. 
 
@@ -226,7 +226,7 @@ To plan for reliability, we recommend:
 
 * After you define your availability and redundancy goals, use the following guides to understand how to achieve your goals:
 
-   * [Azure Key Vault availability and redundancy - Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md)
+   * [Azure Key Vault availability and redundancy - Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance)
 
 * For frontend and business layer, your solution can manifest in an unlimited number of ways. As with any solution, for the dependencies you identify, ensure that the dependencies are resilient and monitored. 
 
@@ -272,7 +272,7 @@ As part of your design considerations focused on security, we recommend the foll
 
 For security logging and monitoring, we recommend the following:
 
-* Enable logging and alerting of Azure Key Vault to track credential issuance operations, key extraction attempts, permission changes, and to monitor and send alert for configuration changes. More information can be found at [How to enable Key Vault logging](../../key-vault/general/howto-logging.md). 
+* Enable logging and alerting of Azure Key Vault to track credential issuance operations, key extraction attempts, permission changes, and to monitor and send alert for configuration changes. More information can be found at [How to enable Key Vault logging](/azure/key-vault/general/howto-logging). 
 
 * Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
 
@@ -292,7 +292,7 @@ For guidance on managing your Azure environment, we recommend you review the [Mi
 
 When you complete your POC, gather all the information and documentation generated, and consider tearing down the issuer configuration. This will help avoid issuing verifiable credentials after your POC timeframe expires. 
 
-For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](../../key-vault/general/best-practices.md). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Microsoft Entra ID](https://aka.ms/AzureADSecuredAzure). 
+For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](/azure/key-vault/general/best-practices). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Microsoft Entra ID](https://aka.ms/AzureADSecuredAzure). 
 
 ## Next steps
 
