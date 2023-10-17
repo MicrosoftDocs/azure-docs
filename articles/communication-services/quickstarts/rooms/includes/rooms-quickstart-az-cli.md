@@ -80,6 +80,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 - Replace `<connection-string>` with your ACS connection string. 
 - Use `<valid-from>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
+- Use `<pstn-dial-out-enabled>` optionally set this flag to true if, at the time of the call, dial out to a PSTN number is enabled in a particular room. By default, this flag is set to false.
 
 If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
@@ -106,6 +107,7 @@ az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-
 
 - Replace `<valid-from>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with `--valid-until`.
 - Replace `<valid-until>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with `--valid-from`.
+- Replace `<pstn-dial-out-enabled>` set this flag to true if, at the time of the call, dial out to a PSTN number is enabled in a particular room. Should be used together with `--pstn-dial-out-enabled`.
 - Replace `<roomId>` with your room ID.
   
 ### List all active rooms
