@@ -182,6 +182,6 @@ The following list explains this activity in detail:
 * [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](./troubleshoot-sspr.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.yml)
+* [I have a question that was not covered somewhere else](../develop/configure-app-multi-instancing.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

@@ -50,7 +50,7 @@ Mitigating an actual disruption must be an organization’s primary focus in dea
 
 ### Administrator lockout contingency
 
-To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Microsoft Entra configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations](../users-groups-roles/directory-emergency-access.md).
+To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Microsoft Entra configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations](../roles/security-emergency-access.md).
 
 ### Mitigating user lockout
 
@@ -62,7 +62,7 @@ Incorporate the following access controls in your existing Conditional Access po
 
 - Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Microsoft Entra multifactor authentication authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 - Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
-- Use trusted devices via [Microsoft Entra hybrid join](../devices/overview.md) or [Microsoft Intune](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
+- Use trusted devices via [Microsoft Entra hybrid join](../devices/overview.md) or [Microsoft Intune](/mem/intune/fundamentals/intune-planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
 - Use Microsoft Entra ID Protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
 - If you are protecting VPN access using Microsoft Entra multifactor authentication NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 

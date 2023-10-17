@@ -135,7 +135,7 @@ Email as an alternate login ID applies to [Microsoft Entra B2B collaboration](..
 ## Enable user sign-in with an email address
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homerealmdiscoverypolicy).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Microsoft Entra ID using Microsoft Entra Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Microsoft Entra login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -172,7 +172,7 @@ You need *Global Administrator* privileges to complete the following steps:
     Install-Module Microsoft.Graph
     ```
 
-    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/graph/powershell/installation).
+    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
 
 1. Sign-in to your Microsoft Entra tenant using the `Connect-MgGraph` cmdlet:
 

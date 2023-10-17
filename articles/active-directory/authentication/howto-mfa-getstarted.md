@@ -115,7 +115,7 @@ Risk policies include:
 
 If your users were enabled using per-user enabled and enforced MFA, the following PowerShell can assist you in making the conversion to Conditional Access based MFA.
 
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline#msonline). 
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline/#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state

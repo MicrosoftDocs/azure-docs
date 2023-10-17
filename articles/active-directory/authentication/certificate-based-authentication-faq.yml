@@ -26,7 +26,7 @@ sections:
       - question: |
           Why don't I see an option to sign in to Microsoft Entra ID by using certificates after I enter my username?
         answer: |
-          An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 3: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy).
+          An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 3: Configure authentication binding policy](/azure/active-directory/develop/configure-app-multi-instancing#step-3-configure-authentication-binding-policy).
 
       - question: |
           Where can I get more diagnostic information after a user sign-in failed? 
@@ -136,7 +136,7 @@ sections:
       - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
         answer: |
-          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-microsoft-graph-queries)
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](/azure/active-directory/develop/configure-app-multi-instancing#update-certificateuserids-using-microsoft-graph-queries)
           
           GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 

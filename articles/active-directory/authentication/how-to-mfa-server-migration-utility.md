@@ -432,7 +432,7 @@ Using the data points you collected in [Authentication services](#authentication
 ### Update domain federation settings
 Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it's time to update your domain federation settings. After the update, Microsoft Entra no longer sends MFA request to your on-premises federation server.
 
-To configure Microsoft Entra ID to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-&preserve-view=true) and set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
+To configure Microsoft Entra ID to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true&viewFallbackFrom=graph-powershell-) and set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
 
 #### Request
 <!-- {

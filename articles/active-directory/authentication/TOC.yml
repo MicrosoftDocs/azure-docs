@@ -213,7 +213,7 @@
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
       - name: Azure VPN and Microsoft Entra multifactor authentication
-        href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
+        href: /azure/vpn-gateway/vpn-gateway-radius-mfa-nsp
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN

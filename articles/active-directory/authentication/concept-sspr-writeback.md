@@ -142,7 +142,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the Microsoft Entra admin center.
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/authenticationmethod-resetpassword).
 
 ## Unsupported writeback operations
 

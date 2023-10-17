@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Microsoft Entra joined* and *Microsoft Entra hybrid joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Microsoft Entra joined* and *Microsoft Entra hybrid joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
