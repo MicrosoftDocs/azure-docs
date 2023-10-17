@@ -75,7 +75,7 @@ The Microsoft Entra Verified ID service enables you to issue and revoke VCs base
 
 ### Trust System
 
-![Screenshot highlighting the trust system in the architecture](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
+![Screenshot highlighting the trust system in the architecture.](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
 
 Microsoft Entra Verified ID currently supports Web as trust system [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
 
