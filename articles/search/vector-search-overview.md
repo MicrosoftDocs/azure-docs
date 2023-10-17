@@ -122,7 +122,7 @@ For example, documents that talk about different species of dogs would be cluste
 
 In vector search, the search engine searches through the vectors within the embedding space to identify those that are near to the query vector. This technique is called *nearest neighbor search*. Nearest neighbors help quantify the similarity between items. A high degree of vector similarity indicates that the original data was similar too. To facilitate fast nearest neighbor search, the search engine will perform optimizations or employ data structures or data partitioning to reduce the search space. Each vector search algorithm will have different approaches to this problem, trading off different characteristics such as latency, throughput, recall, and memory. To compute similarity, similarity metrics provide the mechanism for computing this distance.
 
-Supported algorithms include:
+Azure Cognitive Search currently supports the following algorithms:
 
 + Hierarchical Navigable Small World (HNSW): Organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while maintaining a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector index size](vector-search-index-size.md) quota.
 
