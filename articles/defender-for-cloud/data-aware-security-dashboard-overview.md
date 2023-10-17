@@ -4,7 +4,7 @@ description: Learn about the capabilities and functions of the data-aware securi
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/17/2023
 ---
 
 # Data security dashboard
@@ -28,13 +28,36 @@ You can select any element on the page to get more detailed information.
 | Required roles and permissions: | No other roles needed on top of what is required for the security explorer. |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
-## Support and prerequisites
+## Prerequisites
 
-Sensitive data discovery is available in the Defender CSPM and Defender for storage plans.
+Sensitive data discovery is available in the Defender CSPM or Defender for Storage plans.
 
-When you enable one of the plans, the sensitive data discovery extension is turned on as part of the plan.
+As a minimum requirement, you must enable Defender CSPM in order to receive the benefits of sensitive data discovery. In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan.
+
+When you enable one of the plans, make sure the sensitive data discovery extension is also turned on as part of the plan.
+
+:::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
 
 The feature is turned on at the subscription level.
+
+## Required Permissions and Roles
+
+The following permissions are required to view the dashboard for each subscription:
+
+- Microsoft.Security/assessments/read
+- Microsoft.Security/assessments/subassessments/read
+- Microsoft.Security/alerts/read
+
+The minimum privileged RBAC role required is  **Security Reader**.
+
+- Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
+
+    1. Sign-in to the Azure Portal.
+    1. Select the affected subscription.
+    1. Search for and select the **Microsoft.Security** resource provider from the list.
+    1. Select **Register**.
+
+Learn more about [how to register for Azure resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Data security overview section
 
