@@ -6,7 +6,7 @@ author: cshea15
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.date: 10/04/2023
+ms.date: 10/15/2023
 ms.author: victorh
 content_well_notification: 
   - AI-contribution
@@ -62,19 +62,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-avzones/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-avzones/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-avzones/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-avzones/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-avzones/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-avzones/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-avzones/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-with-avzones/outputs.tf":::
 
 ## Initialize Terraform
 
