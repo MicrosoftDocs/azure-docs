@@ -183,11 +183,12 @@ After the credentials have been successfully synced, wait for 24 hours before yo
     > You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance.
 
 ## Overview of Discovery results
+
 The **Discovered servers** screen provides the following information:
 - Displays all running Spring Boot workloads on your server-based environment.
 - Lists the basic information of each server in a table format.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/discovered-servers-inline.png" alt-text="Screenshot displays the discovered servers." lightbox="./media/tutorial-discover-spring-boot/discovered-servers-expanded.png":::
+:::image type="content" source="./media/tutorial-discover-spring-boot/discovered-servers-inline.png" alt-text="Screenshot displays the discovered servers." lightbox="./media/tutorial-discover-spring-boot/discovered-servers-expanded.png":::
 
 Select any web app to view its details. The **Web apps** screen provides the following information:
 - Provides a comprehensive view of each Spring Boot process on each server.
@@ -198,7 +199,7 @@ Select any web app to view its details. The **Web apps** screen provides the fol
   - Location of JAR file for the process on the server.
   - Static content locations and binding ports.
 
-   :::image type="content" source="./media/tutorial-discover-spring-boot/web-apps-inline.png" alt-text="Screenshot displays the Web apps screen." lightbox="./media/tutorial-discover-spring-boot/web-apps-expanded.png":::
+:::image type="content" source="./media/tutorial-discover-spring-boot/web-apps-inline.png" alt-text="Screenshot displays the Web apps screen." lightbox="./media/tutorial-discover-spring-boot/web-apps-expanded.png":::
 
 
 ## Next steps
