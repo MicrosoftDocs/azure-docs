@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: victorh
-ms.date: 10/06/2023
+ms.date: 10/15/2023
 content_well_notification: 
   - AI-contribution
 ---
@@ -56,19 +56,19 @@ resource "azurerm_public_ip_prefix" "pip_prefix" {
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-multi-addresses/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-multi-addresses/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-multi-addresses/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/201-azfw-multi-addresses/outputs.tf":::
 
 ## Initialize Terraform
 
