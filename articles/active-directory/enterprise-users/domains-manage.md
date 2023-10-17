@@ -128,11 +128,11 @@ If you find that any of the conditions haven’t been met, manually clean up the
 
 Most management tasks for domain names in Microsoft Entra ID can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
-* [Using PowerShell to manage domain names in Microsoft Entra ID](/powershell/module/azuread/#domains&preserve-view=true)
+* [Using PowerShell to manage domain names in Microsoft Entra ID](/powershell/module/azuread/?preserve-view=true#domains&preserve-view=true)
 * [Domain resource type](/graph/api/resources/domain)
 
 ## Next steps
 
-* [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Microsoft Entra ID](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Microsoft Entra ID](/exchange/recipients/mail-enabled-security-groups?preserve-view=true#Remove%20mail-enabled%20security%20groups&preserve-view=true)
 * [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete)

@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 # PowerShell and Microsoft Graph examples for group-based licensing in Microsoft Entra ID
 
 Full functionality for group-based licensing in Microsoft Entra ID, part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com), and currently there are some useful tasks that can be performed using the existing [MSOnline PowerShell
-cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
+cmdlets](/powershell/module/msonline/) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MsolService` cmdlet.
@@ -662,7 +662,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md)
 * [Assigning licenses to a group in Microsoft Entra ID](./licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Microsoft Entra ID](licensing-groups-migrate-users.md)
