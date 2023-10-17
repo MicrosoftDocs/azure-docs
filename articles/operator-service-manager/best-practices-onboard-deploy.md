@@ -24,42 +24,67 @@ Onboard an MVP first.  You can add config detail in subsequent versions. Structu
 
 -  Remember that Azure Operator Service Manager (AOSM) provides various APIs making it simple to combine with ADO or other pipeline tools, if desired.
 
-## Publisher considerations
+## Publisher recommendations and considerations
 
-We recommend you create a single publisher per Network Function (NF) supplier. Consider relying on immutability capabilities to distinguish between resources/artifacts used in production vs the ones used for testing/development purposes. You can query the status on the publisher resources and the artifact manifest to determine which ones are marked as immutable. Consider using agreed upon naming convention and governance techniques to help address any remaining gaps.
+- We recommend you create a single publisher per Network Function (NF) supplier. 
 
-## Network Function Design Group and Version considerations
+- Consider relying on the versionState (Active/Preview) of NFDVs and NSDVs to distinguish between those used in production vs the ones used for testing/development purposes. You can query the versionState on the NFDV and NSDV resources to determine which ones are Active and so immutable. For more information, see [Publisher Tenants, subscriptions, regions and preview management](publisher-resource-preview-management.md).
 
-The **Network Function Design Group** (NFDG) is the smallest component you're able to reuse independently across multiple services. All components of a Network Function Design Group (NFDG) are always deployed together. It's reasonable to have a single Network Function Design Group (NFDG) per single Network Function (NF). In cases when multiple Network Functions (NFs) are always deployed together, it’s reasonable to have a single Network Function Design Group (NFDG) for all of them. Single Network Function Design Group (NFDGs) can have multiple **Network Function Design Version** (NFDVs).
+- Consider using agreed upon naming convention and governance techniques to help address any remaining gaps.
 
-### Common use cases which trigger Network Function Design Version (NFDV) minor or major version update
+## Network Function Definition Group and Version considerations
 
-- Updating **Configuration Group Schema** (CGS) / **Configuration Group Value** (CGV) for an existing release which triggers changing the deployParametersMappingRuleProfile.
+The **Network Function Definition Version** (NFDV) is the smallest component you're able to reuse independently across multiple services. All components of a Network Function Definition Version (NFDV) are always deployed together.  These components are called networkFunctionApplications. 
+
+For **Containerized Network Function Definition Versions** (CNF NFDVs), the networkFunctionApplications list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
+
+For **Virtualized Network Function Definition Versions** (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template.  It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Service Designer should include numerous copies of the **Network Function Definition** (NFD) with the **Network Service Design** (NSD) if you want to deploy multiple VMs.
+
+Single **Network Function Definition Group** (NFDGs) can have multiple **Network Function Definition Version** (NFDVs).
+
+**Network Function Definition Versions** (NFDVs) should reference fixed images and charts. An update to an image version or chart means an update to the NFDV major or minor version. For a containerized Network Function (CNF) each helm chart should contain fixed image repositories and tags that aren't customizable by deployParameters. 
+
+### Common use cases that trigger Network Function Design Version (NFDV) minor or major version update
+
+- Updating **Configuration Group Schema** (CGS) / **Configuration Group Value** (CGV) for an existing release that triggers changing the deployParametersMappingRuleProfile.
 
 - Updating values that are hard coded in the **Network Function Design Version** (NFDV).  
 
-- Marking components inactive to prevent them from being deployed via ‘applicationEnablement: 'Enabled.'
+- Marking components inactive to prevent them from being deployed via ‘applicationEnablement: 'Disabled.'
 
 - New Network Function (NF) release (charts, images, etc.)
 
 ## Network Service Design Group and Version considerations
 
-**Network Service Design Group** (NSDG) is the most common combination of Network Functions (NFs) and infrastructure components being deployed together regularly. Each combination can be referred to as Stock Keeping Unit. An example of a **Network Service Design Group** (NSDG) is:
-- (1) HPE AUSF + 
-- (2) HPE UDM +
-- (3) admin VM supporting AUSF/UDM +
-- (4) UC SMF +
+A **Network Service Design** (NSD) is a composite of one or more **Network Function Definitions** (NFD) and any infrastructure components deployed at the same time. A **Site Network Service** (SNS) refers to a single **Network Service Design**. It's recommended that the **Network Service Design** includes any infrastructure required (NAKS/AKS clusters, virtual machines, etc.) and then deploys the network functions required on top. Such design guarantees consistent and repeatable deployment of entire site from a single SNS PUT.
+
+An example of a Network Service Design (NSD) is:
+
+- (1) AUSF NF
+- (2) UDM NF
+- (3) admin VM supporting AUSF/UDM
+- (4) UC SMF NF
 - (5) NAKS cluster which AUSM, UDM, and SMF are deployed to
 
-These five components form a single **Network Service Design Group** (NSDG). Single **Network Service Design Groups** (NSDGs) can have multiple **Network Service Design Versions** (NSDVs).
+These five components form a single **Network Service Design** (NSD). Single **Network Service Designs** (NSDs) can have multiple **Network Service Design Versions** (NSDVs). The collection of all NSDVs for a given NSD is known as a **Network Service Design Group** (NSDG).
 
-### Common use cases which trigger Network Service Design Version (NSDV) minor or major version update
+### Common use cases that trigger Network Service Design Version (NSDV) minor or major version update
 
 - Create or delete **Configuration Group Schema** (CGS).
 
-- Changes in the Network Function (NF) ARM template associated with one of the Network Functions (NFs) being deployed.
-  
-- Changes in the infrastructure ARM template, for example, AKS/NAKS or VM.
+- Changes in the **Network Function** (NF) ARM template associated with one of the **Network Functions** (NFs) being deployed.
+
+* Changes in the infrastructure ARM template, for example, AKS/NAKS or VM.
+
+Changes in **Network Function Definition Version** (NFDV) shouldn't trigger a **Network Service Design Version** (NSDV) update. The versions of **Network Function Definitions** should be exposed within the **Configuration Group Schema**, so operators's can control them using **Configuration Group Values**.
+
+## Azure Operator Service Manager (AOSM) CLI extension and Network Service Design considerations
+
+The Azure Operator Service Manager (AOSM) CLI extension can build bicep templates that create Network Service Designs. Currently these don't include infrastructure components. Best practice is to use the CLI to build the files and then edit them to incorporate infrastructure components before publishing.
+
+### Use the Azure Operator Service Manager (AOSM) CLI extension
+
+The Azure Operator Service Manager (AOSM) CLI extension assists publishing of Network Function Definitions and Network Service Designs. Use this tool as the starting point for creating new Network Function Definitions and Network Service Designs. 
 
 ## Configuration Group Schema (CGS) considerations
 
@@ -71,6 +96,8 @@ It’s recommended to always start with a single **Configuration Group Schema** 
 
 - **Network Service Design** (NSD) has multiple Network Functions (NFs) that all share a few configurations (deployment location, publisher name, and a few chart configurations).
 
+In this scenario, we recommend that a single global **Configuration Group Schema** (CGS) is used to expose the common NFs’ and third party components’ configurations. NF-specific **Configuration Group Schema** (CGS) can be defined as needed.
+
 ### Choose exposed parameters
 
 General recommendations when it comes to exposing parameters via **Configuration Group Schema** (CGS): 
@@ -79,13 +106,13 @@ General recommendations when it comes to exposing parameters via **Configuration
 
 - Parameters that are rarely configured should have default values defined.
 
-- When multiple Configuration Group Schema (CGS) are used, we recommend there's little to no overlap between the parameters. If overlap is required, make sure the parameters names are clearly distinguishable between the Configuration Group Schemas (CGSs).
+- When multiple Configuration Group Schemas (CGS) are used, we recommend there's little to no overlap between the parameters. If overlap is required, make sure the parameters names are clearly distinguishable between the Configuration Group Schemas (CGSs).
 
 - What can be defined via API (AKS, Azure Operator Nexus, Azure Operator Service Manager (AOSM)) should be considered for Configuration Group Schema (CGS). As opposed to, defining those configuration values via CloudInit files.
 
 ## Site Network Service (SNS)
 
-It's recommended to have a single **Site Network Service** (SNS) for the entire site, including the infrastructure. The **Site Network Service** (SNS) should deploy any infrastructure required (NAKS/AKS clusters, virtual machines, and so on) and then deploy the network functions required on top. Such design guarantees consistent and repeatable deployment of entire site from a single PUT command.
+It's recommended to have a single **Site Network Service** (SNS) for the entire site, including the infrastructure.
 
 ## Azure Operator Service Manager (AOSM) resource mapping per use case
 
@@ -95,19 +122,19 @@ A Network Function (NF) with one or two application components deployed to a K8s
 
 Azure Operator Service Manager (AOSM) resources breakdown:
 
-- **Network Function Design Group** (NFDG): If components can be used independently then two Network Function Design Groups (NFDGs), one per component. If components are always deployed together, then a single Network Function Design Group (NFDG).
+- **Network Function Definition Group** (NFDG): If components can be used independently then two Network Function Definition Groups (NFDGs), one per component. If components are always deployed together, then a single **Network Function Definition Group** (NFDG).
 
-- **Network Function Design Version** (NFDV): As needed based on the use cases mentioned in *Common use cases which trigger Network Function Design Version (NFDV) minor or major version update*. 
+- **Network Function Definition Version** (NFDV): As needed based on the use cases mentioned in Common use cases that trigger **Network Function Definition Version**: (NFDV) minor or major version update.
 
-- **Network Service Design Group** (NSDG): Single; combines both application components and the K8s cluster definitions.
+- **Network Service Design Group** (NSDG): Single; combines the Network Function Definition(s) and the K8s cluster definitions.
 
-- **Network Service Design Version** (NSDV): As needed based on the use cases mentioned in *Common use cases which trigger Network Service Design or Version (NSDV) minor or major version update*.
+- **Network Service Design Version** (NSDV): As needed based on the use cases mentioned in Common use cases that trigger **Network Service Design or Version** (NSDV) minor or major version update.
 
-- **Configuration Group Schema** (CGS): Single; we recommend that Configuration Group Schema (CGS) has subsections for each component and infrastructure being deployed for easier management.
+- **Configuration Group Schema** (CGS): Single; we recommend that **Configuration Group Schema** (CGS) has subsections for each component and infrastructure being deployed for easier management, and includes the versions for **Network Function Definitions**.
 
-- **Configuration Group Value** (CGV): Single; based on the number of Configuration Group Schema (CGS). 
+- **Configuration Group Value** (CGV): Single; based on the number of **Configuration Group Schema** (CGS).
 
-- **Site Network Service** (SNS): Single per Network Service Design Version (NSDV).
+- **Site Network Service** (SNS): Single per **Network Service Design Version** (NSDV).
 
 ### Scenario - multiple Network Functions (NFs)
 
@@ -115,15 +142,15 @@ Multiple Network Functions (NFs) with some shared and independent components dep
 
 Azure Operator Service Manager (AOSM) resources breakdown:
 
-- **Network Function Design Group** (NFDG):
-    - Single Network Function Design Group (NFDG) for all shared components.
-    - Single Network Function Design Group (NFDG) for every independent component and/or Network Function (NF).
-- **Network Function Design Version** (NFDV): Multiple per each Network Function Design Group (NFDG) per use cases mentioned in *Common use cases which trigger Network Function Design Version (NFDV) minor or major version update.
+- **Network Function Definition Group** (NFDG):
+    - Single Network Function Definition Group (NFDG) for all shared components.
+    - Single Network Function Definition Group (NFDG) for every independent component and/or Network Function (NF).
+- **Network Function Definition Version** (NFDV): Multiple per each Network Function Definition Group (NFDG) per use cases mentioned in *Common use cases that trigger Network Function Definition Version (NFDV) minor or major version update.
 - **Network Service Design Group** (NSDG): Single combining all Network Functions (NFs), shared and independent components, and infrastructure (K8s cluster and/or any supporting VMs).
-- **Network Service Design Version** (NSDV): As needed based on use cases mentioned in *Common use cases which trigger Network Service Design Version (NSDV) minor or major version update*.
+- **Network Service Design Version** (NSDV): As needed based on use cases mentioned in *Common use cases that trigger Network Service Design Version (NSDV) minor or major version update*.
 - **Configuration Group Schema** (CGS):
   - Single global for all components that have shared configuration values.
-  - Network Function (NF) specific Configuration Group Schema (CGS) per Network Function.
+  - Network Function (NF) specific Configuration Group Schema (CGS) per Network Function including the version of the Network Function Definition.
   - Depending on the total number of parameters, you can consider combining all the Configuration Group Schemas (CGSs) into a single Configuration Group Schema (CGS).
 - **Configuration Group Value** (CGV): Equal to the number of Configuration Group Schema (CGS).
 - **Site Network Service** (SNS): Single per Network Service Design Version (NSDV).
