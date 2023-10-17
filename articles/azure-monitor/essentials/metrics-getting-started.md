@@ -19,7 +19,7 @@ Watch the following video for an overview of creating and working with metrics c
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
-## Create a metric chart
+## <a name="create-your-first-metric-chart">Create a metric chart</a>
 
 You can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section of any resource. In the Azure portal, select **Metrics**.
 
@@ -121,7 +121,7 @@ Chart lines are automatically assigned a color from a default palette. To change
 
 Customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
-## Configure the time range
+## <a name="select-a-time-range">Configure the time range</a>
 
 The **time picker** lets you configure the time range for your metric chart to view data that's relevant to your monitoring scenario. By default, the chart shows the most recent 24 hours of metrics data. 
 
@@ -179,7 +179,7 @@ Metrics explorer hides the aggregations that are irrelevant and can't be used.
 
 For more information about how metric aggregation works, see [Azure Monitor metrics aggregation and display explained](metrics-aggregation-explained.md).
 
-## Use dimension filters and splitting
+## <a name="apply-dimension-filters-and-splitting">Use dimension filters and splitting</a>
 
 Filtering and splitting are powerful diagnostic tools for metrics that have dimensions. You can implement these options to analyze which segments of the metric contribute to the overall metric value and identify possible outliers in the metric data. These features show how various metric segments or dimensions affect the overall value of the metric.
 
