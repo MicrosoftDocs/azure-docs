@@ -48,6 +48,8 @@ items:
         href: process-data/concept-partitioning.md
       - name: Configuration patterns
         href: process-data/concept-configuration-patterns.md
+      - name: Edit and manage pipelines
+        href: process-data/howto-edit-pipelines.md
       - name: Configure a pipeline data source stage
         href: process-data/howto-configure-datasource.md
       - name: Aggregate data in a pipeline
