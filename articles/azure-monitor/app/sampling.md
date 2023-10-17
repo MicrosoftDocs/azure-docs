@@ -455,7 +455,7 @@ Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in o
 
 **Use fixed-rate sampling if:**
 
-* You want synchronized sampling between client and server so that, when you're investigating events in [Search](./diagnostic-search.md), you can navigate between related events on the client and server, such as page views and HTTP requests.
+* You want synchronized sampling between client and server so that, when you're investigating events in [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search), you can navigate between related events on the client and server, such as page views and HTTP requests.
 * You're confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits.
 
 **Use adaptive sampling:**

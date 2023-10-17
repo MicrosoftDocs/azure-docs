@@ -16,7 +16,7 @@ Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
 ## Supported tools for serverless SQL pool
 
-[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
+[Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
 ## Find your server name
 
