@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create Azure API Management instance - VS Code
-description: Use Visual Studio Code to create an Azure API Management instance.
+title: Quickstart - Create Azure API Management instance - VS Code
+description: Use the Azure API Management extension for Visual Studio Code to create an API Management instance.
 ms.service: api-management
 ms.workload: integration
 author: dlepow
@@ -63,7 +63,6 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 
 ![Delete API Management instance from VS Code](./media/vscode-create-service-instance/visual-studio-code-api-management-delete-updated.png)
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Import and manage APIs using the API Management Extension](visual-studio-code-tutorial.md)
+* [Import and manage APIs using the API Management Extension](visual-studio-code-tutorial.md)

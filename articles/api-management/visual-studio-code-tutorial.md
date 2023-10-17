@@ -111,7 +111,7 @@ You need a subscription key for your API Management instance to test the importe
 
 When the request succeeds, the backend responds with **200 OK** and some data.
 
-:::image type="content" source="media/visual-studio-code-tutorial/test-api-policies.png" alt-text="Screenshot of the API test response in Visual Studio Code.":::
+:::image type="content" source="media/visual-studio-code-tutorial/test-api-tracing.png" alt-text="Screenshot of the API test response in Visual Studio Code.":::
 
 Notice the following details in the response:
 
@@ -123,7 +123,7 @@ Notice the following details in the response:
 
 Optionally, you can get detailed request tracing information to help you debug the API operation.
 
-To trace request processing, you must first enable the **Allow tracing** setting for the subscription used to debug your API. For steps to enable this setting using the portal, see [Verify allow tracing setting](api-management-howto-api-inspector.md#verify-allow-tracing-setting). You can enable this setting for a period of 1 hour.
+To trace request processing, you must first enable the **Allow tracing** setting for the subscription used to debug your API. For steps to enable this setting using the portal, see [Verify allow tracing setting](api-management-howto-api-inspector.md#verify-allow-tracing-setting). Tracing is allowed for a period of 1 hour.
 
 After allowing tracing with your subscription, follow these steps:
 
@@ -134,6 +134,8 @@ After allowing tracing with your subscription, follow these steps:
 1. Select **Send request**.
 
 When the request succeeds, the backend response includes an **Ocp-APIM-Trace-Location** header.
+
+:::image type="content" source="media/visual-studio-code-tutorial/test-api-policies.png" alt-text="Screenshot of tracing location in the API test response in Visual Studio Code.":::
 
 Select the link next to **Ocp-APIM-Trace-Location** to see Inbound, Backend, and Outbound trace information. The trace information helps you determine where problems occur after the request is made.
 
@@ -148,7 +150,7 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 
 :::image type="content" source="media/visual-studio-code-tutorial/vscode-apim-delete-1.png" alt-text="Screenshot of deleting API Management instance from Visual Studio Code.":::
 
-## Next steps
+## Related content
 
 This tutorial introduced several features of the API Management extension for Visual Studio Code. You can use these features to import and manage APIs. You learned how to:
 
