@@ -51,7 +51,7 @@ Container insights stores its data in a [Log Analytics workspace](../logs/log-an
 
 You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 
- You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Azure Active Directory tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
+ You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
 
 ### Azure Monitor workspace (preview)
 
@@ -157,4 +157,3 @@ The following table lists the extra firewall configuration required for managed 
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
-

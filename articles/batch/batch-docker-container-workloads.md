@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 10/12/2023
 ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
@@ -52,9 +52,12 @@ Use one of the following supported Windows or Linux images to create a pool of V
 
 ### Windows support
 
-Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `-with-containers` or `-with-containers-smalldisk`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
+Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `win_2016_mcr_20_10` or `win_2022_mcr_20_10` under the Mirantis publisher and are offered as `windows_2016_with_mirantis_container_runtime` or `windows_2022_with_mirantis_container_runtime`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
 
 You can also create custom images from VMs running Docker on Windows.
+
+> [!NOTE]
+> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment. 
 
 ### Linux support
 

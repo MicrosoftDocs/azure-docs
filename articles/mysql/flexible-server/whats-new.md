@@ -26,6 +26,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## October 2023
+
+- **Metrics computation for Azure Database for MySQL - Flexible Server**
+"Host Memory Percent" metric will provide more accurate calculations of memory usage. It will now reflect the actual memory consumed by the server, excluding re-usable memory from the calculation. This improvement ensures that you have a more precise understanding of your server's memory utilization. After the completion of the [scheduled maintenance window](./concepts-maintenance.md), existing servers will benefit from this enhancement.
+- **Known Issues**
+When attempting to modify the User assigned managed identity and Key identifier in a single request while changing the CMK settings, the operation gets struck. We are working on the upcoming deployment for the permanent solution to address this issue, in the meantime, please ensure that you perform the two operations of updating the User Assigned Managed Identity and Key identifier in separate requests. The sequence of these operations is not critical, as long as the user-assigned identities have the necessary access to both Key Vault
+
 ## September 2023
 
 - **Flexible Maintenance for Azure Database for MySQL - Flexible server(Public Preview)**
@@ -629,6 +636,7 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
 
 

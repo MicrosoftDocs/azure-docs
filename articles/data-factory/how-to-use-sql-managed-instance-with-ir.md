@@ -24,7 +24,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Prerequisites
 
-1. [Enable Azure Active Directory (Azure AD) on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
+1. [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Microsoft Entra authentication.
 
 1. Choose how to connect SQL Managed Instance, over private endpoint or over public endpoint:
 
@@ -133,11 +133,11 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png" alt-text="Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.":::
 
-1. Select Azure AD authentication when applies.
+1. Select Microsoft Entra authentication when applies.
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png" alt-text="catalog-public-endpoint":::
 
-    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    For more info about how to enable Microsoft Entra authentication, see [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Join Azure-SSIS IR to the virtual network when applies.
 

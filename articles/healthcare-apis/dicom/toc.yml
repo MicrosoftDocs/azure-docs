@@ -13,12 +13,16 @@ items:
   - name: DICOMweb standard APIs
     href: dicomweb-standard-apis-with-dicom-services.md 
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items: 
     - name: Get started with the DICOM service
       href: get-started-with-dicom.md
     - name: Deploy DICOM service using Azure portal
       href: deploy-dicom-services-in-azure.md
+    - name: Get an access token
+      href: get-access-token.md
+    - name: Register a client application
+      href: dicom-register-application.md
     - name: Get started using DICOM data in analytics workloads
       href: get-started-with-analytics-dicom.md
 - name: How-tos
@@ -39,7 +43,7 @@ items:
     - name: Configure settings
       items: 
         - name: Configure Azure RBAC
-          href: dicom-configure-azure-rbac.md#assign-roles-for-the-dicom-service
+          href: dicom-configure-azure-rbac.md
         - name: Configure CORS
           href: configure-cross-origin-resource-sharing.md
     - name: Audit and diagnostic logging
@@ -52,19 +56,15 @@ items:
           href: export-dicom-files.md
         - name: Pull DICOM changes using the change feed
           href: pull-dicom-changes-from-change-feed.md
-    - name: Use Azure Active Directory (Azure AD)
-      items: 
-        - name: Get an access token using Azure CLI
-          href: dicom-get-access-token-azure-cli.md#obtain-and-use-an-access-token-for-the-dicom-service
-    - name: Register a client application in Azure Active Directory
-      href: dicom-register-application.md
-- name: Resources
-  expanded: false
+- name: Reference
+  expanded: true
   items: 
     - name: API versioning
       href: api-versioning-dicom-service.md
     - name: DICOM service API v2 changes
       href: dicom-service-v2-api-changes.md
+    - name: DICOM service open-source projects
+      href: references-for-dicom-service.md
     - name: DICOM conformance statements
       expanded: false
       items: 
@@ -74,8 +74,3 @@ items:
           href: dicom-services-conformance-statement.md
         - name: FAQ
           href: dicom-services-faqs.yml
-- name: Reference
-  expanded: false
-  items: 
-    - name: DICOM service open-source projects
-      href: references-for-dicom-service.md

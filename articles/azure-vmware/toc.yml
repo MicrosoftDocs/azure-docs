@@ -99,9 +99,9 @@ items:
         href: restore-azure-netapp-files-vms.md
     - name: Backup with Azure Backup Server
       items:
-      - name: Set up Backup Server
+      - name: Setup Backup Server
         href: set-up-backup-server-for-azure-vmware-solution.md
-      - name: Back up private cloud VMs with Backup Server
+      - name: Backup private cloud VMs with Backup Server
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Disaster recovery using Azure Site Recovery
       items:
@@ -111,7 +111,7 @@ items:
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Setup replication
         href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Run a disaster recovery drill
+      - name: Run disaster recovery drill
         href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Failover to Azure
         href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext

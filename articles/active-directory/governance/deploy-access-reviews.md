@@ -23,9 +23,9 @@ ms.collection: M365-identity-device-management
 
 # Plan a Microsoft Entra access reviews deployment
 
-[Microsoft Entra access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
+[Microsoft Entra access reviews](access-reviews-overview.md) help your organization keep the Enterprise more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
 
-* Schedule regular reviews or do ad-hoc reviews to see who has access to specific resources, such as applications and groups.
+* Schedule regular reviews or do ad-hoc reviews to discover who has access to specific resources, such as applications and groups.
 * Track reviews for insights, compliance, or policy reasons.
 * Delegate reviews to specific admins, business owners, or users who can self-attest to the need for continued access.
 * Use the insights to efficiently determine if users should continue to have access.
@@ -33,7 +33,7 @@ ms.collection: M365-identity-device-management
 
   ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
-Access reviews are an [Microsoft Entra ID Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
+Access reviews are an [Microsoft Entra ID Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), lifecycle workflows, provisioning and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
 
 * Which users should have access to which resources?
 * What are those users doing with that access?
@@ -66,7 +66,7 @@ The following videos help you learn about access reviews:
 [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 >[!NOTE]
->Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
+>To create a review of inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
 
 ## Plan the access reviews deployment project
 
@@ -83,6 +83,12 @@ For access reviews, you'll likely include representatives from the following tea
    * Reviews privileged access to infrastructure and apps, including Microsoft 365 and Microsoft Entra ID.
    * Schedules and runs access reviews on groups that are used to maintain exception lists or IT pilot projects to maintain up-to-date access lists.
    * Ensures that programmatic (scripted) access to resources through service principals is governed and reviewed.
+   * Automate processes like user onboarding and offboarding, access requests, and access certifications.
+ 
+* **Security teams** ensure the plan meets the security requirements of your organization and enforces Zero Trust. This team:
+   * Reduces risk and strengthens security
+   * Enforces least privilege access to resources and applications
+   * Uses tools to see a centralized authoritative source, of who has access to what, and for how long.
 
 * **Development teams** build and maintain applications for your organization. This team:
 
@@ -94,15 +100,19 @@ For access reviews, you'll likely include representatives from the following tea
 
    * Reviews and approves or denies access to groups and applications for internal and external users.
    * Schedules and does reviews to attest continued access for employees and external identities such as business partners.
+   * Need employees to have access to the apps required for their work.
+   * Permits departments to manage access for their users.
 
 * **Corporate governance** ensures that the organization follows internal policy and complies with regulations. This team:
 
    * Requests or schedules new access reviews.
    * Assesses processes and procedures for reviewing access, which includes documentation and record keeping for compliance.
    * Reviews results of past reviews for most critical resources.
+   * Validates the right controls are in place to meet mandatory security and privacy policies.
+   * Requires repeatable access processes that are easy to audit and report.
 
 > [!NOTE]
-> For reviews that require manual evaluations, plan for adequate reviewers and review cycles that meet your policy and compliance needs. If review cycles are too frequent, or there are too few reviewers, quality might be lost and too many or too few people might have access.
+> For reviews that require manual evaluations, plan for adequate reviewers and review cycles that meet your policy and compliance needs. If review cycles are too frequent, or there are too few reviewers, quality might be lost and too many or too few people might have access. We recommend you establish clear responsibilities for the various stakeholders and departments engaged in the access reviews. All teams and individuals participating should understand their respective roles and obligations to uphold the principle of least privilege.
 
 ### Plan communications
 
@@ -177,6 +187,9 @@ The creator of the access review decides at the time of creation who will do the
 * Users who self-attest to their need for continued access.
 * Managers review their direct reports' access to the resource.
 
+>[!NOTE]
+>When you select Resource owners or Managers, administrators designate fallback reviewers, who are contacted if the primary contact isn’t available. 
+
 When you create an access review, administrators can choose one or more reviewers. All reviewers can start and carry out a review by choosing users for continued access to a resource or removing them.
 
 ### Components of an access review
@@ -238,7 +251,7 @@ External identities can be granted access to company resources. They can be:
 
 For more information, see [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script shows where external identities invited into the tenant are used. You can see an external user's group membership, role assignments, and application assignments in Microsoft Entra ID. The script won't show any assignments outside of Microsoft Entra ID, for example, direct rights assignment to SharePoint resources, without the use of groups.
 
-When you create an access review for groups or applications, you can choose to let the reviewer focus on **Everyone with access** or **Guest users only**. By selecting **Guest users only**, reviewers are given a focused list of external identities from Microsoft Entra business to business (B2B) that have access to the resource.
+When you create an access review for groups or applications, you can choose to let the reviewer focus on **All users** or **Guest users only**. By selecting **Guest users only**, reviewers are given a focused list of external identities from Microsoft Entra business to business (B2B) that have access to the resource.
 
  ![Screenshot that shows reviewing guest users.](./media/deploy-access-review/4-review-guest-users-admin-ui.png)
 
@@ -347,7 +360,7 @@ Review the following role assignments regularly:
 
 Roles that are reviewed include permanent and eligible assignments.
 
-In the **Reviewers** section, select one or more people to review all the users. Or you can select **Members (self)** to have the members review their own access.
+In the **Reviewers** section, select one or more people to review all the users. Or you can select **Manager**, to have a manager review their employees’ access, or **Members (self)** to have the members review their own access.
 
  ![Screenshot that shows selecting reviewers.](./media/deploy-access-review/7-plan-azure-resources-reviewers-selection.png)
 

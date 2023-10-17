@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 10/16/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -237,7 +237,7 @@ Replace the following values:
 
 You can use a complete sample policy for testing with the SAML test app:
 
-1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated).
+1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-IdP-Initiated-LocalAccounts).
 1. Update `TenantId` to match your tenant name. This article uses the example *contoso.b2clogin.com*.
 1. Keep the policy name *B2C_1A_signup_signin_saml*.
 

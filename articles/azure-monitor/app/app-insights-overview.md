@@ -19,7 +19,7 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
 - [Application map](app-map.md): A visual overview of application architecture and components' interactions.
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](diagnostic-search.md): Trace and diagnose transactions to identify issues and optimize performance.
+- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
 - Performance view: Review application performance metrics and potential bottlenecks.
 - Failures view: Identify and analyze failures in your application to minimize downtime.
@@ -46,7 +46,7 @@ Application Insights provides many experiences to enhance the performance, relia
 
 The logic model diagram visualizes components of Application Insights and how they interact.
 
-:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
+:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
 > [!Note]
 > Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
@@ -229,6 +229,6 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
 - [Live metrics](live-stream.md)
-- [Transaction search](diagnostic-search.md)
+- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
 - [Users, sessions, and events](usage-segmentation.md)

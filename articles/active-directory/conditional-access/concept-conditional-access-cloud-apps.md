@@ -17,6 +17,7 @@ ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
+
 # Conditional Access: Target resources
 
 Target resources (formerly Cloud apps, actions, and authentication context) are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, services, actions, or authentication context.
@@ -111,7 +112,7 @@ Because the policy is applied to the Azure management portal and API, services, 
 - Microsoft IoT Central
 
 > [!NOTE]
-> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
+> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview), which calls the [Microsoft Graph API](/graph/overview).
 
 For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
 
@@ -230,3 +231,4 @@ For more information about authentication context use in applications, see the f
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Client application dependencies](service-dependencies.md)
+

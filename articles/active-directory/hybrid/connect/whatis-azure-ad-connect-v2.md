@@ -1,5 +1,5 @@
 ---
-title: 'What is Microsoft Entra Connect v2.0?'
+title: 'Introduction to Microsoft Entra Connect V2'
 description: Learn about the next version of Microsoft Entra Connect.
 services: active-directory
 author: billmath
@@ -13,27 +13,26 @@ ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
-# Introduction to Microsoft Entra Connect V2.0
+# Introduction to Microsoft Entra Connect V2
 
-Microsoft Entra Connect was released several years ago.  Since this time, several of the components that Microsoft Entra Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
+Azure AD Connect V1 was released several years ago. Since this time, several of the components used have been scheduled for deprecation and updated to newer versions. Attempting to update all of these components individually would take time and planning.
 
-To address this issue, we've bundled as many of these newer components into a new, single release, so you only have to update once. This release is Microsoft Entra Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
+To address this issue, we've bundled as many of these newer components into a new single release, so you only have to update once. This release is Microsoft Entra Connect V2. This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components.
 
  >[!NOTE]
- >Microsoft Entra Connect V1 has been retired as of August 31, 2022 and is no longer supported. Microsoft Entra Connect V1 installations may **stop working unexpectedly**. If you are still using a Microsoft Entra Connect V1 you need to upgrade to Microsoft Entra Connect V2 immediately.
+ >Microsoft Entra Connect V1 has been retired as of August 31, 2022 and is no longer supported. Microsoft Entra Connect V1 installations may **stop working unexpectedly**. If you are still using Azure AD Connect V1, you need to upgrade to Microsoft Entra Connect V2 immediately.
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 
 ## Consider moving to Microsoft Entra Connect cloud sync
-Microsoft Entra Connect cloud sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.  
+
+Microsoft Entra Connect cloud sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.
 
 > [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
 
-Before moving the Microsoft Entra Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/EvaluateSyncOptions) from the portal or via the link provided.
+Before moving to Microsoft Entra Connect V2, you should consider moving to Microsoft Entra Connect cloud sync. You can see if cloud sync is right for you by accessing the [Check sync tool](https://aka.ms/EvaluateSyncOptions) from the portal or via the link provided.
 
 For more information, see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
-
-
 
 ## What are the major changes? 
 
@@ -108,14 +107,14 @@ No, the upgrade to SQL 2019 doesn't remove any SQL 2012 components from your ser
 **What happens if I don't upgrade?** </br>
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Microsoft Entra Connect will keep on working. 
 
-Support for TLS 1.0/1.1 is deprecated in 2022, and you need to make sure you aren't using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that doesn't require an update of Microsoft Entra Connect to V2 
+Support for TLS 1.0/1.1 is deprecated in 2022, and you need to make sure you aren't using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that doesn't require an update of Microsoft Entra Connect to V2. 
 
-Microsoft Entra Connect Health may stop working after March 2023. We will auto upgrade all Health agents to a new version before that, but we cannot auto upgrade if you are running AADConnect V1 due to compatibility issues with V versions.
+Microsoft Entra Connect Health may stop working after March 2023. We will auto upgrade all Health agents to a new version before that, but we cannot auto upgrade if you are running Azure AD Connect V1 due to compatibility issues with V versions.
 
 After December 2022, ADAL is planned to go out of support. When ADAL goes out of support, authentication may stop working unexpectedly, and this will block the Microsoft Entra Connect server from working properly. We strongly advise you to upgrade to Microsoft Entra Connect V2 before December 2022. You can't upgrade to a supported authentication library with your current Microsoft Entra Connect version. 
 
-**After upgrading to 2 the ADSync PowerShell cmdlets don't work?** </br>
-This is a known issue. Restart your PowerShell session after installing or upgrading to version 2 and then reimport the module. Use the following instructions to import the module.
+**After upgrading to V2 the ADSync PowerShell cmdlets don't work?** </br>
+This is a known issue. Restart your PowerShell session after installing or upgrading to V2 and then reimport the module. Use the following instructions to import the module.
  
  1.  Open Windows PowerShell with administrative privileges.
  1.  Type or copy and paste the following code: 

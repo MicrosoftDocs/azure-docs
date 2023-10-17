@@ -32,7 +32,7 @@ By using Arc-enabled VMware vSphere's capabilities to discover your VMware estat
 
 ## Set up self-service access for your teams to use vSphere resources using Azure Arc
 
-Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Azure AD-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
+Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Microsoft Entra ID-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
 
 1. Virtualized Infrastructure Administrators/Cloud Administrators can connect a vCenter instance to Azure. 
 

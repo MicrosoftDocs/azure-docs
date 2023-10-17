@@ -33,7 +33,7 @@ If you haven't already done so, make sure you complete the following items:
 * Download and install the Azure VPN Client. For steps, see one of the following articles:
 
   * [Certificate authentication](point-to-site-vpn-client-cert-windows.md#download-the-azure-vpn-client)
-  * [Azure AD authentication](openvpn-azure-ad-client.md#download)
+  * [Microsoft Entra authentication](openvpn-azure-ad-client.md#download)
 
 ## Working with VPN client profile configuration files
 
@@ -85,7 +85,7 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 ```
 
 > [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
+> The OpenVPN Microsoft Entra client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
 
 ## Routing
@@ -184,4 +184,3 @@ For more information about P2S VPN, see the following articles:
 
 * [About point-to-site VPN](point-to-site-about.md)
 * [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)
-

@@ -45,16 +45,16 @@ The connection requires the following parameters:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**.
+Choose **Windows Authentication**, **Microsoft Entra ID**, or **SQL Login** as the **Authentication Type**.
 
 To use **SQL Login** as the authentication type, add the username/password parameters:
 
 * **User:** Server user in the form `<User>`
 * **Password:** Password associated with the user
 
-To use Azure Active Directory, you need to choose the needed authentication type.
+To use Microsoft Entra ID, you need to choose the needed authentication type.
 
-![AAD Authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
+![Microsoft Entra authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
 
 The following screenshot shows the **Connection Details** for **Windows Authentication**:
 
