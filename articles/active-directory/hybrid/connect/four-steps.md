@@ -182,13 +182,13 @@ To learn more, go read [Monitor AD FS using Microsoft Entra Connect Health](./ho
 
 ### Use Azure Monitor to collect data logs for analytics
 
-[Azure Monitor](../../../azure-monitor/overview.md) is a unified monitoring portal for all Microsoft Entra logs, which provides deep insights, advanced analytics, and smart machine learning. With Azure Monitor, you can consume metrics and logs within the portal and via APIs to gain more visibility into the state and performance of your resources. It enables a single pane of glass experience within the portal while enabling a wide range of product integrations via APIs and data export options that support traditional third-party SIEM systems. Azure Monitor also gives you the ability to configure alert rules to get notified or to take automated actions on issues impacting your resources.
+[Azure Monitor](/azure/azure-monitor/overview) is a unified monitoring portal for all Microsoft Entra logs, which provides deep insights, advanced analytics, and smart machine learning. With Azure Monitor, you can consume metrics and logs within the portal and via APIs to gain more visibility into the state and performance of your resources. It enables a single pane of glass experience within the portal while enabling a wide range of product integrations via APIs and data export options that support traditional third-party SIEM systems. Azure Monitor also gives you the ability to configure alert rules to get notified or to take automated actions on issues impacting your resources.
 
 ![Azure Monitor](./media/four-steps/image1.png)
 
 ### Create custom dashboards for your leadership and your day to day
 
-Organizations that don't have a SIEM solution can use Azure Monitor workbooks for Microsoft Entra ID(../reports-monitoring/howto-use-azure-monitor-workbooks). The integration contains pre-built workbooks and templates to help you understand how your users adopt and use Microsoft Entra features, which allows you to gain insights into all the activities within your directory. You can also create your own workbooks and share with your leadership team to report on day-to-day activities. Workbooks are a great way to monitor your business and see all of your most important metrics at a glance. 
+Organizations that don't have a SIEM solution can use [Azure Monitor workbooks for Microsoft Entra ID](/azure/active-directory/reports-monitoring/howto-use-workbooks). The integration contains pre-built workbooks and templates to help you understand how your users adopt and use Microsoft Entra features, which allows you to gain insights into all the activities within your directory. You can also create your own workbooks and share with your leadership team to report on day-to-day activities. Workbooks are a great way to monitor your business and see all of your most important metrics at a glance. 
 
 ### Understand your support call drivers
 
@@ -200,7 +200,7 @@ If you don't observe a reduction in support calls, we recommend that you analyze
 
 ### Monitor your usage of apps to drive insights
 
-In addition to discovering Shadow IT, monitoring app usage across your organization using [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) can help your organization as you move to take full advantage of the promise of cloud applications. It can help keep you in control of your assets through improved visibility into activity and increase the protection of critical data across cloud applications. Monitoring app usage in your organization using Defender for Cloud Apps can help you answer the following questions:
+In addition to discovering Shadow IT, monitoring app usage across your organization using [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps) can help your organization as you move to take full advantage of the promise of cloud applications. It can help keep you in control of your assets through improved visibility into activity and increase the protection of critical data across cloud applications. Monitoring app usage in your organization using Defender for Cloud Apps can help you answer the following questions:
 
 * What unsanctioned apps are employees using to store data in?
 * Where and when is sensitive data being stored in the cloud?
@@ -263,6 +263,6 @@ We recommend that you print the following checklist for reference as you begin y
 
 ## Next steps
 
-Learn how you can increase your secure posture using the capabilities of Microsoft Entra ID and this five-step checklist - [Five steps to securing your identity infrastructure](../../../security/fundamentals/steps-secure-identity.md).
+Learn how you can increase your secure posture using the capabilities of Microsoft Entra ID and this five-step checklist - [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity).
 
 Learn how the identity features in Microsoft Entra ID can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Microsoft Entra ID - [How Microsoft Entra ID Delivers Cloud Governed Management for on-premises Workloads](./cloud-governed-management-for-on-premises.md).

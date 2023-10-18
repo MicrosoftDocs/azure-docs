@@ -30,7 +30,7 @@ To help decide which log routing option is best for you, see [How to access acti
 - [Send logs to a Log Analytics workspace to integrate with Azure Monitor logs](howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Archive logs to a storage account](howto-archive-logs-to-storage-account.md)
 - [Stream logs to an event hub](howto-stream-logs-to-event-hub.md)
-- [Send to a partner solution](../../partner-solutions/overview.md)
+- [Send to a partner solution](/azure/partner-solutions/overview)
 
 ## Activity log options
 
@@ -82,7 +82,7 @@ The `ServicePrincipalRiskEvents` logs provide details around the risky sign-in e
 
 ### Enriched Microsoft 365 audit logs
 
-The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you can enable for Microsoft Entra Internet Access. Selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet to secure access to your Microsoft 365 traffic *and* you enabled the enriched logs. For more information, see [How to use the Global Secure Access enriched Microsoft 365 logs](../../global-secure-access/how-to-view-enriched-logs.md).
+The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you can enable for Microsoft Entra Internet Access. Selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet to secure access to your Microsoft 365 traffic *and* you enabled the enriched logs. For more information, see [How to use the Global Secure Access enriched Microsoft 365 logs](/entra/global-secure-access/how-to-view-enriched-logs).
 
 ### Microsoft Graph activity logs
 
@@ -90,7 +90,7 @@ The `MicrosoftGraphActivityLogs` provide administrators full visibility into all
 
 ### Network access traffic logs
 
-The `NetworkAccessTrafficLogs` logs are associated with Microsoft Entra Internet Access and Microsoft Entra Private Access. The logs are visible in Microsoft Entra ID, but selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet Access and Microsoft Entra Private Access to secure access to your corporate resources. For more information, see [What is Global Secure Access?](../../global-secure-access/overview-what-is-global-secure-access.md).
+The `NetworkAccessTrafficLogs` logs are associated with Microsoft Entra Internet Access and Microsoft Entra Private Access. The logs are visible in Microsoft Entra ID, but selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet Access and Microsoft Entra Private Access to secure access to your corporate resources. For more information, see [What is Global Secure Access?](/entra/global-secure-access/overview-what-is-global-secure-access).
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.reviewer: gudlapreethi, bemey, filuz, robgarcia, v-leedennis
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
-This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate on a Microsoft Entra joined Windows device by using your Microsoft Entra credentials.
+This article discusses how to troubleshoot issues that involve the [primary refresh token](./concept-primary-refresh-token.md) (PRT) when you authenticate on a Microsoft Entra joined Windows device by using your Microsoft Entra credentials.
 
 <!-- docutune:ignore AAD -->
 

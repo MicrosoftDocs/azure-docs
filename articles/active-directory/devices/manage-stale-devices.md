@@ -55,7 +55,7 @@ You have two options to retrieve the value of the activity timestamp:
 
     :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot listing the name, owner, and other information of devices. One column lists the activity time stamp." border="false":::
 
-- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet.
+- The [Get-AzureADDevice](/powershell/module/azuread/get-azureaddevice) cmdlet.
 
     :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot showing command-line output. One line is highlighted and lists a time stamp for the ApproximateLastLogonTimeStamp value." border="false":::
 
@@ -137,9 +137,9 @@ A typical routine consists of the following steps:
 
 1. Connect to Microsoft Entra ID using the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet
 1. Get the list of devices
-1. Disable the device using the [Set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) cmdlet (disable by using -AccountEnabled option). 
+1. Disable the device using the [Set-AzureADDevice](/powershell/module/azuread/set-azureaddevice) cmdlet (disable by using -AccountEnabled option). 
 1. Wait for the grace period of however many days you choose before deleting the device.
-1. Remove the device using the [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) cmdlet.
+1. Remove the device using the [Remove-AzureADDevice](/powershell/module/azuread/remove-azureaddevice) cmdlet.
 
 ### Get the list of devices
 

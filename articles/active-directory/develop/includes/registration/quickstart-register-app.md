@@ -22,7 +22,7 @@ Get started with the Microsoft identity platform by registering an application i
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
 > [!TIP]
-> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](../../../../active-directory-b2c/tutorial-register-applications.md).
+> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](/azure/active-directory-b2c/tutorial-register-applications).
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ If you're using an Azure DevOps service connection that automatically creates a 
 
 ### Add a federated credential
 
-Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation).
+Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](../../../workload-identities/workload-identity-federation.md).
 
 To add a federated credential, follow these steps:
 
