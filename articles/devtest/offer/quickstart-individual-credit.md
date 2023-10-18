@@ -65,7 +65,7 @@ For more details go to my.visualstudio.com, or follow this link: [Use Microsoft 
    ![A screenshot of services available in the Azure portal](media/quickstart-individual-credit/azure-services.png "Select Subscriptions under Azure Services.")  
 3. Select **+ Add**.
 
-   ![A screenshot of a pop up window for adding a subscription](media/quickstart-individual-credit/click-add.png "Select the add button.")  
+   ![A screenshot of a pop up window for adding a subscription.](media/quickstart-individual-credit/click-add.png "Select the add button.")  
 
 4. This action takes you to a page where you can find the eligible offers.
 

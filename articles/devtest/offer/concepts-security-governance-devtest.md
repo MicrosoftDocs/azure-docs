@@ -22,7 +22,7 @@ Important tools within Azure Dev/Test Subscriptions help you create secure acces
 
 ## Azure Management Groups  
 
-When you enable and setting up your Azure Dev/Test Subscriptions, Azure deploys a default resource hierarchy to manage identities and access to resources in a single Microsoft Entra domain. The resource hierarchy allows your organization to set up strong security perimeters for your resources and users.  
+When you enable and set up your Azure Dev/Test Subscriptions, Azure deploys a default resource hierarchy to manage identities and access to resources in a single Microsoft Entra domain. The resource hierarchy allows your organization to set up strong security perimeters for your resources and users.  
 
 ![A screenshot of the Azure Management Groups](media/concepts-security-governance-devtest/access-management-groups.png "Azure default resource hierarchy.")  
 
