@@ -77,7 +77,7 @@ Entitlement management introduces the concept of an *access package*. An access 
 You can also control access to other resources that rely upon Microsoft Entra security groups or Microsoft 365 Groups.  For example:
 
 - You can give users licenses for Microsoft 365 by using a Microsoft Entra security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
-- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](/azure/role-based-access-control/role-assignments-portal) for that group.
 - You can give users access to manage Microsoft Entra roles by using groups assignable to Microsoft Entra roles in an access package and [assigning a Microsoft Entra role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?

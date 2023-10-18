@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant for P2S OpenVPN authen
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 10/17/2023
 ms.author: cherylmc
 ms.custom: engagement-fy23
 ---
@@ -101,6 +101,9 @@ Assign the users to your applications.
 1. After you finish selecting users and groups, click **Assign**.
 
 ## Configure authentication for the gateway
+
+> [!IMPORTANT]
+> [!INCLUDE [Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
 
 In this step, you configure P2S Microsoft Entra authentication for the virtual network gateway.
 

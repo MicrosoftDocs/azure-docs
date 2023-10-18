@@ -492,4 +492,4 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 To get help or find answers to your questions:
 
-- [Microsoft Entra ID on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Microsoft Entra ID on Microsoft Q&A](/answers/tags/455/entra-id)
