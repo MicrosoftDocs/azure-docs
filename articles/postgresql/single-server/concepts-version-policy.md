@@ -28,6 +28,7 @@ Azure Database for PostgreSQL supports the following database versions.
 
 | Version | Single Server | Flexible Server |
 | ----- | :------: | :----: |
+| PostgreSQL 15 |   | X |
 | PostgreSQL 14 |   | X |
 | PostgreSQL 13 |   | X |
 | PostgreSQL 12 |   | X |
@@ -57,6 +58,7 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | June 29, 2022 (Flexible Server)| November 12, 2026
+| [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | May 15, 2023 (Flexible Server)| November 11, 2027
 
 ## PostgreSQL 11 support in Single Server and Flexible Server
 
