@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra External ID for customers documentation
-summary: Microsoft Entra External ID for customers, also known as External ID for customers, is a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services.
+title: Microsoft Entra ID for customers documentation
+summary: Microsoft Entra ID for customers is a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services.
 
 metadata: 
-   title: Microsoft Entra External ID for customers documentation
+   title: Microsoft Entra ID for customers documentation
    description: Microsoft Entra ID for customers is a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services.
    ms.service: active-directory
    ms.subservice: ciam
@@ -16,11 +16,11 @@ metadata:
    manager: celested
 
 landingContent:
-  - title: About Microsoft Entra External ID for customers
+  - title: About Microsoft Entra ID for customers
     linkLists:
       - linkListType: overview
         links:
-          - text: About Microsoft Entra External ID for customers
+          - text: About Microsoft Entra ID for customers
             url: overview-customers-ciam.md 
           - text: Frequently asked questions
             url: faq-customers.md 

@@ -34,7 +34,7 @@ The choice between a pop-up or redirect experience depends on your application f
 
 - If you don't want users to move away from your main application page during authentication, we recommend the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-- If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](/azure/active-directory/develop/msal-js-use-ie-browser).
+- If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](./msal-js-use-ie-browser.md).
 
 ## Sign-in with a pop-up window
 

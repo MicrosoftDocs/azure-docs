@@ -5,8 +5,7 @@ description: This document helps developers migrate code from v2 to v3 of the Sp
 services: cognitive-services
 author: bexxx
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: rbeckers

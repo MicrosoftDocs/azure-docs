@@ -3,7 +3,7 @@ title: Azure Resource Graph sample queries for Azure Resource Manager
 description: Sample Azure Resource Graph queries for Azure Resource Manager showing use of resource types and tables to access Azure Resource Manager related resources and properties.
 ms.date: 07/07/2022
 ms.topic: sample
-ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
 ---
 # Azure Resource Graph sample queries for Azure Resource Manager
 

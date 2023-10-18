@@ -2,14 +2,14 @@
 title: API-driven inbound provisioning with PowerShell script (Public preview)
 description: Learn how to implement API-driven inbound provisioning with a PowerShell script.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/15/2023
-ms.author: jfields
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -63,7 +63,7 @@ The PowerShell sample script published in the [Microsoft Entra inbound provision
 |3 | Use a certificate for authentication to Microsoft Entra ID. | [Create a service principal that can access](inbound-provisioning-api-grant-access.md) the inbound provisioning API. Refer to steps in the section [Configure client certificate for service principal authentication](#configure-client-certificate-for-service-principal-authentication) to learn how to use client certificate for authentication. | If you'd like to use managed identity instead of a service principal for authentication, then review the use of `Connect-MgGraph` in the sample script and update it to use [managed identities](/powershell/microsoftgraph/authentication-commands#using-managed-identity). |
 |4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This generates a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Refer to the steps in the section [Generate and upload bulk request payload as admin user](#generate-and-upload-bulk-request-payload-as-admin-user) to learn how to upload data to this endpoint. Validate the attribute flow and customize the attribute mappings per your integration requirements. To run the script using a service principal with certificate-based authentication, refer to the steps in the section [Upload bulk request payload using client certificate authentication](#upload-bulk-request-payload-using-client-certificate-authentication) | If you plan to [use bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema), then [extend the provisioning app schema](#extending-provisioning-job-schema) to include your custom SCIM schema elements.|
 |5 | Scan the provisioning logs and retry provisioning for failed records.  |  Refer to the steps in the section [Get provisioning logs of the latest sync cycles](#get-provisioning-logs-of-the-latest-sync-cycles)  to learn how to fetch and analyze provisioning log data. Identify failed user records and include them in the next upload cycle.  | - |
-|6 | Deploy your PowerShell based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the PowerShell script to meet your requirements, you can deploy the automation as a [PowerShell Workflow runbook in Azure Automation](../../automation/learn/automation-tutorial-runbook-textual.md) or as a server process [scheduled to run on a Windows server](/troubleshoot/windows-server/system-management-components/schedule-server-process). | - |
+|6 | Deploy your PowerShell based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the PowerShell script to meet your requirements, you can deploy the automation as a [PowerShell Workflow runbook in Azure Automation](/azure/automation/learn/automation-tutorial-runbook-textual) or as a server process [scheduled to run on a Windows server](/troubleshoot/windows-server/system-management-components/schedule-server-process). | - |
 
 
 ## Download the PowerShell script
@@ -358,7 +358,7 @@ PS > CSV2SCIM.ps1 -Path <path-to-csv-file>
 
 > [!NOTE]
 > The `AttributeMapping` and `ValidateAttributeMapping` command-line parameters refer to the mapping of CSV column attributes to the standard SCIM schema elements. 
-It doesn't refer to the attribute mappings that you perform in the Microsoft Entra admin center provisioning app between source SCIM schema elements and target Azure AD/on-premises AD attributes. 
+It doesn't refer to the attribute mappings that you perform in the Microsoft Entra admin center provisioning app between source SCIM schema elements and target Microsoft Entra / on-premises Active Directory attributes. 
 
 | Parameter |    Description | Processing remarks |
 |----------|----------------|--------------------|

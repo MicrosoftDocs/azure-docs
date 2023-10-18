@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Microsoft Entra joined* and *Microsoft Entra hybrid joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Microsoft Entra joined* and *Microsoft Entra hybrid joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
@@ -73,29 +73,29 @@ The following scenarios aren't supported:
 
 <a name='install-the-azure-ad-kerberos-powershell-module'></a>
 
-## Install the Microsoft Entra Kerberos PowerShell module
+## Install the `AzureADHybridAuthenticationManagement` module
 
-The [Microsoft Entra Kerberos PowerShell module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
+The [`AzureADHybridAuthenticationManagement` module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
 
 1. Open a PowerShell prompt using the Run as administrator option.
-1. Install the Microsoft Entra Kerberos PowerShell module:
+1. Install the `AzureADHybridAuthenticationManagement` module:
 
    ```powershell
    # First, ensure TLS 1.2 for PowerShell gallery access.
    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-   # Install the Azure AD Kerberos PowerShell Module.
+   # Install the AzureADHybridAuthenticationManagement PowerShell module.
    Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    ```
 
 > [!NOTE]
-> - The Microsoft Entra Kerberos PowerShell module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Microsoft Entra management features. If the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
-> - You can install the Microsoft Entra Kerberos PowerShell module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Microsoft Entra Connect solution.
-> - The Microsoft Entra Kerberos PowerShell module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
+> - The `AzureADHybridAuthenticationManagement` module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Microsoft Entra management features. If the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
+> - You can install the `AzureADHybridAuthenticationManagement` module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Microsoft Entra Connect solution.
+> - The `AzureADHybridAuthenticationManagement` module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
 
 ## Create a Kerberos Server object
 
-Administrators use the Microsoft Entra Kerberos PowerShell module to create a Microsoft Entra Kerberos server object in their on-premises directory.
+Administrators use the `AzureADHybridAuthenticationManagement` module to create a Microsoft Entra Kerberos server object in their on-premises directory.
 
 Run the following steps in each domain and forest in your organization that contain Microsoft Entra users:
 
@@ -186,14 +186,16 @@ Run the following steps in each domain and forest in your organization that cont
 
 You can view and verify the newly created Microsoft Entra Kerberos server by using the following command:
 
+
 ```powershell
-Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+ # When prompted to provide domain credentials use the userprincipalname format for the username instead of domain\username
+Get-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential (get-credential)
 ```
 
 This command outputs the properties of the Microsoft Entra Kerberos server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
+> Running against another domain by supplying the credential in domain\username format will connect over NTLM, and then it fails. However, using the userprincipalname format for the domain administrator will ensure RPC bind to the DC is attempted using Kerberos correctly. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |
@@ -279,7 +281,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [myaccount.microsoft.com](https://myaccount.microsoft.com/), and then go to the **Security info** page.
 
 <a name='what-can-i-do-if-im-unable-to-use-the-fido-security-key-immediately-after-i-create-a-hybrid-azure-ad-joined-machine'></a>
 

@@ -28,7 +28,7 @@ In this article, you do the following tasks:
 
 - Associate your web application with the user flow. 
 
-- Update a sample Electron desktop application using your own Microsoft Entra External ID for customers tenant details.
+- Update a sample Electron desktop application using your own Microsoft Entra ID for customers tenant details.
 
 - Run and test the sample desktop application.
 
@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Microsoft Entra External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
 ## Register desktop app

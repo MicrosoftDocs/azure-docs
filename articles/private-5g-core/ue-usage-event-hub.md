@@ -48,7 +48,7 @@ When configured, AP5GC will send data usage reports per QoS flow level for all P
 |**IP Address** |String |The UE's IP address.|
 |**Packet Core Control Plane ARM ID** |String |The identifier of the packet core control plane ARM associated with the UE.|
 |**Packet Core Data Plane ARM ID** |String |The identifier of the packet core data plane ARM associated with the UE.|
-|**ARP**|String|The address resolution protocol, including the: priority level, preemption capability and preemption vulnerability. See [5G quality of service (QoS) and QoS flows](policy-control.md#5g-quality-of-service-qos-and-qos-flows) for more information. |
+|**ARP**|Object|The Allocation and Retention Policy, including the: priority level, preemption capability and preemption vulnerability. See [5G quality of service (QoS) and QoS flows](policy-control.md#5g-quality-of-service-qos-and-qos-flows) for more information. |
 |- **ArpPriorityLevel**|Int (1-15) |See **ARP** above.|
 |- **Preemption Capability**|String |See **ARP** above.|
 |- **Preemption Vulnerability**|String |See **ARP** above.|

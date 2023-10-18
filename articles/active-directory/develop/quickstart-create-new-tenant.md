@@ -33,7 +33,7 @@ You can create two types of environments. The environment depends solely on the 
 
 This quickstart addresses two scenarios for the type of app you want to build:
 
-* Work and school (Microsoft Entra ID) accounts or Microsoft accounts (such as Outlook.com and Live.com)
+* Work and school accounts (Microsoft Entra ID) or Microsoft accounts (such as Outlook.com and Live.com)
 * Social and local (Azure AD B2C) accounts
 
 ## Work and school accounts, or personal Microsoft accounts
@@ -79,7 +79,7 @@ You'll provide the following information to create your new tenant:
 
 ## Social and local accounts
 
-To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
+To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant).
 
 ## Next steps
 

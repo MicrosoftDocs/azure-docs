@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 09/21/2023
 ms.author: jeedes
 
 ---
@@ -88,11 +88,11 @@ Complete the following steps to enable Microsoft Entra single sign-on.
 
 ## Configure Parallels Desktop SSO
 
-To configure single sign-on on **Parallels Desktop** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from the application configuration to [Parallels Desktop support team](https://www.parallels.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Parallels Desktop** side, follow the latest version of Parallels's Azure SSO setup guide on [this page](https://kb.parallels.com/en/129240). If you encounter any difficulties throughout the setup process, contact [Parallels Desktop support team](https://www.parallels.com/support/).
 
 ### Create Parallels Desktop test user
 
-In this section, you create a user called Britta Simon at Parallels Desktop. Work with [Parallels Desktop support team](https://www.parallels.com/support/) to add the users in the Parallels Desktop platform. Users must be created and activated before you use single sign-on.
+Add existing user accounts to the Admin or User groups on the Microsoft Entra ID side, following Parallels's Azure SSO setup guide that can be found on [this page](https://kb.parallels.com/en/129240). When a user account gets deactivated following their departure from the organization, that is immediately reflected in the user count of the Parallels's product license.
 
 ## Test SSO 
 

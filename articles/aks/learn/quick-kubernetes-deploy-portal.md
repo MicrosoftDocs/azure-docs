@@ -24,8 +24,10 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
-
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
 ## Create an AKS cluster
 
@@ -54,7 +56,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 1. On the **Node pools** page, leave the default options and then select **Next: Access**.
 1. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
 1. Select **Next: Networking** when complete.
@@ -313,3 +315,4 @@ To learn more about AKS by walking through a complete example, including buildin
 [http-routing]: ../http-application-routing.md
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
+[intro-azure-linux]: ../../azure-linux/intro-azure-linux.md

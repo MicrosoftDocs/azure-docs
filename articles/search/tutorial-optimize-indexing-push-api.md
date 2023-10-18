@@ -39,7 +39,7 @@ The following services and tools are required for this tutorial.
 
 ## Download files
 
-Source code for this tutorial is in the [optimzize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
+Source code for this tutorial is in the [optimize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
 
 ## Key considerations
 

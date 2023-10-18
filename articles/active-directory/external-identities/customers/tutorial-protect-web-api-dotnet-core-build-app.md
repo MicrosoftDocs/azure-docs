@@ -12,7 +12,7 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
 ms.custom: developer, devx-track-dotnet
-#Customer intent: As a dev, I want to secure my ASP.NET Core web API registered in the Microsoft Entra External ID for customers tenant.
+#Customer intent: As a dev, I want to secure my ASP.NET Core web API registered in the Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Secure an ASP.NET web API registered in a customer tenant
@@ -320,7 +320,7 @@ In this section, we add code to the placeholders we created. The focus here isn'
 
 Run your API to ensure that it's running well without any errors using the command `dotnet run`. If you intend to use https protocol even during testing, you need to [trust .NET's development certificate](/aspnet/core/tutorials/first-web-api#test-the-project). 
 
-For a full example of this API code, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI).
+For a full example of this API code, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/tree/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI).
 
 ## Next steps
 

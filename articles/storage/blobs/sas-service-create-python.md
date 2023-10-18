@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python, engagement-fy23
 
 # Create a service SAS for a blob with Python
 
+[!INCLUDE [storage-dev-guide-selector-service-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-service-sas.md)]
+
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
 This article shows how to use the storage account key to create a service SAS for a blob with the Blob Storage client library for Python.

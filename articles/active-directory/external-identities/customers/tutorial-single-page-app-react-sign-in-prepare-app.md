@@ -14,7 +14,7 @@ ms.author: godonnell
 
 # Tutorial: Prepare a React single-page app (SPA) for authentication in a customer tenant
 
-In the [previous article](./tutorial-single-page-app-react-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Microsoft Entra External ID for customers tenant. This tutorial demonstrates how to create a React single-page app using `npm` and create files needed for authentication and authorization.
+In the [previous article](./tutorial-single-page-app-react-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Microsoft Entra ID for customers tenant. This tutorial demonstrates how to create a React single-page app using `npm` and create files needed for authentication and authorization.
 
 In this tutorial;
 
@@ -157,7 +157,7 @@ Identity related **npm** packages must be installed in the project to enable use
 
 ## Modify *index.js* to include the authentication provider
 
-All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
+All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/%40azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/%40azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
 1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
 

@@ -490,11 +490,13 @@ if(!dfRelevantSequences.isEmpty){
 The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
 
-## Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
 
-1. Following the instructions on how to [register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+## Microsoft Entra authentication
 
-1. You should still be in Azure portal > Azure Active Directory > App Registrations. In the `Certificates & secrets` section, create a new secret. Save the value for later. 
+1. Following the instructions on how to [register an application with Microsoft Entra ID and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+
+1. You should still be in Azure portal > Microsoft Entra ID > App Registrations. In the `Certificates & secrets` section, create a new secret. Save the value for later. 
 
 1. Click on the overview tab and find the values for `clientId` and `tenantId`, along with `clientSecret` that you created earlier, and `cosmosEndpoint`, `subscriptionId`, and `resourceGroupName`from your account. Create a notebook as below and replace the configurations with the appropriate values:
 
@@ -659,10 +661,10 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
         ]
     ```
 
-1. Now go to Azure portal > Azure Active Directory > **Enterprise Applications** and search for the application you created earlier. Record the Object ID found here.
+1. Now go to Azure portal > Microsoft Entra ID > **Enterprise Applications** and search for the application you created earlier. Record the Object ID found here.
 
     > [!NOTE]
-    > Make sure to use its Object ID as found in the **Enterprise applications** section of the Azure Active Directory portal blade (and not the App registrations section you used earlier).
+    > Make sure to use its Object ID as found in the **Enterprise applications** section of the Microsoft Entra admin center blade (and not the App registrations section you used earlier).
 
 1. Now create a role assignment. Replace the `<aadPrincipalId>` with Object ID you recorded above (note this is NOT the same as Object ID visible from the app registrations view you saw earlier). Also replace `<myResourceGroup>` and `<myCosmosAccount>` accordingly in the below. Replace `<roleDefinitionId>` with the `id` value fetched from running the `az cosmosdb sql role definition list` command you ran above. Then run in Azure CLI:
 
@@ -675,7 +677,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
     ```
 
-1. Now that you have created an Azure Active Directory application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
+1. Now that you have created a Microsoft Entra application and service principal, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
 ## Migrate to Spark 3 Connector
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add sign-in and sign-out to an ASP.NET web application for a customer tenant
-description: Learn how to configure an ASP.NET web application to sign in and sign out users with your Microsoft Entra External ID for customers tenant.
+description: Learn how to configure an ASP.NET web application to sign in and sign out users with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 05/23/2023
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Microsoft Entra External ID for customers tenant.
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Add sign-in and sign-out to an ASP.NET web application for a customer tenant

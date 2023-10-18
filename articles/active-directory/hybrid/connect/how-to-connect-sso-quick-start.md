@@ -45,7 +45,7 @@ Ensure that the following prerequisites are in place:
   - You sync to Microsoft Entra ID through Microsoft Entra Connect.
   - Contains users you want to enable Seamless SSO for.
 
-- **Enable modern authentication**: To use this feature, you must enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
+- **Enable modern authentication**: To use this feature, you must enable [modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
 
 - **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (for example, with Outlook, Word, or Excel), your users must use versions 16.0.8730.xxxx or later.
 
@@ -84,7 +84,7 @@ When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect sync**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.
 

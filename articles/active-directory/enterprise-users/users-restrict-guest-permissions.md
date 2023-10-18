@@ -98,7 +98,7 @@ Example response:
 
 ## Update with PowerShell cmdlets
 
-With this feature, we’ve added the ability to configure the restricted permissions via PowerShell v2 cmdlets. Get and Set PowerShell cmdlets have been published in version 2.0.2.85.
+With this feature, we've added the ability to configure the restricted permissions via PowerShell v2 cmdlets. Get and Set PowerShell cmdlets have been published in version `2.0.2.85`.
 
 ### Get command: Get-AzureADMSAuthorizationPolicy
 
@@ -125,7 +125,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 ````
 
 > [!NOTE]
-> You must enter authorizationPolicy as the ID when requested.
+> You must enter `authorizationPolicy` as the ID when requested.
 
 ## Supported Microsoft 365 services
 

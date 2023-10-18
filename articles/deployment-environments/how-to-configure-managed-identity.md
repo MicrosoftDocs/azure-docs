@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Configure a managed identity for a dev center
 
-A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
+A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Microsoft Entra authentication. Azure Deployment Environments uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
 
 The managed identity that's attached to a dev center should be [assigned the Owner role in the deployment subscriptions](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) for each environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities that are set up for the environment type to deploy on behalf of the user.
 The managed identity that's attached to a dev center also is used to add to a [catalog](how-to-configure-catalog.md) and access [environment definitions](configure-environment-definition.md) in the catalog.

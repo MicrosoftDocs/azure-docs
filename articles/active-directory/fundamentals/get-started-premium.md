@@ -22,18 +22,18 @@ You can purchase and associate Microsoft Entra ID P1 or P2 editions with your Az
 Before you sign up for Active Directory Premium 1 or Premium 2, you must first determine which of your existing subscription or plan to use:
 
 - Through your existing Azure or Microsoft 365 subscription
-
 - Through your Enterprise Mobility + Security licensing plan
-
 - Through a Microsoft Volume Licensing plan
+
+## Sign up options
 
 Signing up using your Azure subscription with previously purchased and activated Microsoft Entra ID licenses, automatically activates the licenses in the same directory. If that's not the case, you must still activate your license plan and your Microsoft Entra ID access. For more information about activating your license plan, see [Activate your new license plan](#activate-your-new-license-plan). For more information about activating your Microsoft Entra ID access, see [Activate your Microsoft Entra ID access](#activate-your-azure-ad-access). 
 
-## Sign up using your existing Azure or Microsoft 365 subscription
+### Sign up using your existing Azure or Microsoft 365 subscription
 
 As an Azure or Microsoft 365 subscriber, you can purchase the Microsoft Entra ID P1 or P2 editions online. For detailed steps, see [Buy or remove licenses](/microsoft-365/commerce/licenses/buy-licenses?view=o365-worldwide&preserve-view=true).
 
-## Sign up using your Enterprise Mobility + Security licensing plan
+### Sign up using your Enterprise Mobility + Security licensing plan
 
 Enterprise Mobility + Security is a suite, comprised of Microsoft Entra ID P1 or P2, Azure Information Protection, and Microsoft Intune. If you already have an EMS license, you can get started with Microsoft Entra ID, using one of these licensing options:
 
@@ -45,15 +45,15 @@ For more information about EMS, see [Enterprise Mobility + Security web site](ht
 
 - Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
-## Sign up using your Microsoft Volume Licensing plan
+### Sign up using your Microsoft Volume Licensing plan
 
 Through your Microsoft Volume Licensing plan, you can sign up for Microsoft Entra ID P1 or P2 using one of these two programs, based on the number of licenses you want to get:
 
-- **For 250 or more licenses.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- For 250 or more licenses, see [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx).
 
-- **For 5 to 250 licenses.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- For 5 to 250 licenses, see [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx).
 
-For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+- For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## Activate your new license plan
 
@@ -61,15 +61,16 @@ If you signed up using a new Microsoft Entra ID license plan, you must activate 
 
 ### To activate your license plan
 
-- Open the confirmation email you received from Microsoft after you signed up, and then select either **Sign In** or **Sign Up**.
+1. Open the confirmation email you received from Microsoft after you signed up, and then select either **Sign In** or **Sign Up**.
    
-    ![Confirmation email with sign in and sign up links](media/get-started-premium/MOLSEmail.png)
+   ![Confirmation email with sign in and sign up links](media/get-started-premium/MOLSEmail.png)
 
-    - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a Global Administrator on the tenant where the licenses are being activated.
+1. Select **Sign in** or **Sign up**. 
+   - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a Global Administrator on the tenant where the licenses are being activated.
 
-    - **Sign up.** Choose this link if you want to open the **Create Account Profile** page and create a new Microsoft Entra tenant for your licensing plan.
+   - **Sign up.** Choose this link if you want to open the **Create Account Profile** page and create a new Microsoft Entra tenant for your licensing plan.
 
-        ![Create account profile page, with sample information](media/get-started-premium/MOLSAccountProfile.png)
+    ![Create account profile page, with sample information](media/get-started-premium/MOLSAccountProfile.png)
 
 When you're done, you'll see a confirmation box thanking you for activating the license plan for your tenant.
 

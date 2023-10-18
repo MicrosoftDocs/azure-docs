@@ -2,14 +2,14 @@
 title: API-driven inbound provisioning with Azure Logic Apps (Public preview)
 description: Learn how to implement API-driven inbound provisioning with Azure Logic Apps.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -35,7 +35,7 @@ From an implementation perspective:
 
 ### Integration scenario variations
 
-While this tutorial uses a CSV file as a system of record, you can customize the sample Azure Logic Apps workflow to read data from any system of record. Azure Logic Apps provides a wide range of [built-in connectors](/azure/logic-apps/connectors/built-in/reference) and [managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) with pre-built triggers and actions that you can use in your integration workflow. 
+While this tutorial uses a CSV file as a system of record, you can customize the sample Azure Logic Apps workflow to read data from any system of record. Azure Logic Apps provides a wide range of [built-in connectors](/azure/logic-apps/connectors/built-in/reference/) and [managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) with pre-built triggers and actions that you can use in your integration workflow. 
 
 Here's a list of enterprise integration scenario variations, where API-driven inbound provisioning can be implemented with a Logic Apps workflow.
 
@@ -63,7 +63,7 @@ The Logic Apps deployment template published in the [Microsoft Entra inbound pro
 |# | Automation task | Implementation guidance | Advanced customization |
 |---------|---------|---------|---------|
 |1 | Read worker data from the CSV file. | The Logic Apps workflow uses an Azure Function to read the CSV file stored in an Azure File Share. The Azure Function converts CSV data into JSON format. If your CSV file format is different, update the workflow step "Parse JSON" and "Construct SCIMUser". |  If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how to customize the Logic Apps workflow by using an appropriate connector. |
-|2 | Pre-process and convert data to SCIM format.  | By default, the Logic Apps workflow converts each record in the CSV file to a SCIM Core User + Enterprise User representation. If you plan to use custom SCIM schema extensions, update the step "Construct SCIMUser" to include your custom SCIM schema extensions. | If you want to run C# code for advanced formatting and data validation, use [custom Azure Functions](../../logic-apps/logic-apps-azure-functions.md).|
+|2 | Pre-process and convert data to SCIM format.  | By default, the Logic Apps workflow converts each record in the CSV file to a SCIM Core User + Enterprise User representation. If you plan to use custom SCIM schema extensions, update the step "Construct SCIMUser" to include your custom SCIM schema extensions. | If you want to run C# code for advanced formatting and data validation, use [custom Azure Functions](/azure/logic-apps/logic-apps-azure-functions).|
 |3 | Use the right authentication method | You can either [use a service principal](inbound-provisioning-api-grant-access.md#configure-a-service-principal)  or [use managed identity](inbound-provisioning-api-grant-access.md#configure-a-managed-identity) to access the inbound provisioning API. Update the step "Send SCIMBulkPayload to API endpoint" with the right authentication method. | - |
 |4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This generates a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Update the step "Send SCIMBulkPayload to API endpoint" to use the right bulkUpload API endpoint. | If you plan to use bulk request with custom SCIM schema, then extend the provisioning app schema to include your custom SCIM schema attributes. |
 |5 | Scan the provisioning logs and retry provisioning for failed records.  |  This automation is not yet implemented in the sample Logic Apps workflow. To implement it, refer to the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary). | - |
@@ -73,7 +73,7 @@ The Logic Apps deployment template published in the [Microsoft Entra inbound pro
 ## Step 1: Create an Azure Storage account to host the CSV file
 The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, update the Logic App to use your connector of choice.
 
-1. Log in to your Azure portal as administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Search for "Storage accounts" and create a new storage account. 
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/storage-accounts.png" alt-text="Screenshot of creating new storage account." lightbox="media/inbound-provisioning-api-logic-apps/storage-accounts.png"::: 
 1. Assign a resource group and give it a name. 
@@ -89,7 +89,7 @@ The steps documented in this section are optional. If you already have an existi
 
 ## Step 2: Configure Azure Function CSV2JSON converter
 
-1. In the browser associated with your Azure portal login, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
+1. In the browser associated with your Azure portal, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
 1. Click on the link "Deploy to Azure" to deploy this Azure Function to your Azure tenant.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png" alt-text="Screenshot of deploying Azure Function." lightbox="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png":::    
 1. Specify the resource group under which to deploy this Azure function. 

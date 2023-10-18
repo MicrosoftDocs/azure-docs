@@ -5,8 +5,7 @@ description: Use the Docker containers for the Sentiment Analysis API to perform
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 09/18/2023
 ms.author: aahi

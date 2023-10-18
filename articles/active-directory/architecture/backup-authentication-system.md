@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Microsoft Entra ID's backup authentication system
 
-Users and organizations around the world depend on the high availability of Microsoft Entra authentication of users and services 24 hours a day, seven days a week. We promise a 99.99% Service Level availability for authentication, and we continuously seek to improve it by enhancing the resilience of our authentication service. To further improve resilience during outages, we implemented a backup system in 2021.
+Organizations around the world depend on the high availability of Microsoft Entra authentication for users and services 24 hours a day, seven days a week. We promise a 99.99% service level availability for authentication, and we continuously seek to improve it by enhancing the resilience of our authentication service. To further improve resilience during outages, we implemented a backup system in 2021.
 
 The Microsoft Entra backup authentication system is made up of multiple backup services that work together to increase authentication resilience if there's an outage. This system transparently and automatically handles authentications for supported applications and services if the primary Microsoft Entra service is unavailable or degraded. It adds an extra layer of resilience on top of the multiple levels of existing redundancy. This resilience is described in the blog post [Advancing service resilience in Microsoft Entra ID with its backup authentication service](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/). This system syncs authentication metadata when the system is healthy and uses that to enable users to continue to access applications during outages of the primary service while still enforcing policy controls.
 
@@ -70,7 +70,7 @@ Certain other types of policies don't support use of the backup authentication s
 
 - Use of the [sign-in frequency control](../conditional-access/concept-conditional-access-session.md#sign-in-frequency) as part of a Conditional Access policy.
 - Use of the [authentication methods policy](../conditional-access/concept-conditional-access-grant.md#require-authentication-strength).
-- Use of [classic Conditional Access policies](../conditional-access/policy-migration.md).
+- Use of [classic Conditional Access policies](../conditional-access/policy-migration-mfa.md).
 
 ## Workload identity resilience in the backup authentication system
 
@@ -116,13 +116,13 @@ The backup authentication system is supported in all cloud environments except M
 | Ceridian Dayforce HCM | No | SAML SP-initiated |
 | Cisco AnyConnect | No | SAML SP-initiated |
 | Cisco Webex | No | SAML SP-initiated |
-| Citrix ADC SAML Connector forAzure AD | No | SAML SP-initiated |
+| Citrix ADC SAML Connector for Azure AD | No | SAML SP-initiated |
 | Clever | No | SAML SP-initiated |
 | Cloud Drive Mapper | Yes | Protected |
 | Cornerstone Single Sign-on | No | SAML SP-initiated |
 | Docusign | No | SAML SP-initiated |
 | Druva | No | SAML SP-initiated |
-| F5 BIG-IP ARM Microsoft Entra integration | No | SAML SP-initiated |
+| F5 BIG-IP APM Azure AD integration | No | SAML SP-initiated |
 | FortiGate SSL VPN | No | SAML SP-initiated |
 | Freshworks | No | SAML SP-initiated |
 | Gmail | Yes | Protected |
@@ -250,4 +250,4 @@ The backup authentication system is supported in all cloud environments except M
 - [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
 - [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 - [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
-- [Microsoft Entra SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
+- [Microsoft Entra SLA performance reporting](../reports-monitoring/reference-sla-performance.md)

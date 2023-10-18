@@ -281,8 +281,10 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
-        - name: Use Azure Marketplace image
+        - name: Using Azure Marketplace image via portal
           href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
+        - name: Using Azure Marketplace image via Azure CLI
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)
@@ -525,7 +527,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2304 - Current
+    - name: 2309 - Current
+      href: azure-stack-edge-gpu-2309-release-notes.md
+    - name: 2304
       href: azure-stack-edge-gpu-2304-release-notes.md
     - name: 2303
       href: azure-stack-edge-gpu-2303-release-notes.md

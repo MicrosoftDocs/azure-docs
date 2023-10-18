@@ -26,7 +26,7 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 - Stream data to Event Hubs
 - Send data to a partner solution
  
-Find these options in the **Azure portal** > **Microsoft Entra ID**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
+Find these options under **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings) to create one. 
 
 ## Use the audit log
 
@@ -43,11 +43,11 @@ Find these options in the **Azure portal** > **Microsoft Entra ID**, **Diagnosti
 
 ## Use Log Analytics
 
-Log Analytics allows organizations to query data using built in queries or custom created Kusto queries, for more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+Log Analytics allows organizations to query data using built in queries or custom created Kusto queries, for more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 :::image type="content" source="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png" alt-text="Log Analytics query for updates to Conditional Access policies showing new and old value location" lightbox="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png":::
 
-Once enabled find access to Log Analytics in the **Azure portal** > **Microsoft Entra ID** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
+Once enabled find access to Log Analytics in the **Identity** > **Monitoring & health** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
 
 ```kusto
 AuditLogs 
@@ -193,6 +193,6 @@ For more information about programmatically updating your Conditional Access pol
 
 ## Next steps
 
-- [What is Microsoft Entra ID monitoring?](../reports-monitoring/overview-monitoring.md)
-- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
+- [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring-health.md)
+- [Install and use the log analytics views for Microsoft Entra ID](/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview)
 - [Conditional Access: Programmatic access](howto-conditional-access-apis.md)

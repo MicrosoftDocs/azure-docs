@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Clean up unmanaged Microsoft Entra accounts
 
-Prior to August 2022, Microsoft Entra B2B (Microsoft Entra B2B) supported self-service sign-up for email-verified users. With this feature, users create Microsoft Entra accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
+Prior to August 2022, Microsoft Entra B2B supported self-service sign-up for email-verified users. With this feature, users create Microsoft Entra accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
 
 To learn more, see, [What is self-service sign-up for Microsoft Entra ID?](./directory-self-service-signup.md)
 
@@ -54,9 +54,9 @@ Some overtaken domains might not be updated. For example, a missing DNS TXT reco
 
 Use the sample application on [Azure-Samples/Remove-Unmanaged-Guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
 
-## Reset redemption using MSIdentityTools PowerShell Module
+## Reset redemption using `MSIdentityTools` PowerShell module
 
-MSIdentityTools PowerShell Module is a collection of cmdlets and scripts, which you use in the Microsoft identity platform and Microsoft Entra ID. Use the cmdlets and scripts to augment PowerShell SDK capabilities. See, [microsoftgraph/msgraph-sdk-powershell](https://github.com/microsoftgraph/msgraph-sdk-powershell).
+The `MSIdentityTools` PowerShell module is a collection of cmdlets and scripts, which you use in the Microsoft identity platform and Microsoft Entra ID. Use the cmdlets and scripts to augment PowerShell SDK capabilities. See, [microsoftgraph/msgraph-sdk-powershell](https://github.com/microsoftgraph/msgraph-sdk-powershell).
 
 Run the following cmdlets:
 

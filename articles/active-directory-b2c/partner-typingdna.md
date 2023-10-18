@@ -158,7 +158,7 @@ These thresholds should be adjusted on your use case.
 2. Replace all instances of `apiKey` and `apiSecret` in [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) solution with the credentials from your TypingDNA dashboard
 3. Host the HTML files at your provider of choice following the CORS requirements [here](./customize-ui-with-html.md#3-configure-cors)
 4. Replace the LoadURI elements for the `api.selfasserted.tdnasignup` and `api.selfasserted.tdnasignin` content definitions in the `TrustFrameworkExtensions.xml` file to the URI of your hosted HTML files respectively.
-5. Create a B2C policy key under identity experience framework in the Microsoft Entra ID blade in the **Azure portal**. Use the `Generate` option and name this key `tdnaHashedId`.
+5. Create a B2C policy key under identity experience framework in the Microsoft Entra blade in the Azure portal. Use the `Generate` option and name this key `tdnaHashedId`.
 
 6. Replace the TenantId's in the policy files
 7. Replace the ServiceURLs in all TypingDNA REST API technical profiles (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) with the endpoint for your [TypingDNA-API-Interface API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).

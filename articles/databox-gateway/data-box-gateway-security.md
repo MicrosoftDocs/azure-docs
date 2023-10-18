@@ -2,13 +2,13 @@
 title: Azure Data Box Gateway security | Microsoft Docs
 description: Describes the security and privacy features that protect your Azure Data Box Gateway virtual device, service, and data, on-premises and in the cloud.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Azure Data Box Gateway security and data protection

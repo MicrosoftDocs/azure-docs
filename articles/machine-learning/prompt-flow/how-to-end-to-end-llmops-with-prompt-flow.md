@@ -108,7 +108,7 @@ Before you can set up a Prompt flow project with Azure Machine Learning, you nee
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png" alt-text="Screenshot of the GitHub menu bar on a GitHub project with settings selected. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png":::
 
-1. Then select **Secrets**, then **Actions**:
+1. Then select **Secrets and variables**, then **Actions**:
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png" alt-text="Screenshot of on GitHub showing the security settings with security and actions highlighted." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png":::
 
@@ -151,7 +151,7 @@ Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then f
 Clone repo to your local machine.
 
 ```bash
-    git clone https://github.com/<user-name>/llmops-pipeline
+    git clone https://github.com/<user-name>/llmops-gha-demo
  ```
 
 ### Update workflow to connect to your Azure Machine Learning workspace

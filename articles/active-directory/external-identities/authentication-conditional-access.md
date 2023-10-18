@@ -16,7 +16,7 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Authentication and Conditional Access for External Identities
+# Authentication and Conditional Access for External ID
 
 > [!TIP]
 > This article applies to B2B collaboration and B2B direct connect. If your tenant is configured for customer identity and access management, see [Security and governance in Microsoft Entra ID for customers](customers/concept-security-customers.md).

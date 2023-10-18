@@ -198,8 +198,6 @@ On the next page, you can select optional features for your scenario.
 >[!WARNING]
 >Microsoft Entra Connect versions 1.0.8641.0 and earlier rely on Azure Access Control Service for password writeback.  This service was retired on November 7, 2018.  If you use any of these versions of Microsoft Entra Connect and have enabled password writeback, users might lose the ability to change or reset their passwords when the service is retired. These versions of Microsoft Entra Connect don't support password writeback.
 >
->For more information, see [Migrate from Azure Access Control Service](../../azuread-dev/active-directory-acs-migration.md).
->
 >If you want to use password writeback, download the [latest version of Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Screenshot showing the "Optional Features" page.](./media/how-to-connect-install-custom/optional2a.png)

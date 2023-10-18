@@ -174,7 +174,7 @@ In this example, you create a Virtual Machine Scale Set named *myvmss* that prov
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

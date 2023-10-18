@@ -42,21 +42,10 @@ To configure the integration of HighGear into Microsoft Entra ID, you need to ad
 
 **To add HighGear from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Microsoft Entra ID** icon.
-
-    ![The Microsoft Entra button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-    ![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, click the **New application** button on the top of the dialog.
-
-    ![The New application button](common/add-new-app.png)
-
-4. In the search box, type **HighGear**, select **HighGear** from result panel, and then click the **Add** button to add the application.
-
-     ![HighGear in the results list](common/search-new-app.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **HighGear** in the search box.
+1. Select **HighGear** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 <a name='configure-and-test-azure-ad-single-sign-on'></a>
 

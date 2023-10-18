@@ -219,7 +219,7 @@ Microsoft Entra ID Governance can be integrated with many other applications, us
 | Microsoft 365 | ● | ● |
 | Microsoft Active Directory Domain Services | | ● |
 | Microsoft Azure | ● | ● |
-| [Microsoft Entra Domain Services](../../active-directory-domain-services/synchronization.md) | ● | ● |
+| [Microsoft Entra Domain Services](/entra/identity/domain-services/synchronization) | ● | ● |
 | Microsoft Azure SQL ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | Microsoft Lightweight Directory Server (ADAM) ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | Microsoft SharePoint Server (SharePoint) | ● |  |
@@ -283,7 +283,7 @@ Microsoft Entra ID Governance can be integrated with many other applications, us
 | [Robin](../../active-directory/saas-apps/robin-provisioning-tutorial.md) | ● | ● |
 | [Rollbar](../../active-directory/saas-apps/rollbar-provisioning-tutorial.md) | ● | ● |
 | [Rouse Sales](../../active-directory/saas-apps/rouse-sales-provisioning-tutorial.md) | ● |  |
-| [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) | ● |  |
+| [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) | ● | ● |
 | [SafeGuard Cyber](../../active-directory/saas-apps/safeguard-cyber-provisioning-tutorial.md) | ● | ● |
 | [Salesforce Sandbox](../../active-directory/saas-apps/salesforce-sandbox-provisioning-tutorial.md) | ● | ● |
 | [Samanage](../../active-directory/saas-apps/samanage-provisioning-tutorial.md) | ● | ● |

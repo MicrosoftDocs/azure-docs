@@ -12,12 +12,12 @@ ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-#Customer intent: As a dev, I want to learn how to test a protected web API registered in the Microsoft Entra External ID for customers tenant.
+#Customer intent: As a dev, I want to learn how to test a protected web API registered in the Microsoft Entra ID for customers tenant.
 ---
 
 # Test your protected API
 
-This tutorial is part of a series that helps you build and test a protected web API that is registered in a Microsoft Entra External ID for customers tenant. 
+This tutorial is part of a series that helps you build and test a protected web API that is registered in a Microsoft Entra ID for customers tenant. 
 
 In this tutorial, you learn how to:
 

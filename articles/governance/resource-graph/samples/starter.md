@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.date: 08/31/2023
 ms.topic: sample
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Starter Resource Graph query samples
 
@@ -31,9 +31,9 @@ This article uses the following starter queries:
 - [List all storage accounts with specific tag value](#list-specific-tag)
 - [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
-- [List alerts by severity](#alerts-severity)
-- [List alerts by severity and resource type](#alerts-severity-state)
-- [List alerts by severity and resource type with a specific tag](#alerts-severity-service-type)
+- [List alerts by severity](#list-azure-monitor-alerts-ordered-by-severity)
+- [List alerts by severity and resource type](#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)
+- [List alerts by severity and resource type with a specific tag](#list-azure-monitor-alerts-ordered-by-severity-monitor-service-and-target-resource-type)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -657,7 +657,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ---
 
-## <a name="alerts-severity"></a>List alerts ordered by severity
+## List Azure Monitor alerts ordered by severity
 
 ```kusto
 alertsmanagementresources  
@@ -667,7 +667,7 @@ alertsmanagementresources
 | summarize AlertsCount = count() by Severity
  
 ```
-## <a name="alerts-severity-state"></a>List alerts ordered by severity and alert state
+## List Azure Monitor alerts ordered by severity and alert state
 
 ```kusto
 alertsmanagementresources
@@ -678,7 +678,7 @@ alertsmanagementresources
 | summarize AlertsCount = count() by Severity, AlertState
 ```
 
-## <a name="alerts-severity-service-type"></a>List alerts ordered by severity, monitor service, and target resource type 
+## List Azure Monitor alerts ordered by severity, monitor service, and target resource type 
 
 ```kusto
 alertsmanagementresources  
