@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -35,16 +35,16 @@ To use this feature, you need:
 
 7. Select the appropriate **Subscription** and **Storage account** from the menus.
 
-    ![Diagnostics settings](media/howto-archive-logs-to-storage-account/diagnostic-settings-storage.png)
+    ![Screenshot of the diagnostic settings](media/howto-archive-logs-to-storage-account/diagnostic-settings-storage.png)
 
 8. After the categories have been selected, in the **Retention days** field, type in the number of days of retention you need of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
 
     > [!NOTE]
-    > The Diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+    > The diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
  
 9. Select **Save** to save the setting.
 
-10. Close the window to return to the Diagnostic settings pane.
+10. Close the window to return to the diagnostic settings page.
 
 ## Next steps
 

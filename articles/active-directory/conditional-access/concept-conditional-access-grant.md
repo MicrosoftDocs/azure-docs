@@ -57,7 +57,7 @@ Administrators can choose to require [specific authentication strengths](../auth
 
 ### Require device to be marked as compliant
 
-Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Microsoft Entra ID so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization by using Intune](/intune/protect/device-compliance-get-started).
+Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Microsoft Entra ID so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization by using Intune](/mem/intune/protect/device-compliance-get-started).
 
 A device can be marked as compliant by Intune for any device operating system or by a third-party mobile device management system for Windows devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
@@ -134,7 +134,7 @@ See [Require approved client apps for cloud app access with Conditional Access](
 
 ### Require app protection policy
 
-In Conditional Access policy, you can require that an [Intune app protection policy](/intune/app-protection-policy) is present on the client app before access is available to the selected applications. These mobile application management (MAM) app protection policies allow you to manage and protect your organization's data within specific applications.
+In Conditional Access policy, you can require that an [Intune app protection policy](/mem/intune/apps/app-protection-policy) is present on the client app before access is available to the selected applications. These mobile application management (MAM) app protection policies allow you to manage and protect your organization's data within specific applications.
 
 To apply this grant control, Conditional Access requires that the device is registered in Microsoft Entra ID, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app. App protection policies are generally available for iOS and Android, and in public preview for Microsoft Edge on Windows. [Windows devices support no more than 3 Microsoft Entra user accounts in the same session](../devices/faq.yml#i-can-t-add-more-than-3-microsoft-entra-user-accounts-under-the-same-user-session-on-a-windows-10-11-device--why). For more information about how to apply policy to Windows devices, see the article [Require an app protection policy on Windows devices (preview)](how-to-app-protection-policy-windows.md).
 
