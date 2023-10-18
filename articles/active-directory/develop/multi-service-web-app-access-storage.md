@@ -177,7 +177,7 @@ In the [Azure portal](https://portal.azure.com), go into your storage account to
 
 1. Select **Review and assign** and then select **Review and assign** once more.  
  
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Your web app now has access to your storage account.
 

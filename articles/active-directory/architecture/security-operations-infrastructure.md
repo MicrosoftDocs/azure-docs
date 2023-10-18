@@ -38,21 +38,21 @@ The log files you use for investigation and monitoring are:
 
 * [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
+* [Sign-in logs](../reports-monitoring/concept-sign-ins.md)
 
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
-* [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
+* [Azure Key Vault logs](/azure/key-vault/general/logging?tabs=Vault)
 
 From the Azure portal, you can view the Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)** – Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](/azure/sentinel/overview)** – Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
 * **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** – Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](/azure/azure-monitor/overview)** – Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/howto-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
@@ -74,7 +74,7 @@ The following are links to specific articles that focus on monitoring and alerti
 
 * [Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path) - Detection techniques to help identify when non-sensitive accounts are used to gain access to sensitive network accounts.
 
-* [Working with security alerts in Microsoft Defender for Identity](/defender-for-identity/working-with-suspicious-activities) - This article describes how to review and manage alerts after they're logged.
+* [Working with security alerts in Microsoft Defender for Identity](/defender-for-identity/manage-security-alerts) - This article describes how to review and manage alerts after they're logged.
 
  The following are specific things to look for:
 
@@ -136,7 +136,7 @@ To configure monitoring for Application Proxy, see [Troubleshoot Application Pro
 | - | - | - | - | - |
 | Kerberos errors| Medium | Various tools| Medium | Kerberos authentication error guidance under Kerberos errors on [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). |
 | DC security issues| High| DC Security Audit logs| Event ID 4742(S): A computer account was changed<br>-and-<br>Flag – Trusted for Delegation<br>-or-<br>Flag – Trusted to Authenticate for Delegation| Investigate any flag change. |
-| Pass-the-ticket like attacks| High| | | Follow guidance in:<br>[Security principal reconnaissance (LDAP) (external ID 2038)](/defender-for-identity/reconnaissance-alerts)<br>[Tutorial: Compromised credential alerts](/defender-for-identity/compromised-credentials-alerts)<br>[Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path)<br>[Understanding entity profiles](/defender-for-identity/entity-profiles) |
+| Pass-the-ticket like attacks| High| | | Follow guidance in:<br>[Security principal reconnaissance (LDAP) (external ID 2038)](/defender-for-identity/reconnaissance-discovery-alerts)<br>[Tutorial: Compromised credential alerts](/defender-for-identity/credential-access-alerts)<br>[Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path)<br>[Understanding entity profiles](/defender-for-identity/investigate-assets) |
 
 ### Legacy authentication settings
 
@@ -232,7 +232,7 @@ Monitoring single sign-on and Kerberos activity can help you detect general cred
 | - | - | - | - | - |
 | Errors associated with SSO and Kerberos validation failures|Medium | Microsoft Entra sign-in log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
 | Query for troubleshooting errors|Medium | PowerShell| See query following table. check in each forest with SSO enabled.| Check in each forest with SSO enabled. |
-| Kerberos-related events|High | Microsoft Defender for Identity monitoring| | Review guidance available at [Microsoft Defender for Identity Lateral Movement Paths (LMPs)](/defender-for-identity/use-case-lateral-movement-path) |
+| Kerberos-related events|High | Microsoft Defender for Identity monitoring| | Review guidance available at [Microsoft Defender for Identity Lateral Movement Paths (LMPs)](/defender-for-identity/understand-lateral-movement-paths) |
 
 ```kusto
 <QueryList>
