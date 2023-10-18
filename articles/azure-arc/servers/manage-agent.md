@@ -96,7 +96,6 @@ The following table describes the methods supported to perform the agent upgrade
 | Windows | Manually<br> Microsoft Update |
 | Ubuntu | [apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### Windows agent
 
