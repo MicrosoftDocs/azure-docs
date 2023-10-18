@@ -20,7 +20,7 @@ ms.custom:
 ---
 # Automate Microsoft Entra ID Governance tasks via Azure Automation and Microsoft Graph
 
-[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Microsoft Entra features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Microsoft Entra ID at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Microsoft Entra tasks from a simple script.
+[Azure Automation](/azure/automation/overview) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Microsoft Entra features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Microsoft Entra ID at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Microsoft Entra tasks from a simple script.
 
 Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Microsoft Entra ID without needing a user context.
 
@@ -30,7 +30,7 @@ This article shows you how to get started using Azure Automation for Microsoft E
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Azure Automation provides a cloud-hosted environment for [runbook execution](../../automation/automation-runbook-execution.md).  Those runbooks can start automatically based on a schedule, or be triggered by webhooks or by Logic Apps.
+Azure Automation provides a cloud-hosted environment for [runbook execution](/azure/automation/automation-runbook-execution).  Those runbooks can start automatically based on a schedule, or be triggered by webhooks or by Logic Apps.
 
 Using Azure Automation requires you to have an Azure subscription.
 
@@ -196,15 +196,15 @@ Param
 )
 ```
 
-The format of the allowed parameters depends upon the calling service. If your runbook does take parameters from the caller, then you'll need to add validation logic to your runbook to ensure that the parameter values supplied are appropriate for how the runbook could be started.  For example, if your runbook is started by a [webhook](../../automation/automation-webhooks.md), Azure Automation doesn't perform any authentication on a webhook request as long as it's made to the correct URL, so you'll need an alternate means of validating the request.
+The format of the allowed parameters depends upon the calling service. If your runbook does take parameters from the caller, then you'll need to add validation logic to your runbook to ensure that the parameter values supplied are appropriate for how the runbook could be started.  For example, if your runbook is started by a [webhook](/azure/automation/automation-webhooks), Azure Automation doesn't perform any authentication on a webhook request as long as it's made to the correct URL, so you'll need an alternate means of validating the request.
 
-Once you [configure runbook input parameters](../../automation/runbook-input-parameters.md), then when you test your runbook you can provide values through the Test page. Later, when the runbook is published, you can provide parameters when starting the runbook from PowerShell, the REST API, or a Logic App.
+Once you [configure runbook input parameters](/azure/automation/runbook-input-parameters), then when you test your runbook you can provide values through the Test page. Later, when the runbook is published, you can provide parameters when starting the runbook from PowerShell, the REST API, or a Logic App.
 
 ## Parse the output of an Azure Automation account in Logic Apps (optional)
 
 Once your runbook is published, your can create a schedule in Azure Automation, and link your runbook to that schedule to run automatically.  Scheduling runbooks from Azure Automation is suitable for runbooks that don't need to interact with other Azure or Office 365 services that don't have PowerShell interfaces.
 
-If you wish to send the output of your runbook to another service, then you may wish to consider using [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to start your Azure Automation runbook, as Logic Apps can also parse the results.
+If you wish to send the output of your runbook to another service, then you may wish to consider using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to start your Azure Automation runbook, as Logic Apps can also parse the results.
 
 1. In Azure Logic Apps, create a Logic App in the Logic Apps Designer starting with **Recurrence**.
 
@@ -214,7 +214,7 @@ If you wish to send the output of your runbook to another service, then you may 
 
 1. Select **New step** and add the operation **Get job output**.  Select the same Subscription, Resource Group, Automation Account as the previous step, and select the Dynamic value of the **Job ID** from the previous step.
 
-1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](../../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) that uses the **Content** returned when the runbook completes.  (If you're auto-generating the **Parse JSON** schema from a sample payload, be sure to account for PowerShell script potentially returning null; you might need to change some of the `"type": ​"string"` to `"type": [​"string",​ "null"​]` in the schema.)
+1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) that uses the **Content** returned when the runbook completes.  (If you're auto-generating the **Parse JSON** schema from a sample payload, be sure to account for PowerShell script potentially returning null; you might need to change some of the `"type": ​"string"` to `"type": [​"string",​ "null"​]` in the schema.)
 
 Note that in Azure Automation, a PowerShell runbook can fail to complete if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed by the Logic App, such as by using the `Select-Object -Property` cmdlet to exclude unneeded properties.
 
@@ -229,4 +229,4 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-azure-automation-account-portal.md)
+- [Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-azure-automation-account-portal)

@@ -8,7 +8,7 @@ ms.author: kengaderdus
 ---
 Follow these steps to create a user flow a customer can use to sign in or sign up for an application.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [External ID User Flow Administrator](/azure/active-directory/roles/permissions-reference#external-id-user-flow-administrator).  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [External ID User Flow Administrator](../../../../roles/permissions-reference.md#external-id-user-flow-administrator).  
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 1. Browse to **Identity** > **External Identities** > **User flows**.
 1. Select **+ New user flow**.

@@ -43,7 +43,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
-- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure operated by 21Vianet](/azure/china).
+- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](/azure/azure-government/) or [Microsoft Azure operated by 21Vianet](/azure/china).
 
 ## Easily invite guest users from the Azure portal
 
