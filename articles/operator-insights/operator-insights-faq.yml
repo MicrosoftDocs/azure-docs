@@ -6,12 +6,13 @@ metadata:
   ms.author: bettylew
   ms.service: operator-insights
   ms.topic: faq
-  ms.date: 10/17/2023
+  ms.date: 10/18/2023
+  ms.custom: references_regions
 title: Azure Operator Insights frequently asked questions
 summary: |
     If you can't find answers to your questions and still need help, contact Microsoft Support.  
 sections:
-  - name: Data and Privacy
+  - name: Data and privacy
     questions:
       - question: Where does Azure Operator Insights store customer data?
         answer: |
