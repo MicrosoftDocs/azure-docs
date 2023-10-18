@@ -10,7 +10,7 @@ ms.author: barclayn
 ms.custom: include file,licensing
 ---
 
-The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
+The required roles and licenses might vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
