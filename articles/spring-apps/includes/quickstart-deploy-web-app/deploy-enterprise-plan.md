@@ -20,6 +20,12 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
+
+[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following steps to clone and run the app locally:
@@ -35,6 +41,44 @@ The main resources required to run this sample are an Azure Spring Apps instance
 ### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-environment-enterprise-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to create an Azure Spring Apps instance and an Azure Database for PostgreSQL instance:
+
+### 3.1. Sign in to the Azure portal
+
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-enterprise-spring-apps](provision-enterprise-azure-spring-apps.md)]
+
+### 3.3. Prepare the PostgreSQL instance
+
+[!INCLUDE [provision-postgresql-flexible](provision-postgresql.md)]
+
+### 3.4. Connect app instance to PostgreSQL instance
+
+Use the following steps to connect your service instances:
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+
+1. On the **Create App** page, fill in the app name *simple-todo-web* and leave other with default values.
+
+1. Select **Create** to finish the app creation and select the app to view the details.
+
+1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
+
+    - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
+    - **SPRING_DATASOURCE_USERNAME**: *myadmin*
+    - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
+
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration-enterprise.png" alt-text="Screenshot of the Azure portal that shows the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration-enterprise.png":::
+
+1. Select **Save** to save the connection properties.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -160,6 +204,19 @@ After the application instance and the PostgreSQL instance are created, the appl
 ### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [deploy-hello-app-with-maven-plugin](hello-spring-apps-maven-plugin.md)]
+
+   ```output
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:simple-todo-web-default-15-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A       
+   [INFO] Getting public url of app(simple-todo-web)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-web.azuremicroservices.io
+   ```
+
+   The output **Application url** is the endpoint to access the `todo` application.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
