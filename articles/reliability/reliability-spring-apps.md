@@ -81,7 +81,7 @@ You can enable your own resource in Azure Spring Apps, such as your own persiste
 
 ### Zone down experience
 
-When an app instance fails because it’s located on a VM node in a failed zone, Azure Spring Apps creates a new app instance for the failed app on another VM node in another availability zone. Users may experience a brief interruption during this time. No user action is required and the impacted Spring Apps instance will be restored by the service.
+When an app instance fails because it’s located on a VM node in a failed zone, Azure Spring Apps creates a new app instance for the failed app on another VM node in another availability zone. Users may experience a brief interruption during this time. No user action is required and the impacted Azure Spring Apps instance will be restored by the service.
 
 ### Pricing
 
