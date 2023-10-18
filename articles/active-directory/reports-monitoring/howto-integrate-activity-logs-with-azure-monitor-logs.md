@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
 # Integrate Microsoft Entra logs with Azure Monitor logs
 
-Using **Diagnostic settings** in Microsoft Entra ID, you can integrate logs with Azure Monitor so your sign-in activity and the audit trail of changes within your tenant can be analyzed along with other Azure data. 
+Using **diagnostic settings** in Microsoft Entra ID, you can integrate logs with Azure Monitor so your sign-in activity and the audit trail of changes within your tenant can be analyzed along with other Azure data. 
 
 This article provides the steps to integrate Microsoft Entra logs with Azure Monitor.
 
@@ -57,7 +57,7 @@ Follow the steps below to send logs from Microsoft Entra ID to Azure Monitor log
 
 8. Select the **Save** button.
 
-    ![Screenshot of the Diagnostics settings with some destination details shown.](./media/howto-integrate-activity-logs-with-azure-monitor-logs/diagnostic-settings-log-analytics-workspace.png)
+    ![Screenshot of the diagnostics settings with some destination details shown.](./media/howto-integrate-activity-logs-with-azure-monitor-logs/diagnostic-settings-log-analytics-workspace.png)
 
 If you do not see logs appearing in the selected destination after 15 minutes, sign out and back into Azure to refresh the logs.
 

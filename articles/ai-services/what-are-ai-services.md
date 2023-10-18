@@ -44,7 +44,7 @@ Select a service from the table below and learn how it can help you meet your de
 | ![QnA Maker icon](media/service-icons/luis.svg) [QnA maker](./qnamaker/index.yml) (retired) | Distill information into easy-to-navigate questions and answers |
 | ![Speech icon](media/service-icons/speech.svg) [Speech](./speech-service/index.yml) | Speech to text, text to speech, translation and speaker recognition |
 | ![Translator icon](media/service-icons/translator.svg) [Translator](./translator/index.yml) | Translate more than 100 languages and dialects |
-| ![Video Indexer icon](media/service-icons/video-indexer.svg) [Video Indexer](../azure-video-indexer/index.yml) | Extract actionable insights from your videos |
+| ![Video Indexer icon](media/service-icons/video-indexer.svg) [Video Indexer](/azure/azure-video-indexer/) | Extract actionable insights from your videos |
 | ![Vision icon](media/service-icons/vision.svg) [Vision](./computer-vision/index.yml) | Analyze content in images and videos |
 
 ## Pricing tiers and billing

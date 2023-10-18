@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 08/25/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -53,7 +53,7 @@ Familiarize yourself with these articles:
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure outlines how to configure a Log Analytics workspace for your audit and sign-in logs.
-To configure a Log Analytics workspace you need to **create the workspace** and then **configure Diagnostic settings**.
+To configure a Log Analytics workspace you need to **create the workspace** and then **configure diagnostic settings**.
 
 ### Create the workspace
 
@@ -85,9 +85,9 @@ To configure a Log Analytics workspace you need to **create the workspace** and 
 
     ![Create](./media/tutorial-configure-log-analytics-workspace/create-workspace.png)
 
-### Configure Diagnostic settings
+### Configure diagnostic settings
 
-To configure Diagnostic settings, you need switch to the Microsoft Entra admin center to send your identity log information to your new workspace.
+To configure diagnostic settings, you need switch to the Microsoft Entra admin center to send your identity log information to your new workspace.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 
