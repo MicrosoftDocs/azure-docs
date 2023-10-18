@@ -17,11 +17,11 @@ To verify the status of the extension:
 1. On the virtual machine, select **Extensions**.
 1. From the list, check to see if the Log Analytics extension is enabled or not. For Linux, the agent is listed as **OMSAgentforLinux**. For Windows, the agent is listed as **MicrosoftMonitoringAgent**.
 
-   ![Screenshot that shows the VM Extensions view.](./media/vmext-troubleshoot/log-analytics-vmview-extensions.png)
+   :::image type="content" source="./media/vmext-troubleshoot/log-analytics-vmview-extensions.png" lightbox="./media/vmext-troubleshoot/log-analytics-vmview-extensions.png" alt-text="Screenshot that shows the VM Extensions view.":::
 
 1. Select the extension to view details.
 
-   ![Screenshot that shows the VM extension details.](./media/vmext-troubleshoot/log-analytics-vmview-extensiondetails.png)
+   :::image type="content" source="./media/vmext-troubleshoot/log-analytics-vmview-extensiondetails.png" lightbox="./media/vmext-troubleshoot/log-analytics-vmview-extensiondetails.png" alt-text="Screenshot that shows the VM extension details.":::
 
 ## Troubleshoot the Azure Windows VM extension
 
