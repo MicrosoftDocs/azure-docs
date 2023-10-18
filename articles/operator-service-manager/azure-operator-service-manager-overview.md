@@ -3,7 +3,7 @@ title: What is Azure Operator Service Manager?
 description: Learn about Azure Operator Service Manager, an Azure Service for the management of Network Services for telecom operators.
 author: lnyswonger
 ms.author: lnyswonger
-ms.date: 04/09/2023
+ms.date: 10/18/2023
 ms.topic: overview
 ms.service: azure-operator-service-manager
 ---
@@ -27,11 +27,11 @@ Managing complex network services efficiently and reliably can be a challenge.  
 
 ### Support Azure Operator Nexus platform and service catalog
 
-Manage lifecycle for next generation services on Azure Operator Nexus platform. Manage lifecycle includes self-service support for third-party services with catalog offerings from industry leaders such as Ericsson and Nokia, alongside Microsoft’s own Azure For Operator services.
+Manage lifecycle for next generation services on Azure Operator Nexus platform. Manage lifecycle includes self-service support for telecom operators to onboard and deploy third-party network services along with catalog offerings from industry leaders such as Ericsson and Nokia and Microsoft’s own Azure For Operator services.
 
 ### Unified service orchestration
 
-Consolidate software and configuration management tasks into a single set of end-to-end Azure operations. End to end Azure operations allow operators to seamlessly compose, deploy, and update complex multi-vendor multi-region services. Use one true Azure interface for operator service management.
+Consolidate software and configuration management tasks into a single set of end-to-end Azure operations to seamlessly compose, deploy, and update complex multi-vendor multi-region services. One true Azure interface provides access to all operator service management needs.
 
 ### Simplify service creation
 
@@ -39,7 +39,7 @@ Model network services using Azure Resource Manager (ARM), just like any other A
 
 ### Reliably deploy Telco grade network function software
 
-Operators can easily automate repeat configuration changes, reducing the effort required to make service updates, while ensuring service consistency, to enhance the reliability of service deployments.
+Operators can easily automate repeat configuration changes, reducing the effort required to ensure service consistency and enhancing the reliability of service deployments.
 
 ### Secure software distribution supply chain
 
@@ -51,9 +51,9 @@ Updating services becomes straightforward. Operators can recall the last service
 
 ## Business impact
 
-### Accurate service velocity
+### Accelerate service velocity
 
-Leverage Azure Operator Service manager’s approach to service composition, deployment and updates, to realize up to a 3x acceleration of service velocity. Accurate service velocity allows operators to increase the frequency of services updates and be first to market with new services.
+Leverage Azure Operator Service manager’s approach to service composition, deployment and updates, to realize up to a 3x acceleration of service velocity. This allows operators to increase the frequency of services updates and be first to market with new services.
 
 ### Optimize capital expenses
 
