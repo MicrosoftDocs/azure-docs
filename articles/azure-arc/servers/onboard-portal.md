@@ -21,7 +21,7 @@ The script to automate the download and installation, and to establish the conne
 
 1. From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
+1. On the **Machines - Azure Arc** page, select **Add/Create** at the upper left.
 
 1. On the **Select a method** page, under the **Add a single server** tile, and then select **Generate script**.
 
