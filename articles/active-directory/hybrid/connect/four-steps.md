@@ -188,7 +188,7 @@ To learn more, go read [Monitor AD FS using Microsoft Entra Connect Health](./ho
 
 ### Create custom dashboards for your leadership and your day to day
 
-Organizations that don't have a SIEM solution can use [Azure Monitor workbooks for Microsoft Entra ID](../reports-monitoring/howto-use-azure-monitor-workbooks). The integration contains pre-built workbooks and templates to help you understand how your users adopt and use Microsoft Entra features, which allows you to gain insights into all the activities within your directory. You can also create your own workbooks and share with your leadership team to report on day-to-day activities. Workbooks are a great way to monitor your business and see all of your most important metrics at a glance. 
+Organizations that don't have a SIEM solution can use [Azure Monitor workbooks for Microsoft Entra ID](../reports-monitoring/howto-use-workbooks). The integration contains pre-built workbooks and templates to help you understand how your users adopt and use Microsoft Entra features, which allows you to gain insights into all the activities within your directory. You can also create your own workbooks and share with your leadership team to report on day-to-day activities. Workbooks are a great way to monitor your business and see all of your most important metrics at a glance. 
 
 ### Understand your support call drivers
 
