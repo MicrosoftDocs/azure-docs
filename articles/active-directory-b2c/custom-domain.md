@@ -5,7 +5,6 @@ description: Learn how to enable custom domains in your redirect URLs for Azure 
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
