@@ -635,6 +635,61 @@ AddParticipant publishes a `AddParticipantSucceeded` or `AddParticipantFailed` e
 
 ![Sequence diagram for adding a participant to the call.](media/add-participant-flow.png)
 
+## Cancel an add participant request
+
+# [csharp](#tab/csharp)
+
+```csharp
+// add a participant
+var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+var addParticipantResponse = await callConnection.AddParticipantAsync(addThisPerson);
+
+// cancel the request
+await callConnection.CancelAddParticipantAsync(addParticipantResponse.InvitationId);
+```
+
+# [Java](#tab/java)
+
+```java
+// Add ACS user
+CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+
+// cancel the request
+CancelAddParticipantOptions cancelAddParticipantOptions(addParticipantResultResponse.invitationId);
+callConnectionAsync.cancelAddParticipantWithResponse(cancelAddParticipantOptions).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+// Add ACS user
+const addThisPerson = {
+    targetParticipant: { communicationUserId: "<acs_user_id>" },
+};
+const { invitationId } = await callConnection.addParticipant(addThisPerson);
+
+// cancel the request
+await callConnection.cancelAddParticipant(invitationId);
+```
+
+# [Python](#tab/python)
+
+```python
+# Add ACS user
+call_invite = CallInvite(
+    target=CommunicationUserIdentifier("<acs_user_id>")
+)
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.add_participant(call_invite)
+
+# cancel the request
+call_connection_client.cancel_add_participant(result.invitation_id)
+```
+
 ## Remove a participant from a call
 
 # [csharp](#tab/csharp)
