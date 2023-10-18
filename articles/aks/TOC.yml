@@ -208,10 +208,6 @@
           href: ../migrate/tutorial-app-containerization-java-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: ASP.NET app containerization and migration
           href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: Cost analysis
-      items:
-        - name: Enable cost analysis on your cluster
-          href: cost-analysis.md
     - name: Clusters
       items:
         - name: Deploy a cluster in an Edge Zone
@@ -619,6 +615,10 @@
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Cost analysis
+          items:
+          - name: Enable cost analysis on your cluster
+            href: cost-analysis.md
         - name: Network Observability
           items:
             - name: BYO Prometheus and Grafana
