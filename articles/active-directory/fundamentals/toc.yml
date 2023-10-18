@@ -65,6 +65,8 @@ items:
       href: licensing-whatis-azure-portal.md
     - name: Microsoft Entra ID preview program terms
       href: licensing-preview-terms.md
+    - name: Microsoft Entra ID licensing
+      href: licensing.md
     - name: Sign up for Microsoft Entra ID P1 or P2
       href: get-started-premium.md 
 - name: Quick security wins

@@ -48,7 +48,6 @@ TmaxSoft OpenFrame is a popular mainframe rehosting solution used in lift-and-sh
 To get started:
 
 - [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## IBM zD&T 12.0
 
@@ -106,8 +105,6 @@ Many public sector entities would love to move their mainframe applications to a
 
 Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP High Impact for systems that need this type of environment.
 
-To get started, download [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
-
 ## Next steps
 
 Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. 
@@ -117,7 +114,6 @@ See also:
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

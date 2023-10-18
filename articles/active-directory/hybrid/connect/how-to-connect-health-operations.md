@@ -73,7 +73,7 @@ Microsoft Entra Connect Health for Active Directory Federation Services (AD FS) 
 3. Confirm by typing the server name in the confirmation box.
 4. Click **Delete**.
 
-Microsoft Entra Connect Health for Microsoft Entra Domain Services:
+Microsoft Entra Connect Health for AD Domain Services:
 
 1. Open the **Domain Controllers** dashboard.
 2. Select the domain controller to be removed.
