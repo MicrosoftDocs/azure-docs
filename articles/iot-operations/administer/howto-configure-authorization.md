@@ -204,11 +204,11 @@ spec:
 
 ## Unauthorized publish in MQTT 3.1.1
 
-With MQTT3.1.1, when a publish is denied, the client receives the PUBACK with no error because the protocol version doesn't support returning error code. MQTTv5 return PUBACK with reason code 135 (Not authorized) when publish is denied.
+With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with no error because the protocol version doesn't support returning error code. MQTTv5 return PUBACK with reason code 135 (Not authorized) when publish is denied.
 
 ## Related content
 
-- BrokerListener resource
-- Configure authorization for a BrokerListener
-- Configure authentication for a BrokerListener
-- Configure TLS with manual certificate management
+- About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
+- [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
+- [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
+- [Configure TLS with automatic certificate managment](./howto-configure-tls-automatic.md)

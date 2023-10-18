@@ -189,7 +189,7 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 
 ## Related content
 
-- BrokerListener resource
-- Configure authorization for a BrokerListener
-- Configure authentication for a BrokerListener
-- Configure TLS with automatic certificate management
+- About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
+- [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
+- [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
+- [Configure TLS with automatic certificate managment](./howto-configure-tls-automatic.md)

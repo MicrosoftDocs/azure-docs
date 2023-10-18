@@ -294,7 +294,7 @@ Remember to specify authentication methods (username, password, etc.) if needed.
 
 ## Related content
 
-- BrokerListener resource
-- Configure authorization for a BrokerListener
-- Configure authentication for a BrokerListener
-- Configure TLS with manual certificate management
+- About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
+- [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
+- [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
+- [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
