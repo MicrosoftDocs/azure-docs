@@ -10,7 +10,7 @@ ms.author: geguirgu
 
 Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. 
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 The main components of the access control model are:
 

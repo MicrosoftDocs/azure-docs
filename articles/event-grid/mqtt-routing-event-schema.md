@@ -9,7 +9,7 @@ ms.author: geguirgu
 ---
 # Event Schema for MQTT Routed Messages
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 MQTT Messages are routed to an Event Grid topic as CloudEvents according to the following logic:
 

@@ -9,7 +9,7 @@ ms.date: 07/26/2023
 ---
 
 
-# Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET) - (Preview)
+# Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET)
 
 In this quickstart, you'll do the following steps:
 
