@@ -32,9 +32,9 @@ To deploy your private mobile network using Azure Private 5G Core, you will need
 
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://forms.office.com/r/4Q1yNRakXe).
 
-## Choose the core technology type (5G, 4G or combined 4G and 5G)
+## Choose the core technology type (5G, 4G, or combined 4G and 5G)
 
-Choose whether each site in the private mobile network should provide coverage for 5G, 4G or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites they can each support different core technology types.
+Choose whether each site in the private mobile network should provide coverage for 5G, 4G, or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites they can each support different core technology types.
 
 ## Allocate subnets and IP addresses
 
@@ -180,8 +180,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
-| UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
-| All IP traffic       | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). </br> Only required on port 3 if data networks are configured on that port. |
+| UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
+| All IP traffic       | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or NG/SGi for combined 4G and 5G). </br> Only required on port 3 if data networks are configured on that port. |
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -198,8 +198,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
-| UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
-| All IP traffic       | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). </br> Only required on port 5 if data networks are configured on that port.  |
+| UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
+| All IP traffic       | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or NG/SGi for combined 4G and 5G)). </br> Only required on port 5 if data networks are configured on that port.  |
 :::zone-end
 
 #### Port requirements for Azure Stack Edge

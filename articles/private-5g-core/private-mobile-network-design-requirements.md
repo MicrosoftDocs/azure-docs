@@ -13,7 +13,7 @@ zone_pivot_groups: ase-pro-version
 
 # Private mobile network design requirements
 
-This article helps you design and prepare for implementing a private 4G or 5G network based on Azure Private 5G Core (AP5GC). It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network.
+This article helps you design and prepare for implementing a private 4G, or 5G network based on Azure Private 5G Core (AP5GC). It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network.
 
 ## Azure Private MEC and Azure Private 5G Core
 
@@ -170,7 +170,7 @@ Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UE
 
 The Maximum Transmission Unit (MTU) is a property of an IP link, and it is configured on the interfaces at each end of the link. Packets that exceed an interface's configured MTU are split into smaller packets via IPv4 fragmentation prior to sending and are then reassembled at their destination. However, if an interface's configured MTU is higher than the link's supported MTU, the packet will fail to be transmitted correctly.
 
-To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signaled by the packet core.
+To avoid transmission issues caused by IPv4 fragmentation, a 4G, or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signaled by the packet core.
 
 IP packets from UEs are tunneled through from the RAN, which adds overhead from encapsulation. The MTU value for the UE should therefore be smaller than the MTU value used between the RAN and the packet core to avoid transmission issues.
 
