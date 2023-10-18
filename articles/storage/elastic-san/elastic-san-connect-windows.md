@@ -72,7 +72,7 @@ You can use the following script to create your connections. To execute it, you 
 - $vgname: Volume Group Name
 - $vol1: First Volume Name
 - $vol2: Second Volume Name
-and other volume names that you may require
+and other volume names that you might require
 - 32: Number of sessions to each volume
 
 Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .ps1 file, for example, connect.ps1. Then execute it with the required parameters. The following is an example of how to run the script: 
