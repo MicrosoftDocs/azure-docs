@@ -275,7 +275,7 @@ The following code creates a package of the `t5-base` model from a registry:
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/registry-model/sdk-deploy-and-test.ipynb?name=configure_registry_client)]
 
-1. Get a reference to the model you want to package:
+1. Get a reference to the model you want to package. In this case we are packaging the model `t5-base` from `azureml` registry.
 
     # [Azure CLI](#tab/cli)
 
@@ -319,7 +319,7 @@ The following code shows how to configure `copy` in a model package:
 
 __package-external.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" highlight="10-11" :::
 
 # [Python](#tab/sdk)
 
