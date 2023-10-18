@@ -44,7 +44,7 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 
     ```bash
     az k8s-extension create --extension-type microsoft.alicesprings.dataplane \
-    --version {{% version %}} \
+    --version 0.6.0 \
     --release-namespace default \
     --name my-e4k-extension \
     --cluster-name friendly \
@@ -110,7 +110,7 @@ If you don't have a CA certificate, cert-manager can generate a root CA certific
         size: 256
     ```
     
-1. Create the self-signed CA certificate with the following command:
+Create the self-signed CA certificate with the following command:
 
     ```bash
     kubectl apply -f ca.yaml

@@ -107,7 +107,7 @@ Remember to specify username, password, etc. if authentication is enabled
 
 To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. There are two ways to solve this.
 
-### Option 1: deploy a non-TLS listener first
+### Option 1: Deploy a non-TLS listener first
 
 Deploy Azure IoT MQ with a non-TLS listener first.
 
@@ -136,7 +136,7 @@ azedge-dmqtt-frontend         LoadBalancer   10.43.58.212    172.18.0.2    1883:
 
 Finally, use this external IP as a SAN when creating the server certificate (for example `--san 172.18.0.2` in Step CLI), and follow the same steps previously to deploy a listener with TLS.
 
-### Option 2: deploy TLS listener without a Kubernetes secret
+### Option 2: Deploy TLS listener without a Kubernetes secret
 
 If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods won't* deploy.
 
@@ -147,7 +147,7 @@ azedge-e4k-operator-655cdfc47d-2wmsl   1/1     Running   0          28s
 azedge-dmqtt-health-manager-0          1/1     Running   0          11s
 ```
 
-However, **this is expected** and it's ok to leave it like this while we import the server certificate.
+However, this is expected and it's okay to leave it like this while we import the server certificate.
 
 The health manager logs mention Azure IoT MQ is waiting for the server certificate.
 

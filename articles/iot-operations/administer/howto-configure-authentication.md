@@ -14,7 +14,7 @@ ms.date: 10/02/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with **BrokerAuthentication** resources.
+Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
 For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials** as the password database.
 
@@ -23,7 +23,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "my-authn-methods"
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-listener"
@@ -63,7 +63,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "my-authn-methods"
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-listener" 
@@ -95,7 +95,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerListener
 metadata:
   name: "my-listener"
-  namespace: {{% namespace %}}
+  namespace: alice-springs
 spec:
   brokerRef: "my-broker"
   authenticationEnabled: false
@@ -168,7 +168,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "up-only" 
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-listener" 
@@ -200,7 +200,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "x509-auth-only" 
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-secure-listener" 
@@ -210,7 +210,7 @@ spec:
         attributes: x509-attributes
 ```
 
-### Required: trusted root CA certificate
+### Trusted root CA certificate
 
 When authentication method is set to X.509, a trusted root CA certificate **must** be specified for the broker to successfully deploy.
 
@@ -336,7 +336,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "sat-only"
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-listener"
@@ -420,14 +420,14 @@ When a client connects to Azure IoT MQ and custom authentication is enabled, Azu
 | Feature | Supported |
 |---|:---:|
 | Custom authentication API and sample | ✅ |
-| Additional client info (IP, port, TLS, MQTT version) | 🔜 |
-| Custom authorization API | 🔜 |
+<!--| Additional client info (IP, port, TLS, MQTT version) | 🔜 |
+| Custom authorization API | 🔜 |-->
 
 ## Create custom authentication service
 
 The custom authentication server is implemented and deployed separately from Azure IoT MQ.
 
-### Sample
+### Example
 
 A sample custom authentication server and instructions are available. Use this sample as a template can and starting point for implementing your own custom authentication logic.
 
@@ -454,7 +454,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthentication 
 metadata: 
   name: "custom-auth"
-  namespace: {{% namespace %}} 
+  namespace: alice-springs 
 spec: 
   listenerRef: 
     - "my-listener" 

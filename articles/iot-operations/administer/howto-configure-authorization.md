@@ -48,7 +48,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: {{% namespace %}}
+  namespace: alice-springs
 spec:
   listenerRef:
     - "my-listener"
@@ -146,7 +146,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: {{% namespace %}}
+  namespace: alice-springs
 spec:
   listenerRef:
     - "az-mqtt-non-tls-listener"
@@ -194,7 +194,7 @@ apiVersion: az-edge.com/v1alpha4
 kind: BrokerListener
 metadata:
   name: "my-listener"
-  namespace: {{% namespace %}}
+  namespace: alice-springs
 spec:
   brokerRef: "my-broker"
   authenticationEnabled: false
