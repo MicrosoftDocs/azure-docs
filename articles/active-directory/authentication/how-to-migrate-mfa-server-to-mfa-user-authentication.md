@@ -266,7 +266,7 @@ We don't recommend that you reuse groups that are used for security. If you're u
 
 ## Monitoring
 
-Many [Azure Monitor workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md) and **Usage & Insights** reports are available to monitor your deployment. 
+Many [Azure Monitor workbooks](../reports-monitoring/howto-use-workbooks.md) and **Usage & Insights** reports are available to monitor your deployment. 
 These reports can be found in Microsoft Entra ID in the navigation pane under **Monitoring**. 
 
 ### Monitoring Staged Rollout

@@ -272,7 +272,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure SWAP file
 
-   Create a swap file as defined in [Create a SWAP file for an Azure Linux VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/create-swap-file-linux-vm)
+   Create a swap file as defined in [Create a SWAP file for an Azure Linux VM](/troubleshoot/azure/virtual-machines/create-swap-file-linux-vm)
    ```bash
    #!/bin/sh
 

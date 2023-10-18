@@ -22,7 +22,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-arm-templa
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
 
 A Service SAS provides the ability to grant limited access to objects in a storage account, for limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage PowerShell. You will learn how to:
 
@@ -35,7 +35,7 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
@@ -72,7 +72,7 @@ Azure Storage does not natively support Microsoft Entra authentication.  However
 1. Navigate back to your newly created storage account.   
 1. Click **Access control (IAM)**.
 1. Click **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -209,4 +209,4 @@ Name              : testblob
 In this tutorial, you learned how to use a Windows VM's system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
 
 > [!div class="nextstepaction"]
->[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)
+>[Using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)

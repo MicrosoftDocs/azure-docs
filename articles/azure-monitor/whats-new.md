@@ -46,7 +46,7 @@ Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configu
 General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Added section detailing billing meter names.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|A caution has been added about using community libraries with additional information on how to request we include them in our distro.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|Support and feedback options are now available across all of our OpenTelemetry pages.|
-Application-Insights|[How many Application Insights resources should I deploy?](app/separate-resources.md)|We added an important warning about additional network costs when monitoring across regions.|
+Application-Insights|[How many Application Insights resources should I deploy?](app/create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy)|We added an important warning about additional network costs when monitoring across regions.|
 Application-Insights|[Use Search in Application Insights](app/search-and-transaction-diagnostics.md?tabs=transaction-search)|We clarified that URL query strings are not logged by Azure Functions and that URL query strings won't show up in searches.|
 Application-Insights|[Migrating from OpenCensus Python SDK and Azure Monitor OpenCensus exporter for Python to Azure Monitor OpenTelemetry Python Distro](app/opentelemetry-python-opencensus-migrate.md)|Migrate from OpenCensus to OpenTelemetry with this step-by-step guidance.|
 Application-Insights|[Application Insights overview](app/app-insights-overview.md)|We've added an illustration to convey how Azure Monitor Application Insights works at a high level.|
@@ -341,7 +341,7 @@ Agents|[Collect SNMP trap data with Azure Monitor Agent](agents/data-collection-
 Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Resource Health alerts and Service Health alerts are created by using the same simplified workflow as all other alert types.|
 Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Recommended alert rules are enabled for Azure Kubernetes Service and Log Analytics workspace resources in addition to VMs.|
 Application-insights|[Sampling in Application Insights](app/sampling.md)|ASP.NET Core applications can be configured in code or through the `appsettings.json` file. Removed conflicting information.|
-Application-insights|[How many Application Insights resources should I deploy?](app/separate-resources.md)|Added clarification on setting iKey dynamically in code.|
+Application-insights|[How many Application Insights resources should I deploy?](app/create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy)|Added clarification on setting iKey dynamically in code.|
 Application-insights|[Application Map: Triage distributed applications](app/app-map.md)|Documented App Map Filters, an exciting new feature.|
 Application-insights|[Enable Application Insights for ASP.NET Core applications](app/tutorial-asp-net-core.md)|The Azure Café sample app is now hosted and linked on Git.|
 Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](app/codeless-overview.md)|Updated the auto-instrumentation supported languages chart.|
@@ -384,7 +384,7 @@ Application-insights|[Application Insights API for custom events and metrics](./
 Application-insights|[Azure AD authentication for Application Insights](./app/azure-ad-authentication.md)|Updated the `TelemetryConfiguration` code sample by using .NET.|
 Application-insights|[Using Azure Monitor Application Insights with Spring Boot](./app/java-spring-boot.md)|Updated the Spring Boot information to 3.4.2.|
 Application-insights|[Configuration options: Azure Monitor Application Insights for Java](./app/java-standalone-config.md)|Added new features on Capture Log4j Markers and Logback Markers as custom properties on the corresponding trace (log message) telemetry.|
-Application-insights|[Create custom KPI dashboards by using Application Insights](./app/tutorial-app-dashboards.md)|Refreshed with new screenshots and instructions.|
+Application-insights|[Create custom KPI dashboards by using Application Insights](./app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights)|Refreshed with new screenshots and instructions.|
 Application-insights|[Share Azure dashboards by using Azure role-based access control](../azure-portal/azure-portal-dashboard-share-access.md)|Refreshed with new screenshots and instructions.|
 Application-insights|[Application monitoring for Azure App Service and ASP.NET](./app/azure-web-apps-net.md)|Added important notes about System.IO.FileNotFoundException after an 2.8.44 auto-instrumentation upgrade.|
 Application-insights|[Geolocation and IP address handling](./app/ip-collection.md)| Updated geolocation lookup information.|

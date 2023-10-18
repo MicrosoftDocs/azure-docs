@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ---
@@ -39,7 +39,7 @@ Application owners can view logs for their own applications. The following roles
 There are several ways to view or analyze the Provisioning logs:
 
 - View in the Azure portal.
-- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through Diagnostic settings.
+- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through diagnostic settings.
 - Analyze logs through [Workbook](howto-use-workbooks.md) templates.
 - Access logs programmatically through the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary).
 - [Download the logs](howto-download-logs.md) as a CSV or JSON file.
@@ -156,7 +156,7 @@ Use the following table to better understand how to resolve errors that you find
 | Microsoft Entra ID<br/>QuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Microsoft Entra ID has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Microsoft Entra service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
 | InvitationCreationFailure | The Microsoft Entra provisioning service attempted to invite the user in the target tenant. That invitation failed.| Further investigation likely requires contacting support.|
 | Microsoft Entra ID<br/>Forbidden | External collaboration settings have blocked invitations.|Navigate to user settings and ensure that [external collaboration settings](../external-identities/external-collaboration-settings-configure.md) are permitted.|
-| InvitationCreation<br/>FailureInvalidPropertyValue | Potential causes:<br/>* The Primary SMTP Address is an invalid value.<br/>* UserType is neither guest nor member<br/>* Group email Address is not supported | Potential solutions:<br/>* The Primary SMTP Address has an invalid value. Resolving this issue will likely require updating the mail property of the source user. For more information, see [Prepare for directory synchronization to Microsoft 365](https://aka.ms/DirectoryAttributeValidations)<br/>* Ensure that the userType property is provisioned as type guest or member. This can be fixed by checking your attribute mappings to understand how the userType attribute is mapped.<br/>* The email address address of the user matches with the email address of a group in the tenant. Update the email address for one of the two objects.|
+| InvitationCreation<br/>FailureInvalidPropertyValue | Potential causes:<br/>* The Primary SMTP Address is an invalid value.<br/>* UserType is neither guest nor member<br/>* Group email Address is not supported | Potential solutions:<br/>* The Primary SMTP Address has an invalid value. Resolving this issue will likely require updating the mail property of the source user. For more information, see [Prepare for directory synchronization to Microsoft 365](https://aka.ms/DirectoryAttributeValidations)<br/>* Ensure that the userType property is provisioned as type guest or member. This can be fixed by checking your attribute mappings to understand how the userType attribute is mapped.<br/>* The email address of the user matches with the email address of a group in the tenant. Update the email address for one of the two objects.|
 | InvitationCreation<br/>FailureAmbiguousUser| The invited user has a proxy address that matches an internal user in the target tenant. The proxy address must be unique. | To resolve this error, delete the existing internal user in the target tenant or remove this user from sync scope.|
 | Microsoft Entra ID<br/>CannotUpdateObjects<br/>MasteredOnPremises| If the user in the target tenant was originally synchronized from AD to Microsoft Entra ID and converted to an external user, the source of authority is still on-premises and the user cannot be updated.| The user cannot be updated by cross-tenant synchronization|
 ## Next steps
