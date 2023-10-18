@@ -111,7 +111,7 @@
   - name: Discovery & Insights for Microsoft Entra roles
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions
-    href: ../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/active-directory/privileged-identity-management/toc.json
+    href: /azure/role-based-access-control/elevate-access-global-admin?toc=/azure/active-directory/privileged-identity-management/toc.json
   - name: Troubleshoot resource access denied
     href: pim-troubleshoot.md
 - name: Reference
