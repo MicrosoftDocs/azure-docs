@@ -73,11 +73,11 @@ The following table shows what features are available with each license.  Note t
 
 |Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
 |-----|:-----:|:-----:|:-----:|:-----:| 
-|[HR-driven Provisioning](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/what-is-hr-driven-provisioning)||x|x|x|
+|[HR-driven Provisioning](/azure/active-directory/app-provisioning/what-is-hr-driven-provisioning)||x|x|x|
 |Automated user provisioning to SaaS apps|x|x|x|x|	 
 |Automated group provisioning to SaaS apps||x|x|x|	 
 |Automated provisioning to on-premises apps||x|x|x|
-|[Conditional Access - Terms of use attestation](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/terms-of-use)||x|x|x| 
+|[Conditional Access - Terms of use attestation](/azure/active-directory/conditional-access/terms-of-use)||x|x|x| 
 |Entitlement management - Basic entitlement management|||x|x|  
 |Entitlement management - Conditional Access Scoping|||x|x| 
 |Entitlement management MyAccess Search|||x|x|  
