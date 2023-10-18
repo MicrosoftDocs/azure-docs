@@ -205,6 +205,7 @@ public void Add(int amount, TaskEntityContext context)
     this.Value += amount;      
 }
 ```
+---
 
 ## Accessing entities directly
 
@@ -242,6 +243,7 @@ public static async Task<HttpResponseData> DeleteCounter(
     return req.CreateResponse(HttpStatusCode.Accepted);
 }
 ```
+---
 
 ### Example: client reads entity state
 
@@ -279,6 +281,7 @@ public static async Task<HttpResponseData> GetCounter(
     return response;
 }
 ```
+---
 
 ### Example: orchestration first signals, then calls entity
 
@@ -319,6 +322,7 @@ public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContex
     return currentValue; 
 }
 ```
+---
 
 ## Accessing entities through interfaces
 
@@ -365,13 +369,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 
 In this example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Delete` into a signal.
 
+> [!NOTE]
+> The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
+For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
+
 # [C# (Isolated)](#tab/isolated-process)
 
 This is currently not supported in the .NET isolated worker. 
 
-> [!NOTE]
-> The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
-For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
+---
 
 ### Example: orchestration first signals, then calls entity through proxy
 
@@ -402,6 +408,8 @@ Implicitly, any operations that return `void` are signaled, and any operations t
 # [C# (Isolated)](#tab/isolated-process)
 
 This is currently not supported in the .NET isolated worker. 
+
+---
 
 ### Shorter option for specifying the target
 
@@ -536,6 +544,7 @@ public class Counter : TaskEntity<int>
     }
 }
 ```
+---
 
 ### Bindings in entity classes
 
@@ -586,6 +595,7 @@ public class BlobBackedEntity : TaskEntity<object?>
     }
 }
 ```
+---
 
 For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
 
@@ -625,6 +635,7 @@ namespace MyNamespace
     }
 }
 ```
+---
 
 The following snippet demonstrates how to incorporate the injected service into your entity class.
 
@@ -681,6 +692,7 @@ public class HttpEntity : TaskEntity<TState>
         => dispatcher.DispatchAsync<HttpEntity>();
 }
 ```
+---
 
 > [!NOTE]
 > To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
@@ -779,6 +791,7 @@ public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher
     });
 }
 ```
+---
 
 ## Next steps
 
