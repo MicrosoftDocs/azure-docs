@@ -31,7 +31,7 @@ Before you run the commands, you need to set several variables to define the con
 | CUSTOM_LOCATION            | This argument specifies a custom location of the Nexus instance.                                                         |
 | CSN_ARM_ID                 | CSN ID is the unique identifier for the cloud services network you want to use.                                          |
 | CNI_ARM_ID                 | CNI ID is the unique identifier for the network interface to be used by the container runtime.                           |
-| AAD_ADMIN_GROUP_OBJECT_ID  | The object ID of the Azure Active Directory group that should have admin privileges on the cluster.                      |
+| AAD_ADMIN_GROUP_OBJECT_ID  | The object ID of the Microsoft Entra group that should have admin privileges on the cluster.                      |
 | CLUSTER_NAME               | The name you want to give to your Nexus Kubernetes cluster.                                                              |
 | K8S_VERSION                | The version of Kubernetes you want to use.                                                                               |
 | ADMIN_USERNAME             | The username for the cluster administrator.                                                                              |

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 10/06/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -87,4 +87,3 @@ Make sure that you have the correct Client Access Licenses (CALs) or External Co
 
 - [Grant local users access to cloud apps](hybrid-on-premises-to-cloud.md)
 - [Microsoft Entra B2B collaboration for hybrid organizations](hybrid-organizations.md)
-- For an overview of Microsoft Entra Connect, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).

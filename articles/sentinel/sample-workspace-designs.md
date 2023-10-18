@@ -25,7 +25,7 @@ The Contoso Corporation is a multinational business with headquarters in London.
 
 ### Contoso tenants
 
-Due to an acquisition several years ago, Contoso has two Azure AD tenants: `contoso.onmicrosoft.com` and `wingtip.onmicrosoft.com`. Each tenant has its own Office 365 instance and multiple Azure subscriptions, as shown in the following image:
+Due to an acquisition several years ago, Contoso has two Microsoft Entra tenants: `contoso.onmicrosoft.com` and `wingtip.onmicrosoft.com`. Each tenant has its own Office 365 instance and multiple Azure subscriptions, as shown in the following image:
 
 :::image type="content" source="media/best-practices/contoso-tenants.png" alt-text="Diagram of Contoso tenants, each with separate sets of subscriptions." border="false":::
 
@@ -33,14 +33,14 @@ Due to an acquisition several years ago, Contoso has two Azure AD tenants: `cont
 
 Contoso currently has Azure resources hosted in three different regions: US East, EU North, and West Japan, and strict requirement to keep all data generated in Europe within Europe regions.
 
-Both of Contoso's Azure AD tenants have resources in all three regions: US East, EU North, and West Japan
+Both of Contoso's Microsoft Entra tenants have resources in all three regions: US East, EU North, and West Japan
 
 ### Contoso resource types and collection requirements
 
 Contoso needs to collect events from the following data sources:
 
 -	Office 365
--	Azure AD Sign-in and Audit logs
+-	Microsoft Entra sign-in and audit logs
 -	Azure Activity
 -	Windows Security Events, from both on-premises and Azure VM sources
 -	Syslog, from both on-premises and Azure VM sources
@@ -54,7 +54,7 @@ Contoso expects to ingest around 300 GB/day from all of their data sources.
 
 ### Contoso access requirements
 
-Contoso’s Azure environment already has a single existing Log Analytics workspace used by the Operations team to monitor the infrastructure. This workspace is located in Contoso Azure AD tenant, within EU North region, and is being used to collect logs from Azure VMs in all regions. They currently ingest around 50 GB/day.
+Contoso’s Azure environment already has a single existing Log Analytics workspace used by the Operations team to monitor the infrastructure. This workspace is located in Contoso Microsoft Entra tenant, within EU North region, and is being used to collect logs from Azure VMs in all regions. They currently ingest around 50 GB/day.
 
 The Contoso Operations team needs to have access to all the logs that they currently have in the workspace, which include several data types not needed by the SOC, such as **Perf**, **InsightsMetrics**, **ContainerLog**, and more. The Operations team must *not* have access to the new logs that are collected in Microsoft Sentinel.
 
@@ -68,7 +68,7 @@ The following steps apply the [Microsoft Sentinel workspace design decision tree
 
 1.	Contoso has regulatory requirements, so we need at least one Microsoft Sentinel workspace in Europe.
 
-1.	Contoso has two different Azure AD tenants, and collects from tenant-level data sources, like Office 365 and Azure AD Sign-in and Audit logs, so we need at least one workspace per tenant.
+1.	Contoso has two different Microsoft Entra tenants, and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, so we need at least one workspace per tenant.
 
 1.	Contoso doesn't need [charge-back](design-your-workspace-architecture.md#step-4-splitting-billing--charge-back), so we can continue with [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
 
@@ -88,7 +88,7 @@ The suggested solution includes:
 
 - A separate Log Analytics workspace for the Contoso Operations team. This workspace will only contain data that's not needed by Contoso’s SOC team, such as the **Perf**, **InsightsMetrics**, or **ContainerLog** tables.
 
-- Two Microsoft Sentinel workspaces, one in each Azure AD tenant, to ingest data from Office 365, Azure Activity, Azure AD, and all Azure PaaS services.
+- Two Microsoft Sentinel workspaces, one in each Microsoft Entra tenant, to ingest data from Office 365, Azure Activity, Microsoft Entra ID, and all Azure PaaS services.
 
 - All other data, coming from on-premises data sources, can be routed to one of the two Microsoft Sentinel workspaces.
 
@@ -99,7 +99,7 @@ Fabrikam is an organization with headquarters in New York City and offices all a
 
 ### Fabrikam tenancy requirements
 
-Fabrikam has a single Azure AD tenant.
+Fabrikam has a single Microsoft Entra tenant.
 
 ### Fabrikam compliance and regional deployment
 
@@ -109,7 +109,7 @@ Fabrikam has no compliance requirements. Fabrikam has resources in several Azure
 
 Fabrikam needs to collect events from the following data sources:
 
--	Azure AD Sign-in and Audit logs
+-	Microsoft Entra sign-in and audit logs
 -	Azure Activity
 -	Security Events, from both on-premises and Azure VM sources
 -	Windows Events, from both on-premises and Azure VM sources
@@ -127,7 +127,7 @@ The Fabrikam Operations team needs to access:
 -	All Azure Activity data
 
 The Fabrikam SOC team needs to access:
--	Azure AD Sign-in and Audit logs
+-	Microsoft Entra sign-in and audit logs
 -	All Azure Activity data
 -	Security events, from both on-premises and Azure VM sources
 -	AWS CloudTrail logs
@@ -184,7 +184,7 @@ Adventure Works is Microsoft 365 E5 customer, and already has workloads in Azure
 
 ### Adventure Works tenancy requirements
 
-Adventure Works has three different Azure AD tenants, one for each of the continents where they have sub-entities: Asia, Europe, and Africa. The different sub-entities' countries/regions have their identities in the tenant of the continent they belong to. For example, Japanese users are in the *Asia* tenant, German users are in the *Europe* tenant and Egyptian users are in the *Africa* tenant.
+Adventure Works has three different Microsoft Entra tenants, one for each of the continents where they have sub-entities: Asia, Europe, and Africa. The different sub-entities' countries/regions have their identities in the tenant of the continent they belong to. For example, Japanese users are in the *Asia* tenant, German users are in the *Europe* tenant and Egyptian users are in the *Africa* tenant.
 
 ### Adventure Works compliance and regional requirements
 
@@ -194,7 +194,7 @@ Adventure Works currently uses three Azure regions, each aligned with the contin
 
 Adventure Works needs to collect the following data sources for each sub-entity:
 
--	Azure AD Sign-in and Audit logs
+-	Microsoft Entra sign-in and audit logs
 -	Office 365 logs
 -	Microsoft 365 Defender for Endpoint raw logs
 -	Azure Activity
@@ -209,7 +209,7 @@ Azure VMs are scattered across the three continents, but bandwidth costs aren't 
 
 Adventure Works has a single, centralized SOC team that oversees security operations for all the different sub-entities.
 
-Adventure Works also has three independent SOC teams, one for each of the continents. Each continent's SOC team should be able to access only the data generated within its region, without seeing data from other continents. For example, the Asia SOC team should only access data from Azure resources deployed in Asia, Azure AD Sign-ins from the Asia tenant, and Defender for Endpoint logs from it’s the Asia tenant.
+Adventure Works also has three independent SOC teams, one for each of the continents. Each continent's SOC team should be able to access only the data generated within its region, without seeing data from other continents. For example, the Asia SOC team should only access data from Azure resources deployed in Asia, Microsoft Entra Sign-ins from the Asia tenant, and Defender for Endpoint logs from it’s the Asia tenant.
 
 Each continent's SOC team needs to access the full Microsoft Sentinel portal experience.
 
@@ -223,7 +223,7 @@ The following steps apply the [Microsoft Sentinel workspace design decision tree
 
 1.	Adventure Works has no regulatory requirements, so continue to [step 3](design-your-workspace-architecture.md#step-3-do-you-have-multiple-azure-tenants).
 
-1.	Adventure Works has three Azure AD tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least Microsoft Sentinel workspaces, one for each tenant.
+1.	Adventure Works has three Microsoft Entra tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least Microsoft Sentinel workspaces, one for each tenant.
 
 1.	Adventure Works has no need to split up charges, so continue to [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
 
@@ -241,11 +241,11 @@ The resulting Microsoft Sentinel workspace design for Adventure Works is illustr
 
 The suggested solution includes:
 
-- A separate Microsoft Sentinel workspace for each Azure AD tenant. Each workspace collects data related to its tenant for all data sources.
+- A separate Microsoft Sentinel workspace for each Microsoft Entra tenant. Each workspace collects data related to its tenant for all data sources.
 
 - Each continent's SOC team has access only to the workspace in its own tenant, ensuring that only logs generated within the tenant boundary are accessible by each SOC team.
 
-- The central SOC team can still operate from a separate Azure AD tenant, using Azure Lighthouse to access each of the different Microsoft Sentinel environments. If there's no other tenant, the central SOC team can still use Azure Lighthouse to access the remote workspaces.
+- The central SOC team can still operate from a separate Microsoft Entra tenant, using Azure Lighthouse to access each of the different Microsoft Sentinel environments. If there's no other tenant, the central SOC team can still use Azure Lighthouse to access the remote workspaces.
 
 - The central SOC team can also create another workspace if it needs to store artifacts that remain hidden from the continent SOC teams, or if it wants to ingest other data that isn't relevant to the continent SOC teams.
 

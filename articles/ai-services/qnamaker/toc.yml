@@ -93,7 +93,7 @@
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/qnamaker/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
-    - name: Use Azure AD authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?context=/azure/ai-services/qnamaker/context/context
 - name: Concepts
   items:

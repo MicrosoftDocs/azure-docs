@@ -13,7 +13,7 @@ The Kubernetes resource view from the Azure portal replaces the deprecated AKS d
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if you're using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][aks-quickstart-portal] to create a new AKS cluster.
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if you're using Microsoft Entra integration, your cluster must use [AKS-managed Microsoft Entra integration][aks-managed-aad]. If your cluster uses legacy Microsoft Entra ID, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][aks-quickstart-portal] to create a new AKS cluster.
 
 ## View Kubernetes resources
 
@@ -75,7 +75,7 @@ This section addresses common problems and troubleshooting steps.
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
 
 >[!NOTE]
-> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-azure-ad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
+> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-azure-ad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your Microsoft Entra user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 

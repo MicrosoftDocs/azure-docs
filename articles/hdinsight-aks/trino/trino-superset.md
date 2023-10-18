@@ -213,6 +213,6 @@ Now, you're ready to create datasets and charts.
 
 ## Next Steps
 
-To expose Superset to the internet, allow user login using Azure Active Directory you need to accomplish the following general steps. These steps require an intermediate or greater experience with Kubernetes.
+To expose Superset to the internet, allow user login using Microsoft Entra ID you need to accomplish the following general steps. These steps require an intermediate or greater experience with Kubernetes.
 
-* [Configure Azure Active Directory OAuth2 login for Superset](./configure-azure-active-directory-login-for-superset.md)
+* [Configure Microsoft Entra ID OAuth2 login for Superset](./configure-azure-active-directory-login-for-superset.md)

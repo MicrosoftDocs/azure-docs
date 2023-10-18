@@ -38,7 +38,7 @@ You need these names throughout this tutorial.
 
 ## 3. Configure authentication and authorization
 
-Now that you have a web app running on App Service, enable authentication and authorization. You use Azure AD as the identity provider. For more information, see [Configure Azure AD authentication for your App Service application](../../configure-authentication-provider-aad.md).
+Now that you have a web app running on App Service, enable authentication and authorization. You use Microsoft Entra ID as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Service application](../../configure-authentication-provider-aad.md).
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**, or search for and select **Resource groups** from any page.
 
@@ -48,11 +48,11 @@ Now that you have a web app running on App Service, enable authentication and au
     
 1. On your app's left menu, select **Authentication**, and then click **Add identity provider**.
 
-1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. Select a **Tenant type**, for example **Workforce** for work and school accounts or Microsoft accounts.
 
-1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Azure AD.
+1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Microsoft Entra ID.
 
 1. Add a **Name** for the app registration, a public facing display name.
 
@@ -72,7 +72,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 ## 4. Verify limited access to the web app
 
-When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your Azure AD tenant. The app registration has the same display name as your web app. 
+When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your Microsoft Entra tenant. The app registration has the same display name as your web app. 
 
 1. To check the settings, go to the [Microsoft Entra admin center](https://entra.microsoft.com) and select **Applications** and then **App registrations** from the menu. 
 1. Select the app registration that was created. 

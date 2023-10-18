@@ -30,7 +30,7 @@ landingContent:
             url: use-pod-security-policies.md
           - text: Automatically upgrade node images
             url: auto-upgrade-node-image.md
-          - text: Azure Linux container host for AKS
+          - text: Azure Linux Container Host for AKS
             url: use-azure-linux.md
           - text: Vertical Pod Autoscaler (Preview)
             url: vertical-pod-autoscaler.md

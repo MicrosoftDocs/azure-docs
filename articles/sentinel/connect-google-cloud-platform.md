@@ -143,7 +143,7 @@ This section shows you how to set up the GCP environment manually. Alternatively
 1. Fill in the required details, and make sure that the **Tenant ID** and **Tenant name** is the TenantID **without dashes**. 
     
     > [!NOTE]
-    > To find the tenant ID, in the Azure portal, navigate to **All Services > Azure Active Directory > Overview** and copy the **TenantID**. 
+    > To find the tenant ID, in the Azure portal, navigate to **All Services > Microsoft Entra ID > Overview** and copy the **TenantID**. 
 
 1. Make sure that **Enable pool** is selected. 
 

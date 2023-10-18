@@ -159,7 +159,8 @@ Example configuration:
       "cpuTriggeredSettings": "profile-without-env-data",
       "memoryTriggeredSettings": "profile-without-env-data",
       "manualTriggeredSettings": "profile-without-env-data",
-      "enableRequestTriggering": true
+      "enableRequestTriggering": true,
+      "periodicRecordingDurationSeconds": 60
     }
   }
 }
@@ -192,6 +193,8 @@ This value can be one of:
 
 - `true` Profiling is triggered if a request trigger threshold is breached.
 - `false` (default value). Profiling will not be triggered by request configuration.
+
+`periodicRecordingDurationSeconds` Profiling recording duration in seconds when a profiling session is started through "Profile now". Default value is `120`.
 
 ## Frequently asked questions
 
