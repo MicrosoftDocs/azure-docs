@@ -24,7 +24,7 @@ Microsoft Entra Connect is an on-premises Microsoft application that's designed 
 
 
  >[!IMPORTANT]
- >Microsoft Entra Connect V1 has been retired as of August 31, 2022 and is no longer supported. Microsoft Entra Connect V1 installations may **stop working unexpectedly**. If you are still using a Microsoft Entra Connect V1 you need to upgrade to Microsoft Entra Connect V2 immediately.
+ >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Microsoft Entra Connect V2 immediately.
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 

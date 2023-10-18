@@ -20,7 +20,7 @@ Azure AD Connect V1 was released several years ago. Since this time, several of 
 To address this issue, we've bundled as many of these newer components into a new single release, so you only have to update once. This release is Microsoft Entra Connect V2. This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components.
 
  >[!NOTE]
- >Microsoft Entra Connect V1 has been retired as of August 31, 2022 and is no longer supported. Microsoft Entra Connect V1 installations may **stop working unexpectedly**. If you are still using Azure AD Connect V1, you need to upgrade to Microsoft Entra Connect V2 immediately.
+ >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using Azure AD Connect V1, you need to upgrade to Microsoft Entra Connect V2 immediately.
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 
@@ -96,7 +96,7 @@ Yes, you can do that, and it is a great way to migrate to Microsoft Entra Connec
 Yes - your Microsoft Entra Connect server will be upgraded to the latest release if you have enabled the auto-upgrade feature. However, we can only upgrade your server if you are using Windows Server 2016 or newer and have enabled TLS 1.2.
 
 **I am not ready to upgrade yet – how much time do I have?** </br>
-You should upgrade to Microsoft Entra Connect V2 as soon as you can. **__All Microsoft Entra Connect V1 versions have been retired on 31 August, 2022.__** For the time being we will continue to support older versions of Microsoft Entra Connect, but it may prove difficult to provide a good support experience if some of the components in Microsoft Entra Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
+You should upgrade to Microsoft Entra Connect V2 as soon as you can. **__All Azure AD Connect V1 versions have been retired on 31 August, 2022.__** For the time being we will continue to support older versions of Microsoft Entra Connect, but it may prove difficult to provide a good support experience if some of the components in Microsoft Entra Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
 **I use an external SQL database and don't use SQL 2012 LocalDb – do I still have to upgrade?** </br>
 Yes, you still need to upgrade to remain in a supported state even if you don't use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. Note that SQL Server 2012 can still be used as an external SQL database with Microsoft Entra Connect V2.  The SQL 2019 drivers in Microsoft Entra Connect V2 are compatible with SQL Server 2012.
