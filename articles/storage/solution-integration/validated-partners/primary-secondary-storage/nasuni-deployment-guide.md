@@ -12,6 +12,14 @@ ms.subservice: storage-partner-integration
 
 # Nasuni Configuration Guide for Microsoft Azure
 
+Nasuni® enables organizations to store, protect, synchronize, and collaborate on unstructured file data across all locations. Built for the cloud and powered by UniFS, the world’s only global file system, the Nasuni File Data Platform couples the performance of local file servers with the infinite scale of the cloud to provide a global file-sharing platform at half the cost of traditional file infrastructures.
+
+How Nasuni works:
+- Stores all files and metadata in private (on-premises) or public cloud object storage.
+- Provides unlimited primary or archive file storage capacity.
+- Intelligently caches just the active data on lightweight Nasuni Edge Appliances.
+- Intelligently caches just the active data on lightweight Nasuni Edge Appliances.
+
 Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools, and frameworks, including both Microsoft-specific and third-party software and systems.
 
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data.
