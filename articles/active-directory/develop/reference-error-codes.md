@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/07/2023
+ms.date: 10/17/2023
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -290,6 +290,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) isn't available. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - An unexpected, non-retryable error from the WCF service hosted by MSODS has occurred. [Open a support ticket](../fundamentals/how-to-get-support.md) to get more details on the error. |
 | AADSTS90038 | NationalCloudTenantRedirection - The specified tenant 'Y' belongs to the National Cloud 'X'. Current cloud instance 'Z' does not federate with X. A cloud redirect error is returned. |
+| AADSTS900384 | JWT token failed signature validation. Actual message content is runtime specific, there are a variety of causes for this error. Please see the returned exception message for details.|
 | AADSTS90043 | NationalCloudAuthCodeRedirection - The feature is disabled. |
 | AADSTS900432 | Confidential Client isn't supported in Cross Cloud request.|
 | AADSTS90051 | InvalidNationalCloudId - The national cloud identifier contains an invalid cloud identifier. |
