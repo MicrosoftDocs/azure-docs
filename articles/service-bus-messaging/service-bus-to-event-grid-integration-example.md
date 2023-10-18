@@ -122,13 +122,12 @@ In this step, you add steps to send the received message in an email and then co
     1. Select **Service Bus** in the **Recent** list.
     2. Select **Complete the message in a topic subscription** from the list of actions. 
 
-        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-complete-message.png" alt-text="Screenshot that shows the expression for Body of the Send an email activity.":::    
-        
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-complete-message.png" alt-text="Screenshot that shows the selection of Complete a message in a topic subscription.":::            
     1. Select your Service Bus **topic**.
     1. Select a **subscription** to the topic.
     1. For **Lock token of the message**, select **Lock Token** from the **Dynamic content**. 
 
-        ![Logic Apps Designer - complete the message](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png" alt-text="Screenshot that shows the lock token field.":::            
 8. Select **Save** on the toolbar on the Logic Apps Designer to save the logic app. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/save-logic-app.png" alt-text="Screenshot that shows the Save button in the Logic app designed.":::
