@@ -36,18 +36,18 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * A Microsoft Entra ID P1 or P2 tenant.
 * **Global Administrator** or **Security Administrator** access for the Microsoft Entra tenant.
-* A **Log Analytics workspace** in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-* Permission to access data in a Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md) for information on the different permission options and how to configure permissions.
+* A **Log Analytics workspace** in your Azure subscription. Learn how to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+* Permission to access data in a Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](/azure/azure-monitor/logs/manage-access) for information on the different permission options and how to configure permissions.
 
 ## Create a Log Analytics workspace 
 
-A Log Analytics workspace allows you to collect data based on a variety or requirements, such as geographic location of the data, subscription boundaries, or access to resources. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). 
+A Log Analytics workspace allows you to collect data based on a variety or requirements, such as geographic location of the data, subscription boundaries, or access to resources. Learn how to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). 
 
-Looking for how to set up a Log Analytics workspace for Azure resources outside of Microsoft Entra ID? Check out the [Collect and view resource logs for Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) article.
+Looking for how to set up a Log Analytics workspace for Azure resources outside of Microsoft Entra ID? Check out the [Collect and view resource logs for Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) article.
 
 ## Send logs to Azure Monitor
 
-Follow the steps below to send logs from Microsoft Entra ID to Azure Monitor logs. Looking for how to set up Log Analytics workspace for Azure resources outside of Microsoft Entra ID? Check out the [Collect and view resource logs for Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) article.
+Follow the steps below to send logs from Microsoft Entra ID to Azure Monitor logs. Looking for how to set up Log Analytics workspace for Azure resources outside of Microsoft Entra ID? Check out the [Collect and view resource logs for Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) article.
 
 [!INCLUDE [diagnostic-settings-include](../includes/diagnostic-settings-include.md)]
 
@@ -64,5 +64,5 @@ If you do not see logs appearing in the selected destination after 15 minutes, s
 ## Next steps
 
 * [Analyze Microsoft Entra activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
-* [Learn about the data sources you can analyze with Azure Monitor](../../azure-monitor/data-sources.md)
-* [Automate creating diagnostic settings with Azure Policy](../../azure-monitor/essentials/diagnostic-settings-policy.md)
+* [Learn about the data sources you can analyze with Azure Monitor](/azure/azure-monitor/data-sources)
+* [Automate creating diagnostic settings with Azure Policy](/azure/azure-monitor/essentials/diagnostic-settings-policy)
