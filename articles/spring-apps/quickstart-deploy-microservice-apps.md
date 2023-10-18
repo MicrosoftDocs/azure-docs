@@ -111,7 +111,25 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server.png":::
 
+## ## 6. Clean up resources
+
+::: zone pivot="sc-standard"
+
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
+
+Use the following steps to delete the entire resource group, including the newly created service instance:
+
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
+
+1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
+
+::: zone-end
 
 ## 7. Next steps
 
