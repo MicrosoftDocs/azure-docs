@@ -106,7 +106,7 @@ Allocate the following IP addresses for each data network in the site:
 
 - Network address in CIDR notation.
 - Default gateway.
-- One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.*
+- One IP address for the user plane interface.
   - For 5G, this interface is the N6 interface
   - For 4G, this the SGi interface.
   - For combined 4G and 5G this is the N6/SGi interface.
