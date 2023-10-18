@@ -11,7 +11,7 @@ ms.custom: devtestoffer
 
 # Renew an expired subscription, purchase a new one, or transfer your Azure resources
 
-If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To continue using Azure with a monthly credit, you will need to renew your subscription, purchase a new subscription, and/or transfer your Azure resources to a different Azure subscription that includes the Azure dev/test individual credit.
+If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To continue using Azure with a monthly credit, you need to renew your subscription, purchase a new subscription, and/or transfer your Azure resources to a different Azure subscription that includes the Azure dev/test individual credit.
 
 > [!IMPORTANT]
 > You must transfer your resources to another Azure subscription before your current Azure subscription is disabled or you will lose access to your data.
