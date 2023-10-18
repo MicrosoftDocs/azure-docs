@@ -140,7 +140,7 @@ Content-type: application/json
 
 ### Retrieve the template for the provisioning connector
 
-Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the servicePrincipal resource. 
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](/graph/api/synchronization-synchronization-list-templates?preserve-view=true&tabs=http&view=graph-rest-beta). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the servicePrincipal resource. 
 
 #### Request
 
@@ -167,7 +167,7 @@ HTTP/1.1 200 OK
 ```
 
 ### Create the provisioning job
-To enable provisioning, you'll first need to [create a job](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true). Use the following request to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
+To enable provisioning, you'll first need to [create a job](/graph/api/synchronization-synchronization-post-jobs?preserve-view=true&tabs=http&view=graph-rest-beta). Use the following request to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
 
 #### Request
 

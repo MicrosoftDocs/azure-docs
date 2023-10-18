@@ -85,7 +85,7 @@ For a guided walkthrough of many of the recommendations in this article, see the
 | |[How to enable and configure SSPR in Microsoft Entra ID](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[How to configure self-service password reset for users in Microsoft Entra ID?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[How to [prepare users to] register [their] security information for Microsoft Entra ID](https://youtu.be/gXuh0XS18wA) |
-| Online courses|[Managing Identities in Microsoft Entra ID](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[Managing Microsoft Entra Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
+| Online courses|[Managing Identities in Microsoft Entra ID](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[`Managing Microsoft Entra Users and Groups`](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
 |Pluralsight Paid courses |[The Issues of Identity and Access Management](https://www.pluralsight.com/courses/identity-access-management-issues) Learn about IAM and security issues to be aware of in your organization. See especially the "Other Authentication Methods" module.|
 | |[Getting Started with the Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Learn the best practices for extending on-premises assets to the cloud in a manner that allows for authentication, authorization, encryption, and a secured mobile experience. See especially the "Configuring Advanced Features of Microsoft Entra ID P1 or P2" module.
 |Tutorials |[Complete a Microsoft Entra self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
@@ -324,7 +324,7 @@ You can use pre-built reports on Microsoft Entra admin center to measure the SSP
 > [!NOTE]
 >  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Microsoft Entra admin center at least once. Until then, the data doesn't collect for your organization.
 
-Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
+Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Microsoft Sentinel](/azure/sentinel/connect-azure-active-directory), Splunk, or ArcSight.
 
 ![SSPR Reporting screenshot](./media/howto-sspr-deployment/sspr-reporting.png)
 

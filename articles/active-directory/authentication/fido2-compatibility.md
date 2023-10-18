@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 10/09/2023
 
 author: justinha
 ms.author: justinha
 manager: amycolannino
-ms.reviewer: 
+ms.reviewer: calui
 
 ms.collection: M365-identity-device-management
 ---
@@ -74,7 +74,7 @@ The following tables show which transports are supported for each platform. Supp
 |---------|------|-----|-----|
 | Edge    | &#10060; | &#10060; | &#10060; |
 | Chrome  | &#x2705; | &#10060; | &#10060; |
-| Firefox | &#x2705; | &#10060; | &#10060; |
+| Firefox | &#10060; | &#10060; | &#10060; |
 
 
 ### iOS

@@ -2,7 +2,7 @@
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 10/05/2023
 ms.author: jboback

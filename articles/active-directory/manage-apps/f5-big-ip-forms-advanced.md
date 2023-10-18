@@ -18,7 +18,7 @@ Learn to configure F5 BIG-IP Access Policy Manager (APM) and Microsoft Entra ID 
 
 * Improved Zero Trust governance through Microsoft Entra preauthentication and Conditional Access 
   * See [What is Conditional Access?](../conditional-access/overview.md)
-  * See [Zero Trust security](../../security/fundamentals/zero-trust.md)
+  * See [Zero Trust security](/azure/security/fundamentals/zero-trust)
 * Full SSO between Microsoft Entra ID and BIG-IP published services
 * Managed identities and access from one control plane
   * See the [Microsoft Entra admin center](https://entra.microsoft.com)
@@ -79,7 +79,7 @@ You need the following components:
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A form-based authentication application, or set up an IIS FBA app for testing
-  * See [Forms-based authentication](/troubleshoot/aspnet/forms-based-authentication)
+  * See [Forms-based authentication](/troubleshoot/developer/webapps/aspnet/development/forms-based-authentication)
 
 ## BIG-IP configuration
 

@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 02/10/2023
+ms.date: 10/12/2023
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -40,7 +40,7 @@ Before you begin, verify the following:
 
 | Requirement |Details |
 |------------ | -------|
-|**Subscription permissions** | Ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
+|**Subscription permissions** | Ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
 | **VM support** | Ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
 | **Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you require a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you require these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)|
 | **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you require a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using a hardware security module (HSM keys) for customer-managed keys.|
@@ -249,48 +249,6 @@ At this stage, the disk encryption set and key vault statuses are changed to *Co
 > After you've committed the move, the resource status changes to *Delete source pending*.
 
 
-## Move the source resource group 
-
-Before you can prepare and move VMs, the VM resource group must be present in the target region. 
-
-### Prepare to move the source resource group
-
-During the preparation process, Resource Mover generates Azure Resource Manager (ARM) templates from the resource group settings. The resources inside the resource group are unaffected.
-
-To prepare to move the source resource group, do the following:
-
-1. In the **Across regions** tab, select the source resource group, and select **Prepare**.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Screenshot of the 'Prepare' button on the 'Prepare resources' pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
-
-1. In **Prepare resources**, select **Prepare**.
-
-> [!NOTE]
-> After you've prepared the move, the resource group status changes to *Initiate move pending*. 
-
- 
-### Move the source resource group
-
-**Begin moving the source resource group by doing the following:**
-
-1. On the **Across regions** pane, select the resource group, and select **Initiate move**.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Screenshot of the 'Initiate move' button on the 'Across regions' pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
-
-1. On the **Move resources** pane, select **Initiate move**. The resource group status changes to *Initiate move in progress*.   
-1. After you initiate the move, the target resource group is created, based on the generated ARM template. The source resource group status changes to *Commit move pending*.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Screenshot of the 'Move resources' pane showing the resource group status changed to 'Commit move pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
-
-**To commit the move and finish the process, do the following:**
-
-1. On the **Across regions** pane, select the resource group, and select **Commit move**.
-1. On the **Move Resources** pane, select **Commit**.
-
-> [!NOTE]
-> After you've committed the move, the source resource group status changes to *Delete source pending*.
-> :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to 'Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
-
 ## Prepare resources to move
 
 Now that the encryption resources and the source resource group are moved, you can prepare to move other resources whose current status is *Prepare pending*.
@@ -401,4 +359,3 @@ To delete your resources, do the following:
 ## Next steps
 
 [Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region.
-

@@ -60,7 +60,7 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 1. On the Microsoft Entra Connect server, open the **Microsoft Entra Connect** app.
 2. Select **Configure**.
 
-   ![Screenshot of the Microsoft Entra icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
+   ![Screenshot of the Microsoft Entra ID icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
 
 3. Select **Change user sign-in**.
 4. Select **Next**.
@@ -270,16 +270,22 @@ Learn more: [Configure your company branding](../fundamentals/how-to-customize-b
 
 ## Defederate Office 365 domains
 
-When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Microsoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `install-module MSOnline`.
+When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Microsoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `Install-Module Microsoft.Graph`.
 
-```PowerShell
+1. In PowerShell, sign in to Microsoft Entra ID by using a Global Administrator account.
+   ```powershell
+    Connect-MgGraph -Scopes "Domain.ReadWrite.All", "Directory.AccessAsUser.All"
+    ```
 
-import-module MSOnline
-Connect-MgGraph
-New-MgDomainFederationConfiguration 
--domainname yourdomain.com -authentication managed
+2. To convert the domain, run the following command:
+   ```powershell
+    Update-MgDomain -DomainId yourdomain.com -AuthenticationType "Managed"
+    ```
 
-```
+3. Verify that the domain has been converted to managed by running the command below.  The Authentication type should be set to managed.
+    ```powershell
+    Get-MgDomain -DomainId yourdomain.com
+    ```
 
 After you set the domain to managed authentication, you've defederated your Office 365 tenant from Okta while maintaining user access to the Okta home page.
 

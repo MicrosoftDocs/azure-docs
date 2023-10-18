@@ -38,7 +38,7 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
    2. **Select Payload:** You could send custom payload to event hubs using User defined payload or make use of different pre-canned datasets available in data generator. 
    3.  **Select Content-Type:** Based on the type of data you’re sending; you could choose the Content-type Option. As of today, Data generator supports sending data in following content-type - JSON, XML, Text and Binary. 
    4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
-   5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
+   5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Microsoft Entra ID. Please make sure that you have Azure Event Hubs Data owner permission before using Microsoft Entra ID. 
    
    :::image type="content" source="media/send-and-receive-events-using-data-generator/highlighted-data-generator-landing.png" alt-text="Screenshot displaying landing page for data generator.":::
 
@@ -81,51 +81,3 @@ As soon as you select send, data generator would take care of sending the events
 [Send and Receive events using Event Hubs SDKs(AMQP)](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal)
 
 [Send and Receive events using Apache Kafka](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=passwordless)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -44,7 +44,7 @@ There are 4 ways to provide authentication credentials to the Azure connected ma
 
 ### Interactive browser login (Windows-only)
 
-This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option may be required if your organization has configured conditional access policies that require you to log in from trusted machines.
+This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option might be required if your organization has configured conditional access policies that require you to log in from trusted machines.
 
 No flag is required to use the interactive browser login.
 
@@ -62,7 +62,7 @@ To authenticate with a service principal, provide the service principal's applic
 
 ### Access token
 
-Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions operating on several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Azure Active Directory client.
+Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions operating on several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Microsoft Entra client.
 
 To authenticate with an access token, use the `--access-token [token]` flag.
 
@@ -70,7 +70,7 @@ To authenticate with an access token, use the `--access-token [token]` flag.
 
 `--access-token`
 
-Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
+Specifies the Microsoft Entra access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
 `-f`, `--force-local-only`
 
@@ -86,6 +86,10 @@ Specifies the service principal secret. Must be used with the `--service-princip
 
 `--use-device-code`
 
-Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+Generate a Microsoft Entra device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+
+`--user-tenant-id`
+
+The tenant ID for the account used to connect the server to Azure. This field is required when the tenant of the onboarding account isn't the same as the desired tenant for the Azure Arc-enabled server resource.
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

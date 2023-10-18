@@ -91,10 +91,23 @@ External collaboration settings can be configured by using the Microsoft Graph A
 
 With the Guest Inviter role, you can give individual users the ability to invite guests without assigning them a global administrator or other admin role. Assign the Guest inviter role to individuals. Then make sure you set **Admins and users in the guest inviter role can invite** to **Yes**.
 
-Here's an example that shows how to use PowerShell to add a user to the Guest Inviter role:
+Here's an example that shows how to use Microsoft Graph PowerShell to add a user to the `Guest Inviter` role:
 
-```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
+
+```powershell
+
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+$roleName = "Guest Inviter"
+$role = Get-MgDirectoryRole | where {$_.DisplayName -eq $roleName}
+$userId = <User Id/User Principal Name>
+
+$DirObject = @{
+  "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$userId"
+  }
+
+New-MgDirectoryRoleMemberByRef -DirectoryRoleId $role.Id -BodyParameter $DirObject
+
 ```
 
 ## Sign-in logs for B2B users
@@ -107,3 +120,4 @@ See the following articles on Microsoft Entra B2B collaboration:
 
 - [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [Adding a B2B collaboration user to a role](./add-users-administrator.md)
+

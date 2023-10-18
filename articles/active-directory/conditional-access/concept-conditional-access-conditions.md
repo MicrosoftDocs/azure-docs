@@ -58,7 +58,7 @@ We don't support selecting macOS or Linux device platforms when selecting **Requ
 
 ## Locations
 
-When administrators configure location as a condition, they can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, unknown areas that don't map to specific countries or regions, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md).
+When administrators configure location as a condition, they can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, unknown areas that don't map to specific countries or regions, and [Global Secure Access' compliant network](/entra/global-secure-access/how-to-compliant-network).
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When administrators select **any location**, they can choose to exclude **all trusted** or **selected locations**.
 
@@ -165,7 +165,7 @@ This setting has an effect on access attempts made from the following mobile app
 | MFA and location policy for apps. Device-based policies aren’t supported.| Any My Apps app service | Android and iOS |
 | Microsoft Teams Services - this client app controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
-| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/sharepoint/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
 | Office 2019| SharePoint | Windows 10, macOS |
 | Office mobile apps | SharePoint | Android, iOS |

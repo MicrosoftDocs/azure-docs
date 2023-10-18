@@ -38,7 +38,7 @@ By using lab plans, you can unlock several new capabilities:
 
 **[Updates to lab owner experience](how-to-manage-labs.md)**. Choose to skip the template creation process when creating a new lab if you already have an image ready to use. In addition, you can add a non-admin user to lab VMs.
 
-**[Updates to lab user experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. In addition to reimaging their lab VM, lab users can now also redeploy their lab VM without losing the data inside the lab VM. In addition, the lab registration experience is simplified when you use labs in Teams, Canvas, or with Azure AD groups. In these cases, Azure Lab Services *automatically* assigns a lab VM to a lab user.
+**[Updates to lab user experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. In addition to reimaging their lab VM, lab users can now also redeploy their lab VM without losing the data inside the lab VM. In addition, the lab registration experience is simplified when you use labs in Teams, Canvas, or with Microsoft Entra groups. In these cases, Azure Lab Services *automatically* assigns a lab VM to a lab user.
 
 **SDKs**. Azure Lab Services is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps) and supports Azure Resource Manager (ARM) templates. Also, you can use either the [.NET SDK](/dotnet/api/overview/azure/labservices) or [Python SDK](https://pypi.org/project/azure-mgmt-labservices/).
 

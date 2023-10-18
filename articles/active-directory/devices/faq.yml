@@ -42,8 +42,8 @@ sections:
           
           For troubleshooting information, see these articles:
           - [Troubleshooting devices using dsregcmd command](troubleshoot-device-dsregcmd.md)
-          - [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
-          - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+          - [Troubleshooting Microsoft Entra hybrid joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+          - [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
           
           
           
@@ -62,7 +62,7 @@ sections:
           - An administrator (or user) deletes or disables the device.
           - Microsoft Entra hybrid joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Microsoft Entra ID.
           - Microsoft Entra hybrid joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Microsoft Entra ID.
-          - Upgrading Microsoft Entra Connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
+          - Upgrading Microsoft Entra Connect to the version 1.4.xx.x. [Understanding Microsoft Entra Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
 
           
           
@@ -73,30 +73,30 @@ sections:
           
           - If the device was disabled in Microsoft Entra ID, an administrator with sufficient privileges can enable it in the Microsoft Entra admin center  
             > [!NOTE]
-            > If you're syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a Microsoft Entra hybrid joined device, you need to disable it from your on-premises AD
+            > If you're syncing devices using Microsoft Entra Connect, Microsoft Entra hybrid joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a Microsoft Entra hybrid joined device, you need to disable it from your on-premises AD
           
            - If the device is deleted in Microsoft Entra ID, you need to re-register the device. To re-register, you must take a manual action on the device. See the following steps for instructions to re-register based on the device state. 
           
-                To re-register hybrid Azure AD joined Windows 10/11 and Windows Server 2016/2019 devices, take the following steps:
+                To re-register Microsoft Entra joined Windows 10/11 and Windows Server 2016/2019 devices, take the following steps:
           
                 1. Open the command prompt as an administrator.
                 1. Enter `dsregcmd.exe /debug /leave`.
                 1. Sign out and sign in to trigger the scheduled task that registers the device again with Microsoft Entra ID. 
           
-                For down-level Windows OS versions that are hybrid Azure AD joined, take the following steps:
+                For down-level Windows OS versions that are Microsoft Entra hybrid joined, take the following steps:
           
                 1. Open the command prompt as an administrator.
                 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
                 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
           
-                For Azure AD joined devices Windows 10/11 devices, take the following steps:
+                For Microsoft Entra joined devices Windows 10/11 devices, take the following steps:
           
                 1. Open the command prompt as an administrator
                 1. Enter `dsregcmd /forcerecovery` (You need to be an administrator to perform this action).
                 1. Click "Sign in" in the dialog that opens up and continue with the sign in process.
                 1. Sign out and sign in back to the device to complete the recovery.
           
-                For Azure AD registered Windows 10/11 devices, take the following steps:
+                For Microsoft Entra registered Windows 10/11 devices, take the following steps:
           
                 1. Go to **Settings** > **Accounts** > **Access Work or School**. 
                 1. Select the account and select **Disconnect**.
@@ -143,7 +143,7 @@ sections:
         answer: |
           Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
           
-          When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based Conditional Access. 
+          When a device is deleted or disabled in Microsoft Entra ID, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based Conditional Access. 
           
           Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
           
@@ -167,7 +167,7 @@ sections:
           
       - question: My users can't search printers from Microsoft Entra joined devices. How can I enable printing from those devices?
         answer: |
-          To deploy printers for Microsoft Entra joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
           
           
           
@@ -197,7 +197,7 @@ sections:
         answer: |
               Currently, Microsoft Entra joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires a Microsoft Entra token) after they log in to Windows.
           
-      - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
+      - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Microsoft Entra join my PC?
         answer: |
           This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
           
@@ -205,7 +205,7 @@ sections:
       - question: Why did my attempt to Microsoft Entra join a PC fail, although I didn't get any error information?
         answer: |
           A likely cause is that you signed in to the device by using the local built-in administrator account. 
-          Create a different local account before you use Azure Active Directory join to finish the setup. 
+          Create a different local account before you use Microsoft Entra join to finish the setup. 
           
           
           
@@ -227,14 +227,14 @@ sections:
         answer: |
           For troubleshooting information, see these articles:
           
-          - [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
-          - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+          - [Troubleshooting Microsoft Entra hybrid joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+          - [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
            
       - question: Why do I see a duplicate Microsoft Entra registered record for my Windows 10/11 Microsoft Entra hybrid joined device in the Microsoft Entra devices list?
         answer: |
           When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Microsoft Entra ID. The trust type is marked as Microsoft Entra registered. After you enable Microsoft Entra hybrid join in your organization, the device also gets Microsoft Entra hybrid joined. Then two device states show up for the same device. 
           
-          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Microsoft Entra registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
+          In most cases, Microsoft Entra hybrid join takes precedence over the Microsoft Entra registered state, resulting in your device being considered Microsoft Entra hybrid joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Microsoft Entra registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
           
           
           
