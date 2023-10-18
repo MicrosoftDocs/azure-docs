@@ -109,6 +109,9 @@ When a user reports a MFA prompt as suspicious, the event shows up in the Sign-i
 
 - To view fraud reports in the Audit logs, select **Identity** > **Monitoring & health** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
 
+>[!NOTE]
+>A user is not reported as High Risk if they perform passwordless authentication.
+
 ### Manage suspicious activity events 
 
 Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md). 
