@@ -9,10 +9,9 @@ ms.reviewer: viviandiec
 
 # Enable Container insights
 
-This article provides an overview of the requirements and options that are available for configuring Container insights to monitor the performance of workloads that are deployed to Kubernetes environments. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using several supported methods.
+This article provides an overview of the requirements and options that are available for enabling [Container insights](../containers/container-insights-overview.md) on your Kubernetes clusters. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using several supported methods.
 
-## Onboarding options
-See the following articles for onboarding details for different cluster configurations.
+See the following articles for onboarding details for different cluster configurations. This article includes concepts that are common to all configurations.
 
 - [AKS cluster](container-insights-enable-aks.md)
 - [AKS cluster with Azure Policy](container-insights-enable-aks-policy.md)
@@ -21,30 +20,19 @@ See the following articles for onboarding details for different cluster configur
 
 
 
-
-
 ## Prerequisites
 
-Before you start, make sure that you've met the following requirements:
-
-### Log Analytics workspace
-
-Container insights stores its data in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). It supports workspaces in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
-
-You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
-
- You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
-
-
-### Permissions
-
-To enable Container insights, you require must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
-
-To view data after container monitoring is enabled, you must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
+- Container insights stores its data in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). It supports workspaces in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md). You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+- Permissions
+  - To enable Container insights, you require must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
+  - To view data after container monitoring is enabled, you must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
 
 ## Authentication
 
-Container insights defaults to managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy models.
+Container insights defaults to managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
+
+> [!Note] 
+> [ContainerLogV2](container-insights-logging-v2.md) is the default schema when you onboard Container insights with using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 
 ## Agent
@@ -57,9 +45,7 @@ Since 03/01/2023 Container insights uses a semver compliant agent version. The a
 
 ### Log Analytics agent
 
-When Container insights doesn't use managed identity authentication, it relies on a containerized Log Analytics agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
-
-The agent version is *microsoft/oms:ciprod04202018* or later. It's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+When Container insights doesn't use managed identity authentication, it relies on a containerized [Log Analytics agent for Linux](../agents/log-analytics-agent.md). The agent version is *microsoft/oms:ciprod04202018* or later. It's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
 
@@ -91,7 +77,7 @@ The following table lists the proxy and firewall configuration information requi
 
 **Azure public cloud**
 
-|Agent resource|Port |
+| Endpoint |Port |
 |--------------|------|
 | `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
@@ -128,7 +114,7 @@ The following table lists the extra firewall configuration required for managed 
 
 The following table lists the proxy and firewall configuration information for Azure US Government.
 
-|Agent resource| Purpose | Port | 
+| Endpopint | Purpose | Port | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | Data ingestion | 443 |
 | `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
@@ -143,4 +129,8 @@ The following table lists the extra firewall configuration required for managed 
 
 ## Next steps
 
-To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+See the following articles for specific steps to enable Container insights on different cluster configurations.
+- [AKS cluster](container-insights-enable-aks.md)
+- [AKS cluster with Azure Policy](container-insights-enable-aks-policy.md)
+- [Azure Arc-enabled cluster](container-insights-enable-arc-enabled-clusters.md)
+- [Hybrid Kubernetes clusters](container-insights-hybrid-setup.md)

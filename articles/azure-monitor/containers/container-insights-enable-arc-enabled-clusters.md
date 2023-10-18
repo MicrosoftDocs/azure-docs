@@ -29,45 +29,8 @@ ms.reviewer: aul
 - Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
 - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the resource group containing the Log Analytics Workspace
 - To view the monitoring data, you need to have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
-- The following endpoints need to be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
-
-    **Azure public cloud**
-
-    | Endpoint | Port |
-    |----------|------|
-    | `*.ods.opinsights.azure.com` | 443 |
-    | `*.oms.opinsights.azure.com` | 443 |
-    | `dc.services.visualstudio.com` | 443 |
-    | `*.monitoring.azure.com` | 443 |
-    | `login.microsoftonline.com` | 443 |
-
-    The following table lists the additional firewall configuration required for managed identity authentication.
-
-    |Agent resource| Purpose | Port |
-    |--------------|------|---|
-    | `global.handler.control.monitor.azure.com` | Access control service | 443 |
-    | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
-
-    **Azure Government cloud**
-
-    If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
-
-    | Endpoint | Port |
-    |----------|------|
-    | `*.ods.opinsights.azure.us` | 443 |
-    | `*.oms.opinsights.azure.us` | 443 |
-    | `dc.services.visualstudio.com` | 443 |
-
-    The following table lists the additional firewall configuration required for managed identity authentication.
-
-    |Agent resource| Purpose | Port |
-    |--------------|------|---|
-    | `global.handler.control.monitor.azure.cn` | Access control service | 443 |
-    | `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific AKS cluster | 443 |
-
-
-- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
-
+- Verify the [firewall requirements for Container insights](./container-insights-onboard.md#network-firewall-requirements) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
 
