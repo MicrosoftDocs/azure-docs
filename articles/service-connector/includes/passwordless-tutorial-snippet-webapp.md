@@ -2,7 +2,7 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 09/27/2023
+ms.date: 10/18/2023
 ms.author: xiaofanzhou
 ---
 
@@ -146,6 +146,7 @@ The following Azure CLI command uses a `--client-type` parameter.
     ```
 
     -----
+
 -----
 
 This Service Connector command completes the following tasks in the background:
