@@ -22,7 +22,7 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 ## Add your privacy info
 
-Your privacy and technical information is located in the **Properties** area.
+Your privacy and technical information is located in the **Properties** area of the Microsoft Entra admin center.
 
 ### To access the properties area and add your privacy information
 

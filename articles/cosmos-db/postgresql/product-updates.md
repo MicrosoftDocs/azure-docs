@@ -56,7 +56,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
     * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
     * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).
-* Preview: [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
+* Preview: [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
 * Preview: Azure CLI is now supported for all Azure Cosmos DB for PostgreSQL management operations.
     * See [details](/cli/azure/cosmosdb/postgres).
 
@@ -158,7 +158,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 * [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
 * [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
-* [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 
 ## Contact us
 

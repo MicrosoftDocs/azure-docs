@@ -86,7 +86,7 @@ The following table shows a summary of the different features available to onlin
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
 | Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
-| Authentication                        | Key and token                                   | Azure AD                                      |
+| Authentication                        | Key and token                                   | Microsoft Entra ID                                      |
 | Private network support               | Yes                                             | Yes                                           |
 | Managed network isolation | Yes                                             | No                                            |
 | Customer-managed keys                 | Yes                                             | No                                            |

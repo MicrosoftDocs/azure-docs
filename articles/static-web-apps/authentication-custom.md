@@ -26,20 +26,22 @@ Custom identity providers are configured in the `auth` section of the [configura
 
 To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
-# [Azure Active Directory](#tab/aad)
+# [Microsoft Entra ID](#tab/aad)
 
 To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
 
 | Setting Name | Value |
 | --- | --- |
-| `AZURE_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
-| `AZURE_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+| `AZURE_CLIENT_ID` | The Application (client) ID for the Microsoft Entra app registration. |
+| `AZURE_CLIENT_SECRET` | The client secret for the Microsoft Entra app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
-Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
+Microsoft Entra providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
 
-### Azure Active Directory Version 1
+<a name='azure-active-directory-version-1'></a>
+
+### Microsoft Entra Version 1
 
 ```json
 {
@@ -58,9 +60,11 @@ Azure Active Directory providers are available in two different versions. Versio
 }
 ```
 
-Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
 
-### Azure Active Directory Version 2
+<a name='azure-active-directory-version-2'></a>
+
+### Microsoft Entra Version 2
 
 ```json
 {
@@ -78,14 +82,14 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 }
 ```
 
-Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
 
-For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
+For more information on how to configure Microsoft Entra ID, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
 
-To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Azure AD app to a set of users in an Azure AD tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 > [!NOTE]
-> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
+> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
 
 # [Apple](#tab/apple)
 
@@ -299,7 +303,7 @@ Identity providers require a redirect URL to complete the login or logout reques
 | Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
 | Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
 
-If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+If you are using Microsoft Entra ID, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
@@ -315,7 +319,7 @@ To use a custom identity provider, use the following URL patterns.
 | User details       | `/.auth/me`                              |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
-If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+If you are using Microsoft Entra ID, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
 
 ## Manage roles
 
@@ -342,7 +346,7 @@ Invitations are specific to individual authorization-providers, so consider the 
 
 | Authorization provider | Exposes |
 | ---------------------- | ---------------- |
-| Azure AD | email address    |
+| Microsoft Entra ID | email address    |
 | GitHub                 | username         |
 | Twitter                | username         |
 
@@ -431,7 +435,7 @@ After you define the `rolesSource` property in your app's configuration, add an 
 
 Each time a user successfully authenticates with an identity provider, the POST method calls the specified function. The function passes a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 
-See the following example payload from Azure AD:
+See the following example payload from Microsoft Entra ID:
 
 ```json
 {

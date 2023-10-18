@@ -282,6 +282,13 @@ Get the unique ID (string) for a call:
 ```js
 const callId: string = call.id;
 ```
+
+Retrieve the thread ID if joining a Teams meeting:
+
+```js
+const threadId: string | undefined = call.threadId;
+```
+
 Get information about the call:
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
@@ -410,12 +417,12 @@ reaction.on('reaction', event => {
     // user identifier
     console.log("User Mri - " + event.identifier);
     // received reaction
-    console.log("User Mri - " + event.reactionMessage.name);
+    console.log("User Mri - " + event.reactionMessage.reactionType);
     // reaction message
     console.log("reaction message - " + JSON.stringify(event.reactionMessage));
 }
 ```
 
 ### Key things to note about using Reactions:
-- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
-- Sending of reactions doesn't work on 1:1 calls.
+- For teams interoperability scenarios, the functionality of the feature depends on the meeting poilicy for the reaction capability.
+- On direct 1:1 calls between a CTE user and a teams user, the reaction functionality is disabled.

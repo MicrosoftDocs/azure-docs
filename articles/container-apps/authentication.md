@@ -16,7 +16,7 @@ Azure Container Apps provides built-in authentication and authorization features
 
 For details surrounding authentication and authorization, refer to the following guides for your choice of provider.
 
-* [Azure Active Directory](authentication-azure-active-directory.md)
+* [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
 * [Google](authentication-google.md)
@@ -31,7 +31,7 @@ The built-in authentication feature for Container Apps can save you time and eff
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
-* You can integrate with multiple providers including Azure Active Directory, Facebook, Google, and Twitter.
+* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and Twitter.
 
 ## Identity providers
 
@@ -39,7 +39,7 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft Identity Platform](authentication-azure-active-directory.md) |
+| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft identity platform](authentication-azure-active-directory.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.md) |
@@ -107,7 +107,7 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
   > [!NOTE]
-  > By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+  > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
 
 ## Customize sign-in and sign-out
 
@@ -186,7 +186,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 * Clears authentication cookies from the current session.
 * Deletes the current user's tokens from the token store.
-* For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+* For Microsoft Entra ID and Google, performs a server-side sign-out on the identity provider.
 
 Here's a simple sign-out link in a webpage:
 
@@ -220,7 +220,7 @@ Code that is written in any language or framework can get the information that i
 
 Refer to the following articles for details on securing your container app.
 
-* [Azure Active Directory](authentication-azure-active-directory.md)
+* [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
 * [Google](authentication-google.md)

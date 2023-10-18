@@ -88,7 +88,7 @@ NVA Partners may create different resources depending on their appliance deploym
 
 ### Managed resource group permissions
 
-By default, all managed resource groups have a deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+By default, all managed resource groups have a deny-all Microsoft Entra assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
 
 However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
 

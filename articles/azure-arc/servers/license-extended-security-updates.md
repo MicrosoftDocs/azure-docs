@@ -1,7 +1,7 @@
 ---
 title: License provisioning guidelines for Extended Security Updates for Windows Server 2012
 description: Learn about license provisioning guidelines for Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/27/2023
+ms.date: 10/10/2023
 ms.topic: conceptual
 ---
 
@@ -37,6 +37,10 @@ An additional scenario (scenario 1, below) is a candidate for VM/Virtual core li
 > [!IMPORTANT]
 > Customers that choose virtual core licensing will always be charged at the Standard edition rate, even if the actual operating system used is Datacenter edition. Additionally, virtual core licensing is not available for physical servers.
 > 
+
+### License limits
+
+Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses.
 
 ### SA/SPLA conformance
 
@@ -81,9 +85,9 @@ In this scenario, you can deactivate or decommission the ESU Licenses associated
 
 In this scenario, you should provision a Windows Server 2012 Datacenter license associated with 128 physical cores and link this license to the Arc-enabled Windows Server 2012 R2 VMs running on it. The deletion of the underlying VM also deletes the corresponding Arc-enabled server resource, enabling you to link another Arc-enabled server.
 
-### Scenario 8: An insurance customer is running a 16 node VMware cluster with 1024 cores, licensed with Windows Server Datacenter for maximum virtualization use rights. There are 120 Windows VMs ranging from 4 to 12 cores, with 44 Windows Server 2012 R2 machines with a total of 506 cores.
+### Scenario 8: An insurance customer is running a 16 node VMware cluster with 1024 physical cores on-premises. 44 of the VMs on the cluster are running Windows Server 2012 R2. Those 44 VMs consume 506 virtual cores, which was calculated by summing up the maximum of 8 or the actual number of cores assigned to each VM.
 
-In this scenario, you should purchase an Arc ESU Windows Server 2012 Datacenter edition license associated with 506 physical cores and link this license to your 44 machines. Each of the 44 machines should be onboarded to Azure Arc, and can be onboarded at scale with Arc-enabled VMware vSphere (AVS). If you migrate to AVS, these servers are eligible for free WS2012 ESUs.
+In this scenario, you could either license the entire cluster with 1024 Windows Server 2012 Datacenter ESU physical cores or license each VM individually with a total of 506 standard edition virtual cores. In this case, it's cheaper to purchase an Arc ESU Windows Server 2012 Standard edition license associated with 506 virtual cores. You'll need to onboard each of the 44 VMs to Azure Arc and then link the license to the Arc machines. If you migrate the VMs to Azure VMware Solution (AVS), these servers become eligible for free WS2012 ESUs and do not need to be licensed for ESUs through Azure Arc.
 
 ## Next steps
 

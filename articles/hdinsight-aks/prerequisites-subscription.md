@@ -3,7 +3,7 @@ title: Subscription prerequisites for Azure HDInsight on AKS.
 description: Prerequisite steps to complete on your subscription before working with Azure HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
-ms.date: 08/29/2023
+ms.date: 10/13/2023
 ---
 
 # Subscription prerequisites
@@ -14,10 +14,10 @@ If you're using Azure subscription first time for HDInsight on AKS, the followin
 
 ## Tenant registration
 
-If you're trying to onboard a new tenant to HDInsight on AKS, you need to provide consent to first party App of HDInsight on AKS to Access API. This app will try to provision the application used to authenticate cluster users and groups.
+If you're trying to onboard a new tenant to HDInsight on AKS, you need to provide consent to first party App of HDInsight on AKS to Access API. This app tries to provision the application used to authenticate cluster users and groups.
 
 > [!NOTE]
-> Resource owner would be able to run the command to provision the first party service principal on the given tenant.
+> Tenant admin would be able to run the command to provision the first party service principal on the given tenant.
 
 **Commands**: 
 

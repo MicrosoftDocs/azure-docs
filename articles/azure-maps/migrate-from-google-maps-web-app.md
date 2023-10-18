@@ -120,7 +120,7 @@ Both SDKs have the same steps to load a map:
 
 **Some key differences**
 
-* Google Maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Azure Active Directory information.
+* Google Maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Microsoft Entra information.
 * Google Maps accepts a callback function in the script reference of the API, which is used to call an initialization function to load the map. With Azure Maps, the onload event of the page should be used.
 * When referencing the `div` element in which the map renders, the `Map` class in Azure Maps only requires the `id` value while Google Maps requires a `HTMLElement` object.
 * Coordinates in Azure Maps are defined as Position objects, which can be specified as a simple number array in the format `[longitude, latitude]`.

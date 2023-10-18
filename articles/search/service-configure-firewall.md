@@ -78,7 +78,7 @@ For ping, the request will time out, but the IP address will be visible in the r
 Providing IP addresses for clients ensures that the request isn't rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
 + [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request
-+ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Azure Active Directory.
++ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Microsoft Entra ID.
 
 ## Next steps
 

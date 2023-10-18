@@ -87,7 +87,7 @@ Here is what the condition looks like in code:
 
 ## Step 3: Set up storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Azure AD. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Microsoft Entra ID. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)
 
 1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
