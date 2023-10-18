@@ -50,7 +50,7 @@ After April 2024, an error message on the Summary and Issue Updates tabs will be
 
 ### 2. Service Health API Changes
 
-Events API users will need to update their code to use the new **ARM endpoint (/fetchEventDetails)** to receive Security Advisories notification details. If the users have the above-mentioned roles, they can view event details for a specific event with the new endpoint. The existing endpoint **(/events)** that returns all Service Health event types impacting a subscription or tenant, will no longer return sensitive security notification details. This update will be made to API version 2023-10-01-preview and future versions. 
+Events API users will need to update their code to use the new **ARM endpoint (/fetchEventDetails)** to receive Security Advisories notification details. If users have the above-mentioned roles, they can view event details for a specific event with the new endpoint. The existing endpoint **(/events)** that returns all Service Health event types impacting a subscription or tenant, will no longer return sensitive security notification details. This update will be made to API version 2023-10-01-preview and future versions. 
 
 The new and existing endpoints listed below will return the security notification details for a specific event.
 
@@ -69,7 +69,7 @@ https://management.azure.com/subscriptions/227b734f-e14f-4de6-b7fc-3190c21e69f6/
 Operation: POST
 
 #### Impacted Resources for Security Advisories
-- Customers authorized with the the above-mentioned roles can use the following endpoints to access the list of resources impacted by a Security Incident
+- Customers authorized with the above-mentioned roles can use the following endpoints to access the list of resources impacted by a Security Incident
 - Available since API version 2022-05-01
  
 **Subscription**
