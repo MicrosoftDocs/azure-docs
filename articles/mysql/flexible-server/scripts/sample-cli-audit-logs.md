@@ -13,6 +13,8 @@ ms.date: 02/10/2022
 
 # Configure audit logs on an Azure Database for MySQL - Flexible Server using Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
+
 This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azure Database for MySQL - Flexible Server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]

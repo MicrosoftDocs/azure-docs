@@ -13,6 +13,8 @@ ms.date: 02/10/2022
 
 # Restart/stop/start an Azure Database for MySQL - Flexible Server using Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
+
 This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server.
 
 > [!IMPORTANT]

@@ -29,7 +29,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 These capabilities require almost no administration and all are provided at no extra cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
 
-:::image type="content" source="media/overview/1-azure-db-for-mysql-conceptual-diagram.png" alt-text="Azure Database for MySQL conceptual diagram":::
+:::image type="content" source="media/overview-single/1-azure-db-for-mysql-conceptual-diagram.png" alt-text="Azure Database for MySQL conceptual diagram":::
 
 ## Deployment models
 

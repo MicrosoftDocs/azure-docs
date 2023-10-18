@@ -10,6 +10,9 @@ ms.date: 06/08/2023
 ---
 
 # Tutorial: Manage MySQL credentials in Azure Key Vault
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 You can store the MySQL connection string in Azure Key Vault to ensure that sensitive information is securely managed and accessed only by authorized users or applications. Additionally, any changes to the connection string can be easily updated in the Key Vault without modifying the application code.
 
 ## Prerequisites

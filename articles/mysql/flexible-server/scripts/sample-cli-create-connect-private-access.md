@@ -13,6 +13,8 @@ ms.date: 02/10/2022
 
 # Create an Azure Database for MySQL - Flexible Server in a VNet using Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
+
 This sample CLI script creates an Azure Database for MySQL - Flexible Server in a VNet ([private access connectivity method](../concepts-networking-vnet.md)) and connects to the server from a VM within the VNet.
 
 > [!NOTE]

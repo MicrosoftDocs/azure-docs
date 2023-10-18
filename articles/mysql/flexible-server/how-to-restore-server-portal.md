@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Point-in-time restore of an Azure Database for MySQL - Flexible Server using Azure portal
 
-[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 

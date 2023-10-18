@@ -11,6 +11,8 @@ ms.date: 02/17/2022
 
 # Create and manage databases for Azure Database for MySQL - Flexible Server
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This article contains information about creating, listing, and deleting MySQL databases on Azure Database for Flexible Server. 
 
 ## Prerequisites
