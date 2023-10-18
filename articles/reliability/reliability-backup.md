@@ -16,7 +16,7 @@ ms.date: 10/18/2023
 
 This article describes reliability support in [Azure Backup](../backup/backup-overview.md), and covers [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Backup is a secure and reliable built-in data protection mechanism in Azure, providing data protection for various on-premises and cloud workloads. Azure Backup can seamlessly scale its protection across multiple workloads and provides native integration with Azure workloads (VMs, SAP HANA, SQL in Azure VMs, Azure Files, AKS etc) without requiring you to manage automation or infrastructure to deploy agents, write new scripts, or provision storage.
+Azure Backup is a secure and reliable built-in data protection mechanism in Azure, providing data protection for various on-premises and cloud workloads. Azure Backup can seamlessly scale its protection across multiple workloads and provides native integration with Azure workloads (VMs, SAP HANA, SQL in Azure VMs, Azure Files, AKS etc.) without requiring you to manage automation or infrastructure to deploy agents, write new scripts, or provision storage.
 
 Azure Backup supports the following data redundant storage options:
 
