@@ -1,6 +1,6 @@
 ---
 title: Monitor GitOps (Flux v2) status and activity
-ms.date: 10/17/2023
+ms.date: 10/18/2023
 ms.topic: how-to
 description: Learn how to monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2.
 ---
@@ -29,7 +29,11 @@ The **Compliance** state shows whether the current state of the cluster matches 
 - **Pending**: An updated desired state has been detected, but that state has not yet been reconciled on the cluster.
 - **Not Compliant**: The current state doesn't match the desired state.
 
+:::image type="content" source="media/monitor-gitops-flux2/portal-gitops-compliance.png" alt-text="Screenshot of cluster compliance and other values in the Azure portal.":::
+
 To help debug reconciliation issues for a cluster, select **Configuration objects**. Here, you can view logs of each of the configuration objects that Flux creates for each Flux configuration. Select an object name to view its logs.
+
+:::image type="content" source="media/monitor-gitops-flux2/portal-configuration-object-details.png" alt-text="Screenshot showing detailed conditions for a configuration object.":::
 
 To view the Kubernetes objects that have been created as a result of Flux configurations being applied, select **Workloads** in the **Kubernetes resources** section of the cluster's left navigation pane. Here, you can view all details of any resources that have been created on the cluster.
 
@@ -46,6 +50,8 @@ Select any Flux configuration to see its **Overview** page, including the follow
 - Status update timestamp (indicating when the latest statistics were obtained)
 - Repo URL and branch
 - Links to view different kustomizations
+
+:::image type="content" source="media/monitor-gitops-flux2/portal-gitops-overview.png" alt-text="Screenshot of the Overview page of a Flux configuration in the Azure portal.":::
 
 ## Use dashboards to monitor GitOps status and activity
 
