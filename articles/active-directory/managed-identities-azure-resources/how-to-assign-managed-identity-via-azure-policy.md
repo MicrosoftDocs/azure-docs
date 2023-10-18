@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # [Preview] Use Azure Policy to assign managed identities
 
 
-[Azure Policy](../../governance/policy/overview.md) helps enforce organizational standards and assess compliance at scale. Through its compliance dashboard, Azure policy provides an aggregated view that helps administrators evaluate the overall state of the environment. You have the ability to drill down to the per-resource, per-policy granularity. It also helps bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Common use cases for Azure Policy include implementing governance for:
+[Azure Policy](/azure/governance/policy/overview) helps enforce organizational standards and assess compliance at scale. Through its compliance dashboard, Azure policy provides an aggregated view that helps administrators evaluate the overall state of the environment. You have the ability to drill down to the per-resource, per-policy granularity. It also helps bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Common use cases for Azure Policy include implementing governance for:
 
 - Resource consistency
 - Regulatory compliance
@@ -106,4 +106,4 @@ For example, if the policy in this document is updating the managed identities o
 
 ## Next steps
 
-- [Deploy Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-manage.md#use-azure-policy)
+- [Deploy Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage#use-azure-policy)

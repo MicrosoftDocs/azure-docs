@@ -364,8 +364,6 @@ items:
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: Separate development, test, and production
-        href: app/separate-resources.md
     - name: Tutorials
       items:
       - name: Application Insights SDK for ASP.NET Core applications
