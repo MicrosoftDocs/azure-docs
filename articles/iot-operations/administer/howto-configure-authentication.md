@@ -16,10 +16,7 @@ ms.date: 10/02/2023
 
 Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with **BrokerAuthentication** resources.
 
-For example:
-
-* The following BrokerAuthentication resource enables username/password and SAT authentication for the listener named "my-listener".
-* The username/password method uses the secret "credentials" as the password database.
+For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials** as the password database.
 
 ```yaml
 apiVersion: az-edge.com/v1alpha4 
@@ -37,17 +34,17 @@ spec:
         audiences: ["azedge-dmqtt"]
 ```
 
-Also:
+A *BrokerListener* can be configured as follows:
 
-* A BrokerListener can be linked to up to one BrokerAuthentication resource
-* But, a BrokerAuthentication resource can be linked to multiple BrokerListener resources
-* Each BrokerAuthentication resource can support multiple authentication methods as once
+* A *BrokerListener* can be linked to up to one BrokerAuthentication resource
+* A *BrokerAuthentication* resource can be linked to multiple *BrokerListener* resources
+* Each *BrokerAuthentication* resource can support multiple authentication methods at once
 
 ## Authentication flow
 
 The order of authentication methods in the array determines how Azure IoT MQ authenticates clients. Azure IoT MQ tries to authenticate the client's credentials using the first specified method and iterates through the array until it finds a match or reaches the end.
 
-For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `sat://`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they are valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `sat://`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
 
@@ -55,11 +52,11 @@ The authentication flow ends when:
 
 * One of these conditions is true:
   * The client's credentials are relevant and valid for one of the methods.
-  * The client's credentials are not relevant for any of the methods.
+  * The client's credentials aren't relevant for any of the methods.
   * The client's credentials are relevant but invalid for any of the methods.
 * Azure IoT MQ either grants or denies access to the client based on the outcome of the authentication flow.
 
-With multiple authentication methods, Azure IoT MQ has a fall back mechanism. For example:
+With multiple authentication methods, Azure IoT MQ has a fallback mechanism. For example:
 
 ```yaml
 apiVersion: az-edge.com/v1alpha4 
@@ -87,7 +84,7 @@ The example above specifies custom, SAT, and [username-password authentication](
 
 3. Finally, Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid according to the password database.
 
-If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials are not relevant, then the broker denies the client connection.
+If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 
 ## Disable authentication
 
@@ -180,7 +177,7 @@ spec:
         passwordDatabase: credentials 
 ```
 
-It may take a few minutes for the changes to take effect.
+It might take a few minutes for the changes to take effect.
 
 # [Certificate](#tab/cert)
 
@@ -224,7 +221,7 @@ kubectl create configmap client-ca-configmap \
 --from-file=client_ca.pem=my-root-file.pem
 ```
 
-To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result show the same base64 encoding of the PEM certificate file.
+To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
 ```console
 $ kubectl describe configmap client-ca-configmap
@@ -270,13 +267,13 @@ mosquitto_pub -q 1 -t foo -d -V mqttv5 -m "42" -i thermostat \
 
 Here:
 
-- The `--cert` parameters specifies the client certificate PEM file.
+- The `--cert` parameter specifies the client certificate PEM file.
 - The `--key` parameter specifies the client private key PEM file.
 - The third parameter `--cafile` is the most complex: the trusted certificate database, used for two purposes:
   - When mosquitto client connects to Azure IoT MQ over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
   - When the Azure IoT MQ requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. Azure IoT MQ can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the database file needs to contain both the intermediate and root certificates.
 
-To learn more with an full example, see [Setup TLS, X.509 client authentication, and authorization with Azure IoT MQ]().
+To learn more with a full example, see [Setup TLS, X.509 client authentication, and authorization with Azure IoT MQ]().
 
 ## Understand Azure IoT MQ X.509 client authentication flow
 
@@ -304,7 +301,7 @@ sequenceDiagram
   Frontend N-->>Client: CONNACK
 ```
 
-1. When X.509 client authentication is turned on, connecting clients must present its client certificate and any intermediate certificates to let Azure IoT MQ build a certificate chain rooted to one of its configured trusted certificate.
+1. When X.509 client authentication is turned on, connecting clients must present its client certificate and any intermediate certificates to let Azure IoT MQ build a certificate chain rooted to one of its configured trusted certificates.
 1. The load balancer directs the communication to one of the frontend brokers.
 1. Once the frontend broker received the client certificate, it tries to build a certificate chain that is rooted to one of the configured certificates it has (required for TLS handshake). If the frontend broker successfully built a chain, and the presented chain is verified (e.g. the certificates are not expired), then it finishes the TLS handshake, and going forward the connecting client is able to send MQTT packets to the frontend through the just built TLS channel.
 1. Now, the TLS channel is open, but the client authentication/authorization isn't finished yet.
@@ -366,7 +363,7 @@ Clients authentication via SAT must have their SATs annotated with attributes in
 
 ## Test SAT authentication
 
-SAT authentication may only be used from a pod in the same cluster as Azure IoT MQ. The command below creates a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+SAT authentication might only be used from a pod in the same cluster as Azure IoT MQ. The command below creates a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
 
 The `serviceAccountName` field in the pod configuration must match the Service Account associated with the token being used.
 
@@ -444,7 +441,7 @@ The API between Azure IoT MQ and the custom authentication server follow the [AP
 
 Azure IoT MQ sends requests containing sensitive client credentials to the custom authentication server. To protect these credentials, communication between Azure IoT MQ and custom authentication server must be encrypted with TLS.
 
-Therefore, the custom authentication server must present a server certificate, and Azure IoT MQ must have a trusted root CA certificate for validating the server certificate. Optionally, the custom authentication server may require Azure IoT MQ to present a client certificate to authenticate itself.
+Therefore, the custom authentication server must present a server certificate, and Azure IoT MQ must have a trusted root CA certificate for validating the server certificate. Optionally, the custom authentication server might require Azure IoT MQ to present a client certificate to authenticate itself.
 
 ## Enable custom authentication on Azure IoT MQ
 
