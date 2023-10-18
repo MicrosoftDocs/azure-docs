@@ -49,9 +49,7 @@ To purchase the Tanzu component license successfully, the [billing account](../c
 
 The extra license fees apply only to the Enterprise plan. In the Azure Spring Apps Standard plan, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No other third-party license fees are required.
 
-On the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer page in Azure Marketplace, you can review the Tanzu component license pricing as shown in the following image.
-
-:::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Screenshot of Azure Marketplace showing the Azure Spring Apps Enterprise plan VMware Tanzu offering." lightbox="media/how-to-enterprise-marketplace-offer/enterprise-plan.png":::
+On the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer page in Azure Marketplace, you can review the Tanzu component license pricing.
 
 You can use the Azure portal or the Azure CLI to provision an Azure Spring Apps Enterprise plan service instance. You can also select **Subscribe** on the Azure Marketplace offer page to create the service instance. Azure Marketplace redirects you to the Azure Spring Apps creation page.
 
