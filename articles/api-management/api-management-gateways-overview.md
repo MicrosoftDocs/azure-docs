@@ -165,7 +165,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 * In environments such as [Kubernetes](how-to-self-hosted-gateway-on-kubernetes-in-production.md), add multiple gateway replicas to handle expected usage.
 * Optionally [configure autoscaling](how-to-self-hosted-gateway-on-kubernetes-in-production.md#autoscaling) to meet traffic demands.
 
-## Next steps
+## Related content
 
 -   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
