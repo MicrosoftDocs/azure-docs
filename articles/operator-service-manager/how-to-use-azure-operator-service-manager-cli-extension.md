@@ -282,6 +282,8 @@ Delete a published design and the publisher, artifact stores and NSD group:
 
 The `az aosm` CLI extension is intended to provide support for publishing Azure Operator Service Manager designs and definitions. It provides the building blocks for creating complex custom designs and definitions. You can edit the files output by the `build` command before running the `publish` command, to add more complex or custom features.
 
+The full API reference for Azure Operator Service Manager is here [Azure Hybrid Network REST API](/rest/api/hybridnetwork/).
+
 The following sections describe some common ways that you can use to edit the built files before publishing.
 
 ### Network Function Definitions (NFDs)

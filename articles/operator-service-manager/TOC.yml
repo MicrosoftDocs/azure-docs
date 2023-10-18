@@ -69,3 +69,5 @@
   items:
   - name: Glossary
     href: glossary.md
+  - name: REST API 
+    href: /rest/api/hybridnetwork
