@@ -21,7 +21,7 @@ A common use case for our customers today is need to be able to import\export be
 Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data.
 
 Blob Storage offers hierarchy of three types of resources. These types include:
-- The [**storage account**](../../storage/blobs/storage-blobs-introduction.md#storage-accounts). The storage account is like an administrative container, and within that container, we can have several services like *blobs*, *files*, *queues*, *tables*,* disks*, etc. And when we create a storage account in Azure, we'll get the unique namespace for our storage resources. That unique namespace forms the part of the URL. The storage account name should be unique across all existing storage account name in Azure.
+- The [**storage account**](../../storage/blobs/storage-blobs-introduction.md#storage-accounts). The storage account is like an administrative container, and within that container, we can have several services like *blobs*, *files*, *queues*, *tables*,* disks*, etc. And when we create a storage account in Azure, we get the unique namespace for our storage resources. That unique namespace forms the part of the URL. The storage account name should be unique across all existing storage account name in Azure.
 - A [**container**](../../storage/blobs/storage-blobs-introduction.md#containers) inside storage account. The container is more like a folder where different blobs are stored. At the container level, we can define security policies and assign  policies to the container, which is cascaded to all the blobs under the same container.A storage account can contain an unlimited number of containers, and each container can contain an unlimited number of blobs up to the maximum limit of storage account size of 500 TB.
 To refer this blob, once it's placed into a container inside a storage account, URL can be used, in format  like *protocol://<storage_account_name>/blob.core.windows.net/<container_name>/<blob_name>*
 - A [**blob**](../../storage/blobs/storage-blobs-introduction.md#blobs) in the container.
@@ -39,13 +39,13 @@ Azure Blob Storage can provide following benefits:
 
 ## Import data from Azure Blob Storage to Azure Database for PostgreSQL - Flexible Server
 
-To load data from Azure Blob Storage, you'll need [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **pg_azure_storage** extension and install the **pg_azure_storage** PostgreSQL extension in this database using create extension command:
+To load data from Azure Blob Storage, you need [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **pg_azure_storage** extension and install the **pg_azure_storage** PostgreSQL extension in this database using create extension command:
 
 ```sql
 SELECT * FROM create_extension('azure_storage');
 ```
 
-When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map his storage account using account_add method, providing **account access key** defined when account was created. Code snippet below shows mapping storage account 'mystorageaccount' where access key parameter is shown as string 'SECRET_ACCESS_KEY'.
+When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using **account_add** method, providing **account access key** defined when account was created. Code snippet shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*.
 
 ```sql
 SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');
@@ -57,7 +57,7 @@ Once storage is mapped,  storage account contents can be listed and data can be 
 SELECT path, bytes, pg_size_pretty(bytes), content_type
 FROM azure_storage.blob_list('mystorageaccount','mytestblob'); 
 ```
-Output of above statement can be further filtered either by using a regular *SQL WHERE* clause, or by using the prefix parameter of the blob_list method. This filters the returned rows on the Azure Blob Storage side. Listing container contents requires an account and access key or a container with enabled anonymous access.
+Output of  this statement can be further filtered either by using a regular *SQL WHERE* clause, or by using the prefix parameter of the blob_list method.  Listing container contents requires an account and access key or a container with enabled anonymous access.
 
 
 Finally you can use either **COPY** statement or **blob_get** UDF to import data from Azure Storage into existing PostgreSQL table. 
@@ -99,27 +99,27 @@ The **COPY** command and **blob_get** UDF  support following file extensions for
 
 ## Export data from Azure Database for PostgreSQL - Flexible Server to Azure Blob Storage
 
-To export data from PostgreSQL Flexible Server to Azure Blob Storage you need to [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **pg_azure_storage** extension and install the **pg_azure_storage** PostgreSQL extension in  database using create extension command:
+To export data from PostgreSQL Flexible Server to Azure Blob Storage, you need to [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **pg_azure_storage** extension and install the **pg_azure_storage** PostgreSQL extension in  database using create extension command:
 
 ```sql
 SELECT * FROM create_extension('azure_storage');
 ```
 
-When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using account_add method, providing **account access key** defined when account was created. Code snippet below shows mapping storage account 'mystorageaccount' where access key parameter is shown as string 'SECRET_ACCESS_KEY'.
+When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using account_add method, providing **account access key** defined when account was created. Code snippet  shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*
 
 ```sql
 SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');
 ```
 
 You can use either **COPY** statement or **blob_put** UDF ([user-defined function](https://www.postgresql.org/docs/current/xfunc.html)) to export data from Azure Database for PostgreSQL table to Azure storage.
-Example below shows export of data from employee table to new file named employee2.csv residing in blob container mytestblob in same mystorageaccount Azure storage account via **COPY** command:
+Example  shows export of data from employee table to new file named employee2.csv residing in blob container mytestblob in same mystorageaccount Azure storage account via **COPY** command:
 
 ```sql
 COPY employees 
 TO 'https://mystorageaccount.blob.core.windows.net/mytestblob/employee2.csv'
 WITH (FORMAT 'csv');
 ```
-Similarly you can export data from employees table via **blob_put** UDF, which gives us even more finite control over data being exported. Example below therefore only exports two columns of the table, *EmployeeId* and *LastName*, skipping *FirstName* column:
+Similarly you can export data from employees table via **blob_put** UDF, which gives us even more finite control over data being exported. Example  therefore only exports two columns of the table, *EmployeeId* and *LastName*, skipping *FirstName* column:
 ```sql
 SELECT azure_storage.blob_put('mystorageaccount', 'mytestblob', 'employee2.csv', res) FROM (SELECT EmployeeId,LastName FROM employees) res;
 ```
@@ -143,13 +143,13 @@ Granting the permissions to access data in Azure Storage to nonadministrative Po
 -- Allow adding/list/removing storage accounts
 GRANT azure_storage_admin TO support;
 ```
-- Or by calling **account_user_add** function. Example below is adding permissions to role *support* in Flex server. This is more finite permission as it gives user access to Azure storage account named *mystorageaccount* only.
+- Or by calling **account_user_add** function. Example  is adding permissions to role *support* in Flex server. It's a more finite permission as it gives user access to Azure storage account named *mystorageaccount* only.
 
 ```sql
 SELECT * FROM azure_storage.account_user_add('mystorageaccount', 'support');
 ```
 
-Postgres aministrative users can see the list of storage accounts and   permissions  in the output of **account_list** function, which shows all accounts with access keys defined:
+Postgres administrative users can see the list of storage accounts and   permissions  in the output of **account_list** function, which shows all accounts with access keys defined:
 
 ```sql
 SELECT * FROM azure_storage.account_list();
