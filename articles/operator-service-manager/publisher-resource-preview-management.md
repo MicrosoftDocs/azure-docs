@@ -37,8 +37,51 @@ The following table provides Network Function Definition (NFD) and Network Servi
 |State  |Description  |Users  |Is Immutable  |
 |---------|---------|---------|---------|
 |**Preview**     |     Default state upon NFDVersion or NSDVersion creation; indicates pending testing.    |    Same subscription as Publisher.     |    No     |
-|**Active**    |   Signifies readiness for customer usage.      |    Access based on RBS, any subscription in same tenant.     |      Yes   |
+|**Active**    |   Signifies readiness for customer usage. Artifacts must be immutable with artifactManifestState Uploaded.    |    Access based on RBS, any subscription in same tenant.     |      Yes   |
 |**Deprecated**     |  Implies regression found; prevents new deployments from this version.       |    Can't be deployed.     |     Yes    |
+
+## Artifact Manifest state machine
+
+ - Uploading means the state is mutable and the artifacts within the manifest can be altered.
+ - 
+ - Uploaded means the state is immutable and the artifacts within the manifest can't be altered.
+ 
+Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager ensures consistency, reliability and security of its artifacts across different environments and platforms. Network Function Definition Versions and Network Service Design Versions with versionState Active are enforced to deploy immutable artifacts.  
+
+ 
+ ### Update Artifact Manifest state
+ 
+ ### HTTP Method: POST URL
+
+```http
+https://management.azure.com/{artifactManifestResourceId}/updateState?api-version=2023-09-01
+``` 
+
+ Where artifactManifestResourceId is the full resource ID of the Artifact Manifest resource
+ 
+ ### Request body
+
+```json
+{
+      "artifactManifestState": "Uploaded"
+}
+```
+
+### Submit POST
+
+Submit the POST using `az rest` in the Azure CLI.
+
+```azurecli
+az rest --method post --uri {artifactManifestResourceId}/updateState?api-version=2023-09-01 --body "{\"artifactManifestState\": \"Uploaded\"}"
+```
+
+ Where *{artifactManifestResourceId}* is the full resource ID of the Artifact Manifest resource
+
+ Then issue the get command to check that the artifactManifestState change is complete.
+
+```azurecli
+  az rest --method get --uri {artifactManifestResourceId}?api-version=2023-09-01
+```
 
 ## Network Function Definition and Network Service Design state machine
 
@@ -49,14 +92,11 @@ The following table provides Network Function Definition (NFD) and Network Servi
 
 Use the following API to update the state of a Network Function Definition Version (NFDV).
 
-### HTTP Method: POST
-
-### URL
+### HTTP Method: POST URL
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkfunctiondefinitiongroups/{networkfunctiondefinitiongroups}/networkfunctiondefinitionversions/{networkfunctiondefinitionversions}/updateState?api-version=2023-09-01
 ```
-
 
 ### URI parameters
 
@@ -78,20 +118,31 @@ The following table describes the parameters used with the preceding URL.
 {
     "versionState": "Active | Deprecated"
 }
-``````
+```
+### Submit post
+
+Submit the POST using `az rest` in the Azure CLI.
+
+```azurecli
+ az rest --method post --uri {nfdvresourceId}/updateState?api-version=2023-09-01 --body "{\"versionState\": \"Active\"}"
+```
+ Where *{nfdvresourceId}* is the full resource ID of the Network Function Definition Version 
+
+Then issue the get command to check that the versionState change is complete.
+
+```azurecli
+  az rest --method get --uri {nfdvresourceId}?api-version=2023-09-01
+```
 
 ## Update Network Service Design Version (NSDV) version state
 
 Use the following API to update the state of a Network Service Design Version (NSDV).
 
-### HTTP Method: POST
-
-### URL
+### HTTP Method: POST URL
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkservicedesigngroups/{nsdName}/networkservicedesignversions/{nsdVersion}/updateState?api-version=2023-09-01
 ```
-
 
 ### URI parameters
 
@@ -113,4 +164,18 @@ The following table describes the parameters used with the preceding URL.
 {
     "versionState": "Active | Deprecated"
 }
-``````
+```
+### Submit post
+
+Submit the POST using `az rest` in the Azure CLI.
+
+```azurecli
+az rest --method post --uri {nsdvresourceId}/updateState?api-version=2023-09-01 --body "{\"versionState\": \"Active\"}"
+```
+Where *{nsdvresourceId}* is the full resource ID of the Network Service Design
+
+Then issue the get command to check that the versionState change is complete.
+
+```azurecli
+  az rest --method get --uri {nsdvresourceId}?api-version=2023-09-01
+```
