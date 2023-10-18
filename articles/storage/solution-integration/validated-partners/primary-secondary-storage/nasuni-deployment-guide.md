@@ -51,18 +51,18 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 
 3. In the Search box, enter “storage account" then select Storage account from the list of results. The Storage account pane appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account panel" lightbox="./media/nasuni-deployment-guide/win-storage-account-90.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account panel." lightbox="./media/nasuni-deployment-guide/win-storage-account-90.png":::
 
 4. Select Create. The “Create a storage account” pane appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-create-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account details" lightbox="./media/nasuni-deployment-guide/win-create-storage-account-90.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-create-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account details." lightbox="./media/nasuni-deployment-guide/win-create-storage-account-90.png":::
 
 5. If there is more than one subscription, from the Subscription drop-down list, select the subscription to use for this storage account.
 6. To select an existing Resource Group, select an existing Resource Group from the Resource Group drop-down list.
     Alternatively, create a new Resource Group by clicking “Create new” and then entering a name for the new Resource Group and clicking OK.
 7. Select Next: Advanced. The Advanced pane appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93.png" alt-text="Screenshot of Azure Create Storage Account Advanced pane" lightbox="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93.png" alt-text="Screenshot of Azure Create Storage Account Advanced pane." lightbox="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93.png":::
 
 8. If your security policy requires it, enable “Require secure transfer for REST API operations."
 9. For “Access tier,” select Cool for production data.
@@ -73,7 +73,7 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 11. Configure other features according to your needs.
 12. Select “Next: Networking >.” The Networking pane appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-networking-90.png" alt-text="Screenshot of Azure Create Storage Account Networking pane" lightbox="./media/nasuni-deployment-guide/win-networking-90.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-networking-90.png" alt-text="Screenshot of Azure Create Storage Account Networking pane." lightbox="./media/nasuni-deployment-guide/win-networking-90.png":::
 
 13. Select the “Connectivity method” to match your security requirements.
 > [!NOTE]
@@ -93,15 +93,15 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 - Nasuni recommends specifying at least 30 days.
 - For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-data-protection-90.png" alt-text="Screenshot of Azure Create Storage Account Data Protection pane" lightbox="./media/nasuni-deployment-guide/win-data-protection-90.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-data-protection-90.png" alt-text="Screenshot of Azure Create Storage Account Data Protection pane." lightbox="./media/nasuni-deployment-guide/win-data-protection-90.png":::
 
-17. Configure other features according to your needs
-18. Select “Next: Tags >." The Tags pane appears.
-19. Define any Tags based on your internal policies.
-20. Select “Next: Review + create >”
-21. Select Create.
+16. Configure other features according to your needs
+17. Select “Next: Tags >." The Tags pane appears.
+18. Define any Tags based on your internal policies.
+19. Select “Next: Review + create >”
+20. Select Create.
     The storage account starts being created. When the storage account is created, select Storage Accounts in the left-hand list. The new storage account appears in the list of storage accounts.
-22. Select the name of your storage account. The pane for your storage account settings appears.
+21. Select the name of your storage account. The pane for your storage account settings appears.
 
 > [!TIP]
 > It is possible to recover a deleted storage account. For details, see [Recovering a deleted storage account](/azure/storage/blobs/soft-delete-container-overview).
@@ -114,12 +114,12 @@ To configure storage account firewalls, follow these steps:
 1. Select the storage account.
 2. In the left-hand column, select Networking, then select the “Firewalls and virtual networks” tab. The “Firewalls and virtual networks” pane appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93.png" alt-text="Screenshot of Azure Firewalls and Virtual Networks pane" lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93.png" alt-text="Screenshot of Azure Firewalls and Virtual Networks pane." lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93.png":::
 
 3. Select “Selected networks.”
     Alternatively, if allowing access from all networks, select “All networks” and skip to step 7.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93.png" alt-text="Screenshot of Azure Firewalls and Selected Networks pane" lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93.png" alt-text="Screenshot of Azure Firewalls and Selected Networks pane." lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93.png":::
 
 4. To add an existing virtual network, in the Virtual Networks area, select “Add existing virtual network.” Select Virtual networks and Subnets options, and then select Add.
 5. To create a new virtual network and grant it access, in the Virtual Networks area, select “Add new virtual network.” Provide the information necessary to create the new virtual network, and then select Create.
