@@ -28,6 +28,7 @@ Continuous Integration (CI) is a software development practice that emphasizes f
 Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice enables organizations to release software updates rapidly and reliably, reducing manual deployment errors and ensuring that tested and approved code changes are swiftly delivered to end-users. 
 
 ## CI/CD Workflow Within Azure Managed Airflow: 
+:::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot showing ci cd pattern that can be used in Managed Airflow." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
 
 #### Git-sync with Dev IR: Map your Managed Airflow environment with your Git repository’s Dev branch. 
 
@@ -129,7 +130,7 @@ To learn more about how to use Git-sync, refer to document: https://learn.micros
 
 After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. This enables developers to leverage the auto scaling feature, monitoring and logging features of Managed Airflow at production level. 
 
-### Sample CI/CD Pipeline using GitHub Actions.
+### Sample CI/CD Pipeline using [GitHub Actions]("https://github.com/features/actions").
 
 **Step 1:** Copy the code for sample DAG deployed in Managed Airflow IR.
 ```python
