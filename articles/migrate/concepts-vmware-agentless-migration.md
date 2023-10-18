@@ -6,8 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/21/2023
-ms.custom: engagement-fy23
+ms.date: 10/18/2023
+ms.custom: engagement-fy24
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 
@@ -31,6 +31,9 @@ When you perform the migrate operation on a replicating virtual machine, there's
 Once the migration is successful and the VM boots up in Azure, ensure that you stop the replication of the VM. Stopping the replication will delete the intermediate disks (seed disks) that were created during data replication, and you'll also avoid incurring extra charges associated with the storage transactions on these disks.
 
 ## Replication cycles
+
+> [!Note]
+> Ensure you check for snapshots present from earlier replication attempts or from other third party apps. Change tracking cannot be enabled on the VM if snapshots are already present for the VM. Delete the existing snapshots or enable changed block tracking on the VM.
 
 Replication cycles refer to the periodic process of transferring data from on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
