@@ -46,16 +46,16 @@ TODO
 1. TODO
 
     ```azurecli-interactive
-    azd init --template cosmos-db-nosql-dotnet-quickstart --branch fast-deploy
+    azd init --template cosmos-db-nosql-dotnet-quickstart
     ```
 
 1. TODO
 
     ```azurecli-interactive
-    azd up
+    azd provision
     ```
 
-1. TODO
+1. Use the hyperlink to navigat to your resource group. Open the Azure Container App in the browser:
 
     :::image type="content" source="media/quickstart-dotnet/web-application.png" alt-text="Screenshot of the running web application.":::
 
