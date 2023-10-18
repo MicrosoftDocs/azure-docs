@@ -34,7 +34,7 @@ According to SAP, it's mandatory to run a weekly full backup of all databases wi
 
 >[!Important]
 >- As per SAP advisory, we recommend you to configure *Database via Backint* with *weekly fulls + log backup only* policy before configuring *DB Instance via Snapshot* backup. If *weekly fulls + logs backup only using Backint based backup* isn't enabled, snapshot backup configuration will fail.
->     :::image type="content" source="./media/sap-hana-database-instances-backup/backup-goal-database-via-backint.png" alt-text="Screenshot shows the 'Database via Backint' backup goal.":::
+>     :::image type="content" source="./media/sap-hana-database-instances-backup/backup-goal-database-via-backint.png" alt-text="Screenshot shows the 'Database via Backint' backup goal." lightbox="./media/sap-hana-database-instances-backup/backup-goal-database-via-backint.png":::
 >- Because the policy doesn’t call for differential or incremental backups, we do *not* recommend that you trigger on-demand differential backups from any client.
 
 To summarize the backup policy:
@@ -80,11 +80,11 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
 1. On the **Select policy type** pane, select **SAP HANA in Azure VM (DB Instance via snapshot)**.
 
-   :::image type="content" source="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png" alt-text="Screenshot that shows a list of policy types.":::
+   :::image type="content" source="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png" alt-text="Screenshot that shows a list of policy types." lightbox="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png":::
 
 1. On the **Create policy** pane, do the following:
 
-   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore.":::
+   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore." lightbox="./media/sap-hana-database-instances-backup/create-policy.png":::
 
    1. **Policy name**: Enter a unique policy name.  
    1. **Snapshot Backup**: Set the **Time** and **Timezone** for backup in the dropdown lists. The default settings are *10:30 PM* and *(UTC) Coordinated Universal Time*.
@@ -96,16 +96,32 @@ To create a policy for the SAP HANA database instance backup, follow these steps
    1. **Resource group**: Select the appropriate resource group in the drop-down list.  
    1. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
-      You can also create a new managed identity for snapshot backup and restore. To create a managed identity, follow these steps:
+      You can also create a new managed identity for snapshot backup and restore. To create a managed identity and assign it to the VM with SAP HANA database, follow these steps:
 
       1. Select **+ Create**.
       
-         :::image type="content" source="./media/sap-hana-database-instances-backup/start-create-managed-identity.png" alt-text="Screenshot that shows how to create managed identity.":::
+         :::image type="content" source="./media/sap-hana-database-instances-backup/start-create-managed-identity.png" alt-text="Screenshot that shows how to create managed identity." lightbox="./media/sap-hana-database-instances-backup/start-create-managed-identity.png":::
       
       1. On the **Create User Assigned Managed Identity** page, choose the required *Subscription*, *Resource group*, *Instance region*, and add an *Instance name*.
       1. Select **Review + create**.
       
-         :::image type="content" source="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png" alt-text="Screenshot that shows how to configure a new managed identity.":::
+         :::image type="content" source="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png" alt-text="Screenshot that shows how to configure a new managed identity." lightbox="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png":::
+
+      1. Go to the *VM with SAP HANA database*, and then select **Identity** > **User assigned** tab.
+      1. Select **User assigned managed identity**.
+         
+         :::image type="content" source="./media/sap-hana-database-instances-backup/assign-vm-user-assigned-managed-identity.png" alt-text="Screenshot shows how to assign user-assigned managed identity to VM with SAP HANA database." lightbox="./media/sap-hana-database-instances-backup/assign-vm-user-assigned-managed-identity.png":::
+         
+      1. Select the *subscription*, *resource group*, and the *new user-assigned managed identity*.
+      1. Select **Add**.
+                  
+         :::image type="content" source="./media/sap-hana-database-instances-backup/add-user-assigned-permission-to-vm.png" alt-text="Screenshot shows how to add the new user-assigned managed identity." lightbox="./media/sap-hana-database-instances-backup/add-user-assigned-permission-to-vm.png":::
+                  
+      1. On the **Create policy** page, under **Managed Identity**, select the *newly created user-assigned managed identity* > **OK**.
+         
+         :::image type="content" source="./media/sap-hana-database-instances-backup/add-new-user-assigned-managed-identity-to-backup-policy.png" alt-text="Screenshot shows how to add new user-assigned managed identity to the backup policy." lightbox="./media/sap-hana-database-instances-backup/add-new-user-assigned-managed-identity-to-backup-policy.png":::
+
+
 
 
    You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup).
