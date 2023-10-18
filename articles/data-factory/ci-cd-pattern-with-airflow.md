@@ -13,7 +13,7 @@ ms.date: 10/17/2023
 
 Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Azure Managed Airflow. You can either upload the DAG files in your blob storage and link it with the Airflow environment or you can use the Git-sync feature to automatically sync your DAG-based Git repository with the Airflow environment. 
 
-Working with data pipelines requires you to create or update your DAGs, plugins and requirement files frequently, based upon your workflow needs.While Airflow developers can manually create or update their DAG files in blob storage, many organizations prefer to use a CI/CD approach for code deployment. Therefore, this guide walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Azure Managed Airflow service. 
+Working with data pipelines requires you to create or update your DAGs, plugins and requirement files frequently, based upon your workflow needs. While Airflow developers can manually create or update their DAG files in blob storage, many organizations prefer to use a CI/CD approach for code deployment. Therefore, this guide walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Azure Managed Airflow service. 
 
 ## Understanding CI/CD 
 
@@ -37,12 +37,12 @@ Continuous Deployment (CD) is an extension of CI that takes the automation one s
     4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
-#### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Prod branch. 
+#### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
 
 **PR pipeline with Prod IR:** 
 
-It is considered a best practice to maintain a separate production environment to prevent every development feature from becoming publicly accessible. 
-Once the Feature branch successfully merges with the Dev branch, you can create a pull request to the prod branch in order to make your newly merged feature public. triggers a PR pipeline.This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch, ensuring that all features have been integrated correctly and that there are no errors in the production environment.
+It's considered a best practice to maintain a separate production environment to prevent every development feature from becoming publicly accessible. 
+Once the Feature branch successfully merges with the Dev branch, you can create a pull request to the production branch in order to make your newly merged feature public. triggers a PR pipeline. This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch to ensure that all features have been integrated correctly and that there are no errors in the production environment.
 
 ### Benefits of using CI/CD workflow in Managed Airflow 
 
@@ -64,9 +64,9 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 ### Advantages: 
 
-1. **No Local Development Environment Needed:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. This allows you to focus on building and managing workflows rather than managing infrastructure. 
+1. **No Local Development Environment Required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure. 
 
-2. **Scalability:** Managed Airflow provides the ability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
+2. **Scalability:** Managed Airflow provides auto scaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
 
 3. **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
 
@@ -76,17 +76,17 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 1. **Leverage Git-sync feature:** 
 
-In this workflow, you don’t need to create your own local environment. Begin by utilizing the Git-sync feature provided by the Managed Airflow service. This feature auto-sync your DAG’s files with Airflow webservers, schedulers and workers. This enables you to develop, test and execute your data pipelines directly on Managed Airflow UI. 
+In this workflow, there's no requirement for you to establish your own local environment. Instead, you can start by using the Git-sync feature offered by the Managed Airflow service. This feature automatically synchronizes your DAG files with Airflow webservers, schedulers, and workers, allowing you to develop, test, and execute your data pipelines directly through the Managed Airflow UI. 
 
 Learn more about how to use Azure Managed Airflow's [Git-sync feature](./airflow-sync-github-repository).
 
 2. **Individual Feature branch Environment:** 
 
-In Managed Airflow, you can choose the branch from your repository to sync. This lets you create individual Airflow Environments for each feature branch, allowing developers to work on specific tasks for data pipelines. 
+You can choose the branch from your repository to sync with Azure Managed Airflow. This capability lets you create individual Airflow Environment for each feature branch, allowing developers to work on specific tasks for data pipelines. 
 
 3. **Create a Pull Request:** 
 
-After successfully developing and testing your features within your individual Integration Runtime raise a Pull Request (PR) to the Dev Integration Runtime (DEV (development) IR). 
+Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DEV IR), once you have thoroughly developed and tested your features within your dedicated Airflow Environment.
 
 ### Pattern 2: Develop DAGs Locally and Deploy on Managed Airflow
 
@@ -104,7 +104,7 @@ After successfully developing and testing your features within your individual I
 
 1. **Local Environment Setup** 
 
-Begin by setting up a local environment for Apache Airflow on your development machine. Develop and test your Airflow code, including DAGs and tasks, within your local environment. This allows you to develop pipelines without relying on direct access to Azure resources. 
+Begin by setting up a local development environment for Apache Airflow on your development machine. In this environment, you can develop and test your Airflow code, including DAGs and tasks. This approach allows you to develop pipelines without relying on direct access to Azure resources.
 
 2. **Leverage Git-sync feature:** 
 
@@ -114,7 +114,7 @@ Learn more about how to use Azure Managed Airflow's [Git-sync feature](./airflow
 
 3. **Utilize Managed Airflow Service as Production environment:** 
 
-After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. This enables developers to use the auto scaling feature, monitoring and logging features of Managed Airflow at production level. 
+After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. Once the branch is merged, developers can apply the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
 
 ### Sample CI/CD Pipeline using [GitHub Actions]("https://github.com/features/actions").
 
@@ -232,7 +232,7 @@ def test_expected_dags(dagbag):
         assert dag_id == dag.dag_id 
 ```
 
-2. Test to ensure only approved tags are associated with your DAGs. This helps to enforce the approved tag usage. 
+2. Test to ensure only approved tags are associated with your DAGs. This test helps to enforce the approved tag usage. 
 ```python
 def test_requires_approved_tag(dagbag): 
     """ 
