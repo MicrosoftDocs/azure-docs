@@ -199,7 +199,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity, unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Standard Azure Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
-> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md). See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md). See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Mount the Azure NetApp Files volume
 
@@ -355,9 +355,9 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     options sunrpc tcp_max_slot_table_entries=128
     ```
 
-1. **[A]** Configure RHEL for HANA.
+1. **[A]** Perform RHEL OS configuration for HANA.
 
-   Configure RHEL as described in the following SAP Notes based on your RHEL version:
+   Configure the OS as described in the following SAP Notes based on your RHEL version:
 
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
@@ -579,13 +579,13 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
 
-## Configure HANA active/read enabled system replication in Pacemaker cluster
+## Configure HANA active/read-enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01, SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database.
+Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database.
 
 To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
 
-The extra configuration, which is required to manage HANA Active/Read-enabled System Replication in a Red Hat HA cluster with a second virtual IP, is described in [Configure HANA Active/Read-Enabled System Replication in Pacemaker cluster](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+The extra configuration, which is required to manage HANA active/read-enabled System Replication in a Red Hat HA cluster with a second virtual IP, is described in [Configure HANA Active/Read-Enabled System Replication in Pacemaker cluster](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
 
 Before you proceed further, make sure you've fully configured Red Hat High Availability Cluster managing SAP HANA database as described in the preceding sections of the documentation.
 
