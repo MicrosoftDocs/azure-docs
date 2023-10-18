@@ -42,9 +42,18 @@ Connections can be made across subscriptions or tenants, meaning that source and
 
 Service Connector runs multiple tasks while creating or updating service connections, including:
 
-- Configuring the network and firewall settings
-- Configuring connection information
-- Configuring authentication information
+- Configuring the network and firewall settings.
+   [Learn more](#service-network-solution) about network solutions.
+- Configuring connection information.
+   [Learn more](#connection-configurations) about connection configurations.
+- Configuring authentication information.
+   Service Connector supports all available authentication types between source services and target services.
+   - System assigned managed identity. Service Connector enables system assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   - User assigned managed identity. Service Connector enables user assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   - Connection String. Service Connector retrieves connection string from target services such as Storage, Redis Cache etc, or constructs connection string based on user input, such as Azure database for SQL, PostgreSQL etc.
+   - Service principal. Service Connector grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   
+   Service Connector saves corresponding authentication configurations to source services, eg. saving AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_STORAGEACCOUNT_ENDPOINT for Storage with authentication type user assigned managed identity.
 - Creating or updating connection rollback if failure occurs
 
 If a step fails during this process, Service Connector rolls back all previous steps to keep the initial settings in the source and target instances.
