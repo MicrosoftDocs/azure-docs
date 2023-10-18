@@ -3,7 +3,7 @@ title: Migrate from Azure Monitor Application Insights classic URL ping tests to
 description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests.
 ms.topic:    conceptual
 ms.custom: devx-track-azurepowershell
-ms.date:     09/27/2023
+ms.date: 10/11/2023
 ms.reviewer: cogoodson
 ---
 
@@ -19,7 +19,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 > [!IMPORTANT]
 > 
-> On 30 September 2026, the **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability)** will be retired, and ping tests. Before that date, you'll need to transition to **[standard tests](/editor/availability-standard-tests.md)**.
+> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) retire**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
 > 
 > - A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
 > - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
@@ -32,17 +32,21 @@ The following steps walk you through the process of creating [standard tests](av
 ### Steps
 
 1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
-2.	List all URL ping tests in a resource group:
+
+2.	List all URL ping tests in the current subscription:
 
     ```azurepowershell
-    $resourceGroup = "myResourceGroup";
-    Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup | `
-        Where-Object { $_.WebTestKind -eq "ping" };
+    Get-AzApplicationInsightsWebTest | `
+    Where-Object { $_.WebTestKind -eq "ping" } | `
+    Format-Table -Property ResourceGroupName,Name,WebTestKind,Enabled;
     ```
-3.	Find the URL ping Test you want to migrate and record its name.
+
+3.	Find the URL Ping Test you want to migrate and record its resource group and name.
+
 4.	The following commands create a standard test with the same logic as the URL ping test:
 
     ```azurepowershell
+    $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
     $newStandardTestName = "newStandardTestName";
@@ -88,7 +92,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 #### When should I use these commands?
 
-We recommend using these commands to migrate a URL ping test to a standard test and take advantage of the available capabilities. Remember, this migration is optional.
+Migrate URL ping tests to standard tests now to take advantage of new capabilities.
 
 #### Do these steps work for both HTTP and HTTPS endpoints?
 

@@ -7,7 +7,7 @@ ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 03/30/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 zone_pivot_groups: ase-pro-version
 ---
 
@@ -17,6 +17,16 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 > [!TIP]
 > [Private mobile network design requirements](private-mobile-network-design-requirements.md) contains the full network design requirements for a customized network.
+
+## Tools and access
+
+To deploy your private mobile network using Azure Private 5G Core, you will need the following:
+
+- A Windows PC with internet access
+- A Windows Administrator account on that PC
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [PowerShell](/powershell/scripting/install/installing-powershell-on-windows)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
 
 ## Get access to Azure Private 5G Core for your Azure subscription
 
@@ -42,7 +52,7 @@ Depending on your networking requirements (for example, if a limited set of subn
 - Default gateway.
 - One IP address for the management port (port 2) on the Azure Stack Edge Pro 2 device.
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
-- One IP address for accessing local monitoring tools for the packet core instance.
+- One service IP address for accessing local monitoring tools for the packet core instance.
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -52,7 +62,7 @@ Depending on your networking requirements (for example, if a limited set of subn
 - One IP address for the management port
   - You'll choose a port between 2 and 4 to use as the Azure Stack Edge Pro GPU device's management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
-- One IP address for accessing local monitoring tools for the packet core instance.
+- One service IP address for accessing local monitoring tools for the packet core instance.
 
 :::zone-end
 
@@ -243,7 +253,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 1. If your account has multiple subscriptions, make sure you are in the correct one:
 
     ```azurecli
-    az account set –-subscription <subscription_id>
+    az account set --subscription <subscription_id>
     ```
 
 1. Check the Azure CLI version:
@@ -275,7 +285,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 
 ## Retrieve the Object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you configure your ASE to use AKS-HCI. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you create the Kubernetes service. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
 
 1. Sign in to the Azure CLI or Azure Cloud Shell.
 1. Retrieve the OID:

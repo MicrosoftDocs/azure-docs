@@ -47,6 +47,9 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [Azure portal](#tab/configure-portal)
 
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
 ![Screenshot that shows monitoring settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
@@ -101,22 +104,42 @@ This applies to the scenario where you have already enabled container insights f
 >* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
-## Multi-line logging in Container Insights (preview)
+## Multi-line logging in Container Insights
 Azure Monitor container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
-Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
+Additionally, the feature also adds support for .NET, Go, Python and Java stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table.
+
+Below are two screenshots which demonstrate Multi-line logging at work for Go exception stack trace:
+
+Multi-line logging disabled scenario:
+
+![Screenshot that shows Multi-line logging disabled.](./media/container-insights-logging-v2/multi-line-disabled-go.png)
+
+Multi-line logging enabled scenario:
+
+[ ![Screenshot that shows Multi-line enabled.](./media/container-insights-logging-v2/multi-line-enabled-go.png) ](./media/container-insights-logging-v2/multi-line-enabled-go.png#lightbox)
+
+Similarly, below screenshots depict Multi-line logging enabled scenarios for Java and Python stack traces:
+
+For Java:
+
+[ ![Screenshot that shows Multi-line enabled for Java](./media/container-insights-logging-v2/multi-line-enabled-java.png) ](./media/container-insights-logging-v2/multi-line-enabled-java.png#lightbox)
+
+For Python:
+
+[ ![Screenshot that shows Multi-line enabled for Python](./media/container-insights-logging-v2/multi-line-enabled-python.png) ](./media/container-insights-logging-v2/multi-line-enabled-python.png#lightbox)
 
 ### Pre-requisites 
 
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable 
-Multi-line logging is a preview feature and can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
+Multi-line logging feature can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
 
 ```yaml
 [log_collection_settings.enable_multiline_logs]
 # fluent-bit based multiline log collection for go (stacktrace), dotnet (stacktrace)
 # if enabled will also stitch together container logs split by docker/cri due to size limits(16KB per log line)
-enabled = "true"
+  enabled = "true"
 ```
 
 ## Next steps

@@ -41,7 +41,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Create a service principal
 
-Create a service principal in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principal in your Microsoft Entra tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app.
 - Save the key and the client ID for use in later steps.
 

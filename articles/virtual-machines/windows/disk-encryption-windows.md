@@ -8,7 +8,7 @@ ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 07/07/2023
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Azure Disk Encryption scenarios on Windows VMs
@@ -26,7 +26,7 @@ You can only apply disk encryption to virtual machines of [supported VM sizes an
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
 >[!IMPORTANT]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details.
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details.
 >
 > - You should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see [Back up and restore encrypted Azure VM](../../backup/backup-azure-vms-encryption.md).
 >
@@ -161,7 +161,7 @@ In these scenarios, the NVMe disks need to be initialized after the VM starts. T
 
 In addition to the scenarios listed in the [Unsupported Scenarios](#unsupported-scenarios) section, encryption of NVMe disks is not supported for:
 
-- VMs encrypted with Azure Disk Encryption with AAD (previous release)
+- VMs encrypted with Azure Disk Encryption with Microsoft Entra ID (previous release)
 - NVMe disks with storage spaces
 - Azure Site Recovery of SKUs with NVMe disks (see [Support matrix for Azure VM disaster recovery between Azure regions: Replicated machines - storage](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 

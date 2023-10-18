@@ -15,7 +15,9 @@ ms.reviewer: jeffsta
 ---
 # Restore or remove a recently deleted user
 
-After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked. This limitation also applies to restoring a soft-deleted user via a match during Tenant sync cycle for on-premises hybrid scenarios.
+After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. 
+
+After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked. This limitation also applies to restoring a soft-deleted user via a match during Tenant sync cycle for on-premises hybrid scenarios.
 
 You can view your restorable users, restore a deleted user, or permanently delete a user using the Microsoft Entra admin center.
 
@@ -82,11 +84,8 @@ You can permanently delete a user from your organization without waiting the 30 
 After you've restored or deleted your users, you can:
 
 - [Add or delete users](./add-users.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Add or change profile information](./how-to-manage-user-profile-info.md)
-
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
 For more information about other available user management tasks, [Microsoft Entra user management documentation](../enterprise-users/index.yml).

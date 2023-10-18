@@ -27,7 +27,7 @@ ms.date: 08/30/2023
 To use GMSA with AKS, you need a standard domain user credential to access the GMSA credential configured on your domain controller. To configure GMSA on your domain controller, see [Get started with Group Managed Service Accounts][gmsa-getting-started]. For the standard domain user credential, you can use an existing user or create a new one, as long as it has access to the GMSA credential.
 
 > [!IMPORTANT]
-> You must use either Active Directory Domain Service or on-premises Active Directory. At this time, you can't use Azure Active Directory to configure GMSA with an AKS cluster.
+> You must use either Active Directory Domain Service or on-premises Active Directory. At this time, you can't use Microsoft Entra ID to configure GMSA with an AKS cluster.
 
 ## Store the standard domain user credentials in Azure Key Vault
 

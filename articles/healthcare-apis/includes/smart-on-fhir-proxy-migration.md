@@ -8,6 +8,9 @@ ms.date: 09/11/2023
 ms.author: kesheth
 ms.custom: "include file"
 ---
+    
+> [!IMPORTANT]
+> **SMART on FHIR proxy is retiring in September 2026**, transition to the SMART on FHIR (Enhanced) by that date. Beginning September 2026, applications relying on SMART on FHIR proxy will report errors in accessing the FHIR service.
 
 SMART on FHIR (Enhanced) provides more capabilities compared to SMART on FHIR proxy. SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion.](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg)
 The following table lists the difference between SMART on FHIR proxy and SMART on FHIR (Enhanced).

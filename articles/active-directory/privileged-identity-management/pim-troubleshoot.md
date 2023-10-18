@@ -28,7 +28,7 @@ As an active owner or user access administrator for an Azure resource, you are a
 
 ### Cause
 
-This problem can happen when the User Access Administrator role for the PIM service principal was accidentally removed from the subscription. For the Privileged Identity Management service to be able to access Azure resources, the MS-PIM service principal should always have the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) role assigned.
+This problem can happen when the User Access Administrator role for the PIM service principal was accidentally removed from the subscription. For the Privileged Identity Management service to be able to access Azure resources, the MS-PIM service principal should always have the [User Access Administrator role](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assigned.
 
 ### Resolution
 

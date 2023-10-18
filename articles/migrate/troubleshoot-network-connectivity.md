@@ -252,7 +252,7 @@ In addition to the URLs above, the appliance needs access to the following URLs 
 | **Other public cloud URLs <br> (Public endpoint URLs)** | **Details** |
 |--- | ---|
 |*.portal.azure.com | Navigate to the Azure portal
-|*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
+|*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Microsoft Entra ID
 |management.azure.com | For triggering Azure Resource Manager deployments
 |*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 |aka.ms/* (optional) | Allow access to *also know as* links; used to download and install the latest updates for appliance services

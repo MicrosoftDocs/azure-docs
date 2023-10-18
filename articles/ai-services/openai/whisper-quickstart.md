@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: quickstart
 author: eric-urban
 ms.author: eur

@@ -1,7 +1,7 @@
 ---
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 03/03/2023
+ms.date: 10/02/2023
 ms.topic: article
 tags: azure-resource-manager
 title: Azure Cloud Shell features
@@ -41,7 +41,7 @@ first launch. Once completed, Cloud Shell will automatically attach your storage
 sessions. Use best practices when storing secrets such as SSH keys. Services, like
 Azure Key Vault, have [tutorials for setup][02].
 
-[Learn more about persisting files in Cloud Shell.][28]
+Learn more about [Persisting files in Cloud Shell][28].
 
 ### Azure drive (Azure:)
 
@@ -85,7 +85,7 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 |           Tool            | Version  |            Command             |
 | ------------------------- | -------- | ------------------------------ |
-| [Azure CLI][08]           | 2.51.0   | `az --version`                 |
+| [Azure CLI][05]           | 2.51.0   | `az --version`                 |
 | [Azure PowerShell][06]    | 10.2.0   | `Get-Module Az -ListAvailable` |
 | [AzCopy][04]              | 10.15.0  | `azcopy --version`             |
 | [Azure Functions CLI][01] | 4.0.5198 | `func --version`               |
@@ -127,7 +127,7 @@ You can verify the version of the language using the command listed in the table
 - [Docker Desktop][15]
 - [Kubectl][20]
 - [Helm][19]
-- [DC/OS CLI][14]
+- [D2iQ Kubernetes Platform CLI][14]
 
 #### Databases
 
@@ -165,8 +165,7 @@ You can verify the version of the language using the command listed in the table
 
 ## Next steps
 
-- [Bash in Cloud Shell Quickstart][30]
-- [PowerShell in Cloud Shell Quickstart][29]
+- [Cloud Shell Quickstart][29]
 - [Learn about Azure CLI][05]
 - [Learn about Azure PowerShell][06]
 
@@ -184,7 +183,7 @@ You can verify the version of the language using the command listed in the table
 [11]: https://developer.hashicorp.com/packer/docs
 [12]: https://docs.chef.io/
 [13]: https://docs.cloudfoundry.org/cf-cli/
-[14]: https://docs.d2iq.com/dkp/2.3/azure-quick-start
+[14]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
 [15]: https://docs.docker.com/desktop/
 [16]: https://dotnet.microsoft.com/download/dotnet/7.0
 [17]: https://github.com/Azure/CloudShell/issues
@@ -199,5 +198,4 @@ You can verify the version of the language using the command listed in the table
 [26]: media/features/exchangeonline.png
 [27]: media/features/exchangeonlinecmdlets.png
 [28]: persisting-shell-storage.md
-[29]: quickstart-powershell.md
-[30]: quickstart.md
+[29]: quickstart.md

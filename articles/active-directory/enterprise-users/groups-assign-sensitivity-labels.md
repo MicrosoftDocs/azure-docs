@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign sensitivity labels to Microsoft 365 groups in Microsoft Entra ID
 
-Microsoft Entra ID, part of Microsoft Entra, supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Microsoft Entra ID, part of Microsoft Entra, supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/purview/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > To configure this feature, there must be at least one active Microsoft Entra ID P1 license in your Microsoft Entra organization.
@@ -77,7 +77,7 @@ If you’re receiving a Request_BadRequest error, it's because the settings alre
 1. Issue the `Set-AzureADDirectorySetting -DirectorySetting $Setting -ID` cmdlet, using the ID that you retrieved in step 2.
 1. Ensure that the value is now correctly updated by issuing `$Setting.Values` again.
 
-You will also need to synchronize your sensitivity labels to Microsoft Entra ID. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+You will also need to synchronize your sensitivity labels to Microsoft Entra ID. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/purview/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## Assign a label to a new group in Azure portal
 
@@ -130,11 +130,11 @@ The sensitivity label option is only displayed for groups when all of the follow
 1. The feature is enabled, EnableMIPLabels is set to True in from the Azure AD PowerShell module.
 1. In addition, the sensitivity labels are published in the Microsoft Purview compliance portal for this Microsoft Entra organization.
 1. Labels are synchronized to Microsoft Entra ID with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module. It can take up to 24 hours after synchronization for the label to be available to Microsoft Entra ID.
-1. The [sensitivity label scope](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#label-scopes) must be configured for Groups & Sites.
+1. The [sensitivity label scope](/purview/sensitivity-labels?preserve-view=true&view=o365-worldwide#label-scopes) must be configured for Groups & Sites.
 3. The group is a Microsoft 365 group.
 4. The current signed-in user:
     1. has sufficient privileges to assign sensitivity labels. The user must be a Global Administrator, Group Administrator, or the group owner 
-    1. and must be within the scope of the [sensitivity label publishing policy](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#what-label-policies-can-do)
+    1. and must be within the scope of the [sensitivity label publishing policy](/purview/sensitivity-labels?preserve-view=true&view=o365-worldwide#what-label-policies-can-do)
 
 Please make sure all the conditions above are met in order to assign labels to a group.
 
@@ -164,7 +164,7 @@ If you must make a change, use an [Azure AD PowerShell script](https://github.co
 
 ## Next steps
 
-- [Use sensitivity labels with Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Use sensitivity labels with Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
 - [Update groups after label policy change manually with Azure AD PowerShell script](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
 - [Edit your group settings](../fundamentals/how-to-manage-groups.md)
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)

@@ -29,6 +29,11 @@
             "source_path": "howto-baremetal-review-read-output.md",
             "redirect_url": "howto-baremetal-run-read.md",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "troubleshoot-aks-hybrid-cluster.md",
+            "redirect_url": "troubleshoot-isolation-domain.md",
+            "redirect_document_id": false
         }
     ]
 }

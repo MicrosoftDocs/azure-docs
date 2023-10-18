@@ -4,7 +4,7 @@ description: VM insights solution collects metrics and log data to and this arti
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 ---
 
 # How to query logs from VM insights

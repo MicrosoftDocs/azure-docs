@@ -83,4 +83,4 @@ For more information about the application model, see the following articles:
 
 * For more information on application objects and service principals in the Microsoft identity platform, see [How and why applications are added to Microsoft Entra ID](how-applications-are-added.md).
 * For more information on single-tenant apps and multi-tenant apps, see [Tenancy in Microsoft Entra ID](single-and-multi-tenant-apps.md).
-* For more information on how Microsoft Entra ID also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, by using social identities like a Google account, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).
+* For more information on how Microsoft Entra ID also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, by using social identities like a Google account, see [Azure Active Directory B2C documentation](/azure/active-directory-b2c/).
