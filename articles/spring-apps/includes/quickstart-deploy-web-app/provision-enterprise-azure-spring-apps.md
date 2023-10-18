@@ -36,12 +36,12 @@ Use the following steps to create the service instance:
    | Terms                 | Selected                         | You're required to select the agreement checkbox associated with [Marketplace offering](https://aka.ms/ascmpoffer).                                                                                                                                                                                |
    | Deploy sample project | Unchecked                        | Indicates whether to use the built-in sample application.                                                                                                                                                                                                                                          |
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/create-enterprise-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-restful-api-app/create-enterprise-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/create-enterprise-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-enterprise-basics.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Notifications pane for Azure Spring Apps creation." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Notifications pane for Azure Spring Apps creation." lightbox="../../media/quickstart-deploy-web-app/notifications.png":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.

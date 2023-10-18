@@ -228,7 +228,7 @@ Be sure to delete the resources you created in this article when you no longer n
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
