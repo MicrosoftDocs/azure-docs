@@ -70,7 +70,7 @@ For example, to upgrade a resource bridge on Azure Stack HCI, run: `az arcapplia
 
 ## Private cloud providers
 
-Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades while they are in Public Preview. Once the private cloud provider announces General Availability, then cloud-managed upgrade will be the default experience and enabled for all customers within n-3 supported versions.
+Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades while they are in public preview. After the private cloud provider announces General Availability, cloud-managed upgrade will become the default experience and enabled for all customers within n-3 supported versions.
 
 For Arc-enabled VMware, both cloud-managed upgrade and manual upgrade are supported.
 
