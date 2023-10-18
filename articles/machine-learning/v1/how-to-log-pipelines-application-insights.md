@@ -106,7 +106,7 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 
 **Other helpful fields**
 
-These fields may require extra code instrumentation, and aren't provided by the run context.
+These fields might require extra code instrumentation, and aren't provided by the run context.
 
 | Field                   | Reasoning/Example                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
