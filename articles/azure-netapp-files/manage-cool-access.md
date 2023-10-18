@@ -114,10 +114,26 @@ Standard service with cool access can be enabled during the creation of a new vo
         This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days.    
 
     * **Cool Access Retrieval Policy**   
-        This option defines how data is retrieved from the cool tier, whether it is sent to both the performance tier (Azure NetApp Files Standard service-level storage) and the client, or sent to only the client.
-        * `Default`: There is no change to the retrieval behavior of cool data with this value. Data is retrieved from the cool tier on reads. 
-        * `On-Read`: On reads, data is sent from the cool tier to both the performance tier and the client. 
-        * `Never`: On reads, data is sent from the cool tier to only the client, without being stored in the performance tier.
+
+        You can set this option to `Default`, `On-Read`, or `Never`.   
+
+        The following list describes the data retrieval behavior with the cool access retrieval policy settings:
+
+        * *Cool access is enabled, and no value is set for cool access retrieval policy:*  
+            The retrieval policy will be set to `Default`, and cold data will be retrieved only by performing random reads.
+        * *Cool access is enabled, and cool access retrieval policy is set to `Default`:*   
+            Cold data will be retrieved only by performing random reads.
+        * *Cool access is enabled, and cool access retrieval policy is set to `On-Read`:*   
+            Cold data will be retrieved by performing both sequential and random reads.
+        * *Cool access is enabled, and cool access retrieval policy is set to `Never`:*   
+            Cold data will not be retrieved. 
+        * *Cool access is disabled:*     
+            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to standard storage. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
+
+        The following limitations apply to the cool access retrieval policy settings:    
+        
+        * When the cool access setting is disabled on the volume, you can't modify the cool access retrieval policy setting on the volume. 
+        * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
 
