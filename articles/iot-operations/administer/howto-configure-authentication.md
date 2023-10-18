@@ -484,4 +484,4 @@ spec:
 - About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
-- [Configure TLS with automatic certificate managment](./howto-configure-tls-automatic.md)
+- [Configure TLS with automatic certificate management](./howto-configure-tls-automatic.md)

@@ -211,4 +211,4 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 - About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
-- [Configure TLS with automatic certificate managment](./howto-configure-tls-automatic.md)
+- [Configure TLS with automatic certificate management](./howto-configure-tls-automatic.md)

@@ -18,7 +18,7 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 With automatic certificate management, you use cert-manager to manage the TLS server certificate.
 
-1. Cert-manager is required to manage the TLS server certificate. It must be installed prior to any IoT MQ deployment. However, since cert-manager interacts with cluster-wide resources, it's important to install it **no more than once per cluster**. Do not run the commands above if cert-manager is already installed on the cluster.
+1. Cert-manager is required to manage the TLS server certificate. It must be installed prior to any IoT MQ deployment. However, since cert-manager interacts with cluster-wide resources, it's important to install it **no more than once per cluster**. Don't run the commands above if cert-manager is already installed on the cluster.
 
     Install cert-manager with the following commands:
     

@@ -105,7 +105,7 @@ Remember to specify username, password, etc. if authentication is enabled
 
 ### Use external IP for the server certificate
 
-To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP will be assigned before deployment. There are two ways to solve this.
+To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. There are two ways to solve this.
 
 ### Option 1: deploy a non-TLS listener first
 
@@ -138,7 +138,7 @@ Finally, use this external IP as a SAN when creating the server certificate (for
 
 ### Option 2: deploy TLS listener without a Kubernetes secret
 
-If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods will *not* deploy.
+If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods won't* deploy.
 
 ```console
 $ kubectl get pods
@@ -164,9 +164,9 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 [INFO] - Server certificate my-secret not found. Awaiting creation of secret.
 ```
 
-Generally, in a distributed system, pods logs are not deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in our backlog for public preview. Consider the above step as a temporary workaround.
+Generally, in a distributed system, pods logs aren't deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in our backlog for public preview. Consider the above step as a temporary workaround.
 
-Even though the frontend pods are not up, the external IP is already available.
+Even though the frontend pods aren't up, the external IP is already available.
 
 ```console
 $ kubectl get svc
@@ -192,4 +192,4 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 - About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
-- [Configure TLS with automatic certificate managment](./howto-configure-tls-automatic.md)
+- [Configure TLS with automatic certificate management](./howto-configure-tls-automatic.md)
