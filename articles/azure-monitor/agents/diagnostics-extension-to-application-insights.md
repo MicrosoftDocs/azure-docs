@@ -68,8 +68,8 @@ Example configuration of a sink for Application Insights:
 A channel acts like a filter and allows you to select specific log levels to send to the target sink. For example, you could collect verbose logs and send them to storage, but send only Errors to the sink.
 
 The following graphic shows this relationship.
-
-:::image type="content" source="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" lightbox="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" alt-text="Diagnostics Public Configuration":::
+<!-- convertborder later -->
+:::image type="content" source="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" lightbox="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" alt-text="Diagnostics Public Configuration" border="false":::
 
 The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink at the top level acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 

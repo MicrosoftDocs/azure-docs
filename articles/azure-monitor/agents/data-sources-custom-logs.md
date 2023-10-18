@@ -167,8 +167,8 @@ We use a name of *MyApp_CL* and type in a **Description**.
 ### Validate that the custom logs are being collected
 
 We use a simple query of *MyApp_CL* to return all records from the collected log.
-
-:::image type="content" source="media/data-sources-custom-logs/query-01.png" lightbox="media/data-sources-custom-logs/query-01.png" alt-text="Screenshot that shows a log query with no custom fields.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-sources-custom-logs/query-01.png" lightbox="media/data-sources-custom-logs/query-01.png" alt-text="Screenshot that shows a log query with no custom fields." border="false":::
 
 ## Alternatives to custom logs
 
