@@ -62,7 +62,7 @@ items:
     expanded: false
     items: 
     - name: Group-based licensing
-      href: licensing-whatis-azure-portal.md
+      href: ./concept-group-based-licensing.md
     - name: Microsoft Entra ID preview program terms
       href: licensing-preview-terms.md
     - name: Sign up for Microsoft Entra ID P1 or P2
@@ -73,7 +73,7 @@ items:
   - name: Enable MFA
     href: ../authentication/concept-mfa-licensing.md?toc=/azure/active-directory/fundamentals/toc.json
   - name: Identity secure score
-    href: identity-secure-score.md
+    href: ../reports-monitoring/concept-identity-secure-score.md
   - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Microsoft Entra ID
