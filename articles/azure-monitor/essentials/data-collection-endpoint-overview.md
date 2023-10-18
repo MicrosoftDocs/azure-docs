@@ -40,7 +40,7 @@ This table describes the components and related regionality considerations:
 
 - **Scenario: Monitored resources send data to a Log Analytics workspace in a different region**
 
-    - Create a data collection endpoint in each region to send configuration files to the resources in that region.
+    - Create a data collection endpoint in each region where you have Azure Monitor Agent deployed to send configuration files to the agents in that region.
     
     - Send data from all resources to a data collection endpoint in the region where your destination Log Analytics workspaces are located. 
     
@@ -48,7 +48,7 @@ This table describes the components and related regionality considerations:
 
 - **Scenario: Monitored resources in one or more regions send data to multiple Log Analytics workspaces in different regions**
 
-     - Create a data collection endpoint in each region with monitored resources to send configuration files to the resources in that region.
+     - Create a data collection endpoint in each region where you have Azure Monitor Agent deployed to send configuration files to the agents in that region.
      
      - Create a data collection endpoint in each region with a destination Log Analytics workspace to send data to the Log Analytics workspaces in that region.
      
