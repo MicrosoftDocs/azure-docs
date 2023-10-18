@@ -75,7 +75,7 @@ You can use the following script to create your connections. To execute it, you 
 - n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you may require, comma separated
 - s: Number of sessions to each volume (set to 32 by default)
 
-Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .py file, for example, connect.py. Then execute it with the required parameters. Below is an example of how you would execute the command: 
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .py file, for example, connect.py. Then execute it with the required parameters. The following is an example of how you'd run the script: 
 
 ```bash
 ./connect.py --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2> -s 32
