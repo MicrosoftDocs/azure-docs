@@ -39,13 +39,13 @@ To perform packet capture using the command line, you must:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
 1. Select **Packet Capture** under the **Help** section on the left side. This will open a **Packet Capture** view.
-1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
-    `https://storageaccountname.blob.core.windows.net/diagscontainername/diagsPackageName.zip`  
+1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the packet capture. For example:  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername/packetcapturename.zip`  
     > [!TIP]
     > The **Container URL** should have been noted during creation. If it wasn't:
     >
     >    1. Navigate to your **Storage account**.
-    >    1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
+    >    1. Select the **...** symbol on the right side of the container blob that you want to use for packet capture.
     >    1. Select **Container properties** in the context menu.
     >    1. Copy the contents of the **URL** field in the **Container properties** view.
 
