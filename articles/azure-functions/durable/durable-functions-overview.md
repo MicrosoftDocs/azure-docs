@@ -1400,13 +1400,12 @@ public static async Task Run(
 ```csharp
 [Function("EventHubTriggerCSharp")]
 public static async Task Run(
-    [EventHubTrigger("device-sensor-events")] EventData eventData, 
+    [EventHubTrigger("device-sensor-events", Connection = "EventHubConnection", IsBatched = false)] EventData input, 
     [DurableClient] DurableTaskClient client)
 {
-    var metricType = (string)eventData.Properties["metric"];
-    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+    var metricType = (string)input.Properties["metric"];
+    var delta = Convert.ToInt32(input.Data);
 
-    // The "Counter/{metricType}" entity is created on-demand.
     var entityId = new EntityInstanceId("Counter", metricType);
     await client.Entities.SignalEntityAsync(entityId, "add", delta);
 }
