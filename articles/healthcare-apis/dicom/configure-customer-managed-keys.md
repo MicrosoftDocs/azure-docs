@@ -19,7 +19,7 @@ To use customer-managed keys with the DICOM service, the key must first be creat
 
 - The key vault or managed HSM that stores the key must have both **soft delete** and **purge protection** enabled.
 
-- The key type is **RSA-HSM** or **RSA** with one of the following sizes: **2048-bit**, **3072-bit**, or **4096-bit**.
+- The key type is **RSA-HSM** or **RSA** with one of the following sizes: **2048-bit** or **3072-bit**.
 
 For more information, see [About keys](../../key-vault/keys/about-keys.md).
 
@@ -33,7 +33,7 @@ Before you configure keys, you need to enable a system-assigned managed identity
 
 2. On the **Identity** page, select the **System assigned** tab, and then set the **Status** field to **On**. Choose **Save**.
 
-:::image type="content" source="media/dicom-identity-sys-assign.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/dicom-identity-sys-assign.png":::
+:::image type="content" source="media/dicom-identity-sys-assign2.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/dicom-identity-sys-assign2.png":::
 
 ### Assign Key Vault Crypto Officer role to the managed identity
 
@@ -116,7 +116,7 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier copied from the key vault.  
 
-:::image type="content" source="media/cmk-arm-deploy.md" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/cmk-arm-deploy.md":::
+:::image type="content" source="media/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/cmk-arm-deploy.png":::
 
 5. Select **Review + create** to deploy the key changes.
 
