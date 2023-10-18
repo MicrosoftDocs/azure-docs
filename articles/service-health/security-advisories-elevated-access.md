@@ -34,7 +34,7 @@ In the future, accessing Security Advisories will require elevated access across
 ### 1. On the Service Health portal
 A banner will be displayed to the users until April 2024 on the Summary and Issue Updates tabs prompting customers to get the right roles to view these tabs in future. 
 
-:::image type="content" source="./media/impacted-resource-sec/access-banner1.PNG" alt-text="Screenshot displaying the new role based access banner for security advisories.":::
+:::image type="content" source="./media/impacted-resource-sec/access-banner-1.PNG" alt-text="Screenshot displaying the new role based access banner for security advisories.":::
 
 After April 2024, an error message on the Summary and Issue Updates tabs will be displayed to users who do not have the following required roles:
 
