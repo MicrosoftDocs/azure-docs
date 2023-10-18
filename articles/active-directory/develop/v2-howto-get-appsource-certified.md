@@ -36,7 +36,7 @@ For more information about multi-tenancy, see [How to sign in any Microsoft Entr
 
 A *single-tenant application* is an application that only accepts sign-ins from users of a defined Microsoft Entra instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Microsoft Entra instance that the application is registered. 
 
-You can add users as guest accounts to Microsoft Entra ID through the [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/integrate-with-app-code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Microsoft Entra B2B collaboration sign-up](../external-identities/self-service-portal.md).
+You can add users as guest accounts to Microsoft Entra ID through the [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) and you can do this [programmatically](/azure/active-directory-b2c/integrate-with-app-code-samples). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Microsoft Entra B2B collaboration sign-up](../external-identities/self-service-portal.md).
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 

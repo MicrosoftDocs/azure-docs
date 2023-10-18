@@ -240,7 +240,7 @@ After you create your server, you can independently change the vCores, the compu
 
 When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back.
 
-The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage works the same way and requires a restart.
+The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage does not require a server restart in most cases.
 
 To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
