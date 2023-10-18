@@ -24,6 +24,10 @@ However, you can overcome this limitation by performing the steps shown in this 
 > [!NOTE]
 > This procedure requires a full shutdown of the cluster. Since the SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
 
+Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. 
+Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. 
+The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+
 ## Prerequisites
 
 - Review and record the storage and network configuration of every node in the cluster.
@@ -34,14 +38,15 @@ However, you can overcome this limitation by performing the steps shown in this 
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more details about installing VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
 - Ensure that all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration.
-However, due to the size of database workloads it isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always On migrations, especially for production workloads.
-ExpressRoute connectivity is recommended as more performant and reliable.
-For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate.
+Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration.
 
-Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. 
-Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. 
-The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+With VMWare HCX over VPN, due to its limited bandwidth it is typically suited for workloads that can sustain longer periods of downtime (such as non-production environments).
+
+For any of the following, ExpressRoute connectivity is recommended for a migration:
+
+- Production environments
+- Workloads with large database sizes
+- Scenarios in which there is a need to minimize downtime the ExpressRoute connectivity is recommended for the migration.
 
 ## Downtime considerations
 
