@@ -50,7 +50,8 @@ More details on eligible subscription types are as follows:
 |Italy|
 |Sweden|
 |United States|
-
+|Canada|
+|United Kingdom|
 
 
 ## Find information about other countries/regions
