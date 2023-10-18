@@ -84,7 +84,7 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 #### Number of sessions
-Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Please note that Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
+You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
 ## Next steps
 
