@@ -157,17 +157,23 @@ When installing the Dapr extension, use the flag value that corresponds to your 
 > [!NOTE]
 > If you're using Dapr OSS on your AKS cluster and would like to install the Dapr extension for AKS, read more about [how to successfully migrate to the Dapr extension][dapr-migration]. 
 
-Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
+Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. 
 
+For example, install the latest version of Dapr via the Dapr extension on your AKS cluster:
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version false
 ```
 
-You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`:
+You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`. 
+Note, the versioning of Dapr is in the format `MAJOR.MINOR.PATCH`, which means `1.11.0` to `1.12.0` is a minor version upgrade.
+
+> [!WARNING]
+> For production environments, we do not recommend enabling auto-upgrade-minor-version. This option is suitable for dev or test environments only.
 
 ```azurecli
 --auto-upgrade-minor-version true
@@ -191,7 +197,7 @@ For example:
 > [!NOTE]
 > Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
 
-The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr X.X.X: 
+The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr X.X.X:
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
