@@ -4,8 +4,9 @@ description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbuck
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
 ms.date: 03/12/2021
-ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 ---
 
 # Continuous deployment to Azure App Service

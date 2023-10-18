@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/17/2023
+ms.date: 09/15/2023
 ms.author: radeltch
 ---
 
@@ -272,27 +272,45 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure SWAP file
 
+   Create a swap file as defined in [Create a SWAP file for an Azure Linux VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/create-swap-file-linux-vm)
    ```bash
-   sudo vi /etc/waagent.conf
-   
-   # Check if property ResourceDisk.Format is already set to y and if not, set it
-   ResourceDisk.Format=y
-   
-   # Set the property ResourceDisk.EnableSwap to y
-   # Create and use swapfile on resource disk.
-   ResourceDisk.EnableSwap=y
-   
-   # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
-   # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
-   # Size of the swapfile.
-   ResourceDisk.SwapSizeMB=2000
+   #!/bin/sh
+
+   # Percent of space on the ephemeral disk to dedicate to swap. Here 30% is being used. Modify as appropriate.
+   PCT=0.3
+
+   # Location of swap file. Modify as appropriate based on location of ephemeral disk.
+   LOCATION=/mnt
+
+   if [ ! -f ${LOCATION}/swapfile ]
+   then
+
+       # Get size of the ephemeral disk and multiply it by the percent of space to allocate
+       size=$(/bin/df -m --output=target,avail | /usr/bin/awk -v percent="$PCT" -v pattern=${LOCATION} '$0 ~ pattern {SIZE=int($2*percent);print SIZE}')
+       echo "$size MB of space allocated to swap file"
+
+        # Create an empty file first and set correct permissions
+       /bin/dd if=/dev/zero of=${LOCATION}/swapfile bs=1M count=$size
+       /bin/chmod 0600 ${LOCATION}/swapfile
+
+       # Make the file available to use as swap
+       /sbin/mkswap ${LOCATION}/swapfile
+   fi
+
+   # Enable swap
+   /sbin/swapon ${LOCATION}/swapfile
+   /sbin/swapon -a
+
+   # Display current swap status
+   /sbin/swapon -s
    ```
 
-   Restart the Agent to activate the change
+   Make the file executable.
 
    ```bash
-   sudo service waagent restart
+   chmod +x /var/lib/cloud/scripts/per-boot/swap.sh
    ```
+   Stop and start the VM. Stopping and starting the VM is only necessary the first time after you create the SWAP file.
 
 ### Installing SAP NetWeaver ASCS/ERS
 
@@ -512,6 +530,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
    sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS02:stop symmetrical=false
+
+   sudo crm_attribute --delete --name priority-fencing-delay
    
    sudo crm node online nw1-cl-0
    sudo crm configure property maintenance-mode="false"

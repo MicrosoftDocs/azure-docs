@@ -39,10 +39,10 @@ Authorization by using access control lists (ACLs) involves maintaining explicit
 
 Role-based access control (RBAC) is possibly the most common approach to enforcing authorization in applications. When using RBAC, roles are defined to describe the kinds of activities an entity may perform. An application developer grants access to roles rather than to individual entities. An administrator can then assign roles to different entities to control which ones have access to what resources and functionality.
 
-In advanced RBAC implementations, roles may be mapped to collections of permissions, where a permission describes a granular action or activity that can be performed. Roles are then configured as combinations of permissions. Compute the overall permission set for an entity by intersecting the permissions granted to the various roles the entity is assigned. A good example of this approach is the RBAC implementation that governs access to resources in Azure subscriptions.
+In advanced RBAC implementations, roles may be mapped to collections of permissions, where a permission describes a granular action or activity that can be performed. Roles are then configured as combinations of permissions. Compute the overall permission set for an entity by combining the permissions granted to the various roles the entity is assigned. A good example of this approach is the RBAC implementation that governs access to resources in Azure subscriptions.
 
 > [!NOTE]
-> [Application RBAC](./custom-rbac-for-developers.md) differs from [Azure RBAC](../../role-based-access-control/overview.md) and [Azure AD RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps manage Azure resources. Azure AD RBAC allows management of Azure AD resources.
+> [Application RBAC](./custom-rbac-for-developers.md) differs from [Azure RBAC](../../role-based-access-control/overview.md) and [Microsoft Entra RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps manage Azure resources. Microsoft Entra RBAC allows management of Microsoft Entra resources.
 
 ### Attribute-based access control
 
@@ -50,7 +50,7 @@ Attribute-based access control (ABAC) is a more fine-grained access control mech
 
 One advantage of ABAC is that more granular and dynamic access control can be achieved through rule and condition evaluations without the need to create large numbers of specific roles and RBAC assignments.
 
-One method for achieving ABAC with Azure Active Directory is using [dynamic groups](../enterprise-users/groups-create-rule.md). Dynamic groups allow administrators to dynamically assign users to groups based on specific user attributes with desired values.  For example, an Authors group could be created where all users with the job title Author are dynamically assigned to the Authors group. Dynamic groups can be used in combination with RBAC for authorization where you map roles to groups and dynamically assign users to groups.
+One method for achieving ABAC with Microsoft Entra ID is using [dynamic groups](../enterprise-users/groups-create-rule.md). Dynamic groups allow administrators to dynamically assign users to groups based on specific user attributes with desired values.  For example, an Authors group could be created where all users with the job title Author are dynamically assigned to the Authors group. Dynamic groups can be used in combination with RBAC for authorization where you map roles to groups and dynamically assign users to groups.
 
 [Azure ABAC](../../role-based-access-control/conditions-overview.md) is an example of an ABAC solution that is available today. Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions.
 
@@ -67,5 +67,5 @@ It's not strictly necessary for developers to embed authorization logic entirely
 
 - To learn about custom role-based access control implementation in applications, see [Role-based access control for application developers](./custom-rbac-for-developers.md).
 - To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](./application-model.md).
-- For an example of configuring simple authentication-based authorization, see [Configure your App Service or Azure Functions app to use Azure AD login](../../app-service/configure-authentication-provider-aad.md).
+- For an example of configuring simple authentication-based authorization, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../app-service/configure-authentication-provider-aad.md).
 - To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)

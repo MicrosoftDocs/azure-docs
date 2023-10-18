@@ -1,6 +1,6 @@
 ---
 title: Access activity logs in Azure AD
-description: Learn how to choose the right method for accessing the activity logs in Azure AD.
+description: How to choose the right method for accessing and integrating the activity logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,16 +8,14 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 
-# How To: Access activity logs in Azure AD
+# How to access activity logs in Azure AD
 
-The data in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with various options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
+The data collected in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
 You can access Azure AD activity logs and reports using the following methods:
 
@@ -34,17 +32,17 @@ Each of these methods provides you with capabilities that may align with certain
 
 ## Prerequisites
 
-The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
+The required roles and licenses may vary based on the report. Global Administrators can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
-| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
-| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Audit | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Sign-ins | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
 | Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
 | Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
 | Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Azure AD Free/Microsoft 365 Apps<br>Azure AD Premium P1/P2 |
 
-*The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
+*The level of access and capabilities for Identity Protection vary with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
 Audit logs are available for features that you've licensed. To access the sign-ins logs using the Microsoft Graph API, your tenant must have an Azure AD Premium license associated with it.
 
@@ -61,9 +59,9 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ### Quick steps
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Create an Event Hubs namespace and event hub.
-1. Go to **Azure AD** > **Diagnostic settings**.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
     - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
     - [Learn more about streaming activity logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
@@ -72,7 +70,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ## Access logs with Microsoft Graph API
 
-The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance. 
+The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app.  
 
 ### Recommended uses
 
@@ -105,11 +103,11 @@ Integrating Azure AD logs with Azure Monitor logs provides a centralized locatio
  
 ### Quick steps
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
-1. Go to **Azure AD** > **Diagnostic settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
-1. Go to **Azure AD** > **Log Analytics** and begin querying the data.
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics** and begin querying the data.
     - [Integrate Azure AD logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
     - [Learn how to query using Log Analytics](howto-analyze-activity-logs-log-analytics.md)
 
@@ -156,7 +154,7 @@ The reports available in the Azure portal provide a wide range of capabilities t
 Use the following basic steps to access the reports in the Azure portal. 
 #### Azure AD activity logs
 
-1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
 1. Adjust the filter according to your needs.
     - [Learn how to filter activity logs](quickstart-filter-audit-log.md)
     - [Explore the Azure AD audit log categories and activities](reference-audit-activities.md) 
@@ -164,14 +162,14 @@ Use the following basic steps to access the reports in the Azure portal.
 
 #### Azure AD Identity Protection reports
 
-1. Go to **Azure AD** > **Security** > **Identity Protection**.
+1. Browse to **Protection** > **Identity Protection**.
 1. Explore the available reports.
     - [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
     - [Learn how to investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 #### Usage and insights reports
 
-1. Go to **Azure AD** and select **Usage and insights** from the **Monitoring** menu.
+1. Browse to **Identity** > **Monitoring & health** > **Usage and insights**.
 1. Explore the available reports.
     - [Learn more about the Usage and insights report](concept-usage-insights-report.md)
 
@@ -201,18 +199,18 @@ We recommend manually downloading and storing your activity logs if you have bud
 
 Use the following basic steps to archive or download your activity logs.
 
-### Archive activity logs to a storage account
+#### Archive activity logs to a storage account
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
 1. Create a storage account.
-1. Go to **Azure AD** > **Diagnostic settings**.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
     - [Review the data retention policies](reference-reports-data-retention.md)
 
 #### Manually download activity logs
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs** from the **Monitoring** menu.
 1. Select **Download**.
     - [Learn more about how to download logs](howto-download-logs.md).
 
@@ -221,4 +219,3 @@ Use the following basic steps to archive or download your activity logs.
 - [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 - [Archive logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 - [Integrate logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
-

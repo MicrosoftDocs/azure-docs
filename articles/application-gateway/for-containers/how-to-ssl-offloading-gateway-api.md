@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
@@ -16,6 +16,12 @@ ms.author: greglin
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) that references a backend service.
+
+## Background
+
+Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers.](./media/how-to-ssl-offloading-gateway-api/ssl-offloading.png)
 
 ## Prerequisites
 
@@ -71,6 +77,7 @@ This document helps set up an example application that uses the following resour
     EOF
     ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 

@@ -1,11 +1,10 @@
 ---
 title: Slate detection insights
 description: Learn about slate detection insights.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 09/20/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # The slate detection insights (preview)

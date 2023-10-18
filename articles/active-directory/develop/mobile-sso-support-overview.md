@@ -1,6 +1,6 @@
 ---
 title: Support single sign-on and app protection policies in mobile apps you develop
-description: Explanation and overview of building mobile applications that support single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory. 
+description: Explanation and overview of building mobile applications that support single sign-on and app protection policies using the Microsoft identity platform and integrating with Microsoft Entra ID. 
 services: active-directory
 manager: henrymbuguakiarie
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.author: henrymbugua
 ms.reviewer: janicericketts
 ms.custom: has-adal-ref
 
-#Customer intent: As an app developer, I want to know how to implement an app that supports single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory.
+#Customer intent: As an app developer, I want to know how to implement an app that supports single sign-on and app protection policies using the Microsoft identity platform and integrating with Microsoft Entra ID.
 ---
 
 # Support single sign-on and app protection policies in mobile apps you develop
 
-Single sign-on (SSO) is a key offering of the Microsoft identity platform and Azure Active Directory, providing easy and secure logins for users of your app. In addition, app protection policies (APP) enable support of the key security policies that keep your user's data safe. Together, these features enable secure user logins and management of your app's data.
+Single sign-on (SSO) is a key offering of the Microsoft identity platform and Microsoft Entra ID, providing easy and secure logins for users of your app. In addition, app protection policies (APP) enable support of the key security policies that keep your user's data safe. Together, these features enable secure user logins and management of your app's data.
 
 > [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
-This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you're an IT administrator that wants to deploy SSO across your organization's Azure Active Directory tenant, check out our [guidance for planning a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
+This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you're an IT administrator that wants to deploy SSO across your organization's Microsoft Entra tenant, check out our [guidance for planning a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 
 ## About single sign-on and app protection policies
 
@@ -43,7 +43,7 @@ The best choice for implementing single sign-on in your application is to use [t
 > [!NOTE]
 > It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (that is, the system web browser) to ensure that SSO will work.
 
-Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](..\develop\msal-migration.md).
+Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](../develop/msal-migration.md).
 
 For iOS applications, we have a [quickstart](quickstart-v2-ios.md) that shows you how to set up sign-ins using MSAL, as well as [guidance for configuring MSAL for various SSO scenarios](single-sign-on-macos-ios.md).
 
@@ -70,7 +70,7 @@ Finally, [add the Intune SDK](/mem/intune/developer/app-sdk-get-started) to your
 
 ## Additional resources
 
-- [Plan an Azure Active Directory single sign-on deployment](../manage-apps/plan-sso-deployment.md)
+- [Plan a Microsoft Entra single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 - [How to: Configure SSO on macOS and iOS](single-sign-on-macos-ios.md)
 - [Microsoft Enterprise SSO plug-in for Apple devices (Preview)](apple-sso-plugin.md)
 - [Brokered authentication in Android](./msal-android-single-sign-on.md)

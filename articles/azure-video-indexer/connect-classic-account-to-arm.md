@@ -2,9 +2,10 @@
 title: Connect a classic Azure AI Video Indexer account to ARM
 description: This topic explains how to connect an existing classic paid Azure AI Video Indexer account to an ARM-based account
 ms.topic: how-to
-ms.author: itnorman
 ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # Connect an existing classic paid Azure AI Video Indexer account to ARM-based account  

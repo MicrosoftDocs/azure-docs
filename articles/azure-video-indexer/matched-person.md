@@ -3,7 +3,8 @@ title: Enable the matched person insight
 description: The topic explains how to use a match observed people feature. These are people that are detected in the video with the corresponding faces ("People" insight).
 ms.topic: how-to
 ms.date: 12/10/2021
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Enable the matched person insight (preview)

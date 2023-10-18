@@ -358,7 +358,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [visit here][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Azure AI services containers][cog-svcs-containers]
+> [Azure AI containers][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

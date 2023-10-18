@@ -8,6 +8,7 @@ manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 01/19/2023
 ms.subservice: hybrid
@@ -38,21 +39,21 @@ This article helps you find troubleshooting information about common problems re
 
 ## Check status of feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Azure Active Directory** > **Azure AD Connect** pane in the [Azure portal](https://portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Azure Active Directory** > **Azure AD Connect** pane in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/).
 
-![Azure portal: Azure AD Connect pane](./media/tshoot-connect-sso/sso10.png)
+![Screenshot of the Microsoft Entra admin center: Azure AD Connect pane.](./media/tshoot-connect-sso/sso10.png)
 
 Click through to see all the AD forests that have been enabled for Seamless SSO.
 
-![Azure portal: Seamless SSO pane](./media/tshoot-connect-sso/sso13.png)
+![Screenshot of the Microsoft Entra admin center: Seamless SSO pane.](./media/tshoot-connect-sso/sso13.png)
 
-## Sign-in failure reasons in the Azure portal (needs a Premium license)
+## Sign-in failure reasons in the [Microsoft Entra admin center](https://entra.microsoft.com) (needs a Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) inside of Azure Active Directory in the [Azure portal](https://portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) inside of Azure Active Directory in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-![Azure portal: Sign-ins report](media/tshoot-connect-sso/sso9.png)
+![Screenshot of the Microsoft Entra admin center: Sign-ins report.](media/tshoot-connect-sso/sso9.png)
 
-Browse to **Azure Active Directory** > **Sign-ins** in the [Azure portal](https://portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
+Browse to **Azure Active Directory** > **Sign-ins** in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---

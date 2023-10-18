@@ -48,7 +48,7 @@ After you complete these steps, you'll have a production-ready environment for c
 In your data center, you can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector.
 
 > [!IMPORTANT]
-> As per the [Azure VMware Solution limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits) the maximum site pairs is 25 and maximum service meshes is 10 in a single HCX manager system, this includes inbound and outbound site pairings.
+> As per the [Azure VMware Solution limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits) the maximum site pairs is 25 and maximum service meshes is 10 in a single HCX manager system, this includes inbound and outbound site pairings.
 
 1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 

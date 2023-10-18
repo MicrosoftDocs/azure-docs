@@ -186,13 +186,14 @@ Example:
 GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
 ```
 
-For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
+For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api).
 
 ## API limitations
 The following limitations are in addition to those detailed in the Prometheus specification.  
 
 + Query must be scoped to a metric  
     Any time series fetch queries (/series or /query or /query_range) must contain a \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
++ Query /series does not support regular expression filter
 + Supported time range  
     + /query_range API supports a time range of 32 days. This is the maximum time range allowed, including range selectors specified in the query itself.
     For example, the query `rate(http_requests_total[1h]` for last the 24 hours would actually mean data is being queried for 25 hours. This comes from the 24-hour range plus the 1 hour specified in query itself.

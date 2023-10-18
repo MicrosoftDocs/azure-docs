@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence APIs analyze document response
+title: Document Intelligence (formerly Form Recognizer) APIs analyze document response
 titleSuffix: Azure AI services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/21/2023
+ms.date: 08/23/2023
 ms.author: radeltch
 ---
 
@@ -575,11 +575,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
-   ```bash
-   sudo pcs property set maintenance-mode=true
-   
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    ```bash
+    sudo pcs property set maintenance-mode=true
+
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
@@ -587,8 +587,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
@@ -596,39 +596,39 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-   sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
-   sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
     
-   sudo pcs node unstandby anftstsapcl1
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs node unstandby anftstsapcl1
+    sudo pcs property set maintenance-mode=false
+    ```
 
    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
 
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
     ```bash
-   sudo pcs property set maintenance-mode=true
+    sudo pcs property set maintenance-mode=true
     
    # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
@@ -636,8 +636,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
@@ -645,40 +645,40 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
     
-   sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
     
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
    
-   sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-   sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby anftstsapcl1
-   sudo pcs property set maintenance-mode=false
+    sudo pcs node unstandby anftstsapcl1
+    sudo pcs property set maintenance-mode=false
     ```
 
-   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
+    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 
-   > [!NOTE]
-   > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals.
-   > For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
-   > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup.
+    > [!NOTE]
+    > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals.
+    > For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
+    > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup.
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
+    Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
     ```bash
     sudo pcs status
@@ -700,43 +700,55 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
     ```
 
-1. **[A]** Add firewall rules for ASCS and ERS on both nodes
+1. **[1]** Execute below step to configure priority-fencing-delay (applicable only as of pacemaker-2.0.4-6.el8 or higher)
 
-   Add the firewall rules for ASCS and ERS on both nodes.
+    > [!NOTE]
+    > If you have two-node cluster, you have option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+    >
+    > The property priority-fencing-delay is applicable for pacemaker-2.0.4-6.el8 version or higher. If you are setting up priority-fencing-delay on existing cluster, make sure to unset `pcmk_delay_max` option in fencing device.  
 
-   ```bash
-   # Probe Port of ASCS
-   sudo firewall-cmd --zone=public --add-port=62000/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62000/tcp
-   sudo firewall-cmd --zone=public --add-port=3200/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3200/tcp
-   sudo firewall-cmd --zone=public --add-port=3600/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3600/tcp
-   sudo firewall-cmd --zone=public --add-port=3900/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3900/tcp
-   sudo firewall-cmd --zone=public --add-port=8100/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=8100/tcp
-   sudo firewall-cmd --zone=public --add-port=50013/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50013/tcp
-   sudo firewall-cmd --zone=public --add-port=50014/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50014/tcp
-   sudo firewall-cmd --zone=public --add-port=50016/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50016/tcp
+    ```bash
+    sudo pcs resource defaults update priority=1
+    sudo pcs resource update rsc_sap_QAS_ASCS00 meta priority=10
+
+    sudo pcs property set priority-fencing-delay=15s
+    ```
+
+1. **[A]** Add firewall rules for ASCS and ERS on both node.
+
+    ```bash
+    # Probe Port of ASCS
+    sudo firewall-cmd --zone=public --add-port=62000/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=62000/tcp
+    sudo firewall-cmd --zone=public --add-port=3200/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3200/tcp
+    sudo firewall-cmd --zone=public --add-port=3600/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3600/tcp
+    sudo firewall-cmd --zone=public --add-port=3900/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3900/tcp
+    sudo firewall-cmd --zone=public --add-port=8100/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=8100/tcp
+    sudo firewall-cmd --zone=public --add-port=50013/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50013/tcp
+    sudo firewall-cmd --zone=public --add-port=50014/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50014/tcp
+    sudo firewall-cmd --zone=public --add-port=50016/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50016/tcp
    
-   # Probe Port of ERS
-   sudo firewall-cmd --zone=public --add-port=62101/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62101/tcp
-   sudo firewall-cmd --zone=public --add-port=3201/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3201/tcp
-   sudo firewall-cmd --zone=public --add-port=3301/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3301/tcp
-   sudo firewall-cmd --zone=public --add-port=50113/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50113/tcp
-   sudo firewall-cmd --zone=public --add-port=50114/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50114/tcp
-   sudo firewall-cmd --zone=public --add-port=50116/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=50116/tcp
-   ```
+    # Probe Port of ERS
+    sudo firewall-cmd --zone=public --add-port=62101/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=62101/tcp
+    sudo firewall-cmd --zone=public --add-port=3201/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3201/tcp
+    sudo firewall-cmd --zone=public --add-port=3301/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=3301/tcp
+    sudo firewall-cmd --zone=public --add-port=50113/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50113/tcp
+    sudo firewall-cmd --zone=public --add-port=50114/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50114/tcp
+    sudo firewall-cmd --zone=public --add-port=50116/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=50116/tcp
+    ```
 
 ## SAP NetWeaver application server preparation
 
@@ -953,310 +965,7 @@ Follow these steps to install an SAP application server.
 
 ## Test the cluster setup
 
-1. Manually migrate the ASCS instance
-
-   Resource state before starting the test:
-
-   ```bash
-    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following commands as root to migrate the ASCS instance.
-
-   ```bash
-   [root@anftstsapcl1 ~]# pcs resource move rsc_sap_QAS_ASCS00
-   
-   [root@anftstsapcl1 ~]# pcs resource clear rsc_sap_QAS_ASCS00
-   
-   # Remove failed actions for the ERS that occurred as part of the migration
-   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-1. Simulate node crash
-
-   Resource state before starting the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following command as root on the node where the ASCS instance is running
-
-   ```bash
-   [root@anftstsapcl2 ~]# echo b > /proc/sysrq-trigger
-   ```
-
-   The status after the node is started again should look like this.
-
-   ```text
-   Online: [ anftstsapcl1 anftstsapcl2 ]
-   
-   Full list of resources:
-   
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   
-   Failed Actions:
-   * rsc_sap_QAS_ERS01_monitor_11000 on anftstsapcl1 'not running' (7): call=45, status=complete, exitreason='',
-   ```
-
-   Use the following command to clean the failed resources.
-
-   ```bash
-   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-1. Kill message server process
-
-   Resource state before starting the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following commands as root to identify the process of the message server and kill it.
-
-   ```bash
-   [root@anftstsapcl1 ~]# pgrep -f ms.sapQAS | xargs kill -9
-   ```
-
-   If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
-
-   ```bash
-   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
-   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-1. Kill enqueue server process
-
-   Resource state before starting the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
-
-   ```bash
-   #If using ENSA1
-   [root@anftstsapcl2 ~]# pgrep -f en.sapQAS | xargs kill -9
-   
-   #If using ENSA2
-   [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
-   ```
-
-   The ASCS instance should immediately fail over to the other node, in the case of ENSA1. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
-
-   ```bash
-   [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
-   [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-1. Kill enqueue replication server process
-
-   Resource state before starting the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
-
-   ```bash
-   #If using ENSA1
-   [root@anftstsapcl2 ~]# pgrep -f er.sapQAS | xargs kill -9
-   
-   #If using ENSA2
-   [root@anftstsapcl2 ~]# pgrep -f enqr.sapQAS | xargs kill -9
-   ```
-
-   If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process, and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
-
-   ```bash
-   [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-1. Kill enqueue sapstartsrv process
-
-   Resource state before starting the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following commands as root on the node where the ASCS is running.
-
-   ```bash
-   [root@anftstsapcl1 ~]# pgrep -fl ASCS00.*sapstartsrv
-   # 59545 sapstartsrv
-   
-   [root@anftstsapcl1 ~]# kill -9 59545
-   ```
-
-   The sapstartsrv process should always be restarted by the Pacemaker resource agent as part of the monitoring. Resource state after the test:
-
-   ```text
-   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-    Resource Group: g-QAS_AERS
-        fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
+Thoroughly test your Pacemaker cluster. [Execute the typical failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).
 
 ## Next steps
 

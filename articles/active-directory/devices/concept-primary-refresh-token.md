@@ -158,6 +158,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 > [!NOTE]
 > In Azure AD joined devices, Azure AD PRT issuance (steps A-F) happens synchronously before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is able to login hybrid Azure AD joined Windows after they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
 
+> [!NOTE]
+> In a Hybrid Azure AD joined Windows environment, the issuance of the PRT occurs asynchronously. The issuance of the PRT may fail due to issues with the federation provider. This failure can result in sign on issues when users try to access cloud resources. It is important to troubleshoot this scenario with the federation provider.
+
 | Step | Description |
 | :---: | --- |
 | A | User enters their password in the sign in UI. LogonUI passes the credentials in an auth buffer to LSA, which in turns passes it internally to CloudAP. CloudAP forwards this request to the CloudAP plugin. |

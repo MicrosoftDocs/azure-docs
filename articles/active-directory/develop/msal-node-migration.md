@@ -71,7 +71,7 @@ const pca = new msal.PublicClientApplication({
 ```
 
 > [!NOTE]
-> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any Azure AD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations` instead.
+> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Microsoft Entra organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any Microsoft Entra account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations` instead.
 
 On the other hand, if you're building a web app or a daemon app, you instantiate a `ConfidentialClientApplication` object. With such apps you also need to supply a *client credential*, such as a client secret or a certificate:
 
@@ -152,7 +152,7 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 | `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
 | N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](./v2-oauth2-on-behalf-of-flow.md) |
 | `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
-| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./active-directory-v2-protocols.md#endpoints) URL construction |
+| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./v2-protocols.md#endpoints) URL construction |
 
 ## Use scopes instead of resources
 
@@ -295,7 +295,7 @@ const msalTokenCache = publicClientApplication.getTokenCache();
 
 Importantly, your previous token cache with ADAL Node won't be transferable to MSAL Node, since cache schemas are incompatible. However, you may use the valid refresh tokens your app obtained previously with ADAL Node in MSAL Node. See the section on [refresh tokens](#remove-logic-around-refresh-tokens) for more.
 
-You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](https://azuread.github.io/microsoft-authentication-library-for-js/ref/interfaces/_azure_msal_common.icacheplugin.html). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
+You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](/javascript/api/@azure/msal-node/icacheplugin). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
 
 ```javascript
 const msal = require('@azure/msal-node');

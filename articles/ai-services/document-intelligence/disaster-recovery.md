@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery guidance for Azure AI Document Intelligence
+title: Disaster recovery guidance - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Learn how to use the copy model API to back up your Document Intelligence resources.
 author: laujan

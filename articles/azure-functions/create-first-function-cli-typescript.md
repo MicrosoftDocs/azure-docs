@@ -24,13 +24,6 @@ Before you begin, you must have the following prerequisites:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="nodejs-model-v3" 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
-::: zone-end
-::: zone pivot="nodejs-model-v4" 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5095 or above
-::: zone-end
-
 + One of the following tools for creating Azure resources:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
@@ -46,40 +39,11 @@ Before you begin, you must have the following prerequisites:
 + [TypeScript](https://www.typescriptlang.org/) version 4+.
 ::: zone-end
 
-
-### Prerequisite check
-
-Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
-
-# [Azure CLI](#tab/azure-cli)
-
-::: zone pivot="nodejs-model-v3" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-::: zone-end
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
++ Make sure you install version v4.0.5095 of the Core Tools, or a later version.  
 ::: zone-end
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-::: zone pivot="nodejs-model-v3" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-::: zone-end
-
-::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
-::: zone-end
-
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
-
-+ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
-
----
 
 ## Create a local function project
 

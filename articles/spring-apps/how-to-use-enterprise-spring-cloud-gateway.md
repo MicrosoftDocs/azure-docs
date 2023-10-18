@@ -29,16 +29,12 @@ Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes.
+To integrate with [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes.
 
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
-- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
 ## Configure routes
 
@@ -104,7 +100,7 @@ The following table lists the route definitions. All the properties are optional
 | title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                    |
 | description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                              |
 | uri         | The full URI, which overrides the name of app that the requests route to.                                                                                                          |
-| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
+| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
 | predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-predicates). |
 | filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-filters).          |
@@ -210,34 +206,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
 The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes many built-in filters for use in Gateway routes. Spring Cloud Gateway provides many custom filters in addition to the filters included in the OSS project.
 
-### Use filters included in Spring Cloud Gateway OSS
-
-You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kubernetes. Spring Cloud Gateway OSS includes many `GatewayFilter` factories that are used to create filters for routes. For a complete list of these factories, see the [GatewayFilter Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories) section in the Spring Cloud Gateway documentation.
-
-### Use commercial filters
-
-For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
-
-The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
-
-Start with the following resource definition in YAML:
-
-```yml
-apiVersion: "tanzu.vmware.com/v1"
-kind: SpringCloudGatewayRouteConfig
-metadata:
-  name: my-gateway-routes
-spec:
-  service:
-    name: myapp
-  routes:
-  - predicates:
-      - Path=/api/**
-    filters:
-      - AddRequestHeadersIfNotPresent=Content-Type:application/json,Connection:keep-alive
-```
-
-Then, convert `spec.routes` into the following JSON format:
+The following example shows how to apply the `AddRequestHeadersIfNotPresent` filter to a route:
 
 ```json
 [
@@ -263,6 +232,8 @@ az spring gateway route-config create \
     --app <app-name>
     --routes-file <json-file-with-routes>
 ```
+
+For more information on available route filters, see [How to use VMware Spring Cloud Gateway Route Filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md).
 
 ## Next steps
 

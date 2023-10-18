@@ -1,5 +1,5 @@
 ---
-title: 'What is identity lifecycle management with Azure Active Directory?'
+title: 'What is identity lifecycle management with Microsoft Entra ID?'
 description: Describes overview of identity lifecycle management.
 services: active-directory
 author: billmath
@@ -47,19 +47,21 @@ When planning identity lifecycle management for employees, or other individuals 
 - Move - when an individual moves between boundaries that require additional access authorizations to be added or removed to their digital identity
 - Leave - when an individual leaves the scope of needing access, access may need to be removed, and subsequently the identity may no longer be required by applications other than for audit or forensics purposes
 
-So for example, if a new employee joins your organization and that employee has never been affiliated with your organization before, that employee will require a new digital identity, represented as a user account in Azure AD. The creation of this account would fall into a "Joiner" process, which could be automated if there was a system of record such as Workday that could indicate when the new employee starts work.  Later, if your organization has an employee move from say, Sales to Marketing, they would fall into a "Mover" process.  This move would require removing the access rights they had in the Sales organization, which they no longer require, and granting them rights in the Marketing organization that they new require.
+So for example, if a new employee joins your organization and that employee has never been affiliated with your organization before, that employee will require a new digital identity, represented as a user account in Microsoft Entra ID. The creation of this account would fall into a "Joiner" process, which could be automated if there was a system of record such as Workday that could indicate when the new employee starts work.  Later, if your organization has an employee move from say, Sales to Marketing, they would fall into a "Mover" process.  This move would require removing the access rights they had in the Sales organization, which they no longer require, and granting them rights in the Marketing organization that they new require.
 
 ## Identity lifecycle management for guests
 
-Similar processes are also needed for guests and other users.  Microsoft Entra entitlement management utilizes Azure AD business-to-business (B2B) to provide the lifecycle controls needed to collaborate with people outside your organization who require access to your organization's resources. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.  Entitlement management enables individuals outside your organization to request access, creating a digital identity for them as needed. These digital identities are automatically removed when the user loses access.  
+Similar processes are also needed for guests and other users.  Microsoft Entra entitlement management utilizes Microsoft Entra business-to-business (B2B) to provide the lifecycle controls needed to collaborate with people outside your organization who require access to your organization's resources. With Microsoft Entra B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.  Entitlement management enables individuals outside your organization to request access, creating a digital identity for them as needed. These digital identities are automatically removed when the user loses access.  
 
-## How does Azure AD automate identity lifecycle management?
+<a name='how-does-azure-ad-automate-identity-lifecycle-management'></a>
 
-Azure AD currently provides these features:
+## How does Microsoft Entra ID automate identity lifecycle management?
 
-* Users representing employees can be automatically created and updated in Azure AD and Active Directory using [HR-driven provisioning](../app-provisioning/what-is-hr-driven-provisioning.md)
-* Users already present in Active Directory can be automatically created and maintained in Azure AD using [inter-directory provisioning](../hybrid/what-is-inter-directory-provisioning.md)
-* Users can be automatically assigned to groups based on their properties, using [dynamic groups](../external-identities/use-dynamic-groups.md#what-are-dynamic-groups) and can, upon request, be assigned to groups, Teams, Azure AD roles, Azure resource roles, and SharePoint Online sites, using [entitlement management](entitlement-management-scenarios.md) and [Privileged Identity Management](../privileged-identity-management/pim-configure.md)
+Microsoft Entra ID currently provides these features:
+
+* Users representing employees can be automatically created and updated in Microsoft Entra ID and Active Directory using [HR-driven provisioning](../app-provisioning/what-is-hr-driven-provisioning.md)
+* Users already present in Active Directory can be automatically created and maintained in Microsoft Entra ID using [inter-directory provisioning](../hybrid/what-is-inter-directory-provisioning.md)
+* Users can be automatically assigned to groups based on their properties, using [dynamic groups](../external-identities/use-dynamic-groups.md#what-are-dynamic-groups) and can, upon request, be assigned to groups, Teams, Microsoft Entra roles, Azure resource roles, and SharePoint Online sites, using [entitlement management](entitlement-management-scenarios.md) and [Privileged Identity Management](../privileged-identity-management/pim-configure.md)
 * Updates to users can be automatically sent to more applications using [app provisioning](../app-provisioning/user-provisioning.md)
 
 ## Next steps 

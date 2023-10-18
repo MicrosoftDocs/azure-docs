@@ -53,7 +53,7 @@ The **401** response may contain more than one `www-authenticate` header. All fi
 
 ## Claims request
 
-When an application receives a claims challenge, it indicates that the prior access token is no longer considered valid. In this scenario, the application should clear the token from any local cache or user session. Then, it should redirect the signed-in user back to Azure Active Directory (Azure AD) to retrieve a new token by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) with a *claims* parameter that will satisfy the additional requirements that were not met.
+When an application receives a claims challenge, it indicates that the prior access token is no longer considered valid. In this scenario, the application should clear the token from any local cache or user session. Then, it should redirect the signed-in user back to Microsoft Entra ID to retrieve a new token by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) with a *claims* parameter that will satisfy the additional requirements that were not met.
 
 Here's an example:
 
@@ -69,7 +69,7 @@ GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth
 &claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
 ```
 
-The claims challenge should be passed as a part of all calls to Azure AD's [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) endpoint until a token is successfully retrieved, after which it is no longer needed.
+The claims challenge should be passed as a part of all calls to a Microsoft Entra [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) endpoint until a token is successfully retrieved, after which it is no longer needed.
 
 To populate the claims parameter, the developer has to:
 
@@ -84,11 +84,13 @@ Client capabilities help a resources provider like a Web API detect whether the 
 
 Some popular applications like [Microsoft Graph](/graph/overview) send claims challenges only if the calling client app declares that it's capable of handling them by using *client capabilities*.
 
-To avoid extra traffic or impacts to user experience, Azure AD does not assume that your app can handle claims challenged unless you explicitly opt in. An application will not receive claims challenges (and will not be able to use the related features such as CAE tokens) unless it declares it is ready to handle them with the "cp1" capability.
+To avoid extra traffic or impacts to user experience, Microsoft Entra ID does not assume that your app can handle claims challenged unless you explicitly opt in. An application will not receive claims challenges (and will not be able to use the related features such as CAE tokens) unless it declares it is ready to handle them with the "cp1" capability.
 
-### How to communicate client capabilities to Azure AD
+<a name='how-to-communicate-client-capabilities-to-azure-ad'></a>
 
-The following example claims parameter shows how a client application communicates its capability to Azure AD in an [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+### How to communicate client capabilities to Microsoft Entra ID
+
+The following example claims parameter shows how a client application communicates its capability to Microsoft Entra ID in an [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 ```json
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
@@ -135,7 +137,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 ---
 
-An example of how the request to Azure AD will look like:
+An example of how the request to Microsoft Entra ID will look like:
 
 ```https
 GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth2/v2.0/authorize
@@ -167,7 +169,7 @@ You would prepend the client capability in the existing **claims** payload.
 
 To receive information about whether client applications can handle claims challenges, an API implementer must request **xms_cc** as an optional claim in its application manifest.
 
-The **xms_cc** claim with a value of "cp1" in the access token is the authoritative way to identify a client application is capable of handling a claims challenge. **xms_cc** is an optional claim that will not always be issued in the access token, even if the client sends a claims request with "xms_cc". In order for an access token to contain the **xms_cc** claim, the resource application (that is, the API implementer) must request xms_cc as an [optional claim](active-directory-optional-claims.md) in its application manifest. When requested as an optional claim, **xms_cc** will be added to the access token only if the client application sends **xms_cc** in the claims request. The value of the **xms_cc** claim request will be included as the value of the **xms_cc** claim in the access token, if it is a known value. The only currently known value is **cp1**.
+The **xms_cc** claim with a value of "cp1" in the access token is the authoritative way to identify a client application is capable of handling a claims challenge. **xms_cc** is an optional claim that will not always be issued in the access token, even if the client sends a claims request with "xms_cc". In order for an access token to contain the **xms_cc** claim, the resource application (that is, the API implementer) must request xms_cc as an [optional claim](./optional-claims.md) in its application manifest. When requested as an optional claim, **xms_cc** will be added to the access token only if the client application sends **xms_cc** in the claims request. The value of the **xms_cc** claim request will be included as the value of the **xms_cc** claim in the access token, if it is a known value. The only currently known value is **cp1**.
 
 The values are not case-sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
 
@@ -185,7 +187,7 @@ will result in a claim of
 
 in the access token, if **cp1**, **foo** and **bar** are known capabilities.
 
-This is how the app's manifest looks like after the **xms_cc** [optional claim](active-directory-optional-claims.md) has been requested
+This is how the app's manifest looks like after the **xms_cc** [optional claim](./optional-claims.md) has been requested
 
 ```c#
 "optionalClaims":

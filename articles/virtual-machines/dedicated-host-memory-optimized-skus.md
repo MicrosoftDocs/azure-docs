@@ -452,10 +452,11 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |----------------|-----------------|---------------|---------------|-------|
 | 224            | 416             | 11,400 GiB    | M208ms v2     | 2     |
 |                |                 |               | M208s  v2     | 2     |
-|                |                 |               | M416-208ms v2 | 1     | 
-|                |                 |               | M416-208s v2  | 1     | 
-|                |                 |               | M416ms v2     | 1     |  
-|                |                 |               | M416s v2      | 1     |  
+|                |                 |               | M416-208ms v2 | 1     |
+|                |                 |               | M416-208s v2  | 1     |
+||||M416ms v2|1|
+|                |                 |               | M416s-8 v2     | 1     |
+|                |                 |               | M416s v2      | 1     |
 
 ### Msv2-Type1
 
@@ -475,3 +476,4 @@ The following packing configuration outlines the max packing of uniform VMs you 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
+

@@ -70,7 +70,7 @@ The following screenshot shows a map of Newark, New Jersey, from 1922 overlaid u
 
 ## Import a KML file as ground overlay
 
-This sample demonstrates how to add KML ground overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates, and a counter-clockwise rotation. But, the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is for the Chartres cathedral, and it's sourced from [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+This sample demonstrates how to add KML ground overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates, and a counter-clockwise rotation. But, the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is for the Chartres cathedral, and it's sourced from [Wikimedia].
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -124,4 +124,7 @@ The following screenshot shows a map with a KML ground overlay overlaid using an
 
 See the following article to learn more about ways to overlay imagery on a map.
 
-* [Add a tile layer](add-tile-layer-map-ios.md)
+* [Add a tile layer]
+
+[Wikimedia]: https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml
+[Add a tile layer]: add-tile-layer-map-ios.md

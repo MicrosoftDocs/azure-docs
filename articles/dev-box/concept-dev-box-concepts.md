@@ -54,3 +54,15 @@ The virtual network specified in a network connection also determines the region
 ## Dev box pool
 
 A dev box pool is a collection of dev boxes that you manage together and to which you apply similar settings. You can create multiple dev box pools to support the needs of hybrid teams that work in different regions or on different workloads.
+
+## Resources shared with Azure Deployment Environments
+
+Microsoft Dev Box and Azure Deployment Environments are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
+
+To learn more about the components common to Deployment Environments and Dev Box, see [Components common to Microsoft Dev Box and Azure Deployment Environments](concept-common-components.md).
+
+## Related content
+
+- [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
+- [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+- [What is Azure Deployment Environments?](../deployment-environments/overview-what-is-azure-deployment-environments.md)

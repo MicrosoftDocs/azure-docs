@@ -5,6 +5,7 @@ services: active-directory
 author: martincoetzer
 manager: travisgr
 tags: azuread
+ms.custom: has-azure-ad-ps-ref
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
@@ -13,12 +14,12 @@ ms.date: 01/29/2023
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
-# Create a resilient access control management strategy with Azure Active Directory
+# Create a resilient access control management strategy with Microsoft Entra ID
 
 >[!NOTE]
 > The information contained in this document represents the current view of Microsoft Corporation on the issues discussed as of the date of publication. Because Microsoft must respond to changing market conditions, it should not be interpreted to be a commitment on the part of Microsoft, and Microsoft cannot guarantee the accuracy of any information presented after the date of publication.
 
-Organizations that rely on a single access control, such as multi-factor authentication (MFA) or a single network location, to secure their IT systems are susceptible to access failures to their apps and resources if that single access control becomes unavailable or misconfigured. For example, a natural disaster can result in the unavailability of large segments of telecommunications infrastructure or corporate networks. Such a disruption could prevent end users and administrators from being able to sign in.
+Organizations that rely on a single access control, such as multifactor authentication or a single network location, to secure their IT systems are susceptible to access failures to their apps and resources if that single access control becomes unavailable or misconfigured. For example, a natural disaster can result in the unavailability of large segments of telecommunications infrastructure or corporate networks. Such a disruption could prevent end users and administrators from being able to sign in.
 
 This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions with the following scenarios:
 
@@ -49,7 +50,7 @@ Mitigating an actual disruption must be an organization’s primary focus in dea
 
 ### Administrator lockout contingency
 
-To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Azure AD configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations]( ../users-groups-roles/directory-emergency-access.md).
+To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Microsoft Entra configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations](../users-groups-roles/directory-emergency-access.md).
 
 ### Mitigating user lockout
 
@@ -59,14 +60,14 @@ To unlock admin access to your tenant, you should create emergency access accoun
 
 Incorporate the following access controls in your existing Conditional Access policies for organization:
 
-- Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Azure AD MFA authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+- Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Microsoft Entra multifactor authentication authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 - Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
-- Use trusted devices via [Azure AD Hybrid Join](../devices/overview.md) or [Microsoft Intune](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
-- Use Azure AD identity protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
-- If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
+- Use trusted devices via [Microsoft Entra hybrid join](../devices/overview.md) or [Microsoft Intune](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
+- Use Microsoft Entra ID Protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
+- If you are protecting VPN access using Microsoft Entra multifactor authentication NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
 >[!NOTE]
-> Risk-based policies require [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
+> Risk-based policies require [Microsoft Entra ID P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
 
 The following example describes policies you must create to provide a resilient access control for user to access their apps and resources. In this example, you will require a security group **AppUsers** with the target users you want to give access to, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
 This example policy set will grant selected users in **AppUsers**, access to selected apps if they are connecting from a trusted device OR provide strong authentication, for example MFA. It excludes emergency accounts and core administrators.
@@ -82,7 +83,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
   * Users and Groups: Include AppUsers. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Include all apps
   * Conditions: (None)
-  * Grant Control: Grant access, require multi-factor authentication, require device to be compliant. For multiple controls: Require one of the selected controls.
+  * Grant Control: Grant access, require multifactor authentication, require device to be compliant. For multiple controls: Require one of the selected controls.
 
 ### Contingencies for user lockout
 
@@ -106,14 +107,14 @@ Alternatively, your organization can also create contingency policies. To create
 
 #### Microsoft recommendations
 
-A contingency Conditional Access policy is a **backup policy** that omits Azure AD MFA, third-party MFA, risk-based or device-based controls. In order to minimize unexpected disruption when a contingency policy is enabled, the policy should remain in report-only mode when not in use. Administrators can monitor the potential impact of their contingency policies using the Conditional Access Insights workbook. When your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
+A contingency Conditional Access policy is a **backup policy** that omits Microsoft Entra multifactor authentication, third-party MFA, risk-based or device-based controls. In order to minimize unexpected disruption when a contingency policy is enabled, the policy should remain in report-only mode when not in use. Administrators can monitor the potential impact of their contingency policies using the Conditional Access Insights workbook. When your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
 
 >[!IMPORTANT]
 > Disabling policies that enforce security on your users, even temporarily, will reduce your security posture while the contingency plan is in place.
 
 * Configure a set of fallback policies if a disruption in one credential type or one access control mechanism impacts access to your apps. Configure a policy in report-only state that requires Domain Join as a control, as a backup for an active policy that requires a third-party MFA provider.
 * Reduce the risk of bad actors guessing passwords, when MFA is not required, by following the practices in the [password guidance](https://aka.ms/passwordguidance) white paper.
-* Deploy [Azure AD Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) and [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) to make sure users don’t use common password and terms you choose to ban.
+* Deploy [Microsoft Entra Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) and [Microsoft Entra Password Protection](./howto-password-ban-bad-on-premises-deploy.md) to make sure users don’t use common password and terms you choose to ban.
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
   * If your organization uses Microsoft Defender for Cloud Apps, consider falling back to a policy that engages Defender for Cloud Apps and then allow read-only access but not uploads.
@@ -132,12 +133,12 @@ This naming standard for the contingency policies will be as follows:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-The following example: **Example A - Contingency Conditional Access policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure AD MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
+The following example: **Example A - Contingency Conditional Access policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Microsoft Entra multifactor authentication, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 
 **Example A - Contingency Conditional Access policies to restore Access to mission-critical Collaboration Apps:**
 
 * Policy 1: Require Domain Joined devices for Exchange and SharePoint
-  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
+  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Microsoft Entra hybrid join
   * Users and Groups: Include ContingencyAccess. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Any
@@ -174,7 +175,7 @@ Order of activation:
 5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
 6. Disable the existing MFA policy for SharePoint Online and Exchange Online.
 
-In this next example, **Example B - Contingency Conditional Access policies to allow mobile access to Salesforce**, a business app’s access is restored. In this scenario, the customer typically requires their sales employees access to Salesforce (configured for single-sign on with Azure AD) from mobile devices to only be allowed from compliant devices. The disruption in this case is that there is an issue with evaluating device compliance and the outage is happening at a sensitive time where the sales team needs access to Salesforce to close deals. These contingency policies will grant critical users access to Salesforce from a mobile device so that they can continue to close deals and not disrupt the business. In this example, **SalesforceContingency** contains all the Sales employees who need to retain access and **SalesAdmins** contains necessary admins of Salesforce.
+In this next example, **Example B - Contingency Conditional Access policies to allow mobile access to Salesforce**, a business app’s access is restored. In this scenario, the customer typically requires their sales employees access to Salesforce (configured for single-sign on with Microsoft Entra ID) from mobile devices to only be allowed from compliant devices. The disruption in this case is that there is an issue with evaluating device compliance and the outage is happening at a sensitive time where the sales team needs access to Salesforce to close deals. These contingency policies will grant critical users access to Salesforce from a mobile device so that they can continue to close deals and not disrupt the business. In this example, **SalesforceContingency** contains all the Sales employees who need to retain access and **SalesAdmins** contains necessary admins of Salesforce.
 
 **Example B - Contingency Conditional Access policies:**
 
@@ -202,9 +203,9 @@ Order of activation:
 
 ### Contingencies for user lockout from on-prem resources (NPS extension)
 
-If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
+If you are protecting VPN access using Microsoft Entra multifactor authentication NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
-If you have deployed Azure AD MFA NPS extension to protect on-prem resources, such as VPN and Remote Desktop Gateway, with MFA - you should consider in advance if you are ready to disable MFA in a case of emergency.
+If you have deployed Microsoft Entra multifactor authentication NPS extension to protect on-prem resources, such as VPN and Remote Desktop Gateway, with MFA - you should consider in advance if you are ready to disable MFA in a case of emergency.
 
 In this case, you can disable the NPS extension, as a result, the NPS server will only verify primary authentication and will not enforce MFA on the users.
 
@@ -227,10 +228,10 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](../hybrid/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/plan-connect-user-signin.md) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](../hybrid/connect/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/connect/plan-connect-user-signin.md) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
- Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.
+ Enable password hash sync using the Microsoft Entra Connect wizard, regardless whether your organization uses federation or pass-through authentication.
 
 >[!IMPORTANT]
 > It is not required to convert users from federated to managed authentication to use password hash sync.
@@ -274,17 +275,17 @@ Undo the changes you made as part of the activated contingency plan once the ser
  > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
 
 >[!NOTE]
- > Configuring [trusted IPs](./howto-mfa-mfasettings.md) for Azure AD MFA is only available with [Azure AD Premium licenses](./concept-mfa-licensing.md).
+ > Configuring [trusted IPs](./howto-mfa-mfasettings.md) for Microsoft Entra multifactor authentication is only available with [Microsoft Entra ID P1 or P2 licenses](./concept-mfa-licensing.md).
 
 ## Learn more
 
-* [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
-* [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
-* [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
+* [Microsoft Entra authentication Documentation](./howto-mfaserver-iis.md)
+* [Manage emergency-access administrative accounts in Microsoft Entra ID](../roles/security-emergency-access.md)
+* [Configure named locations in Microsoft Entra ID](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
-* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md)
+* [How to configure Microsoft Entra hybrid joined devices](../devices/hybrid-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md)
-* [What are access controls in Azure Active Directory Conditional Access?](../conditional-access/controls.md)
+* [What are conditions in Microsoft Entra Conditional Access?](../conditional-access/concept-conditional-access-conditions.md)
+* [What are access controls in Microsoft Entra Conditional Access?](../conditional-access/controls.md)
 * [What is Conditional Access report-only mode?](../conditional-access/concept-conditional-access-report-only.md)

@@ -82,25 +82,16 @@ sudo reboot
 
 With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
 
-1. Find latest NVIDIA driver version compatible with Azure
-   
-   ```
+1. Install pre-built Azure Linux kernel based NVIDIA modules and CUDA drivers
+
+   ```bash
    sudo apt-get update
+   sudo apt install -y linux-modules-nvidia-525-azure nvidia-driver-525
    ```
 
-   ```
-   NVIDIA_DRIVER_VERSION=$(sudo apt-cache search 'linux-modules-nvidia-[0-9]+-azure$' | awk '{print $1}' | sort | tail -n 1 | head -n 1 | awk -F"-" '{print $4}')
-   ```
+2. Change preference of NVIDIA packages to prefer NVIDIA repository
 
-2. Install pre-built Azure Linux kernel based NVIDIA modules and driver
-
-   ```
-   sudo apt install -y linux-modules-nvidia-${NVIDIA_DRIVER_VERSION}-azure nvidia-driver-${NVIDIA_DRIVER_VERSION}
-   ```
-
-3. Change preference of NVIDIA packages to prefer NVIDIA repository
-
-   ```
+   ```bash
    sudo tee /etc/apt/preferences.d/cuda-repository-pin-600 > /dev/null <<EOL
    Package: nsight-compute
    Pin: origin *ubuntu.com*
@@ -120,13 +111,13 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    EOL
    ```
 
-4. Add CUDA repository
+3. Add CUDA repository
 
-   ```
+   ```bash
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
    ```
 
-   ```
+   ```bash
    sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/ /"
    ```
    
@@ -141,32 +132,26 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    
    If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common` to install it.
 
-5. Install the kernel headers and development packages, and remove outdated signing key
+4. Install kernel headers and development packages, and remove outdated signing key
 
-   ```
+   ```bash
    sudo apt-get install linux-headers-$(uname -r)
    sudo apt-key del 7fa2af80
    ```
 
-6. Install the new cuda-keyring package
+5. Install the new cuda-keyring package
 
-   ```
+   ```bash
    wget https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/cuda-keyring_1.1-1_all.deb
    sudo dpkg -i cuda-keyring_1.1-1_all.deb
    ```
 
    Note: When prompt on different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
-
-7. Update the APT repository cache
-
-   ```
-   sudo apt-get update
-   ```
    
-8. Install CUDA toolkit and driver
+6. Update APT repository cache and install NVIDIA GPUDirect Storage
 
-   ```
-   sudo apt-get install -y cuda
+   ```bash
+   sudo apt-get update
    sudo apt-get install -y nvidia-gds
    ```
 
@@ -174,29 +159,18 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
    ![Secure Boot Password Configuration](./media/n-series-driver-setup/secure-boot-passwd.png)
 
-9. Reboot the VM
+7. Reboot the VM
 
-   ```
+   ```bash
    sudo reboot
    ```
 
-10. Verify the installation
+8. Verify NVIDIA CUDA drivers are installed and loaded
     
-    a. Verify NVIDIA driver is installed and loaded
-    
-    ```
-    dpkg -l | grep -i nvidia
-    nvidia-smi
-    ```
-
-    b. Verify CUDA toolkit is installed and loaded
-
-    ```
-    dpkg -l | grep -i cuda
-    export PATH=/usr/local/cuda/bin:$PATH
-    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-    nvcc --version
-    ```
+   ```bash
+   dpkg -l | grep -i nvidia
+   nvidia-smi
+   ```
 
 
 ### CentOS or Red Hat Enterprise Linux

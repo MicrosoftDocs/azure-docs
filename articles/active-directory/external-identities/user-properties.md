@@ -10,10 +10,9 @@ ms.date: 05/18/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
-
-# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption. 
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption.
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
@@ -80,7 +79,7 @@ This property indicates the relationship of the user to the host tenancy. This p
 This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
-> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
+> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType.
 
 Identities property value | Sign-in state
 --------------------- | -------------------------
@@ -91,6 +90,8 @@ google.com | This user has a Gmail account and has signed up by using self-servi
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
 mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
+
+Phone sign-in is not supported for external users. B2B accounts cannot use `phone`value as an identity provider. 
 
 ### Directory synced
 

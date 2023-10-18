@@ -5,7 +5,7 @@ description: Learn how to connect to a VM from a Windows computer by using Basti
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/08/2023
 ms.author: cherylmc
 ---
 
@@ -38,6 +38,8 @@ Verify that the following roles and ports are configured in order to connect to 
 The steps in the following sections help you connect to a VM from a Windows native client using the **az network bastion** command.
 
 ### <a name="connect-windows"></a>RDP to a Windows VM
+
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
 1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
 
@@ -131,6 +133,10 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 ### <a name="tunnel-IP"></a>Tunnel to a VM IP address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
+
+### Multi-connection tunnel
+
+[!INCLUDE [multi-connection tunnel](../../includes/bastion-native-connect-multi-tunnel.md)]
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 
-title: Sensitive operations report workbook in  Azure AD
+title: Sensitive operations report workbook in  Microsoft Entra ID
 description: Learn how to use the sensitive operations report workbook.
 services: active-directory
 author: shlipsey3
@@ -32,7 +32,7 @@ This article provides you with an overview of this workbook.
 
 This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise.
 
-If your organization is new to Azure monitor workbooks, you need to integrate your Azure AD sign-in and audit logs with Azure Monitor before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook won't contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Azure Active Directory. If you've previously integrated your Azure AD sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
+If your organization is new to Azure monitor workbooks, you need to integrate your Microsoft Entra sign-in and audit logs with Azure Monitor before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook won't contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Microsoft Entra ID. If you've previously integrated your Microsoft Entra sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
  
  
 
@@ -155,4 +155,4 @@ This paragraph lists the supported filters for each section.
 
 ## Next steps
 
-- [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md)
+- [How to use Microsoft Entra workbooks](howto-use-azure-monitor-workbooks.md)

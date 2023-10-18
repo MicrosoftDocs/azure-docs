@@ -1,6 +1,6 @@
 ---
-title: What is Azure Active Directory Identity Protection?
-description: Automation to detect, remediate, investigate, and analyze risk data with Azure AD Identity Protection
+title: What is Microsoft Entra ID Protection?
+description: Automation to detect, remediate, investigate, and analyze risk data with Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is Identity Protection?
 
-Azure AD Identity Protection helps organizations detect, investigate, and remediate identity-based risks. These identity-based risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation and correlation. 
+Microsoft Entra ID Protection helps organizations detect, investigate, and remediate identity-based risks. These identity-based risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation and correlation. 
 
 :::image type="content" source="media/overview-identity-protection/identity-protection-overview.png" alt-text="Diagram showing how Identity Protection works at a high level.":::
 
@@ -54,7 +54,7 @@ In the blog post *[Cyber Signals: Defending against cyber threats with the lat
 
 > Analyzed ...24 trillion security signals combined with intelligence we track by monitoring more than 40 nation-state groups and over 140 threat groups... 
 > 
-> ...From January 2021 through December 2021, we’ve blocked more than 25.6 billion Azure AD brute force authentication attacks... 
+> ...From January 2021 through December 2021, we’ve blocked more than 25.6 billion Microsoft Entra brute force authentication attacks... 
 
 The sheer scale of signals and attacks requires some level of automation just to keep up. 
 
@@ -68,11 +68,11 @@ When user remediation isn't enabled, an administrator must manually review them 
 
 ## Making use of the data
 
-Data from Identity Protection can be exported to other tools for archive, further investigation, and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md) 
+Data from Identity Protection can be exported to other tools for archive, further investigation, and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Microsoft Entra ID Protection and Microsoft Graph](howto-identity-protection-graph-api.md) 
 
-Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/data-connectors-reference.md#microsoft). 
+Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Microsoft Entra ID Protection](../../sentinel/data-connectors-reference.md#microsoft). 
 
-Organizations may store data for longer periods by changing the diagnostic settings in Azure AD. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to another solution. Detailed information about how to do so can be found in the article, [How To: Export risk data](howto-export-risk-data.md). 
+Organizations may store data for longer periods by changing the diagnostic settings in Microsoft Entra ID. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to another solution. Detailed information about how to do so can be found in the article, [How To: Export risk data](howto-export-risk-data.md). 
 
 ## Required roles
 
@@ -94,7 +94,7 @@ Conditional Access administrators can create policies that factor in user or sig
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capability | Details | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1 | Azure AD Premium P2 |
+| Capability | Details | Microsoft Entra ID Free / Microsoft 365 Apps | Microsoft Entra ID P1 | Microsoft Entra ID P2 |
 | --- | --- | --- | --- | --- |
 | Risk policies | Sign-in and user risk policies (via Identity Protection or Conditional Access) | No | No | Yes |
 | Security reports | Overview | No | No | Yes |

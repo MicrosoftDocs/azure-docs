@@ -48,7 +48,7 @@ Attackers who get control of privileged accounts can do tremendous damage, so it
 
 All set? Let's get started on the checklist.
 
-## Step 1 - Strengthen your credentials
+## Step 1: Strengthen your credentials
 
 Although other types of attacks are emerging, including consent phishing and attacks on nonhuman identities, password-based attacks on user identities are still the most prevalent vector of identity compromise. Well-established spear phishing and password spray campaigns by adversaries continue to be successful against organizations that haven’t yet implemented multi-factor authentication (MFA) or other protections against this common tactic. 
 
@@ -77,7 +77,7 @@ Passwords are never stored in clear text or encrypted with a reversible algorith
 
 Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection). 
 
-## Step 2 - Reduce your attack surface area
+## Step 2: Reduce your attack surface area
 
 Given the pervasiveness of password compromise, minimizing the attack surface in your organization is critical. Disabling the use of older, less secure protocols, limiting access entry points, moving to cloud authentication, and exercising more significant control of administrative access to resources and embracing Zero Trust security principles.
 
@@ -91,7 +91,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 We recommend the following actions:
 
-1. Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
+1. Discover legacy authentication in your organization with Azure AD sign-in logs and Log Analytics workbooks.
 1. Setup SharePoint Online and Exchange Online to use modern  authentication.
 1. If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
 1. Block legacy authentication if you use AD FS.
@@ -144,7 +144,7 @@ Make sure users can request admin approval for new applications to reduce user f
 
 For more information, see the article [Azure Active Directory consent framework](../../active-directory/develop/consent-framework.md).
 
-## Step 3 - Automate threat response
+## Step 3: Automate threat response
 
 Azure Active Directory has many capabilities that automatically intercept attacks, to remove the latency between detection and response. You can reduce the costs and risks, when you reduce the time criminals use to embed themselves into your environment. Here are the concrete steps you can take.
 
@@ -181,7 +181,7 @@ Learn more about Microsoft Threat Protection and the importance of integrating d
 
 Monitoring and auditing your logs is important to detect suspicious behavior. The Azure portal has several ways to integrate Azure AD logs with other tools, like Microsoft Sentinel, Azure Monitor, and other SIEM tools. For more information, see the [Azure Active Directory security operations guide](../../active-directory/fundamentals/security-operations-introduction.md#data-sources).
 
-## Step 4 - Utilize cloud intelligence
+## Step 4: Utilize cloud intelligence
 
 Auditing and logging of security-related events and related alerts are essential components of an efficient protection strategy. Security logs and reports provide you with an electronic record of suspicious activities and help you detect patterns that may indicate attempted or successful external penetration of the network, and internal attacks. You can use auditing to monitor user activity, document regulatory compliance, do forensic analysis, and more. Alerts provide notifications of security events. Make sure you have a log retention policy in place for both your sign-in logs and audit logs for Azure AD by exporting into Azure Monitor or a SIEM tool.
 
@@ -206,7 +206,7 @@ Microsoft Azure services and features provide you with configurable security aud
 
 Users can be tricked into navigating to a compromised web site or apps that will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users. In addition to auditing the permissions given by users, you can [locate risky or unwanted OAuth applications](/cloud-app-security/investigate-risky-oauth) in premium environments.
 
-## Step 5 - Enable end-user self-service
+## Step 5: Enable end-user self-service
 
 As much as possible you'll want to balance security with productivity. Approaching your journey with the mindset that you're setting a foundation for security, you can remove friction from your organization by empowering your users while remaining vigilant and reducing your operational overheads.
 

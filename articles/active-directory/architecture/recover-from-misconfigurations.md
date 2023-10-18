@@ -1,5 +1,5 @@
 ---
-title: Recover from misconfigurations in Azure Active Directory
+title: Recover from misconfigurations in Microsoft Entra ID
 description: Learn how to recover from misconfigurations.
 services: active-directory
 author: janicericketts
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 # Recover from misconfiguration
 
-Configuration settings in Azure Active Directory (Azure AD) can affect any resource in the Azure AD tenant through targeted or tenant-wide management actions.
+Configuration settings in Microsoft Entra ID can affect any resource in the Microsoft Entra tenant through targeted or tenant-wide management actions.
 
 ## What is configuration?
 
-Configurations are any changes in Azure AD that alter the behavior or capabilities of an Azure AD service or feature. For example, when you configure a Conditional Access policy, you alter who can access the targeted applications and under what circumstances.
+Configurations are any changes in Microsoft Entra ID that alter the behavior or capabilities of a Microsoft Entra service or feature. For example, when you configure a Conditional Access policy, you alter who can access the targeted applications and under what circumstances.
 
 You need to understand the configuration items that are important to your organization. The following configurations have a high impact on your security posture.
 
@@ -51,9 +51,9 @@ The implementation of some tenant-wide configurations can be scoped, provided th
 
 Conditional Access policies are access control configurations that bring together signals to make decisions and enforce organizational policies.
 
-![Screenshot that shows user, location, device, application, and risk signals coming together in Conditional Access policies.](media\recoverability\miscofigurations-conditional-accss-signals.png)
+![Screenshot that shows user, location, device, application, and risk signals coming together in Conditional Access policies.](./media/recoverability/miscofigurations-conditional-accss-signals.png)
 
-To learn more about Conditional Access policies, see [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
+To learn more about Conditional Access policies, see [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md).
 
 > [!NOTE]
 > While configuration alters the behavior or capabilities of an object or policy, not all changes to an object are configuration. You can change the data or attributes associated with an item, like changing a user's address, without affecting the capabilities of that user object.
@@ -83,17 +83,17 @@ Misconfiguration is most likely to occur when:
 
 ## Prevent misconfiguration
 
-It's critical that alterations to the intended configuration of an Azure AD tenant are subject to robust change management processes, including:
+It's critical that alterations to the intended configuration of a Microsoft Entra tenant are subject to robust change management processes, including:
 
 * Documenting the change, including prior state and intended post-change state.
 * Using Privileged Identity Management (PIM) to ensure that administrators with intent to change must deliberately escalate their privileges to do so. To learn more about PIM, see [What is Privileged Identity Management?](../privileged-identity-management/pim-configure.md).
-* Using a strong approval workflow for changes, for example, requiring [approval of PIM escalation of privileges](../privileged-identity-management/azure-ad-pim-approval-workflow.md).
+* Using a strong approval workflow for changes, for example, requiring [approval of PIM escalation of privileges](../privileged-identity-management/pim-approval-workflow.md).
 
 ## Monitor for configuration changes
 
 While you want to prevent misconfiguration, you can't set the bar for changes so high that it affects the ability of administrators to perform their work efficiently.
 
-Closely monitor for configuration changes by watching for the following operations in your [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md):
+Closely monitor for configuration changes by watching for the following operations in your [Microsoft Entra audit log](../reports-monitoring/concept-audit-logs.md):
 
 * Add
 * Create
@@ -120,8 +120,8 @@ User settings changes are made on the Azure portal **User settings** page. Passw
 | Service filter| Activities| Potential impacts |
 | - | - | - |
 | Core directory| Update company settings| Users might or might not be able to register applications, contrary to intent. |
-| Core directory| Set company information| Users might or might not be able to access the Azure AD administration portal, contrary to intent. <br>Sign-in pages don't represent the company brand, with potential damage to reputation. |
-| Core directory| **Activity**: Updated service principal<br>**Target**: 0365 LinkedIn connection| Users might or might not be able to connect their Azure AD account with LinkedIn, contrary to intent. |
+| Core directory| Set company information| Users might or might not be able to access the Microsoft Entra administration portal, contrary to intent. <br>Sign-in pages don't represent the company brand, with potential damage to reputation. |
+| Core directory| **Activity**: Updated service principal<br>**Target**: 0365 LinkedIn connection| Users might or might not be able to connect their Microsoft Entra account with LinkedIn, contrary to intent. |
 | Self-service group management| Update MyApps feature value| Users might or might not be able to use user features, contrary to intent. |
 | Self-service group management| Update ConvergedUXV2 feature value| Users might or might not be able to use user features, contrary to intent. |
 | Self-service group management| Update MyStaff feature value| Users might or might not be able to use user features, contrary to intent. |

@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications container kickstart deployment script reference | Microsoft Docs
 description: Description of command line options available with kickstart deployment script
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 05/24/2023
 ---
@@ -313,6 +313,14 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 **Required:** No
 
 **Explanation:** Containers, that cannot establish connection to Microsoft Azure services directly and require connection via a proxy server require `--http-proxy` switch to define proxy url for the container. Format of the proxy url is `http://hostname:port`.
+
+#### Host Based Networking
+
+**Parameter name:** `--hostnetwork`
+
+**Required:** No.
+
+**Explanation:** If this switch is specified, the agent will use host-based networking configuration. This can solve internal DNS resolution issues in some cases.
 
 #### Confirm all prompts
 

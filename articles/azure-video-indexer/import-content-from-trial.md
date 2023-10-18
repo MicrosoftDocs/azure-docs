@@ -3,8 +3,9 @@ title: Import your content from the trial account
 description: Learn how to import your content from the trial account.
 ms.topic: tutorial
 ms.date: 12/19/2022
-ms.author: itnorman
 ms.custom: ignite-fall-2021
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # Import content from your trial account to a regular account

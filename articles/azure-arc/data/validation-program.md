@@ -51,24 +51,24 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### HPE
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-|HPE Superdome Flex 280 | 1.23.5 | 1.15.0_2023-01-10 | 16.0.816.19223 |  14.5 (Ubuntu 20.04)|
+|HPE Superdome Flex 280 | 1.23.5 | 1.22.0_2023-08-08 | 16.0.5100.7242 |Not validated|
 |HPE Apollo 4200 Gen10 Plus | 1.22.6 | 1.11.0_2022-09-13 |16.0.312.4243|12.3 (Ubuntu 12.3-1)|
 
 ### Kublr
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
+|[Kublr 1.26.0](https://docs.kublr.com/releasenotes/1.26/release-1.26.0/)|1.26.4, 1.25.6, 1.24.13, 1.23.17, 1.22.17|1.21.0_2023-07-11|16.0.5100.7242|14.5 (Ubuntu 20.04)|
 |Kublr 1.21.2 | 1.22.10 | 1.9.0_2022-07-12 | 16.0.312.4243 |12.3 (Ubuntu 12.3-1) |
 
 ### Lenovo
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
 |Lenovo ThinkAgile MX1020 |1.24.6| 1.14.0_2022-12-13 |16.0.816.19223|Not validated|
-|Lenovo ThinkAgile MX3520 |AKS on Azure Stack HCI 21H2| 1.10.0_2022-08-09 |16.0.312.4243| 12.3 (Ubuntu 12.3-1)|
-
+|Lenovo ThinkAgile MX3520 |1.22.6| 1.10.0_2022-08-09 |16.0.312.4243| 12.3 (Ubuntu 12.3-1)|
 
 ### Nutanix
 
@@ -145,3 +145,5 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
 - [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
 - To create a directly connected data controller, start with [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).
+
+

@@ -17,12 +17,12 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In this tutorial, we'll be configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We will be leveraging Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
+In this tutorial, we are configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We are using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
 >[!IMPORTANT]
->Azure Communication Services doesn't provide a file storage service. You will need to use your own file storage service for sharing files. For the pupose of this tutorial, we will be using Azure Blob Storage.**
+>Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we are be using Azure Blob Storage.**
 >
-> This tutorial is about file sharing between ACS users in an ACS Chat. For file sharing in a Teams interoperability chat, see the documentation in the [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-filesharing--file-sharing).  Note that for Teams Interoperability chat, we only support ACS users to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
+> This tutorial is about file sharing between Azure Communication Services end user in an Azure Communication Services Chat. For file sharing in a Teams interoperability chat, see the documentation in our storybook for [Adding file sharing in Teams Interop Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example#in-teams-interop-meeting-chat-thread).  Note that for Teams Interoperability chat, we only support Azure Communication Services end user to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
 
 ## Download code
 
@@ -50,7 +50,7 @@ The UI Library Chat Composite supports file sharing by enabling developers to pa
 7. Ability to cancel an upload and remove an uploaded file before it is sent.
 8. View uploaded files in MessageThread, download them. Allows asynchronous downloads.
 
-The diagram below shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks that need to be implemented by developers.
+This diagram shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks that need to be implemented by developers.
 
 ![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the the file sharing typical flow.")
 
@@ -58,7 +58,7 @@ The diagram below shows a typical flow of a file sharing scenario for both uploa
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
-Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we will assume you have generated the function using the tutorial for Azure Blob Storage linked above.
+Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked above.
 
 ### Securing your Azure Blob Storage Container
 
@@ -68,11 +68,11 @@ For downloading the files you upload to Azure blob storage, you can use shared a
 
 The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md). 
 
-UI Library requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
+UI Library requires a React environment to be setup. Next we do that. If you already have a React App, you can skip this section.
 
 ### Set Up React App
 
-We'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
+We use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```bash
 
@@ -83,7 +83,7 @@ cd ui-library-quickstart-composites
 ```
 
 At the end of this process, you should have a full application inside of the folder `ui-library-quickstart-composites`.
-For this quickstart, we'll be modifying files inside of the `src` folder.
+For this quickstart, we are modifying files inside of the `src` folder.
 
 ### Install the Package
 
@@ -117,7 +117,7 @@ npm run start
 
 ## Configuring Chat Composite to enable File Sharing
 
-You will need to replace the variable values for both common variable required to initialize the chat composite.
+You need to replace the variable values for both common variable required to initialize the chat composite.
 
 `App.tsx`
 
@@ -205,7 +205,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   // You need to handle the file upload here and upload it to Azure Blob Storage.
-  // Below you can find snippets for how to configure the upload
+  // This is a code snippet for how to configure the upload
   // Optionally, you can also update the file upload progress.
   fileUpload.notifyUploadProgressChanged(0.2);
   return {
@@ -224,7 +224,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 
 ## Configure upload method to use Azure Blob Storage
 
-To enable Azure Blob Storage upload, we will modify the `uploadFileToAzureBlob` method we declared above with the following code. You will need to replace the Azure Function information below to enable to upload.
+To enable Azure Blob Storage upload, we need to modify the `uploadFileToAzureBlob` method we declared above with the following code. You need to replace the Azure Function information below to enable to upload.
 
 `App.tsx`
 
@@ -276,7 +276,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
 
 ## Error Handling
     
-When an upload fails, the UI Library Chat Composite will display an error message. 
+When an upload fails, the UI Library Chat Composite would display an error message. 
 
 ![File Upload Error Bar](./media/file-too-big.png "Screenshot that shows the File Upload Error Bar.")
 
@@ -300,7 +300,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 ## File Downloads - Advanced Usage
 
-By default, the file `url` provided through `notifyUploadCompleted` method will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we will modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
+By default, the file `url` provided through `notifyUploadCompleted` method need be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we need to modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
 
 `App.tsx`
 
@@ -313,7 +313,7 @@ const isUnauthorizedUser = (userId: string): boolean => {
 
 const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
   if (isUnauthorizedUser(userId)) {
-    // Error message will be displayed to the user.
+    // Error message to be displayed to the user.
     return { errorMessage: 'You don’t have permission to download this file.' };
   } else {
     // If this function returns a Promise that resolves a URL string, 
@@ -323,7 +323,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 }
 ```
 
-Download errors will be displayed to users in an error bar on top of the Chat Composite.
+Download error message shown in an error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 

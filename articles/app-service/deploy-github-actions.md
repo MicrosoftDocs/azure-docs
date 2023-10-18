@@ -5,6 +5,8 @@ ms.topic: article
 ms.date: 12/14/2021
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Deploy to App Service using GitHub Actions

@@ -10,14 +10,13 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 06/20/2023
 ms.author: mimart
-ms.custom: it-pro
-
+ms.custom: it-pro, has-azure-ad-ps-ref
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Add Facebook as an identity provider
 
-By setting up federation with Facebook, you can allow customers to sign in to your applications with their own Facebook accounts. After you've added Facebook as one of your application's sign-in options, on the sign-in page, customers can sign-in to Azure AD for customers with a Facebook account. (Learn more about [authentication methods and identity providers for customers](concept-authentication-methods-customers.md).)
+By setting up federation with Facebook, you can allow customers to sign in to your applications with their own Facebook accounts. After you've added Facebook as one of your application's sign-in options, on the sign-in page, customers can sign-in to Microsoft Entra ID for customers with a Facebook account. (Learn more about [authentication methods and identity providers for customers](concept-authentication-methods-customers.md).)
 
 ## Create a Facebook application
 
@@ -36,7 +35,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
     1. Enter a URL for the **Privacy Policy URL**, for example `https://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
     1. Enter a URL for the **Terms of Service URL**, for example `https://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **User Data Deletion**, for example `https://www.contoso.com/delete_my_data`. The User Data Deletion URL is a page you maintain to provide away for users to request that their data be deleted.
-    1. Choose a **Category**, for example `Business and pages`. Facebook requires this value, but it's not used by Azure AD.
+    1. Choose a **Category**, for example `Business and pages`. Facebook requires this value, but it's not used by Microsoft Entra ID.
 1. At the bottom of the page, select **Add platform**, select **Website**, and then select **Next**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save changes**.
@@ -48,16 +47,18 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
     - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oauth2`
     - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
-   > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
+   > To find your customer tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Browse to **Identity** > **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
 1. Select **Save changes** at the bottom of the page.
 1. At this point, only Facebook application owners can sign in. Because you registered the app, you can sign in with your Facebook account. To make your Facebook application available to your users, from the menu, select **Go live**. Follow all of the steps listed to complete all requirements. You'll likely need to complete the business verification to verify your identity as a business entity or organization. For more information, see [Meta App Development](https://developers.facebook.com/docs/development/release).
 
-## Configure Facebook federation in Azure AD for customers
+<a name='configure-facebook-federation-in-azure-ad-for-customers'></a>
 
-After you create the Facebook application, in this step you set the Facebook client ID and client secret in Azure AD. You can use the Azure portal or PowerShell to do so. To configure Facebook federation in the Microsoft Entra admin center, follow these steps:
+## Configure Facebook federation in Microsoft Entra ID for customers
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
-1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
+After you create the Facebook application, in this step you set the Facebook client ID and client secret in Microsoft Entra ID. You can use the Azure portal or PowerShell to do so. To configure Facebook federation in the Microsoft Entra admin center, follow these steps:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 2. Select **+ Facebook**.
 
    <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
@@ -82,7 +83,7 @@ To configure Facebook federation by using PowerShell, follow these steps:
 
 At this point, the Facebook identity provider has been set up in your customer tenant, but it's not yet available in any of the sign-in pages. To add the Facebook identity provider to a user flow:
 
-1. In your customer tenant, go to **Azure Active Directory** > **External Identities** > **User flows**.
+1. Browse to **Identity** > **External Identities** > **User flows**.
 1. Select the user flow where you want to add the Facebook identity provider.
 1. Under Settings, select **Identity providers**
 1. Under **Other Identity Providers**, select **Facebook**.

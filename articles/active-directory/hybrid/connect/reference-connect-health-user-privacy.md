@@ -97,5 +97,5 @@ For tenants, data collection can be resumed in Azure AD Connect Health. We recom
 
 ## Next steps
 
-- Review the [Microsoft privacy policy in the Trust Center](https://www.microsoft.com/trustcenter).
+- Review the [Microsoft privacy policy in the Trust Center](https://www.microsoft.com/trust-center).
 - Learn about [Azure AD Connect and user privacy](reference-connect-user-privacy.md).

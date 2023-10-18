@@ -2,6 +2,8 @@
 title: Disaster recovery guide
 description: Learn three common disaster recovery patterns for Azure App Service. 
 keywords: app service, azure app service, hadr, disaster recovery, business continuity, high availability, bcdr
+author: cephalin
+ms.author: cephalin
 
 ms.topic: article
 ms.date: 03/07/2023

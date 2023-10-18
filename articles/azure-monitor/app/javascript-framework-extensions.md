@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript framework extensions for th
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 08/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -762,6 +762,16 @@ Currently unavailable.
 Check out the [Application Insights Angular demo](https://github.com/microsoft/applicationinsights-angularplugin-js/tree/main/sample/applicationinsights-angularplugin-sample).
 
 ---
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How does Application Insights generate device information like browser, OS, language, and model?
+
+The browser passes the User Agent string in the HTTP header of the request. The Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
+          
+Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
 
 ## Next steps
 

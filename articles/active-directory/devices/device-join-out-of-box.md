@@ -43,7 +43,7 @@ Your device may restart several times as part of the setup process. Your device 
    :::image type="content" source="media/device-join-out-of-box/windows-11-first-run-experience-device-sign-in-info.png" alt-text="Screenshot of Windows 11 out-of-box experience showing the sign-in experience.":::
 1. Continue to follow the prompts to set up your device.
 1. Azure AD checks if an enrollment in mobile device management is required and starts the process.
-   1. Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if applicable.
+   1. Windows registers the device in the organization’s directory and enrolls it in mobile device management, if applicable.
 1. If you sign in with a managed user account, Windows takes you to the desktop through the automatic sign-in process. Federated users are directed to the Windows sign-in screen to enter your credentials.
    :::image type="content" source="media/device-join-out-of-box/windows-11-first-run-experience-complete-automatic-sign-in-desktop.png" alt-text="Screenshot of Windows 11 at the desktop after first run experience Azure AD joined.":::
 
@@ -57,7 +57,7 @@ To verify whether a device is joined to your Azure AD, review the **Access work 
 
 ## Next steps
 
-- For more information about managing devices in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md).
+- For more information about managing devices, see [managing devices using the Azure portal](manage-device-identities.md).
 - [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
 - [Overview of Windows Autopilot](/mem/autopilot/windows-autopilot)
 - [Passwordless authentication options for Azure Active Directory](../authentication/concept-authentication-passwordless.md)

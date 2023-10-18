@@ -45,7 +45,7 @@ The key benefits of giving your devices an Azure AD identity:
 
    > [!VIDEO https://www.youtube-nocookie.com/embed/NcONUf-jeS4]
 
-* Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
+* Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](./enterprise-state-roaming-enable.md) for a unified experience across all Windows devices.
 
 * Simplify deployment and management – Simplify the process of bringing devices to Azure AD with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Azure portal](https://portal.azure.com/).
 
@@ -55,7 +55,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood. 
+When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood. 
 
 For this plan, add the following stakeholders to your list:
 
@@ -72,7 +72,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
+We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../architecture/deployment-plans.md).
 
 You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-join-control.md) before enabling it across the entire organization.
 
@@ -124,7 +124,7 @@ Conditional Access <br>(Require hybrid Azure AD joined devices) | | | ![Checkmar
 
 Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
-Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [Conditional Access policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
+Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [Conditional Access policies](../conditional-access/concept-conditional-access-grant.md) applied to the device and the user.
 
 ### Registering devices
 
@@ -237,6 +237,7 @@ Administrators can also [deploy virtual desktop infrastructure (VDI) platforms](
 
 ## Next steps
 
+* [Analyze your on-premises GPOs using Group Policy analytics in Microsoft Intune](/mem/intune/configuration/group-policy-analytics)
 * [Plan your Azure AD join implementation](device-join-plan.md)
 * [Plan your hybrid Azure AD join implementation](hybrid-join-plan.md)
 * [Manage device identities](manage-device-identities.md)

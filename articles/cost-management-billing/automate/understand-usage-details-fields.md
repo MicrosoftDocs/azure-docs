@@ -95,12 +95,12 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
 | ReservationId¹ | EA, MCA | Unique identifier for the purchased reservation instance. |
 | ReservationName | EA, MCA | Name of the purchased reservation instance. |
-| ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group will be shown as null or empty, **Others**, or **Not applicable**. |
+| ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, **Others**, or **Not applicable**. |
 | ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
 | ResourceLocation¹  | All | Datacenter location where the resource is running. See `Location`. |
-| ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
-| ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
-| RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice.   |
+| ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
+| ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
+| RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice. For more information, see [Rounding adjustment details](#rounding-adjustment-details).  |
 | ServiceFamily | MCA | Service family that the service belongs to. |
 | ServiceInfo¹ | All | Service-specific metadata. |
 | ServiceInfo2 | All | Legacy field with optional service-specific metadata. |
@@ -109,16 +109,47 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | SubscriptionId¹ | All | Unique identifier for the Azure subscription. |
 | SubscriptionName | All | Name of the Azure subscription. |
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-| Term | All | Displays the term for the validity of the offer. For example: In case of reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
+| Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
 | UnitPrice | EA, pay-as-you-go | The price per unit for the charge. |
 
-
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
-The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself. 
+The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
+
+### Rounding adjustment details
+
+Rounding adjustment isn't available in the cost details file during an open month. The adjustment is visible when the month closes and the invoice gets generated.
+
+The rounding adjustment record is available in the Cost Details file at the Billing Profile scope for an MCA or at the Enrollment scope for EA. Because it's an aggregated value available at the invoice level, there's no lower-scope-level information available for the record. The following fields are the only valid ones for a record on rounding adjustment:
+
+- `BillingAccountId`
+- `BillingAccountName`
+- `BillingPeriodStartDate`
+- `BillingPeriodEndDate`
+- `BillingProfileId`
+- `BillingProfileName`
+
+`MeterCategory`, `MeterSubCategory`, and `ChargeType` fields have the value as `RoundingAdjustment`.
+
+Here's an example of how rounding adjustment works in practice:
+
+Suppose you have two resources in your subscription, A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
+
+- Resource A: $0.1234 x 10 = $1.234
+- Resource B: $0.5678 x 10 = $5.678
+
+The total cost for the day is $1.234 + $5.678 = $6.912.
+
+However, when the invoice is generated, the costs are rounded to two decimal places, so the invoice shows:
+
+- Resource A: $1.23
+- Resource B: $5.68
+- Total: $6.91
+
+The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To make sure that Cost Management costs match the invoice, the amount is shown in the cost details file.
 
 ### List of terms from older APIs
 

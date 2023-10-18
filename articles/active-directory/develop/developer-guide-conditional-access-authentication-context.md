@@ -1,6 +1,6 @@
 ---
-title: Developer guidance for Azure AD Conditional Access authentication context
-description: Developer guidance and scenarios for Azure AD Conditional Access authentication context
+title: Developer guidance for Microsoft Entra Conditional Access authentication context
+description: Developer guidance and scenarios for Microsoft Entra Conditional Access authentication context
 
 services: active-directory
 author: cilwerner
@@ -23,7 +23,7 @@ ms.custom: aaddev
 
 Conditional Access authentication context (auth context) allows you to apply granular policies to sensitive data and actions instead of just at the app level. You can refine your Zero Trust policies for least privileged access while minimizing user friction and keeping users more productive and your resources more secure. Today, it can be used by applications using [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html) for authentication developed by your company to protect sensitive resources, like high-value transactions or viewing employee personal data.
 
-Use the Azure AD Conditional Access engine's new auth context feature to trigger a demand for step-up authentication from within your application and services. Developers now have the power to demand enhanced stronger authentication, selectively, like MFA from their end users from within their applications. This feature helps developers build smoother user experiences for most parts of their application, while access to more secure operations and data remains behind stronger authentication controls.
+Use the Microsoft Entra Conditional Access engine's new auth context feature to trigger a demand for step-up authentication from within your application and services. Developers now have the power to demand enhanced stronger authentication, selectively, like MFA from their end users from within their applications. This feature helps developers build smoother user experiences for most parts of their application, while access to more secure operations and data remains behind stronger authentication controls.
 
 ## Problem statement
 
@@ -37,15 +37,15 @@ For example, while users may sign in to SharePoint using multi-factor authentica
 
 ## Prerequisites
 
-**First**, your app should be integrated with the Microsoft Identity Platform using the use [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) protocols for authentication and authorization. We recommend you use [Microsoft identity platform authentication libraries](reference-v2-libraries.md) to integrate and secure your application with Azure Active Directory. [Microsoft identity platform documentation](index.yml) is a good place to start learning how to integrate your apps with the Microsoft Identity Platform. Conditional Access Auth Context feature support is built on top of protocol extensions provided by the industry standard [OpenID Connect](v2-protocols-oidc.md) protocol. Developers use a [Conditional Access Auth Context reference](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences) **value** with the [Claims Request](claims-challenge.md) parameter to give apps a way to trigger and satisfy policy.
+**First**, your app should be integrated with the Microsoft identity platform using the use [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) protocols for authentication and authorization. We recommend you use [Microsoft identity platform authentication libraries](reference-v2-libraries.md) to integrate and secure your application with Microsoft Entra ID. [Microsoft identity platform documentation](index.yml) is a good place to start learning how to integrate your apps with the Microsoft identity platform. Conditional Access Auth Context feature support is built on top of protocol extensions provided by the industry standard [OpenID Connect](v2-protocols-oidc.md) protocol. Developers use a [Conditional Access Auth Context reference](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences) **value** with the [Claims Request](claims-challenge.md) parameter to give apps a way to trigger and satisfy policy.
 
-**Second**, [Conditional Access](../conditional-access/overview.md) requires Azure AD Premium P1 licensing. More information about licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+**Second**, [Conditional Access](../conditional-access/overview.md) requires Microsoft Entra ID P1 licensing. More information about licensing can be found on the [Microsoft Entra pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-**Third**, today it's only available to applications that sign-in users. Applications that authenticate as themselves aren't supported. Use the [Authentication flows and application scenarios guide](authentication-flows-app-scenarios.md) to learn about the supported authentication app types and flows in the Microsoft Identity Platform.
+**Third**, today it's only available to applications that sign-in users. Applications that authenticate as themselves aren't supported. Use the [Authentication flows and application scenarios guide](authentication-flows-app-scenarios.md) to learn about the supported authentication app types and flows in the Microsoft identity platform.
 
 ## Integration steps
 
-Once your application is integrated using the supported authentication protocols and registered in an Azure AD tenant that has the Conditional Access feature available for use, you can kick start the process to integrating this feature in your applications that sign-in users.
+Once your application is integrated using the supported authentication protocols and registered in a Microsoft Entra tenant that has the Conditional Access feature available for use, you can kick start the process to integrating this feature in your applications that sign-in users.
 
 > [!NOTE]
 > A detailed walkthrough of this feature is also available as a recorded session at [Use Conditional Access Auth Context in your app for step\-up authentication](https://www.youtube.com/watch?v=_iO7CfoktTY).
@@ -64,7 +64,7 @@ Create or modify your Conditional Access policies to use the Conditional Access 
 - All users signing into this web application should have successfully completed 2FA and also access the web app from a certain IP address range for auth context ID **C3**.
 
 > [!NOTE]
-> The Conditional Access auth context values are declared and maintained separately from applications. It is not advisable for applications to take hard dependency on auth context ids. The Conditional Access policies are usually crafted by IT administrators as they have a better understanding of the resources available to apply policies on. For example, for an Azure AD tenant, IT admins would have the knowledge of how many of the tenant's users are equipped to use 2FA for MFA and thus can ensure that Conditional Access policies that require 2FA are scoped to these equipped users.
+> The Conditional Access auth context values are declared and maintained separately from applications. It is not advisable for applications to take hard dependency on auth context ids. The Conditional Access policies are usually crafted by IT administrators as they have a better understanding of the resources available to apply policies on. For example, for a Microsoft Entra tenant, IT admins would have the knowledge of how many of the tenant's users are equipped to use 2FA for MFA and thus can ensure that Conditional Access policies that require 2FA are scoped to these equipped users.
 > Similarly, if the application is used in multiple tenants, the auth context ids in use could be different and, in some cases, not available at all.
 
 **Second**: The developers of an application planning to use Conditional Access auth context are advised to first provide the application admins or IT admins a means to map potential sensitive actions to auth context IDs. The steps roughly being:
@@ -87,7 +87,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
 1. The following diagram shows the interaction between the user, client app, and the web API.
 
-   :::image type="content" source="media/developer-guide-conditional-access-authentication-context/authentication-context-application-flow.png" alt-text="Diagram showing the interaction of user, web app, API, and Azure AD":::
+   :::image type="content" source="media/developer-guide-conditional-access-authentication-context/authentication-context-application-flow.png" alt-text="Diagram showing the interaction of user, web app, API, and Microsoft Entra ID":::
 
    The code snippet that follows is from the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md). The first method, `CheckForRequiredAuthContext()` in the API
 
@@ -139,9 +139,9 @@ These steps are the changes that you need to carry in your code base. The steps 
       ```
 
    > [!NOTE]
-   > The format of the claims challenge is described in the article, [Claims Challenge in the Microsoft Identity Platform](claims-challenge.md).
+   > The format of the claims challenge is described in the article, [Claims Challenge in the Microsoft identity platform](claims-challenge.md).
 
-1. In the client application, Intercept the claims challenge and redirect the user back to Azure AD for further policy evaluation. The code snippet that follows is from the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md).
+1. In the client application, Intercept the claims challenge and redirect the user back to Microsoft Entra ID for further policy evaluation. The code snippet that follows is from the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md).
 
    ```csharp
    internal static string ExtractHeaderValues(WebApiMsalUiRequiredException response)
@@ -175,7 +175,7 @@ These steps are the changes that you need to carry in your code base. The steps 
    }
    ```
 
-   Handle exception in the call to Web API, if a claims challenge is presented, the redirect the user back to Azure AD for further processing.
+   Handle exception in the call to Web API, if a claims challenge is presented, the redirect the user back to Microsoft Entra ID for further processing.
 
    ```csharp
    try
@@ -207,7 +207,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
 ## Caveats and recommendations
 
-Don't hard-code Auth Context values in your app. Apps should read and apply auth context [using MS Graph calls](/graph/api/resources/authenticationcontextclassreference). This practice is critical for [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The Auth Context values will vary between Azure AD tenants and won't be available in Azure AD free edition. For more information on how an app should query, set, and use auth context in their code, see the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md) as how an app should query, set and use auth context in their code.
+Don't hard-code Auth Context values in your app. Apps should read and apply auth context [using MS Graph calls](/graph/api/resources/authenticationcontextclassreference). This practice is critical for [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The Auth Context values will vary between Microsoft Entra tenants and won't be available in Microsoft Entra ID Free edition. For more information on how an app should query, set, and use auth context in their code, see the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md) as how an app should query, set and use auth context in their code.
 
 Don't use auth context where the app itself is going to be a target of Conditional Access policies. The feature works best when parts of the application require the user to meet a higher bar of authentication.
 
@@ -238,7 +238,7 @@ ACRS requested | Policy applied | Control satisfied | ACRS added to claims |
 
 ## Implicit auth context satisfaction by opportunistic evaluation
 
-A resource provider may opt in to the optional 'acrs' claim. Conditional Access will try to add ACRS to the token claims opportunistically in order to avoid round trips to acquire new tokens to Azure AD. In that evaluation, Conditional Access will check if the policies protecting Auth Context challenges are already satisfied and will add the ACRS to the token claims if so.
+A resource provider may opt in to the optional 'acrs' claim. Conditional Access will try to add ACRS to the token claims opportunistically in order to avoid round trips to acquire new tokens to Microsoft Entra ID. In that evaluation, Conditional Access will check if the policies protecting Auth Context challenges are already satisfied and will add the ACRS to the token claims if so.
 
 > [!NOTE]
 > Each token type will need to be individually opted-in (ID token, Access token).
@@ -277,7 +277,7 @@ The table below will show all corner cases where ACRS is added to the token's cl
 ## Next steps
 
 - [Granular Conditional Access for sensitive data and actions (Blog)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
-- [Zero trust with the Microsoft Identity platform](/security/zero-trust/identity-developer)
+- [Zero trust with the Microsoft identity platform](/security/zero-trust/identity-developer)
 - [Building Zero Trust ready apps with the Microsoft identity platform](/security/zero-trust/identity-developer)
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
 - [authenticationContextClassReference resource type - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)

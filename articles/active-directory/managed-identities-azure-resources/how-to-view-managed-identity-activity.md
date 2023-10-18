@@ -87,7 +87,7 @@ System-assigned identity:
 
 ## View authentication attempts by managed identities
 
-1. Browse to **Azure Active Directory**.
+1. Browse to **Microsoft Entra ID**.
 
 ![Browse to active directory](./media/how-to-view-managed-identity-activity/browse-to-active-directory.png)
 
@@ -103,11 +103,14 @@ System-assigned identity:
 
 ![managed identity sign-in events](./media/how-to-view-managed-identity-activity/msi-sign-in-events.png) 
 
-5. To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column.
+5. To view the identity's Enterprise application in Microsoft Entra ID, select the “Managed Identity ID” column.
 6. To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal.
+
+ > [!NOTE] 
+ > Since managed identity authentication requests originate within the Azure infrastructure, the IP Address value is excluded here.
 
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)
 * [Azure Activity log](../../azure-monitor/essentials/activity-log.md)
-* [Azure Active Directory sign-ins log](../reports-monitoring/concept-sign-ins.md)
+* [Microsoft Entra sign-ins log](../reports-monitoring/concept-sign-ins.md)

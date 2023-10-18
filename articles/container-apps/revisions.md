@@ -24,6 +24,9 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
+> [!NOTE]
+> [Azure Container Apps jobs](jobs.md) don't have revisions. Each job execution uses the latest configuration of the job.
+
 ## Use cases
 
 Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision.
@@ -61,7 +64,6 @@ Running status values include:
 |---|---|
 | Running | The revision is running. There are no issues to report. |
 | Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
-| Failed | The revision isn't operating properly. Use the *revision state details* for more information. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
 | Failed | Critical errors caused revisions to fail. The _running state_ provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
 
 Use running state details to learn more about the current status.
@@ -99,7 +101,7 @@ The format of a revision name is:
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
-For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api--first-revision*.
+For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api-first-revision*.
 
 A revision suffix name must:
 

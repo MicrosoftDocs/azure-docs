@@ -1,14 +1,10 @@
 ---
 title: Azure AI Video Indexer failover and disaster recovery
 description: Learn how to fail over to a secondary Azure AI Video Indexer account if a regional datacenter failure or disaster occurs.
-author: juliako
-manager: femila
-editor: ''
-ms.workload: 
 ms.topic: article
-ms.custom: 
 ms.date: 07/29/2019
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 # Azure AI Video Indexer failover and disaster recovery
 

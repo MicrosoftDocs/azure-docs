@@ -142,8 +142,8 @@ Instantiate a `anomalyDetectorClient` object with your endpoint and credentials.
 HttpHeaders headers = new HttpHeaders()
     .put("Accept", ContentType.APPLICATION_JSON);
 
-HttpPipelinePolicy authPolicy = new AzureKeyCredentialPolicy(key,
-    new AzureKeyCredential(key));
+HttpPipelinePolicy authPolicy = new AzureKeyCredentialPolicy("Ocp-Apim-Subscription-Key",
+ new AzureKeyCredential(key));
 AddHeadersPolicy addHeadersPolicy = new AddHeadersPolicy(headers);
 
 HttpPipeline httpPipeline = new HttpPipelineBuilder().httpClient(HttpClient.createDefault())

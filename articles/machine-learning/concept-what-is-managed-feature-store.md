@@ -92,7 +92,7 @@ Materialization is the process of computing feature values for a given feature w
 - **Managed spark support for materialization** - materialization jobs are run using Azure Machine Learning managed Spark (in serverless compute instances), so that you're freed from setting up and managing the Spark infrastructure.
 
 > [!NOTE]
-> Only offline store (ADLS Gen2) materialization is currently supported.
+> Both offline store (ADLS Gen2) and online store (Redis) materialization are currently supported.
 
 ### Feature retrieval
 

@@ -2,8 +2,8 @@
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
 ms.topic: reference
-ms.date: 2/23/2022
-ms.reviewer: ofmanor
+ms.date: 9/20/2023
+ms.reviewer: nolavime
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -246,6 +246,57 @@ If you received an error while trying to create, update or delete an [alert proc
 1. **Did you verify the alert processing rule parameters?**  
 
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+
+## How to Migrate the Get alert summary API to ARG query
+
+Get alert summary API return the summary of alerts using API, today once we opened the option to use ARG query everywhere (including alerts) you can use ARG query directly and by that to have an option to be more flexible. 
+If you are using “GetAlertSummary” API, we recommend using ARG query API and list out the benefits 
+* Ability to add new fields to the query that returns the alert summary.  
+* Ability to be more flexible in the query that returns the alert summary. 
+This is an example of how today we use “GetAlertSummary” API: 
+
+GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01 
+Response: AlertSummary_Sev_Alertstate 
+
+Instead of “GetAlertSummary” API you can create a query via ARG, examples for 2 uses of ARG query that can be used instead of “GetAlertSummary” API using different parameters. You can use this as a baseline for your query and build it exactly according to your needs. 
+* Query to ARG by Severity, AlertState: 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    {
+      query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity), 
+        AlertState= tostring(properties.essentials.alertState) 
+        | summarize AlertsCount = count() by Severity, AlertState" 
+    } 
+* Query to ARG by Severity: 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    { 
+        query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity) 
+        | summarize AlertsCount = count() by Severity" 
+    } 
+* Query to ARG by Severity, monitorService, TargetResourceType 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    { 
+        query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity),  
+        MonitorCondition = tostring(properties.essentials.monitorCondition),  
+        ObjectState = tostring(properties.essentials.alertState),  
+        MonitorService = tostring(properties.essentials.monitorService),  
+        AlertRuleId = tostring(properties.essentials.alertRule),  
+        SignalType = tostring(properties.essentials.signalType),  
+        TargetResource = tostring(properties.essentials.targetResourceName), 
+        TargetResourceType = tostring(properties.essentials.targetResourceName), 
+        id   
+        | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType" 
+    } 
+
+ 
 
 
 ## Next steps

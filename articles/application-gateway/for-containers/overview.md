@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 07/24/2023
+ms.date: 09/07/2023
 ms.author: greglin
 ---
 
@@ -16,6 +16,10 @@ ms.author: greglin
 Application Gateway for Containers is a new application (layer 7) [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family. 
 
 Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM). 
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## How does it work?
 

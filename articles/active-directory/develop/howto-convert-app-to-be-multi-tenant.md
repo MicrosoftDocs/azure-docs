@@ -1,6 +1,6 @@
 ---
-title: Convert single-tenant app to multi-tenant on Azure AD
-description: Shows how to convert an existing single-tenant app to a multi-tenant app that can sign in a user from any Azure AD tenant.
+title: Convert single-tenant app to multi-tenant on Microsoft Entra ID
+description: Shows how to convert an existing single-tenant app to a multi-tenant app that can sign in a user from any Microsoft Entra tenant.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -12,44 +12,44 @@ ms.date: 10/20/2022
 ms.author: cwerner
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev, engagement-fy23
-#Customer intent: As an Azure user, I want to convert a single tenant app to an Azure AD multi-tenant app so any Azure AD user can sign in,
+#Customer intent: As an Azure user, I want to convert a single tenant app to a Microsoft Entra multi-tenant app so any Microsoft Entra user can sign in,
 ---
 
 # Making your application multi-tenant
 
-If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant by converting it to multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.
+If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Microsoft Entra tenant by converting it to multi-tenant. Users in any Microsoft Entra tenant will be able to sign in to your application after consenting to use their account with your application.
 
 For existing apps with its own account system (or other sign-ins from other cloud providers), you should add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign in with Microsoft" button][AAD-App-Branding] in your application. 
 
-In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into an Azure AD multi-tenant app:
+In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into a Microsoft Entra multi-tenant app:
 
 1. [Update your application registration to be multi-tenant](#update-registration-to-be-multi-tenant)
 2. [Update your code to send requests to the `/common` endpoint](#update-your-code-to-send-requests-to-common)
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
 4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 
-You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md). This how-to assumes familiarity with building a single-tenant application for Azure AD. If not, start with one of the quickstarts on the [developer guide homepage][AAD-Dev-Guide].
+You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Microsoft Entra ID and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md). This how-to assumes familiarity with building a single-tenant application for Microsoft Entra ID. If not, start with one of the quickstarts on the [developer guide homepage][AAD-Dev-Guide].
 
 ## Update registration to be multi-tenant
 
-By default, web app/API registrations in Azure AD are single-tenant upon creation. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal]. Change the setting to **Accounts in any organizational directory**.
+By default, web app/API registrations in Microsoft Entra ID are single-tenant upon creation. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal]. Change the setting to **Accounts in any organizational directory**.
 
-When a single-tenant application is created via the Azure portal, one of the items listed on the **Overview** page is the **Application ID URI**. This is one of the ways an application is identified in protocol messages, and can be added at any time. The App ID URI for single tenant apps can be globally unique within that tenant. In contrast, for multi-tenant apps it must be globally unique across all tenants, which ensures that Azure AD can find the app across all tenants.
+When a single-tenant application is created via the Azure portal, one of the items listed on the **Overview** page is the **Application ID URI**. This is one of the ways an application is identified in protocol messages, and can be added at any time. The App ID URI for single tenant apps can be globally unique within that tenant. In contrast, for multi-tenant apps it must be globally unique across all tenants, which ensures that Microsoft Entra ID can find the app across all tenants.
 
 For example, if the name of your tenant was `contoso.onmicrosoft.com` then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
 ## Update your code to send requests to `/common`
 
-With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`.
+With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Microsoft Entra tenants: `https://login.microsoftonline.com/common`.
 
-Edit your code and change the value for your tenant to `/common`. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
+Edit your code and change the value for your tenant to `/common`. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Microsoft Entra ID (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
 
 > [!NOTE]
 > There are, in reality 2 authorities for multi-tenant applications: 
-> - `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox).
-> - `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Azure AD directory):
+> - `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Microsoft Entra directory) and personal Microsoft accounts (e.g. Skype, XBox).
+> - `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Microsoft Entra directory):
 > 
 > The explanations in this document use `common`. But you can replace it by `organizations` if your application doesn't support Microsoft personal accounts.
 
@@ -61,9 +61,9 @@ Multi-tenant applications must perform additional checks when validating a token
 
 ## Understand user and admin consent and make appropriate code changes
 
-For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, one can use the registration via the [Azure portal].
+For a user to sign in to an application in Microsoft Entra ID, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, one can use the registration via the [Azure portal].
 
-For a multi-tenant application, the initial registration for the application resides in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
+For a multi-tenant application, the initial registration for the application resides in the Microsoft Entra tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Microsoft Entra ID asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
 ![Diagram which illustrates a user's consent to a single-tier app.][Consent-Single-Tier]
 
@@ -80,7 +80,7 @@ To learn more about user and admin consent, see [Configure the admin consent wor
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message is displayed saying the user isn’t able to consent.
 
-Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, the app receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
+Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Microsoft Entra ID as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, the app receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
 
 If your application uses permissions that require admin consent, consider adding a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests don't need the `prompt=consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
@@ -92,11 +92,11 @@ If an application requires admin consent and an admin signs in without the `prom
 
 ### Consent and multi-tier applications
 
-Your application may have multiple tiers, each represented by its own registration in Azure AD. For example, a native application that calls a web API, or a web application that calls a web API. In both of these cases, the client (native app or web app) requests permissions to call the resource (web API). For the client to be successfully consented into a customer’s tenant, all resources to which it requests permissions must already exist in the customer’s tenant. If this condition isn’t met, Azure AD returns an error that the resource must be added first.
+Your application may have multiple tiers, each represented by its own registration in Microsoft Entra ID. For example, a native application that calls a web API, or a web application that calls a web API. In both of these cases, the client (native app or web app) requests permissions to call the resource (web API). For the client to be successfully consented into a customer’s tenant, all resources to which it requests permissions must already exist in the customer’s tenant. If this condition isn’t met, Microsoft Entra ID returns an error that the resource must be added first.
 
 #### Multiple tiers in a single tenant
 
-This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource. How do you get the resource into the customer tenant first? Azure AD covers this case by enabling client and resource to be consented in a single step. The user sees the sum total of the permissions requested by both the client and resource on the consent page. To enable this behavior, the resource’s application registration must include the client’s App ID as a `knownClientApplications` in its [application manifest][AAD-App-Manifest]. For example:
+This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource. How do you get the resource into the customer tenant first? Microsoft Entra ID covers this case by enabling client and resource to be consented in a single step. The user sees the sum total of the permissions requested by both the client and resource on the consent page. To enable this behavior, the resource’s application registration must include the client’s App ID as a `knownClientApplications` in its [application manifest][AAD-App-Manifest]. For example:
 
 ```json
 "knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -132,7 +132,7 @@ If an administrator consents to an application for all users in a tenant, users 
 
 ## Multi-tenant applications and caching access tokens
 
-Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD. A common error when using the Microsoft Authentication Library (MSAL) with a multi-tenant application is to initially request a token for a user using `/common`, receive a response, then request a subsequent token for that same user also using `/common`. Because the response from Azure AD comes from a tenant, not `/common`, MSAL caches the token as being from the tenant. The subsequent call to `/common` to get an access token for the user misses the cache entry, and the user is prompted to sign in again. To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
+Multi-tenant applications can also get access tokens to call APIs that are protected by Microsoft Entra ID. A common error when using the Microsoft Authentication Library (MSAL) with a multi-tenant application is to initially request a token for a user using `/common`, receive a response, then request a subsequent token for that same user also using `/common`. Because the response from Microsoft Entra ID comes from a tenant, not `/common`, MSAL caches the token as being from the tenant. The subsequent call to `/common` to get an access token for the user misses the cache entry, and the user is prompted to sign in again. To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
 
 ## Related content
 
@@ -140,28 +140,28 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 * [Multi-tier multi-tenant application sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/6-AdvancedScenarios/2-call-api-mt/README.md)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
-* [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
+* [Integrating applications with Microsoft Entra ID][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes]
 * [Access tokens](access-tokens.md)
 
 ## Next steps
 
-In this article, you learned how to convert a single tenant application to a multi-tenant application. After enabling single sign-on (SSO) between your app and Azure AD, update your app to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, for example, profile pictures and calendar appointments.
+In this article, you learned how to convert a single tenant application to a multi-tenant application. After enabling single sign-on (SSO) between your app and Microsoft Entra ID, update your app to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, for example, profile pictures and calendar appointments.
 
-To learn more about making API calls to Azure AD and Microsoft 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
+To learn more about making API calls to Microsoft Entra ID and Microsoft 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
 [AAD-App-Branding]:howto-add-branding-in-apps.md
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Consent-Overview]:consent-framework.md
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Consent-Overview]:./application-consent-experience.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
-[AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-Why-To-Integrate]: ./how-to-integrate.md
 [MSFT-Graph-overview]: /graph/
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
@@ -172,13 +172,13 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [Consent-Multi-Tier-Multi-Party]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-multi-party.svg
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
+[AAD-Dev-Guide]:../develop.md
+[AAD-How-To-Integrate]: ./how-to-integrate.md
+[AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
 [AAD-V2-Dev-Guide]: v2-overview.md
 [Azure portal]: https://portal.azure.com

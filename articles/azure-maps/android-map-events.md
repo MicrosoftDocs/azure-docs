@@ -87,7 +87,7 @@ map.events.add(OnCameraMove {
 
 ::: zone-end
 
-For more information, see the [Navigating the map](how-to-use-android-map-control-library.md#navigating-the-map) documentation on how to interact with the map and trigger events.
+For more information, see the [Navigating the map] documentation on how to interact with the map and trigger events.
 
 ## Scope feature events to layer
 
@@ -170,16 +170,22 @@ map.events.add(
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Navigating the map](how-to-use-android-map-control-library.md#navigating-the-map)
+> [Navigating the map]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a line layer](android-map-add-line-layer.md)
+> [Add a line layer]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a line layer]: android-map-add-line-layer.md
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Navigating the map]: how-to-use-android-map-control-library.md#navigating-the-map

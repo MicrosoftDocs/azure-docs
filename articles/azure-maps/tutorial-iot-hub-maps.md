@@ -23,7 +23,7 @@ In this tutorial you will:
 > [!div class="checklist"]
 >
 > * Create an Azure storage account to log car tracking data.
-> * Upload a geofence to the Azure Maps Data service  by using the Data Upload API.
+> * Upload a geofence to the Azure Maps Data service using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Azure Event Grid.
@@ -37,6 +37,9 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * A [subscription key]
 * A [resource group]
 * The [rentalCarSimulation] C# project
+
+> [!TIP]
+> You can download the entire [rentalCarSimulation] C# project from GitHub as a single ZIP file by going to [the root of the sample] and selecting the green **<> Code** button, then **Download ZIP**.
 
 This tutorial uses the [Postman] application, but you can choose a different API development environment.
 
@@ -108,7 +111,7 @@ When you successfully create your storage account, you then need to create a con
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Screenshot of create a blob container.":::
 
-3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the "Create an Azure Function and add an Event Grid subscription" section.
+3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the [Create a function and add an Event Grid subscription] section.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Screenshot of copy storage account name and key.":::
 
@@ -128,7 +131,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
     In the URL path, the `geojson` value against the `dataFormat` parameter represents the format of the data being uploaded.
 
-3. Select **Body** > **raw** for the input format, and choose **JSON** from the drop-down list. [Open the JSON data file], and copy the JSON into the body section. Select **Send**.
+3. Select **Body** > **raw** for the input format, and choose **JSON** from the drop-down list. [Open the JSON data file], and copy the JSON into the body section.
 
 4. Select **Send** and wait for the request to process. After the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
 
@@ -168,7 +171,7 @@ Now, set up your Azure function.
 
 1. In the Azure portal dashboard, select **Create a resource**. Type **Function App** in the search text box. Select **Function App** > **Create**.
 
-1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET** as the **Runtime Stack**. Select **3.1** as the **Version**.  At the bottom of the page, select **Next: Hosting >**.
+1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET** as the **Runtime Stack**. At the bottom of the page, select **Next: Storage >**.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Screenshot of create a function app.":::
 
@@ -176,12 +179,16 @@ Now, set up your Azure function.
 
 1. Review the function app details, and select **Create**.
 
-1. After the app is created, you add a function to it. Go to the function app. Select the **Functions** pane. At the top of the page, select **+ Add**. The function template panel appears. Scroll down the panel, and select **Azure Event Grid trigger**.
+1. After the app is created, you add a function to it. Go to the function app. Select the **Create in Azure Portal** button.
 
      >[!IMPORTANT]
-    > The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** templates have similar names. Make sure you select the **Azure Event Grid Trigger** template.
+    > The **Azure Event ***Hub*** Trigger** and the **Azure Event ***Grid*** Trigger** templates have similar names. Make sure you select the **Azure Event ***Grid*** Trigger** template.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function in Azure Portal.":::
+
+1. The **Create function** panel appears. Scroll down the **Select a template** panel, and select **Azure Event Grid trigger** then select the **Create** button.
+
+    :::image type="content" source="./media/tutorial-iot-hub-maps/azure-event-grid-trigger.png" alt-text="Screenshot of create a function.":::
 
 1. Give the function a name. In this tutorial, use the name *GetGeoFunction*, but in general you can use any name you like. Select **Create function**.
 
@@ -225,13 +232,13 @@ In your example scenario, you only want to receive messages when the rental car 
 
 ## Send telemetry data to IoT Hub
 
-When your Azure function is running, you can now send telemetry data to the IoT hub, which routes it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET Core SDK 3.1] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
+When your Azure function is running, you can now send telemetry data to the IoT hub, which routes it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET SDK 6.0] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
 
 1. If you haven't done so already, download the [rentalCarSimulation] C# project.
 
 2. Open the `simulatedCar.cs` file in a text editor of your choice, and replace the value of the `connectionString` with the one you saved when you registered the device. Save changes to the file.
 
-3. Make sure you have .NET Core installed on your machine. In your local terminal window, go to the root folder of the C# project and run the following command to install the required packages for simulated device application:
+3. Make sure you have the ASP.NET Core Runtime installed on your machine. In your local terminal window, go to the root folder of the C# project and run the following command to install the required packages for simulated device application:
 
     ```cmd/sh
     dotnet restore
@@ -283,7 +290,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 > [!div class="nextstepaction"]
 > [Send telemetry from a device]
 
-[.NET Core SDK 3.1]: https://dotnet.microsoft.com/download/dotnet/3.1
+[.NET SDK 6.0]: https://dotnet.microsoft.com/download/dotnet/6.0
 [Azure certified devices]: https://devicecatalog.azure.com/
 [Azure Functions]: ../azure-functions/functions-overview.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
@@ -292,6 +299,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
 [Create an Azure storage account]: #create-an-azure-storage-account
 [create an IoT hub]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
+[Create a function and add an Event Grid subscription]: #create-a-function-and-add-an-event-grid-subscription
 [free account]: https://azure.microsoft.com/free/
 [general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
 [Get Geofence]: /rest/api/maps/spatial/getgeofence
@@ -304,6 +312,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
+[the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
 [Send telemetry from a device]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence

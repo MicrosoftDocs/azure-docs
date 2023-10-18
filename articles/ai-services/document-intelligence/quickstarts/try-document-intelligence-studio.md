@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence Studio | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Studio | v3.0"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan
@@ -117,22 +117,22 @@ CORS should now be configured to use the storage account from Document Intellige
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Your storage account** > **Data storage** > **Containers**.
 
-   :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
+   :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot of Data storage menu in the Azure portal.":::
 
 1. Select a **container** from the list.
 
 1. Select **Upload** from the menu at the top of the page.
 
-    :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
+    :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot of container upload button in the Azure portal.":::
 
 1. The **Upload blob** window appears.
 
 1. Select your file(s) to upload.
 
-    :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
+    :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot of upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
+> By default, the Studio will use documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
 
 ## Custom models
 
@@ -222,7 +222,7 @@ To label for signature detection: (Custom form only)
 
 ## Next steps
 
-* Follow our [**Document Intelligence v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Follow our [**Document Intelligence v3.1 migration guide**](../v3-1-migration-guide.md) to learn the differences from the previous version of the REST API.
 * Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
 * Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 

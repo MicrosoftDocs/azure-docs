@@ -3,11 +3,10 @@ metadata:
   title: Frequently asked questions about Azure Video Indexer and AMS deprecation  - Azure
   description: This article gives answers to frequently asked questions about Azure Video Indexer and AMS deprecation.
   services: azure-video-indexer
-  author: Juliako
-  manager: femila
+  author: IngridAtMicrosoft
   ms.topic: faq
   ms.date: 06/27/2023
-  ms.author: juliako
+  ms.author: inhenkel
 title: Azure Video Indexer and AMS deprecation frequently asked questions
 summary: This article answers frequently asked questions about Azure Video Indexer.
 
@@ -21,19 +20,19 @@ sections:
           
       - question:  Is Azure Video Indexer also being deprecated?
         answer: |
-          No. While Azure Video Indexer currently relies on Azure Media Services for video encoding, Azure Video Indexer is not being deprecated. 
+          No. While Azure Video Indexer currently relies on Azure Media Services for video encoding, Azure Video Indexer isn't being deprecated. 
 
       - question:  Will I be able to use Video Indexer after Media Services is deprecated?
         answer: |
           Yes, you continue to be able to use Azure Video Indexer. 
 
-      - question: What will I need to do before the deprecation?
+      - question: What do I need to do before the deprecation?
         answer: |
           We try to keep the impact of Azure Media Services deprecation to a minimum for Azure Video Indexer customers. We'll continue to inform you and post updates to our documentation when changes or actions are requires from you.  
 
       - question: Why do I still need to create a Media Services account even when it’s being deprecated?
         answer: |
-          While today you need to create an Azure Media Services account as part of Azure Video Indexer we're working on removing this dependency before Azure Media Services is fully deprecated. 
+          While today you need to create an Azure Media Services account as part of Azure Video Indexer, we're working on removing this dependency before Azure Media Services is fully deprecated. 
 
       - question: Will I see a change in features or behavior of Azure Video Indexer?
         answer: |
@@ -41,7 +40,7 @@ sections:
 
       - question: Why should I move to Video Indexer ARM accounts?
         answer: |
-          ARM accounts provide enhancements for management like Monitoring, Identity Access Management, Automation and other AI Analysis capabilities. When transitioning from Media Services Analysis you get more capabilities at a lower price. 
+          ARM accounts provide enhancements for management like Monitoring, Identity Access Management, Automation and other AI Analysis capabilities. When transitioning from Media Services Analysis, you get more capabilities at a lower price. 
 
       - question: Can I use Video Indexer for encoding or streaming?
         answer: |
@@ -49,14 +48,14 @@ sections:
 
       - question:  Will my billing change after the deprecation?
         answer: |
-          Video Indexer will replace the encoding and streaming functionality provided by Media Services. What was previously billed by Media Services will now be billed by Video Indexer directly. You will not pay more for the replacement encoding and packaging service offered by Video Indexer.
+          Video Indexer will replace the encoding and streaming functionality provided by Media Services. What was previously billed by Media Services will now be billed by Video Indexer directly. You won't pay more for the replacement encoding and packaging service offered by Video Indexer.
       - question:  Can I use Video Indexer for live Analysis?
         answer: |
-          No, while Media Services provided live transcription on live events, Video Indexer does not provide live streaming or Analysis capability.
+          No, while Media Services provided live transcription on live events, Video Indexer doesn't provide live streaming or Analysis capability.
 
       - question:  What will happen to my Azure Media Services account?
         answer: |
-          Video Indexer will gradually migrate away from Azure Media Services and continue to operate without Media Services. After the migration you can follow Media Services guidance how to migrate/terminate your Media Services account.
+          Video Indexer will gradually migrate away from Azure Media Services and continue to operate without Media Services. After the migration, you can follow Media Services guidance how to migrate/terminate your Media Services account.
 
       - question: What can I do if I have more questions?
         answer: |

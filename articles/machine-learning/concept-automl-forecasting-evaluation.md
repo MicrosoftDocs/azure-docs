@@ -14,7 +14,9 @@ ms.date: 08/01/2023
 show_latex: true
 ---
 
-# Inference and evaluation of forecasting models
+# Inference and evaluation of forecasting models (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](./includes/machine-learning-preview-generic-disclaimer.md)]
 
 This article introduces concepts related to model inference and evaluation in forecasting tasks. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 

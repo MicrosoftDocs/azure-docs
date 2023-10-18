@@ -68,7 +68,7 @@ class Authorization
 
 ### Usage notes
 
-* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#step-3---access-policy) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
+* Configure `identity-type=jwt` when the [access policy](authorizations-overview.md#step-3-access-policy) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
 
 ## Examples
 

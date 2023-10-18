@@ -2,8 +2,8 @@
 title: 'Call Grafana APIs programmatically with Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
 description: Learn how to call Grafana APIs programmatically with Azure Active Directory and an Azure service principal
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: tutorial
 ms.date: 04/05/2023
@@ -96,7 +96,7 @@ az login --service-principal --username "<client-id>" --password "<client-secret
 Use the command [az grafana api-key create](/cli/azure/grafana/api-key#az-grafana-api-key-create) to create a key. Here's an example output:
 
 ```
-az grafana api-key create --key keyname --name <name> --resource-group <rg> --resource-group editor --output json
+az grafana api-key create --key keyname --name <name> --resource-group <rg> --role editor --output json
 
 {
   "id": 3,

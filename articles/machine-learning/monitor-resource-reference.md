@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring engagement-fy23
-ms.date: 01/19/2023
+ms.date: 09/12/2023
 ---
 
 # Monitoring Azure Machine Learning data reference
@@ -55,9 +55,31 @@ Quota information is for Azure Machine Learning compute only.
 | Metric| Unit | Description |
 |--|--|--|
 | CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
+| CpuUtilizationPercentage | Count | Utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
+| CpuUtilizationMillicores | Count | Utilization of a CPU node in millicores. Utilization is aggregated in one minute intervals. |
+| CpuCapacityMillicores | Count | Maximum capacity of a CPU node in millicores. Capacity is aggregated in one minute intervals. |
+| CpuMemoryCapacityMegabytes | Count | Maximum memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
+| CpuMemoryUtilizationMegabytes | Count | Memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
+| CpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
 | GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuUtilizationPercentage | Count | Utilization percentage of a GPU device. Utilization is aggregated in one minute intervals. |
+| GpuUtilizationMilliGPUs | Count | Utilization of a GPU device in milli-GPUs. Utilization is aggregated in one minute intervals. |
+| GpuCapacityMilliGPUs | Count | Maximum capacity of a GPU device in milli-GPUs. Capacity is aggregated in one minute intervals. |
+| GpuMemoryCapacityMegabytes | Count | Maximum memory capacity of a GPU device in megabytes. Capacity aggregated in at one minute intervals. |
 | GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuMemoryUtilizationMegabytes | Count | Memory utilization of a GPU device in megabytes. Utilization aggregated in at one minute intervals.
+| GpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a GPU device. Utilization aggregated in at one minute intervals.
 | GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
+| DiskAvailMegabytes | Count | Available disk space in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskReadMegabytes | Count | Data read from disk in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskUsedMegabytes | Count | Used disk space in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskWriteMegabytes | Count | Data written into disk in megabytes. Metrics are aggregated in one minute intervals. |
+| IBReceiveMegabytes | Count | Network data received over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
+| IBTransmitMegabytes | Count | Network data sent over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
+| NetworkInputMegabytes | Count | Network data received in megabytes. Metrics are aggregated in one minute intervals. |
+| NetworkOutputMegabytes | Count | Network data sent in megabytes. Metrics are aggregated in one minute intervals. |
+
+
 
 **Run**
 

@@ -36,6 +36,8 @@
     href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/ai-services/qnamaker/context/context
 - name: How-to guides
   items:
+  - name: Migrate to Azure OpenAI
+    href: how-to/migrate-to-openai.md
   - name: Manage QnA Maker resources
     items:
     - name: Set up QnA Maker resources

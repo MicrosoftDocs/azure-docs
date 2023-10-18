@@ -278,7 +278,7 @@ endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 # create an online endpoint
 endpoint = ManagedOnlineEndpoint(
     name = endpoint_name, 
-    description="this is a sample endpoint"
+    description="this is a sample endpoint",
     auth_mode="key"
 )
 ```

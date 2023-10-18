@@ -29,7 +29,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 > This quickstart uses the Azure Communication Services Calling SDK version `latest`.
 
 ```console
-npm install @azure/communication-common --save
+npm install @azure/communication-common@next --save
 npm install @azure/communication-calling@latest --save
 ```
 
@@ -63,7 +63,7 @@ Here's the code:
         <br>
         <input id="application-object-id"
             type="text"
-            placeholder="Enter application objectId identity in format: '28:orgid:USER_GUID'"
+            placeholder="Enter application objectId identity in format: 'APP_GUID'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -119,7 +119,7 @@ let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
 let applicationObjectId = document.getElementById('application-object-id');
-let initializeCallAgentButton = document.getElementById('initialize-call-agent');
+let initializeCallAgentButton = document.getElementById('initialize-teams-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
 let acceptCallButton = document.getElementById('accept-call-button');
@@ -169,7 +169,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = teamsCallAgent.startCall([{ botId: applicationObjectId.value.trim() }], { videoOptions: videoOptions });
+        call = callAgent.startCall([{ botId: applicationObjectId.value.trim(), cloud:"public" }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -224,6 +224,11 @@ subscribeToCall = (call) => {
                 console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
             }   
         });
+
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();

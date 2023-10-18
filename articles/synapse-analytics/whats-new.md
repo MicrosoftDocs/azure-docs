@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 07/21/2023
+ms.date: 08/01/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual

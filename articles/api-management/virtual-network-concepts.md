@@ -107,6 +107,9 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
   
   * **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for sixty scale-out units (2 IP addresses/scale-out unit) for a total of sixty-one units. This is an extremely large, theoretical number of scale-out units. 
 
+> [!IMPORTANT]
+> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning may cause a change in the private IP address.
+
 ### Routing
 
 See the Routing guidance when deploying your API Management instance into an [external VNet](./api-management-using-with-vnet.md#routing) or [internal VNet](./api-management-using-with-internal-vnet.md#routing).

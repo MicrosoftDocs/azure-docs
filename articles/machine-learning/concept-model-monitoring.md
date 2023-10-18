@@ -44,12 +44,13 @@ Azure Machine Learning provides the following capabilities for continuous model 
 
 Azure Machine Learning model monitoring (preview) supports the following list of monitoring signals and metrics:
 
-|Monitoring signal | Description | Metrics | Model tasks (supported data format) | Target dataset | Baseline dataset |
+|Monitoring signal | Description | Metrics | Model task type (supported data format) | Target dataset | Baseline dataset |
 |--|--|--|--|--|--|
 | Data drift | Data drift tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. | Jensen-Shannon Distance, Population Stability Index, Normalized Wasserstein Distance, Two-Sample Kolmogorov-Smirnov Test, Pearson's Chi-Squared Test | Classification (tabular data), Regression (tabular data) | Production data - model inputs | Recent past production data or training data |
 | Prediction drift | Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data. | Jensen-Shannon Distance, Population Stability Index, Normalized Wasserstein Distance, Chebyshev Distance, Two-Sample Kolmogorov-Smirnov Test, Pearson's Chi-Squared Test | Classification (tabular data), Regression (tabular data) | Production data - model outputs | Recent past production data or validation data |
 | Data quality | Data quality tracks the data integrity of a model's input by comparing it to the model's training data or recent past production data. The data quality checks include checking for null values, type mismatch, or out-of-bounds of values. | Null value rate, data type error rate, out-of-bounds rate | Classification (tabular data), Regression (tabular data) | production data - model inputs | Recent past production data or training data |
 | Feature attribution drift | Feature attribution drift tracks the importance or contributions of features to prediction outputs in production by comparing it to feature importance at training time | Normalized discounted cumulative gain | Classification (tabular data), Regression (tabular data) | Production data - model inputs & outputs (*see the following note*) | Training data (required) |
+|[Generative AI: Generation safety and quality](./prompt-flow/how-to-monitor-generative-ai-applications.md)|Evaluates generative AI applications for safety & quality using GPT-assisted metrics|groundedness, relevance, fluency, similarity, coherence|text_question_answering| prompt, completion, context, and annotation template |N/A|
 
 > [!NOTE]
 > For 'feature attribution drift' signal (during Preview), the user must create a custom data asset of type 'uri_folder' that contains joined inputs and outputs (Model Data Collector can be leveraged). Additionally, 'target_column_name' is also a required field, which specifies the prediction column in your training dataset. 
@@ -88,3 +89,4 @@ Each machine learning model and its use cases are unique. Therefore, model monit
 - [Perform continuous model monitoring in Azure Machine Learning](how-to-monitor-model-performance.md)
 - [Model data collection](concept-data-collection.md)
 - [Collect production inference data](how-to-collect-production-data.md)
+- [Model monitoring for generative AI applications](./prompt-flow/how-to-monitor-generative-ai-applications.md)

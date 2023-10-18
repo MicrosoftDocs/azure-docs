@@ -411,6 +411,16 @@ This field represents the node name used for billing purposes. Use it to overrid
 
 **Maximum length:** 256
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How would I measure the impact of a monitoring campaign?
+
+PageView Telemetry includes URL and you could parse the UTM parameter using a regex function in Kusto.
+          
+Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+
 ## Next steps
 
 Learn how to use the [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:

@@ -43,13 +43,11 @@ The pricing tier that applies to your guest users is based on the highest pricin
 
 An Azure AD tenant must be linked to a resource group within an Azure subscription for proper billing and access to features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with an account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
 
-2. Select the directory you want to link: In the Azure portal toolbar, select the **Directories + subscriptions** icon in the portal toolbar. Then on the **Portal settings | Directories + subscriptions** page, find your directory in the **Directory name** list, and then select **Switch**.
+2. Select the directory you want to link: In the Microsoft Entra admin center toolbar, select the **Directories + subscriptions** icon in the portal toolbar. Then on the **Portal settings | Directories + subscriptions** page, find your directory in the **Directory name** list, and then select **Switch**.
 
-3. Under **Azure Services**, select **Azure Active Directory**.
-
-4. In the left menu, select **External Identities**.
+3. Browse to **Identity** > **External identities** > **Overview**.
 
 5. Under **Subscriptions**, select **Linked subscriptions**.
 
@@ -69,7 +67,7 @@ If no subscriptions are available in the **Link a subscription** pane, here are 
 
 - You don't have the appropriate permissions. Be sure to sign in with an Azure account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
 
-- A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
+- A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
 - No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 

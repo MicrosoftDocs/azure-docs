@@ -31,6 +31,8 @@ By specifying a web API's scopes in your client app's registration, the client a
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
+Access to APIs require configuration of access scopes and roles. If you want to expose your resource application web APIs to client applications, configure access scopes and roles for the API. If you want a client application to access a web API, configure permissions to access the API in the app registration.
+
 In the first scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 
 This diagram shows how the two app registrations relate to one another. In this section, you add permissions to the client app's registration.
@@ -39,9 +41,9 @@ This diagram shows how the two app registrations relate to one another. In this 
 
 Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
-1. Select **Azure Active Directory** > **App registrations**, and then select your client application (*not* your web API).
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application (*not* your web API).
 1. Select **API permissions** > **Add a permission** > **My APIs**.
 1. Select the web API you registered as part of the prerequisites.
 
@@ -68,9 +70,9 @@ In addition to accessing your own web API on behalf of the signed-in user, your 
 
 Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the logged-in user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you've configured for it.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
-1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
 1. Select **Delegated permissions**. Microsoft Graph exposes many permissions, with the most commonly used shown at the top of the list.
 1. Under **Select permissions**, select the following permissions:
@@ -93,9 +95,9 @@ Configure application permissions for an application that needs to authenticate 
 
 In the following steps, you grant permission to Microsoft Graph's *Files.Read.All* permission as an example.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
-1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
 1. All permissions exposed by Microsoft Graph are shown under **Select permissions**.
 1. Select the permission or permissions you want to grant your application. As an example, you might have a daemon app that scans files in your organization, alerting on a specific file type or name.
@@ -143,7 +145,7 @@ The **Grant admin consent** button is *disabled* if you aren't an admin or if no
 
 ## Next steps
 
-Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure Active Directory (Azure AD) tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Microsoft Entra tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
 
 > [!div class="nextstepaction"]
 > [Modify the accounts supported by an application](./howto-modify-supported-accounts.md)

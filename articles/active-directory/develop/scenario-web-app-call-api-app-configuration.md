@@ -37,7 +37,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](./includes/web-app/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.cs
 
@@ -139,7 +139,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](./includes/web-app/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.Auth.cs
 
@@ -289,7 +289,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [Node.js](#tab/nodejs)
 
-The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Azure AD. This is shown below:
+The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Microsoft Entra ID. This is shown below:
 
 :::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="123-155":::
 

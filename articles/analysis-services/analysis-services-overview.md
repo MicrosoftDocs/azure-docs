@@ -168,7 +168,7 @@ Azure Analysis Services Firewall blocks all client connections other than those 
 
 ### Authentication
 
-User authentication is handled by [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). When logging in, users use an organization account identity with role-based access to the database. User identities must be members of the default Azure Active Directory for the subscription that the server is in. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+User authentication is handled by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). When logging in, users use an organization account identity with role-based access to the database. User identities must be members of the default Azure Active Directory for the subscription that the server is in. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ### Data security
 
@@ -197,7 +197,7 @@ Service principals are an Azure Active Directory application resource you create
 ### Azure governance
 
 Azure Analysis Services is governed by the [Microsoft Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
-To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
 ## Use the tools you already know
 
@@ -215,7 +215,7 @@ Manage your servers and model databases by using [SQL Server Management Studio (
 
 ### Open-source tools
 
-Analysis Services has a vibrant community of developers who create tools. Be sure to check out [Tabular Editor](https://tabulareditor.github.io/), an open-source tool for creating, maintaining, and managing tabular models using an intuitive, lightweight editor. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
+Analysis Services has a vibrant community of developers who create tools. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
 
 ### PowerShell
 

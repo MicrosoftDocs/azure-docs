@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL
 
 
-This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to access Azure SQL Database. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to access Azure SQL Database. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"]
 >
 > * Grant your VM access to Azure SQL Database
-> * Enable Azure AD authentication
+> * Enable Microsoft Entra authentication
 > * Create a contained user in the database that represents the VM's system assigned identity
 > * Get an access token using the VM identity and use it to query Azure SQL Database
 
@@ -41,36 +41,38 @@ To grant your VM access to a database in Azure SQL Database, you can use an exis
 
 There are two steps to granting your VM access to a database:
 
-1. Enable Azure AD authentication for the server.
+1. Enable Microsoft Entra authentication for the server.
 2. Create a **contained user** in the database that represents the VM's system-assigned identity.
 
-### Enable Azure AD authentication
+<a name='enable-azure-ad-authentication'></a>
 
-**To [configure Azure AD authentication](/azure/azure-sql/database/authentication-aad-configure):**
+### Enable Microsoft Entra authentication
+
+**To [configure Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-configure):**
 
 1. In the Azure portal, select **SQL servers** from the left-hand navigation.
-2. Select the SQL server to be enabled for Azure AD authentication.
+2. Select the SQL server to be enabled for Microsoft Entra authentication.
 3. In the **Settings** section of the blade, click **Active Directory admin**.
 4. In the command bar, click **Set admin**.
-5. Select an Azure AD user account to be made an administrator of the server, and click **Select.**
+5. Select a Microsoft Entra user account to be made an administrator of the server, and click **Select.**
 6. In the command bar, click **Save.**
 
 
 ### Create contained user
 
-This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
+This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Microsoft Entra integration:
 
 - [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
-- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-configure)
+- [Configure and manage Microsoft Entra authentication with SQL Database or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-configure)
 
-SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Azure AD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it isn't unique, the command fails requesting to provide a unique Azure AD display name for a given account.
+SQL DB requires unique Microsoft Entra ID display names. With this, the Microsoft Entra accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Microsoft Entra ID regarding their display names. SQL DB checks the Microsoft Entra ID display name during T-SQL creation of such users and if it isn't unique, the command fails requesting to provide a unique Microsoft Entra ID display name for a given account.
 
 **To create a contained user:**
 
 1. Start SQL Server Management Studio.
 2. In the **Connect to Server** dialog, Enter your server name in the **Server name** field.
 3. In the **Authentication** field, select **Active Directory - Universal with MFA support**.
-4. In the **User name** field, enter the name of the Azure AD account that you set as the server administrator, for example, helen@woodgroveonline.com
+4. In the **User name** field, enter the name of the Microsoft Entra account that you set as the server administrator, for example, helen@woodgroveonline.com
 5. Click **Options**.
 6. In the **Connect to database** field, enter the name of the non-system database you want to configure.
 7. Click **Connect**. Complete the sign-in process.
@@ -90,6 +92,8 @@ SQL DB requires unique Azure AD display names. With this, the Azure AD accounts 
 
     > [!NOTE]
     > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequisites section.
+    > 
+    > If you encounter the error "Principal `VMName` has a duplicate display name", append the CREATE USER statement with WITH OBJECT_ID='xxx'.
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER [VMName]
@@ -101,7 +105,7 @@ Code running in the VM can now get a token using its system-assigned managed ide
 
 ## Access data
 
-This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. This method doesn't require supplying credentials on the connection string.
+This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. This method doesn't require supplying credentials on the connection string.
 
 Here's a .NET code example of opening a connection to SQL using Active Directory Managed Identity authentication. The code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6.2** or higher or **.NET Core 3.1** or higher is required to use this method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly and add a NuGet reference to the Microsoft.Data.SqlClient library.
 
@@ -177,4 +181,3 @@ In this tutorial, you learned how to use a system-assigned managed identity to a
 
 > [!div class="nextstepaction"]
 > [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-

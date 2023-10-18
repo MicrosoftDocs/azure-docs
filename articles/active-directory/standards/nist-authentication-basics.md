@@ -1,5 +1,5 @@
 ---
-title: NIST authentication basics and Azure Active Directory
+title: NIST authentication basics and Microsoft Entra ID
 description: This article has terminology definitions, describes Trusted Platform Modules, and lists NIST authentication factors
 services: active-directory 
 ms.service: active-directory
@@ -103,7 +103,7 @@ MFA requires two authentication factors, which can be independent. For example:
 
 * Memorized secret (password) and one-time password (hardware or software)
 
-These methods enable two independent authentication transactions with Azure Active Directory (Azure AD).
+These methods enable two independent authentication transactions with Microsoft Entra ID.
 
    ![MFA with two authenticators](media/nist-authentication-basics/nist-authentication-basics-2.png)
 
@@ -126,8 +126,8 @@ One example is the Microsoft Authenticator app, in passwordless mode: the user a
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 by using Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieving NIST AAL1 by using Microsoft Entra ID](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 by using Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieving NIST AAL2 by using Microsoft Entra ID](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 by using Azure AD](nist-authenticator-assurance-level-3.md)
+[Achieving NIST AAL3 by using Microsoft Entra ID](nist-authenticator-assurance-level-3.md)

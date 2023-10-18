@@ -1,6 +1,6 @@
 ---
-title: Assign or list Azure AD roles with administrative unit scope
-description: Use administrative units to restrict the scope of role assignments in Azure Active Directory.
+title: Assign or list Microsoft Entra roles with administrative unit scope
+description: Use administrative units to restrict the scope of role assignments in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,36 +12,36 @@ ms.workload: identity
 ms.date: 11/15/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Assign Azure AD roles with administrative unit scope
+# Assign Microsoft Entra roles with administrative unit scope
 
-In Azure Active Directory (Azure AD), for more granular administrative control, you can assign an Azure AD role with a scope that's limited to one or more administrative units. When an Azure AD role is assigned at the scope of an administrative unit, role permissions apply only when managing members of the administrative unit itself, and do not apply to tenant-wide settings or configurations.
+In Microsoft Entra ID, for more granular administrative control, you can assign a Microsoft Entra role with a scope that's limited to one or more administrative units. When a Microsoft Entra role is assigned at the scope of an administrative unit, role permissions apply only when managing members of the administrative unit itself, and do not apply to tenant-wide settings or configurations.
 
 For example, an administrator who is assigned the Groups Administrator role at the scope of an administrative unit can manage groups that are members of the administrative unit, but they cannot manage other groups in the tenant. They also cannot manage tenant-level settings related to groups, such as expiration or group naming policies.
 
-This article describes how to assign Azure AD roles with administrative unit scope.
+This article describes how to assign Microsoft Entra roles with administrative unit scope.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Roles that can be assigned with administrative unit scope
 
-The following Azure AD roles can be assigned with administrative unit scope. Additionally, any [custom role](custom-create.md) can be assigned with administrative unit scope as long as the custom role's permissions include at least one permission relevant to users, groups, or devices.
+The following Microsoft Entra roles can be assigned with administrative unit scope. Additionally, any [custom role](custom-create.md) can be assigned with administrative unit scope as long as the custom role's permissions include at least one permission relevant to users, groups, or devices.
 
 | Role | Description |
 | -----| ----------- |
 | [Authentication Administrator](permissions-reference.md#authentication-administrator) | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
-| [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | Limited access to manage devices in Azure AD. |
+| [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | Limited access to manage devices in Microsoft Entra ID. |
 | [Groups Administrator](permissions-reference.md#groups-administrator) | Can manage all aspects of groups in the assigned administrative unit only. |
 | [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators in the assigned administrative unit only. |
 | [License Administrator](permissions-reference.md#license-administrator) | Can assign, remove, and update license assignments within the administrative unit only. |
@@ -64,7 +64,7 @@ Certain role permissions apply only to non-administrator users when assigned wit
 The following security principals can be assigned to a role with an administrative unit scope:
 
 * Users
-* Azure AD role-assignable groups
+* Microsoft Entra role-assignable groups
 * Service principals
 
 ## Service principals and guest users
@@ -75,15 +75,17 @@ It is not currently possible to assign directory read permissions scoped to an a
 
 ## Assign a role with an administrative unit scope
 
-You can assign an Azure AD role with an administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
+You can assign a Microsoft Entra role with an administrative unit scope by using the Microsoft Entra admin center, PowerShell, or Microsoft Graph.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit that you want to assign a user role scope to. 
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
+
+1. Select the administrative unit that you want to assign a user role scope to. 
 
 1. On the left pane, select **Roles and administrators** to list all the available roles.
 
@@ -96,7 +98,7 @@ You can assign an Azure AD role with an administrative unit scope by using the A
    ![Select the role to scope and then select Add assignments](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
-> To assign a role on an administrative unit by using Azure AD Privileged Identity Management (PIM), see [Assign Azure AD roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
+> To assign a role on an administrative unit by using Microsoft Entra Privileged Identity Management (PIM), see [Assign Microsoft Entra roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
 ### PowerShell
 
@@ -133,15 +135,17 @@ Body
 
 ## List role assignments with administrative unit scope
 
-You can view a list of Azure AD role assignments with administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
+You can view a list of Microsoft Entra role assignments with administrative unit scope by using the Microsoft Entra admin center, PowerShell, or Microsoft Graph.
 
-### Azure portal
+### Microsoft Entra admin center
 
-You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+You can view all the role assignments created with an administrative unit scope in the **Admin units** section of the Microsoft Entra admin center. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit for the list of role assignments you want to view. 
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
+
+1. Select the administrative unit for the list of role assignments you want to view. 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 
@@ -172,5 +176,5 @@ Body
 
 ## Next steps
 
-- [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
+- [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Microsoft Entra roles assigned to groups](groups-faq-troubleshooting.yml)

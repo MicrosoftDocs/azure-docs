@@ -1,16 +1,16 @@
 ---
 title: Subscribe to Grafana Enterprise
-description:  Activate Grafana Enterprise (preview) to access Grafana Enterprise plugins within Azure Managed Grafana
-author: mcleanbyron
-ms.author: mcleans
+description:  Activate Grafana Enterprise to access Grafana Enterprise plugins within Azure Managed Grafana
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
 ms.date: 01/09/2023
 ---
 
-# Enable Grafana Enterprise (preview)
+# Enable Grafana Enterprise
 
-In this guide, learn how to activate the Grafana Enterprise (preview) add-on in Azure Managed Grafana, update your Grafana Enterprise plan, and access [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
+In this guide, learn how to activate the Grafana Enterprise add-on in Azure Managed Grafana, update your Grafana Enterprise plan, and access [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
 
 The Grafana Enterprise plans offered through Azure Managed Grafana enable users to access Grafana Enterprise plugins to do more with Azure Managed Grafana.
 
@@ -43,10 +43,6 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 > [!NOTE]
 > The Grafana Enterprise monthly plan is a paid plan, owned and charged by Grafana Labs, through Azure Marketplace. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
-
-> [!IMPORTANT]
-> Grafana Enterprise is currently in preview within Azure Managed Grafana.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

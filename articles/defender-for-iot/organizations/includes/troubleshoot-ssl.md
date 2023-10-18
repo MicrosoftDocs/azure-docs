@@ -9,7 +9,7 @@ You won't be able to upload certificates to your OT sensors or on-premises manag
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
-| **Passphrase does not match to the key** | Make sure you have the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
+| **Passphrase does not match to the key** | Make sure you have the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. For more information, see [Supported characters for keys and passphrases](../best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases). |
 | **Cannot validate chain of trust. The provided Certificate and Root CA don't match.**  | Make sure a `.pem` file correlates to the  `.crt` file. <br> If the problem continues, try recreating the certificate using the correct chain of trust, as defined by the `.pem` file. |
 | **This SSL certificate has expired and isn't considered valid.**  | Create a new certificate with valid dates.|
 |**This certificate has been revoked by the CRL and can't be trusted for a secure connection** | Create a new unrevoked certificate. |

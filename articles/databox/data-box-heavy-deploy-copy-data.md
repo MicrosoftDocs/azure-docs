@@ -2,13 +2,13 @@
 title: Tutorial to copy data via SMB on Azure Data Box Heavy | Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box Heavy by using SMB with the local web UI.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 08/29/2019
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 ::: zone target = "docs"

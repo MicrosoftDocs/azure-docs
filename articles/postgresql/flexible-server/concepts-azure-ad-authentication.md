@@ -41,7 +41,7 @@ The following table provides a list of high-level Azure AD features and capabili
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
 | Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | Yes  (New Servers) |
+| PG bouncer support | No | Yes |
 
 ## How Azure AD Works In Flexible Server
 

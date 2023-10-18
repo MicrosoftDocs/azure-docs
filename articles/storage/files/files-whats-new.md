@@ -48,7 +48,7 @@ Azure Files customers can now use identity-based Kerberos authentication for Lin
 ### 2023 quarter 1 (January, February, March)
 #### Nconnect for NFS Azure file shares is generally available
 
-Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 #### Improved Azure File Sync service availability
 
@@ -119,7 +119,7 @@ SMB Multichannel enables SMB clients to establish multiple parallel connections 
 
 For more information, see:
 
-- [SMB Multichannel performance in Azure Files](storage-files-smb-multichannel-performance.md)
+- [SMB Multichannel performance in Azure Files](smb-performance.md)
 - [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel)
 - [Overview on SMB Multichannel in the Windows Server documentation](/azure-stack/hci/manage/manage-smb-multichannel)
 

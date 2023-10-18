@@ -23,7 +23,7 @@ This guide discusses how to secure public applications or devices that can't sec
 > * **Prerequisite Reading:** [Scenario: Desktop app that calls web APIs]
 > * The following scenario uses the device code flow, which does not involve a web browser to acquire a token.
 
-Create the device based application in Azure AD to enable Azure AD sign in, which is granted access to Azure Maps REST APIs.
+Create the device based application in Azure AD to enable Azure AD sign-in, which is granted access to Azure Maps REST APIs.
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 

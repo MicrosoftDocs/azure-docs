@@ -162,6 +162,7 @@ sections:
           - You've included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
           - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
           - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
+          - OR condition is used with only MFA, or AND condition is used with MFA 
  
       - question: |
           We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?

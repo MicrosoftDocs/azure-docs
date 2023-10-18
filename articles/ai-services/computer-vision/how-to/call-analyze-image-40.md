@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: seodec18, references_regions
+ms.custom: seodec18, references_regions, devx-track-python
 zone_pivot_groups: programming-languages-computer-vision-40
 ---
 
@@ -33,6 +33,12 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 ::: zone pivot="programming-language-cpp"
 
 [!INCLUDE [C++ SDK](../includes/how-to-guides/analyze-image-40-cpp.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java SDK](../includes/how-to-guides/analyze-image-40-java.md)]
 
 ::: zone-end
 

@@ -8,7 +8,7 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot SSIS Integration Runtime management

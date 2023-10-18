@@ -49,7 +49,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - The software configuration section requires he following inputs
     - Software installation type: Keep this as "SAPInstallWithoutOSConfig"
     - BOM URL: This is the BOM file path. Example: `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`
-    - Software version: Azure Center for SAP solutions supports three SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00**
+    - Software version: Azure Center for SAP solutions supports these SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00** or **SAP S/4HANA 2022 ISS 00**
     - Storage account ID: This is the resource ID for the storage account where the BOM file is created
     - As you are deploying an HA system, you need to provide the High Availability software configuration with the following two inputs:
         - Fencing Client ID: The client identifier for the STONITH Fencing Agent service principal

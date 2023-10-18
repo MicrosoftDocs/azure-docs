@@ -5,7 +5,7 @@ description: Learn how to install client certificates for P2S certificate authen
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 08/07/2023
 ms.author: cherylmc
 
 ---

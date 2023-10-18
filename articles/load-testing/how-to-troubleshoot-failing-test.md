@@ -153,11 +153,11 @@ For Azure-hosted applications, you can configure your load test to monitor resou
 
 Learn how you can [monitor server-side application metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
-For application endpoints that you host on Azure App Service, you can [use App Service Insights to get additional insights](./concept-load-test-app-service.md#monitor-application-metrics) about the application behavior.
+For application endpoints that you host on Azure App Service, you can [use App Service Insights to get additional insights](./concept-load-test-app-service.md#monitor) about the application behavior.
 
 ## Next steps
 
 - Learn how to [Export the load test result](./how-to-export-test-results.md).
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-- Learn how to [Get detailed insights for Azure App Service based applications](./concept-load-test-app-service.md#monitor-application-metrics).
+- Learn how to [Get detailed insights for Azure App Service based applications](./concept-load-test-app-service.md#monitor).
 - Learn how to [Compare multiple load test runs](./how-to-compare-multiple-test-runs.md).

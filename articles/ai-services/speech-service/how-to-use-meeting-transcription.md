@@ -12,7 +12,7 @@ ms.date: 05/06/2023
 ms.author: eur
 zone_pivot_groups: acs-js-csharp-python
 ms.devlang: csharp, javascript
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Real-time meeting transcription
@@ -43,4 +43,3 @@ You can transcribe meetings with the ability to add, remove, and identify multip
 
 > [!div class="nextstepaction"]
 > [Asynchronous Meeting Transcription](how-to-async-meeting-transcription.md)
-

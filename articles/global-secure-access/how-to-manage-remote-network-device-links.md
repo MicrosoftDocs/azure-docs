@@ -23,14 +23,14 @@ To configure remote networks, you must have:
 - A **Global Secure Access Administrator** role in Microsoft Entra ID.
 - Completed the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks) for remote networks.
 - Created a remote network.
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ## Add a device link using the Microsoft Entra admin center
 
 You can add a device link to a remote network at any time.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select a remote network from the list.
 1. Select **Links** from the menu.
 1. Select the **+ Add a link** button.

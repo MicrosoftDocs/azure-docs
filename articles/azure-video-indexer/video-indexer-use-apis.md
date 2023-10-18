@@ -4,6 +4,8 @@ description: This article describes how to get started with Azure AI Video Index
 ms.date: 07/03/2023
 ms.topic: tutorial
 ms.custom: devx-track-csharp
+author: IngridAtMicrosoft
+ms.author: inhenkel
 ---
 
 # Tutorial: Use the Azure AI Video Indexer API

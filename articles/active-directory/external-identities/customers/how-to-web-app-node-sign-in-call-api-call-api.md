@@ -191,7 +191,7 @@ At this point, you're ready to test your client web app and web API.
     ```
     Your client web app starts.
 
-1. Use the steps in [Run and test sample web app and API](how-to-web-app-node-sample-sign-in-call-api.md#run-and-test-sample-web-app-and-api) to demonstrate how the client app calls the web API.
+1. Use the steps in [Run and test sample web app and API](./sample-web-app-node-sign-in-call-api.md#run-and-test-sample-web-app-and-api) to demonstrate how the client app calls the web API.
 
 ## Next steps
 

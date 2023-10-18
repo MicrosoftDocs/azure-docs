@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
-ms.author: ladolan
-author: lauradolan
+ms.author: sagarkeswani
+author: sagarkeswani
 #Customer intent: As a developer, I want to start and stop SAP systems in Azure Center for SAP solutions so that I can control instances through the Virtual Instance for SAP resource.
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory HIPAA audit control safeguards
-description: Guidance on how to configure Azure Active Directory HIPAA audit control safeguards
+title: Configure Microsoft Entra HIPAA audit control safeguards
+description: Guidance on how to configure Microsoft Entra HIPAA audit control safeguards
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Audit controls safeguard guidance
 
-Azure Active Directory (Azure AD) meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, implement the safeguards using this guidance, with other needed configurations or processes.
+Microsoft Entra ID meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, implement the safeguards using this guidance, with other needed configurations or processes.
 
 For the audit controls:
 

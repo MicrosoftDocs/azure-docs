@@ -27,20 +27,19 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **All API connectors**, and then select **New API connector**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
+1. Select **All API connectors**, and then select **New API connector**.
 
     :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-new.png" alt-text="Screenshot of adding a new API connector to External Identities.":::
 
-5. Provide a display name for the call. For example, **Check approval status**.
-6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
+1. Provide a display name for the call. For example, **Check approval status**.
+1. Provide the **Endpoint URL** for the API call.
+1. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
 
     :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Screenshot of configuring an API connector.":::
 
-8. Select **Save**.
+1. Select **Save**.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
@@ -93,9 +92,8 @@ Additionally, the claims are typically sent in all request:
 
 Follow these steps to add an API connector to a self-service sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 

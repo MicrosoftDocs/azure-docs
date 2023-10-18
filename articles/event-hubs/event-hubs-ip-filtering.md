@@ -169,7 +169,6 @@ Use the following Azure PowerShell commands to add, list, remove, update, and de
 - [`New-AzEventHubIPRuleConfig`](/powershell/module/az.eventhub/new-azeventhubipruleconfig) and [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) together to add an IP firewall rule
 - [`Remove-AzEventHubIPRule`](/powershell/module/az.eventhub/remove-azeventhubiprule) to remove an IP firewall rule.
 
-
 ## Default action and public network access 
 
 ### REST API
@@ -180,7 +179,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
@@ -193,6 +192,8 @@ Azure portal always uses the latest API version to get and set properties.  If y
 
 
 
+
+
 ## Next steps
 
 For constraining access to Event Hubs to Azure virtual networks, see the following link:
@@ -202,5 +203,9 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 <!-- Links -->
 
 [express-route]:  ../expressroute/expressroute-faqs.md#supported-services
+
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
+
 [lnk-vnet]: event-hubs-service-endpoints.md
+
+

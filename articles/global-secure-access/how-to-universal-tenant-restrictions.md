@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access (preview) to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane. Tenant restrictions v2 enables enterprises to prevent data exfiltration by users using external tenant identities for Microsoft Entra ID integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
+Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane. Tenant restrictions v2 enables enterprises to prevent data exfiltration by users using external tenant identities for Microsoft Entra integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png" alt-text="Diagram showing how tenant restrictions v2 protects against malicious users." lightbox="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png":::
 
@@ -25,7 +25,7 @@ The following table explains the steps taken at each point in the previous diagr
 | Step | Description |
 | --- | --- |
 | **1** | Contoso configures a **tenant restrictions v2** policy in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy using Global Secure Access universal tenant restrictions. |
-| **2** | A user with a Contoso-managed device tries to access a Microsoft Entra ID integrated app with an unsanctioned external identity. |
+| **2** | A user with a Contoso-managed device tries to access a Microsoft Entra integrated app with an unsanctioned external identity. |
 | **3** | When the traffic reaches Microsoft's Security Service Edge, an HTTP header is added to the request. The header contains Contoso's tenant ID and the tenant restrictions policy ID. |
 | **4** | *Authentication plane protection:* Microsoft Entra ID uses the header in the authentication request to look up the tenant restrictions policy. Contoso's policy blocks unsanctioned external accounts from accessing external tenants. |
 | **5** | *Data plane protection:* If the user again tries to access an external unsanctioned application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device, they're blocked. The resource provider checks that the claim in the token and the header in the packet match. Any mismatch in the token and header triggers reauthentication and blocks access. |
@@ -37,7 +37,7 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
     - Tenant ID of the device tenant
     - Tenant restrictions v2 policy ID of the device tenant
 - It enables Microsoft Entra ID, Microsoft Accounts, and Microsoft 365 applications to interpret this special HTTP header enabling lookup and enforcement of the associated tenant restrictions v2 policy. This lookup enables consistent policy application. 
-- Works with all Microsoft Entra ID integrated third-party apps at the auth plane during sign in.
+- Works with all Microsoft Entra integrated third-party apps at the auth plane during sign in.
 - Works with Exchange, SharePoint, and Microsoft Graph for data plane protection.
 
 ## Prerequisites
@@ -45,14 +45,14 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * The **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ### Known limitations
 
 - If you have enabled universal tenant restrictions and you are accessing the Microsoft Entra admin center for one of the allow listed tenants, you may see an "Access denied" error. Add the following feature flag to the Microsoft Entra admin center:
     - `?feature.msaljs=true&exp.msaljsexp=true`
     - For example, you work for Contoso and you have allow listed Fabrikam as a partner tenant. You may see the error message for the Fabrikam tenant's Microsoft Entra admin center.
-        - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/#home` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
+        - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
 
 
 Outlook uses the QUIC protocol for some communications. We don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
@@ -72,9 +72,8 @@ For more information to configure these policies, see the article [Set up tenant
 
 Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference) and [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
-1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
-1. Select the **Tenant Restrictions** tab.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access** > **Global Settings** > **Session Management** > **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 1. Select **Save**.
 

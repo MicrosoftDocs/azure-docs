@@ -57,7 +57,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 
-- [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure)
 
 - [Flowmon](https://www.flowmon.com/en/blog/azure-vtap)
 
@@ -69,7 +69,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 
-- [RSA NetWitness® Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
+- [RSA NetWitness&reg; Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
 
 - [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
 

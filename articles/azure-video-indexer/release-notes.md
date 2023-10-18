@@ -4,7 +4,8 @@ description: To stay up-to-date with the most recent developments, this article 
 ms.topic: article
 ms.custom: references_regions
 ms.date: 07/03/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure AI Video Indexer release notes

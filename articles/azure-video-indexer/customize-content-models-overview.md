@@ -4,6 +4,7 @@ description: This article gives links to the conceptual articles that explain th
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customizing content models in Azure AI Video Indexer

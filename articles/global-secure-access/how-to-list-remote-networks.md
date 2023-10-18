@@ -17,12 +17,12 @@ Reviewing your remote networks is an important part of managing your Global Secu
 ## Prerequisites 
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ## List all remote networks using the Microsoft Entra admin center
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Devices** > **Remote network**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 
 All remote networks are listed. Select a remote network to view its details.
 

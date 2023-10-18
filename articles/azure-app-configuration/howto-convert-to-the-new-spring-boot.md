@@ -26,22 +26,22 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
 
@@ -51,22 +51,22 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 ```
 
@@ -87,7 +87,7 @@ As of the 4.7.0 version, the App Configuration and feature management libraries 
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-dependencies</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
     <type>pom</type>
 </dependency>
 ```
@@ -98,7 +98,7 @@ As of the 4.7.0 version, the App Configuration and feature management libraries 
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-dependencies</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
     <type>pom</type>
 </dependency>
 ```

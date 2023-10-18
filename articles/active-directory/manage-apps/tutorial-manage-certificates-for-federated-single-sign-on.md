@@ -19,9 +19,9 @@ ms.custom: enterprise-apps
 
 # Tutorial: Manage certificates for federated single sign-on
 
-In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD application gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
+In this article, we cover common questions and information related to certificates that Microsoft Entra ID creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Microsoft Entra application gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
 
-This tutorial is relevant only to apps that are configured to use Azure AD SSO through [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) federation.
+This tutorial is relevant only to apps that are configured to use Microsoft Entra SSO through [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) federation.
 
 In this tutorial, an administrator of the application learns how to:
 
@@ -35,12 +35,12 @@ In this tutorial, an administrator of the application learns how to:
 
 - An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Privileged Role Administrator, Cloud Application Administrator, or Application Administrator.
-- An enterprise application that has been configured in your Azure AD tenant.
+- An enterprise application that has been configured in your Microsoft Entra tenant.
 
 
 ## Auto-generated certificate for gallery and non-gallery applications
 
-When you add a new application from the gallery and configure a SAML-based sign-on (by selecting **Single sign-on** > **SAML** from the application overview page), Azure AD generates a self-signed certificate for the application that is valid for three years. To download the active certificate as a security certificate (**.cer**) file, return to that page (**SAML-based sign-on**) and select a download link in the **SAML Signing Certificate** heading. You can choose between the raw (binary) certificate or the Base64 (base 64-encoded text) certificate. For gallery applications, this section might also show a link to download the certificate as federation metadata XML (an **.xml** file), depending on the requirement of the application.
+When you add a new application from the gallery and configure a SAML-based sign-on (by selecting **Single sign-on** > **SAML** from the application overview page), Microsoft Entra ID generates a self-signed certificate for the application that is valid for three years. To download the active certificate as a security certificate (**.cer**) file, return to that page (**SAML-based sign-on**) and select a download link in the **SAML Signing Certificate** heading. You can choose between the raw (binary) certificate or the Base64 (base 64-encoded text) certificate. For gallery applications, this section might also show a link to download the certificate as federation metadata XML (an **.xml** file), depending on the requirement of the application.
 
 You can also download an active or inactive certificate by selecting the **SAML Signing Certificate** heading's **Edit** icon (a pencil), which displays the **SAML Signing Certificate** page. Select the ellipsis (**...**) next to the certificate you want to download, and then choose which certificate format you want. You have the other option to download the certificate in privacy-enhanced mail (PEM) format. This format is identical to Base64 but with a **.pem** file name extension, which isn't recognized in Windows as a certificate format.
 
@@ -54,7 +54,7 @@ By default, Azure configures a certificate to expire after three years when it's
 1. Save the new certificate.
 1. Download the new certificate in the correct format.
 1. Upload the new certificate to the application.
-1. Make the new certificate active in the Azure portal.
+1. Make the new certificate active in the Microsoft Entra admin center.
 
 The following two sections help you perform these steps.
 
@@ -64,9 +64,9 @@ The following two sections help you perform these steps.
 
 First, create and save new certificate with a different expiration date:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
-1. From the list of applications, select your desired application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Under the **Manage** section, select **Single sign-on**.
 1. If the **Select a single sign-on method** page appears, select **SAML**.
 1. In the **Set up Single Sign-On with SAML** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears, which displays the status (**Active** or **Inactive**), expiration date, and thumbprint (a hash string) of each certificate.
@@ -80,7 +80,7 @@ First, create and save new certificate with a different expiration date:
 
 ### Upload and activate a certificate
 
-Next, download the new certificate in the correct format, upload it to the application, and make it active in Azure Active Directory:
+Next, download the new certificate in the correct format, upload it to the application, and make it active in Microsoft Entra ID:
 
 1. View the application's additional SAML sign-on configuration instructions by either:
 
@@ -92,13 +92,13 @@ Next, download the new certificate in the correct format, upload it to the appli
 1. When you want to roll over to the new certificate, go back to the **SAML Signing Certificate** page, and in the newly saved certificate row, select the ellipsis (**...**) and select **Make certificate active**. The status of the new certificate changes to **Active**, and the previously active certificate changes to a status of **Inactive**.
 1. Continue following the application's SAML sign-on configuration instructions that you displayed earlier, so that you can upload the SAML signing certificate in the correct encoding format.
 
-If your application doesn't have any validation for the certificate's expiration, and the certificate matches in both Azure Active Directory and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate the certificate's expiration date.
+If your application doesn't have any validation for the certificate's expiration, and the certificate matches in both Microsoft Entra ID and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate the certificate's expiration date.
 
-If you intend to keep certificate expiry validation disabled, then the new certificate shouldn't be created until your scheduled maintenance window for the certificate rollover. If both an expired and an inactive valid certificate exist on the application, Azure AD will automatically utilize the valid certificate. In this case, users may experience application outage.
+If you intend to keep certificate expiry validation disabled, then the new certificate shouldn't be created until your scheduled maintenance window for the certificate rollover. If both an expired and an inactive valid certificate exist on the application, Microsoft Entra ID will automatically utilize the valid certificate. In this case, users may experience application outage.
 
 ## Add email notification addresses for certificate expiration
 
-Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es), you want the notifications to be sent to:
+Microsoft Entra ID will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es), you want the notifications to be sent to:
 
 1. In the **SAML Signing Certificate** page, go to the **notification email addresses** heading. By default, this heading uses only the email address of the admin who added the application.
 1. Below the final email address, type the email address that should receive the certificate's expiration notice, and then press Enter.
@@ -121,13 +121,13 @@ If a certificate is about to expire, you can renew it using a procedure that res
    1. Skip the next two steps.
 
 1. If the application can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
-1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Azure Active Directory, authentication on your application may fail.
+1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Microsoft Entra ID, authentication on your application may fail.
 1. Sign in to the application to make sure that the certificate works correctly.
 
-If your application doesn't validate the certificate expiration configured in Azure Active Directory, and the certificate matches in both Azure Active Directory and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate certificate expiration.
+If your application doesn't validate the certificate expiration configured in Microsoft Entra ID, and the certificate matches in both Microsoft Entra ID and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate certificate expiration.
 
 ## Related articles
 
-- [Application management with Azure Active Directory](what-is-application-management.md)
-- [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
-- [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)
+- [Application management with Microsoft Entra ID](what-is-application-management.md)
+- [Single sign-on to applications in Microsoft Entra ID](what-is-single-sign-on.md)
+- [Debug SAML-based single sign-on to applications in Microsoft Entra ID](./debug-saml-sso-issues.md)

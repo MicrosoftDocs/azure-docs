@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with FortiGate SSL VPN'
-description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD).
+title: 'Tutorial: Microsoft Entra SSO integration with FortiGate SSL VPN'
+description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Microsoft Entra ID.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,59 +13,62 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with FortiGate SSL VPN
+# Tutorial: Microsoft Entra SSO integration with FortiGate SSL VPN
 
-In this tutorial, you'll learn how to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD). When you integrate FortiGate SSL VPN with Azure AD, you can:
+In this tutorial, you'll learn how to integrate FortiGate SSL VPN with Microsoft Entra ID. When you integrate FortiGate SSL VPN with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who can access FortiGate SSL VPN.
-* Enable your users to be automatically signed in to FortiGate SSL VPN with their Azure AD accounts.
+* Use Microsoft Entra ID to control who can access FortiGate SSL VPN.
+* Enable your users to be automatically signed in to FortiGate SSL VPN with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A FortiGate SSL VPN with single sign-on (SSO) enabled.
 
 ## Tutorial description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment.
 
 FortiGate SSL VPN supports SP-initiated SSO.
 
 
 ## Add FortiGate SSL VPN from the gallery
 
-To configure the integration of FortiGate SSL VPN into Azure AD, you need to add FortiGate SSL VPN from the gallery to your list of managed SaaS apps:
+To configure the integration of FortiGate SSL VPN into Microsoft Entra ID, you need to add FortiGate SSL VPN from the gallery to your list of managed SaaS apps:
 
-1. Sign in to the Azure portal with a work or school account or with a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise applications** and then select **All Applications**.
-1. To add an application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **FortiGate SSL VPN** in the search box.
 1. Select **FortiGate SSL VPN** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for FortiGate SSL VPN
+<a name='configure-and-test-azure-ad-sso-for-fortigate-ssl-vpn'></a>
 
-You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding SAML SSO user group in FortiGate SSL VPN.
+## Configure and test Microsoft Entra SSO for FortiGate SSL VPN
 
-To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these high-level steps:
+You'll configure and test Microsoft Entra SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the corresponding SAML SSO user group in FortiGate SSL VPN.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable the feature for your users.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Azure AD single sign-on for that user.
+To configure and test Microsoft Entra SSO with FortiGate SSL VPN, you'll complete these high-level steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable the feature for your users.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Microsoft Entra single sign-on for that user.
 1. **[Configure FortiGate SSL VPN SSO](#configure-fortigate-ssl-vpn-sso)** on the application side.
-    1. **Create a FortiGate SAML SSO user group** as a counterpart to the Azure AD representation of the user.
+    1. **Create a FortiGate SAML SSO user group** as a counterpart to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+### Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **FortiGate SSL VPN** application integration page, in the **Manage** section, select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO in the Azure portal:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **FortiGate SSL VPN** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the **Edit** button for **Basic SAML Configuration** to edit the settings:
 
@@ -132,23 +135,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the configuration URLs.](common/copy-configuration-urls.png)
 
-#### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user named B.Simon in the Azure portal.
+#### Create a Microsoft Entra test user
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, complete these steps:
-   1. In the **Name** box, enter **B.Simon**.  
-   1. In the **User name** box, enter \<username>@\<companydomain>.\<extension>. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+In this section, you'll create a test user named B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 #### Grant access to the test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to FortiGate SSL VPN.
+In this section, you'll enable B.Simon to use single sign-on by granting that user access to FortiGate SSL VPN.
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **FortiGate SSL VPN**.
 1. On the app's overview page, in the **Manage** section, select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
@@ -158,20 +165,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 #### Create a security group for the test user
 
-In this section, you'll create a security group in Azure Active Directory for the test user. FortiGate will use this security group to grant the user network access via the VPN.
+In this section, you'll create a security group in Microsoft Entra ID for the test user. FortiGate will use this security group to grant the user network access via the VPN.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Then select **Groups**.
+1. In the left pane of the Azure portal, select **Microsoft Entra ID**. Then select **Groups**.
 1. Select **New group** at the top of the screen.
 1. In the **New Group** properties, complete these steps:
    1. In the **Group type** list, select **Security**.
    1. In the **Group name** box, enter **FortiGateAccess**.
    1. In the **Group description** box, enter **Group for granting FortiGate VPN access**.
-   1. For the **Azure AD roles can be assigned to the group (Preview)** settings, select **No**.
+   1. For the **Microsoft Entra roles can be assigned to the group (Preview)** settings, select **No**.
    1. In the **Membership type** box, select **Assigned**.
    1. Under **Members**, select **No members selected**.
    1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then click the **Select** button at the bottom of the screen.
    1. Select **Create**.
-1. After you're back in the **Groups** section in Azure Active Directory, find the **FortiGate Access** group and note the **Object Id**. You'll need it later.
+1. After you're back in the **Groups** section in Microsoft Entra ID, find the **FortiGate Access** group and note the **Object Id**. You'll need it later.
 
 ### Configure FortiGate SSL VPN SSO
 
@@ -198,7 +205,7 @@ To complete these steps, you'll need the values you recorded earlier:
    | SP entity ID (`entity-id`) | Identifier (Entity ID) |
 | SP Single Sign-On URL (`single-sign-on-url`) | Reply URL (Assertion Consumer Service URL) |
 | SP Single Logout URL (`single-logout-url`) | Logout URL |
-| IdP Entity ID (`idp-entity-id`) | Azure AD Identifier |
+| IdP Entity ID (`idp-entity-id`) | Microsoft Entra Identifier |
 | IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure Login URL |
 | IdP Single Logout URL (`idp-single-logout-url`) | Azure Logout URL |
 | IdP certificate (`idp-cert`) | Base64 SAML certificate name (REMOTE_Cert_N) |
@@ -256,13 +263,13 @@ To complete these steps, you'll need the Object ID of the FortiGateAccess securi
 
 In this section, you'll configure a FortiGate VPN Portals and Firewall Policy that grants access to the FortiGateAccess security group you created earlier in this tutorial.
 
-Refer to [Configuring SAML SSO login for SSL VPN with Azure AD acting as SAML IdP for instructions](https://docs.fortinet.com/document/fortigate-public-cloud/7.0.0/azure-administration-guide/584456/configuring-saml-sso-login-for-ssl-vpn-web-mode-with-azure-ad-acting-as-saml-idp).
+Refer to [Configuring SAML SSO login for SSL VPN with Microsoft Entra ID acting as SAML IdP for instructions](https://docs.fortinet.com/document/fortigate-public-cloud/7.0.0/azure-administration-guide/584456/configuring-saml-sso-login-for-ssl-vpn-web-mode-with-azure-ad-acting-as-saml-idp).
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* In Step 5) of the Azure SSO configuration, **Test single sign-on with your App*, click the **Test** button in the Azure portal. This will redirect to FortiGate VPN Sign-on URL where you can initiate the login flow. 
+* In Step 5) of the Azure SSO configuration, **Test single sign-on with your App*, click the **Test** button. This will redirect to FortiGate VPN Sign-on URL where you can initiate the login flow. 
 
 * Go to FortiGate VPN Sign-on URL directly and initiate the login flow from there.
 

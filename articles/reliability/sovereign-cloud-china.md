@@ -4,7 +4,7 @@ description: Learn how services are supported for Microsoft Azure operated by 21
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 09/08/2023
 ms.author: anaharris
 ms.reviewer: cynthn
 ms.custom: references_regions, subject-reliability
@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Availability of services for Microsoft Azure operated by 21Vianet
 
-Microsoft Azure operated by 21Vianet (Azure China) is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
+Azure operated by 21Vianet is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd.
 
 
 ## Service availability
@@ -25,8 +25,8 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-|Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Azure AI Speech| See [Azure AI services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+|Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-operated-by-21vianet). | |
+| Azure AI Speech| See [Azure AI services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#microsoft-azure-operated-by-21vianet)  ||
 | Azure AI Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md?tabs=china).|
 
 ### Azure AD External Identities
@@ -69,20 +69,38 @@ This section outlines variations and considerations when using Security services
 |---------|--------|------------|
 | Microsoft Sentinel| For Microsoft Sentinel availability, see [Microsoft Sentinel availability](../sentinel/feature-availability.md). |
 
+### Azure Arc-enabled Kubernetes
+
+This section outlines variations and considerations when using Azure Arc-enabled Kubernetes.
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| API Management | API Management on Arc-enabled Kubernetes isn't supported for Azure in China |
+| App service | App service on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Azure Monitor container insights | Azure Monitor container insights on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Container Apps | Container Apps on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Dapr | Dapr extension for Arc-enabled Kubernetes isn't supported for Azure in China |
+| Event Grid | Event Grid on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes isn't supported for Azure in China |
+
+
 ### Azure Container Apps
 
 This section outlines variations and considerations when using Azure Container Apps services. 
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+| Azure Monitor| The Azure Monitor integration isn't supported for Azure in China |
 
-### Azure China Commercial Marketplace
+### Azure China Commercial Marketplace operated by 21Vianet
  
-To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+To learn which commercial marketplace features are available in Azure China Commercial Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
 ### Microsoft Cost Management + Billing
 
 This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
 
 #### Azure Retail Rates API for China
 
@@ -90,7 +108,7 @@ The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/
 
 #### Markup - China
 
-The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China and isn't available in Azure Global.
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure operated by 21Vianet and isn't available in Azure Global.
 
 ## Azure in China Account Sign in
 
@@ -119,7 +137,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure storage | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net  \*.dfs.core.windows.net | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn   \*.dfs.core.chinacloudapi.cn|
 | Azure management|	`https://management.azure.com/` |	`https://management.chinacloudapi.cn/` |
 | Azure service management | https://management.core.windows.net | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/) |
-| Azure Resource Manager | [https://management.azure.com](https://management.azure.com/) | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/) |
+| Azure Resource Manager | `https://management.azure.com` | `https://management.chinacloudapi.cn` |
 | Azure portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
 | SQL Database | \*.database.windows.net | \*.database.chinacloudapi.cn |
 | SQL Azure DB management API | `https://management.database.windows.net` | `https://management.database.chinacloudapi.cn` |
@@ -139,7 +157,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
-| Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
+| Azure Container Apps Event Stream Endpoint | `\<region\>.azurecontainerapps.dev` | `\<region\>.chinanorth3.azurecontainerapps-dev.cn``  |
 
 ### Application Insights
 
@@ -148,7 +166,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 
 ### SDK endpoint modifications
 
-In order to send data from Application Insights in this region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
+In order to send data from Application Insights in this region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
 ### .NET with applicationinsights.config
 
@@ -274,7 +292,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ### Azure portal
 
-You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure China anywhere globally.
+You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure operated by 21Vianet anywhere globally.
 
 ### Work with administrator roles
 

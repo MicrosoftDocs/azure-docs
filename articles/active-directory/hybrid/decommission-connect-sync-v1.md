@@ -49,6 +49,6 @@ If you aren't yet eligible to move to cloud sync, use this table for more inform
 
 ## Next steps
 
-- [What is Azure AD Connect V2?](whatis-azure-ad-connect-v2.md)
-- [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md)
-- [Azure AD Connect version history](reference-connect-version-history.md)
+- [What is Azure AD Connect V2?](./connect/whatis-azure-ad-connect-v2.md)
+- [Azure AD Cloud Sync](./cloud-sync/what-is-cloud-sync.md)
+- [Azure AD Connect version history](./connect/reference-connect-version-history.md)

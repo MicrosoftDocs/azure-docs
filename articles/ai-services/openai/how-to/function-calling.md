@@ -64,8 +64,8 @@ functions= [
                     "description": "A comma separated list of features (i.e. beachfront, free wifi, etc.)"
                 }
             },
-            "required": ["location"],
-        },
+            "required": ["location"]
+        }
     }
 ]  
 
@@ -134,8 +134,11 @@ if response_message.get("function_call"):
     messages.append( # adding assistant response to messages
         {
             "role": response_message["role"],
-            "name": response_message["function_call"]["name"],
-            "content": response_message["function_call"]["arguments"],
+            "function_call": {
+                "name": function_name,
+                "arguments": response_message["function_call"]["arguments"],
+            },
+            "content": None
         }
     )
     messages.append( # adding function response to messages

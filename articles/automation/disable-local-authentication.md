@@ -39,7 +39,7 @@ The following table describes the behaviors or features that are prevented from 
 |Starting a runbook using a webhook. | Start a runbook job using Azure Resource Manager template, which uses Azure AD authentication. |
 |Using Automation Desired State Configuration.| Use [Azure Policy Guest configuration](../governance/machine-configuration/overview.md).  |
 |Using agent-based Hybrid Runbook Workers.| Use [extension-based Hybrid Runbook Workers (Preview)](./extension-based-hybrid-runbook-worker-install.md).|
-|Using Automation Update management |Use [Update management center (preview)](../update-center/overview.md)
+|Using Automation Update management |Use [Update Manager (preview)](../update-center/overview.md)
 
 
 ## Next steps

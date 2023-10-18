@@ -1,10 +1,10 @@
 ---
 title: Customize a Brands model in Azure AI Video Indexer - Azure  
 description: This article gives an overview of what is a Brands model in Azure AI Video Indexer and how to customize it. 
-
 ms.topic: conceptual
 ms.date: 12/15/2019
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Customize a Brands model in Azure AI Video Indexer

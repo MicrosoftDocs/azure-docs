@@ -1,8 +1,8 @@
 ---
 title: Connect a container app to a cloud service with Service Connector
 description: Learn to connect a container app to an Azure service using the Azure portal or the CLI.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 06/16/2022

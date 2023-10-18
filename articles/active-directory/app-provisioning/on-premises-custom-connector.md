@@ -1,6 +1,6 @@
 ---
-title: Azure AD provisioning to applications using custom connectors
-description: This document describes how to configure Azure AD to provision users with external systems that offer REST and SOAP APIs.
+title: Microsoft Entra provisioning to applications using custom connectors
+description: This document describes how to configure Microsoft Entra ID to provision users with external systems that offer REST and SOAP APIs.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -16,7 +16,7 @@ ms.reviewer: arvinh
 
 # Provisioning with the custom connectors
 
-Azure AD supports preintegrated connectors for applications that support the following protocols and standards:  
+Microsoft Entra ID supports preintegrated connectors for applications that support the following protocols and standards:  
 
 > [!div class="checklist"]
 > - [SCIM 2.0](on-premises-scim-provisioning.md)
@@ -25,7 +25,7 @@ Azure AD supports preintegrated connectors for applications that support the fol
 > - [REST](on-premises-ldap-connector-configure.md)
 > - [SOAP](on-premises-ldap-connector-configure.md)
 
-For connectivity to applications that don't support the aforementioned protocols and standards, customers and [partners](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx) have built custom [ECMA 2.0](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the lightweight Azure AD provisioning agent, without needing MIM sync deployed.
+For connectivity to applications that don't support the aforementioned protocols and standards, customers and [partners](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx) have built custom [ECMA 2.0](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the lightweight Microsoft Entra provisioning agent, without needing MIM sync deployed.
 
 
 
@@ -55,7 +55,7 @@ Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/
   * **Correct:** public Schema GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
   * **Incorrect:** Schema PrefixGetSchema.GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
     
-The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](known-issues.md#on-premises-application-provisioning).  
+The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Microsoft Entra provisioning agent. For a list of known limitations for the Microsoft Entra provisioning service and on-premises application provisioning, see [here](known-issues.md#on-premises-application-provisioning).  
 
 
 | **Capability / feature**   | **Support**   | **Comments**   | 
@@ -74,5 +74,3 @@ The following table includes capabilities of the ECMA framework that are either 
 - [App provisioning](user-provisioning.md)
 - [ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
 - [ECMA Connector Host LDAP connector](on-premises-ldap-connector-configure.md)
-
-

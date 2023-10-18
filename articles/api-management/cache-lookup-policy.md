@@ -66,6 +66,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 ### Usage notes
 
+- API Management only performs cache lookup for HTTP GET requests.
 * When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
 - This policy can only be used once in a policy section.
 

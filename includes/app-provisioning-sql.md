@@ -29,8 +29,8 @@ Configuration of the connection to the application's database is done via a wiza
 - Oracle 10g and 11g
 - Oracle 12c and 18c
 - MySQL 5.x
-
-The table-based method of the generic SQL connector requires that column names are case-insensitive. MySQL is case-sensitive on Linux and Postgres is case-sensitive across platforms. As a result, they aren't currently supported with table-based method and configuring provisioning users into those databases is outside the scope of this article.
+- MySQL 8.x
+- Postgres
 
 ### Cloud requirements
 
@@ -373,7 +373,7 @@ If you are connecting to a new database or one that is empty and has no users, t
 
     |Property|Value|
     |-----|-----|
-    |Tenant URL| `https://localhost:8585/ecma2host_SQL/scim`|
+    |Tenant URL| `https://localhost:8585/ecma2host_{connectorName}/scim`|
 
  5. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]

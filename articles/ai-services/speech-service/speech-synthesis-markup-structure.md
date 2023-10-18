@@ -109,7 +109,7 @@ Here's the syntax for the `speak` element:
 | `xml:lang` | The language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
 | `xmlns` | The URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
 
-The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#voice-element).
+The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#use-voice-elements).
 
 ### speak examples
 

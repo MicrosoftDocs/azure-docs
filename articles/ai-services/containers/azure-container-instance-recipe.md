@@ -1,7 +1,7 @@
 ---
 title: Azure Container Instance recipe
 titleSuffix: Azure AI services
-description: Learn how to deploy Azure AI services containers on Azure Container Instance
+description: Learn how to deploy Azure AI containers on Azure Container Instance
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -67,7 +67,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 1. Select **Execute** to send the request to your Container Instance.
 
-    You have successfully created and used Azure AI services containers in Azure Container Instance.
+    You have successfully created and used Azure AI containers in Azure Container Instance.
 
 # [CLI](#tab/cli)
 

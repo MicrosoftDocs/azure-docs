@@ -72,6 +72,12 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation

@@ -20,29 +20,29 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart:Protect an ASP.NET Core web API](web-api-quickstart.md?pivots=devlang-aspnet-core)
+> > [Quickstart:Protect an ASP.NET Core web API](quickstart-web-api-aspnet-core-protect-api.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > #  Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
 >
-> In this quickstart, you download an ASP.NET Core web API code sample and review the way it restricts resource access to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+> In this quickstart, you download an ASP.NET Core web API code sample and review the way it restricts resource access to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 > 
 > ## Prerequisites
 > 
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> - [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+> - [Microsoft Entra tenant](quickstart-create-new-tenant.md)
 > - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 > 
 > ## Step 1: Register the application
 > 
-> First, register the web API in your Azure AD tenant and add a scope by following these steps:
+> First, register the web API in your Microsoft Entra tenant and add a scope by following these steps:
 > 
 > 1. Sign in to the [Azure portal](https://portal.azure.com/).
 > 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-> 1. Search for and select **Azure Active Directory**.
+> 1. Search for and select **Identity**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of your app will see this name, and you can change it later.
 > 1. Select **Register**.

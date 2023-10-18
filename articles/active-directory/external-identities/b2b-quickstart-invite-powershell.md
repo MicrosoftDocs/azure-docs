@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Add a guest user with PowerShell'
-description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user. You'll use the Microsoft Graph Identity Sign-ins and the Microsoft Graph Users PowerShell modules.
+description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Microsoft Entra B2B collaboration user. You'll use the Microsoft Graph Identity Sign-ins and the Microsoft Graph Users PowerShell modules.
 services: active-directory
 ms.author: cmulligan
 author: csmulligan
@@ -16,7 +16,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Quickstart: Add a guest user with PowerShell
 
-There are many ways you can invite external partners to your apps and services with Azure Active Directory B2B collaboration. In the previous quickstart, you saw how to add guest users directly in the Azure portal. You can also use PowerShell to add guest users, either one at a time or in bulk. In this quickstart, you’ll use the New-MgInvitation command to add one guest user to your Azure tenant.
+There are many ways you can invite external partners to your apps and services with Microsoft Entra B2B collaboration. In the previous quickstart, you saw how to add guest users directly in the Azure portal. You can also use PowerShell to add guest users, either one at a time or in bulk. In this quickstart, you’ll use the New-MgInvitation command to add one guest user to your Azure tenant.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,7 +56,7 @@ When prompted, enter your credentials.
 
 ## Verify the user exists in the directory
 
-1. To verify that the invited user was added to Azure AD, run the following command (replace **john\@contoso.com** with your invited email):
+1. To verify that the invited user was added to Microsoft Entra ID, run the following command (replace **john\@contoso.com** with your invited email):
  
    ```powershell
    Get-MgUser -Filter "Mail eq 'John@contoso.com'"
@@ -84,4 +84,3 @@ Remove-MgUser -UserId '3f80a75e-750b-49aa-a6b0-d9bf6df7b4c6'
 
 ## Next steps
 In this quickstart, you invited and added a single guest user to your directory using PowerShell. You can also invite a guest user using the [Azure portal](b2b-quickstart-add-guest-users-portal.md). Additionally you can [invite guest users in bulk using PowerShell](tutorial-bulk-invite.md). 
-

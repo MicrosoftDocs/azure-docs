@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 08/24/2023
 ms.author: eur
 ---
 
@@ -14,7 +14,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-You will also need a `.wav` audio file on your local machine. You can use your own `.wav` file (up to 60 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
+You also need a *.wav* audio file on your local machine. You can use your own *.wav* file up to 60 seconds or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
 
 ### Set environment variables
 
@@ -22,9 +22,7 @@ You will also need a `.wav` audio file on your local machine. You can use your o
 
 ## Recognize speech from a file
 
-At a command prompt, run the following cURL command. Replace `YourAudioFile.wav` with the path and name of your audio file.  
-
-**Choose your target environment**
+Open a console window and run the following cURL command. Replace *YourAudioFile.wav* with the path and name of your audio file.  
 
 # [Windows](#tab/windows)
 
@@ -62,11 +60,11 @@ curl --location --request POST \
 * * *
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 60 seconds of audio will be recognized and converted to text.
+You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. The command recognizes up to 60 seconds of audio and converts it to text.
 
-```console
+```output
 {
     "RecognitionStatus": "Success",
     "DisplayText": "My voice is my passport, verify me.",

@@ -30,21 +30,13 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
-
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 + The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
-### Prerequisite check
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 

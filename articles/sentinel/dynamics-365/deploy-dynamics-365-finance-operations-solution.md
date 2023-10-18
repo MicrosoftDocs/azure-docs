@@ -34,7 +34,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
-1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
+1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: ``` https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com ```. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
@@ -77,10 +77,9 @@ To enable data collection, you create a new role in Finance and Operations with 
 
 To collect the managed identity application ID from Azure Active Directory: 
 
-1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), select **Enterprise Applications**.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Change the application type filter to **Managed Identities**.
-
 1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
 
 ### Create a role for data collection in Finance and Operations 

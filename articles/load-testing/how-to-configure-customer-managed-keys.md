@@ -39,6 +39,8 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - Once customer-managed key encryption is enabled on a resource, it can't be disabled.
 
+- If the customer-managed key is stored in an Azure Key Vault behind a firewall, public access should be enabled on the firewall to allow Azure Load Testing to access the key.
+
 ## Configure your Azure key vault
 
 To use customer-managed encryption keys with Azure Load Testing, you need to store the key in Azure Key Vault. You can use an existing or create a new key vault. The load testing resource and key vault may be in different regions or subscriptions in the same tenant.

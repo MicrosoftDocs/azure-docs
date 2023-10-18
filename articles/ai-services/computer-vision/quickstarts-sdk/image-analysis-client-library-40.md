@@ -38,6 +38,12 @@ Get started with the Image Analysis 4.0 REST API or client SDK to set up a basic
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java SDK quickstart](../includes/quickstarts-sdk/image-analysis-java-sdk-40.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart-40.md)]

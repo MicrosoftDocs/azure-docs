@@ -15,24 +15,24 @@ ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# Enable mobile app authentication with Azure AD Multi-Factor Authentication Server
+# Enable mobile app authentication with Microsoft Entra multifactor authentication Server
 
-The Microsoft Authenticator app offers an extra out-of-band verification option. Instead of placing an automated phone call or SMS to the user during login, Azure AD Multi-Factor Authentication pushes a notification to the Authenticator app on the user's smartphone or tablet. The user simply taps **Verify** (or enters a PIN and taps "Authenticate") in the app to complete their sign-in.
+The Microsoft Authenticator app offers an extra out-of-band verification option. Instead of placing an automated phone call or SMS to the user during login, Microsoft Entra multifactor authentication pushes a notification to the Authenticator app on the user's smartphone or tablet. The user simply taps **Verify** (or enters a PIN and taps "Authenticate") in the app to complete their sign-in.
 
 Using a mobile app for two-step verification is preferred when phone reception is unreliable. If you use the app as an OATH token generator, it doesn't require any network or internet connection.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure AD Multi-Factor Authentication Server. Beginning September 30, 2024, Azure AD Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
+> In September 2022, Microsoft announced deprecation of Microsoft Entra multifactor authentication Server. Beginning September 30, 2024, Microsoft Entra multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
 
-> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 
 
 > [!IMPORTANT]
-> If you have installed Azure AD Multi-Factor Authentication Server v8.x or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-mfa-server).
+> If you have installed Microsoft Entra multifactor authentication Server v8.x or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-mfa-server).
 
 ## Requirements
 
-To use the Authenticator app, you must be running Azure AD Multi-Factor Authentication Server v8.x or higher
+To use the Authenticator app, you must be running Microsoft Entra multifactor authentication Server v8.x or higher
 
 ## Configure the mobile app settings in MFA Server
 
@@ -45,4 +45,4 @@ To use the Authenticator app, you must be running Azure AD Multi-Factor Authenti
 
 ## Next steps
 
-- [Advanced scenarios with Azure AD Multi-Factor Authentication Server and third-party VPNs](howto-mfaserver-nps-vpn.md).
+- [Advanced scenarios with Microsoft Entra multifactor authentication Server and third-party VPNs](howto-mfaserver-nps-vpn.md).

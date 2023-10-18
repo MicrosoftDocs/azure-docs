@@ -5,8 +5,8 @@ author: jyothisuri
 ms.author: jsuri
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 01/03/2023
-ms.custom: engagement-fy23
+ms.date: 07/27/2023
+ms.custom: engagement-fy24
 ---
 
 # Azure Migrate support matrix
@@ -113,11 +113,11 @@ Create project | United States | Metadata is stored in US Gov Arizona, US Gov Vi
 Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
-### Azure China 21Vianet (Azure China)
+### Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet)
 
 **Geography** | **Metadata storage location**
 --- | ---
-Azure China | China North 2
+Microsoft Azure operated by 21Vianet | China North 2
 
 ## VMware assessment and migration
 

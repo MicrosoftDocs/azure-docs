@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus: VM Console Service"
 description: Learn how to use the VM Console service.
-author: sshiba
-ms.author: sidneyshiba
-ms.service: azure
+author: eak13
+ms.author: ekarandjeff
+ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/04/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -15,7 +15,7 @@ The Virtual Machine (VM) console service provides managed access to a VM hosted 
 
 :::image type="content" source="media/vm-console-service.png" alt-text="Diagram of VM Console service." lightbox="media/vm-console-service.png":::
 
-For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](https://learn.microsoft.com/training/modules/introduction-azure-private-link/).
+For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/).
 
 This document provides guided instructions of how to use the VM Console service to establish a session with a Virtual Machine in an Operator Nexus Instance.
 
@@ -38,19 +38,20 @@ This guide helps you to:
 
 ## Setting variables
 
-To help set up the environment for access to Virtual Machines, define these environment variables that are used throughout this guide.
+To help set up the environment for access to Virtual Machines, define these environment variables used by the various commands throughout this guide.
 
 > [!NOTE]
 > These environment variable values do not reflect a real deployment and users MUST change them to match their environments.
+>
+> It should be noted that the first set of variables in the section below are for the **Cluster Manager** not the Cluster.
 
 ```bash
     # Cluster Manager environment variables
-    export CM_CLUSTER_NAME="contorso-cluster-manager-1234"
-    export CM_MANAGED_RESOURCE_GROUP="contorso-cluster-manager-1234-rg"
-    export CM_EXTENDED_LOCATION="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
-    export CM_HOSTED_RESOURCES_RESOURCE_GROUP="my-contorso-console-rg"
+    export CLUSTER_MANAGER_NAME="contorso-cluster-manager-1234"
+    export CLUSTER_MANAGER_RG="contorso-cluster-manager-1234-rg"
+    export CLUSTER_MANAGER_EXTENDED_LOC="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
 
-    # Your Console resource enviroment variables
+    # Your Console resource environment variables
     export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
     export VM_RESOURCE_GROUP="my-vm-rg"
     export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
@@ -59,7 +60,6 @@ To help set up the environment for access to Virtual Machines, define these envi
     # your environment variables
     export PRIVATE_ENDPOINT_RG="my-work-env-rg"
     export PRIVATE_ENDPOINT_NAME="my-work-env-ple"
-    export PRIVATE_ENDPOINT_REGION="eastus"
     export PRIVATE_ENDPOINT_VNET="my-work-env-ple-vnet"
     export PRIVATE_ENDPOINT_SUBNET="my-work-env-ple-subnet"
     export PRIVATE_ENDPOINT_CONNECTION_NAME="my-contorse-ple-pls-connection"
@@ -81,7 +81,7 @@ This section provides a step-by-step guide to help you to establish a private ne
 
    ```bash
        # retrieve the infrastructure resource group of the AKS cluster
-       export pls_resource_group=$(az aks show --name ${CM_CLUSTER_NAME} -g ${CM_MANAGED_RESOURCE_GROUP} --query "nodeResourceGroup" -o tsv)
+       export pls_resource_group=$(az aks show --name ${CLUSTER_MANAGER_NAME} -g ${CLUSTER_MANAGER_RG} --query "nodeResourceGroup" -o tsv)
 
        # retrieve the Private Link Service resource id
        export pls_resourceid=$(az network private-link-service show \
@@ -107,9 +107,9 @@ This section provides a step-by-step guide to help you to establish a private ne
 1. Retrieve the private IP address allocated to the PLE, which you need when establishing a session.
 
    ```bash
-       ple_interface_id=$(az network private-endpoint list --resource-group ${PRIVATE_ENDPOINT_NAME}-rg --query "[0].networkInterfaces[0].id" -o tsv)
+       export ple_interface_id=$(az network private-endpoint list --resource-group ${PRIVATE_ENDPOINT_RG} --query "[0].networkInterfaces[0].id" -o tsv)
 
-       sshmux_ple_ip=$(az network nic show --ids $ple_interface_id --query 'ipConfigurations[0].privateIPAddress' -o tsv)
+       export sshmux_ple_ip=$(az network nic show --ids $ple_interface_id --query 'ipConfigurations[0].privateIPAddress' -o tsv)
 
        echo "sshmux_ple_ip: ${sshmux_ple_ip}"
    ```
@@ -122,15 +122,15 @@ This section provides step-by-step guide to help you to create a Console resourc
 
 :::image type="content" source="media/vm-console-resource.png" alt-text="Diagram of VM Console Resource." lightbox="media/vm-console-resource.png":::
 
-1. Before you can establish a session with a VM, a Console resource must be created for that VM.
+1. Before you can establish a session with a VM, create the Console resource for that VM.
 
    ```bash
        az networkcloud virtualmachine console create \
            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
            --resource-group "${VM_RESOURCE_GROUP}" \
-           --extended-location name="${CM_EXTENDED_LOCATION}" type="CustomLocation" \
+           --extended-location name="${CLUSTER_MANAGER_EXTENDED_LOC}" type="CustomLocation" \
            --enabled True \
-           --key-data "${CONSOLE_PUBLIC_KEY}" \
+           --ssh-public-key key-data "${CONSOLE_PUBLIC_KEY}" \
           [--expiration "${CONSOLE_EXPIRATION_TIME}"]
    ```
 

@@ -66,7 +66,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 - **Azure DevOps organization**: If you don't have a DevOps organization with an active subscription, you [can create one for free](https://azure.microsoft.com/services/devops/).
 ::: zone-end
 
-Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
+Refer to [jobs restrictions](jobs.md#jobs-restrictions) for a list of limitations.
 
 ## Setup
 
@@ -823,24 +823,24 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
 
 # [PowerShell](#tab/powershell)
 ```powershell
-az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
-    --trigger-type Event \
-    --replica-timeout 1800 \
-    --replica-retry-limit 1 \
-    --replica-completion-count 1 \
-    --parallelism 1 \
-    --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
-    --min-executions 0 \
-    --max-executions 10 \
-    --polling-interval 30 \
-    --scale-rule-name "azure-pipelines" \
-    --scale-rule-type "azure-pipelines" \
-    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" \
-    --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" \
-    --cpu "2.0" \
-    --memory "4Gi" \
-    --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
-    --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" \
+az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
+    --trigger-type Event `
+    --replica-timeout 1800 `
+    --replica-retry-limit 1 `
+    --replica-completion-count 1 `
+    --parallelism 1 `
+    --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
+    --min-executions 0 `
+    --max-executions 10 `
+    --polling-interval 30 `
+    --scale-rule-name "azure-pipelines" `
+    --scale-rule-type "azure-pipelines" `
+    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" `
+    --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" `
+    --cpu "2.0" `
+    --memory "4Gi" `
+    --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" `
+    --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" `
     --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
 ```
 

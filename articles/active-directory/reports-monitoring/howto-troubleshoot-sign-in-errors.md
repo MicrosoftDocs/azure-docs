@@ -9,10 +9,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/19/2023
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Troubleshoot sign-in errors using Azure Active Directory reports
@@ -30,15 +29,15 @@ In addition, the sign-ins logs can also help you troubleshoot sign-in failures f
 You need:
 
 * An Azure AD tenant with a Premium P1/P2 license.
-* A user with the **Global Administrator**, **Security Administrator**, **Security Reader**, or **Reports Reader** role for the tenant.
+* A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 * In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
 ## Gather sign-in details
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a role of least privilege access.
-1. Go to **Azure AD** > **Sign-ins**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**. 
 1. Use the filters to narrow down the results
     - Search by username if you're troubleshooting a specific user.
     - Search by application if you're troubleshooting issues with a specific app.
@@ -73,7 +72,7 @@ The following failure reasons and details are common:
 If you need more specifics to research, you can use the **sign-in error code** for further research.
 
 - Enter the error code into the **[Error code lookup tool](https://login.microsoftonline.com/error)** to get the error code description and remediation information.
-- Search for an error code in the **[sign-ins error codes reference](../develop/reference-aadsts-error-codes.md)**. 
+- Search for an error code in the **[sign-ins error codes reference](../develop/reference-error-codes.md)**. 
 
 The following error codes are associated with sign-in events, but this list isn't exhaustive:
 

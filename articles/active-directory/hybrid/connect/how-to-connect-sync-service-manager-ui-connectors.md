@@ -1,6 +1,6 @@
 ---
 title: Connectors in the Azure AD Synchronization Service Manager UI'
-description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
+description: Understand the Connectors tab in the Synchronization Service Manager for Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,7 +18,7 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
-# Using connectors with the Azure AD Connect Sync Service Manager
+# Using connectors with the Microsoft Entra Connect Sync Service Manager
 
 ![Screenshot that shows the Sync Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
@@ -83,12 +83,12 @@ To resolve the issue, update the AD DS user account using the following:
 6. The Forest name indicates the corresponding on premises AD.
 7. The User name indicates the AD DS account used for synchronization.
 8. Enter the new password of the AD DS account in the Password textbox
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
+![Microsoft Entra Connect Sync Encryption Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Click OK to save the new password and restart the Synchronization Service to remove the old password from memory cache.
 
 
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

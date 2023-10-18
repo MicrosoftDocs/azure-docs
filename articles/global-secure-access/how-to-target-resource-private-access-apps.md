@@ -24,7 +24,7 @@ This article describes how to apply Conditional Access policies to your Quick Ac
    * [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies.
 * You need to have configured Quick Access or Private Access.
-* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ### Known limitations
 
@@ -34,8 +34,8 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 
 You can create a Conditional Access policy for your Quick Access or Private Access apps from Global Secure Access. Starting the process from Global Secure Access automatically adds the selected app as the **Target resource** for the policy. All you need to do is configure the policy settings.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
 1. Select an application from the list.
 
     ![Screenshot of the Enterprise applications details.](media/how-to-target-resource-private-access-apps/enterprise-apps.png)
@@ -54,20 +54,20 @@ You can also apply Conditional Access policies to a group of applications based 
 
 ### Assignments and Access controls example
 
-Adjust the following policy details to create a Conditional Access policy requiring multifactor authentication, device compliance, or a hybrid Azure AD joined device for your Quick Access application. The user assignments ensure that your organization's emergency access or break-glass accounts are excluded from the policy.
+Adjust the following policy details to create a Conditional Access policy requiring multifactor authentication, device compliance, or a Microsoft Entra hybrid joined device for your Quick Access application. The user assignments ensure that your organization's emergency access or break-glass accounts are excluded from the policy.
 
 1. Under **Assignments**, select **Users**:
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions).  
 1. Under **Access controls** > **Grant**:
-   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
+   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require Microsoft Entra hybrid joined device**
 1. Confirm your settings and set **Enable policy** to **Report-only**.
    
 After administrators confirm the policy settings using [report-only mode](/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### User exclusions
 
-[!INCLUDE [active-directory-policy-exclusions](../../includes/active-directory-policy-exclude-user.md)]
+[!INCLUDE [active-directory-policy-exclusions](./includes/conditional-access-recommended-exclusions.md)]
 
 ## Next steps
 

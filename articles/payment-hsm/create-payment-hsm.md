@@ -347,45 +347,11 @@ The Azure portal shows the "Private IP allocation method" as "Dynamic":
 
 ---
 
-## View your payment HSM
-
-# [Azure CLI](#tab/azure-cli)
-
-To see your payment HSM and its properties, use the Azure CLI [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command.
-
-```azurecli-interactive
-az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
-```
-
-To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (The output of this command is more readable when displayed in table-format.)
-
-```azurecli-interactive
-az dedicated-hsm list --resource-group "myResourceGroup" -o table
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-To see your payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
-
-```azurepowershell-interactive
-Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
-```
-
-To list all of your payment HSMs, use the [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet with no parameters.
-
-To get more information on your payment HSM, you can use the [Get-AzResource](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet, specifying the resource group, and "Microsoft.HardwareSecurityModules/dedicatedHSMs" as the resource type:
-
-```azurepowershell-interactive
-Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
-```
-
----
-
 ## Next steps
 
-Advance to the next article to learn how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to view your payment HSM.
 > [!div class="nextstepaction"]
-> [Access the payShield manager](access-payshield-manager.md)
+> [View your payment HSMs](view-payment-hsms.md)
 
 Additional information:
 

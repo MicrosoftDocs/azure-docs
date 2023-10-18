@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Leapsome for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Leapsome.
+title: 'Tutorial: Configure Leapsome for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Leapsome.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,32 +15,32 @@ ms.author: jeedes
 
 # Tutorial: Configure Leapsome for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Leapsome and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Leapsome.
+The objective of this tutorial is to demonstrate the steps to be performed in Leapsome and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to Leapsome.
 
 > [!NOTE]
->  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+>  This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in Preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * A [Leapsome](https://www.Leapsome.com/en/pricing) tenant.
 * A user account in Leapsome with Admin permissions.
 
 ## Assigning users to Leapsome
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Leapsome. Once decided, you can assign these users and/or groups to Leapsome by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Leapsome. Once decided, you can assign these users and/or groups to Leapsome by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 
 ## Important tips for assigning users to Leapsome
 
-* It is recommended that a single Azure AD user is assigned to Leapsome to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Leapsome to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Leapsome, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -55,46 +55,39 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Leapsome Add SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application in the Azure portal.
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application.
 
 	![Leapsome Create Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 
 ## Add Leapsome from the gallery
 
-Before configuring Leapsome for automatic user provisioning with Azure AD, you need to add Leapsome from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Leapsome for automatic user provisioning with Microsoft Entra ID, you need to add Leapsome from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Leapsome from the Azure AD application gallery, perform the following steps:**
+**To add Leapsome from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Leapsome**, select **Leapsome** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Leapsome**, select **Leapsome** in the search box.
+1. Select **Leapsome** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Leapsome in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Leapsome 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Leapsome based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Leapsome based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Leapsome, following the instructions provided in the [Leapsome Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
-### To configure automatic user provisioning for Leapsome in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Leapsome in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Leapsome**.
+1. In the applications list, select **Leapsome**.
 
 	![The Leapsome link in the Applications list](common/all-applications.png)
 
@@ -106,7 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://www.leapsome.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Leapsome. If the connection fails, ensure your Leapsome account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://www.leapsome.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to Leapsome. If the connection fails, ensure your Leapsome account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -116,25 +109,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Leapsome**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Leapsome**.
 
 	![Leapsome User Mappings](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Leapsome in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Leapsome for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Leapsome in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Leapsome for update operations. Select the **Save** button to commit any changes.
 
 	![Leapsome User Attributes](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Leapsome**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Leapsome**.
 
 	![Leapsome Group Mappings](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Leapsome in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Leapsome for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Microsoft Entra ID to Leapsome in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Leapsome for update operations. Select the **Save** button to commit any changes.
 
 	![Leapsome Group Attributes](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Leapsome, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Microsoft Entra provisioning service for Leapsome, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -146,9 +139,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Leapsome.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Leapsome.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
 
@@ -158,7 +151,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

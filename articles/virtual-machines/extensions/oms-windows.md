@@ -31,6 +31,7 @@ The following table provides a mapping of the version of the Windows Log Analyti
 
 | Agent version | VM extension version | Release date | Release notes |
 | --- | --- | --- | --- |
+| 10.20.18069.0 | 1.0.18069   | September 2023 | - Rebuilt the agent to resign then and to replace and expired certificates, Added deprication message to installer |
 | 10.20.18067.0 | 1.0.18067   | March 2022     | - Bug fix for performance counters <br> - Enhancements to Agent Troubleshooter |
 | 10.20.18064.0 | 1.0.18064   | December 2021  | - Bug fix for intermittent crashes |
 | 10.20.18062.0 | 1.0.18062   | November 2021  | - Minor bug fixes and stabilization improvements |

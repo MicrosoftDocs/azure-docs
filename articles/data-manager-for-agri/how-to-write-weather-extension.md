@@ -228,7 +228,7 @@ Hence the extension needs to provide a [**HandleBars template**](https://handleb
 
 This section is dedicated for the functionalities/capabilities built by Data Manager for Agriculture. In the case of weather extension, centroid calculation is one such functionality.
 
-When users don't provide the latitude/longitude coordinates, Data Manager for Agriculture will be using the primary boundary of the field (ID passed by user) to compute the centroid. The computed centroid coordinates will be passed as the latitude and longitude to the extension (data provider). Hence for Data Manager for Agriculture to be able to understand the usage of location coordinates the functional parameters section is used.
+When users don't provide the latitude/longitude coordinates, Data Manager for Agriculture will be using the primary geometry of the field (ID passed by user) to compute the centroid. The computed centroid coordinates will be passed as the latitude and longitude to the extension (data provider). Hence for Data Manager for Agriculture to be able to understand the usage of location coordinates the functional parameters section is used.
 
 For Data Manager for Agriculture to understand the usage of latitude and longitude in the `apiName` input parameters, the extension is expected to provide the `name` of key used for collecting location information followed by a **handlebar template** to imply how the latitude and longitude values need to be passed.
 

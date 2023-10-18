@@ -66,7 +66,7 @@ See the [Botmetric introduction for Azure](https://nutanix.medium.com/announcing
 
 Circonus provides a platform for machine data intelligence that can handle billions of metric streams in real time to drive business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure resource utilization, application performance, and operational health.
 
-For more information, see the [Circonus documentation](https://docs.circonus.com/circonus/agents/cloud-agent/azure/).
+For more information, see the [Circonus documentation](https://docs.circonus.com/circonus3/integrations/agents/circonus-cloud-agent/#azure).
 
 ## CloudHealth
 

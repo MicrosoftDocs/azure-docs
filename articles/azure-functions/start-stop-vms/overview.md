@@ -107,7 +107,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-- Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
+- To deploy the solution, your account must be granted the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission in the subscription.
 
 - Start/Stop VMs v2 is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 

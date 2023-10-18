@@ -1,5 +1,5 @@
 ---
-title: Use Document Intelligence containers in disconnected environments
+title: Use Document Intelligence (formerly Form Recognizer) containers in disconnected environments
 titleSuffix: Azure AI services
 description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
 ms.service: applied-ai-services

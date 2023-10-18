@@ -168,7 +168,7 @@
   - name: FAQ
     href: ./faq.yml
   - name: Getting support
-    href: ../fundamentals/active-directory-troubleshooting-support-howto.md
+    href: ../fundamentals/how-to-get-support.md
   - name: Azure feedback forum
     href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
   - name: Azure Roadmap

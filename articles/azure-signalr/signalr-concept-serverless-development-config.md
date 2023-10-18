@@ -28,8 +28,8 @@ In the Azure portal, locate the **Settings** page of your SignalR Service resour
 
 A serverless real-time application built with Azure Functions and Azure SignalR Service requires at least two Azure Functions:
 
-* A `negotiate` function that the client calls to obtain a valid SignalR Service access token and endpoint URL.
-* One or more functions that handle messages sent from SignalR Service to clients. 
+- A `negotiate` function that the client calls to obtain a valid SignalR Service access token and endpoint URL.
+- One or more functions that handle messages sent from SignalR Service to clients.
 
 ### negotiate function
 
@@ -64,15 +64,15 @@ For more information, see the [`SignalR` output binding reference](../azure-func
 
 ### SignalR Hubs
 
-SignalR has a concept of *hubs*. Each client connection and each message sent from Azure Functions is scoped to a specific hub. You can use hubs as a way to separate your connections and messages into logical namespaces.
+SignalR has a concept of _hubs_. Each client connection and each message sent from Azure Functions is scoped to a specific hub. You can use hubs as a way to separate your connections and messages into logical namespaces.
 
 ## Class-based model
 
 The class-based model is dedicated for C#. The class-based model provides a consistent SignalR server-side programming experience, with the following features:
 
-* Less configuration work: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
-* Auto parameter binding:  `ParameterNames` and attribute `[SignalRParameter]` aren't needed. Parameters are automatically bound to arguments of Azure Function methods in order.
-* Convenient output and negotiate experience.
+- Less configuration work: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
+- Auto parameter binding: `ParameterNames` and attribute `[SignalRParameter]` aren't needed. Parameters are automatically bound to arguments of Azure Function methods in order.
+- Convenient output and negotiate experience.
 
 The following code demonstrates these features:
 
@@ -114,16 +114,16 @@ All the hub methods **must** have an argument of `InvocationContext` decorated b
 
 By default, `category=messages` except the method name is one of the following names:
 
-* `OnConnected`: Treated as `category=connections, event=connected`
-* `OnDisconnected`: Treated as `category=connections, event=disconnected`
+- `OnConnected`: Treated as `category=connections, event=connected`
+- `OnDisconnected`: Treated as `category=connections, event=disconnected`
 
 ### Parameter binding experience
 
 In class based model, `[SignalRParameter]` is unnecessary because all the arguments are marked as `[SignalRParameter]` by default except in one of the following situations:
 
-* The argument is decorated by a binding attribute
-* The argument's type is `ILogger` or `CancellationToken`
-* The argument is decorated by attribute `[SignalRIgnore]`
+- The argument is decorated by a binding attribute
+- The argument's type is `ILogger` or `CancellationToken`
+- The argument is decorated by attribute `[SignalRIgnore]`
 
 ### Negotiate experience in class-based model
 
@@ -186,8 +186,8 @@ SignalR client SDKs already contain the logic required to perform the negotiatio
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl('https://my-signalr-function-app.azurewebsites.net/api')
-  .build()
+  .withUrl("https://my-signalr-function-app.azurewebsites.net/api")
+  .build();
 ```
 
 By convention, the SDK automatically appends `/negotiate` to the URL and uses it to begin the negotiation.
@@ -197,16 +197,16 @@ By convention, the SDK automatically appends `/negotiate` to the URL and uses it
 
 For more information on how to use the SignalR client SDK, see the documentation for your language:
 
-* [.NET Standard](/aspnet/core/signalr/dotnet-client)
-* [JavaScript](/aspnet/core/signalr/javascript-client)
-* [Java](/aspnet/core/signalr/java-client)
+- [.NET Standard](/aspnet/core/signalr/dotnet-client)
+- [JavaScript](/aspnet/core/signalr/javascript-client)
+- [Java](/aspnet/core/signalr/java-client)
 
 ### Sending messages from a client to the service
 
 If you've [upstream](concept-upstream.md) configured for your SignalR resource, you can send messages from a client to your Azure Functions using any SignalR client. Here's an example in JavaScript:
 
 ```javascript
-connection.send('method1', 'arg1', 'arg2');
+connection.send("method1", "arg1", "arg2");
 ```
 
 ## Azure Functions configuration
@@ -221,10 +221,10 @@ The JavaScript/TypeScript client makes HTTP request to the negotiate function to
 
 #### Localhost
 
-When running the Function app on your local computer, you can add a `Host` section to *local.settings.json* to enable CORS. In the `Host` section, add two properties:
+When running the Function app on your local computer, you can add a `Host` section to _local.settings.json_ to enable CORS. In the `Host` section, add two properties:
 
-* `CORS` - enter the base URL that is the origin the client application
-* `CORSCredentials` - set it to `true` to allow "withCredentials" requests
+- `CORS` - enter the base URL that is the origin the client application
+- `CORSCredentials` - set it to `true` to allow "withCredentials" requests
 
 Example:
 
@@ -282,9 +282,9 @@ Configure your SignalR clients to use the API Management URL.
 
 ### Using App Service Authentication
 
-Azure Functions has built-in authentication, supporting popular providers such as Facebook, Twitter, Microsoft Account, Google, and Azure Active Directory. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that have been authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
+Azure Functions has built-in authentication, supporting popular providers such as Facebook, Twitter, Microsoft Account, Google, and Microsoft Entra ID. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that have been authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
 
-In the Azure portal, in your Function app's *Platform features* tab, open the *Authentication/authorization* settings window. Follow the documentation for [App Service Authentication](../app-service/overview-authentication-authorization.md) to configure authentication using an identity provider of your choice.
+In the Azure portal, in your Function app's _Platform features_ tab, open the _Authentication/authorization_ settings window. Follow the documentation for [App Service Authentication](../app-service/overview-authentication-authorization.md) to configure authentication using an identity provider of your choice.
 
 Once configured, authenticated HTTP requests will include `x-ms-client-principal-name` and `x-ms-client-principal-id` headers containing the authenticated identity's username and user ID, respectively.
 

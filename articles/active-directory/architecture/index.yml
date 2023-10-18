@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory architecture documentation 
-summary: Learn how to securely manage access to your services and resources using Azure AD.
+title: Microsoft Entra architecture documentation 
+summary: Learn how to securely manage access to your services and resources using Microsoft Entra ID.
 
 metadata:
-  title: Azure Active Directory architecture documentation 
-  description: "Learn how to securely manage access to your services and resources using Azure AD."
+  title: Microsoft Entra architecture documentation 
+  description: "Learn how to securely manage access to your services and resources using Microsoft Entra ID."
   ms.author: martinco
   manager: travisgr
   ms.collection: na
@@ -19,13 +19,13 @@ metadata:
 
 landingContent:
   # Card 
-  - title: Azure AD architecture
+  - title: Microsoft Entra architecture
     linkLists:
       - linkListType: architecture
         links:
-          - text: What is Azure Active Directory?
-            url: ../fundamentals/active-directory-whatis.md
-          - text: Azure Active Directory architecture
+          - text: What is Microsoft Entra ID?
+            url: ../fundamentals/whatis.md
+          - text: Microsoft Entra architecture
             url: architecture.md
 
   # Card 
@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy Azure AD
+          - text: Deploy Microsoft Entra ID
             url: deployment-plans.md
           - text: Deploy Azure AD B2C 
             url: b2c-deployment-plans.md
@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure AD SecOps Guide
+          - text: Microsoft Entra SecOps Guide
             url: security-operations-introduction.md
           - text: Protecting cloud resources from on-premises attacks
             url: protect-m365-from-on-premises-attacks.md

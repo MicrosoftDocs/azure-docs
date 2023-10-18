@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 07/07/2023
+ms.date: 09/12/2023
 ---
 
 
@@ -33,7 +33,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 1. Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online.md#managed-online-endpoints).
+1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
 1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
 1. Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -45,8 +45,11 @@ If you didn't complete the tutorial, you need to build a flow. Testing the flow 
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
-> [!NOTE]
-> Currently Prompt flow only supports **single deployment** of managed online endpoints, so we will simplify the *deployment* configuration in the UI.
+## Define the environment used by deployment
+
+When you deploy prompt flow to managed online endpoint in UI. You need define the environment used by this flow. By default, it will use the latest prompt image version. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder, which is system generated file.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of Web requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
 ## Create an online endpoint
 
@@ -101,13 +104,21 @@ Select the identity you want to use, and you'll notice a warning message to remi
 |---|---|---|
 || if you select system assigned identity, it will be auto-created by system for this endpoint <br> | created by user. [Learn more about how to create user assigned identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). <br> one user assigned identity can be assigned to multiple endpoints|
 |Pros| Permissions needed to pull image and mount model and code artifacts from workspace storage are auto-granted.| Can be shared by multiple endpoints.|
-|Required permissions|**Workspace**: **AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” <br> |**Workspace**: **AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” <br> **Workspace container registry**: **Acr pull** <br> **Workspace default storage**: **Storage Blob Data Reader**|
+|Required permissions|**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> |**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> **Workspace container registry**: **Acr pull** <br> **Workspace default storage**: **Storage Blob Data Reader**|
 
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
 
-#### Allow sharing sample input data for testing purpose only
+### Deployment
 
-If the checkbox is selected, the first row of your input data will be used as sample input data for testing the endpoint later.
+In this step, you can specify the following properties:
+
+|Property| Description |
+|---|-----|
+|Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint in the previous step, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
+|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [model monitoring.](how-to-monitor-generative-ai-applications.md)|
+|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard in the studio UI." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
 
 ### Outputs
 
@@ -126,7 +137,7 @@ In this step, you can view all connections within your flow, and change connecti
 In this step, you can select the virtual machine size and instance count for your deployment.
 
 > [!NOTE]
-> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
+> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it's better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
 >
 > For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
 
@@ -160,14 +171,14 @@ For **System-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections. |
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections. |
 
 
 For **User-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections|
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
 |Workspace container registry |Acr pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
@@ -187,7 +198,7 @@ To grant permissions to the endpoint identity, there are two ways:
         > [!NOTE]
         > AzureML Data Scientist is a built-in role which has permission to get workspace connections. 
         >
-        > If you want to use a customized role, make sure the customized role has the permission of “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action”. Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
+        > If you want to use a customized role, make sure the customized role has the permission of "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action". Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
 
     1. Select **Managed identity** and select members.
         For **system-assigned identity**, select **Machine learning online endpoint** under **System-assigned managed identity**, and search by endpoint name.
@@ -228,7 +239,9 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
 
-## View metrics using Azure Monitor (optional)
+## View endpoint metrics 
+
+### View managed online endpoints common metrics using Azure Monitor (optional)
 
 You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following these links take you to the exact metrics page in the Azure portal for the endpoint or deployment.
 
@@ -238,6 +251,33 @@ You can view various metrics (request numbers, request latency, network bytes, C
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/view-metrics.png" alt-text="Screenshot of the endpoint detail page with view metrics highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/view-metrics.png":::
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
+
+### View prompt flow endpoints specific metrics (optional)
+
+If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints specific metrics collected in the workspace default Application Insights.
+
+| Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
+|--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
+| token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens ; `total_tokens` = `prompt_tokens + completion tokens`          | openai token consumption metrics                                                |
+| flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
+| flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
+| node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
+| node_request                         | counter   | flow,node,exception,run_status            | node execution count                                                    |
+| rpc_latency                          | histogram | flow,node,api_call                        | rpc cost                                                                        |
+| rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
+| flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
+
+You can find the workspace default Application Insights in your workspace page in Azure portal.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png" alt-text="Screenshot of the workspace default Application Insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png":::
+
+Open the Application Insights, and select **Usage and estimated costs** from the left navigation. Select **Custom metrics (Preview)**, and select **With dimensions**, and save the change.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png" alt-text="Screenshot of enable multidimensional metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png":::
+
+Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggregation methods.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
 
 ## Troubleshoot endpoints deployed from prompt flow
 
@@ -260,8 +300,6 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 > [!NOTE]
 > The complete deletion may take approximately 20 minutes.
-
-
 
 ## Next Steps
 

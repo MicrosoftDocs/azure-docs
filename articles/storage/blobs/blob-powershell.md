@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Manage blobs with PowerShell 
 author: StevenMatthew
 ms.author: shaas
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.devlang: powershell

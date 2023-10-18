@@ -1,7 +1,7 @@
 ---
 
 title: Tutorial for bulk inviting B2B collaboration users
-description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration guest users.
+description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Microsoft Entra B2B collaboration guest users.
 
 services: active-directory
 ms.service: active-directory
@@ -12,16 +12,15 @@ ms.date: 07/31/2023
 ms.author: cmulligan
 author: csmulligan
 manager: CelesteDG
-ms.custom: engagement-fy23
-
-# Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
+ms.custom: engagement-fy23, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 ---
 
-# Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users
+# Tutorial: Use PowerShell to bulk invite Microsoft Entra B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time via the portal or via PowerShell. In this tutorial, you learn how to use PowerShell to send bulk invitations to external users. Specifically, you do the following:
+If you use Microsoft Entra B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time via the portal or via PowerShell. In this tutorial, you learn how to use PowerShell to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
 > * Prepare a comma-separated value (.csv) file with the user information
@@ -50,7 +49,7 @@ Based on the output, do one of the following:
    Install-Module AzureADPreview
    ```
 
-- If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
+- If only the Microsoft Entra ID module shows up in the results, run the following commands to install the AzureADPreview module: 
 
    ```powershell
    Uninstall-Module AzureAD
@@ -121,7 +120,7 @@ The script sends an invitation to the email addresses in the Invitations.csv fil
 
 ## Verify users exist in the directory
 
-To verify that the invited users were added to Azure AD, run the following command:
+To verify that the invited users were added to Microsoft Entra ID, run the following command:
 
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"

@@ -5,8 +5,7 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/09/2023
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-queue-storage
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---

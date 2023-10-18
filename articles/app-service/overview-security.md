@@ -5,6 +5,8 @@ keywords: azure app service, web app, mobile app, api app, function app, securit
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: UpdateFrequency3
+author: cephalin
+ms.author: cephalin
 
 ---
 # Security in Azure App Service

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
@@ -101,7 +101,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' isn't allowed for property isSftpEnabled.` error, ensure that the following prerequisites are met at the storage account level:
 
-  - The account needs to be a general-purpose v2 and premium block blob accounts.
+  - The account needs to be a general-purpose v2 or premium block blob account.
   
   - The account needs to have hierarchical namespace enabled on it.
 

@@ -21,9 +21,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: ASP.NET
-            url: web-api-quickstart.md?pivots=devlang-aspnet
+            url: quickstart-web-api-aspnet-protect-api.md
           - text: ASP.NET Core
-            url: web-api-quickstart.md?pivots=devlang-aspnet-core
+            url: quickstart-web-api-aspnet-core-protect-api.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

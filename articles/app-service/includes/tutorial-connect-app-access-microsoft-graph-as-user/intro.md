@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: include
 ms.workload: identity
-ms.date: 11/02/2021
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by an Azure AD application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Azure AD application the permissions to access the Microsoft Graph Azure AD application for the user.)
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select **Azure Active Directory** from any page.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications**.
 
 1. Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your web app name, and then select **API permissions**.
 

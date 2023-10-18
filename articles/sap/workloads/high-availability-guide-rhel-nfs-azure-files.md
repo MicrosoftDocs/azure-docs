@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 06/21/2023
+ms.date: 08/23/2023
 ms.author: radeltch
 ---
 
@@ -360,7 +360,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     pcs resource defaults update migration-threshold=3
     ```
 
-1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
+2. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
     ```bash
     sudo pcs node standby sap-cl2
@@ -395,7 +395,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
     ```
 
-1. **[1]** Install SAP NetWeaver ASCS  
+3. **[1]** Install SAP NetWeaver ASCS  
 
    Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example **sapascs**, **10.90.90.10** and the instance number that you used for the probe of the load balancer, for example **00**.
 
@@ -415,7 +415,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo chgrp sapsys /usr/sap/NW1/ASCS00
     ```
 
-1. **[1]** Create a virtual IP resource and health-probe for the ERS instance
+4. **[1]** Create a virtual IP resource and health-probe for the ERS instance
 
     ```bash
     sudo pcs node unstandby sap-cl2
@@ -455,7 +455,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #      vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started sap-cl2
     ```
 
-1. **[2]** Install SAP NetWeaver ERS  
+5. **[2]** Install SAP NetWeaver ERS  
 
    Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example **sapers**, **10.90.90.9** and the instance number that you used for the probe of the load balancer, for example **01**.
 
@@ -475,7 +475,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo chgrp sapsys /usr/sap/NW1/ERS01
     ```
 
-1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
+6. **[1]** Adapt the ASCS/SCS and ERS instance profiles
 
    * ASCS/SCS profile
 
@@ -505,7 +505,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # Autostart = 1
     ```
 
-1. **[A]** Configure Keep Alive
+7. **[A]** Configure Keep Alive
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1. Change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
 
@@ -514,7 +514,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo sysctl net.ipv4.tcp_keepalive_time=300
     ```
 
-1. **[A]** Update the /usr/sap/sapservices file
+8. **[A]** Update the /usr/sap/sapservices file
 
    To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file.
 
@@ -528,9 +528,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # LD_LIBRARY_PATH=/usr/sap/NW1/ERS01/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW1/ERS01/exe/sapstartsrv pf=/usr/sap/NW1/ERS01/profile/NW1_ERS01_sapers -D -u nw1adm
     ```
 
-1. **[1]** Create the SAP cluster resources
+9. **[1]** Create the SAP cluster resources.
 
-   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
     ```bash
     sudo pcs property set maintenance-mode=true
@@ -542,7 +542,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20 on-fail=restart timeout=60 \
      op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW1_ASCS
-   
+    
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW1_ERS01 SAPInstance \
@@ -559,8 +559,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo pcs property set maintenance-mode=false
     ```
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
+    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
     ```bash
     sudo pcs property set maintenance-mode=true
@@ -591,12 +591,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo pcs property set maintenance-mode=false
     ```
 
-   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
+    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 
-   > [!NOTE]
-   > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup.
+    > [!NOTE]
+    > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup.
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
     ```bash
     sudo pcs status
@@ -616,10 +616,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #      nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started sap-cl1
     #      vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
     #      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
-   ```
+    ```
 
-1. **[A]** Add firewall rules for ASCS and ERS on both nodes
-   Add the firewall rules for ASCS and ERS on both nodes.
+10. **[1]** Execute below step to configure priority-fencing-delay (applicable only as of pacemaker-2.0.4-6.el8 or higher)
+
+    > [!NOTE]
+    > If you have two-node cluster, you have option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+    >
+    > The property priority-fencing-delay is applicable for pacemaker-2.0.4-6.el8 version or higher. If you are setting up priority-fencing-delay on existing cluster, make sure to unset `pcmk_delay_max` option in fencing device.  
+
+    ```bash
+    sudo pcs resource defaults update priority=1
+    sudo pcs resource update rsc_sap_NW1_ASCS00 meta priority=10
+
+    sudo pcs property set priority-fencing-delay=15s
+    ```
+
+11. **[A]** Add firewall rules for ASCS and ERS on both nodes.
 
     ```bash
     # Probe Port of ASCS

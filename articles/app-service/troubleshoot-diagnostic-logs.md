@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.custom: "devx-track-csharp, seodec18"
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Enable diagnostics logging for apps in Azure App Service

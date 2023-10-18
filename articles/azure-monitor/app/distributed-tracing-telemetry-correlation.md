@@ -39,7 +39,7 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
 Application Insights now supports distributed tracing through [OpenTelemetry](https://opentelemetry.io/). OpenTelemetry provides a vendor-neutral instrumentation to send traces, metrics, and logs to Application Insights. Initially, the OpenTelemetry community took on distributed tracing. Metrics and logs are still in progress.
 
-A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](opentelemetry-enable.md) only include distributed tracing. Our Java OpenTelemetry-based Azure Monitor offering is generally available and fully supported.
+A complete observability story includes all three pillars. Check the status of our [Azure Monitor OpenTelemetry-based offerings](opentelemetry-enable.md) to see the latest status on what's included, which offerings are generally available, and support options.
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 
@@ -171,7 +171,7 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
+This feature is enabled by default for Javascript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
 
 - **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
@@ -186,6 +186,9 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
+
+If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including sub-domains, the correlation headers are not included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request may fail, depending on whether the browser / version can validate the request based on which headers the server will accept.
+
 > [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
 

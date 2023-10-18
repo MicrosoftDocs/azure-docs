@@ -17,7 +17,7 @@ To register the application with Azure Active Directory (Azure AD):
 
 1. Follow the steps in [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 1. In Azure AD, select **Expose application**.
-1. Select **Set** for **Application ID URI**.
+1. Select **Add** for **Application ID URI**.
 
    [![Screenshot that shows the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
 1. Select **Save**.

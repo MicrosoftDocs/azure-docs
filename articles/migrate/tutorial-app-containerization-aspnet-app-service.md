@@ -6,7 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/14/2021
+ms.date: 07/14/2023
+ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
 

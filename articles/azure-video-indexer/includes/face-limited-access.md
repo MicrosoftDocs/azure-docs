@@ -6,7 +6,7 @@ manager: femila
 ms.service: azure-video-indexer
 ms.topic: include 
 ms.date: 06/14/2022
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 > [!NOTE]

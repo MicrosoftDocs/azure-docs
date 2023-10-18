@@ -37,7 +37,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 
  
-### Step 2 Configure the NPS for Azure AD MFA
+### Step 2: Configure the NPS for Azure AD MFA
 
 1. On the NPS server, [install the NPS extension for Azure AD MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Open the NPS console, right-click **RADIUS Clients**, and then select **New**. Create the RADIUS client by specifying the following settings:
@@ -55,7 +55,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 4. Go to **Policies** > **Network Policies**, double-click **Connections to Microsoft Routing and Remote Access server** policy, select **Grant access**, and then click **OK**.
 
-### Step 3 Configure the virtual network gateway
+### Step 3: Configure the virtual network gateway
 
 1. Log on to [Azure portal](https://portal.azure.com).
 2. Open the virtual network gateway that you created. Make sure that the gateway type is set to **VPN** and that the VPN type is **route-based**.
