@@ -15,32 +15,33 @@ ms.date: 10/02/2023
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 
-Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the **BrokerAuthorization** resource.
+Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the *BrokerAuthorization* resource.
 
-You can set to one BrokerAuthorization for each listener. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
+You can set to one *BrokerAuthorization* for each listener. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
 
-**Important**: to have the BrokerAuthorization configuration apply to a listener, at least one **BrokerAuthentication** must also be linked to that listener.
+> [!IMPORTANT]
+> To have the *BrokerAuthorization* configuration apply to a listener, at least one *BrokerAuthentication* must also be linked to that listener.
 
 ## Configure BrokerAuthorization for listeners
 
-The spec of a BrokerAuthorization resource has these fields:
+The specification of a *BrokerAuthorization* resource has the following fields:
 
-- `listenerRef`: The names of the BrokerListener resources that this authorization policy applies to. This field is required and must match an existing BrokerListener resource in the same namespace.
-- `authorizationPolicies`: This field defines the settings for the authorization policies, such as:
-  - `enableCache`: A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`.
-  - `rules`: A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields:
-    - `principals`: This subfield defines the identities that represent the clients, such as:
-      - `usernames`: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
-      - `clientids`: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
-      - `attributes`: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
-    - `brokerResources`: This subfield defines the objects that represent the actions or topics, such as:
-      - `method`: The type of action that the clients can perform on the broker. This subfield is required and can be one of these values:
-        - `Connect`: This value indicates that the clients can connect to the broker.
-        - `Publish`: This value indicates that the clients can publish messages to topics on the broker.
-        - `Subscribe`: This value indicates that the clients can subscribe to topics on the broker.
-      - `topics`: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish.
+- **listenerRef**: The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace.
+- **authorizationPolicies**: This field defines the settings for the authorization policies, such as:
+  - **enableCache**: A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`.
+  - **rules**: A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields:
+    - **principals**: This subfield defines the identities that represent the clients, such as:
+      - **usernames**: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
+      - **clientids**: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
+      - **attributes**: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
+    - **brokerResources**: This subfield defines the objects that represent the actions or topics, such as:
+      - **method**: The type of action that the clients can perform on the broker. This subfield is required and can be one of these values:
+        - **Connect**: This value indicates that the clients can connect to the broker.
+        - **Publish**: This value indicates that the clients can publish messages to topics on the broker.
+        - **Subscribe**: This value indicates that the clients can subscribe to topics on the broker.
+      - **topics**: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish.
 
-This example shows how to create a BrokerAuthorization resource that defines the authorization policies for a listener named "my-listener".
+The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 
 ```yaml
 apiVersion: az-edge.com/v1alpha4
@@ -89,7 +90,7 @@ To create this BrokerAuthorization resource, apply the YAML manifest to your Kub
 
 Clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) can be authorized to access resources based on information (X.509 properties) present on their certificate or their issuing certificates up the chain.
 
-### With certificate (chain) properties using attributes
+### With certificate chain properties using attributes
 
 To create rules based on properties from a client's certificate, its root CA, or intermediate CA, a certificate-to-attributes mapping TOML file is required. For example:
 
@@ -122,9 +123,9 @@ To apply the mapping, create a certificate-to-attribute mapping TOML file as a K
 
 Then, authorization rules can be applied to clients using X.509 certificates with these attributes.
 
-### With client certificate subject common name (CN) as username
+### With client certificate subject common name as username
 
-To create authorization policies based on the *client* certificate subject common name only, create rules based on the CN.
+To create authorization policies based on the *client* certificate subject common name (CN) only, create rules based on the CN.
 
 For example, if a client has a certificate with subject `CN = smart-lock`, its username is `smart-lock`. From there, create authorization policies as normal.
 
@@ -138,7 +139,7 @@ kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=authz-sat
 
 Attribute annotations must begin with `azedge-broker-auth/` to distinguish them from other annotations.
 
-As the application has an authorization attribute called `authz-sat`, there is no need to provide a `clientId` or `username`. The corresponding BrokerAuthorization resource uses this attribute as a principle, for example:
+As the application has an authorization attribute called `authz-sat`, there is no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principle, for example:
 
 ```yaml{hl_lines=[14]}
 apiVersion: az-edge.com/v1alpha4
