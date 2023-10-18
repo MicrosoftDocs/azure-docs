@@ -30,6 +30,30 @@ To perform packet capture using the command line, you must:
 
 ## Performing packet capture using the Azure portal
 
+## Set up a storage account
+
+[!INCLUDE [](includes/include-diagnostics-storage-account-setup.md)]
+
+### Start a packet capture
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
+1. Select **Packet Capture** under the **Help** section on the left side. This will open a **Packet Capture** view.
+1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername/diagsPackageName.zip`  
+    > [!TIP]
+    > The **Container URL** should have been noted during creation. If it wasn't:
+    >
+    >    1. Navigate to your **Storage account**.
+    >    1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
+    >    1. Select **Container properties** in the context menu.
+    >    1. Copy the contents of the **URL** field in the **Container properties** view.
+
+1. Select **Start packet capture**.
+1. Fill in the details on the **Start packet capture** pane and select **Create**.
+1. The AP5GC online service will generate a packet capture at the provided storage account URL. Once the portal reports that this has succeeded, you'll be able to download the packet capture.
+1. To download the packet capture, see [Download a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
+
 ## Performing packet capture using the command line
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
