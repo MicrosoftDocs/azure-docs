@@ -53,7 +53,7 @@ To improve log query experience, an application log is required to be in JSON fo
 
 ## Limitations
 
-Each line of JSON logs may have at most **16K bytes**. If the JSON output of a single log record exceeds this limit, it will be forcibly broken into multiple lines, and each raw line will be collected into the `Log` column, without being parsed structurally.
+Each line of JSON logs has at most **16K bytes**. If the JSON output of a single log record exceeds this limit, it is broken into multiple lines, and each raw line is collected into the `Log` column, without being parsed structurally.
 
 Generally, this happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled.  Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
 
@@ -63,7 +63,7 @@ For Spring applications, you can generate expected JSON log format using common 
 
 ### Log with logback
 
-When using Spring Boot starters, Logback is used by default. For Logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
+When using Spring Boot starters, Logback is used by default. For Logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1 or later.
 
 The procedure:
 
@@ -239,7 +239,7 @@ The procedure:
 
 ## Analyze the logs in Log Analytics
 
-After your application is properly set up, your application console log will be streamed to Log Analytics. The structure enables efficient query in Log Analytics.
+After your application is properly set up, your application console log is streamed to Log Analytics. The structure enables efficient query in Log Analytics.
 
 ### Check log structure in Log Analytics
 
