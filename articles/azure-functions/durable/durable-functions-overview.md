@@ -1158,7 +1158,7 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 ::: zone pivot="csharp"
 
 > [!NOTE]
-> Support for Durable entities is currently in **preview** for the .NET-isolated worker.
+> Support for Durable entities is currently in **preview** for the .NET-isolated worker. [Learn more.](durable-functions-dotnet-entities.md)
 
 # [C# (InProc)](#tab/in-process)
 
@@ -1226,7 +1226,7 @@ public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher
                     operation.State.SetState(0);
                     break;
                 case "get":
-                    return new((operation.State.GetState(typeof(int)) as int?) ?? 0);
+                    return new(operation.State.GetState<int>());
                 case "delete": 
                     operation.State.SetState(null);
                     break; 

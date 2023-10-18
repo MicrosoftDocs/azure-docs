@@ -28,7 +28,7 @@ This article focuses primarily on the class-based syntax, as we expect it to be 
 > The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
 
 > [!NOTE]
-> Durable entities support for the dotnet-isolated worker is currently in **preview**.
+> Durable entities support for the dotnet-isolated worker is currently in **preview**. You can find more samples and provide feedback in the [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet) GitHub repo. 
  
 ## Defining entity classes
 
