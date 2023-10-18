@@ -19,7 +19,7 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 
 ## Prerequisites
 
-- Azure Subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 - Once you have your Azure subscription, [create a Vision resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the East US region.
 - An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
@@ -195,7 +195,7 @@ Connection: close
 
 ### Step 3: Wait for ingestion to complete
 
-After you add video files to the index, the ingestion process starts. It may take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc477a0)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
+After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc477a0)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
 
 ```bash
 curl.exe -v _X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
