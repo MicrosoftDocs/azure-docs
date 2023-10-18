@@ -44,7 +44,7 @@ __conda.yaml__
 :::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/conda.yaml" highlight="13-19":::
 
 > [!WARNING]
-> MLflow performs automatic package detection when logging models, and pins their versions in the conda dependencies of the model. However, such action is performed at the best of its knowledge and there may be cases when the detection doesn't reflect your intentions or requirements. On those cases consider [logging models with a custom conda dependencies definition](how-to-log-mlflow-models.md?#logging-models-with-a-custom-signature-environment-or-samples).
+> MLflow performs automatic package detection when logging models, and pins their versions in the conda dependencies of the model. However, such action is performed at the best of its knowledge and there might be cases when the detection doesn't reflect your intentions or requirements. On those cases consider [logging models with a custom conda dependencies definition](how-to-log-mlflow-models.md?#logging-models-with-a-custom-signature-environment-or-samples).
 
 ### Implications of models with signatures
 
@@ -200,14 +200,14 @@ For more information about MLflow built-in deployment tools, see [MLflow documen
 
 ## How to customize inference when deploying MLflow models
 
-You may be used to authoring scoring scripts to customize how inference is executed for your custom models. However, when deploying MLflow models to Azure Machine Learning, the decision about how inference should be executed is done by the model builder (the person who built the model), rather than by the DevOps engineer (the person who is trying to deploy it). Each model framework may automatically apply specific inference routines.
+You might be used to authoring scoring scripts to customize how inference is executed for your custom models. However, when deploying MLflow models to Azure Machine Learning, the decision about how inference should be executed is done by the model builder (the person who built the model), rather than by the DevOps engineer (the person who is trying to deploy it). Each model framework might automatically apply specific inference routines.
 
 If you need to change the behavior at any point about how inference of an MLflow model is executed, you can either [change how your model is being logged in the training routine](#change-how-your-model-is-logged-during-training) or [customize inference with a scoring script at deployment time](#customize-inference-with-a-scoring-script).
 
 
 ### Change how your model is logged during training
 
-When you log a model using either `mlflow.autolog` or using `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what gets returned by the model. MLflow doesn't enforce any specific behavior in how the `predict()` function generates results. However, there are scenarios where you probably want to do some preprocessing or post-processing before and after your model is executed. On another scenarios, you may want to change what's returned like probabilities vs classes.
+When you log a model using either `mlflow.autolog` or using `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what gets returned by the model. MLflow doesn't enforce any specific behavior in how the `predict()` function generates results. However, there are scenarios where you probably want to do some preprocessing or post-processing before and after your model is executed. On another scenarios, you might want to change what's returned like probabilities vs classes.
 
 A solution to this scenario is to implement machine learning pipelines that moves from inputs to outputs directly. For instance, [`sklearn.pipeline.Pipeline`](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) or [`pyspark.ml.Pipeline`](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.ml.Pipeline.html) are popular (and sometimes encourageable for performance considerations) ways to do so. Another alternative is to [customize how your model does inference using a custom model flavor](how-to-log-mlflow-models.md?#logging-custom-models).
 
