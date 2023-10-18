@@ -127,16 +127,15 @@ After you deploy the VMs for your SAP system, create a load balancer. Use VMs cr
          1. Select **OK**.
       1. Port 621**02** for ASCS ERS:
          * Repeat the preceding steps to create a health probe for the ERS (for example, 621**02** and **nw1-aers-hp**).
-   1. Create load-balancing rules.
-      1. Load-balancing rules for ASCS:
-         1. Open the load balancer, select load-balancing rules, and select **Add**.
-         1. Enter the name of the new load balancer rule (for example, **nw1-lb-ascs**).
-         1. Select the front-end IP address, back-end pool, and health probe you created earlier (for example, **nw1-ascs-frontend**, **nw1-backend**, and **nw1-ascs-hp**).
-         1. Increase the idle timeout to **30 minutes**.
-         1. Select **HA ports**.
-         1. Make sure to enable **Floating IP**.
-         1. Select **OK**.
-         * Repeat the preceding steps to create load-balancing rules for ERS (for example, **nw1-lb-ers**).
+   1. Create load-balancing rules for ASCS:
+      1. Open the load balancer, select load-balancing rules, and select **Add**.
+      1. Enter the name of the new load balancer rule (for example, **nw1-lb-ascs**).
+      1. Select the front-end IP address, back-end pool, and health probe you created earlier (for example, **nw1-ascs-frontend**, **nw1-backend**, and **nw1-ascs-hp**).
+      1. Increase the idle timeout to **30 minutes**.
+      1. Select **HA ports**.
+      1. Make sure to enable **Floating IP**.
+      1. Select **OK**.
+      * Repeat the preceding steps to create load-balancing rules for ERS (for example, **nw1-lb-ers**).
 
 > [!IMPORTANT]
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
@@ -238,7 +237,7 @@ The following items are prefixed with:
    glust-0:/NW1-sys /usr/sap/NW1/SYS glusterfs backup-volfile-servers=glust-1:glust-2 0 0
    ```
 
-   Mount the new shares
+   Mount the new shares.
 
    ```bash
    sudo mount -a
