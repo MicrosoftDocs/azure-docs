@@ -1,6 +1,6 @@
 ---
-title: Azure Kubernetes Service Cost Analysis
-description: Learn how to use Cost Analysis to surface cost management information in your Azure Kubernetes Service (AKS) cluster
+title: Azure Kubernetes Service cost analysis
+description: Learn how to use cost analysis to surface cost management information in your Azure Kubernetes Service (AKS) cluster
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
@@ -10,7 +10,7 @@ ms.date: 11/06/2023
 #CustomerIntent: As a cluster operator, I want to obtain cost management information, perform cost attribution, and improve my cluster footprint
 ---
 
-# Azure Kubernetes Service Cost Analysis
+# Azure Kubernetes Service cost analysis
 
 <!-- This section could change a lot, I think it makes sense to align what we have here with an abbreviated version of the docs on the ACM side -->
 
@@ -40,7 +40,7 @@ To address these challenges, AKS has integrated with ACM to offer fully-detailed
 
 * Once cost analysis has been enabled, you cannot downgrade your cluster to the `Free` tier without first disabling cost analysis.
 
-## Enable Cost Analysis on your AKS cluster
+## Enable cost analysis on your AKS cluster
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -66,9 +66,12 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --tier Standa
 
 ---
 
-## Disable Cost Analysis
+## Disable cost analysis
 
-Cost analysis can be disabled at any time. When you disable it, you retain access to past cost data that was collected during the duration when cost analysis was enabled, but no new data will be populated. Should you customer re-enable the feature, there will be a gap in data for the period in which cost analysis was disabled, but historical and new data will not be impacted.
+You can disable cost analysis at any time. When you disable it, you retain access to past cost data that was collected during the duration when cost analysis was enabled, but no new data will be populated. Should you re-enable the feature, there will be a gap in data for the period in which cost analysis was disabled, but historical and new data will not be impacted.
+
+> [!NOTE]
+> If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -82,28 +85,32 @@ az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-c
 
 ---
 
-## View Cost Analysis information
+## View cost information
 
-Cost analysis information can be viewed from the Azure portal.
+You can view cost information from the Azure portal.
 
-1. In the Azure portal, search for *Cost* and select *Cost Analysis*.
+1. In the Azure portal, search for *Cost* and select *Cost analysis*.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-entry-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-entry.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-entry-inline.png" alt-text="The default Azure portal page is shown, with 'Cost' entered into the search field and 'Cost analysis' highlighted in the results." lightbox="./media/cost-analysis/cost-analysis-entry.png":::
 
-1. Several views are shown. Navigate to the section for *Kubernetes Views* to see cost across your clusters or namespaces.
+1. Several views are shown. Expand the section for *Kubernetes views* to see cost across your clusters or namespaces.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-overview.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="The Azure portal cost analysis overview page is shown with the 'Kubernetes views' section highlighted." lightbox="./media/cost-analysis/cost-analysis-overview.png":::
 
-1. After selecting *Kubernetes clusters*, you will see a costs associated with each cluster.
+    1. After selecting *Kubernetes namespaces*, you will see costs associated with your various Kubernetes namespaces.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
+        :::image type="content" source="./media/cost-analysis/cost-analysis-namespaces-inline.png" alt-text="The Azure portal page for cost analysis is shown with the `Kubernetes namespaces`` view expanded." lightbox="./media/cost-analysis/cost-analysis-namespaces.png":::
 
-1. Hover over a cluster and select *...*, then select *Kubernetes assets* to get a granular breakdown of compute, storage, networking, and more associated with that cluster.
+    1. After selecting *Kubernetes clusters*, you will see costs associated with each cluster.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-cluster-select-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-cluster-select.png":::
+        :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="The Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded." lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-assets-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-assets.png":::
+1. From the clusters page, hover over a cluster and select *...*, then select *Kubernetes assets* to get a granular breakdown of compute, storage, networking, and more associated with that cluster.
 
-1. Expand each section for a more detailed view of each asset.
+    :::image type="content" source="./media/cost-analysis/cost-analysis-cluster-select-inline.png" alt-text="The Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded. A cluster has been selected and options for 'Kubernetes assets' and 'Namespaces' are highlighted." lightbox="./media/cost-analysis/cost-analysis-cluster-select.png":::
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="{alt-text}" lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-assets-inline.png" alt-text="The Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded." lightbox="./media/cost-analysis/cost-analysis-assets.png":::
+
+1. Expand each section for a more detailed view of each asset group.
+
+    :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="The Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded and individual sections for each Kubernetes asset expanded." lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
