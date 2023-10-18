@@ -16,7 +16,6 @@ Arc resource bridge delivers the following benefits:
 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster.
 * Fully supported by Microsoft, including updates to core components.
-* Designed to recover from software failures.
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
 ## Overview
