@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 10/05/2023
 
 ms.author: mimart
 author: msmimart
@@ -21,6 +21,8 @@ Microsoft Entra External ID pricing is based on monthly active users (MAU), whic
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+>
+> In Azure Government, the External ID billing model doesn't apply because the service is available through Preview only.
 
 ## What do I need to do?
 
