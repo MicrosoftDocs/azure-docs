@@ -241,13 +241,13 @@ Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn122IsFound (Depr
 
 Full mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. There is no cost associated with using the full manageability mode. System administrator permissions are required. Note that installing or upgrading to full mode is an online operation, there is no restart required.
 
-Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent must be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell).
+Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent must be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management).
 
 ### Install SQL best practices assessment on your SQL VM
 
 SQL best practices assessment provides a mechanism to evaluate the configuration of your Azure SQL VM for best practices like indexes, deprecated features, trace flag usage, statistics, etc. Assessment results are uploaded to your Log Analytics workspace using Azure Monitoring Agent (AMA).
 
-Learn more about [SQL virtual machine - SqlAssessmentAdvisorRec (Install SQL best practices assessment on your SQL VM)](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-assessment-for-sql-vm?view=azuresql&tabs=azure-portal).
+Learn more about [SQL virtual machine - SqlAssessmentAdvisorRec (Install SQL best practices assessment on your SQL VM)](/azure/azure-sql/virtual-machines/windows/sql-assessment-for-sql-vm).
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
@@ -285,19 +285,19 @@ Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServer
 
 Storage auto-growth prevents a server from running out of storage and becoming read-only.
 
-Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerStorageAutogrow43b64 (Enable storage autogrow for MySQL Flexible Server)](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-service-tiers-storage#storage-auto-grow).
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerStorageAutogrow43b64 (Enable storage autogrow for MySQL Flexible Server)](/azure/mysql/flexible-server/concepts-service-tiers-storage#storage-auto-grow).
 
 ### Apply resource delete lock
 
 Lock your MySQL Flexible Server to to protect from accidental user deletions and modifications
 
-Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerResourceLockbe19e (Apply resource delete lock)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources).
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerResourceLockbe19e (Apply resource delete lock)](/azure/azure-resource-manager/management/lock-resources).
 
 ### Add firewall rules for MySQL Flexible Server
 
 Add firewall rules to protect your server from unauthorized access
 
-Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerNoFirewallRule6e523 (Add firewall rules for MySQL Flexible Server)](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-manage-firewall-portal).
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerNoFirewallRule6e523 (Add firewall rules for MySQL Flexible Server)](/azure/mysql/flexible-server/how-to-manage-firewall-portal).
 
 
 ### Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications
@@ -320,7 +320,7 @@ Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are 
 
 ### Cloud service caches are being retired in August 2024, migrate before then to avoid any problems
 
-This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the learn more link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services is not supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see https://learn.microsoft.com/azure/azure-cache-for-redis/cache-faq for details on cloud services hosted caches. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
+This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the learn more link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services is not supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see the following link. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
 
 Learn more about [Redis Cache Server - MigrateFromCloudService (Cloud service caches are being retired in August 2024, migrate before then to avoid any problems)](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-%28classic%29).
 
@@ -332,7 +332,7 @@ Learn more about [Redis Cache Server - Persistence (Redis persistence allows you
 
 ### Using persistence with soft delete enabled can increase storage costs.
 
-Check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see https://learn.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence#how-do-i-check-if-soft-delete-is-enabled-on-my-storage-account
+Check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see the following link.
 
 Learn more about [Redis Cache Server - PersistenceSoftEnable (Using persistence with soft delete enabled can increase storage costs.)](https://aka.ms/redis/persistence).
 
@@ -376,7 +376,7 @@ Learn more about [Api Management - shgw-config-api-v1-usage (Use Configuration A
 
 Traces generated by Azure API Management service may contain sensitive information that is intended for service owner and must not be exposed to clients using the service. Using tracing enabled subscription keys in production or automated scenarios creates a risk of sensitive information exposure if client making call to the service requests a trace.
 
-Learn more about [Api Management - heavy-tracing-usage (Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.)](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector).
+Learn more about [Api Management - heavy-tracing-usage (Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.)](/azure/api-management/api-management-howto-api-inspector).
 
 ### Self-hosted gateway instance(s) were identified that use gateway tokens that expire soon
 
@@ -391,7 +391,7 @@ Learn more about [Api Management - ShgwGatewayTokenNearExpiry (Self-hosted gatew
 
 We have detected that the Fallback Route on your IoT Hub has been disabled. When the Fallback Route is disabled messages stop flowing to the default endpoint. If you're no longer able to ingest telemetry downstream consider re-enabling the Fallback Route.
 
-Learn more about [IoT hub - IoTHubFallbackDisabledAdvisor (IoT Hub Fallback Route Disabled)](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#fallback-route).
+Learn more about [IoT hub - IoTHubFallbackDisabledAdvisor (IoT Hub Fallback Route Disabled)](/azure/iot-hub/iot-hub-devguide-messages-d2c#fallback-route).
 
 
 
@@ -557,7 +557,7 @@ Learn more about [App Server Instance - AppIpv4Retries2 (Set the parameter net.i
 
 In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_probes = 9. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
-Learn more about [App Server Instance - AppIPV4Probes (See the parameter net.ipv4.tcp_keepalive_probes to '9' in the Application VM OS in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+Learn more about [App Server Instance - AppIPV4Probes (See the parameter net.ipv4.tcp_keepalive_probes to '9' in the Application VM OS in SAP workloads)](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
 ### Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads
 
@@ -593,7 +593,7 @@ Learn more about [App Server Instance - AppIpv4TcpReuse (Set the parameter net.i
 
 In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_intvl = 75. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
-Learn more about [App Server Instance - AppIPV4intvl (Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+Learn more about [App Server Instance - AppIPV4intvl (Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads)](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
 
 
@@ -754,7 +754,7 @@ Learn more about [Capacity Pool - Azure NetApp Files Cool Access SDK version rec
 
 The minimum SDK version of 2022-xx-xx is recommended for automation of large volume creation, resizing and deletion.
 
-Learn more about [Volume - Large Volumes SDK Recommendation (Large Volumes SDK Recommendation)](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits).
+Learn more about [Volume - Large Volumes SDK Recommendation (Large Volumes SDK Recommendation)](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
 
 ### Prevent hitting subscription limit for maximum storage accounts
 
