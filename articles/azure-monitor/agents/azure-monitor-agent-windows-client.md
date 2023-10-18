@@ -62,7 +62,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
-    :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" alt-text="Diagram shows download agent link on Azure portal.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" alt-text="Diagram shows download agent link on Azure portal." border="false":::
 2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
     ```cli
@@ -99,8 +100,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 You need to create a 'Monitored Object' (MO) that creates a representation for the Microsoft Entra tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single Microsoft Entra tenant**.
 Currently this association is only **limited** to the Microsoft Entra tenant scope, which means configuration applied to the Microsoft Entra tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
 The image below demonstrates how this works:
-
-:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" alt-text="Diagram shows monitored object purpose and association.":::
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" alt-text="Diagram shows monitored object purpose and association." border="false":::
 
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
@@ -394,8 +395,8 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
 The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
-
-:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" alt-text="Diagram shows agent heartbeat logs on Azure portal.":::
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" alt-text="Diagram shows agent heartbeat logs on Azure portal." border="false":::
 
 ### Using PowerShell for offboarding
 ```PowerShell
