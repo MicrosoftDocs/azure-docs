@@ -59,7 +59,7 @@ kubectl create secret tls my-secret \
 
 ## Enable TLS for a listener
 
-Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`my-secret` in the example above).
+Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`my-secret` in the example previously).
 
 ```yaml
 apiVersion: az-edge.com/v1alpha3
@@ -134,7 +134,7 @@ azedge-dmqtt-frontend         LoadBalancer   10.43.58.212    172.18.0.2    1883:
 ...
 ```
 
-Finally, use this external IP as a SAN when creating the server certificate (for example `--san 172.18.0.2` in Step CLI), and follow the same steps above to deploy a listener with TLS.
+Finally, use this external IP as a SAN when creating the server certificate (for example `--san 172.18.0.2` in Step CLI), and follow the same steps previously to deploy a listener with TLS.
 
 ### Option 2: deploy TLS listener without a Kubernetes secret
 
@@ -164,7 +164,7 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 [INFO] - Server certificate my-secret not found. Awaiting creation of secret.
 ```
 
-Generally, in a distributed system, pods logs aren't deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in our backlog for public preview. Consider the above step as a temporary workaround.
+Generally, in a distributed system, pods logs aren't deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in our backlog for public preview. Consider the previous step as a temporary workaround.
 
 Even though the frontend pods aren't up, the external IP is already available.
 
@@ -176,7 +176,7 @@ azedge-dmqtt-health-manager   ClusterIP      10.43.249.169   <none>        1883/
 azedge-dmqtt-frontend         LoadBalancer   10.43.93.6      172.18.0.2    8883:30674/TCP      9m15s
 ```
 
-From here, follow the same steps as above to create a server certificate and secret with this external IP in `--san`, create the Kubernetes secret in the same way. Once the secret is created, it's automatically imported to the listener. You should see the logs showing the successful import:
+From here, follow the same steps as previously to create a server certificate and secret with this external IP in `--san`, create the Kubernetes secret in the same way. Once the secret is created, it's automatically imported to the listener. You should see the logs showing the successful import:
 
 ```console
 $ kubectl logs azedge-dmqtt-health-manager-0
@@ -192,4 +192,4 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 - About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
-- [Configure TLS with automatic certificate management](./howto-configure-tls-automatic.md)
+- [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)
