@@ -83,7 +83,7 @@ The following are examples of this command:
 > [!IMPORTANT]
 > After you update the SSH key, AKS doesn't automatically reimage your node pool. At anytime you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
-## Disable SSH overview
+## Disable SSH overview (preview)
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH (preview) both on the cluster and at the node pool level. Disabling SSH (preview) introduces a better approach compared to the only supported solution, configuring [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC). Network security group rules restricts specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
@@ -118,7 +118,7 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 ```
 
 > [!IMPORTANT]
-> During this operation, all Virtual Machine Scale Set instances are upgraded and re-imaged to use the new SSH configuration.
+> During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH configuration.
 
 ## Disable SSH for a new node pool
 
@@ -160,7 +160,7 @@ Use the [az aks update][az-aks-update] command to update an existing cluster, an
 z aks update -g myResourceGroup -n myManagedCluster –-ssh-access Localuser
 ```
 
-After re-enabling SSH, the nodes aren't be re-imaged automatically. The Azure CLI returns the following message:  
+After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI returns the following message:  
 
 ```output
 Do you want to reimage the nodes now? The nodes will be unavailable during reimage Y/N?
@@ -169,7 +169,7 @@ Do you want to reimage the nodes now? The nodes will be unavailable during reima
 If you select **Y**, all the nodes are reimaged. Otherwise, at anytime you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
 >[!IMPORTANT]
->During this operation, all Virtual Machine Scale Set instances are upgraded and re-imaged to use the new SSH public key.
+>During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
 
 ## Re-enable SSH for a specific node pool
 
@@ -179,7 +179,7 @@ Use the [az aks update][az-aks-update] command to update an a specific node pool
 az aks nodepool update --cluster-name myManagedCluster --name nodepool1 --resource-group myResourceGroup –-ssh-access localuser 
 ```
 
-After re-enabling SSH, the nodes in the pool aren't be re-imaged automatically. The Azure CLI returns the following message:  
+After re-enabling SSH, the nodes in the pool aren't be reimaged automatically. The Azure CLI returns the following message:  
 
 ```output
 Do you want to reimage the nodes now? The nodes will be unavailable during reimage Y/N?
@@ -188,7 +188,7 @@ Do you want to reimage the nodes now? The nodes will be unavailable during reima
 If you select **Y**, all the nodes are reimaged. Otherwise, at anytime you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
 >[!IMPORTANT]
->During this operation, all Virtual Machine Scale Set instances are upgraded and re-imaged to use the new SSH public key.
+>During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
 
 ## Next steps
 
