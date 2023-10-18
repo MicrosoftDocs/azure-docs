@@ -32,7 +32,7 @@ In this article, you'll add the Storage service endpoint to an Azure virtual net
 
 #### Enable iSCSI Initiator
 
-To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
+To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command might vary depending on your distribution, and you should consult their documentation if necessary.
 
 As an example, with Ubuntu you'd use `sudo apt install open-iscsi`, with SUSE Linux Enterprise Server (SLES) you'd use `sudo zypper install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils`.
 
@@ -72,7 +72,7 @@ You can use the following script to create your connections. To execute it, you 
 - g: Resource Group Name
 - e: Elastic SAN Name
 - v: Volume Group Name
-- n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you may require, comma separated
+- n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you might require, comma separated
 - s: Number of sessions to each volume (set to 32 by default)
 
 Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .py file, for example, connect.py. Then execute it with the required parameters. The following is an example of how you'd run the script: 
