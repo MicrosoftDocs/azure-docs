@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 03/13/2023
+ms.date: 10/18/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -41,6 +41,8 @@ Azure Managed Grafana has the following known limitations:
   | Managed private endpoint | &#x274C; | &#x274C; |
   | Team sync with Microsoft Entra ID | &#x274C; | &#x274C; |
   | Enterprise plugins | &#x274C; | &#x274C; |
+
+* The *Current User* authentication option available for Azure Data Explorer triggers the following limitation. Grafana offers some automated feature, such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect Azure Data Explorer to the database. Therefore, when this authentication method is used and no user is logged in, automated tasks cannot run in the background. To leverage automated tasks for Azure Data Explorer, we recommend seting up this data source with another authentiction method.
 
 ## Next steps
 
