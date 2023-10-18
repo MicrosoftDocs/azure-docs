@@ -181,7 +181,7 @@ Microsoft Entra External ID pricing is based on monthly active users (MAU). The 
 
 ## Office 365 considerations
 
-The following information addresses Office 365 in the context of this paper's scenarios. Detailed information is available at [Microsoft 365 inter-tenant collaboration 365 inter-tenant collaboration](/office365/enterprise/office-365-inter-tenant-collaboration) describes options that include using a central location for files and conversations, sharing calendars, using IM, audio/video calls for communication, and securing access to resources and applications.
+The following information addresses Office 365 in the context of this paper's scenarios. Detailed information is available at [Microsoft 365 inter-tenant collaboration 365 inter-tenant collaboration](/microsoft-365/enterprise/microsoft-365-inter-tenant-collaboration) describes options that include using a central location for files and conversations, sharing calendars, using IM, audio/video calls for communication, and securing access to resources and applications.
 
 ### Microsoft Exchange Online
 
@@ -204,7 +204,7 @@ For example:
 
 ```Set-MailUser externaluser1_contoso.com#EXT#@fabricam.onmicrosoft.com\ -HiddenFromAddressListsEnabled:\$false```
 
-- External users may be unhidden using [Azure AD PowerShell](/powershell/module/azuread). You can execute the [Set-AzureADUser](/powershell/module/azuread/set-azureaduser) PowerShell cmdlet to set the **ShowInAddressList** property to a value of **\$true.** 
+- External users may be unhidden using [Azure AD PowerShell](/powershell/module/azuread/). You can execute the [Set-AzureADUser](/powershell/module/azuread/set-azureaduser) PowerShell cmdlet to set the **ShowInAddressList** property to a value of **\$true.** 
     
 For example:
 
@@ -231,7 +231,7 @@ After you enable external sharing in SharePoint Online, the ability to search fo
 
 - You can enable the ability to search for guest users in these ways:
     - Modify the **ShowPeoplePickerSuggestionsForGuestUsers** setting at the tenant and site collection level.
-    - Set the feature using the [Set-SPOTenant](/powershell/module/sharepoint-online/Set-SPOTenant) and [Set-SPOSite](/powershell/module/sharepoint-online/set-sposite) [SharePoint Online PowerShell](/powershell/sharepoint/sharepoint-online/connect-sharepoint-online) cmdlets.
+    - Set the feature using the [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant) and [Set-SPOSite](/powershell/module/sharepoint-online/set-sposite) [SharePoint Online PowerShell](/powershell/sharepoint/sharepoint-online/connect-sharepoint-online) cmdlets.
 - Guest users that are visible in the Exchange Online GAL are also visible in the SharePoint Online people picker. The accounts are visible regardless of the setting for **ShowPeoplePickerSuggestionsForGuestUsers**.
 
 ### Microsoft Teams

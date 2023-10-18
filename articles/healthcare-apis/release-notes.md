@@ -262,7 +262,7 @@ The DICOM service supports `ModalitiesInStudy` as a [searchable attribute](dicom
 
 **Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
 
-Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#additional-series-tags). 
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#other-series-tags). 
 
 
 

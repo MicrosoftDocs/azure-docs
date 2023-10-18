@@ -39,7 +39,7 @@ It's important to monitor your Microsoft Entra tenant. Assume a breach mindset a
   * Non-interactive user sign-ins show no interaction during sign-in: clients signing in on behalf of the user, such as mobile applications or email clients
   * Service principal sign-ins show service principal or application sign-in: services or applications accessing services, applications, or the Microsoft Entra directory through the REST API
   * Managed identities for Azure resource sign-in: Azure resources or applications accessing Azure resources, such as a web application service authenticating to an Azure SQL back end. 
-  * See, [Sign-in logs in Microsoft Entra ID (preview)](../reports-monitoring/concept-all-sign-ins.md)
+  * See, [Sign-in logs in Microsoft Entra ID (preview)](../reports-monitoring/concept-sign-ins.md)
 
 In Microsoft Entra ID Free tenants, log entries are stored for seven days. Tenants with a Microsoft Entra ID P1 or P2 license retain log entries for 30 days. 
 
@@ -49,14 +49,14 @@ We recommend you integrate Microsoft Entra logs with Microsoft Sentinel. Configu
 
 Learn more:
 
-* [What is Microsoft Sentinel?](../../sentinel/overview.md) 
-* [Connect Microsoft Entra ID to Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md)
+* [What is Microsoft Sentinel?](/azure/sentinel/overview) 
+* [Connect Microsoft Entra ID to Microsoft Sentinel](/azure/sentinel/connect-azure-active-directory)
 
 For the Microsoft Entra tenant, you can configure the diagnostic settings to send the data to an Azure Storage account, Azure Event Hubs, or a Log Analytics workspace. Use these storage options to integrate other SIEM tools to collect data. 
 
 Learn more:
 
-* [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring.md)
+* [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring-health.md)
 * [Microsoft Entra reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
 
 ## Analytics
@@ -74,9 +74,9 @@ You can use analytics in the following tools to aggregate information from Micro
   * Microsoft Sentinel User and Entity Behavior Analytics (UEBA) delivers intelligence on potential threats from user, host, IP address, and application entities. 
   * Use analytics rule templates to hunt for threats and alerts in your Microsoft Entra logs. Your security or operation analyst can triage and remediate threats.
   * Microsoft Sentinel workbooks help visualize Microsoft Entra data sources. See sign-ins by country/region or applications. 
-  * See, [Commonly used Microsoft Sentinel workbooks](../../sentinel/top-workbooks.md)
-  * See, [Visualize collected data](../../sentinel/get-visibility.md)
-  * See, [Identify advanced threats with UEBA in Microsoft Sentinel](../../sentinel/identify-threats-with-entity-behavior-analytics.md)
+  * See, [Commonly used Microsoft Sentinel workbooks](/azure/sentinel/top-workbooks)
+  * See, [Visualize collected data](/azure/sentinel/get-visibility)
+  * See, [Identify advanced threats with UEBA in Microsoft Sentinel](/azure/sentinel/identify-threats-with-entity-behavior-analytics)
 
 ## Automation and orchestration
 

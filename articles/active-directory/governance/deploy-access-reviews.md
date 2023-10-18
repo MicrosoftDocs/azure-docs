@@ -345,7 +345,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Microsoft Entra ID and Azure resource roles
 
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Microsoft Entra ID. Using PIM keeps the list of privileged roles in [Microsoft Entra ID](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) smaller. It also increases the overall security of the directory.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Microsoft Entra ID. Using PIM keeps the list of privileged roles in [Microsoft Entra ID](../roles/permissions-reference.md) and [Azure resources](/azure/role-based-access-control/built-in-roles) smaller. It also increases the overall security of the directory.
 
 Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Microsoft Entra roles and Azure resources are integrated into the PIM admin user experience.
 

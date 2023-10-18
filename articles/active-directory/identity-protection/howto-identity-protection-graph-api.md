@@ -84,5 +84,5 @@ Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
 
 - [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
-- [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
+- [Overview of Microsoft Graph](/graph/overview)
 - [Microsoft Entra ID Protection](./overview-identity-protection.md)
