@@ -29,10 +29,16 @@ These are the prerequisites to migrating your SQL Server instance to Azure VMwar
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information on how to configure HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
 - Ensure that all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration.
-However, due to the size of database workloads, VMware HCX over VPN is not recommended for Microsoft SQL Server Always On FCI or AG migrations for production workloads.
-ExpressRoute connectivity is recommended as more performant and reliable. 
-For Microsoft SQL Server standalone and non-production workloads this may be suitable, depending upon the size of the database, to migrate. 
+Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration.
+VMWare HCX over VPN, due to its limited bandwidth, is typically suited for workloads that can sustain longer periods of downtime (such as non-production environments). 
+
+For any of the following scenarios, ExpressRoute connectivity is recommended for a migration:
+
+- Production environments
+- Workloads with large database sizes
+- Any case where there is a need to minimize downtime for migration the ExpressRoute connectivity is recommended for the migration.
+
+Further downtime considerations are discussed in the next section.
 
 
 ## Downtime considerations
@@ -40,13 +46,13 @@ For Microsoft SQL Server standalone and non-production workloads this may be sui
 Downtime during a migration depends upon the size of the database to be migrated and the speed of the private network connection to Azure cloud.
 While SQL Server Availablity Group migrations can be executed with minimal solution downtime, it is optimal to conduct the migration during off-peak hours within a pre-approved change window.
 
-The table below indicates the estimated downtime for migraton of each SQL Server topology.
+The following table indicates the estimated downtime for migration of each SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | Low | Migrate with VMware vMotion, the database is available during migration, but it is not recommended to commit any critical data during it. |
-| **Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Always On     Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
+| **Standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
+| **Always On SQL Server Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Always On SQL Server Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
