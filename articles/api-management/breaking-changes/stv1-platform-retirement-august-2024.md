@@ -42,18 +42,8 @@ After 31 August 2024, any instance hosted on the `stv1` platform won't be suppor
 
 If you have existing instances hosted on the `stv1` platform, you can follow our [migration guide](../migrate-stv1-to-stv2.md) which provides all the details to ensure a successful migration. 
 
-## Help and support
+[!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
-If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/apim/retirement/stv1). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
-
-1. For **Summary**, type a description of your issue, for example, "stv1 retirement". 
-1. Under **Issue type**, select **Technical**.  
-1. Under **Subscription**, select your subscription.  
-1. Under **Service**, select **My services**, then select **API Management Service**. 
-1. Under **Resource**, select the Azure resource that you’re creating a support request for.  
-1. For **Problem type**, select **Administration and Management**. 
-1. For **Problem subtype**, select **Upgrade, Scale or SKU Changes**. 
-
-## Next steps
+## Related content
 
 See all [upcoming breaking changes and feature retirements](overview.md).
