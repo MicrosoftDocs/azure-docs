@@ -37,6 +37,6 @@ Azure Operator Insights uses available Azure tools and capabilities to provide d
 - Managed resources collect and analyze data from the source, that can be on premises or in the cloud
 - Existing tools and services provide insights
 
-## How do I get access to Azure OpenAI?
+## How do I get access to Azure Operator Insights?
 
 Access is currently limited by request. More information is included in the application form. We appreciate your patience as we work to enable broader access to Azure Operator Insights Data Product. Apply for access by [filling out this form](https://aka.ms/AAn1mi6).
