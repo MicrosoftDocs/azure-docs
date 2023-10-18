@@ -10,20 +10,30 @@ ms.author: rogarana
 
 # Convert a disk from LRS to ZRS
 
-Before you convert a disk from locally redundant storage (LRS) to zone-redundant storage (ZRS) you must first identify whether the disk is zonal or regional. The migration path your disk requires changes based on whether it is zonal or regional
+For conceptual information on ZRS, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
+
+## Limitations
+
+[!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
+
+## Regional availability
+
+[!INCLUDE [disk-storage-zrs-regions](../../includes/disk-storage-zrs-regions.md)]
 
 ## Determine infrastructure redundancy
+
+Before you convert a disk from locally redundant storage (LRS) to zone-redundant storage (ZRS) you must first identify whether the disk is zonal or regional. The migration path your disk requires changes based on whether it is zonal or regional.
 
 # [Portal](#tab/azure-portal)
 
 1. Log in to the Azure portal
 1. Navigate to your disk and look under **Availability zone** on the **Overview** tab.
-    1. If the value is **No infrastructure redundancy required** you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk.
-    1. If the value is anything else, you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk.
+    1. If the value is **No infrastructure redundancy required** you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk.
+    1. If the value is anything else, you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Run the following command and observe the output. If there is no value in **Zones**, you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk. Otherwise, you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk.
+Run the following command and observe the output. If there is no value in **Zones**, you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk. Otherwise, you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk.
 
 ```azurepowershell
 Get-AzDisk -DiskName your_disk_name_here -ResourceGroupName your_RG_name_here
@@ -31,7 +41,7 @@ Get-AzDisk -DiskName your_disk_name_here -ResourceGroupName your_RG_name_here
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command and observe the output. If there is no value in **zones** you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk. Otherwise, you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk.
+Run the following command and observe the output. If there is no value in **zones** you have a regional disk. Use [Regional migration](#regional-migration) to migrate your disk. Otherwise, you have a zonal disk. Use [Zonal migration](#zonal-migration) to migrate your disk.
 
 ```azurecli
 az disk show --name your_disk_name_here --resource-group your_RG_name_here
@@ -39,7 +49,22 @@ az disk show --name your_disk_name_here --resource-group your_RG_name_here
 
 ---
 
-## Zonal migration
+## Regional migration
+
+# [Portal](#tab/azure-portal)
+
+Follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the VM from the list of **Virtual machines**.
+1. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
+1. In the pane for the VM, select **Disks** from the menu.
+1. Select the disk that you want to convert.
+1. Select **Size + performance** from the menu.
+1. Change the **Account type** from the original disk type to the desired disk type.
+1. Select **Save**, and close the disk pane.
+
+The disk type conversion is instantaneous. You can start your VM after the conversion.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -109,28 +134,13 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-# [Portal](#tab/azure-portal)
-
-Follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the VM from the list of **Virtual machines**.
-1. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
-1. In the pane for the VM, select **Disks** from the menu.
-1. Select the disk that you want to convert.
-1. Select **Size + performance** from the menu.
-1. Change the **Account type** from the original disk type to the desired disk type.
-1. Select **Save**, and close the disk pane.
-
-The disk type conversion is instantaneous. You can start your VM after the conversion.
-
 ---
 
-## Regional migration
+## Zonal migration
 
 In this section, you migrate the data from your current managed disks to zone-redundant storage (ZRS) managed disks.
 
-If have a regional disk, you can't directly change its type. You must take a snapshot and use that snapshot to create a new ZRS disk.
+If you have a zonal disk, you can't directly change its type. You must take a snapshot and use that snapshot to create a new ZRS disk.
 
 #### Step 1: Create your snapshot
 
@@ -147,9 +157,6 @@ If you're taking a snapshot of a disk that's attached to a running VM, read the 
 Now that you have snapshots of your original disks, you can use them to create ZRS managed disks.
 
 ##### Migrate your data to ZRS managed disks
-
->[!IMPORTANT]
-> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information, see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
 
 1. Create a ZRS managed disk from the source disk snapshot by using the following Azure CLI snippet: 
 
