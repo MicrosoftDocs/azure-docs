@@ -41,7 +41,7 @@ Azure CLI (Command-Line Interface) is a command-line tool provided by Azure that
 ### Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-based shell environment provided by Azure. Azure Cloud Shell allows you to manage Azure resources using the CLI or PowerShell, without the need to install any more software. Azure Cloud Shell provides a convenient and accessible way to work with Azure resources from anywhere.
 
-### Azure Container Registry (ARC)
+### Azure Container Registry (ACR)
 Azure Container Registry (ACR) is a managed, private registry service provided by Azure for storing and managing container images.
 
 ### Azure Operator Service Manager (AOSM)
@@ -69,10 +69,14 @@ A Containerized Network Function (CNF) is a network function described by Helm c
 ### Contributor Role
 Contributor Role is a role in Azure that grants users permissions to manage and make changes to Azure resources within a subscription. Users with the Contributor Role have the ability to create, modify, and delete resources, providing them with the necessary permissions to effectively manage Azure resources.
 
-### Custom Location Id
-Custom Location Id is a unique identifier used to specify a custom location for deploying resources in Azure. Custom Location Id allows users to define and deploy resources in specific locations not predefined by Azure, providing flexibility and customization options.
+### Custom Location ID
+Custom Location ID is a unique identifier used to specify a custom location for deploying resources in Azure. Custom Location ID allows users to define and deploy resources in specific locations not predefined by Azure, providing flexibility and customization options.
 
 ## D
+
+### Designer
+
+See *Service Designer*.
 
 ### Docker
 Docker is an open-source platform that allows you to automate the deployment and management of applications within containers. Containerized Network Function (CNF) images are docker images and Helm charts describe the deployment of these images.
@@ -127,24 +131,21 @@ A Network Function Virtualization Infrastructure (NFVI) represents a location wh
 The name of the Network Function Virtualization Infrastructure (NFVI) defined in a Network Service Design (NSD) must match that of the Site used when deploying a Site Network Service (SNS).
 
 ### Network Function Manager (NFM)
-Network Function Manager (NFM) is an Azure service responsible for managing and operating network functions in Azure. Azure Operator Service Manager uses Network Function Manager (NFM); NFM is opaque to the Publisher, Designer and Operator.
-
-### Network Function Publisher (NFP)
-Network Function Publisher (NFP) is an entity or organization that publishes and provides Network Functions (NFs) for deployment and use. Network Function Publishers (NFPs) play a crucial role in making Network Functions (NF) available to operators, ensuring a wide range of options for deploying and managing network services.  
+Network Function Manager (NFM) is an Azure service responsible for managing and operating network functions in Azure. Azure Operator Service Manager uses Network Function Manager (NFM); NFM is opaque to the Publisher, Designer and Operator.  
 
 ### Network Service Design (NSD) / Network Service Design Group (NSDG) / Network Service Design Version (NSDV)
 A Network Service Design (NSD) describes a network service of a specific type, created and uploaded by the Designer. A Network Service Design (NSD) is a composite of one or more Network Function Definitions (NFD) and any infrastructure components deployed at the same time. Network Service Designs (NSDs) have multiple versions (NSDVs). The Network Service Design Versions (NSDVs) include mapping rules, references to Config Group Schemas (CGS), resource element templates and Site information.
 
 The collection of all Network Service Design Versions (NSDVs) for a given Network Service Design (NSD) is known as a Network Service Design Group (NSDG).
 
-### Network Service Designer (NSD)
-Network Service Designer (NSD) is a person or organization who creates a Network Service  Design.
-
-### Network Service Operator (NSO)
-Network Service Operator (NSO) is a person or organization responsible for operating and managing network services in Azure. They create Configuration Group Values (CGV), Sites and Site Network Services (SNS).
-
 ### Nginx Container (NC)
 Nginx Container (NC) refers to a container that runs the Nginx web server, which is commonly used for serving web content. In the Azure Operator Service Manager (AOSM) Quickstart guides Nginx is used as an example of a Containerized Network Function (CNF).
+
+## O
+
+### Operator
+
+See *Service Operator*.
 
 ## P
 
@@ -184,15 +185,17 @@ SAS URL (Shared Access Signature URL) is a URL that provides temporary access to
 ### Service Account
 A Service Account is an account or identity used by an application or service to authenticate and access resources in Azure. Service accounts provide a way to securely manage and control access to resources, ensuring that only authorized applications or services can access sensitive data or perform specific actions.
 
+### Service Designer
+Service Designer is a person or organization who creates a Network Service  Design.
+
+### Service Operator
+Network Service Operator is a person or organization responsible for operating and managing network services in Azure. They create Configuration Group Values (CGV), Sites and Site Network Services (SNS).
+
 ### Service Port Configuration
 Service Port Configuration refers to the configuration settings for the ports used by a network service. Service Port Configuration includes details such as the port numbers, protocols, and other settings required for the proper operation and communication of the network service.
 
 ### Site
-A *Site* refers to a specific location, which can be either a single Azure region (a data center location within the Azure cloud) or an on-premises facility, associated with the instantiation and management of network services. A *Site* serves as the fundamental unit for making updates, where all changes are independently applied to individual sites. 
-
-A *Site* encompasses the concept of global changes, wherein multiple independent operations are sequentially deployed across multiple sites, typically following safe deployment practices.
-
-A *Site* is a collection of Network Function Virtualization Infrastructure (NFVIs) that are grouped together to form the platform on which a Site Network Service (SNS) runs.  Typically all the Network Function Virtualization Infrastructure (NFVIs) within a site are grouped together geographically (for example all within the same Azure Region or Nexus cluster), but there can be exceptions to this rule.
+A *Site* refers to a logical location for the instantiation and management of network services. A Site can represent either a single Azure region (a data center location within the Azure cloud) or an on-premises facility. A Site serves as the fundamental unit for making updates, where all changes are independently applied to individual sites. 
 
 ### Site Network Service (SNS)
 A Site Network Service (SNS) consists of a collection of Network Functions (NFs) along with Azure infrastructure all working together to deliver a cohesive unit of service. A Site Network Service (SNS) is instantiated by selecting a Network Service Design Version (NSDV) and supplying parameters in the form or Configuration Group Values (CGVs) and a Site.
