@@ -1,7 +1,7 @@
 ---
-title: Scenarios for VNET deployment
+title: Scenarios for virtual network deployment
 titleSuffix: Azure Load Testing
-description: Learn about the scenarios for deploying Azure Load Testing in a virtual network (VNET). This deployment enables you to load test private application endpoints and hybrid deployments.
+description: Learn about the scenarios for deploying Azure Load Testing in a virtual network. This deployment enables you to load test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
 author: ntrogh
@@ -12,7 +12,7 @@ ms.date: 08/22/2023
 
 # Scenarios for deploying Azure Load Testing in a virtual network
 
-In this article, you learn about the scenarios for deploying Azure Load Testing in a virtual network (VNET). This deployment is sometimes called VNET injection.
+In this article, you learn about the scenarios for deploying Azure Load Testing in a virtual network. This deployment is sometimes called virtual network injection.
 
 This functionality enables the following usage scenarios:
 
@@ -27,7 +27,7 @@ When you deploy Azure Load Testing in a virtual network, the load test engine vi
 
 The following diagram provides a technical overview:
 
-:::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-load-testing-vnet-injection.svg" alt-text="Diagram that shows the Azure Load Testing VNET injection technical overview.":::
+:::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-load-testing-vnet-injection.svg" alt-text="Diagram that shows the Azure Load Testing virtual network injection technical overview.":::
 
 ## Scenario: Load test an Azure-hosted private endpoint
 
