@@ -831,6 +831,11 @@
         "redirect_document_id": false
       },
       {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-connection-libraries.md",
+        "redirect_url": "/azure/my-sql/flexible-server/concepts-connection-libraries",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-dump-restore.md",
         "redirect_url": "/azure/my-sql/flexible-server/concepts-migrate-dump-restore",
         "redirect_document_id": false
