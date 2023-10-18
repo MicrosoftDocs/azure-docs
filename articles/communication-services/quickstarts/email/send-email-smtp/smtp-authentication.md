@@ -1,5 +1,5 @@
 ---
-title: Quickstart: How to create authentication credentials for sending emails using SMTP
+title: How to create authentication credentials for sending emails using SMTP
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn about how use a service principal to create authentication credentials for sending emails using SMTP.
 author: ddouglas
