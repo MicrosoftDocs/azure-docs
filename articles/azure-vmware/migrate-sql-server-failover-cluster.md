@@ -24,6 +24,12 @@ However, you can overcome this limitation by performing the steps shown in this 
 > [!NOTE]
 > This procedure requires a full shutdown of the cluster. Since the SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
 
+## Tested configurations
+
+Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. 
+Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. 
+The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+
 ## Prerequisites
 
 - Review and record the storage and network configuration of every node in the cluster.
@@ -39,9 +45,6 @@ However, due to the size of database workloads it isn't recommended for Microsof
 ExpressRoute connectivity is recommended as more performant and reliable.
 For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate.
 
-Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. 
-Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. 
-The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Downtime considerations
 

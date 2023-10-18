@@ -24,6 +24,14 @@ VMware HCX Cold Migration is also valid, but it requires a longer downtime perio
 
 :::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of Standalone SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png"::: 
 
+## Tested configurations
+This scenario was validated using the following editions and configurations:
+
+- Microsoft SQL Server (2019 and 2022)  
+- Windows Server (2019 and 2022) Data Center edition  
+- Windows Server and SQL Server were configured following best practices and recommendations from Microsoft and VMware.  
+- The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.+
+
 ## Prerequisites
 
 - Review and record the storage and network configuration of every node in the cluster.
@@ -41,14 +49,6 @@ With VMWare HCX over VPN, due to its limited bandwidth it is typically suited fo
 For production environments, or workloads with large database sizes or where there is a need to minimize downtime the ExpressRoute connectivity is recommended for the migration.  
 
 Further downtime considerations are discussed in the next section.
-
-This scenario was validated using the following editions and configurations:
-
-- Microsoft SQL Server (2019 and 2022)  
-- Windows Server (2019 and 2022) Data Center edition  
-- Windows Server and SQL Server were configured following best practices and recommendations from Microsoft and VMware.  
-- The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
-
 
 ## Downtime considerations
 

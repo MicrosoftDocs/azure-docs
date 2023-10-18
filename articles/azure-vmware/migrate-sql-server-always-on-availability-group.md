@@ -14,6 +14,10 @@ In this article, you learn how to migrate a SQL Server Always On Availability Gr
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of Always On SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
+## Tested configurations
+
+Microsoft SQL Server (2019 and 2022) was tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+
 ## Prerequisites
 
 These are the prerequisites to migrating your SQL Server instance to Azure VMware Solution.
@@ -30,7 +34,6 @@ However, due to the size of database workloads, VMware HCX over VPN is not recom
 ExpressRoute connectivity is recommended as more performant and reliable. 
 For Microsoft SQL Server standalone and non-production workloads this may be suitable, depending upon the size of the database, to migrate. 
 
-Microsoft SQL Server (2019 and 2022) was tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Downtime considerations
 
