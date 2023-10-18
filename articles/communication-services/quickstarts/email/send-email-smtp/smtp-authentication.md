@@ -53,9 +53,3 @@ The SMTP username consists of the Communication Resource name, the Entra applica
 username: <Communication Resource name>|<Entra application Id>|<tenant Id>
 password: <Entra application client secret>
 ```
-
-**Example:**
-```
-username: acsemail-smtp-example|6003aadf-4bb7-4cc2-addc-05eed5ff3b79|00f50ff1-aaa4-4bbb-9ccf-0123455a95aa
-password: nWu9HVZ7Rnj.2y7XSkVyUngZ][x9Z:e
-```
