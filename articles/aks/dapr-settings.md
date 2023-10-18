@@ -201,6 +201,12 @@ az k8s-extension update --cluster-type managedClusters \
 --version 1.12.0 # Version to upgrade or downgrade to
 ```
 
+**Note** that this will update the Dapr control plane only, restart your application deployments to update the Dapr sidecars:
+
+```bash
+kubectl rollout restart deploy/<DEPLOYMENT-NAME>
+```
+
 ## Using Azure Linux-based images
 
 From Dapr version 1.8.0, you can use Azure Linux images with the Dapr extension. To use them, set the`global.tag` flag:
