@@ -34,7 +34,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
@@ -77,7 +77,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Keep in mind that if you are unable to perform an operation you may not have the right permissions. If you want write access to keys you need to use an Azure role such as DocumentDB Account Contributor or create a custom role. For more information review [Azure role-based access control in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Keep in mind that if you are unable to perform an operation you may not have the right permissions. If you want write access to keys you need to use an Azure role such as DocumentDB Account Contributor or create a custom role. For more information review [Azure role-based access control in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control)
 
 ## Access data
 
@@ -120,7 +120,7 @@ This section shows how to get access keys from Azure Resource Manager to make Az
 - Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier. 
 
 >[!NOTE]
->If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`. If you are unable to use 'listkeys' verify that you assigned the [appropriate role](../../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) to the managed identity.
+>If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`. If you are unable to use 'listkeys' verify that you assigned the [appropriate role](/azure/role-based-access-control/built-in-roles#cosmos-db-account-reader-role) to the managed identity.
 
 ```powershell
 Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/readonlykeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
@@ -143,4 +143,4 @@ Now that you have the access key for the Azure Cosmos DB account you can pass it
 In this tutorial, you learned how to use a Windows VM system-assigned identity to access Azure Cosmos DB. To learn more about Azure Cosmos DB, see:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB overview](../../cosmos-db/introduction.md)
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)

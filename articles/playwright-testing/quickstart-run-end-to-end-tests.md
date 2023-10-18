@@ -19,6 +19,7 @@ After you complete this quickstart, you have a Microsoft Playwright Testing work
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
+* A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Microsoft Playwright Testing sample project](https://github.com/microsoft/playwright-testing-service/tree/main/samples/get-started).
 
 ## Create a workspace
 
@@ -68,12 +69,14 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     npm i --save-dev dotenv
     ```
 
-1. Create a `.env` file and replace the `{MY-ACCESS-TOKEN}` and `{MY-REGION-ENDPOINT}` text placeholders:
+1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
 
     ```
     PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
     PLAYWRIGHT_SERVICE_URL={MY-REGION-ENDPOINT}
     ```
+
+    Make sure to replace the `{MY-ACCESS-TOKEN}` and `{MY-REGION-ENDPOINT}` text placeholders with the values you copied earlier.
 
 > [!CAUTION]
 > Make sure that you don't add the `.env` file to your source code repository to avoid leaking your access token value.

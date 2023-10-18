@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ---
 # Prerequisites to access the Microsoft Entra reporting API
 
-The Microsoft Entra [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance.
+The Microsoft Entra [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance.
 
 This article describes how to enable Microsoft Graph to access the Microsoft Entra reporting APIs in the Microsoft Entra admin center and through PowerShell
 
@@ -69,6 +69,7 @@ To access the Microsoft Entra reporting API, you must grant your app *Read direc
     ![Screenshot of the API permissions menu option and Add permissions button.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-new-permission.png)
 
 1. Select **Microsoft Graph** > **Application permissions**.
+1. Select the **Application permissions** option.
 1. Add **Directory.Read.All**, **AuditLog.Read.All** and **Policy.Read.ConditionalAccess** then select the **Add permissions** button.
     - If you need more permissions to run the queries you need, you can add them now or modify the permissions as needed in Microsoft Graph.
     - For more information, see [Work with Graph Explorer](/graph/graph-explorer/graph-explorer-features).
@@ -121,10 +122,10 @@ Microsoft Graph PowerShell cmdlets:
 - **Audit logs:** `Get-MgAuditLogDirectoryAudit`
 - **Sign-in logs:** `Get-MgAuditLogSignIn`
 - **Provisioning logs:** `Get-MgAuditLogProvisioning`
-- Explore the full list of [reporting-related Microsoft Graph PowerShell cmdlets](/powershell/module/microsoft.graph.reports).
+- Explore the full list of [reporting-related Microsoft Graph PowerShell cmdlets](/powershell/module/microsoft.graph.reports/).
 
 Programmatic access APIs:
-- **Security detections:** [Identity Protection risk detections API](/graph/api/resources/identityprotection-root)
+- **Security detections:** [Identity Protection risk detections API](/graph/api/resources/identityprotection-overview)
 - **Tenant provisioning events:** [Provisioning logs API](/graph/api/resources/provisioningobjectsummary)
 
 <a name='troubleshoot-errors-in-azure-active-directory-reporting-api'></a>
