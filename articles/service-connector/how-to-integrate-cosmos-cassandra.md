@@ -34,9 +34,9 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ---
 
-## Default environment variable names or application properties
+## Default environment variable names or application properties and Sample code
 
-Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra. **Please go to beginning of the documentation to choose authentication type.**
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra. **Please go to beginning of the documentation to choose authentication type.**
 
 ### Connect with System-assigned Managed Identity
 
@@ -50,9 +50,9 @@ Reference the connection details and sample codes in following tables, according
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
 
-#### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a system-assigned managed identity.
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ### Connect with User-assigned Managed Identity
@@ -68,9 +68,9 @@ Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra 
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_CLIENTID             | Your client ID                       | `<client-ID>`                                                                                                                                                                                                      |
 
-#### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a user-assigned managed identity.
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ### Connect with Connection String
@@ -97,9 +97,9 @@ Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra 
 | AZURE_COSMOS_USERNAME             | Cassandra username          | `<username>`                                   |
 | AZURE_COSMOS_PASSWORD             | Cassandra password          | `<password>`                                   |
 
-#### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with connection string.
+Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a connection string.
 [!INCLUDE [code sample for blob](./includes/code-cosmoscassandra-secret.md)]
 
 
@@ -118,9 +118,9 @@ Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra 
 | AZURE_COSMOS_CLIENTSECRET         | Your client secret                   | `<client-secret>`                                                                                                                                                                                                  |
 | AZURE_COSMOS_TENANTID             | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                      |
 
-#### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a service principal.
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ## Next steps
