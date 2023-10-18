@@ -1,11 +1,12 @@
 ---
-title: 'Overview of MQTT Support in Azure Event Grid
+title: 'Overview of MQTT Support in Azure Event Grid'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
+
 # Overview of the MQTT Support in Azure Event Grid
 
 Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. 
