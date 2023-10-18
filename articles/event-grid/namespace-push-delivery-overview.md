@@ -11,6 +11,8 @@ ms.author: robece
 
 This article builds on [push delivery with HTTP for Event Grid basic](push-delivery-overview.md) and provides essential information before you start using push delivery on Event Grid namespaces over HTTP protocol. This article is suitable for users who need to build applications to react to discrete events using Event Grid namespaces. If you are interested to know more about the difference between the Event Grid basic tier and the standard tier with namespaces, see [choose the right Event Grid tier for your solution](choose-right-tier.md).
 
+[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
+
 ## Namespace topics and subscriptions
 
 Events published to Event Grid namespaces will land on a topic, which is a namespace subresource that logically contains all events. Namespace topics allows you to create subscriptions with flexible consumption modes to push events to a particular destination or [pull events](pull-delivery-overview.md) at yourself pace.
