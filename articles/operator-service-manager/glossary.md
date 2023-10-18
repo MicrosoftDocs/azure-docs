@@ -197,10 +197,6 @@ Service Port Configuration refers to the configuration settings for the ports us
 ### Site
 A *Site* refers to a logical location for the instantiation and management of network services. A Site can represent either a single Azure region (a data center location within the Azure cloud) or an on-premises facility. A Site serves as the fundamental unit for making updates, where all changes are independently applied to individual sites. 
 
-A *Site* encompasses the concept of global changes, wherein multiple independent operations are sequentially deployed across multiple sites, typically following safe deployment practices.
-
-A *Site* is a collection of Network Function Virtualization Infrastructure (NFVIs) that are grouped together to form the platform on which a Site Network Service (SNS) runs.  Typically all the Network Function Virtualization Infrastructure (NFVIs) within a site are grouped together geographically (for example all within the same Azure Region or Nexus cluster), but there can be exceptions to this rule.
-
 ### Site Network Service (SNS)
 A Site Network Service (SNS) consists of a collection of Network Functions (NFs) along with Azure infrastructure all working together to deliver a cohesive unit of service. A Site Network Service (SNS) is instantiated by selecting a Network Service Design Version (NSDV) and supplying parameters in the form or Configuration Group Values (CGVs) and a Site.
 
