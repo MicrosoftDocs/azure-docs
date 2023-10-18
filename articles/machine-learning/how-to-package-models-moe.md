@@ -207,7 +207,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     # [Python](#tab/sdk)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="configure_deployment" :::
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/custom-model/sdk-deploy-and-test.ipynb?name=configure_deployment)]
 
     ---
 

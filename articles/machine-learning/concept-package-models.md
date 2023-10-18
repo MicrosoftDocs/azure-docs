@@ -68,7 +68,7 @@ Use the `--with-package` flag when creating a deployment:
 
 Use the `--with_package=True` argument when creating a deployment:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh" ID="configure_deployment_inline" :::
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb?name=configure_deployment_inline)]
 
 # [Studio](#tab/studio)
 

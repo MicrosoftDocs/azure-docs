@@ -326,7 +326,7 @@ __package-external.yml__
 
 # [Python](#tab/sdk)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="configure_deployment_copy" :::
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/registry-model/sdk-deploy-and-test.ipynb?name=configure_deployment_copy)]
 
 ---
 
