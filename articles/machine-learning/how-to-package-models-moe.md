@@ -102,7 +102,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 You can create model packages explicitly to allow you to control how the packaging operation is done. You can create model packages by specifying the:
 
 - __Model to package__: Each model package can contain only a single model. Azure Machine Learning doesn't support packaging of multiple models under the same model package.
-- __Base environment__: Environments are used to indicate the base image, and in Python packages depedencies your model need. For MLflow models, Azure Machine Learning automatically generates the base environment. For custom models, you need to specify it.
+- __Base environment__: Environments are used to indicate the base image, and in Python packages dependencies your model need. For MLflow models, Azure Machine Learning automatically generates the base environment. For custom models, you need to specify it.
 - __Serving technology__: The inferencing stack used to run the model.
 
 > [!TIP]
@@ -129,7 +129,7 @@ You can create model packages explicitly to allow you to control how the packagi
     > Notice how only model's requirements are indicated in the conda YAML. Any package required for the inferencing server will be included by the package operation.
 
     > [!TIP]
-    > If your model requires packages hosted in private feeds, you can configure you package to include them. Read [Package a model that has dependencies in private Python feeds](how-to-package-models.md#package-a-model-that-has-dependencies-in-private-python-feeds).
+    > If your model requires packages hosted in private feeds, you can configure your package to include them. Read [Package a model that has dependencies in private Python feeds](how-to-package-models.md#package-a-model-that-has-dependencies-in-private-python-feeds).
 
 1. Create a base environment that contains the model requirements and a base image. Only dependencies required by your model are indicated in the base environment. For MLflow models, base environment is optional in which case Azure Machine Learning autogenerates it for you.
 
