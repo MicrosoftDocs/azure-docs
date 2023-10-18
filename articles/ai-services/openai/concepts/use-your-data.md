@@ -67,8 +67,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 There are three different sources of data that you can use with Azure OpenAI on your data. 
 * Blobs in an Azure storage container that you provide
-* Local files uploaded using the Azure OpenAI Studio 
-* URLs/web addresses. 
+* Local files uploaded using the Azure OpenAI Studio
 
 Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
 
