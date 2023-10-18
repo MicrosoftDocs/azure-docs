@@ -68,7 +68,8 @@ Azure Communication Services Chat applications can be integrated with an Azure B
 
 ## Chat on a website that escalates to a voice call answered by a Teams agent
 
-A conversation between a user and a bot can be handed off to an agent in Microsoft Teams. Optionally, a Teams Voice App such as an Auto Attendant or Call Queue can control the transition. To learn more about bot handoff integration models, see [Transition conversations from bot to human - Bot Service](/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0). To learn more about Teams Auto Attendants and Call Queues, see [Plan for Teams Auto attendants and Call queues - Microsoft Teams](/microsoftteams/plan-auto-attendant-call-queue).
+A conversation between a user and a bot can be handed off to an agent in Microsoft Teams. Optionally, a Teams Voice App such as an Auto Attendant or Call Queue can control the transition. To learn more about bot handoff integration models, see [Transition conversations from bot to human - Bot Service](/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0&preserve-view=true). To learn more about Teams Auto Attendants and Call Queues, see [Plan for Teams Auto attendants and Call queues - Microsoft Teams](/microsoftteams/plan-auto-attendant-call-queue).
+
 
 ![Data flow diagram for chat escalating to a call](media/contact-center/data-flow-diagram-escalate-to-call.png)
 
