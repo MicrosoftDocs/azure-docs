@@ -36,7 +36,7 @@ MSAL caches tokens and uses a silent token acquisition pattern. MSAL serializes 
 Learn more:
 
 * [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
-* [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
+* [Token cache serialization in MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization)
 * [Custom token cache serialization in MSAL for Java](/entra/msal/java/advanced/msal-java-token-cache-serialization)
 * [Custom token cache serialization in MSAL for Python](/entra/msal/python/advanced/msal-python-token-cache-serialization).
 

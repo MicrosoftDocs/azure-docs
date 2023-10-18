@@ -150,7 +150,7 @@ In the following sections are recommendations for Azure solutions. For general g
 
 * Use [External identities cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) to manage how they collaborate with other Microsoft Entra organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](../external-identities/cross-tenant-access-settings-b2b-direct-connect.md).
 
-* For specific device configuration and control, you can use device filters in Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md). This enables you to restrict access to Azure management tools from a designated secure admin workstation (SAW). Other approaches you can take include using [Azure Virtual desktop](../../virtual-desktop/terminology.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview).
+* For specific device configuration and control, you can use device filters in Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md). This enables you to restrict access to Azure management tools from a designated secure admin workstation (SAW). Other approaches you can take include using [Azure Virtual desktop](/azure/virtual-desktop/terminology), [Azure Bastion](/azure/bastion/bastion-overview), or [Cloud PC](/graph/cloudpc-concept-overview).
 
 * Billing management applications such as Azure EA portal or MCA billing accounts aren't represented as cloud applications for Conditional Access targeting. As a compensating control, define separate administration accounts and target Conditional Access policies to those accounts using an "All Apps" condition.
 
@@ -168,13 +168,13 @@ Below are some identity governance principles to consider across all the tenant 
 
 * **Least privileged access** - Identities should only be granted the permissions needed to perform the privileged operations per their role in the organization.
 
-  * Azure RBAC [custom roles](../../role-based-access-control/custom-roles.md) allow designing least privileged roles based on organizational needs. We recommend that custom roles definitions are authored or reviewed by specialized security teams and mitigate risks of unintended excessive privileges. Authoring of custom roles can be audited through [Azure Policy](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json).
+  * Azure RBAC [custom roles](/azure/role-based-access-control/custom-roles) allow designing least privileged roles based on organizational needs. We recommend that custom roles definitions are authored or reviewed by specialized security teams and mitigate risks of unintended excessive privileges. Authoring of custom roles can be audited through [Azure Policy](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json).
 
   * To mitigate accidental use of roles that aren't meant for wider use in the organization, use Azure Policy to define explicitly which role definitions can be used to assign access. Learn more from this [GitHub Sample](https://github.com/Azure/azure-policy/tree/master/samples/Authorization/allowed-role-definitions).
 
 * **Privileged access from secure workstations** - All privileged access should occur from secure, locked down devices. Separating these sensitive tasks and accounts from daily use workstations and devices protect privileged accounts from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, [Pass-the-Hash](https://aka.ms/AzureADSecuredAzure/27a), and Pass-The-Ticket.
 
-Some approaches you can use for [using secure devices as part of your privileged access story](/security/compass/privileged-access-devices) include using Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md), using [Azure Virtual desktop](../../virtual-desktop/terminology.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview), or creating Azure-managed workstations or privileged access workstations.
+Some approaches you can use for [using secure devices as part of your privileged access story](/security/privileged-access-workstations/privileged-access-devices) include using Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md), using [Azure Virtual desktop](/azure/virtual-desktop/terminology), [Azure Bastion](/azure/bastion/bastion-overview), or [Cloud PC](/graph/cloudpc-concept-overview), or creating Azure-managed workstations or privileged access workstations.
 
 * **Privileged role process guardrails** - Organizations must define processes and technical guardrails to ensure that privileged operations can be executed whenever needed while complying with regulatory requirements. Examples of guardrails criteria include:
 
@@ -196,7 +196,7 @@ Some approaches you can use for [using secure devices as part of your privileged
 
 * The Azure EA Enterprise portal doesn't provide an audit log. To mitigate this, consider an automated governed process to provision subscriptions with the considerations described above and use dedicated EA accounts and audit the authentication logs.
 
-* [Microsoft Customer Agreement](../../cost-management-billing/understand/mca-overview.md) (MCA) roles don't integrate natively with PIM. To mitigate this, use dedicated MCA accounts and monitor usage of these accounts.
+* [Microsoft Customer Agreement](/azure/cost-management-billing/understand/mca-overview) (MCA) roles don't integrate natively with PIM. To mitigate this, use dedicated MCA accounts and monitor usage of these accounts.
 
 * Monitoring IAM assignments outside Microsoft Entra PIM isn't automated through Azure Policies. The mitigation is to not grant Subscription Owner or User Access Administrator roles to engineering teams. Instead create groups assigned to least privileged roles such as Contributor and delegate the management of those groups to engineering teams.
 
@@ -248,7 +248,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
   * Other aspects such as tagging, cross-charging, product-view usage, etc.
 
-* Don't allow ad-hoc subscription creation through the portals or by other means. Instead consider managing [subscriptions programmatically using Azure Resource Manager](../../cost-management-billing/manage/programmatically-create-subscription.md) and pulling consumption and billing reports [programmatically](/rest/api/consumption/). This can help limit subscription provisioning to authorized users and enforce your policy and taxonomy goals. Guidance on following [AZOps principals](https://github.com/azure/azops/wiki/introduction) can be used to help create a practical solution.
+* Don't allow ad-hoc subscription creation through the portals or by other means. Instead consider managing [subscriptions programmatically using Azure Resource Manager](/azure/cost-management-billing/manage/programmatically-create-subscription) and pulling consumption and billing reports [programmatically](/rest/api/consumption/). This can help limit subscription provisioning to authorized users and enforce your policy and taxonomy goals. Guidance on following [AZOps principals](https://github.com/azure/azops/wiki/introduction) can be used to help create a practical solution.
 
 * When a subscription is provisioned, create Microsoft Entra cloud groups to hold standard Azure Resource Manager Roles needed by application teams such as Contributor, Reader and approved custom roles. This enables you to manage Azure RBAC role assignments with governed privileged access at scale.
 
@@ -258,9 +258,9 @@ Below are some considerations when designing a governed subscription lifecycle p
 
   1. As a guardrail, don't assign product owners to User Access Administrator or Owner roles to avoid inadvertent direct assignment of roles outside Microsoft Entra PIM, or potentially changing the subscription to a different tenant altogether.
 
-  1. For customers who choose to enable cross-tenant subscription management in non-production tenants through Azure Lighthouse, make sure that the same access policies from the production privileged account (for example, privileged access only from [secured workstations](/security/compass/privileged-access-deployment)) are enforced when authenticating to manage subscriptions.
+  1. For customers who choose to enable cross-tenant subscription management in non-production tenants through Azure Lighthouse, make sure that the same access policies from the production privileged account (for example, privileged access only from [secured workstations](/security/privileged-access-workstations/privileged-access-deployment)) are enforced when authenticating to manage subscriptions.
 
-* If your organization has pre-approved reference architectures, the subscription provisioning can be integrated with resource deployment tools such as [Azure Blueprints](../../governance/blueprints/overview.md) or [Terraform](https://www.terraform.io).
+* If your organization has pre-approved reference architectures, the subscription provisioning can be integrated with resource deployment tools such as [Azure Blueprints](/azure/governance/blueprints/overview) or [Terraform](https://www.terraform.io).
 
 * Given the tenant affinity to Azure Subscriptions, subscription provisioning should be aware of multiple identities for the same human actor (employee, partner, vendor, etc.) across multiple tenants and assign access accordingly.
 
@@ -332,18 +332,18 @@ The following are additional operational considerations for Microsoft Entra ID, 
 
 ### Inventory and visibility
 
-**Azure subscription discovery** - For each discovered tenant, a Microsoft Entra Global Administrator can [elevate access](../../role-based-access-control/elevate-access-global-admin.md) to gain visibility of all subscriptions in the environment. This elevation will assign the global administrator the User Access Administrator built-in role at the root management group.
+**Azure subscription discovery** - For each discovered tenant, a Microsoft Entra Global Administrator can [elevate access](/azure/role-based-access-control/elevate-access-global-admin) to gain visibility of all subscriptions in the environment. This elevation will assign the global administrator the User Access Administrator built-in role at the root management group.
 
 >[!NOTE]
 >This action is highly privileged and might give the admin access to subscriptions that hold extremely sensitive information if that data has not been properly isolated.
 
 **Enabling read access to discover resources** - Management groups enable RBAC assignment at scale across multiple subscriptions. Customers can grant a Reader role to a centralized IT team by configuring a role assignment in the root management group, which will propagate to all subscriptions in the environment.
 
-**Resource discovery** - After gaining resource Read access in the environment, [Azure Resource Graph](../../governance/resource-graph/overview.md) can be used to query resources in the environment.
+**Resource discovery** - After gaining resource Read access in the environment, [Azure Resource Graph](/azure/governance/resource-graph/overview) can be used to query resources in the environment.
 
 ### Logging and monitoring
 
-**Central security log management** - Ingest logs from each environment in a [centralized way](/security/benchmark/azure/security-control-logging-monitoring), following consistent best practices across environments (for example, diagnostics settings, log retention, SIEM ingestion, etc.). [Azure Monitor](../../azure-monitor/overview.md) can be used to ingest logs from different sources such as endpoint devices, network, operating systems' security logs, etc.
+**Central security log management** - Ingest logs from each environment in a [centralized way](/security/benchmark/azure/security-control-logging-monitoring), following consistent best practices across environments (for example, diagnostics settings, log retention, SIEM ingestion, etc.). [Azure Monitor](/azure/azure-monitor/overview) can be used to ingest logs from different sources such as endpoint devices, network, operating systems' security logs, etc.
 
 Detailed information on using automated or manual processes and tools to monitor logs as part of your security operations is available at [Microsoft Entra security operation guide](https://github.com/azure/azops/wiki/introduction).
 
@@ -357,13 +357,13 @@ The log strategy must include the following Microsoft Entra logs for each tenant
 
 * Risk events
 
-Microsoft Entra ID provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](/graph/tutorial-riskdetection-api).
+Microsoft Entra ID provides [Azure Monitor integration](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](/graph/tutorial-riskdetection-api).
 
 The following diagram shows the different data sources that need to be incorporated as part of the monitoring strategy:
 
-Azure AD B2C tenants can be [integrated with Azure Monitor](../../active-directory-b2c/azure-monitor.md). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Microsoft Entra ID.
+Azure AD B2C tenants can be [integrated with Azure Monitor](/azure/active-directory-b2c/azure-monitor). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Microsoft Entra ID.
 
-Subscriptions that have enabled cross-tenant management with Azure Lighthouse can enable cross-tenant monitoring if the logs are collected by Azure Monitor. The corresponding Log Analytics workspaces can reside in the resource tenant and can be analyzed centrally in the managing tenant using Azure Monitor workbooks. To learn more, check [Monitor delegated resources at scale - Azure Lighthouse](../../lighthouse/how-to/monitor-at-scale.md).
+Subscriptions that have enabled cross-tenant management with Azure Lighthouse can enable cross-tenant monitoring if the logs are collected by Azure Monitor. The corresponding Log Analytics workspaces can reside in the resource tenant and can be analyzed centrally in the managing tenant using Azure Monitor workbooks. To learn more, check [Monitor delegated resources at scale - Azure Lighthouse](/azure/lighthouse/how-to/monitor-at-scale).
 
 ### Hybrid infrastructure OS security logs
 
@@ -391,7 +391,7 @@ The following scenarios must be explicitly monitored and investigated:
 
 * **Suspicious activity** - All [Microsoft Entra risk events](../identity-protection/overview-identity-protection.md) should be monitored for suspicious activity. All tenants should define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center. It's recommended that any risk detection investigation includes all the environments the identity is provisioned (for example, if a human identity has an active risk detection in the corporate tenant, the team operating the customer facing tenant should also investigate the activity of the corresponding account in that environment).
 
-* **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/defender-cloud-apps/mdi-integration). MCAS reads signals from Microsoft Entra ID Protection.
+* **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/microsoft-365/security/defender/microsoft-365-security-center-mdi). MCAS reads signals from Microsoft Entra ID Protection.
 
 * **Emergency access accounts activity** - Any access using [emergency access accounts](./security-operations-privileged-accounts.md) should be monitored and [alerts](../roles/security-emergency-access.md) created for investigations. This monitoring must include:
 
@@ -469,7 +469,7 @@ The following scenarios must be explicitly monitored and investigated:
 
 **IT service management tools** - Organizations using IT Service Management (ITSM) systems such as ServiceNow should configure [Microsoft Entra PIM role activation settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to request a ticket number as part of the activation purposes.
 
-Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Service Management Connector](../../azure-monitor/alerts/itsmc-overview.md).
+Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview).
 
 **Operational practices** -  Minimize operational activities that require direct access to the environment to human identities. Instead model them as Azure Pipelines that execute common operations (for example, add capacity to a PaaS solution, run diagnostics, etc.) and model direct access to the Azure Resource Manager interfaces to "break glass" scenarios.
 

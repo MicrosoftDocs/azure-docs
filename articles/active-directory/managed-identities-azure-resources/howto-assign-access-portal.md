@@ -46,7 +46,7 @@ After you've enabled managed identity on an Azure resource, such as an [Azure VM
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Select the role and managed identity. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Select the role and managed identity. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
      

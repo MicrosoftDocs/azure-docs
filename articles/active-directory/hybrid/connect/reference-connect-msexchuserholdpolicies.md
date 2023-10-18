@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 The following reference document describes these attributes used by Exchange and the proper way to edit the default sync rules.
 
 ## What are msExchUserHoldPolicies and cloudMsExchUserHoldPolicies?
-There are two types of [holds](/Exchange/policy-and-compliance/holds/holds) available for an Exchange Server: Litigation Hold and In-Place Hold. When Litigation Hold is enabled, all mailbox all items are placed on hold.  An In-Place Hold is used to preserve only those items that meet the criteria of a search query that you defined by using the In-Place eDiscovery tool.
+There are two types of [holds](/exchange/policy-and-compliance/holds/holds) available for an Exchange Server: Litigation Hold and In-Place Hold. When Litigation Hold is enabled, all mailbox all items are placed on hold.  An In-Place Hold is used to preserve only those items that meet the criteria of a search query that you defined by using the In-Place eDiscovery tool.
 
 The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Microsoft Entra ID to determine which users are under a hold depending on whether they're using on-premises Exchange or Exchange on-line.
 
