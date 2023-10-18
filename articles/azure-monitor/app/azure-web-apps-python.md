@@ -101,6 +101,10 @@ In order to enable telemetry collection with Application Insights, only the foll
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
+## Frequently asked questions
+
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
 ## Troubleshooting
 
 Here's our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using extensions/agents.
@@ -129,8 +133,6 @@ Here's our step-by-step troubleshooting guide for monitoring Python applications
     
     ```
 ---
-
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
