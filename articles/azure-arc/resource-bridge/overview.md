@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 Azure Arc resource bridge (preview) is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml) preview).
 
-Arc resource bridge is a packaged virtual machine that hosts a *management* Kubernetes cluster and requires minimal user management. The virtual machine is deployed on the on-premises infrastructure, and an ARM resource of Arc resource bridge is created in Azure. The two resources are then connected, allowing VM self-service and management from Azure. The on-premises resource bridge uses guest management to tag local resources, making them available in Azure.
+Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure. The resource bridge is provided credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as “arc-enabled” Azure resources.
 
 Arc resource bridge delivers the following benefits:
 
@@ -121,15 +121,12 @@ There may be instances where supported versions are not sequential. For example,
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
 
-If a resource bridge is not upgraded to one of the supported versions (n-3), then it will fall outside the support window and be unsupported. If this happens, it may not always be possible to upgrade an unsupported resource bridge to a newer version, as component services used by Arc resource bridge may no longer be compatible. In addition, the unsupported resource bridge may not be able to provide reliable monitoring and health metrics.
-
-If an Arc resource bridge is unable to be upgraded to a supported version, you must delete it and deploy a new resource bridge. Depending on which private cloud product you're using, there may be other steps required to reconnect the resource bridge to existing resources. For details, check the partner product's Arc resource bridge recovery documentation.
-
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
 * Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
 
 
 
