@@ -119,7 +119,7 @@ You can create model packages explicitly to allow you to control how the packagi
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/custom-model/sdk-deploy-and-test.ipynb?name=register_model)]
     
-1. Create the base environment. Our model requires the following packages to be used as indicated in the conda file:
+1. Our model requires the following packages to run and we have them specified in a conda file:
 
     __conda.yaml__
     
@@ -131,17 +131,17 @@ You can create model packages explicitly to allow you to control how the packagi
     > [!TIP]
     > If your model requires packages hosted in private feeds, you can configure you package to include them. Read [Package a model that has dependencies in private Python feeds](how-to-package-models.md#package-a-model-that-has-dependencies-in-private-python-feeds).
 
-1. Create the environment as follows:
+1. Create a base environment that contains the model requirements and a base image. Only dependencies required by your model are indicated in the base environment. For MLflow models, base environment is optional in which case Azure Machine Learning autogenerates it for you.
 
     # [Azure CLI](#tab/cli)
     
-    Create an environment definition:
+    Create a base environment definition:
     
     __sklearn-regression-env.yml__
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml" :::
     
-    Then create it using:
+    Then create the environment as follows:
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="base_environment" :::
     
@@ -151,7 +151,7 @@ You can create model packages explicitly to allow you to control how the packagi
     
     ---
     
-1. Create a package specification as follows:
+1. Create a package specification:
 
     # [Azure CLI](#tab/cli)
     
@@ -203,7 +203,7 @@ Model packages can be deployed directly to online endpoints in Azure Machine Lea
 
     __deployment.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deployment.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deployment.yml" highlight="5" :::
 
     # [Python](#tab/sdk)
     

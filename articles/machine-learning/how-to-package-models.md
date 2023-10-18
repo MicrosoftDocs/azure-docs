@@ -112,10 +112,6 @@ You can create model packages by specifying the:
 - __Base environment__: Environments are used to indicate the base image, and in Python packages depedencies your model need. For MLflow models, Azure Machine Learning automatically generates the base environment. For custom models, you need to specify it.
 - __Serving technology__: The inferencing stack used to run the model.
 
-> [!NOTE]
-> __How is the base environment different from the environment you use for model deployment to online and batch endpoints?__
-> When you deploy models to endpoints, your environment needs to include the dependencies of the model and the Python packages that are required for managed online endpoints to work. This brings a manual process into the deployment, where you have to combine the requirements of your model with the requirements of the serving platform.  On the other hand, use of model packages removes this friction, since the required packages for the inference server will automatically be injected into the model package at packaging time.
-
 ### Register the model
 
 Model packages require the model to be registered in either your workspace or in an Azure Machine Learning registry. In this example, you already have a local copy of the model in the repository, so you only need to publish the model to the registry in the workspace. You can skip this section if the model you're trying to deploy is already registered.
@@ -138,7 +134,8 @@ __conda.yaml__
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml" :::
 
 > [!NOTE]
-> Notice how only model's requirements are indicated in the conda YAML. Any package required for the inferencing server will be included by the package operation.
+> __How is the base environment different from the environment you use for model deployment to online and batch endpoints?__
+> When you deploy models to endpoints, your environment needs to include the dependencies of the model and the Python packages that are required for managed online endpoints to work. This brings a manual process into the deployment, where you have to combine the requirements of your model with the requirements of the serving platform.  On the other hand, use of model packages removes this friction, since the required packages for the inference server will automatically be injected into the model package at packaging time.
 
 Create the environment as follows:
 
@@ -150,7 +147,7 @@ __sklearn-regression-env.yml__
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml" :::
 
-Then create it using:
+Then create the environment:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="base_environment" :::
 
@@ -288,7 +285,7 @@ The following code creates a package of the `t5-base` model from a registry:
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/registry-model/sdk-deploy-and-test.ipynb?name=get_model)]
     
-1. Configure a package specification:
+1. Configure a package specification. Since the model we want to package is MLflow, base environment and scoring script is optional.
 
     # [Azure CLI](#tab/cli)
     
@@ -304,7 +301,7 @@ The following code creates a package of the `t5-base` model from a registry:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh" ID="build_package" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/registry-model/deploy.sh" ID="build_package" :::
 
     # [Python](#tab/sdk)
     
