@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: concept-article
 ms.date: 10/17/2023
 
-#CustomerIntent: As an operater, I want understand how to use Azure IoT Layered Network Management to secure my devices.
+#CustomerIntent: As an operator, I want understand how to use Azure IoT Layered Network Management to secure my devices.
 ---
 
 <!--
