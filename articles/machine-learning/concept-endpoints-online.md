@@ -51,7 +51,7 @@ Use of managed online endpoints is the _recommended_ way to use online endpoints
 |Endpoint/deployment concept |Distinction between endpoint and deployment enables complex scenarios such as safe rollout of models |No concept of endpoint |
 |Diagnostics and Monitoring |- Local endpoint debugging possible with Docker and Visual Studio Code<br>​ - Advanced metrics and logs analysis with chart/query to compare between deployments​<br> - Cost breakdown down to deployment level |No easy local debugging |
 |Scalability |Limitless, elastic, and automatic scaling |- ACI is non-scalable​ <br> - AKS (v1) supports in-cluster scale only and requires scalability configuration |
-|Enterprise readiness |Private link, customer managed keys, Azure Active Directory, quota management, billing integration, SLA |Not supported |
+|Enterprise readiness |Private link, customer managed keys, Microsoft Entra ID, quota management, billing integration, SLA |Not supported |
 |Advanced ML features |- Model data collection<br> - Model monitoring​<br> - Champion-challenger model, safe rollout, traffic mirroring<br> - Responsible AI extensibility |Not supported |
 
 Alternatively, if you prefer to use Kubernetes to deploy your models and serve endpoints, and you're comfortable with managing infrastructure requirements, you can use _Kubernetes online endpoints_. These endpoints allow you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md), with CPUs or GPUs.

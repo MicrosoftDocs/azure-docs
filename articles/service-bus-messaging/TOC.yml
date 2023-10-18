@@ -151,7 +151,7 @@
       items:
       - name: Authentication with Shared Access Signatures
         href: service-bus-sas.md
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         items:
         - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md
@@ -305,9 +305,9 @@
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: /dotnet/api/azure.messaging.servicebus
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
+    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
       href: /dotnet/api/microsoft.azure.servicebus
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+    - name: Microsoft.ServiceBus.Messaging (.NET Framework - legacy)
       href: /dotnet/api/microsoft.servicebus.messaging
   - name: Java
     items:
@@ -315,7 +315,7 @@
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
       href: /java/api/com.azure.messaging.servicebus
-    - name: azure-servicebus
+    - name: azure-servicebus (legacy)
       href: /java/api/com.microsoft.azure.servicebus
   - name: Spring
     items:
@@ -371,7 +371,7 @@
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-service-bus.html
+    href: /answers/tags/73/azure-service-bus
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator

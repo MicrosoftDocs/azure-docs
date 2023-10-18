@@ -29,7 +29,7 @@ Azure Machine Learning local endpoints help you test and debug your scoring scri
 
 Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with VS Code.
 
-- [Azure Machine Learning inference HTTP server (Preview)](how-to-inference-server-http.md)
+- [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md)
 - Local endpoint
 
 This guide focuses on local endpoints.

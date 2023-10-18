@@ -16,10 +16,11 @@ ms.author: aahi
 
 Language service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. This article applies to the following containers:
 
-* sentiment analysis
-* language detection
-* key phrase extraction
-* Text Analytics for health 
+* Sentiment Analysis
+* Language Detection
+* Key Phrase Extraction
+* Text Analytics for Health
+* Summarization 
 
 ## Configuration settings
 

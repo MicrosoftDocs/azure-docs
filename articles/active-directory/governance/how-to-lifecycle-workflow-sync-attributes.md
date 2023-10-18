@@ -23,7 +23,7 @@ To take full advantage of Lifecycle Workflows, user provisioning should be autom
 
 The following table shows the scheduling (trigger) relevant attributes and the methods of  synchronization that are supported.
 
-|Attribute|Type|Supported in HR Inbound Provisioning|Support in Microsoft Entra Connect Cloud Sync|Support in Microsoft Entra Connect Sync| 
+|Attribute|Type|Supported in HR Inbound Provisioning|Support in Microsoft Entra Connect cloud sync|Support in Microsoft Entra Connect Sync| 
 |-----|-----|-----|-----|-----|
 |employeeHireDate|DateTimeOffset|Yes|Yes|Yes|
 |employeeLeaveDateTime|DateTimeOffset|Yes|Yes|Yes|
@@ -90,7 +90,7 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 ## Create a custom sync rule in Microsoft Entra Connect cloud sync for EmployeeHireDate
  The following steps guide you through creating a synchronization rule using cloud sync.
  1.  In the Microsoft Entra admin center, browse to > **Hybrid management** > **Microsoft Entra Connect**.
- 1.  Select **Manage Microsoft Entra cloud sync**.
+ 1.  Select **Manage Microsoft Entra Connect cloud sync**.
  1. Under **Configuration**, select your configuration.
  1. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
  1. Select **Add attribute**.
@@ -110,7 +110,7 @@ For more information on attributes, see [Attribute mapping in Microsoft Entra Co
 ## How to create a custom sync rule in Microsoft Entra Connect for EmployeeHireDate
 The following example walks you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Microsoft Entra ID.
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
-   1. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
+   1. Go to Start\Microsoft Entra Connect\ and open the Synchronization Rules Editor
    1. Ensure the direction at the top is set to **Inbound**.
    1. Select **Add Rule.**
    1. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.

@@ -3,19 +3,19 @@ author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
 ms.topic: include
-ms.date: 05/02/2023
+ms.date: 10/10/2023
 ---
 
-<!--
 
 At this time, a test or preview build is not available for the next release.
- -->
+
+<!--
  
-Oct 2023 test release is now available.
+Oct 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.24.0_2023-10-10`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -38,10 +38,6 @@ Oct 2023 test release is now available.
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 957 |
 
-
-
-<!--
 ### Release notes
 
 -->
-

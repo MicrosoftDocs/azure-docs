@@ -150,7 +150,7 @@ public static async Task Run(
 }
 ```
 
-Starting in version 3.3.0, it's possible to use Azure Active Directory when authenticating the output binding:
+Starting in version 3.3.0, it's possible to use Microsoft Entra ID when authenticating the output binding:
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -720,7 +720,7 @@ Use the following steps to configure a topic key:
 
 ### Identity-based authentication
 
-When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Azure Active Directory identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
 
 To do this, create an application setting that returns the topic endpoint URI, where the name of the setting combines a unique _common prefix_, such as `myawesometopic`, with the value `__topicEndpointUri`. You then use the common prefix `myawesometopic` when you define the `Connection` property in the binding.
 

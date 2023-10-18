@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated worker process to run your C# func
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 07/21/2023
-ms.custom: template-concept, devx-track-dotnet
+ms.custom: template-concept, devx-track-dotnet, devx-track-azurecli
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -670,8 +670,8 @@ Azure Functions currently can be used with the following preview versions of .NE
 
 | Operating system | .NET preview version |
 | - | - |
-| Windows | .NET 8 Preview 7 | 
-| Linux | .NET 8 RC1 |
+| Windows | .NET 8 RC1 | 
+| Linux | .NET 8 RC2 |
 
 ### Using a preview .NET SDK
 

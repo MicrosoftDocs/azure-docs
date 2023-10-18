@@ -7,7 +7,7 @@ ms.date: 06/06/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-twenty-six
 
 #- id: programming-languages-set-twenty-six

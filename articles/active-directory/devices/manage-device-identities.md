@@ -37,7 +37,7 @@ From there, you can go to **All devices** to:
    - Devices deployed via [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
    - Printers that use [Universal Print](/universal-print/fundamentals/universal-print-getting-started).
 - Complete device identity management tasks like enable, disable, delete, and manage.
-   - The management options for [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) are limited in Microsoft Entra ID. These devices must be managed from their respective admin interfaces.
+   - The management options for [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/autopilot/windows-autopilot) are limited in Microsoft Entra ID. These devices must be managed from their respective admin interfaces.
 - Configure your device identity settings.
 - Enable or disable enterprise state roaming.
 - Review device-related audit logs.
@@ -46,7 +46,7 @@ From there, you can go to **All devices** to:
 [![Screenshot that shows the All devices view.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
-> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
+> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner unless the primary user is set in Microsoft Intune. If you're looking for a device by owner and don't find it, search by the device ID.
 >
 > - If you see a device that's **Microsoft Entra hybrid joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Microsoft Entra Connect and is waiting to complete registration from the client. See [How to plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
 >
@@ -107,15 +107,15 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Security Administrator
 - Security Reader
 
-## View and filter your devices (preview)
+## View and filter your devices
 
-In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
+You can filter the device list by these attributes:
 
 - Enabled state
 - Compliant state
 - Join type (Microsoft Entra joined, Microsoft Entra hybrid joined, Microsoft Entra registered)
 - Activity timestamp
-- OS Type and Version
+- OS type and OS version
    - Windows is displayed for Windows 11 and Windows 10 devices (with KB5006738).
    - Windows Server is displayed for [supported versions managed with Microsoft Defender for Endpoint](/mem/intune/protect/mde-security-integration#supported-platforms).
 - Device type (printer, secure VM, shared device, registered device)
@@ -125,16 +125,6 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Administrative unit
 - Owner
 
-To enable the preview in the **All devices** view:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Browse to **Identity** > **Devices** > **All devices**.
-1. Select the **Preview features** button.
-1. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
-1. Refresh your browser.
-
-You can now experience the enhanced **All devices** view.
-
 ## Download devices
 
 Global readers, Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices are listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.
@@ -142,6 +132,15 @@ Global readers, Cloud Device Administrators, Intune Administrators, and Global A
 The exported list includes these device identity attributes:
 
 `displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
+
+The following filters can be applied for the export task:
+
+- Enabled state
+- Compliant state
+- Join type
+- Activity timestamp
+- OS type
+- Device type
 
 ## Configure device settings
 
@@ -161,7 +160,7 @@ You must be assigned one of the following roles to manage device settings:
 - Global Administrator
 - Cloud Device Administrator
 
-![Screenshot that shows device settings related to Azure AD.](./media/manage-device-identities/device-settings-azure-portal.png)
+![Screenshot that shows device settings related to Microsoft Entra ID.](./media/manage-device-identities/device-settings-azure-portal.png)
 
 - **Users may join devices to Microsoft Entra ID**: This setting enables you to select the users who can register their devices as Microsoft Entra joined devices. The default is **All**.
 
@@ -174,7 +173,7 @@ You must be assigned one of the following roles to manage device settings:
    - This setting allows you to specify whether users are required to provide another authentication factor to join or register their devices to Microsoft Entra ID. The default is **No**. We recommend that you require multifactor authentication when a device is registered or joined. Before you enable multifactor authentication for this service, you must ensure that multifactor authentication is configured for users that register their devices. For more information on Microsoft Entra multifactor authentication services, see [getting started with Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md). This setting may not work with third-party identity providers.
 
    > [!NOTE]
-   > The **Require multifactor authentication to register or join devices with Microsoft Entra ID** setting applies to devices that are either Microsoft Entra joined (with some exceptions) or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
+   > The **Require multifactor authentication to register or join devices with Microsoft Entra ID** setting applies to devices that are either Microsoft Entra joined (with some exceptions) or Microsoft Entra registered. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/autopilot/self-deploying).
 
 - **Maximum number of devices**: This setting enables you to select the maximum number of Microsoft Entra joined or Microsoft Entra registered devices that a user can have in Microsoft Entra ID. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100. If you enter a value above 100, Microsoft Entra ID sets it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
 

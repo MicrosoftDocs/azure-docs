@@ -35,7 +35,7 @@ Review the latest cloud support information for Defender for Cloud plans and fea
 Availability | This feature is available in the Premium, Standard, Basic, and Developer tiers of Azure API Management.
 API gateways | Azure API Management<br/><br/> Defender for APIs currently doesn't onboard APIs that are exposed using the API Management [self-hosted gateway](../api-management/self-hosted-gateway-overview.md), or managed using API Management [workspaces](../api-management/workspaces-overview.md). 
 API types | Currently, Defender for APIs discovers and analyzes REST APIs.
-Multi-region support | In multi-regional managed and self-hosted Azure API Management deployments, security insights (data classification, authentication check, unused and external APIs) aren't supported in secondary regions. In such cases, data residency requirements are still met. 
+Multi-region support | There is currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions). All security detections and subsequently generated security alerts will work for API traffic sent to both primary and secondary regions.
 
 ## Defender CSPM integration
 

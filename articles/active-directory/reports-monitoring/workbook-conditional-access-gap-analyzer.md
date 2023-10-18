@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 10/03/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar 
 
-ms.collection: M365-identity-device-management
 ---
 
 # Conditional Access gap analyzer workbook
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 In Microsoft Entra ID, you can protect access to your resources by configuring Conditional Access policies.
 As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. With the Conditional Access gap analyzer workbook, you can detect gaps in your Conditional Access implementation.  
 
-This article provides you with an overview of this workbook.
+This article provides you with an overview of the **Conditional Access gap analyzer** workbook.
 
 
 ## Description
@@ -37,12 +36,14 @@ The Conditional Access gap analyzer workbook helps you to verify that your Condi
 - Highlights user sign-ins that have no Conditional Access policies applied to them. 
 - Allows you to ensure that there are no users, applications, or locations that have been unintentionally excluded from Conditional Access policies.  
 
- 
+## How to access the workbook
+
+[!INCLUDE [how to access workbooks](~/articles/active-directory/includes/how-to-access-workbooks.md)]
+3. Select the **Conditional Access Gap Analyzer** workbook from the **Conditional Access** section.
 
 ## Sections
 
-
-The workbook has four sections:  
+The workbook has four sections:
 
 - Users signing in using legacy authentication 
 
@@ -63,8 +64,6 @@ This workbook supports setting a time range filter.
 
 ![Time range filter](./media/workbook-conditional-access-gap-analyzer/time-range.png)
 
-
-
 ## Best practices
 
 Use this workbook to ensure that your tenant is configured to the following Conditional Access best practices:  
@@ -76,13 +75,3 @@ Use this workbook to ensure that your tenant is configured to the following Cond
 - Block all high risk sign-ins  
 
 - Block sign-ins from untrusted locations  
-
- 
-
-
-
-
-
-## Next steps
-
-- [How to use Microsoft Entra workbooks](howto-use-azure-monitor-workbooks.md)
