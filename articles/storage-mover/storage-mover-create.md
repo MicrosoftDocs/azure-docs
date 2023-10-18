@@ -59,7 +59,7 @@ Creating a storage mover requires you to decide on a subscription, a resource gr
 >[!NOTE]
 > Make sure that you have the most up to date version of Azure CLI. 
 
-[!INCLUDE [azure-cli/azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 The [Install Azure CLI](/cli/azure/install-azure-cli) article has more details about how to set up your Azure CLI environment. 
 
