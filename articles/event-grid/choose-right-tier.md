@@ -53,7 +53,7 @@ The standard tier of Event Grid is focused on providing support for higher ingre
 
 - [Azure Event Grid overview](overview.md)
 - [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/)
-- [Azure Event Grid quotas and limits](..//azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Azure Event Grid quotas and limits](quotas-limits.md)
 - [MQTT overview](mqtt-overview.md)
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)
