@@ -58,7 +58,7 @@ Azure Spring Apps is a regional service. All customer data in Azure Spring Apps 
 Azure Spring Apps has the following known limitations:
 
 * `spring.application.name` is overridden by the application name that's used to create each application.
-* `server.port` defaults to port `1025` in the Basic/Standard plan, and `8080` in the Enterprise plan for Azure Spring Apps. If any other value is applied, it overrides the current one, so avoid specifying a server port in your code. If your code sets a different server port other than `server.port`, ensure the port is either `1025` or `8080` according to the pricing plan of your Azure Spring Apps service.
+* `server.port` defaults to port `1025` in the Basic/Standard plan and to port `8080` in the Enterprise plan. If you apply any other value, the default value overrides the one that you specify, so avoid specifying a server port in your code. If your code sets the server port explicitly rather than using `server.port`, ensure that the port is either `1025` or `8080` depending on the pricing plan of your Azure Spring Apps service instance.
 * The Azure portal, Azure Resource Manager templates, and Terraform don't support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spring Apps, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Apps.
 
 ### What pricing plans are available?
@@ -115,7 +115,7 @@ Yes.
 
 ### How many outbound public IP addresses does an Azure Spring Apps instance have?
 
-The number of outbound public IP addresses will vary according to the plans and other factors.
+The number of outbound public IP addresses varies according to the plans and other factors.
 
 | Azure Spring Apps instance type    | Default number of outbound public IP addresses |
 |------------------------------------|------------------------------------------------|

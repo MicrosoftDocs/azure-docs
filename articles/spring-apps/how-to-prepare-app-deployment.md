@@ -92,7 +92,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 > [!NOTE]
 > Eureka is not applicable to the Enterprise plan. If you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-In the configuration source that is used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
+In the configuration source that's used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
 
 For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
 
@@ -145,26 +145,26 @@ For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Apps, include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version is supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
+Azure Spring Apps supports the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. Azure Spring Apps supports the latest minor version as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
 ### [Enterprise plan](#tab/enterprise-plan)
 
-| Spring Boot version | Spring Cloud version  | End commercial support |
-|---------------------|-----------------------|------------------------|
-| 3.1.x               | 2022.0.3+ aka Kilburn | 2025-08-18             |
-| 3.0.x               | 2022.0.3+ aka Kilburn | 2025-02-24             |
-| 2.7.x               | 2021.0.3+ aka Jubilee | 2025-08-24             |
-| 2.6.x               | 2021.0.3+ aka Jubilee | 2024-02-24             |
+| Spring Boot version | Spring Cloud version            | End of commercial support |
+|---------------------|---------------------------------|---------------------------|
+| 3.1.x               | 2022.0.3+ also known as Kilburn | 2025-08-18                |
+| 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
+| 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
+| 2.6.x               | 2021.0.3+ also known as Jubilee | 2024-02-24                |
 
 ### [Basic/Standard plan](#tab/basic-standard-plan)
 
-| Spring Boot version | Spring Cloud version  | End of support |
-|---------------------|-----------------------|----------------|
-| 3.1.x               | 2022.0.3+ aka Kilburn | 2024-05-18     |
-| 3.0.x               | 2022.0.3+ aka Kilburn | 2023-11-24     |
-| 2.7.x               | 2021.0.3+ aka Jubilee | 2023-11-24     |
+| Spring Boot version | Spring Cloud version            | End of support |
+|---------------------|---------------------------------|----------------|
+| 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
+| 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
+| 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
 
 ---
 

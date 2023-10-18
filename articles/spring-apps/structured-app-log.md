@@ -53,9 +53,9 @@ To improve log query experience, an application log is required to be in JSON fo
 
 ## Limitations
 
-Each line of JSON logs has at most **16K bytes**. If the JSON output of a single log record exceeds this limit, it is broken into multiple lines, and each raw line is collected into the `Log` column, without being parsed structurally.
+Each line of the JSON logs has at most 16 K bytes. If the JSON output of a single log record exceeds this limit, it's broken into multiple lines, and each raw line is collected into the `Log` column without being parsed structurally.
 
-Generally, this happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled.  Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
+Generally, this situation happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled. Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
 
 ## Generate schema-compliant JSON log
 
