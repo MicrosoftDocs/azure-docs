@@ -440,7 +440,7 @@ The following device attributes can be used.
 <!-- docutune:enable -->
 
 > [!NOTE]
-> When using `deviceOwnership` to create Dynamic Groups for devices, you need to set the value equal to `Company`. On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using `deviceOwnership` to create Dynamic Groups for devices, you need to set the value equal to `Company`. On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/mem/intune/developer/reports-ref-devices#ownertypes) for more details. 
 > When using `deviceTrustType` to create Dynamic Groups for devices, you need to set the value equal to `AzureAD` to represent Microsoft Entra joined devices, `ServerAD` to represent Microsoft Entra hybrid joined devices or `Workplace` to represent Microsoft Entra registered devices.
 > When using `extensionAttribute1-15` to create Dynamic Groups for devices you need to set the value for `extensionAttribute1-15` on the device. Learn more on [how to write `extensionAttributes` on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
 

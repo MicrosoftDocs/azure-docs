@@ -41,6 +41,8 @@ items:
     href: how-to/use-blocklist.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
+  - name: Migrate from public preview to GA
+    href: how-to/migrate-to-general-availability.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks

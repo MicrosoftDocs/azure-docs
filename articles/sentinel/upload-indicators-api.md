@@ -42,7 +42,7 @@ This section covers the first three of the five components discussed earlier. Yo
 
 Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) are valid tokens accepted by the API.
 
-To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) or send requests to the REST API in the following format:
+To get a v1.0 token, use [ADAL](/azure/active-directory/azuread-dev/active-directory-authentication-libraries) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/token`
 - Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
