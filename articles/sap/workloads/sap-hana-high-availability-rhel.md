@@ -81,7 +81,7 @@ To achieve HA, SAP HANA is installed on two VMs. The data is replicated by using
 The SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
 
 * Front-end IP address: 10.0.0.13 for hn1-db
-* Probe Port: 62503
+* Probe port: 62503
 
 ## Deploy for Linux
 
@@ -325,7 +325,7 @@ The steps in this section use the following prefixes:
 
    If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
 
-   Run as <hanasid\>adm the following command:
+   Run the following command as <hanasid\>adm:
 
    ```bash
    hdbsql -u SYSTEM -p "[passwd]" -i 03 -d SYSTEMDB 'CREATE DATABASE NW1 SYSTEM USER PASSWORD "<passwd>"'
