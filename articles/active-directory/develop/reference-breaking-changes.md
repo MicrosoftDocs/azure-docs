@@ -28,6 +28,22 @@ Check this article regularly to learn about:
 > [!TIP]
 > To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
+## October 2023
+
+### Updated RemoteConnect UX Prompt
+
+**Effective date**: October 2023
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: RemoteConnect
+
+RemoteConnect is a cross-device flow that is used for Microsoft Authentication Broker and Microsoft Intune related scenarios involving [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md). To help prevent phishing attacks, the RemoteConnect flow will be receiving updated UX language to call out that the remote device (the device which initiated the flow) will be able to access any applications used by your organization upon successful completion of the flow.
+
+The prompt that appears will look something like this: 
+
+:::image type="content" source="media/breaking-changes/remote-connect-prompt.png" alt-text="Screenshot of updated Remote Connect prompt that reads 'You will be signed in on a remote device or service, allowing you to access any apps used by your organization'.":::
+
 ## June 2023
 
 ### Omission of email claims with an unverified domain owner
