@@ -20,6 +20,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## October 2023
+
 |Date |Update  |
 |----------|----------|
 | October 19 |[DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview)
