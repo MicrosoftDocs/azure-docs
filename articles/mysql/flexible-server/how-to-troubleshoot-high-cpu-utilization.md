@@ -2,7 +2,7 @@
 title: Troubleshoot high CPU utilization in Azure Database for MySQL 
 description: Learn how to troubleshoot high CPU utilization in Azure Database for MySQL.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting

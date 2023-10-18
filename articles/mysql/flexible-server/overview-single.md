@@ -4,7 +4,7 @@ description: Learn about the Azure Database for MySQL service, a relational data
 author: sudheeshgh
 ms.author: sunaray
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.custom: mvc
 ms.topic: overview
 ms.date: 06/20/2022 

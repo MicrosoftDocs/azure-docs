@@ -2,7 +2,7 @@
 title: Monitoring best practices - Azure Database for MySQL
 description: This article describes the best practices to monitor your Azure Database for MySQL.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: mksuni 
 ms.author: sumuth

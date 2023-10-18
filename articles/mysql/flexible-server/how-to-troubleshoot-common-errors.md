@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common migration errors encountered by us
 author: sudheeshgh
 ms.author: sunaray
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 06/20/2022

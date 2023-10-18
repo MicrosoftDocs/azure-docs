@@ -2,6 +2,7 @@
 title: Azure Advisor for MySQL
 description: Learn about Azure Advisor recommendations for MySQL.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: SudheeshGH
 ms.author: sunaray

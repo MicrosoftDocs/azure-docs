@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/22/2022
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
