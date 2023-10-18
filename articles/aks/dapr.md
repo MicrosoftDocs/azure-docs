@@ -170,7 +170,7 @@ az k8s-extension create --cluster-type managedClusters \
 ```
 
 You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`. 
-Note, the versioning of Dapr is in the format `MAJOR.MINOR.PATCH`, which means `1.11.0` to `1.12.0` is a minor version upgrade.
+[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
 
 > [!WARNING]
 > For production environments, enabling auto-upgrade-minor-version is not recommended. This option is suitable for dev or test environments only.
