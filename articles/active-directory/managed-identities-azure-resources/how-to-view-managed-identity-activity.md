@@ -112,5 +112,5 @@ System-assigned identity:
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)
-* [Azure Activity log](../../azure-monitor/essentials/activity-log.md)
+* [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
 * [Microsoft Entra sign-in log](../reports-monitoring/concept-sign-ins.md)
