@@ -1,6 +1,6 @@
 ---
 title: Related GitHub Projects for Azure Health Data Services
-description: List all Open Source (GitHub) repositories
+description: Lists all Open Source (GitHub) repositories
 services: healthcare-apis
 author: evachen96
 ms.service: healthcare-apis
