@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 10/18/2023
 
 ms.author: justinha
 author: justinha
@@ -87,7 +87,7 @@ Users can register and then select a FIDO2 security key at the sign-in interface
 
 FIDO2 security keys can be used to sign in to their Microsoft Entra ID or Microsoft Entra hybrid joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. Users can also sign in to supported browsers. FIDO2 security keys are a great option for enterprises who are very security sensitive or have scenarios or employees who aren't willing or able to use their phone as a second factor.
 
-We have a reference document for which [browsers support FIDO2 authentication with Microsoft Entra ID](fido2-compatibility.md), as well as best practices for developers wanting to [support FIDO2 auth in the applications they develop](../develop/support-fido2-authentication.md).
+We have a reference document for which [browsers support FIDO2 authentication with Microsoft Entra ID](fido2-compatibility.md), and best practices for developers wanting to [support FIDO2 auth in the applications they develop](../develop/support-fido2-authentication.md).
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -186,14 +186,12 @@ The following considerations apply:
 
 ## Unsupported scenarios
 
-We recommend no more than 20 sets of keys for each passwordless method for any user account. As more keys are added, the user object size increases, and you may notice degradation for some operations. In that case, you should remove unnecessary keys.
+We recommend no more than 20 sets of keys for each passwordless method for any user account. As more keys are added, the user object size increases, and you may notice degradation for some operations. In that case, you should remove unnecessary keys. For more information and the PowerShell cmdlets to query and remove keys, see 
+[Using WHfBTools PowerShell module for cleaning up orphaned Windows Hello for Business Keys](https://support.microsoft.com/topic/using-whfbtools-powershell-module-for-cleaning-up-orphaned-windows-hello-for-business-keys-779d1f3f-bb2d-c495-0f6b-9aeb940eeafb). The topic uses **/UserPrincipalName** optional parameter to query only keys for a specific user. The permissions required are to run as an administrator or the specified user.
 
-You can use PowerShell to create a CSV file with all of the existing keys. Carefully identify the keys that you need to keep, and remove those rows from the CSV. Then use the modified CSV with PowerShell to delete the remaining keys to bring the account key count under the limit.
+When you use PowerShell to create a CSV file with all of the existing keys, carefully identify the keys that you need to keep, and remove those rows from the CSV. Then use the modified CSV with PowerShell to delete the remaining keys to bring the account key count under the limit.
  
 It is safe to delete any key reported as "Orphaned"="True" in the CSV. An orphaned key is one for a device that is not longer registered in Entra ID. If removing all Orphans still doesn't bring the User account below the limit it is necessary to look at the "DeviceId" and "CreationTime" columns to identify which keys to target for deletion. Be careful to remove any row in the CSV for keys you want to keep. Keys for any DeviceID corresponding to devices the user actively uses should be removed from the CSV before the deletion step.
- 
-For more information and the PowerShell cmdlets to query and remove keys, see 
-[Using WHfBTools PowerShell module for cleaning up orphaned Windows Hello for Business Keys](https://support.microsoft.com/topic/using-whfbtools-powershell-module-for-cleaning-up-orphaned-windows-hello-for-business-keys-779d1f3f-bb2d-c495-0f6b-9aeb940eeafb). The topic uses **/UserPrincipalName** optional parameter to query only keys for a specific user. The permissions required are to run as an administrator or the specified user.
 
 ## Choose a passwordless method
 
