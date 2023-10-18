@@ -115,7 +115,7 @@ To enforce phishing-resistant multifactor authentication, integration might be n
 | Azure Linux virtual machine (VM)| Enable the [Linux VM for Microsoft Entra sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
 | Azure Windows VM| Enable the [Windows VM for Microsoft Entra sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
 | Azure Virtual Desktop| Enable [Azure Virtual Desktop for Microsoft Entra sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)|
-| VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Microsoft Entra sign-in. Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap. |
+| VMs hosted on-premises or in other clouds| Enable [Azure Arc](/azure/azure-arc/overview) on the VM and then enable Microsoft Entra sign-in. Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap. |
 | Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Microsoft Entra ID|
 
 ### Enforcing phishing-resistant multifactor authentication

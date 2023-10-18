@@ -29,7 +29,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 * One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 * Configured users in the Microsoft Entra subscription  
 * A Cloudflare account
-  * Go to dash.cloudflare.com to [Get started with Cloudflare](https://dash.cloudflare.com/sign-up?https%3A%2F%2Fone.dash.cloudflare.com%2F)
+  * Go to `dash.cloudflare.com` to [Get started with Cloudflare](https://dash.cloudflare.com/sign-up)
 
 ## Scenario architecture
 
@@ -68,7 +68,7 @@ Go to developers.cloudflare.com to [set up Microsoft Entra ID as an IdP](https:/
 
 Enforce Conditional Access policies on a Cloudflare Access application.
 
-1. Go to dash.cloudflare.com to [sign in to Cloudflare](https://dash.cloudflare.com/login).
+1. Go to `dash.cloudflare.com` to [sign in to Cloudflare](https://dash.cloudflare.com/login).
 2. In **Zero Trust**, go to **Access**.
 3. Select **Applications**.
 4. See, [Add a self-hosted application](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/).

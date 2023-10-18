@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/12/2023
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---
@@ -31,7 +31,7 @@ Before you can continue with the steps below you need to meet the following requ
 
 ## Scenario description
 
-Microsoft Azure AD verifiable credentials users can have their identity verified using IDEMIA's identity document capture and verification.
+Verified ID users can have their identity verified using IDEMIA's identity document capture and verification.
 The Identity proofing process is completed using biometric and document capture via the users' smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verification could also be performed for additional assurance. 
 
 The result is a trusted user identity that gives service providers the assurance they need to proceed with customer onboarding. 
@@ -49,7 +49,7 @@ To configure IDEMIA as your identity verification proofing solution, follow thes
 3. Look for IDEMIA in the search/select issuers drop down.
 4. Select VerifiedCredentialExpert as the credential type.
 5. Select **Add** and then select review.
-6. Download the request body and cop/paste the POST API request URL
+6. Download the request body and copy/paste the POST API request URL
 
 ## Developer steps
 

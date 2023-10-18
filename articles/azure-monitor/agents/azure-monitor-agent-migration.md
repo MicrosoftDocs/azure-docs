@@ -90,7 +90,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 Azure Monitor Agent is generally available for data collection. Most services that used Log Analytics agent for data collection have migrated to Azure Monitor Agent. 
 
-The following features and services now have and Azure Monitor Agent version (some are still in Public Preview). This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service.
+The following features and services now have an Azure Monitor Agent version (some are still in Public Preview). This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service.
     
 |	Service or feature	|	Migration recommendation	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
