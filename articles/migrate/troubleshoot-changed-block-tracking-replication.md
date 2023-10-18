@@ -16,7 +16,7 @@ This article describes some common issues and specific errors that you might enc
 
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
-You may occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
+You might occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
 
  - Show you how you can monitor replication status and resolve errors.
  - List some of the commonly occurring replication errors and suggest steps to remediate them.
@@ -63,7 +63,7 @@ When the portal creates the key vault, it also adds a user access policy grantin
 
 - The logged in user is a remote principal on the customer's Azure tenant (CSP subscription - and the logged in user is the partner admin). The work-around in this case is to delete the key vault, sign out from the portal, and then sign in with a user account from the customer's tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Microsoft Entra tenant that they can use. If not, they can create a new user account for themselves in the customers Microsoft Entra tenant, sign in to the portal as the new user, and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group).
 
-- The other case where this may happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
+- The other case where this might happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
 
 **Resolution**: To work around this issue, create a user access policy for user2 in the key vault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
 
@@ -256,13 +256,13 @@ This error can be resolved in the following two ways:
 - If you had opted for **Automatically repair replication** by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right-click on the VM, and select **Repair Replication**.
 - If you didn't opt for **Automatically repair replication** or the above step didn't work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
 
-One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
+One such known issue that might cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
 ## An internal error occurred
 
-Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
+Sometimes you might hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
 
 _Error Message: An internal error occurred. [Error message]_
 
@@ -286,7 +286,7 @@ The issue is a known VMware issue and occurs in VDDK 6.7. You need to stop the g
 
 ### Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
 
-If you have a virtual machine with multiple disks, you may encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
+If you have a virtual machine with multiple disks, you might encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
 
 ### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
@@ -350,7 +350,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 **Possible Causes:** 
 
-This may happen if:
+This might happen if:
 1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
 2. The Azure Migrate appliance is unable to connect to the vSphere host on port 902 (default port used by VMware vSphere Virtual Disk Development Kit), because TCP port 902 is being blocked on the vSphere host or by a network firewall.
 
