@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2023
+ms.date: 10/18/2023
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -65,6 +65,9 @@ http://localhost/myapp/permissions
 | `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
 | `scope` | The set of permissions that were granted access to, for the application.|
 | `admin_consent` | Will be set to `True`.|
+
+> [!WARNING]
+> Never use the **tenant ID** value of the `tenant` parameter to authenticate or authorize users. The tenant ID value can be updated and sent by bad actors to impersonate a response to your app. This can cause your application to be exposed to security incidents.
 
 ### Error response
 
