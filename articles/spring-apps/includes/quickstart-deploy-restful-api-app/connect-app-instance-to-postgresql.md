@@ -26,8 +26,6 @@ Use the following steps to connect your service instances:
 
 1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for later use.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/assign-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Assign endpoint pane open." lightbox="../../media/quickstart-deploy-restful-api-app/assign-endpoint.png":::
-
 1. Expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
 
 1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values that you created previously.

@@ -27,7 +27,7 @@ Use the following steps to clone and run the app locally:
    git clone https://github.com/Azure-Samples/ASA-Samples-Restful-Application.git
    ```
 
-1. If you want to run the app locally, complete the steps in the [Expose RESTful APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) sections first, and then use the following command to run the sample application with Maven:
+1. If you want to run the app locally, complete the steps in the [Expose RESTful APIs](35-expose-restful-apis) and [Update the application configuration](#36-update-the-application-configuration) sections first, and then use the following command to run the sample application with Maven:
 
    ```bash
    cd ASA-Samples-Restful-Application
@@ -138,6 +138,8 @@ Use the following steps to create a service instance:
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
+### 3.1 Prepare the Azure resources
+
 1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
@@ -172,9 +174,13 @@ Use the following steps to create a service instance:
    > [!NOTE]
    > This command might take a while to complete. You see a progress indicator as it provisions Azure resources.
 
+### 3.2 Expose RESTful APIs
+
 [!INCLUDE [expose-restful-apis](expose-restful-apis.md)]
 
-[!INCLUDE [update-application-configuration](update-application-configuration.md)]
+### 3.3 Update the application configuration
+
+[!INCLUDE [provision-postgresql-flexible](expose-restful-apis.md)]
 
 ---
 

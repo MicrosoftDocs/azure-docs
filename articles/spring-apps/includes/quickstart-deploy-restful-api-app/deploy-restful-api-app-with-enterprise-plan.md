@@ -25,7 +25,7 @@ Use the following steps to clone and run the app locally:
    git clone https://github.com/Azure-Samples/ASA-Samples-Restful-Application.git
    ```
 
-1. If you want to run the app locally, complete the steps in the [Expose RESTful APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) sections first, and then use the following command to run the sample application with Maven:
+1. If you want to run the app locally, complete the steps in the [Expose RESTful APIs](#35-expose-restful-apis) and [Update the application configuration](#36-update-the-application-configuration) sections first, and then use the following command to run the sample application with Maven:
 
    ```bash
    cd ASA-Samples-Restful-Application
