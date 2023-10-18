@@ -43,7 +43,7 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 1. Now that you have selected Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
 
 > [!NOTE]
-> A WhatsApp Business Account can only be registered with Advanced Messaging one time. You cannot select a WhatsApp Business Account that is already registered.
+> A WhatsApp Business Account can only be registered with Advanced Messaging one time. Selecting a WhatsApp Business Account already in use will result in an error when trying to create the channel.
 
 :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
