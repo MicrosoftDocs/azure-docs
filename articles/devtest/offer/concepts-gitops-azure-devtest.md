@@ -5,7 +5,7 @@ author: jenp
 ms.author: jenp
 ms.prod: visual-studio-windows
 ms.topic: how-to 
-ms.date: 10/20/2021
+ms.date: 10/18/2023
 ms.custom: devtestoffer
 ---
 # Using GitOps with Azure Dev/Test offer to optimize and secure applications

@@ -3,7 +3,7 @@ title: Sign into Azure Dev/Test with your GitHub credentials
 description: Sign into an individual Monthly Azure Credit Subscription using GitHub credentials.
 author: jenp
 ms.author: jenp
-ms.date: 10/12/2021
+ms.date: 10/18/2023
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
