@@ -68,7 +68,7 @@ Client workstations are traditionally joined to Active Directory and managed via
 
 * Manage workstations from the cloud by using unified endpoint management (UEM) solutions such as [Intune](/mem/intune/fundamentals/what-is-intune).
 
-[Windows Autopilot](/mem/autopilot/windows-autopilot) can help you establish a streamlined onboarding and device provisioning, which can enforce these directives.
+[Windows Autopilot](/autopilot/windows-autopilot) can help you establish a streamlined onboarding and device provisioning, which can enforce these directives.
 
 [Windows Local Administrator Password Solution](../devices/howto-manage-local-admin-passwords.md) (LAPS) enables a cloud-first solution to manage the passwords of local administrator accounts.
 
