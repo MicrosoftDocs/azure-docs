@@ -28,7 +28,7 @@ Custom applications built with Azure Communication Services to connect and commu
 
 ## Meeting experience
 
-As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users that is displayed in Teams is configurable via the Communication Services Calling SDK. They are labeled as “external” to let Teams users know they weren't authenticated using Azure Active Directory.
+As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users that is displayed in Teams is configurable via the Communication Services Calling SDK. They are labeled as “external” to let Teams users know they weren't authenticated using Microsoft Entra ID.
 
 A Communication Service user won't be admitted to a Teams meeting until there is at least one Teams user present in the meeting. Once a Teams user is present, then the Communication Services user will wait in the lobby until explicitly admitted by a Teams user, unless the "Who can bypass the lobby?" meeting policy/setting is set to "Everyone".
 

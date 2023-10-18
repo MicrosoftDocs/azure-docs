@@ -1,25 +1,28 @@
 ---
 title: Set up an image labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create a project and use the data labeling tool to label images in the project. Enable machine learning-assisted labeling or human-in-the-loop labeling to help with the task.
+description: Learn how to create a project to label images in the project. Enable machine learning-assisted labeling to help with the task.
 author: kvijaykannan 
 ms.author: vkann 
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 08/16/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
+#customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
 ---
 
 # Set up an image labeling project and export labels
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine learning (ML)-assisted data labeling or human-in-the-loop labeling to help with the task.
 
-Set up labels for classification, object detection (bounding box), or instance segmentation (polygon).
+Set up labels for classification, object detection (bounding box), instance segmentation (polygon), or semantic segmentation (Preview).
 
 You can also use the data labeling tool in Azure Machine Learning to [create a text labeling project](how-to-create-text-labeling-projects.md).
+
+[!INCLUDE [machine-learning-preview-items-disclaimer](includes/machine-learning-preview-items-disclaimer.md)]
 
 ## Image labeling capabilities
 
@@ -72,6 +75,7 @@ You use these items to set up image labeling in Azure Machine Learning:
     * To apply *one or more* labels to an image from a set of labels, select **Image Classification Multi-label**. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
     * To assign a label to each object within an image and add bounding boxes, select **Object Identification (Bounding Box)**.
     * To assign a label to each object within an image and draw a polygon around each object, select **Instance Segmentation (Polygon)**.
+    * To draw masks on an image and assign a label class at the pixel level, select **Semantic Segmentation (Preview)**.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Screenshot that shows creating a labeling project to manage labeling.":::
 
@@ -160,7 +164,7 @@ For bounding boxes, important questions include:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.
+To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.  If the project type is **Semantic Segmentation (Preview)**, ML-assisted labeling isn't available.
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases that are present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data used to train the model lands in that class.
 
@@ -281,7 +285,9 @@ If your project was created from [Vision Studio](../ai-services/computer-vision/
 
 To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-You can export an image label as:
+If your project type is Semantic segmentation (Preview), an [Azure MLTable data asset](./how-to-mltable.md) is created.
+
+For all other project types, you can export an image label as:
 
 :::moniker range="azureml-api-1"
 * A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.

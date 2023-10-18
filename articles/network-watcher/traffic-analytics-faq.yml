@@ -16,7 +16,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What are the prerequisites to use traffic analytics?
+          What prerequisites are needed to use traffic analytics?
         answer: |
           See [Traffic analytics prerequisites](traffic-analytics.md#prerequisites) for a list of the required prerequisites.
 

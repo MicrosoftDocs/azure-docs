@@ -52,6 +52,35 @@ Join Teams meeting with meeting code and passcode:
 const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode: '<PASSCODE>'});
 ```
 
+### Join Teams meeting with meeting ID and passcode:
+
+Developers can use multiple ways to join Teams meeting. One of them is meeting ID and passcode, which allows people to join the Teams meeting they are invited to from a device or application. You always need to provide both meeting ID and passcode to join the meeting. Passcode is case sensitive.
+- Format of the meeting ID and passcode is:
+  * Meeting ID: 12 digits.
+  * Passcode: 6 characters
+     
+- How often do you need to refresh meeting ID & passcode?
+   * Meeting ID and passcode does not change once created. Developers don't need to refresh neither of those for change.
+   * Teams meeting organizer can't regenerate the meeting ID and passcode.
+       
+- Is there any difference in Teams meeting experience if the user joins through URL or meeting ID & passcode?
+  * No. Users will have the same user experience if they join Teams meeting through Teams meeting URL or meeting ID & passcode. 
+
+- How should developers store and manage passcode?
+  * Meeting ID and passcode are coordinates to join the meeting. Developers should treat it as secret, which should be encrypted and if stored then behind access control.
+  * If the coordinates are exposed, anyone can join the meeting and ruin the experience for everyone in the meeting.
+    
+
+- How to get meeting ID & passcode ?
+     1. Graph API: Use Graph API to retrieve information about `onlineMeeting` resource and check the object in property `joinMeetingIdSettings`.
+     1. Teams: In your Teams application go to `Calendar` app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting. 
+     1. Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
+     1. Developers can't retrieve the meeting ID & passcode through calling SDK or retrieve it from verbose console logs.
+
+
+- How can I verify the meeting ID & passcode is correct?
+  * MeetingId and passcode verification can be done via : https://www.microsoft.com/en-us/microsoft-teams/join-a-meeting
+
 ## Receive a Teams incoming call
 
 You can subscribe to `incomingCall` event on `teamsCallAgent` instance to register incoming calls to the Teams user. The event has a ` teamsIncomingCall ` property with `TeamsIncomingCall` instance that allows you to `accept` or `reject` the incoming call.

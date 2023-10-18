@@ -42,7 +42,7 @@ We have identified support discrepancies between the different clouds for the da
 - Microsoft Defender for Office 365
 - Microsoft Defender for Identity
 - Microsoft Defender for Cloud Apps
-- Azure Active Directory Identity Protection
+- Microsoft Entra ID Protection
 
 Read more about [support for Microsoft Defender 365 connector data types in different clouds](microsoft-365-defender-cloud-support.md).
 

@@ -89,5 +89,4 @@ To access your tenant-level SLA performance:
 
 * [Microsoft Entra monitoring and health overview](overview-monitoring-health.md)
 * [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)
-* [Microsoft Entra ID risk detections](../identity-protection/overview-identity-protection.md)
-
+* [Microsoft Entra risk detections](../identity-protection/overview-identity-protection.md)

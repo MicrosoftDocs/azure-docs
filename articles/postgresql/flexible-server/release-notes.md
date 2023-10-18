@@ -32,7 +32,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * General availability of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
 * General availability of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
 * General availability of [Restore a dropped server](how-to-restore-dropped-server.md) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of [Storage auto-grow](./concepts-compute-storage.md#storage-auto-grow-preview) for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: May 2023
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.

@@ -55,9 +55,9 @@ Microsoft Entra ID provides a centralized access location to manage your migrate
 
 You can also use the [Microsoft Entra admin center](https://entra.microsoft.com) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Microsoft Entra ID Reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Microsoft Entra reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
-- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Microsoft Entra ID Reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
+- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Microsoft Entra reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - **Visualize your app’s usage** from the [Microsoft Entra ID Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Exit criteria

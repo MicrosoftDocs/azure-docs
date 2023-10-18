@@ -22,13 +22,13 @@ The Microsoft Entra sign-in logs enable you to find answers to questions around 
 - How many users have users signed in over a week?
 - What’s the status of these sign-ins?
 
-In addition, the sign-ins logs can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure. Some common sign-in errors are also described.
+In addition, the sign-in logs can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure. Some common sign-in errors are also described.
 
 ## Prerequisites
 
 You need:
 
-* A Microsoft Entra tenant with a Premium P1/P2 license.
+* A Microsoft Entra tenant with a P1 or P2 license.
 * A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 * In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 

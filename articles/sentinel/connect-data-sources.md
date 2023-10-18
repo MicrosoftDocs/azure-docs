@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel data connectors
-description: Learn about supported data connectors, like Microsoft 365 Defender (formerly Microsoft Threat Protection), Microsoft 365 and Office 365, Azure AD, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
+description: Learn about supported data connectors, like Microsoft 365 Defender (formerly Microsoft Threat Protection), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
 ms.date: 05/16/2023
@@ -9,7 +9,7 @@ ms.author: yelevin
 
 # Microsoft Sentinel data connectors
 
-After you onboard Microsoft Sentinel into your workspace, use data connectors to start ingesting your data into Microsoft Sentinel. Microsoft Sentinel comes with many out of the box connectors for Microsoft services, which integrate in real time. For example, the Microsoft 365 Defender connector is a [service-to-service connector](#service-to-service-integration-for-data-connectors) that integrates data from Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Defender for Cloud Apps.
+After you onboard Microsoft Sentinel into your workspace, use data connectors to start ingesting your data into Microsoft Sentinel. Microsoft Sentinel comes with many out of the box connectors for Microsoft services, which integrate in real time. For example, the Microsoft 365 Defender connector is a [service-to-service connector](#service-to-service-integration-for-data-connectors) that integrates data from Office 365, Microsoft Entra ID, Microsoft Defender for Identity, and Microsoft Defender for Cloud Apps.
 
 Built-in connectors enable connection to the broader security ecosystem for non-Microsoft products. For example, use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration-for-data-connectors) to connect your data sources with Microsoft Sentinel.
 

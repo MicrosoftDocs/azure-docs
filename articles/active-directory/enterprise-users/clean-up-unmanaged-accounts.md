@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Clean up unmanaged Microsoft Entra accounts
 
-Prior to August 2022, Microsoft Entra B2B (Microsoft Entra B2B) supported self-service sign-up for email-verified users. With this feature, users create Microsoft Entra accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
+Prior to August 2022, Microsoft Entra B2B supported self-service sign-up for email-verified users. With this feature, users create Microsoft Entra accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
 
 To learn more, see, [What is self-service sign-up for Microsoft Entra ID?](./directory-self-service-signup.md)
 

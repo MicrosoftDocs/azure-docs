@@ -53,12 +53,12 @@ The following Azure regions are currently supported for this feature:
 - Azure Government
 - Microsoft Azure operated by 21Vianet
 
-Use of the SSH extension for Azure CLI on Azure Kubernetes Service (AKS) clusters is not supported. For more information, see [Support policies for AKS](../../aks/support-policies.md).
+Use of the SSH extension for Azure CLI on Azure Kubernetes Service (AKS) clusters is not supported. For more information, see [Support policies for AKS](/azure/aks/support-policies).
 
 If you choose to install and use the Azure CLI locally, it must be version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]
-> This functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssh-arc-overview.md).
+> This functionality is also available for [Azure Arc-enabled servers](/azure/azure-arc/servers/ssh-arc-overview).
 
 <a name='meet-requirements-for-login-with-azure-ad-using-openssh-certificate-based-authentication'></a>
 
@@ -148,7 +148,7 @@ There are a few ways to open Cloud Shell:
 If you choose to install and use the Azure CLI locally, this article requires you to use version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Create a resource group by running [az group create](/cli/azure/group#az-group-create).
-1. Create a VM by running [az vm create](/cli/azure/vm#az-vm-create&preserve-view=true). Use a supported distribution in a supported region.
+1. Create a VM by running [az vm create](/cli/azure/vm?preserve-view=true#az-vm-create&preserve-view=true). Use a supported distribution in a supported region.
 1. Install the Microsoft Entra login VM extension by using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set).
 
 The following example deploys a VM and then installs the extension to enable Microsoft Entra login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Customize the example as needed to support your testing requirements.
@@ -173,7 +173,7 @@ It takes a few minutes to create the VM and supporting resources.
 
 The AADSSHLoginForLinux extension can be installed on an existing (supported distribution) Linux VM with a running VM agent to enable Microsoft Entra authentication. If you're deploying this extension to a previously created VM, the VM must have at least 1 GB of memory allocated or the installation will fail.
 
-The `provisioningState` value of `Succeeded` appears when the extension is successfully installed on the VM. The VM must have a running [VM agent](../../virtual-machines/extensions/agent-linux.md) to install the extension.
+The `provisioningState` value of `Succeeded` appears when the extension is successfully installed on the VM. The VM must have a running [VM agent](/azure/virtual-machines/extensions/agent-linux) to install the extension.
 
 ## Configure role assignments for the VM
 
@@ -192,7 +192,7 @@ There are two ways to configure role assignments for a VM:
 - Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource group level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource group level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](/azure/role-based-access-control/troubleshoot-limits) per subscription.
 
 <a name='azure-ad-portal'></a>
 
@@ -206,7 +206,7 @@ To configure role assignments for your Microsoft Entra ID-enabled Linux VMs:
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -236,7 +236,7 @@ az role assignment create \
 > [!NOTE]
 > If your Microsoft Entra domain and login username domain don't match, you must specify the object ID of your user account by using `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account by using [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
 ## Install the SSH extension for Azure CLI
 
@@ -440,7 +440,7 @@ Use Azure Policy to:
 
 With this capability, you can use many levels of enforcement. You can flag new and existing Linux VMs within your environment that don't have Microsoft Entra login enabled. You can also use Azure Policy to deploy the Microsoft Entra extension on new Linux VMs that don't have Microsoft Entra login enabled, as well as remediate existing Linux VMs to the same standard. 
 
-In addition to these capabilities, you can use Azure Policy to detect and flag Linux VMs that have unapproved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
+In addition to these capabilities, you can use Azure Policy to detect and flag Linux VMs that have unapproved local accounts created on their machines. To learn more, review [Azure Policy](/azure/governance/policy/overview).
 
 ## Troubleshoot sign-in issues
 
@@ -452,7 +452,7 @@ If you get a message that says the token couldn't be retrieved from the local ca
 
 ### Access denied: Azure role not assigned
 
-If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
+If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](/azure/role-based-access-control/troubleshooting).
 
 ### Problems deleting the old (AADLoginForLinux) extension
 
