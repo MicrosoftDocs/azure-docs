@@ -83,7 +83,7 @@ For certain devices, you can download configuration scripts directly from Azure.
 
 ## <a name="additionaldevices"></a>Nonvalidated VPN devices
 
-If you don’t see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for support and configuration instructions.
+If you don’t see your device listed in the Validated VPN devices table, your device still might work with a Site-to-Site connection. Contact your device manufacturer for support and configuration instructions.
 
 ## <a name="editing"></a>Editing device configuration samples
 
@@ -188,7 +188,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients may choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
+* You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients might choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the preceding tables to ensure security of your critical communication.
 
 ## <a name="known"></a>Known device compatibility issues
