@@ -54,13 +54,8 @@ For example, track the following metrics, since a sudden drop in either will lea
 
 - **Service alerts**: Use the [Azure AD B2C service level alerts](/azure/service-health/service-health-overview) to get notified of service issues, planned maintenance, health advisory, and security advisory.
 
-<<<<<<< HEAD
-- **Reporting**: [By using log analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), build reports that help you gain understanding about user insights, technical challenges, and growth opportunities.
-  - **Health Dashboard**: Create [custom dashboards using Azure Dashboard](../../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) feature, which supports adding charts using Log Analytics queries. For example, identify pattern of successful and failed sign-ins, failure reasons and telemetry about devices used to make the requests.
-=======
 - **Reporting**: [By using log analytics](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md), build reports that help you gain understanding about user insights, technical challenges, and growth opportunities.
-  - **Health Dashboard**: Create [custom dashboards using Azure Dashboard](/azure/azure-monitor/app/tutorial-app-dashboards) feature, which supports adding charts using Log Analytics queries. For example, identify pattern of successful and failed sign-ins, failure reasons and telemetry about devices used to make the requests.
->>>>>>> 57d8ac90e1b8bfeccdd2bd3b739c352c220369e1
+  - **Health Dashboard**: Create [custom dashboards using Azure Dashboard](../../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) feature, which supports adding charts using Log Analytics queries. For example, identify pattern of successful and failed sign-ins, failure reasons and telemetry about devices used to make the requests.
   - **Abandon Azure AD B2C journeys**: Use the [workbook](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) to track the list of abandoned Azure AD B2C journeys where user started the sign-in or sign-up journey but never finished it. It provides you details about policy ID and breakdown of steps that are taken by the user before abandoning the journey.
   - **Azure AD B2C monitoring workbooks**: Use the [monitoring workbooks](https://github.com/azure-ad-b2c/siem) that include Azure AD B2C dashboard, Multi-factor authentication (MFA) operations, Conditional Access report, and Search logs by correlationId. This practice provides better insights into the health of your Azure AD B2C environment.
   
