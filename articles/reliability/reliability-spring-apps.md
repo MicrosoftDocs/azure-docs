@@ -21,10 +21,6 @@ This article contains detailed information on regional resiliency with [availabi
 
 Azure Spring Apps supports zone-redundancy. When you create an Azure Spring Apps service instance with zone-redundancy enabled, Azure Spring Apps automatically distributes fundamental resources across logical sections of underlying Azure infrastructure. The underlying compute resource distributes VMs across all availability zones to ensure the ability to compute. The underlying storage resource replicates data across availability zones to keep it available even if there are datacenter failures. This distribution provides a higher level of availability and protects against hardware failures or planned maintenance events.   
 
-However, while zone-redundancy ensures that underlying VM nodes are distributed evenly across all availability zones, there's no guarantee of an even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
-
-
-
 ### Prerequisites
 
 - Zone-redundancy isn't available in the Basic plan.
@@ -82,6 +78,10 @@ To create a service in Azure Spring Apps with zone-redundancy enabled using the 
 ### Enable your own resource with availability zones enabled
 
 You can enable your own resource in Azure Spring Apps, such as your own persistent storage. However, you must make sure to enable zone-redundancy for your resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](../spring-apps/how-to-custom-persistent-storage.md).
+
+### Zone down experience
+
+When an app instance fails because it’s located on a VM node in a failed zone, Azure Spring Apps creates a new app instance for the failed app on another VM node in another availability zone. Users may experience a brief interruption during this time. No user action is required and the impacted Spring Apps instance will be restored by the service.
 
 ### Pricing
 
