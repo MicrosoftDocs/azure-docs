@@ -30,11 +30,13 @@ Continuous Deployment (CD) is an extension of CI that takes the automation one s
 
 #### Git-sync with Dev IR: Map your Managed Airflow environment with your Git repository’s Dev branch. 
 
-**CI Pipeline with Dev IR:** When a pull request (PR) is made from a feature branch to the Dev branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
-    1. **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
-    2. **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
-    3. **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
-    4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
+**CI Pipeline with Dev IR:** 
+
+When a pull request (PR) is made from a feature branch to the Dev branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
+1. **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
+2. **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
+3. **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
+4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
 #### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
