@@ -667,7 +667,7 @@ Before you proceed further, make sure that you've fully configured the Red Hat H
 
 ### Additional setup in Azure Load Balancer for active/read-enabled setup
 
-To proceed with more steps on provisioning a second virtual IP, make sure that you've configured Azure Load Balancer as described in the [Deploy Linux VMs manually via Azure portal](#deploy-linux-vms-manually-via-azure-portal) section.
+To proceed with more steps on provisioning a second virtual IP, make sure that you've configured Azure Load Balancer as described in the [Deploy Linux VMs manually via Azure portal](#deploy-linux-vms-manually-via-the-azure-portal) section.
 
 1. For a **standard** load balancer, follow these steps on the same load balancer that you created in an earlier section.
 
