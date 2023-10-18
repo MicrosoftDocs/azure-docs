@@ -33,7 +33,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ## About this example
 
-In this example, you you will learn how to package models in Azure Machine Learning.
+In this example, you will learn how to package models in Azure Machine Learning.
 
 #### Clone the repository
 
@@ -109,7 +109,7 @@ You can create model packages explicitly to allow you to control how the packagi
 
 You can create model packages by specifying the:
 - __Model to package__: Each model package can contain only a single model. Azure Machine Learning doesn't support packaging of multiple models under the same model package.
-- __Base environment__: Environments are used to indicate the base image, and in Python packages depedencies your model need. For MLflow models, Azure Machine Learning automatically generates the base environment. For custom models, you need to specify it.
+- __Base environment__: Environments are used to indicate the base image, and in Python packages dependencies your model need. For MLflow models, Azure Machine Learning automatically generates the base environment. For custom models, you need to specify it.
 - __Serving technology__: The inferencing stack used to run the model.
 
 ### Register the model
