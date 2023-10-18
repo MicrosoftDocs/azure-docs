@@ -81,8 +81,7 @@ In the HNSW algorithm, a vector query search operation is executed by navigating
 
 ## Similarity metrics used to measure nearness
 
-Once an algorithm finds matching vectors, a similarity metric calculation compares neighboring vectors and measures the distance.
-The score and rank of results comes from this metric calculation.
+The algorithm finds candidate vectors to evaluate similarity. To perform this task, a similarity metric calculation compares the candidate vector to the query vector and measures the similarity. The algorithm keeps track of the ordered set of most similar vectors that its found, which forms the ranked result set when the algorithm has reached completion.
 
 | Metric | Description |
 |--------|-------------|
@@ -94,7 +93,7 @@ The score and rank of results comes from this metric calculation.
 
 Whenever results are ranked, **`@search.score`** property contains the value used to order the results. 
 
-| Search method | Parameter | Scoring algorithm | Range |
+| Search method | Parameter | Scoring metric | Range |
 |---------------|-----------|-------------------|-------|
 | vector search | `@search.score` | Cosine | 0.333 - 1.00 | 
 
