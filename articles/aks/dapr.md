@@ -173,7 +173,7 @@ You have the option of allowing Dapr to auto-update its minor version by specify
 Note, the versioning of Dapr is in the format `MAJOR.MINOR.PATCH`, which means `1.11.0` to `1.12.0` is a minor version upgrade.
 
 > [!WARNING]
-> For production environments, we do not recommend enabling auto-upgrade-minor-version. This option is suitable for dev or test environments only.
+> For production environments, enabling auto-upgrade-minor-version is not recommended. This option is suitable for dev or test environments only.
 
 ```azurecli
 --auto-upgrade-minor-version true
