@@ -83,7 +83,7 @@ This section shows how to grant your VM access to an Azure Storage container. Yo
 1. Navigate back to your newly created storage account.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -184,4 +184,4 @@ The response contains the contents of the file:
 In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage, see:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](../../storage/common/storage-introduction.md)
+> [Azure Storage](/azure/storage/common/storage-introduction)

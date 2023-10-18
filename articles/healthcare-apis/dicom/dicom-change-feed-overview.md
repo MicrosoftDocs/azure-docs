@@ -1,6 +1,6 @@
 ---
 title:  Overview of DICOM change feed - Azure Health Data Services
-description: In this article, you'll learn the concepts of DICOM change feed.
+description: In this article, you learn the concepts of DICOM change feed.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -23,7 +23,7 @@ Make sure to specify the version as part of the URL when making requests. More i
 
 ## API Design
 
-The API exposes two `GET` endpoints for interacting with the change feed. A typical flow for consuming the change feed is [provided below](#usage).
+The API exposes two `GET` endpoints for interacting with the change feed. A typical flow for consuming the change feed is provided in the [Usage](#usage) section.
 
 Verb | Route              | Returns     | Description
 :--- | :----------------- | :---------- | :---
@@ -148,7 +148,7 @@ Content-Type: application/json
 Name            | Type     | Description | Default | Min | Max |
 :-------------- | :------- | :---------- | :------ | :-- | :-- |
 offset          | long     | The exclusive starting sequence number for events | `0` | `0` | |
-limit           | int      | The maximum value of the sequence number relative to the offset. For example, if the offset is 10 and the limit is 5, then the maximum sequence number returned will be 15. | `10` | `1` | `100` |
+limit           | int      | The maximum value of the sequence number relative to the offset. For example, if the offset is 10 and the limit is 5, then the maximum sequence number returned is 15. | `10` | `1` | `100` |
 includeMetadata | bool     | Indicates whether or not to include the DICOM metadata | `true` | | |
 
 ## Latest change feed
@@ -190,11 +190,11 @@ includeMetadata | bool | Indicates whether or not to include the metadata | `tru
 #### Version 2
 
 1. An application regularly queries the change feed on some time interval
-    * For example, if querying every hour, a query for the change feed may look like `/changefeed?startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
-    * If starting from the beginning, the change feed query may omit the `startTime` to read all of the changes up to, but excluding, the `endTime`
-        * E.g. `/changefeed?endTime=2023-05-10T17:00:00Z`
-2. Based on the `limit` (if provided), an application continues to query for additional pages of change events if the number of returned events is equal to the `limit` (or default) by updating the offset on each subsequent query
-    * For example, if the `limit` is `100`, and 100 events are returned, then the subsequent query would include `offset=100` to fetch the next "page" of results. The below queries demonstrate the pattern:
+    * For example, if querying every hour, a query for the change feed might look like `/changefeed?startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
+    * If starting from the beginning, the change feed query might omit the `startTime` to read all of the changes up to, but excluding, the `endTime`
+        * For example: `/changefeed?endTime=2023-05-10T17:00:00Z`
+2. Based on the `limit` (if provided), an application continues to query for more pages of change events if the number of returned events is equal to the `limit` (or default) by updating the offset on each subsequent query
+    * For example, if the `limit` is `100`, and 100 events are returned, then the subsequent query would include `offset=100` to fetch the next "page" of results. The queries demonstrate the pattern:
         * `/changefeed?offset=0&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
         * `/changefeed?offset=100&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
         * `/changefeed?offset=200&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`

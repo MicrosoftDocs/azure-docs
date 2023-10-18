@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 09/15/2023
+ms.date: 10/16/2023
 ms.author: cynthn
 ms.reviewer: erd
 ms.custom: mvc, mode-ui
@@ -111,6 +111,8 @@ If the VM is still needed, Azure provides an Auto-shutdown feature for virtual m
 
 > [!NOTE]
 > Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
+
+For more information see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 

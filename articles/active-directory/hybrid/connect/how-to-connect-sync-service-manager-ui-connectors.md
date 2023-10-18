@@ -1,6 +1,6 @@
 ---
-title: Connectors in the Microsoft Entra Synchronization Service Manager UI'
-description: Understand the Connectors tab in the Synchronization Service Manager for Microsoft Entra Connect.
+title: Connectors in the Microsoft Entra Connect Sync Service Manager UI'
+description: Understand the Connectors tab in the Service Manager for Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Using connectors with the Microsoft Entra Connect Sync Service Manager
 
-![Screenshot that shows the Sync Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Screenshot that shows the Microsoft Entra Connect Sync Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 The Connectors tab is used to manage all systems the sync engine is connected to.
 

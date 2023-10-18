@@ -358,7 +358,7 @@ Microsoft Entra ID adds entries to the audit logs when:
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Microsoft Entra ID keeps most auditing data for 30 days** and makes the data available by using the [Microsoft Entra admin center](https://entra.microsoft.com) or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Microsoft Entra ID keeps most auditing data for 30 days** and makes the data available by using the [Microsoft Entra admin center](https://entra.microsoft.com) or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](/azure/sentinel/connect-azure-active-directory), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 

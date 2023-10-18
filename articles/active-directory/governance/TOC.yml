@@ -274,7 +274,7 @@
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
-    href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
+    href: /powershell/module/microsoft.graph.identity.governance/?viewFallbackFrom=graph-powershell-beta&preserve-view=true&view=graph-powershell-1.0
   - name: Access reviews - Microsoft Graph API
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
