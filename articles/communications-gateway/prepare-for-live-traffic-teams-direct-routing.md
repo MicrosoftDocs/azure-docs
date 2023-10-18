@@ -10,7 +10,7 @@ ms.date: 10/09/2023
 
 # Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway
 
-Before you can launch your Operator Connect or Teams Phone Mobile service, you and your onboarding team must:
+Before you can launch your Microsoft Teams Direct Routing service, you and your onboarding team must:
 
 - Test your service.
 - Prepare for launch.
@@ -29,6 +29,7 @@ You must have completed the following procedures.
 
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
 - [Deploy Azure Communications Gateway](deploy.md)
+- [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md)
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 - [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md)
 - [Configure test numbers for Microsoft Teams Direct Routing](configure-test-numbers-teams-direct-routing.md)

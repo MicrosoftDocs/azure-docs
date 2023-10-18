@@ -105,7 +105,7 @@ items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
-          href: /azure/azure-monitor/faq#opentelemetry
+          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Client-side JavaScript SDK
         items:
         - name: Get Started with JavaScript SDK
@@ -364,8 +364,6 @@ items:
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: Separate development, test, and production
-        href: app/separate-resources.md
     - name: Tutorials
       items:
       - name: Application Insights SDK for ASP.NET Core applications

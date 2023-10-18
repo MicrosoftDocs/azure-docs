@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/17/2023
+ms.date: 10/17/2023
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
@@ -47,4 +47,3 @@ Building great multi-tenant apps can be challenging because of the number of dif
 For more information about tenancy in Microsoft Entra ID, see:
 
 - [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-- [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md)
