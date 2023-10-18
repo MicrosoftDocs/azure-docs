@@ -8,6 +8,12 @@ items:
         href: get-started/overview-iot-operations.md
       - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
+      - name: Add OPC UA assets to your cluster
+        href: get-started/quickstart-add-assets.md
+      - name: Use pipelines to process messages
+        href: get-started/quickstart-process-telemetry.md
+      - name: Get insights from your data
+        href: get-started/quickstart-get-insights.md
     - name: Deploy
       items:
       - name: Overview
