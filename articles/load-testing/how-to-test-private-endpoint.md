@@ -25,7 +25,7 @@ Learn more about the scenarios for [deploying Azure Load Testing in your virtual
 
 The following diagram provides a technical overview:
 
-:::image type="content" source="media/how-to-test-private-endpoint/azure-load-testing-vnet-injection.svg" alt-text="Diagram that shows the Azure Load Testing VNET injection technical overview." lightbox="media/how-to-test-private-endpoint/azure-load-testing-vnet-injection.svg":::
+:::image type="content" source="media/how-to-test-private-endpoint/azure-load-testing-vnet-injection.svg" alt-text="Diagram that shows the Azure Load Testing VNET injection technical overview.":::
 
 When you start the load test, Azure Load Testing service injects the following Azure resources in the virtual network that contains the application endpoint:
 
