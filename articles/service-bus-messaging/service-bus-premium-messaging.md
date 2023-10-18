@@ -142,7 +142,7 @@ The Service Bus Geo-disaster recovery feature is designed to make it easier to r
 For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
 
 ## Java Message Service (JMS) support
-The premium tier supports JMS 1.1 and JMS 2.0. For more information, see [How to use JMS 2.0 with Azure Service Bus Premium](how-to-use-java-message-service-20.md)
+The premium tier supports JMS 1.1 and JMS 2.0. For more information, see [How to use JMS 2.0 with Azure Service Bus Premium](how-to-use-java-message-service-20.md).
 
 The standard tier supports only JMS 1.1 subset focused on queues. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard](service-bus-java-how-to-use-jms-api-amqp.md).
 
