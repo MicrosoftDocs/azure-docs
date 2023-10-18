@@ -60,7 +60,7 @@ Azure Database for MySQL single server is a fully managed database service desig
 
 Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer to [select the right deployment option for your documentation](../select-right-deployment-type.md).
 
-For detailed overview of single server deployment mode, refer [single server overview](single-server-overview.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Single Server](../single-server/single-server-whats-new.md).
+For detailed overview of single server deployment mode, refer [single server overview](overview-single.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
 ## Contacts
 For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.

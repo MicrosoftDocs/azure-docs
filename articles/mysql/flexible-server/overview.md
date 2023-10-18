@@ -38,7 +38,7 @@ Flexible servers are best suited for
 
 For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
-![Flexible Server conceptual diagram](media/overview/1-flexible-server-conceptual-diagram.png) 
+![Flexible Server conceptual diagram](media/overview-single/1-flexible-server-conceptual-diagram.png) 
 
 ## Free 12-month offer
 
