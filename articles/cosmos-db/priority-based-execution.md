@@ -16,7 +16,7 @@ ms.date: 11/15/2023
 
 Priority based execution allows users to specify priority of requests sent to Azure Cosmos DB. In cases where the number of requests exceeds the capacity that can be processed within the configured Request Units per second (RU/s), then Azure Cosmos DB throttles low priority requests to prioritize the execution of high priority requests.
 
-This feature enables users to execute critical tasks while delaying less important tasks when the total consumption of container exceeds the configured RU/s in high load scenarios by implementing throttling measures for low priority requests first. Any client application using SDK retries low priority requests in accordance with the [retry policy](https://learn.microsoft.com/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications#should-my-application-retry-on-errors) configured.
+This feature enables users to execute critical tasks while delaying less important tasks when the total consumption of container exceeds the configured RU/s in high load scenarios by implementing throttling measures for low priority requests first. Any client application using SDK retries low priority requests in accordance with the [retry policy](../../articles/cosmos-db/nosql/conceptual-resilient-sdk-applications.md) configured.
 
 
 > [!NOTE]
@@ -108,5 +108,5 @@ Priority-based execution is currently not supported with following features:
 
 ## Next Steps
 
-- See the FAQ on [Priority-based execution](priority-based-execution-faq.md)
+- See the FAQ on [Priority-based execution](priority-based-execution-faq.yml)
 - Learn more about [Burst capacity](burst-capacity.md)

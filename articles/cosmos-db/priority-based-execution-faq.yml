@@ -15,7 +15,7 @@ title: Frequently asked questions on Priority-based execution in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-Priority based execution allows users to specify priority of requests sent to Azure Cosmos DB. In cases where the number of requests exceeds the capacity that can be processed within the configured Request Units per second (RU/s), then Azure Cosmos DB throttles low priority requests to prioritize the execution of high priority requests.
+  Priority based execution allows users to specify priority of requests sent to Azure Cosmos DB. In cases where the number of requests exceeds the capacity that can be processed within the configured Request Units per second (RU/s), then Azure Cosmos DB throttles low priority requests to prioritize the execution of high priority requests.
 
 sections:
   - name: General
