@@ -30,7 +30,7 @@ You'll need:
     > This quickstart assumes that you have cloned a GitHub repository to your computer so that you can add the associated IP address to a firewall rule, if necessary.
 
 - An Azure Database for MySQL server.
-  - [Quickstart: Create an Azure Database for MySQL server in the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+  - [Quickstart: Create an Azure Database for MySQL server in the Azure portal](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## Workflow file overview
 

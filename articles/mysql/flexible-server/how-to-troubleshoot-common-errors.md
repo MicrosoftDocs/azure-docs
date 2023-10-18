@@ -125,7 +125,7 @@ The above error occurs if:
   select user from mysql.user;
   ```
 
-* If you can't sign in to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](how-to-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password, and restore the admin permissions, which will allow you to sign in using the server admin and perform further operations.
+* If you can't sign in to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](../single-server/how-to-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password, and restore the admin permissions, which will allow you to sign in using the server admin and perform further operations.
 
 ## Next steps
 

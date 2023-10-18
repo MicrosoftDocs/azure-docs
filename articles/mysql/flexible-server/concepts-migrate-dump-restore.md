@@ -27,7 +27,7 @@ You can also refer to [Database Migration Guide](https://github.com/Azure/azure-
 
 To step through this how-to guide, you need to have:
 
-- [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Create Azure Database for MySQL server - Azure portal](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
 - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do dump and restore commands.
 
@@ -197,6 +197,6 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 
 ## Next steps
 
-- [Connect applications to Azure Database for MySQL](./how-to-connection-string.md).
+- [Connect applications to Azure Database for MySQL]((../single-server/how-to-connection-string.md).
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - If you're looking to migrate large databases with database sizes more than 1 TB, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

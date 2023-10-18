@@ -252,4 +252,4 @@ In the event of stability issues affecting your database, any information gather
 - [Best practices for optimal performance of Azure Database for servers](concept-performance-best-practices.md)
 - [Best practices for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
 - [Best practices for monitoring your Azure Database for MySQL](concept-monitoring-best-practices.md)
-- [Get started with Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Get started with Azure Database for MySQL](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)
