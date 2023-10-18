@@ -88,10 +88,13 @@ The following table lists each supported geographic location and its [ISO 3166 
 
 | Country/Region Name  |ISO-2|
 |----------------------|-----|
+| Argentina            | AR  |
 | Armenia              | AM  |
+| Australia            | AU  |
 | Austria              | AT  |
 | Belarus              | BY  |
 | Belgium              | BE  |
+| Brazil               | BR  |
 | Bulgaria             | BG  |
 | Canada               | CA  |
 | Chile                | CL  |
@@ -105,11 +108,13 @@ The following table lists each supported geographic location and its [ISO 3166 
 | France               | FR  |
 | Germany              | DE  |
 | Greece               | GR  |
+| Hong Kong SAR        | HK  |
 | Hungary              | HU  |
 | Iceland              | IS  |
 | India                | IN  |
 | Indonesia            | ID  |
 | Ireland              | IE  |
+| Israel<sup>1</sup>   | IL  |
 | Italy                | IT  |
 | Korea                | KE  |
 | Latvia               | LV  |
@@ -118,6 +123,7 @@ The following table lists each supported geographic location and its [ISO 3166 
 | Luxembourg           | LU  |
 | Malaysia             | MY  |
 | Malta                | MT  |
+| Mexico               | MX  |
 | Monaco               | MC  |
 | Netherlands          | NL  |
 | New Zealand          | NZ  |
@@ -126,8 +132,8 @@ The following table lists each supported geographic location and its [ISO 3166 
 | Poland               | PL  |
 | Portugal             | PT  |
 | Puerto Rico          | PR  |
+| Qatar                | QA  |
 | Romania              | RO  |
-| Russia               | RU  |
 | Saudi Arabia         | SA  |
 | Serbia               | RS  |
 | Singapore            | SG  |
@@ -143,6 +149,8 @@ The following table lists each supported geographic location and its [ISO 3166 
 | United Arab Emirates | AE  |
 | United Kingdom       | GB  |
 | United States        | US  |
+
+<sup>1</sup> Israel requires reaching out to asa-e-contact@vmware.com with Tax ID (TIN) information to unlock.
 
 ## Troubleshoot errors
 
