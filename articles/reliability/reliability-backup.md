@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: backup
-ms.date: 09/28/2023
+ms.date: 10/18/2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Backup so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
