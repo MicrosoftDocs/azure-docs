@@ -116,7 +116,7 @@
       - name: Integrate with Application Proxy using PingAccess
         href: application-proxy-ping-access-publishing-guide.md
       - name: Integrate with Microsoft Entra Domain Services
-        href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
+        href: /entra/identity/domain-services/deploy-azure-app-proxy?context=/azure/active-directory/app-proxy/context/app-proxy-context
       - name: Integrate with Power BI
         href: application-proxy-integrate-with-power-bi.md
       - name: Integrate with Defender for Cloud Apps
@@ -174,7 +174,7 @@
   - name: Resources
     items:
     - name: Support and help options for developers
-      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      href: ../develop/developer-support-help-options.md?context=/azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure feedback forum
       href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
     - name: Microsoft Q&A question page

@@ -65,7 +65,7 @@ SQL Server 2019 requires Windows Server 2016 or newer as a server operating syst
 
 You can't install this version on an older Windows Server version. We suggest you upgrade your Microsoft Entra Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system. 
 
-This [article](/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
+This [article](/windows-server/get-started/install-upgrade-migrate) describes the upgrade from older Windows Server versions to Windows Server 2019. 
 
 ### PowerShell 5.0 
 
