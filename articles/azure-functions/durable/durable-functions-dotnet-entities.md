@@ -34,7 +34,7 @@ This article focuses primarily on the class-based syntax, as we expect it to be 
 
 The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
 
-# [C# (In-proc)](#tab/in-process)
+# [C# (In-proc)](#tab/in-process) 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
 public class Counter
@@ -151,6 +151,8 @@ Depending on how an entity is implemented, delete is sometimes implicitly define
 - When implemented using the [function based syntax](#function-based-syntax) or deriving from `ITaskEntity`, delete is *not* implicit and must be manually implemented. 
 
 You can delete an entity manually by setting state to `null`. 
+
+---
 
 ### Class Requirements
  
