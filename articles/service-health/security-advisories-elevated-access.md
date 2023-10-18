@@ -96,7 +96,7 @@ https://management.azure.com/subscriptions/227b734f-e14f-4de6-b7fc-3190c21e69f6/
 ```
 Operation: GET
 
-The following in the events object in the response will be populated for security Advisories events using this endpoint: 
+The following in the events object response will be populated for security Advisories events using this endpoint: 
 - Id
 - name
 - type
