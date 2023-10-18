@@ -152,8 +152,12 @@ The following table lists the extra firewall configuration required for managed 
 | `global.handler.control.monitor.azure.us` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
 
+## Troubleshooting
+If you have registered your cluster and/or configured HCI Insights before November, 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel may not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights. |
+
 ## Next steps
 
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+
