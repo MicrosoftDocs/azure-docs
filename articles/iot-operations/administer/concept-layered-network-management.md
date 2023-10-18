@@ -1,7 +1,7 @@
 ---
 title: What is Azure IoT Layered Network Management?
 # titleSuffix: Azure IoT Layered Network Management
-description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
+description: Learn about Azure IoT Layered Network Management.
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article

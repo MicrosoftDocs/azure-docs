@@ -1,7 +1,7 @@
 ---
 title: Configure Azure IoT Layered Network Management Environment
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure Azure IoT Layered Network Management to an AKS cluster.
+description: Configure Azure IoT Layered Network Management environment.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
