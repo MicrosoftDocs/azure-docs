@@ -2,7 +2,7 @@
  title: include file
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 05/25/2022
+ ms.date: 10/18/2023
  ms.author: cherylmc
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
