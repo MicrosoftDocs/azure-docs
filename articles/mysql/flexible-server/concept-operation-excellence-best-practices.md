@@ -27,7 +27,7 @@ The following are operational guidelines that should be followed when working wi
 
 * **Scale up your DB instance**: You can [scale up](../single-server/how-to-create-manage-server-portal.md) when you are approaching storage capacity limits. You should have some buffer in storage and memory to accommodate unforeseen increases in demand from your applications. You can also [enable the storage autogrow](../single-server/how-to-auto-grow-storage-portal.md) feature 'ON' just to ensure that the service automatically scales the storage as it nears the storage limits. 
 
-* **Configure backups**: Enable [local or geo-redundant backups](how-to-restore-server-portal.md#set-backup-configuration) based on the requirement of the business. Also, you modify the retention period on how long the backups are available for business continuity. 
+* **Configure backups**: Enable [local or geo-redundant backups](how-to-restore-server-portal.md) based on the requirement of the business. Also, you modify the retention period on how long the backups are available for business continuity. 
 
 * **Increase I/O capacity**: If your database workload requires more I/O than you have provisioned, recovery or other transactional operations for your database will be slow. To increase the I/O capacity of a server instance, do any or all of the following: 
 

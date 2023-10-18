@@ -851,11 +851,6 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-common-connection-issues.md",
-        "redirect_url": "/azure/my-sql/flexible-server/how-to-troubleshoot-common-connection-issues-single",
-        "redirect_document_id": false
-      },
-      {
         "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-common-errors.md",
         "redirect_url": "/azure/my-sql/flexible-server/how-to-troubleshoot-common-errors",
         "redirect_document_id": false

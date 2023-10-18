@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Azure DB for MySQL?
-    href: flexible-server/overview-single.md
+    href: single-server/overview.md
   - name: Select the right MySQL deployment type
     href: select-right-deployment-type.md
   - name: Try Flexible Server for free
@@ -394,7 +394,7 @@
        - name: Go
          href: single-server/connect-go.md
        - name: Troubleshoot connection errors
-         href: flexible-server/how-to-troubleshoot-common-connection-issues-single.md
+         href: single-server/how-to-troubleshoot-common-connection-issues.md
          displayName: debug, connection issues, connectivity, cannot connect
     - name: Configure SSL
       href: single-server/how-to-configure-ssl.md
