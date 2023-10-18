@@ -90,7 +90,7 @@ Mounted on node2 (**hanadb2**):
 The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The configuration shown here has a load balancer with:
 
 - Front-end IP address: 10.32.0.10 for hn1-db
-- Probe Port: 62503
+- Probe port: 62503
 
 ## Set up the Azure NetApp Files infrastructure
 
