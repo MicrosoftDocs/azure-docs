@@ -64,7 +64,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enable single sign-on
-            url: /training/modules/enable-single-sign-on/
+            url: ./what-is-single-sign-on.md
   - title: Secure an app
     linkLists:
       - linkListType: how-to-guide
@@ -106,7 +106,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Configure admin consent workflow
-            url: /training/modules/configure-admin-consent-workflow/
+            url: ./configure-admin-consent-workflow.md
   - title: Maintain an app
     linkLists:
       - linkListType: how-to-guide
