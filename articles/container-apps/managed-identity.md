@@ -12,7 +12,7 @@ ms.author: v-wellsjason
 
 # Managed identities in Azure Container Apps
 
-A managed identity from Azure Active Directory (Azure AD) allows your container app to access other Azure AD-protected resources. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Microsoft Entra ID allows your container app to access other Microsoft Entra protected resources. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your container app can be granted two types of identities:
 
@@ -21,7 +21,7 @@ Your container app can be granted two types of identities:
 
 ## Why use a managed identity?
 
-You can use a managed identity in a running container app to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You can use a managed identity in a running container app to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 With managed identities:
 
@@ -161,14 +161,14 @@ For a complete ARM template example, see [ARM API Specification](azure-resource-
 
 ## Configure a target resource
 
-For some resources, you'll need to configure role assignments for your app's managed identity to grant access. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, will be rejected even if you use a valid token for that identity. To learn more about Azure role-based access control (Azure RBAC), see [What is RBAC?](../role-based-access-control/overview.md). To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+For some resources, you'll need to configure role assignments for your app's managed identity to grant access. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, will be rejected even if you use a valid token for that identity. To learn more about Azure role-based access control (Azure RBAC), see [What is RBAC?](../role-based-access-control/overview.md). To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
 > The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
 
 ## Connect to Azure services in app code
 
-With managed identities, an app can obtain tokens to access Azure resources that use Azure Active Directory, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
+With managed identities, an app can obtain tokens to access Azure resources that use Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
 
 Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. Connecting to other Azure services is as simple as adding a credential object to the service-specific client.
 
@@ -260,7 +260,7 @@ Content-Type: application/json
 
 ```
 
-This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, you'll then add the value of `access_token` to a client connection with the vault.
+This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, you'll then add the value of `access_token` to a client connection with the vault.
 
 ### REST endpoint reference
 
@@ -273,7 +273,7 @@ To get a token for a resource, make an HTTP GET request to the endpoint, includi
 
 | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. The resource could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI. |
+| resource          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. The resource could be one of the [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI. |
 | api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later.                                                                                                                                                                                                                                                                                  |
 | X-IDENTITY-HEADER | Header | The value of the `IDENTITY_HEADER` environment variable. This header mitigates server-side request forgery (SSRF) attacks.                                                                                                                                                                                                                           |
 | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                                         |
@@ -295,7 +295,7 @@ az containerapp identity show --name <APP_NAME> --resource-group <GROUP_NAME>
 
 ## Remove a managed identity
 
-When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the container app resource itself. Removing user-assigned managed identities from your container app doesn't remove them from Azure Active Directory.
+When you remove a system-assigned identity, it's deleted from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when you delete the container app resource itself. Removing user-assigned managed identities from your container app doesn't remove them from Microsoft Entra ID.
 
 # [Azure portal](#tab/portal)
 

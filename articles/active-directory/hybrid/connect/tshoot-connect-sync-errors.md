@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q3-portal, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
-# Understanding errors during Azure AD synchronization
+# Understanding errors during Microsoft Entra synchronization
 
 Errors can occur when identity data is synced from Windows Server Active Directory to Microsoft Entra ID. This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors, and potential ways to fix the errors. This article includes common error types and might not cover all possible errors.
 

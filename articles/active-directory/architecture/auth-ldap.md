@@ -58,10 +58,10 @@ There is a need to for an application or service to use LDAP authentication.
 
 ## Implement LDAP authentication with Microsoft Entra ID
 
-* [Create and configure a Microsoft Entra Domain Services instance](../../active-directory-domain-services/tutorial-create-instance.md) 
+* [Create and configure a Microsoft Entra Domain Services instance](/entra/identity/domain-services/tutorial-create-instance) 
 
-* [Configure virtual networking for a Microsoft Entra Domain Services instance](../../active-directory-domain-services/tutorial-configure-networking.md) 
+* [Configure virtual networking for a Microsoft Entra Domain Services instance](/entra/identity/domain-services/tutorial-configure-networking) 
 
-* [Configure Secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
+* [Configure Secure LDAP for a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-configure-ldaps) 
 
-* [Create an outbound forest trust to an on-premises domain in Microsoft Entra Domain Services](../../active-directory-domain-services/tutorial-create-forest-trust.md)
+* [Create an outbound forest trust to an on-premises domain in Microsoft Entra Domain Services](/entra/identity/domain-services/tutorial-create-forest-trust)

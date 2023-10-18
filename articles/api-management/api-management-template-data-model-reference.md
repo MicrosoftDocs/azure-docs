@@ -262,7 +262,7 @@ This topic describes the entity and type representations for common items used i
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
 |`Properties`|string dictionary|Properties for this authentication provider.|  
-|`AuthenticationType`|string|The provider type. (Azure Active Directory, Facebook login, Google Account, Microsoft Account, Twitter).|  
+|`AuthenticationType`|string|The provider type. (Microsoft Entra ID, Facebook login, Google Account, Microsoft Account, Twitter).|  
 |`Caption`|string|Display name of the provider.|  
   
 ##  <a name="Representation"></a> Representation  

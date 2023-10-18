@@ -25,7 +25,7 @@ Chaos Studio has three levels of security to help you control how and when fault
 
    When you attempt to control the ability to inject faults against a resource, the most important operation to restrict is `Microsoft.Chaos/experiments/start/action`. This operation starts a chaos experiment that injects faults.
 
-* Second, a chaos experiment has a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that executes faults on a resource. If you choose to use a system-assigned managed identity for your experiment, the identity is created at experiment creation time in your Azure Active Directory tenant. User-assigned managed identites may be used across any number of experiments.
+* Second, a chaos experiment has a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that executes faults on a resource. If you choose to use a system-assigned managed identity for your experiment, the identity is created at experiment creation time in your Microsoft Entra tenant. User-assigned managed identites may be used across any number of experiments.
 
    Within a chaos experiment, you can choose to enable custom role assignment on either your system-assigned or user-assigned managed identity selection. Enabling this functionality allows Chaos Studio to create and assign a custom role containing any necessary experiment action capabilities to your experiment's identity (that do not already exist in your identity selection). If a chaos experiment is using a user-assigned managed identity, any custom roles assigned to the experiment identity by Chaos Studio will persist after experiment deletion.
   
@@ -88,9 +88,6 @@ A limitation of service tags is that they can only be used with applications tha
 Chaos Studio encrypts all data by default. Chaos Studio only accepts input for system properties like managed identity object IDs, experiment/step/branch names, and fault parameters. An example is the network port range to block in a network disconnect fault.
 
 These properties shouldn't be used to store sensitive data, such as payment information or passwords. For more information on how Chaos Studio protects your data, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md).
-
-## Data Residency
-Azure Chaos Studio doesn't store customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 Now that you understand how to secure your chaos experiment, you're ready to:

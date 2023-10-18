@@ -614,7 +614,7 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-secret.png" alt-text="Screenshot showing the Environment Configure Dev pane, with Add secret highlighted.":::
 
-1. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
+1. For **Value**, enter the client ID (`appId`) for the **Dev** Microsoft Entra app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
  
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-add-secret.png" alt-text="Screenshot of the Add secret box with the name AZURE CLIENT ID, the value set to an ID number, and add secret highlighted.":::
 
@@ -628,7 +628,7 @@ Return to the main environments page by selecting **Environments** in the left s
 
 2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Test** Azure AD app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Test** Microsoft Entra app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
 
 4. Select **Add secret**.
 
@@ -640,7 +640,7 @@ Once more, return to the main environments page by selecting **Environments** in
 
 2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Prod** Azure AD app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Prod** Microsoft Entra app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
 
 4. Select **Add secret**.
 

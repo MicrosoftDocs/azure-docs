@@ -91,7 +91,7 @@ This article lists the Microsoft Entra built-in roles you can assign to allow ma
 > | [Partner Tier1 Support](#partner-tier1-support) | Do not use - not intended for general use.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 4ba39ca4-527c-499a-b93d-d9b492c50246 |
 > | [Partner Tier2 Support](#partner-tier2-support) | Do not use - not intended for general use.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8 |
 > | [Password Administrator](#password-administrator) | Can reset passwords for non-administrators and Password Administrators.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 966707d0-3269-4727-9be2-8c3a10f19b9d |
-> | [Permissions Management Administrator](#permissions-management-administrator) | Manage all aspects of Entra Permissions Management. | af78dc32-cf4d-46f9-ba4e-4428526346b5 |
+> | [Permissions Management Administrator](#permissions-management-administrator) | Manage all aspects of Microsoft Entra Permissions Management. | af78dc32-cf4d-46f9-ba4e-4428526346b5 |
 > | [Power Platform Administrator](#power-platform-administrator) | Can create and manage all aspects of Microsoft Dynamics 365, Power Apps and Power Automate. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
 > | [Printer Administrator](#printer-administrator) | Can manage all aspects of printers and printer connectors. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
 > | [Printer Technician](#printer-technician) | Can register and unregister printers and update printer status. | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477 |
@@ -1124,7 +1124,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
 > | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
-> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Entra Network Access |
 > | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Power Automate |
 > | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
 > | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
@@ -1155,7 +1155,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.office365.userCommunication/allEntities/allTasks | Read and update what's new messages visibility |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.office365.yammer/allEntities/allProperties/allTasks | Manage all aspects of Yammer |
-> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Entra Permissions Management |
 > | microsoft.powerApps/allEntities/allTasks | Manage all aspects of Power Apps |
 > | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Fabric and Power BI |
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
@@ -1259,7 +1259,7 @@ Users with this role **cannot** do the following:
 > | microsoft.commerce.billing/allEntities/allProperties/read | Read all resources of Office 365 billing |
 > | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
-> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Entra Network Access |
+> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Microsoft Entra Network Access |
 > | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
 > | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
 > | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
@@ -1273,7 +1273,7 @@ Users with this role **cannot** do the following:
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.office365.yammer/allEntities/allProperties/read | Read all aspects of Yammer |
-> | microsoft.permissionsManagement/allEntities/allProperties/read | Read all aspects of Entra Permissions Management |
+> | microsoft.permissionsManagement/allEntities/allProperties/read | Read all aspects of Microsoft Entra Permissions Management |
 > | microsoft.teams/allEntities/allProperties/read | Read all properties of Microsoft Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/read | Read all aspects of Virtual Visits |
 > | microsoft.viva.goals/allEntities/allProperties/read | Read all aspects of Microsoft Viva Goals |
@@ -1311,7 +1311,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
-> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Entra Network Access |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
@@ -1932,14 +1932,14 @@ Users with this role **cannot** do the following:
 
 Assign the Permissions Management Administrator role to users who need to do the following tasks:
 
-- Manage all aspects of Entra Permissions Management, when the service is present
+- Manage all aspects of Microsoft Entra Permissions Management, when the service is present
 
 Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Entra Permissions Management |
 
 ## Power Platform Administrator
 
@@ -2199,7 +2199,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Entra Network Access |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
@@ -2288,7 +2288,7 @@ In | Can do
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
-> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Entra Network Access |
+> | microsoft.networkAccess/allEntities/allProperties/read | Read all aspects of Microsoft Entra Network Access |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Read all properties of attack payloads in Attack Simulator |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |

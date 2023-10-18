@@ -53,5 +53,5 @@ To close an unmanaged work or school account, follow these steps:
 ## Next steps
 
 - [What is self-service sign-up for Microsoft Entra ID?](directory-self-service-signup.md)
-- [Delete the user from Unmanaged Tenant](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
-- [Accessing and exporting system-generated logs for Unmanaged Tenants](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
+- [Delete the user from Unmanaged Tenant](/power-automate/privacy-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Accessing and exporting system-generated logs for Unmanaged Tenants](/power-platform/admin/powerapps-privacy-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

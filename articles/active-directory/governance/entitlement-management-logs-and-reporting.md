@@ -62,7 +62,7 @@ Archiving Microsoft Entra audit logs requires you to have Azure Monitor in an Az
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#azure-rbac) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](/azure/azure-monitor/logs/manage-access#azure-rbac) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -89,11 +89,11 @@ Use the following procedure to view events:
     ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Microsoft Entra admin center
-You can create your own queries on Microsoft Entra ID audit events, including entitlement management events.  
+You can create your own queries on Microsoft Entra audit events, including entitlement management events.  
 
 1. In Identity of the Microsoft Entra admin center, select **Logs** under the Monitoring section in the left navigation menu to create a new query page.
 
-1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Microsoft Entra ID audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
+1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Microsoft Entra audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
 
 1. Next, in the query text area, delete the string "search *" and replace it with the following query:
 
@@ -215,4 +215,4 @@ order by ActivityDateTime desc
 ```
 
 ## Next steps
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)

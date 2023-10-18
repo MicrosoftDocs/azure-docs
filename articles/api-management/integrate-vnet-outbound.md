@@ -22,7 +22,7 @@ When an API Management instance is integrated with a virtual network for outboun
 
 - An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
 - A virtual network with a subnet where your API Management backend APIs are hosted
-    - The network must be deployed in the same region as your API Management instance
+   - The network must be deployed in the same region and subscription as your API Management instance
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
 
 ## Delegate the subnet
@@ -58,6 +58,7 @@ If you have an API hosted in the virtual network, you can import it to your Mana
 ## Related content
 
 * [Use a virtual network with Azure API Management](virtual-network-concepts.md)
+
 
 
 
