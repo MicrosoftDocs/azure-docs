@@ -290,23 +290,24 @@ The response for the above example query returns the following match as the top 
 
 If your semantic ranking code is using preview APIs, this section explains how to migrate to stable versions. Generally available versions include:
 
-+ [2023-11-01 (REST)](https://learn.microsoft.com/rest/api/searchservice/)
++ [2023-11-01 (REST)](/rest/api/searchservice/)
 + [Azure.Search.Documents (Azure SDK for .NET)](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-### Behavior changes
+**Behavior changes:**
 
 + As of July 14, 2023, semantic ranking is language agnostic. It can rerank results composed of multilingual content, with no bias towards a specific language. In preview versions, semantic ranking would deprioritize results differing from the language specified by the field analyzer.
 
-+ In 2021-04-30-Preview and all later versions, `semanticConfiguration` defines which search fields are used in semantic ranking. In the 2020-06-30-Preview REST API, `searchFields` was used for field specification and prioritization. This approach only worked in 2020-06-30-Preview and is obsolete in all other versions.
-
++ In 2021-04-30-Preview and all later versions, `semanticConfiguration` (in an index definition) defines which search fields are used in semantic ranking. In the 2020-06-30-Preview REST API, `searchFields` (in a query request) was used for field specification and prioritization. This approach only worked in 2020-06-30-Preview and is obsolete in all other versions.
 
 ### Step 1: Remove queryLanguage
 
-The semantic ranking engine is now language agnostic, even when the query and document languages differ. If this property is specified in your query logic, it's ignored for semantic ranking, but still used for [spell correction](speller-how-to-add.md).
+The semantic ranking engine is now language agnostic. If `queryLanguage` is specified in your query logic, it's no longer used for semantic ranking, but still applies to [spell correction](speller-how-to-add.md).
 
-+ [Update the index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to exclude `queryLanguage`.
++ [Update Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post) to remove `queryLanguage` for semantic ranking purposes.
 
-### Step 2: Replace searchFields with semanticConfiguration
+### Step 2: Add semanticConfiguration
+
+If your code calls the 2020-06-30-Preview REST API or beta SDK packages targeting that REST API version, you might be using `searchFields` in a query request to specify semantic fields and priorities. This code must now be updated to use `semanticConfiguration` instead.
 
 + [Update the index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add `semanticConfiguration`. 
 
