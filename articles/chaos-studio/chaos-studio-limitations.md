@@ -9,9 +9,9 @@ ms.author: prashabora
 ms.service: chaos-studio
 ---
 
-# Azure Chaos Studio Preview limitations and known issues
+# Azure Chaos Studio limitations and known issues
 
-During the public preview of Azure Chaos Studio, there are a few limitations and known issues that the team is aware of and working to resolve.
+The following are known limitations in Chaos Studio. 
 
 ## Limitations
 

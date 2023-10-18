@@ -1,6 +1,6 @@
 ---
 title: Create and run a chaos experiment by using Azure Chaos Studio Preview
-description: Understand the steps to create and run an Azure Chaos Studio Preview experiment in 10 minutes.
+description: Understand the steps to create and run an Azure Chaos Studio experiment in 10 minutes.
 services: chaos-studio
 author: prasha-microsoft
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
 # Quickstart: Create and run a chaos experiment by using Azure Chaos Studio Preview
-Get started with Azure Chaos Studio Preview by using a virtual machine (VM) shutdown service-direct experiment to make your service more resilient to that failure in real-world scenarios.
+Get started with Azure Chaos Studio by using a virtual machine (VM) shutdown service-direct experiment to make your service more resilient to that failure in real-world scenarios.
 
 ## Prerequisites
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 

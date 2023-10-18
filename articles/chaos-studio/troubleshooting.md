@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common Azure Chaos Studio Preview problems
+title: Troubleshoot common Azure Chaos Studio problems
 description: Learn to troubleshoot common problems when you use Azure Chaos Studio Preview.
 author: c-ashton
 ms.service: chaos-studio

@@ -1,6 +1,6 @@
 ---
 title: ARM template samples for targets and capabilities in Chaos Studio
-description: Sample ARM templates to add resources to Azure Chaos Studio Preview by using targets and capabilities.
+description: Sample ARM templates to add resources to Azure Chaos Studio by using targets and capabilities.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample

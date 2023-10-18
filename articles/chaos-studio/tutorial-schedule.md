@@ -1,6 +1,6 @@
 ---
 title: Schedule a recurring experiment run with Chaos Studio Preview
-description: Set up a logic app that schedules a chaos experiment in Azure Chaos Studio Preview to run periodically.
+description: Set up a logic app that schedules a chaos experiment in Azure Chaos Studio to run periodically.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Schedule a recurring experiment with Azure Chaos Studio Preview
 
-Azure Chaos Studio Preview lets you run chaos experiments that intentionally fail part of your application or service to verify that it's resilient against those failures. It can be useful to run these chaos experiments periodically to ensure that your application's resilience hasn't regressed or to meet compliance requirements. In this tutorial, you use a [logic app](../logic-apps/logic-apps-overview.md) to trigger an experiment to run once a day.
+Azure Chaos Studio lets you run chaos experiments that intentionally fail part of your application or service to verify that it's resilient against those failures. It can be useful to run these chaos experiments periodically to ensure that your application's resilience hasn't regressed or to meet compliance requirements. In this tutorial, you use a [logic app](../logic-apps/logic-apps-overview.md) to trigger an experiment to run once a day.
 
 In this tutorial, you learn how to:
 

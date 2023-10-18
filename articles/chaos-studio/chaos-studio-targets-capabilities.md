@@ -1,6 +1,6 @@
 ---
 title: Targets and capabilities in Azure Chaos Studio Preview
-description: Understand how to control resource onboarding in Azure Chaos Studio Preview by using targets and capabilities.
+description: Understand how to control resource onboarding in Azure Chaos Studio by using targets and capabilities.
 author: prasha-microsoft 
 ms.author: prashabora
 ms.service: chaos-studio

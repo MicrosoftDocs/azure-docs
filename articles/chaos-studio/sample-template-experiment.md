@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager template samples for chaos experiments
-description: Sample Azure Resource Manager templates to create Azure Chaos Studio Preview experiments.
+description: Sample Azure Resource Manager templates to create Azure Chaos Studio experiments.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample

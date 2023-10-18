@@ -86,7 +86,7 @@
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
-  - name: Preview limitations and known issues
+  - name: Limitations and known issues
     href: chaos-studio-limitations.md
   - name: Service limits
     href: chaos-studio-service-limits.md

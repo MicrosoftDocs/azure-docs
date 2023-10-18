@@ -1,6 +1,6 @@
 ---
 title: Azure Policy samples for adding resources to Chaos Studio Preview
-description: Sample Azure policies to add resources to Azure Chaos Studio Preview by using targets and capabilities.
+description: Sample Azure policies to add resources to Azure Chaos Studio by using targets and capabilities.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample

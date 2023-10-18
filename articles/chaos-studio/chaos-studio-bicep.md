@@ -1,6 +1,6 @@
 ---
-title: Use Bicep to create an experiment in Azure Chaos Studio Preview
-description: Sample Bicep templates to create Azure Chaos Studio Preview experiments.
+title: Use Bicep to create an experiment in Azure Chaos Studio 
+description: Sample Bicep templates to create Azure Chaos Studio experiments.
 services: chaos-studio
 author: rsgel
 ms.topic: sample
@@ -10,10 +10,10 @@ ms.service: chaos-studio
 ms.custom: devx-track-bicep
 ---
 
-# Use Bicep to create an experiment in Azure Chaos Studio Preview
+# Use Bicep to create an experiment in Azure Chaos Studio 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-This article includes a sample Bicep file to get started in Azure Chaos Studio Preview, including:
+This article includes a sample Bicep file to get started in Azure Chaos Studio , including:
 
 * Onboarding a resource as a target (for example, a Virtual Machine)
 * Enabling capabilities on the target (for example, Virtual Machine Shutdown)

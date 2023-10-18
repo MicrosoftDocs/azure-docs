@@ -1,6 +1,6 @@
 ---
 title: Create a chaos experiment using a Chaos Mesh fault with Azure CLI
-description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio Preview with the Azure CLI.
+description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio with the Azure CLI.
 author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 04/21/2022

@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Run and manage an experiment in Azure Chaos Studio Preview
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use Azure Chaos Studio Preview with a chaos experiment that you've previously created.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use Azure Chaos Studio with a chaos experiment that you've previously created.
 
 ## Start an experiment
 
