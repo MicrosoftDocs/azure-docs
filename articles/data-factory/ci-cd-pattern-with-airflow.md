@@ -92,7 +92,7 @@ Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DE
 
 ### Prerequisites: 
 
-1. **GitHub Repository**: [https://github.com/join](https://github.com/join) 
+1. GitHub Repository: [https://github.com/join](https://github.com/join) 
 
 2. Ensure that at least a single branch of your code repository is synchronized with the Managed Airflow to see the code changes on the service. 
 
@@ -116,7 +116,7 @@ Learn more about how to use Azure Managed Airflow's [Git-sync feature](./airflow
 
 After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. Once the branch is merged, developers can apply the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
 
-### Sample CI/CD Pipeline using [GitHub Actions]("https://github.com/features/actions").
+### Sample CI/CD Pipeline using [GitHub Actions](https://github.com/features/actions).
 
 **Step 1:** Copy the code for sample DAG deployed in Managed Airflow IR.
 ```python
