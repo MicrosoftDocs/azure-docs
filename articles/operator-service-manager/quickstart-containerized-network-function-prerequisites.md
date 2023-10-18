@@ -73,7 +73,7 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 - **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
 
     ```azurecli
-    az aosm nfd generate-config
+    az aosm nfd generate-config --definition-type cnf
     ```
 
 - **Images for your CNF** - Here are the options:
