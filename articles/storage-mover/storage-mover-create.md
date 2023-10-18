@@ -50,6 +50,39 @@ To deploy a storage mover into a resource group, you must be a member of the *Co
 
    1. Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
+### [CLI](#tab/Azure CLI)
+
+Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+
+### Prepare your Azure CLI Environment
+
+>[!NOTE]
+> Make sure that you have the most up to date version of Azure CLI. 
+
+[!INCLUDE [azure-cli/azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+The [Install Azure CLI](/cli/azure/install-azure-cli) article has more details about how to set up your Azure CLI environment. 
+
+To create a storage mover resource, you'll need to supply values for the required `--name` and `--resource-group` parameters. The `-description`, `--location`, and `tags` parameters are optional.
+
+```azurecli-interactive
+
+## Set variables
+$storageMoverName = "The name of the Storage Mover resource."
+$resourceGroupName = "Name of resource group"
+$storageMoverDescription = "A description for the storage mover."
+$storageMoverLocation = "The geo-location where the resource lives. When not specified, the location fo the resource group will be used."
+$storageMoverTags = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more."
+
+## Creates a top-level Storage Mover resource.
+az storage-mover create --name $storageMoverResourceName \
+                        --resource-group $resourceGroupName  \
+                        [--description] $storageMoverDescription     \
+                        [--location] $storageMoverLocation   \
+                        [--tags] $storageMoverTags   \
+
+```
+
 ### [PowerShell](#tab/powershell)
 
 Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
@@ -103,33 +136,6 @@ New-AzStorageMover `
     -Location "Your Location value"
 
 ```
-
-### [CLI](#tab/CLI)
-
->[!NOTE]
-> Make sure that you have the most up to date version of Azure CLI. 
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-```bash
-
-## Set variables
-`--nam` `--storage-mover-name` `-n` = "The name of the Storage Mover resource"
-`--resource-group` `-g` = "Your subscription ID."
-`--description` = "A description of the storage mover."
-`--location` `-l` = "The geo-location where the resource lives. When not specified, the location fo the resource group will be used."
-`--tags` = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more."
-
-## Creates a top-level Storage Mover resource.
-az storage-mover create --name
-                        --resource-group
-                        [--description]
-                        [--location]
-                        [--tags]
-
-```
-
-Note that only `--name` and `--resource-group` are required parameters. 
 
 ---
 
