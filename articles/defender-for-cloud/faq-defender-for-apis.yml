@@ -24,9 +24,9 @@ sections:
       - question: I use Azure API Management Consumption tier offering. Can I use Defender for APIs?
         answer: No, support for Azure API Management consumption tier is currently not available.
       
-      - question: How does Defender for APIs handle support for API revisions in Azure API Management
-        answer: API revisions in Azure API Management will be shown as separate API endpoints within Defender for APIs, as each API revision is unique and may have its own security insights. 
-                Offline Azure API Management API revisions will not be shown in the onboarding or security insights blades of Defender for APIs, as offline revisions do not allow any traffic to be sent to them, and pose no risk from a security perspective.
+      - question: How does Defender for APIs handle support for API revisions in Azure API Management?
+        answer: API revisions in Azure API Management are shown as separate API endpoints within Defender for APIs because each API revision is unique and might have its own security insights. 
+                Offline Azure API Management API revisions aren't shown in the onboarding or security insights blades of Defender for APIs because offline revisions don't allow any traffic to be sent to them and pose no security risk.
               
   - name: Questions related to region/geo 
     questions:
