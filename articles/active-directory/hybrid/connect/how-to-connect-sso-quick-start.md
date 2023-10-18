@@ -45,7 +45,7 @@ Ensure that the following prerequisites are in place:
   - You sync to Microsoft Entra ID through Microsoft Entra Connect.
   - Contains users you want to enable Seamless SSO for.
 
-- **Enable modern authentication**: To use this feature, you must enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
+- **Enable modern authentication**: To use this feature, you must enable [modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
 
 - **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (for example, with Outlook, Word, or Excel), your users must use versions 16.0.8730.xxxx or later.
 
