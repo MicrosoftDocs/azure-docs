@@ -499,7 +499,7 @@ result = call_connection_client.transfer_call_to_participant(
     opration_context="Your context"
 )
 
-# Transfer to Sip user
+# Transfer to PSTN user
 transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
 transferee = PhoneNumberIdentifer("transferee_phoneNumber")
 
@@ -530,16 +530,37 @@ You can add a participant (Communication Services user or phone number) to an ex
 # [csharp](#tab/csharp)
 
 ```csharp
+// Add ACS user
+var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+// add custom context
+addThisPerson.CustomContext.Add(new VoipHeader("myHeader", "myValue"));
+AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
+
+// Add PSTN user
 var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
 var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+// add custom context
+addThisPerson.CustomContext.Add(new SIPUUIHeader("value"));
+addThisPerson.CustomContext.Add(new SIPCustomHeader("header1", "customSipHeaderValue1"));
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson); 
 ```
 
 # [Java](#tab/java)
 
 ```java
+// Add ACS user
+CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+// add custom context
+callInvite.getCustomContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+
+// Add PSTN user
 PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
-CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); 
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+// add custom context
+callInvite.getCustomContext().addOrUpdate(new SIPUUIHeader("value"));
+callInvite.getCustomContext().addOrUpdate(new SIPCustomHeader("header1", "customSipHeaderValue1"));
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
@@ -547,10 +568,29 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 # [JavaScript](#tab/javascript)
 
 ```javascript
+// Add ACS user
+// add custom context
+const customContext = new CustomContext({}, {});
+const voipHeader = new VoipHeader("voipHeaderName", "voipHeaderValue")
+customContext.add(voipHeader);
+const addThisPerson = {
+    targetParticipant: { communicationUserId: "<acs_user_id>" },
+    customContext: customContext,
+};
+const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+
+// Add PSTN user
 const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
+// add custom context
+const customContext = new CustomContext({}, {});
+const sipUUIHeader = new SIPUserToUserHeader("value");
+const sipCustomHeader = new SIPCustomHeader("headerName", "headerValue");
+customContext.add(sipUUIHeader);
+customContext.add(sipCustomHeader);
 const addThisPerson = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
+    customContext: customContext,
 };
 const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 ```
@@ -558,12 +598,29 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 # [Python](#tab/python)
 
 ```python
+# Add ACS user
+custom_context = CustomContext(sip_headers={}, voip_headers={})
+custom_context.add(VoipHeader("voipHeaderName", "voipHeaderValue"))
+call_invite = CallInvite(
+    target=CommunicationUserIdentifier("<acs_user_id>"),
+    custom_context=custom_context,
+)
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.add_participant(call_invite)
+
+# Add PSTN user
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
 ) # This is the ACS provisioned phone number for the caller
+custom_context = CustomContext(sip_headers={}, voip_headers={})
+custom_context.add(SIPUserToUserHeader("value"))
+custom_context.add(SIPCustomHeader("headerName", "headerValue"))
 call_invite = CallInvite(
     target=PhoneNumberIdentifier("+18008008800"),
     source_caller_id_number=caller_id_number,
+    custom_context=custom_context,
 )
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
