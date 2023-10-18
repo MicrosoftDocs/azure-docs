@@ -173,7 +173,7 @@ From other sources, if you configure them:
 
 
 ### How many Application Insights resources should I deploy?
-To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
+To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy).
 
 ### How can I manage Application Insights resources with PowerShell?
           

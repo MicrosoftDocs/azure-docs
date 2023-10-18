@@ -26,7 +26,7 @@ Follow the steps outlined in the next section to set up targeted Privileged Iden
 
 ## Create the custom role
 
-To create a custom role for a resource, follow the steps described in [Azure custom roles](../../role-based-access-control/custom-roles.md).
+To create a custom role for a resource, follow the steps described in [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 When you create custom role, include a descriptive name so you can easily remember which built-in role you intended to duplicate.
 
@@ -46,4 +46,4 @@ Finally, [assign roles](pim-resource-roles-assign-roles.md) to the distinct grou
 ## Next steps
 
 - [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
-- [Custom roles in Azure](../../role-based-access-control/custom-roles.md)
+- [Custom roles in Azure](/azure/role-based-access-control/custom-roles)
