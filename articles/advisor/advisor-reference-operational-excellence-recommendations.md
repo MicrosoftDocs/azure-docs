@@ -61,7 +61,7 @@ Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Azure Spring Apps API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Azure Spring Apps API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version, which ensures you receive the latest features and performance improvements.
 
 Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
@@ -115,7 +115,7 @@ Learn more about [Virtual machine - AddMonitorProdVM (Add Azure Monitor to your 
 
 ### Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.
 
-Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers. This can be viewed as malicious traffic and blocked by the DDOS service in the Azure environment
+Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers. Frequent DNS lookups and NTP sync can be viewed as malicious traffic and blocked by the DDOS service in the Azure environment
 
 Learn more about [Virtual machine - GetVmlistFortigateNtpIssue (Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.)](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-release-notes/236526/known-issues).
 
@@ -127,13 +127,13 @@ Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environm
 
 ### The iControl REST interface has an unauthenticated remote command execution vulnerability.
 
-This vulnerability allows for unauthenticated attackers with network access to the iControl REST interface, through the BIG-IP management interface and self IP addresses, to execute arbitrary system commands, create or delete files, and disable services. This vulnerability can only be exploited through the control plane and can't be exploited through the data plane. Exploitation can lead to complete system compromise. The BIG-IP system in Appliance mode is also vulnerable
+An unauthenticated remote command execution vulnerability allows for unauthenticated attackers with network access to the iControl REST interface, through the BIG-IP management interface and self IP addresses, to execute arbitrary system commands, create or delete files, and disable services. This vulnerability can only be exploited through the control plane and can't be exploited through the data plane. Exploitation can lead to complete system compromise. The BIG-IP system in Appliance mode is also vulnerable
 
 Learn more about [Virtual machine - GetF5vulnK03009991 (The iControl REST interface has an unauthenticated remote command execution vulnerability.)](https://support.f5.com/csp/article/K03009991).
 
 ### NVA Accelerated Networking enabled but potentially not working.
 
-Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on this VM, but actual state for accelerated networking is not enabled.
+Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on your VM, but actual state for accelerated networking is not enabled.
 
 Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
@@ -151,7 +151,7 @@ Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update y
 
 ### Update Azure Spring Cloud API Version
 
-We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version, which ensures you receive the latest features and performance improvements.
 
 Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](/azure/spring-cloud).
 
@@ -300,9 +300,9 @@ Add firewall rules to protect your server from unauthorized access
 Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerNoFirewallRule6e523 (Add firewall rules for MySQL Flexible Server)](/azure/mysql/flexible-server/how-to-manage-firewall-portal).
 
 
-### Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications
+### Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration, which is a common source of incidents affecting customer applications
 
-Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. It's difficult to configure the network accurately and avoid affecting cache functionality. It's easy to break the cache accidentally while making configuration changes for other network resources. This is a common source of incidents affecting customer applications
+Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. It's difficult to configure the network accurately and avoid affecting cache functionality. It's easy to break the cache accidentally while making configuration changes for other network resources, which is a common source of incidents affecting customer applications
 
 Learn more about [Redis Cache Server - PrivateLink (Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications)](https://aka.ms/VnetToPrivateLink).
 
@@ -378,9 +378,9 @@ Traces generated by Azure API Management service may contain sensitive informati
 
 Learn more about [Api Management - heavy-tracing-usage (Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.)](/azure/api-management/api-management-howto-api-inspector).
 
-### Self-hosted gateway instance(s) were identified that use gateway tokens that expire soon
+### Self-hosted gateway instances were identified that use gateway tokens that expire soon
 
-At least one deployed self-hosted gateway instance was identified that uses a gateway token that expires in the next 7 days. To ensure that it can connect to the control-plane, generate a new gateway token and update your deployed self-hosted gateway(s). This does not impact data-plane traffic.
+At least one deployed self-hosted gateway instance was identified that uses a gateway token that expires in the next 7 days. To ensure that it can connect to the control-plane, generate a new gateway token and update your deployed self-hosted gateways  (does not impact data-plane traffic).
 
 Learn more about [Api Management - ShgwGatewayTokenNearExpiry (Self-hosted gateway instance(s) were identified that use gateway tokens that expire soon)]().
 
@@ -400,7 +400,7 @@ Learn more about [IoT hub - IoTHubFallbackDisabledAdvisor (IoT Hub Fallback Rout
 
 ### Upgrade to Start/Stop VMs v2
 
-This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
+The new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
 Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v2)](https://aka.ms/startstopv2docs).
 
@@ -459,37 +459,37 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 ### Set up staging environments in Azure App Service
 
-Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
+Deploying an app to a slot first, and swapping it into production, makes sure that all instances of the slot are warmed up before being swapped into production, which eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
 ### Enforce 'Add or replace a tag on resources' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task. Does not modify tags on resource groups.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Enforce a policy that adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task, which does not modify tags on resource groups.
 
 Learn more about [Subscription - AddTagPolicy (Enforce 'Add or replace a tag on resources' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed locations' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Enforce a policy that enables you to restrict the locations your organization can specify when deploying resources. Use the policy to enforce your geo-compliance requirements.
 
 Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locations' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Audit VMs that do not use managed disks' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy audits VMs that do not use managed disks.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Endorce a policy that audits VMs that do not use managed disks.
 
 Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed virtual machine SKUs' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Enforce a policy that enables you to specify a set of virtual machine SKUs that your organization can deploy.
 
 Learn more about [Subscription - AllowedVirtualMachineSkuPolicy (Enforce 'Allowed virtual machine SKUs' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Inherit a tag from the resource group' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Enforce a policy that adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
 
 Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](../governance/policy/overview.md).
 
@@ -537,7 +537,7 @@ Learn more about [App Server Instance - AppOSDBSupport (Ensure the Operating sys
 
 ### Set the parameter net.ipv4.tcp_keepalive_time to '300' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_time = 300. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_time = 300. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
 Learn more about [App Server Instance - AppIPV4TCPKeepAlive (Set the parameter net.ipv4.tcp_keepalive_time to '300' in the Application VM OS in SAP workloads)](https://launchpad.support.sap.com/#/notes/1410736).
 
@@ -561,7 +561,7 @@ Learn more about [App Server Instance - AppIPV4Probes (See the parameter net.ipv
 
 ### Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
 Learn more about [App Server Instance - AppIpv4Recycle (Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
@@ -579,19 +579,19 @@ Learn more about [App Server Instance - VM_0001 (Azure Center for SAP recommenda
 
 ### Set the parameter net.ipv4.tcp_retries1 to '3' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries1 = 3. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries1 = 3. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
 Learn more about [App Server Instance - AppIpv4Retries1 (Set the parameter net.ipv4.tcp_retries1 to '3' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
 ### Set the parameter net.ipv4.tcp_tw_reuse to '0' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_reuse = 0. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_reuse = 0. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
 Learn more about [App Server Instance - AppIpv4TcpReuse (Set the parameter net.ipv4.tcp_tw_reuse to '0' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
 ### Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_intvl = 75. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_intvl = 75. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
 
 Learn more about [App Server Instance - AppIPV4intvl (Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads)](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
