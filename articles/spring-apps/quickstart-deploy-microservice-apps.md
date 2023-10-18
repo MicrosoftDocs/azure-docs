@@ -111,7 +111,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server.png":::
 
-## ## 6. Clean up resources
+## 6. Clean up resources
 
 ::: zone pivot="sc-standard"
 
