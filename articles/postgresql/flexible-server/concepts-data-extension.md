@@ -51,33 +51,44 @@ When you create a storage account, Azure generates two 512-bit storage **account
 SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');
 ```
 
-Once storage is mapped,  storage account contents can be listed and data can be picked for import:
+Once storage is mapped,  storage account contents can be listed and data can be picked for import. Following example assumes you created storage account named mystorageaccount with blob container named mytestblob
 
 ```sql
 SELECT path, bytes, pg_size_pretty(bytes), content_type
-  FROM azure_storage.blob_list('pgquickstart','github');
+FROM azure_storage.blob_list('mystorageaccount','mytestblob'); 
 ```
 Output of above statement can be further filtered either by using a regular *SQL WHERE* clause, or by using the prefix parameter of the blob_list method. This filters the returned rows on the Azure Blob Storage side. Listing container contents requires an account and access key or a container with enabled anonymous access.
 
 
-Finally you can use either **COPY** statement or **blob_get** UDF to import data from Azure Storage into PostgreSQL table, like shown in below example with *COPY* statement:
+Finally you can use either **COPY** statement or **blob_get** UDF to import data from Azure Storage into existing PostgreSQL table. 
+Example below shows import of data from employee.csv file residing in blob container mytestblob in same mystorageaccount Azure storage account via **COPY** command:
+1. First create target table matching source file schema:
+```sql
+CREATE TABLE employees (
+	EmployeeId int PRIMARY KEY,
+	LastName VARCHAR ( 50 ) UNIQUE NOT NULL,
+	FirstName VARCHAR ( 50 ) NOT NULL
+);
+```
+2.  Next use **COPY** statement to copy data into target table, specifying that first row is headers
 
 ```sql
-COPY github_users
-FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz'
-WITH (FORMAT 'csv');
+COPY employees
+FROM 'https://mystorageaccount.blob.core.windows.net/mytestblob/employee.csv'
+WITH (FORMAT 'csv', header);
 ```
 
-Or with *blob_get* UDF
+Next example shows same action from same source to same target using  **blob_get** UDF ([user-defined function](https://www.postgresql.org/docs/current/xfunc.html))
 
 ```sql
-INSERT INTO github_users
-     SELECT user_id, url, UPPER(login), avatar_url, gravatar_id, display_login
-       FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users,
-                                    options := azure_storage.options_csv_get(force_not_null := ARRAY['gravatar_id']));
+INSERT INTO employees 
+SELECT * FROM azure_storage.blob_get('mystorageaccount','mytestblob','employee.csv',options:= azure_storage.options_csv_get(header=>true)) AS res (
+  CustomerId int,
+  LastName varchar(50),
+  FirstName varchar(50))
 ```
 
-The **COPY** command and **blob_get** method support following file extensions for import:
+The **COPY** command and **blob_get** UDF  support following file extensions for import:
 
 | **File Format** | **Description** |
 | --- | --- |
@@ -100,14 +111,20 @@ When you create a storage account, Azure generates two 512-bit storage **account
 SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');
 ```
 
-You can use either **COPY** statement or **blob_put** UDF to export data from Azure Storage into PostgreSQL table, like:
+You can use either **COPY** statement or **blob_put** UDF ([user-defined function](https://www.postgresql.org/docs/current/xfunc.html)) to export data from Azure Database for PostgreSQL table to Azure storage.
+Example below shows export of data from employee table to new file named employee2.csv residing in blob container mytestblob in same mystorageaccount Azure storage account via **COPY** command:
 
 ```sql
-COPY (SELECT * FROM github_users)
-TO 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz'
+COPY employees 
+TO 'https://mystorageaccount.blob.core.windows.net/mytestblob/employee2.csv'
 WITH (FORMAT 'csv');
 ```
-The **COPY** command and **blob_get** method  support following file extensions for export:
+Similarly you can export data from employees table via **blob_put** UDF, which gives us even more finite control over data being exported. Example below therefore only exports two columns of the table, *EmployeeId* and *LastName*, skipping *FirstName* column:
+```sql
+SELECT azure_storage.blob_put('mystorageaccount', 'mytestblob', 'employee2.csv', res) FROM (SELECT EmployeeId,LastName FROM employees) res;
+```
+
+The **COPY** command and **blob_put** UDF  support following file extensions for export:
 
 
 | **File Format** | **Description** |
@@ -119,18 +136,25 @@ The **COPY** command and **blob_get** method  support following file extensions 
 
 ## Assign permissions to nonadministrative account to access data from Azure Storage
 
-Granting the permissions to access data in Azure Storage to nonadministrative PostgreSQL Flex user is as simple as calling **account_user_add** function. Example below is adding permissions to role *support* in Flex server:
+By default, only [azure_pg_admin](./concepts-security.md#access-management) administrative role can add an account key and access the storage account in Postgres Flexible Server.
+Granting the permissions to access data in Azure Storage to nonadministrative PostgreSQL Flexible server user can be done in two ways depending on permission granularity:
+- Assign **azure_storage_admin** to the non-administrative user. This role is added with installation of Azure Data Storage Extension. Example below grants this role to non-administrative user called *support*
+```sql
+-- Allow adding/list/removing storage accounts
+GRANT azure_storage_admin TO support;
+```
+- Or by calling **account_user_add** function. Example below is adding permissions to role *support* in Flex server. This is more finite permission as it gives user access to Azure storage account named *mystorageaccount* only.
 
 ```sql
 SELECT * FROM azure_storage.account_user_add('mystorageaccount', 'support');
 ```
 
-Postgres admin users can see the allowed users in the output of **account_list** function, which shows all accounts with access keys defined:
+Postgres aministrative users can see the list of storage accounts and   permissions  in the output of **account_list** function, which shows all accounts with access keys defined:
 
 ```sql
 SELECT * FROM azure_storage.account_list();
 ```
-When Postgres administrator decides that the user should no longer have access,  method\function **account_user_remove** can be used to remove this access.
+When Postgres administrator decides that the user should no longer have access,  method\function **account_user_remove** can be used to remove this access. Following example removes role *support* from access to storage account *mystorageaccount*. 
 
 
 ```sql
