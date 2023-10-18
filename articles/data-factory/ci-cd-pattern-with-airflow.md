@@ -132,12 +132,149 @@ After successfully developing and testing data pipelines on local development s
 ### Sample CI/CD Pipeline using GitHub Actions.
 
 **Step 1:** Copy the code for sample DAG deployed in Managed Airflow IR.
+```python
+from datetime import datetime 
+
+from airflow import DAG 
+
+from airflow.operators.bash import BashOperator 
+
+ 
+
+with DAG( 
+
+    dag_id="airflow-ci-cd-tutorial", 
+
+    start_date=datetime(2023, 8, 15), 
+
+    schedule="0 0 * * *", 
+
+    tags=["tutorial", "CI/CD"] 
+
+) as dag: 
+
+    # Tasks are represented as operators 
+
+    task1 = BashOperator(task_id="hello", bash_command="echo task1") 
+
+ 
+
+    task2 = BashOperator(task_id="task2", bash_command="echo task2") 
+
+ 
+
+    task3 = BashOperator(task_id="task3", bash_command="echo task3") 
+
+ 
+
+    task4 = BashOperator(task_id="task4", bash_command="echo task4") 
+
+ 
+    # Set dependencies between tasks 
+
+    task1 >> task2 >> task3 >> task4 
+```
 
 **Step 2:** Create a `.github/workflows` directory in your GitHub repository. 
 
 **Step 3:** In the .github/workflows directory, create a file named `ci-cd-demo.yml` 
 
 **Step 4:** Below is the code for CI/CD Pipeline with GitHub Actions for Airflow: This pipeline triggers whenever there is pull request or push request to dev branch:
+```python
+name: Test DAGs 
+
+ 
+
+on: 
+
+  pull_request: 
+
+    branches: 
+
+      - "dev" 
+
+  push: 
+
+    branches: 
+
+      - "dev" 
+
+  workflow_dispatch: 
+
+ 
+
+jobs: 
+
+  flake8: 
+
+    strategy: 
+
+      matrix: 
+
+        python-version: [3.11.5] 
+
+    runs-on: ubuntu-latest 
+
+    steps: 
+
+      - name: Check out source repository 
+
+        uses: actions/checkout@v4 
+
+      - name: Setup Python 
+
+        uses: actions/setup-python@v4 
+
+        with: 
+
+          python-version: ${{matrix.python-version}} 
+
+      - name: flake8 Lint 
+
+        uses: py-actions/flake8@v1 
+
+        with: 
+
+          max-line-length: 120 
+
+ 
+
+  tests: 
+
+    strategy: 
+
+      matrix: 
+
+        python-version: [3.11.5] 
+
+    runs-on: ubuntu-latest 
+
+    needs: [flake8] 
+
+    steps: 
+
+      - uses: actions/checkout@v4 
+
+      - name: Setup Python 
+
+        uses: actions/setup-python@v4 
+
+        with: 
+
+          python-version: ${{matrix.python-version}} 
+
+      - name: Install dependencies 
+
+        run: | 
+
+          python -m pip install --upgrade pip 
+
+          pip install -r requirements.txt 
+
+      - name: Pytest 
+
+        run: pytest tests/
+```
 
 **Step 5:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
 
@@ -148,11 +285,56 @@ This test ensures: 
 
 - **There are no import errors:** Import errors can arise due to issues like missing dependencies, incorrect module paths, or coding errors.  
 
-- **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined. 
+- **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined.
+```python
+@pytest.fixture() 
+
+def dagbag(): 
+    return DagBag(dag_folder="dags") 
+
+ 
+
+def test_no_import_errors(dagbag): 
+    """ 
+    Test Dags to contain no import errors. 
+    """ 
+
+    assert not dagbag.import_errors 
+```
+ 
 
 1. Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
+```python
+def test_expected_dags(dagbag): 
+    """ 
+    Test whether expected dag Ids are present.
+    """ 
+
+    expected_dag_ids = ["airflow-ci-cd-tutorial"] 
+
+    for dag_id in expected_dag_ids: 
+        dag = dagbag.get_dag(dag_id) 
+
+        assert dag is not None 
+        assert dag_id == dag.dag_id 
+```
 
 2. Test to ensure only approved tags are associated with your DAGs. This helps to enforce the approved tag usage. 
+```python
+def test_requires_specific_tag(dagbag): 
+    """ 
+    Test if DAGS contain one or more tags from list of approved tags only. 
+    """ 
+
+    Expected_tags = {"tutorial", "CI/CD"} 
+    dagIds = dagbag.dag_ids 
+
+    for id in dagIds: 
+        dag = dagbag.get_dag(id) 
+        assert dag.tags 
+        if Expected_tags: 
+            assert not set(dag.tags) - Expected_tags 
+```
 
 **Step 6:** Now, when you raise pull request to dev branch, GitHub Actions will trigger our CI pipeline, to run all the tests. 
 
