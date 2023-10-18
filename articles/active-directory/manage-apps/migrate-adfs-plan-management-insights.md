@@ -58,7 +58,7 @@ You can also use the [Microsoft Entra admin center](https://entra.microsoft.com)
 - **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Microsoft Entra reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
 - **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Microsoft Entra reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-- **Visualize your app’s usage** from the [Microsoft Entra ID Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
+- **Visualize your app’s usage** from the [Microsoft Entra ID Power BI content pack](../reports-monitoring/howto-use-workbooks.md)
 
 ## Exit criteria
 
@@ -78,7 +78,7 @@ Many [deployment plans](../architecture/deployment-plans.md) are available for y
 Visit the following support links to create or track support ticket and monitor health.
 
 - **Azure Support:** You can call [Microsoft Support](https://azure.microsoft.com/support) and open a ticket for any Azure Identity deployment issue depending on your Enterprise Agreement with Microsoft.
-- **FastTrack**: If you've purchased Enterprise Mobility and Security (EMS) or Microsoft Entra ID P1 or P2 licenses, you're eligible to receive deployment assistance from the [FastTrack program.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
+- **FastTrack**: If you've purchased Enterprise Mobility and Security (EMS) or Microsoft Entra ID P1 or P2 licenses, you're eligible to receive deployment assistance from the [FastTrack program.](/microsoft-365/fasttrack/introduction)
 - **Engage the Product Engineering team:** If you're working on a major customer deployment with millions of users, you're entitled to support from the Microsoft account team or your Cloud Solutions Architect. Based on the project’s deployment complexity, you can work directly with the [Azure Identity Product Engineering team.](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
 
 ## Next steps

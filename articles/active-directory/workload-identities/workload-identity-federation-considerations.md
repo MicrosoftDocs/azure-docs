@@ -90,7 +90,7 @@ Creating multiple federated identity credentials under the same user-assigned ma
 
 When you use automation or Azure Resource Manager templates (ARM templates) to create federated identity credentials under the same parent identity, create the federated credentials sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
-If federated identity credentials are provisioned in a loop, you can [provision them serially](../../azure-resource-manager/templates/copy-resources.md#serial-or-parallel) by setting *"mode": "serial"*.
+If federated identity credentials are provisioned in a loop, you can [provision them serially](/azure/azure-resource-manager/templates/copy-resources#serial-or-parallel) by setting *"mode": "serial"*.
 
 You can also provision multiple new federated identity credentials sequentially using the *dependsOn* property. The following Azure Resource Manager template (ARM template) example creates three new federated identity credentials sequentially on a user-assigned managed identity by using the *dependsOn* property:
 
@@ -167,7 +167,7 @@ You can also provision multiple new federated identity credentials sequentially 
 
 *Applies to: applications and user-assigned managed identities*
 
-It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
+It's possible to use a deny [Azure Policy](/azure/governance/policy/overview) as in the following ARM template example:
 
 ```json
 { 

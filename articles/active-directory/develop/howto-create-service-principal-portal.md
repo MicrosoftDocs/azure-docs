@@ -53,7 +53,7 @@ You've created your Microsoft Entra application and service principal.
 
 ## Assign a role to the application
 
-To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope.
 
@@ -136,7 +136,7 @@ Once you've saved the client secret, the value of the client secret is displayed
 
 ## Configure access policies on resources
 
-You might need to configure extra permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/security-features.md#privileged-access) to give your application access to keys, secrets, or certificates.
+You might need to configure extra permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/general/security-features#privileged-access) to give your application access to keys, secrets, or certificates.
 
 To configure access policies:
 
@@ -151,6 +151,6 @@ To configure access policies:
 ## Next steps
 
 - Learn how to use [Azure PowerShell](howto-authenticate-service-principal-powershell.md) or [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
-- To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
-- For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).
+- To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal).
+- For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](/azure/role-based-access-control/resource-provider-operations).
 - For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

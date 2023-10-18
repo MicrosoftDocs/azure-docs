@@ -143,7 +143,7 @@ For Outlook on Windows, customers may choose to implement restrictions preventin
 
 ### Azure RMS and Office Message Encryption incompatibility
 
-The [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](/microsoft-365/compliance/ome) features aren't compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants won't be accessible.
+The [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](/purview/ome) features aren't compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants won't be accessible.
 
 ## Testing
 
@@ -208,8 +208,8 @@ Applications from Microsoft that support both consumer accounts and organization
 Some organizations attempt to fix this by blocking `login.live.com` in order to block personal accounts from authenticating.  This has several downsides:
 
 1. Blocking `login.live.com` blocks the use of personal accounts in B2B guest scenarios, which can intrude on visitors and collaboration.
-1. [Autopilot requires the use of `login.live.com`](/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
-1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [cease to work](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot requires the use of `login.live.com`](/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
+1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [cease to work](/troubleshoot/windows-client/deployment/windows-update-issues-troubleshooting?toc=/windows/deployment/toc.json&bc=/windows/deployment/breadcrumb/toc.json#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### Configuration for consumer apps
 

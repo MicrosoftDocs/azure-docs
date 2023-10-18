@@ -33,8 +33,8 @@ Use Microsoft Cloud App Discovery (a Microsoft Entra ID P1 feature) to discover 
 
 ### Learn more
 
-- [Discover and manage shadow IT in your network](/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Defender for Cloud Apps](/cloud-app-security/discovered-apps)
+- [Discover and manage shadow IT in your network](/defender-cloud-apps/tutorial-shadow-it)
+- [Discovered apps with Defender for Cloud Apps](/defender-cloud-apps/discovered-apps)
 
 ## User session visibility and control
 
@@ -51,7 +51,7 @@ With this control you can:
 
 ### Learn more
 
-- [Protect apps with Session Control in Defender for Cloud Apps](/cloud-app-security/proxy-intro-aad)
+- [Protect apps with Session Control in Defender for Cloud Apps](/defender-cloud-apps/proxy-intro-aad)
 
 ## Advanced app visibility and controls
 
@@ -60,11 +60,11 @@ Defender for Cloud Apps leverages the APIs provided by the cloud provider. Each 
 
 ### Learn more
 
-- [Connect apps in Defender for Cloud Apps](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Connect apps in Defender for Cloud Apps](/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## Next steps
 
-- [Discover and manage shadow IT in your network](/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Defender for Cloud Apps](/cloud-app-security/discovered-apps)
-- [Protect apps with Session Control in Defender for Cloud Apps](/cloud-app-security/proxy-intro-aad)
-- [Connect apps in Defender for Cloud Apps](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Discover and manage shadow IT in your network](/defender-cloud-apps/tutorial-shadow-it)
+- [Discovered apps with Defender for Cloud Apps](/defender-cloud-apps/discovered-apps)
+- [Protect apps with Session Control in Defender for Cloud Apps](/defender-cloud-apps/proxy-intro-aad)
+- [Connect apps in Defender for Cloud Apps](/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
