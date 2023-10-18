@@ -38,6 +38,9 @@ Azure Blob storage is Microsoft's object storage solution for the cloud. Blob st
 > [!TIP]
 > In the Nasuni model, customers provide their own cloud accounts for the storage of their data. Customers should leverage their cloud provider's role-based access and identity access management features as part of their overall security strategy. Such features can be used to limit or prohibit administrative access to the cloud account, based on customer policies
 
+### Introduction
+This document describes how to deploy a Nasuni environment in Microsoft Azure, using Azure Blob storage to store your file data.
+
 ### Creating a storage account using the Azure portal.
 
 If you don't already have a storage account in Microsoft Azure, create a storage account in Microsoft Azure by following these steps:
