@@ -161,7 +161,7 @@ This article assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-azure-load-balancer-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-azure-load-balancer-via-the-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
 
 2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
@@ -204,8 +204,8 @@ This article assumes that:
 
    Update file `/etc/fstab` with the file systems for the other SAP systems that you're deploying to the cluster.  
 
-   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation).
-   * If using GlusterFS cluster, follow the instructions in [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation).
+   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-the-sap-netweaver-installation).
+   * If using GlusterFS cluster, follow the instructions in [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-the-sap-netweaver-installation).
 
 ### Install ASCS / ERS
 
@@ -578,7 +578,7 @@ This article assumes that:
 Complete your SAP installation by:
 
 * [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-preparation).
-* [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-database).
+* [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-the-database).
 * [Installing A primary SAP application server](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-installation).
 * Installing one or more other SAP application instances.
 
