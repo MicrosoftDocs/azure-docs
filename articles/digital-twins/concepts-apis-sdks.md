@@ -172,6 +172,12 @@ A delete job can take anywhere from a few minutes to a few hours, depending on t
 
 The default timeout period for a delete job is 12 hours, which can be adjusted to any value between 15 minutes and 24 hours by using a query parameter on the API. This is the amount of time that the delete job will run before it times out, at which point the service will attempt to stop the job if it hasn't completed yet.
 
+### Limits and other considerations
+
+Keep the following considerations in mind while working with the Delete Jobs API:
+* Delete Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or timeout of the job.
+* Only one bulk job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs APIs in [Azure Digital Twins limits](reference-service-limits.md).
+
 ## Monitor API metrics
 
 API metrics such as requests, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
