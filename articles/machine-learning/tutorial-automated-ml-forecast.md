@@ -36,7 +36,7 @@ Also try automated machine learning for these other model types:
 
 * An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file.
 
 ## Sign in to the studio
 
@@ -48,7 +48,7 @@ For this tutorial, you create your automated ML experiment run in Azure Machine 
 
 1. Select **Get started**.
 
-1. In the left pane, select **Automated ML** under the **Author** section.
+1. In the left pane, select **Automated ML** under the **Authoring** section.
 
 1. Select **+New automated ML job**. 
 
@@ -56,23 +56,25 @@ For this tutorial, you create your automated ML experiment run in Azure Machine 
 
 Before you configure your experiment, upload your data file to your workspace in the form of an Azure Machine Learning dataset. Doing so, allows you to ensure that your data is formatted appropriately for your experiment.
 
-1. On the **Select dataset** form, select **From local files** from the  **+Create dataset** drop-down. 
+1. On the **Training method** tab, select **Train automatically** to submit a Automated ML job to train with no code.
 
-    1. On the **Basic info** form, give your dataset a name and provide an optional description. The dataset type  should default to **Tabular**, since automated ML in Azure Machine Learning studio currently only supports tabular datasets.
+1.  On the **Basic settings** tab, give a name to the job and experience. Optionally, you can add a description and tags to the job.
+
+1. On the **Task type & data** tab, select the task type from the dropdown menu and, on the **Select dataset** form, click **+Create**. 
+
+    1. On the **Data type** form, give your dataset a name and provide an optional description. The dataset type  should default to **Tabular**, since automated ML in Azure Machine Learning studio currently only supports tabular datasets.
     
-    1. Select **Next** on the bottom left
+    1. On the **Data source** form, select **From local files** option.
 
-    1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
+    1. On the **Destination storage type** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
 
-    1. Select **Upload files** from the **Upload** drop-down.. 
+    1. On the **File or folder selection**, select **Upload files** from the **Upload** drop-down.
     
     1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
-    1. Select **Next**
-
-       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
+    1. Select **Next**. When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
        
-    1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
+    1. Verify that the **Settings** form is populated as follows and select **Next**.
         
         Field|Description| Value for tutorial
         ---|---|---
@@ -86,11 +88,11 @@ Before you configure your experiment, upload your data file to your workspace in
     
         1. For this example, choose to ignore the **casual** and **registered** columns. These columns are a breakdown of the  **cnt** column so, therefore we don't include them.
 
-        1. Also for this example, leave the defaults for the **Properties** and **Type**. 
+        1. Also for this example, leave the defaults for the **Properties** and **Type** columns. 
         
         1. Select **Next**.
 
-    1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info** and **Settings and preview** forms.
+    1. On the **Review** form, verify the information matches what was previously populated on all the forms.
 
     1. Select **Create** to complete the creation of your dataset.
 
@@ -98,20 +100,46 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure job
+## Select forecast settings
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
-1. Populate the **Configure job** form as follows:
-    1. Enter an experiment name: `automl-bikeshare`
+1. On the **Task settings** tab:
+    1. Select **Time series forecasting** as the machine learning task type.
+    
+    1. Select **cnt** as the target column. This column indicates the number of total bike share rentals.
+    
+    1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
+    
+    1. The **Frequency** is how often your historic data is collected. Keep **Autodetect** selected. 
+    
+    1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect **Autodetect** and type 14 in the field. 
+    
+    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
+    
+        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
+        ------|---------|---
+        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
+        Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
+        Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
+        Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
 
-    1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
+    1. On the **[Optional] Validate and test** form,
+        1. Select k-fold cross-validation as your **Validation type**.
+
+        1.  Select 5 as your **Number of cross validations**. 
+       
+
+## Configure job
+
+1. Populate the **Compute** form as follows:
+    1. Enter an experiment name: `automl-bikeshare`
 
     1. Select **compute cluster** as your compute type. 
 
     1. Select **+New** to configure your compute target. Automated ML only supports Azure Machine Learning compute. 
 
-        1. Populate the **Select virtual machine** form to set up your compute.
+        1. Populate the **Virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---
@@ -119,53 +147,20 @@ After you load and configure your data, set up your remote compute target and se
             Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
             Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
         
-        1. Select **Next** to populate the **Configure settings form**.
+        1. Select **Next** to populate the **Advanced Settings**.
         
              Field | Description | Value for tutorial
             ----|---|---
             Compute name |    A unique name that identifies your compute context. | bike-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
+            Enable SSH access | Settings to configure and authorize a virtual network for your experiment.| Off 
   
-        1. Select **Create** to get the compute target. 
-
-            **This takes a couple minutes to complete.** 
+        1. Select **Create** to get the compute target. **This takes a couple minutes to complete.** 
 
         1. After creation, select your new compute target from the drop-down list.
 
-    1. Select **Next**.
-
-## Select forecast settings
-
-Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
-
-1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
-
-1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
-
-1. The **Frequency** is how often your historic data is collected. Keep **Autodetect** selected. 
-1.
-1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect **Autodetect** and type 14 in the field. 
-
-1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
-
-    Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
-    ------|---------|---
-    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
-    Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
-    Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-    Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
-    Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-    Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
-    
-    Select **Save**.
-
-1. Select **Next**.
-    
-1. On the **[Optional] Validate and test** form, 
-    1. Select k-fold cross-validation as your **Validation type**.
-    1.  Select 5 as your **Number of cross validations**.
+    1. Select **Next** and after reviewing the inserted data, select **Submit training job**.
 
 ## Run experiment
 
