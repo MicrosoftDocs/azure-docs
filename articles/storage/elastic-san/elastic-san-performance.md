@@ -64,7 +64,7 @@ Each of the example scenarios in this article uses the following configuration f
 
 ## Example scenarios
 
-The following example scenarios depict how your Elastic SAN handles performance allocation. Note that for best performance both the VMs and the SAN are located in the same zone.
+The following example scenarios depict how your Elastic SAN handles performance allocation. For best performance, both the VMs and the SAN need to be in the same zone.
 
 ### Typical workload
 
