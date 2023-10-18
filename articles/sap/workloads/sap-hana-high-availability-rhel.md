@@ -32,7 +32,7 @@ ms.author: radeltch
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
-For on-premises development, you can use either HANA System Replication or use shared storage to establish high availability (HA) for SAP HANA. On Azure Virtual Machines, HANA System Replication on Azure is currently the only supported HA function.
+For on-premises development, you can use either HANA System Replication or shared storage to establish high availability (HA) for SAP HANA. On Azure Virtual Machines, HANA System Replication on Azure is currently the only supported HA function.
 
 SAP HANA Replication consists of one primary node and at least one secondary node. Changes to the data on the primary node are replicated to the secondary node synchronously or asynchronously.
 
@@ -78,7 +78,7 @@ To achieve HA, SAP HANA is installed on two VMs. The data is replicated by using
 
 ![Diagram that shows SAP HANA high availability overview.](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-The SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
+The SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
 
 * Front-end IP address: 10.0.0.13 for hn1-db
 * Probe Port: 62503
@@ -141,7 +141,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
 > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
@@ -193,7 +193,7 @@ The steps in this section use the following prefixes:
    In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.
 
    > [!IMPORTANT]
-   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume.  
+   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume. 
    > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks. The following layout examples don't necessarily meet the performance guidelines for a particular system size. They're for illustration only.
 
    ```bash
@@ -205,7 +205,7 @@ The steps in this section use the following prefixes:
    sudo mkfs.xfs /dev/vg_hana_shared_HN1/hana_shared
    ```
 
-   Don't mount the directories by issuing mount commands. Instead, enter the configurations into the `fstab` and issue a final `mount -a` to validate the syntax.  Start by creating the mount directories for each volume:
+   Don't mount the directories by issuing mount commands. Instead, enter the configurations into the `fstab` and issue a final `mount -a` to validate the syntax. Start by creating the mount directories for each volume:
 
    ```bash
    sudo mkdir -p /hana/data
@@ -407,7 +407,7 @@ The steps in this section use the following prefixes:
 
 1. **[1]** Create the required users.
 
-   Run the following command as root. Make sure to replace the values for HANA System ID (for example, **HN1**), instance number (**03**), and any user names, with the values of your SAP HANA installation:
+   Run the following command as root. Make sure to replace the values for HANA System ID (for example, **HN1**), instance number (**03**), and any usernames, with the values of your SAP HANA installation:
 
    ```bash
    PATH="$PATH:/usr/sap/HN1/HDB03/exe"
@@ -481,7 +481,7 @@ This important step optimizes the integration with the cluster and improves the 
    > [!TIP]
    > The Python hook can only be implemented for HANA 2.0.
 
-   1. Prepare the hook as `root`.  
+   1. Prepare the hook as `root`.
 
        ```bash
         mkdir -p /hana/shared/myHooks
@@ -489,13 +489,13 @@ This important step optimizes the integration with the cluster and improves the 
         chown -R hn1adm:sapsys /hana/shared/myHooks
        ```
 
-   1. Stop HANA on both nodes. Run as <sid\>adm.  
+   1. Stop HANA on both nodes. Run as <sid\>adm.
 
        ```bash
        sapcontrol -nr 03 -function StopSystem
        ```
 
-   1. Adjust `global.ini` on each cluster node.  
+   1. Adjust `global.ini` on each cluster node.
 
        ```output
        [ha_dr_provider_SAPHanaSR]
@@ -524,7 +524,7 @@ This important step optimizes the integration with the cluster and improves the 
     Defaults!SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL !requiretty
     ```
 
-1. **[A]** Start SAP HANA on both nodes. Run as <sid\>adm.  
+1. **[A]** Start SAP HANA on both nodes. Run as <sid\>adm.
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
@@ -544,7 +544,7 @@ This important step optimizes the integration with the cluster and improves the 
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
     ```
 
-For more information on the implementation of the SAP HANA System Replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
+For more information on the implementation of the SAP HANA System Replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).
 
 ## Create SAP HANA cluster resources
 
@@ -563,7 +563,7 @@ Next, create the HANA resources.
 > [!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-If you're building a cluster on **RHEL 7.x**, use the following commands:  
+If you're building a cluster on **RHEL 7.x**, use the following commands:
 
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -586,7 +586,7 @@ sudo pcs resource defaults migration-threshold=5000
 sudo pcs property set maintenance-mode=false
 ```
 
-If you're building a cluster on **RHEL 8.x/9.x**, use the following commands:  
+If you're building a cluster on **RHEL 8.x/9.x**, use the following commands:
 
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -661,7 +661,7 @@ To support such a setup in a cluster, a second virtual IP address is required, w
 
 This section describes the other steps that are required to manage HANA active/read-enabled system replication in a Red Hat HA cluster with a second virtual IP.
 
-Before you proceed further, make sure that you've fully configured the Red Hat HA cluster managing a SAP HANA database, as described in preceding segments of the documentation.  
+Before you proceed further, make sure that you've fully configured the Red Hat HA cluster managing an SAP HANA database, as described in preceding segments of the documentation.
 
 ![Diagram that shows SAP HANA HA with read-enabled secondary.](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
@@ -813,7 +813,7 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
 ```
 
-The migration creates location constraints that need to be deleted again. Do the following as root, or via `sudo`:
+The migration creates location constraints that need to be deleted again. Run the following command as root, or via `sudo`:
 
 ```bash
 pcs resource clear SAPHana_HN1_03-master
@@ -854,7 +854,7 @@ Run the firewall rule to block the communication on one of the nodes.
 iptables -A INPUT -s 10.0.0.5 -j DROP; iptables -A OUTPUT -d 10.0.0.5 -j DROP
 ```
 
-When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, resulting in a fence race. To avoid such a situation, we recommend that you set the [priority-fencing-delay](#create-sap-hana-cluster-resources) property in cluster configuration (applicable only for  [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
+When cluster nodes can't communicate with each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, resulting in a fence race. To avoid such a situation, we recommend that you set the [priority-fencing-delay](#create-sap-hana-cluster-resources) property in cluster configuration (applicable only for [pacemaker-2.0.4-6.el8](https://access.redhat.com/errata/RHEA-2020:4804) or higher).
 
 By enabling the `priority-fencing-delay` property, the cluster introduces a delay in the fencing action specifically on the node hosting the HANA master resource, allowing the node to win the fence race.
 
@@ -868,7 +868,7 @@ iptables -D INPUT -s 10.0.0.5 -j DROP; iptables -D OUTPUT -d 10.0.0.5 -j DROP
 ### Test the Azure fencing agent
 
 > [!NOTE]
-> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.  
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 Resource state before starting the test:
 
