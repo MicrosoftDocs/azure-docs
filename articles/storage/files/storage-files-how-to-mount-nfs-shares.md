@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/18/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -96,11 +96,16 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 
 Customers using NFS Azure file shares can now create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
 
+> [!IMPORTANT]
+> You should mount your file share before creating snapshots. If you create a new NFS file share and take snapshots before mounting the share, attempting to list the snapshots for the share will return an empty list. We recommend deleting any snapshots taken before the first mount and re-creating them after you've mounted the share.
+
 ### Limitations
 
 Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file shares. File data plane APIs (`AzStorageShare`) aren't supported. 
 
 Azure Backup isn't currently supported for NFS file shares.
+
+AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
 
 ### Regional availability for NFS Azure file share snapshots
 
@@ -108,7 +113,7 @@ Azure Backup isn't currently supported for NFS file shares.
 
 ### Create a snapshot
 
-You can create a snapshot of an NFS Azure file share using Azure PowerShell or Azure CLI.
+You can create a snapshot of an NFS Azure file share using Azure PowerShell or Azure CLI. A share can support the creation of up to 200 share snapshots.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -148,7 +153,7 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 ### Delete snapshots
 
-You can delete share snapshots using Azure PowerShell or Azure CLI.
+Existing share snapshots are never overwritten. They must be deleted explicitly. You can delete share snapshots using Azure PowerShell or Azure CLI.
 
 # [Azure PowerShell](#tab/powershell)
 
