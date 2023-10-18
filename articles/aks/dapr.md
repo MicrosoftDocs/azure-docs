@@ -189,7 +189,7 @@ az k8s-extension create --cluster-type managedClusters \
 ### Configuring automatic updates to Dapr control plane
 
 > [!WARNING]
-> For production environments, enabling auto-upgrade-minor-version is not recommended. This option is suitable for dev or test environments only.
+> You should only enable automatic updates to the Dapr control plan in dev or test environments. Auto-upgrade is not suitable for production environments.
 
 If you install Dapr without specifying a version, `--auto-upgrade-minor-version` **is automatically enabled**. This means that Dapr control plane will automatically update its minor version on new releases.
 You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
