@@ -981,38 +981,14 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-python-webapp-quickstart",
-      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "0.7.0",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "ms-identity-python-webapp-tutorial",
-      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "0.6.0",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "ms-identity-node",
-      "url": "https://github.com/Azure-Samples/ms-identity-node",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "ms-identity-javascript-nodejs-desktop",
-      "url": "https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
       "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "cosmos-db-nosql-dotnet-quickstart",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-quickstart",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "cosmos-db-nosql-dotnet-samples",
-      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
       "branch": "main",
       "branch_mapping": {}
     },
