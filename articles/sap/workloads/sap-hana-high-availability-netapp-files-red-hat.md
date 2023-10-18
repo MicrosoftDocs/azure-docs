@@ -92,7 +92,7 @@ The SAP HANA System Replication configuration uses a dedicated virtual hostname 
 - Front-end IP address: 10.32.0.10 for hn1-db
 - Probe Port: 62503
 
-## Set up the Azure NetApp File infrastructure
+## Set up the Azure NetApp Files infrastructure
 
 Before you proceed with the setup for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
 
@@ -413,7 +413,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    sudo firewall-cmd --zone=public --add-port=62503/tcp –permanent
    ```
 
-## Configure SAP HANA system replication
+## Configure SAP HANA System Replication
 
 Follow the steps in [Set up SAP HANA System Replication](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) to configure SAP HANA System Replication.
 
