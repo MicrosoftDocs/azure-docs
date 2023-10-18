@@ -42,7 +42,7 @@ RemoteConnect is a cross-device flow that is used for Microsoft Authentication B
 
 The prompt that appears will look something like this: 
 
-:::image type="content" source="media/breaking-changes/remote-connect-prompt.png" alt-text="Updated prompt that reads 'You will be signed in on a remote device or service, allowing you to access any apps used by your organization'":::
+:::image type="content" source="media/breaking-changes/remote-connect-prompt.png" alt-text="Screenshot of updated Remote Connect prompt that reads 'You will be signed in on a remote device or service, allowing you to access any apps used by your organization'.":::
 
 ## June 2023
 
