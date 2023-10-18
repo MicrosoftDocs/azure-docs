@@ -33,12 +33,6 @@ October 19, 2023
 
 New DevOps posture management recommendations are now available in public preview for all customers with a connector for Azure DevOps or GitHub. DevOps posture management helps to reduce the attack surface of DevOps environments by uncovering weaknesses in security configurations and access controls. Learn more about [DevOps posture management](concept-devops-posture-management-overview.md).
 
-## October 2023
-
-|Date |Update  |
-|----------|----------|
-| October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard)
-
 ### Releasing CIS Azure Foundations Benchmark v2.0.0 in regulatory compliance dashboard
 
 October 18, 2023
