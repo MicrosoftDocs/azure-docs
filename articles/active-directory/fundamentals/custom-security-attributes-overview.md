@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 > Custom security attributes are currently in PREVIEW.
 > For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-Custom security attributes in Microsoft Entra ID are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control over specific Azure resources. Custom security attributes can be used with [Azure attribute-based access control (Azure ABAC)](../../role-based-access-control/conditions-overview.md).
+Custom security attributes in Microsoft Entra ID are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control over specific Azure resources. Custom security attributes can be used with [Azure attribute-based access control (Azure ABAC)](/azure/role-based-access-control/conditions-overview).
 
 ## Why use custom security attributes?
 
@@ -41,7 +41,7 @@ Custom security attributes include these capabilities:
 
 Custom security attributes **aren't** supported in the following areas:
 
-- [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)
+- [Microsoft Entra Domain Services](/entra/identity/domain-services/overview)
 - [SAML token claims](../develop/saml-claims-customization.md)
 
 ## Features of custom security attributes
@@ -116,7 +116,7 @@ For more information about working with extensions, see [Add custom data to reso
 
     Filter users and applications that use custom security attributes. [Learn more](../enterprise-users/users-custom-security-attributes.md)
 
-    Add conditions that use custom security attributes to Azure role assignments for fine-grained access control. [Learn more](../../role-based-access-control/conditions-custom-security-attributes.md)
+    Add conditions that use custom security attributes to Azure role assignments for fine-grained access control. [Learn more](/azure/role-based-access-control/conditions-custom-security-attributes)
 
 ## Terminology
 
@@ -168,7 +168,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
 > | Special characters **not** allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` | Attribute set name and attribute name cannot start with a number |
 > | Special characters allowed for attribute values | All special characters |  |
-> | Special characters allowed for attribute values when used with blob index tags | `<space> + - . : = _ /` | If you plan to use [attribute values with blob index tags](../../role-based-access-control/conditions-custom-security-attributes.md), these are the only special characters allowed for blob index tags. For more information, see [Setting blob index tags](../../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags). |
+> | Special characters allowed for attribute values when used with blob index tags | `<space> + - . : = _ /` | If you plan to use [attribute values with blob index tags](/azure/role-based-access-control/conditions-custom-security-attributes), these are the only special characters allowed for blob index tags. For more information, see [Setting blob index tags](/azure/storage/blobs/storage-manage-find-blobs#setting-blob-index-tags). |
 
 ## Custom security attribute roles
 
