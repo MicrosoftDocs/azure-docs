@@ -91,7 +91,7 @@ To integrate these applications, define a mechanism to deploy the extension at s
 - User-driven download and configuration for Chrome, Microsoft Edge, or IE
 - Configuration Manager for Internet Explorer
 
-The extension allows users to launch any application from its search bar, find access to recently used applications, and have a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Entra application proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Microsoft Entra Password SSO**.
+The extension allows users to launch any application from its search bar, find access to recently used applications, and have a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Entra application proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings > Privacy and Security > Microsoft Entra Password SSO**.
 
 To download and install the extension:
 
