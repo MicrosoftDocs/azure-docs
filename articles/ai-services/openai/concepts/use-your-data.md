@@ -85,10 +85,6 @@ Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-
 
 Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
-**Data ingestion from URLs** 
-
-A crawling component first crawls the provided URL and stores its contents to an Azure Storage Container. The service then performs ingestion from the container. 
-
 ### Troubleshooting failed ingestion jobs
 
 To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
