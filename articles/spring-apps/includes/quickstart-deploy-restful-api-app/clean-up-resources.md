@@ -29,7 +29,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ::: zone pivot="sc-consumption-plan"
 
-### [Azure portal](#tab/Azure-portal)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 1. Locate your resource group in the Azure portal. 
 
