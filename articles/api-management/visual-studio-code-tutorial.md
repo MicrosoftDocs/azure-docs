@@ -40,7 +40,8 @@ The following example imports an OpenAPI Specification in JSON format into API M
 1. Right-click **APIs**, and select **Import from OpenAPI Link**.
 1. When prompted, enter the following values:
     1. An **OpenAPI link** for content in JSON format. For this example: `https://conferenceapi.azurewebsites.net?format=json`.
-    This URL is the service that implements the example API. API Management forwards requests to this address.
+    
+        This file specifies the backend service that implements the example API, in this case `https://conferenceapi.azurewebsites.net`. API Management forwards requests to this web service.
     1. An **API name**, such as *demo-conference-api*, that is unique in the API Management instance. This name can contain only letters, number, and hyphens. The first and last characters must be alphanumeric. This name is used in the path to call the API.
 
 After the API is imported successfully, it appears in the Explorer pane, and available API operations appear under the **Operations** node.
@@ -111,7 +112,7 @@ You need a subscription key for your API Management instance to test the importe
 
 When the request succeeds, the backend responds with **200 OK** and some data.
 
-:::image type="content" source="media/visual-studio-code-tutorial/test-api-tracing.png" alt-text="Screenshot of the API test response in Visual Studio Code.":::
+:::image type="content" source="media/visual-studio-code-tutorial/test-api-policies.png" alt-text="Screenshot of the API test response in Visual Studio Code.":::
 
 Notice the following details in the response:
 
@@ -119,11 +120,11 @@ Notice the following details in the response:
 * The **X-Powered-By** header doesn't appear in the response.
 * URLs to the API backend are redirected to the API Management gateway, in this case `https://apim-hello-world.azure-api.net/demo-conference-api`.
 
-### Trace the API operation
+### Trace request processing
 
-Optionally, you can get detailed request tracing information to help you debug the API operation.
+Optionally, you can get detailed request tracing information to help you debug and troubleshoot the API.
 
-To trace request processing, you must first enable the **Allow tracing** setting for the subscription used to debug your API. For steps to enable this setting using the portal, see [Verify allow tracing setting](api-management-howto-api-inspector.md#verify-allow-tracing-setting). Tracing is allowed for a period of 1 hour.
+To trace request processing, first enable the **Allow tracing** setting for the subscription used to debug your API. For steps to enable this setting using the portal, see [Verify allow tracing setting](api-management-howto-api-inspector.md#verify-allow-tracing-setting). To limit unintended disclosure of sensitive information, tracing is allowed for only 1 hour.
 
 After allowing tracing with your subscription, follow these steps:
 
@@ -135,7 +136,7 @@ After allowing tracing with your subscription, follow these steps:
 
 When the request succeeds, the backend response includes an **Ocp-APIM-Trace-Location** header.
 
-:::image type="content" source="media/visual-studio-code-tutorial/test-api-policies.png" alt-text="Screenshot of tracing location in the API test response in Visual Studio Code.":::
+:::image type="content" source="media/visual-studio-code-tutorial/test-api-tracing.png" alt-text="Screenshot of tracing location in the API test response in Visual Studio Code.":::
 
 Select the link next to **Ocp-APIM-Trace-Location** to see Inbound, Backend, and Outbound trace information. The trace information helps you determine where problems occur after the request is made.
 

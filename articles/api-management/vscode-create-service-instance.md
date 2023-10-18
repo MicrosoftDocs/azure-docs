@@ -12,9 +12,9 @@ ms.custom: mode-api, devdivchpfy22
 
 # Quickstart: Create a new Azure API Management instance using Visual Studio Code
 
-Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. API Management lets you create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
-
 This quickstart describes the steps to create a new API Management instance using the *Azure API Management Extension* for Visual Studio Code. You can also use the extension to do common management actions on your API Management instance.
+
+Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. API Management lets you create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
 ## Prerequisites
 
