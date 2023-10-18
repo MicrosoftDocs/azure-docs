@@ -99,7 +99,7 @@ Learn more about the [security and governance](concept-security-customers.md) fe
 
 ## About Azure AD B2C
 
-If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](../../../active-directory-b2c/index.yml) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
+If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](/azure/active-directory-b2c/) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
 
 - You have an immediate need to deploy a production ready build for customer-facing apps.
   
