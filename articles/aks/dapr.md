@@ -169,30 +169,7 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version false
 ```
 
-You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`. 
-[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
-
-> [!WARNING]
-> For production environments, enabling auto-upgrade-minor-version is not recommended. This option is suitable for dev or test environments only.
-
-```azurecli
---auto-upgrade-minor-version true
-```
-
-When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
-
-| Value    | Description                               |
-| -------- | ----------------------------------------- |
-| `stable` | Default.                                  |
-| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
-
-For example:
-
-```azurecli
---release-train stable
-```
-
-## Targeting a specific Dapr version
+### Targeting a specific Dapr version
 
 > [!NOTE]
 > Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
@@ -207,6 +184,35 @@ az k8s-extension create --cluster-type managedClusters \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
 --version X.X.X
+```
+
+### Configuring automatic updates to Dapr control plane
+
+> [!WARNING]
+> For production environments, enabling auto-upgrade-minor-version is not recommended. This option is suitable for dev or test environments only.
+
+If you install Dapr without specifying a version, `--auto-upgrade-minor-version` **is automatically enabled**. This means that Dapr control plane will automatically update its minor version on new releases.
+You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
+[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
+
+```azurecli
+--auto-upgrade-minor-version true
+```
+
+
+### Choosing a release train
+
+When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
+
+| Value    | Description                               |
+| -------- | ----------------------------------------- |
+| `stable` | Default.                                  |
+| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
+
+For example:
+
+```azurecli
+--release-train stable
 ```
 
 ## Troubleshooting extension errors
