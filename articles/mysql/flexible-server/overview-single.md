@@ -50,7 +50,7 @@ Flexible servers are best suited for
 - Simplified development experience 
 - Enterprise grade security
 
-For detailed overview of flexible server deployment mode, refer [flexible server overview](overview.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](/whats-new.md).
+For detailed overview of flexible server deployment mode, refer [flexible server overview](overview.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
 ### Azure Database for MySQL - Single Server
 
