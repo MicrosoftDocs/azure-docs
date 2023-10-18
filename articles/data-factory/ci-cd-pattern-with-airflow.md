@@ -25,21 +25,16 @@ Continuous Integration (CI) is a software development practice that emphasizes f
 
 Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice enables organizations to release software updates rapidly and reliably, reducing manual deployment errors and ensuring that tested and approved code changes are swiftly delivered to end-users. 
 
-## CI/CD Workflow Within Azure Managed Airflow: 
+### CI/CD Workflow Within Azure Managed Airflow: 
 :::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot showing ci cd pattern that can be used in Managed Airflow." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
 
 #### Git-sync with Dev IR: Map your Managed Airflow environment with your Git repository’s Dev branch. 
 
 **CI Pipeline with Dev IR:** When a pull request (PR) is made from a feature branch to the Dev branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
-
-**Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
-
-**Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
-
-**Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
-
-**Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
-
+    1. **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
+    2. **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
+    3. **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
+    4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
 #### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Prod branch. 
@@ -47,22 +42,15 @@ If any of these checks fail, the pipeline terminates, signaling that the develop
 **PR pipeline with Prod IR:** 
 
 It is considered a best practice to maintain a separate production environment to prevent every development feature from becoming publicly accessible. 
-
-Once the Feature branch successfully merges with the Dev branch, you can create a pull request to the prod branch in order to make your newly merged feature public. triggers a PR pipeline.  
-
-This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch, ensuring that all features have been integrated correctly and that there are no errors in the production environment.
+Once the Feature branch successfully merges with the Dev branch, you can create a pull request to the prod branch in order to make your newly merged feature public. triggers a PR pipeline.This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch, ensuring that all features have been integrated correctly and that there are no errors in the production environment.
 
 ### Benefits of using CI/CD workflow in Managed Airflow 
 
 It allows you to continuously deploy the DAGs/ code into Managed Airflow environment.  
 
-1. **Fail-fast approach:**   
+1. **Fail-fast approach:** Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
 
-Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
-
-2. **Code quality improvement:**  
-
-Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
+2. **Code quality improvement:** Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
 
 ## Deployment Patterns in Azure Managed Airflow: 
 
@@ -207,7 +195,7 @@ jobs:
 
 **Step 5:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
 
-1. At the least, it's crucial to conduct initial testing using `"import_errors`” to ensure the DAG's integrity and correctness.   
+1. At the least, it's crucial to conduct initial testing using `import_errors` to ensure the DAG's integrity and correctness.   
 This test ensures: 
 
 - **Your DAG does not contain cyclicity:** Cyclicity, where a task forms a loop or circular dependency within  the workflow, can lead to unexpected and infinite execution loops. 
