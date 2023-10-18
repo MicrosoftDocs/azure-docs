@@ -120,10 +120,12 @@ This table lists some of the key configuration parameters for pronunciation asse
 
 | Parameter | Description | 
 |-----------|-------------|
-| `ReferenceText` | The text that the pronunciation is evaluated against. | 
+| `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. | 
+| `Topic`  | A topic description that is used to evaluate the topic relevance for the given speech. If you want to obtain accurate topic scores during assessment, you need to input a topic description. This ensures that the [unscripted assessment](#unscripted-assessment-results) considers the specific topic being spoken about and provides more precise topic relevance scores.<br/><br/>The `Topic` parameter is only applicable for an [unscripted assessment](#unscripted-assessment-results). Include this parameter in your configuration to obtain an accurate topic score during assessment. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels greater than or equal to the minimal value are returned. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table.|
+| `EnableProsodyAssessment` |Enables the assessment of prosody in the pronunciation. Accepted values are `False` and `True`. Default: `False`. To obtain prosody score for an [unscripted assessment](#unscripted-assessment-results), set the `EnableProsodyAssessment` to `True`.<br/><br/>The `EnableProsodyAssessment` parameter is only applicable for an [unscripted assessment](#unscripted-assessment-results).|
 | `ScenarioId` | A GUID indicating a customized point system. |
 
 ## Syllable groups
@@ -639,19 +641,68 @@ To learn how to specify the learning language for pronunciation assessment in yo
 
 ### Result parameters
 
-This table lists some of the key pronunciation assessment results.
+Depending on whether you're using [scripted](#scripted-assessment-results) or [unscripted](#unscripted-assessment-results) assessment, you can get different pronunciation assessment results. Scripted assessment is for the reading language learning scenario, and unscripted assessment is for the speaking language learning scenario.
 
-| Parameter | Description |
-|-----------|-------------|
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives.|
-| `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
-| `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
-| `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
-| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.|
+Results for scripted and unscripted assessment include the following:
+- `ProsodyScore`
+- `ErrorType`
+
+Results for unscripted assessment only include the following:
+- `VocabularyScore`
+- `GrammarScore`
+- `TopicScore`
+
+#### Scripted assessment results
+
+This table lists some of the key pronunciation assessment results for the scripted assessment (reading scenario) and the supported granularity for each.
+
+| Parameter | Description |Granularity|
+|-----------|-------------|-------------|
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives.|Phoneme level，<br>Syllable level (en-US only)，<br>Word level，<br>Full Text level|
+| `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |Full Text level|
+| `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
+| `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |Full Text level|
+| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
+
+
+#### Unscripted assessment results
+
+This table lists some of the key pronunciation assessment results for the unscripted assessment (speaking scenario) and the supported granularity for each. 
+
+> [!NOTE]
+> VocabularyScore, GrammarScore, and TopicScore parameters roll up to the combined content assessment. 
+
+| Response parameter | Description |Granularity|
+|--------------------|-------------|-------------|
+| `AccuracyScore`     | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives. | Phoneme level，<br>Syllable level (en-US only)，<br>Word level，<br>Full Text level|
+| `FluencyScore`       | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. | Full Text level|
+| `CompletenessScore`  | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
+| `ProsodyScore`       | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
+| `VocabularyScore`    | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, as well as the level of lexical complexity. | Full Text level|
+| `GrammarScore`       | Correctness in using grammar and variety of sentence patterns. Grammatical errors are jointly evaluated by lexical accuracy, grammatical accuracy, and diversity of sentence structures. | Full Text level|
+| `TopicScore`         | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
+| `PronScore`          | Overall score indicating the pronunciation quality of the given speech. This is aggregated from AccuracyScore, FluencyScore, and CompletenessScore with weight. | Full Text level|
+| `ErrorType`          | This value indicates whether a word is omitted, inserted, badly pronounced, improperly inserted with a break, missing a break at punctuation, or monotonically rising, falling, or flat on the utterance, compared to ReferenceText. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level|
+
+The following table describes the prosody assessment results in more detail: 
+
+| Field                   | Description                                                                                         |
+|-------------------------|-----------------------------------------------------------------------------------------------------|
+| ProsodyScore            | Prosody score of the entire utterance.                                                            |
+| Feedback                | Feedback on the word level, including Break and Intonation.                                         |
+|</s>`Break`    |                                                                                           |
+|</s> -`ErrorTypes`     | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. In the current version, we don’t provide the break error type. You need to set thresholds on the following fields “UnexpectedBreak – Confidence” and “MissingBreak – confidence”, respectively to decide whether there is an unexpected break or missing break before the word. |
+|</s> -`UnexpectedBreak` | Indicates an unexpected break before the word.                                                        |
+|</s> -`MissingBreak`    | Indicates a missing break before the word.                                                           |
+|</s> - Thresholds  | Suggested thresholds on both confidence scores are 0.75. That means, if the value of ‘UnexpectedBreak – Confidence’ is larger than 0.75, it can be decided to have an unexpected break. If the value of ‘MissingBreak – confidence’ is larger than 0.75, it can be decided to have a missing break. If you want to have variable detection sensitivity on these two breaks, it’s suggested to assign different thresholds to the 'UnexpectedBreak - Confidence' and 'MissingBreak - Confidence' fields. |
+|</s>`Intonation`|                                                                                      |
+|</s> - `ErrorTypes`  | Error types related to intonation, currently supporting only Monotone. If the ‘Monotone’ exists in the field ‘ErrorTypes’, the utterance is detected to be monotonic. Note that monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
+|</s> - `Monotone`   | Indicates monotonic speech.                                                                         |
+|</s> - Thresholds (Monotone Confidence) | The fields 'Monotone - SyllablePitchDeltaConfidence' are reserved for user-customized monotone detection. If you're unsatisfied with the provided monotone decision, you can adjust the thresholds on these fields to customize the detection according to your preferences. |
 
 ### JSON result example
 
-Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
+The [scripted](#scripted-assessment-results) pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
 - The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
 - The [syllables](#syllable-groups) are returned alongside phonemes for the same word. 
 - You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l"). The offset represents the time at which the recognized speech begins in the audio stream, and it's measured in 100-nanosecond units. To learn more about `Offset` and `Duration`, see [response properties](rest-speech-to-text-short.md#response-properties).
@@ -836,7 +887,7 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 
 ## Pronunciation assessment in streaming mode
 
-Pronunciation assessment supports uninterrupted streaming mode. The recording time can be unlimited through the Speech SDK. As long as you don't stop recording, the evaluation process doesn't finish and you can pause and resume evaluation conveniently. In streaming mode, the `AccuracyScore`, `FluencyScore` , and `CompletenessScore`  will vary over time throughout the recording and evaluation process.
+Pronunciation assessment supports uninterrupted streaming mode. The recording time can be unlimited through the Speech SDK. As long as you don't stop recording, the evaluation process doesn't finish and you can pause and resume evaluation conveniently. In streaming mode, the `AccuracyScore`, `FluencyScore`, `ProsodyScore`, and `CompletenessScore` will vary over time throughout the recording and evaluation process.
 
 ::: zone pivot="programming-language-csharp"
 

@@ -18,7 +18,7 @@ The Azure AI service for Speech platform is a comprehensive collection of techno
 
 ## Pronunciation Assessment
 
-The [Pronunciation Assessment](pronunciation-assessment-tool.md) feature is designed to provide instant feedback to users on the accuracy, fluency, and prosody of their speech when learning a new language, so that they can speak and present in a new language with confidence. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+The [Pronunciation Assessment](pronunciation-assessment-tool.md) feature is designed to provide instant and comprehensive feedback to users on the accuracy, fluency, prosody, vocabulary usage, grammar correctness, and topic understanding of their speech when learning a new language, so that they can speak and present in a new language with confidence. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
 The Pronunciation Assessment feature offers several benefits for educators, service providers, and students. 
 - For educators, it provides instant feedback, eliminates the need for time-consuming oral language assessments, and offers consistent and comprehensive assessments. 
