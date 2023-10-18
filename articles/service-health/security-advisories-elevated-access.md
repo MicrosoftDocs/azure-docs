@@ -10,7 +10,7 @@ This article details an upcoming change that requires users to obtain elevated a
 
 ## What are Security Advisories?
 
-Azure customers use [Service Health](service-health-overview.md) to stay informed about security events that are impacting their critical and non-critical business applications. Security event notifications are displayed on Azure Service Health within the Security Advisories blade. Important security advisory details are displayed in 3 tabs: Summary, Impacted Resources, and Issue Updates.
+Azure customers use [Service Health](service-health-overview.md) to stay informed about security events that are impacting their critical and noncritical business applications. Security event notifications are displayed on Azure Service Health within the Security Advisories blade. Important security advisory details are displayed in three tabs: Summary, Impacted Resources, and Issue Updates.
 
 :::image type="content" source="./media/impacted-resource-sec/security-advisories.PNG" alt-text="Screenshot of Service Health Security Advisories Blade.":::
 
@@ -69,7 +69,7 @@ https://management.azure.com/subscriptions/227b734f-e14f-4de6-b7fc-3190c21e69f6/
 Operation: POST
 
 #### Impacted Resources for Security Advisories
-- To access the list of resources impacted by a Security Incident, the following endpoints can be used by users authorized with the above-mentioned roles. 
+- Customers authorized with the the above-mentioned roles can use the following endpoints to access the list of resources impacted by a Security Incident
 - Available since API version 2022-05-01
  
 **Subscription**
@@ -89,7 +89,7 @@ Operation: POST
 
 **Security Advisories Subscription List Events** 
 
-With API version 2023-10-01-preview (and future API versions), the existing Events API endpoint which returns the list of events(including security events with eventType: “Security”) will be restricted to pass only non-sensitive properties listed below for security events. 
+With API version 2023-10-01-preview (and future API versions), the existing Events API endpoint which returns the list of events(including security events with eventType: “Security”) will be restricted to pass only nonsensitive properties listed below for security events. 
 
 ```HTTP
 https://management.azure.com/subscriptions/227b734f-e14f-4de6-b7fc-3190c21e69f6/providers/microsoft.ResourceHealth/events?api-version=2023-10-01-preview&$filter= "eventType eq SecurityAdvisory"
