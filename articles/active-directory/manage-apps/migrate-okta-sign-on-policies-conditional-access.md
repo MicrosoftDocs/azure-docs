@@ -17,7 +17,7 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, learn to migrate an organization from global or application-level sign-on policies in Okta Conditional Access in Microsoft Entra ID. Conditional Access policies secure user access in Microsoft Entra ID and connected applications.
 
-Learn more: [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 This tutorial assumes you have:
 
@@ -32,7 +32,7 @@ See the following two sections for licensing and credentials prerequisites.
 
 There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires a Microsoft Entra ID P1 license to enable registration for Microsoft Entra multifactor authentication.
 
-Learn more: [Assign or remove licenses in the Microsoft Entra admin center](/azure/active-directory/fundamentals/license-users-groups)
+Learn more: [Assign or remove licenses in the Microsoft Entra admin center](../fundamentals/license-users-groups.md)
 
 ### Enterprise Administrator credentials
 
@@ -113,10 +113,10 @@ Microsoft Entra hybrid join is a replacement for Okta device trust on Windows. C
 
 If you deployed Microsoft Entra hybrid join, you can deploy another group policy to complete auto-enrollment of these devices in Intune.
 
-* [Enrollment in Microsoft Intune](/mem/intune/enrollment/)
+* [Enrollment in Microsoft Intune](/mem/intune/)
 * [Quickstart: Set up automatic enrollment for Windows 10/11 devices](/mem/intune/enrollment/quickstart-setup-auto-enrollment)
-* [Enroll Android devices](/mem/intune/enrollment/android-enroll)
-* [Enroll iOS/iPadOS devices in Intune](/mem/intune/enrollment/ios-enroll)
+* [Enroll Android devices](/mem/intune/fundamentals/deployment-guide-enrollment-android)
+* [Enroll iOS/iPadOS devices in Intune](/mem/intune/fundamentals/deployment-guide-enrollment-ios-ipados)
 
 <a name='configure-azure-ad-multi-factor-authentication-tenant-settings'></a>
 
@@ -172,7 +172,7 @@ Before you get started:
 
    ![Screenshot of the Keep you account secure dialog with the success message.](media/migrate-okta-sign-on-policies-conditional-access/success-test-user.png)
 
-5. After you configure the location-based policy and device trust policy, [Block legacy authentication with Microsoft Entra ID with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
+5. After you configure the location-based policy and device trust policy, [Block legacy authentication with Microsoft Entra ID with Conditional Access](../conditional-access/block-legacy-authentication.md).
 
 With these three Conditional Access policies, the original Okta sign-on policies experience is replicated in Microsoft Entra ID. 
 
