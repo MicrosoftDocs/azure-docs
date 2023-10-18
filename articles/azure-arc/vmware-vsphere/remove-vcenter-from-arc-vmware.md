@@ -357,21 +357,13 @@ To run the deboarding script, follow these steps:
 
 #### Inputs for the script
 
-**-vCenterId**
+- **vCenterId**: The Azure resource ID of the VMware vCenter resource. </br> For example: */subscriptions/204898ee-cd13-4332-1111-88ca5c11111c/resourceGroups/Synthetics/providers/Microsoft.ConnectedVMwarevSphere/VCenters/vcenterresource*
 
-The Azure resource ID of the VMware vCenter resource. For example, /subscriptions/204898ee-cd13-4332-1111-88ca5c11111c/resourceGroups/Synthetics/providers/Microsoft.ConnectedVMwarevSphere/VCenters/vcenterresource
+- **AVSId**: The Azure resource ID of the AVS instance. Specifying vCenterId or AVSId is mandatory.
 
-**-AVSId**
+- **ApplianceConfigFilePath (optional)**: Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath will also delete the appliance VM running on the vCenter.
 
-The Azure resource ID of the AVS instance. Specifying vCenterId or AVSId is mandatory.
-
-**-ApplianceConfigFilePath (optional)**
-
-Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath will also delete the appliance VM running on the vCenter.
-
-**-Force**
-
-Using Force flag will delete all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.  
+- **Force**: Using the Force flag will delete all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.  
 
 ### Remove VMware vSphere resources from Azure manually
 
