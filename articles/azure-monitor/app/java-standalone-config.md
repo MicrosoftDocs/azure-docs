@@ -374,7 +374,7 @@ Then it will be automatically modified to return:
 <html lang="en">
   <head>
     <script type="text/javascript">
-    !function(v,y,T){var S=v.location,k="script"
+    !function(cfg){var S=v.location,k="script"
     <!-- Removed for brevity -->
     connectionString: "YOUR_CONNECTION_STRING"
     <!-- Removed for brevity --> }});
