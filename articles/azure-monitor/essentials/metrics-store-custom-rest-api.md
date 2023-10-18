@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.reviewer: priyamishra
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/18/2023
 ms.author: edbaynash
 ---
 # Send custom metrics for an Azure resource to the Azure Monitor metrics store by using a REST API
@@ -23,7 +23,7 @@ A service principal is an application whose tokens can be used to authenticate a
 
 1. Save the tenant ID, new client ID, and client secret value for your app for use in token requests.
 
-1. Configure your app to grant **Monitoring Metrics Publisher** permissions to the resource you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. The app must be assigned the **Monitoring Metrics Publisher** role for the resources you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can assign the role at the resource group or subscription level. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Get an authorization token
 
