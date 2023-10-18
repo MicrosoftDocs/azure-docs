@@ -92,7 +92,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 > [!NOTE]
 > Eureka is not applicable to the Enterprise plan. If you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-In the configuration source that will be used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project will be deployed.
+In the configuration source that is used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
 
 For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
 
@@ -145,7 +145,7 @@ For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Apps, include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
+Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version is supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
@@ -225,7 +225,7 @@ public class GatewayApplication {
 
 #### [Enterprise plan](#tab/enterprise-plan)
 
-To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 
@@ -236,7 +236,7 @@ To use Application Configuration Service for Tanzu, do the following steps for e
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
 
-1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app uses. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
    Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
 
