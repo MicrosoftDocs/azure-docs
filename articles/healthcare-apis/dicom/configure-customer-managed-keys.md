@@ -9,7 +9,7 @@ ms.date: 10/16/2023
 ms.author: mmitrik
 ---
 
-# Configure customer-managed keys (CMK) for the DICOM service
+# Configure customer-managed keys for the DICOM service
 
 Customer-managed keys (CMK) enable customers to protect and control access to their data using keys they create and manage.  The DICOM service supports CMK, allowing customers to create and manage keys using Azure Key Vault and then use those keys to encrypt the data stored by the DICOM service.  This article shows how to configure Azure Key Vault and the DICOM service to use customer-managed keys.
 
@@ -17,9 +17,9 @@ Customer-managed keys (CMK) enable customers to protect and control access to th
 
 To use customer-managed keys with the DICOM service, the key must first be created in Azure Key Vault.  The DICOM service also requires that keys meet the following requirements:
 
-- The key vault or managed HSM that stores the key must have both soft delete and purge protection enabled.
+- The key vault or managed HSM that stores the key must have both **soft delete** and **purge protection** enabled.
 
-- The key type is RSA-HSM or RSA with one of the following sizes: 2048-bit, 3072-bit, or 4096-bit.
+- The key type is **RSA-HSM** or **RSA** with one of the following sizes: **2048-bit**, **3072-bit**, or **4096-bit**.
 
 For more information, see [About keys](../../key-vault/keys/about-keys.md).
 
@@ -49,9 +49,9 @@ The system assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 :::image type="content" source="media/kv-crypto-officer-role.png" alt-text="Screenshot of the Key Vault Crypto Officer role selected in the Job function roles tab." lightbox="media/kv-crypto-officer-role.png":::
 
-4. On the Members tab, select **Managed Identity** and **Select members**.
+4. On the Members tab, select **Managed Identity** and then **Select members**.
 
-5. On the Select managed identities panel, select **DICOM Service** from the Managed identity drop down, then select your DICOM service from the list, then **Select**. 
+5. On the Select managed identities panel, select **DICOM Service** from the Managed identity drop down, then select your DICOM service from the list, then choose **Select**. 
 
 :::image type="content" source="media/kv-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-add-role-assignment.png":::
 
@@ -65,13 +65,13 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 1. In the key vault, select **Keys** and then select the key for the DICOM service.  
 
-:::image type="content" source="media/kv-keys-list.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-keys-list.png":::
+:::image type="content" source="media/kv-keys-list.png" alt-text="Screenshot of they Keys page and the key to use with the DICOM service." lightbox="media/kv-keys-list.png":::
 
 2. Select the key version and copy the **Key Identifier**.  This is the Key Url you will use in the next step.
 
-:::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-key-url.png":::
+:::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of the key version details and the copy action forthe Key Identifier." lightbox="media/kv-key-url.png":::
 
-3. Use Azure portal to **Deploy a custom template** and use following ARM template to update the key.  
+3. Use the Azure portal to **Deploy a custom template** and use following ARM template to update the key.  
 
 ``` json
 {
@@ -116,12 +116,17 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier copied from the key vault.  
 
+:::image type="content" source="media/cmk-arm-deploy.md" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/cmk-arm-deploy.md":::
+
 5. Select **Review + create** to deploy the key changes.
 
 When the deployment succeeds, the DICOM service data will be encrypted with the key provided.
 
 ## Losing access to the key
+For the DICOM service to operate properly, it must always have access to the key in the key vault.  There are some scenarios where the service could lose access to the key, including:
 
+- The key is disabled or deleted from the key vault
+- The DICOM service's system assigned managed identity is disabled 
 
 
 ## Rotating they key
