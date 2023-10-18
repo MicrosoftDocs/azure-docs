@@ -47,7 +47,8 @@ More details on eligible subscription types are as follows:
 | :---------- |
 |Germany|
 |United States|
-
+|Canada|
+|United Kingdom|
 
 ## Find information about other countries/regions
 
