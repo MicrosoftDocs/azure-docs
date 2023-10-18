@@ -90,7 +90,7 @@ Update the below registry settings for iSCSI initiator on Windows.
 |Sets timeout value for WMI requests to 15 seconds     |WMIRequestTimeout = 15 seconds         |
 
 
-In cluster configurations, make iSCSI initiator names unique across all nodes that are sharing volumes. In Windows, you can update them via iSCSI Initiator app.
+In cluster configurations, ensure iSCSI initiator names unique across all nodes that are sharing volumes. In Windows, you can update them via iSCSI Initiator app.
 
 1.	Select **Start**, search for **iSCSI Initiator** in the search box. This opens the iSCSI Initiator.
 1.	Select **Configuration** to see current initiator name.
@@ -126,6 +126,6 @@ In cluster configurations, ensure iSCSI initiator names are unique across all no
 
 Before deploying an Elastic SAN, determining the optimal size of the Elastic SAN you deploy is necessary to achieving the right balance of performance for your workloads and cost. Use the following steps to determine the best sizing for you:
 
-With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider adding more base capacity to your Elastic SAN deployment. The rest of your Elastic SAN's storage should use additional-capacity, to save on cost.
+With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider adding more base capacity to your Elastic SAN deployment. You should leave some headroom when determining your base capacity, to account for growth. The rest of your Elastic SAN's storage should use additional-capacity, to save on cost.
 
 For more information on performance, see [Elastic SAN Preview and virtual machine performance](elastic-san-performance.md).
