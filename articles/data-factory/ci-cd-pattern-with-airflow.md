@@ -1,4 +1,15 @@
-# CI/CD Patterns with Managed Airflow
+---
+title: CI/CD Patterns with Azure Managed Airflow
+description: This document talks about recommended deployment patterns with Azure Managed Airflow
+author: nabhishek
+ms.author: abnarain
+ms.reviewer: jburchel
+ms.service: data-factory
+ms.topic: how-to
+ms.date: 10/17/2023
+---
+
+# CI/CD Patterns with Azure Managed Airflow
 
 Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. To run directed acyclic graphs (DAGs), within Azure Managed Airflow, you can either upload the DAG files in your blob storage and link it with the Airflow environment or you can leverage the Git-sync feature to automatically synchronize your DAG-based Git repository with the Airflow environment.  
 
@@ -50,29 +61,29 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it is pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer may unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
 
-2**. Code quality improvement**:  
+2. **Code quality improvement:**  
 
 Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
 
 ## Deployment Patterns in Azure Managed Airflow: 
 
-### Pattern 1. Develop data pipelines directly on Managed Airflow. 
+### Pattern 1: Develop data pipelines directly on Managed Airflow. 
 
 ### Prerequisites: 
 
 1. **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory in the region where the managed airflow preview is supported. 
 
-1. **Access to GitHub Repository:** [https://github.com/join](https://github.com/join) 
+2. **Access to GitHub Repository:** [https://github.com/join](https://github.com/join) 
 
 ### Advantages: 
 
 1. **No Local Development Environment Needed:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. This allows you to focus on building and managing workflows rather than managing infrastructure. 
 
-1. **Scalability:** Managed Airflow provides the ability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
+2. **Scalability:** Managed Airflow provides the ability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
 
-1. **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
+3. **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
 
-1. **Git Integration**: Managed Airflow supports Git-sync feature, allowing you to store your DAGs in Git repository, making it easier to manage changes and collaborate with the team.  
+4. **Git Integration**: Managed Airflow supports Git-sync feature, allowing you to store your DAGs in Git repository, making it easier to manage changes and collaborate with the team.  
 
 ### Workflow: 
 
@@ -82,11 +93,11 @@ In this workflow, you don’t need to create your own local environment. Begin b
 
 To learn more about how to use Git-sync, refer to document: https://learn.microsoft.com/en-us/azure/data-factory/airflow-sync-github-repository 
 
-1. **Individual Feature branch Environment:** 
+2. **Individual Feature branch Environment:** 
 
 In Managed Airflow service, you can specify the branch name of your repository that you want to synchronize with it. Leveraging this feature, you can create a separate Airflow Environment for every feature branch, where a developer can work on specific features or tasks as per data pipeline requirement.  
 
-1. **Create a** **Pull Request:** 
+3. **Create a** **Pull Request:** 
 
 After successfully developing and testing your features within your individual Integration Runtime raise a Pull Request (PR) to the Dev Integration Runtime (DEV (development) IR). 
 
@@ -96,7 +107,7 @@ After successfully developing and testing your features within your individual I
 
 1. **GitHub Repository**: [https://github.com/join](https://github.com/join) 
 
-1. Ensure that at least a single branch of your code repository is synchronized with the Managed Airflow to see the code changes on the service. 
+2. Ensure that at least a single branch of your code repository is synchronized with the Managed Airflow to see the code changes on the service. 
 
 ### Advantages: 
 
@@ -108,27 +119,27 @@ After successfully developing and testing your features within your individual I
 
 Begin by setting up a local environment for Apache Airflow on your development machine. Develop and test your Airflow code, including DAGs and tasks, within your local environment. This allows you to develop pipelines without relying on direct access to Azure resources. 
 
-1. **Leverage Git-sync feature:** 
+2. **Leverage Git-sync feature:** 
 
 Synchronize your GitHub repository’s branch with Azure Managed Airflow Service. 
 
 To learn more about how to use Git-sync, refer to document: https://learn.microsoft.com/en-us/azure/data-factory/airflow-sync-github-repository 
 
-1. **Utilize Managed Airflow Service as Production environment:** 
+3. **Utilize Managed Airflow Service as Production environment:** 
 
 After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. This enables developers to leverage the auto scaling feature, monitoring and logging features of Managed Airflow at production level. 
 
 ### Sample CI/CD Pipeline using GitHub Actions.
 
-Step 1: Copy the code for sample DAG deployed in Managed Airflow IR.
+**Step 1:** Copy the code for sample DAG deployed in Managed Airflow IR.
 
-Step 2: Create a `.github/workflows` directory in your GitHub repository. 
+**Step 2:** Create a `.github/workflows` directory in your GitHub repository. 
 
-Step 3: In the .github/workflows directory, create a file named `ci-cd-demo.yml` 
+**Step 3:** In the .github/workflows directory, create a file named `ci-cd-demo.yml` 
 
-Step 4: Below is the code for CI/CD Pipeline with GitHub Actions for Airflow: This pipeline triggers whenever there is pull request or push request to dev branch:
+**Step 4:** Below is the code for CI/CD Pipeline with GitHub Actions for Airflow: This pipeline triggers whenever there is pull request or push request to dev branch:
 
-Step 5: In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
+**Step 5:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
 
 1. At the very least, it is crucial to conduct initial testing using `"import_errors`” to ensure the DAG's integrity and correctness.   
 This test ensures: 
@@ -141,9 +152,9 @@ This test ensures: 
 
 1. Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
 
-1. Test to ensure only approved tags are associated with your DAGs. This helps to enforce the approved tag usage. 
+2. Test to ensure only approved tags are associated with your DAGs. This helps to enforce the approved tag usage. 
 
-Step 6: Now, when you raise pull request to dev branch, GitHub Actions will trigger our CI pipeline, to run all the tests. 
+**Step 6:** Now, when you raise pull request to dev branch, GitHub Actions will trigger our CI pipeline, to run all the tests. 
 
 #### For information: 
 
