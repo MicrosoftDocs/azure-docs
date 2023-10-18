@@ -234,7 +234,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    npm install --save @azure/identity
    npm install --save mysql2
    ```
-2. Get Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 
    ```javascript

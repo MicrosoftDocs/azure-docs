@@ -109,7 +109,7 @@ For more information, see [Build an Apache Cassandra app with .NET SDK and Azure
 For more information, see [Build a Java app to manage Azure Cosmos DB for Apache Cassandra data](/azure/cosmos-db/cassandra/manage-data-java-v4-sdk).
 
 ### [SpringBoot](#tab/spring)
-Set up your Spring App application according to this [tutorial](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db). The connection configurations are added to Spring Apps by Service Connector.
+Set up your Spring App application according to [How to use Spring Data with Azure Cosmos DB for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db). The connection configuration properties are added to Spring Apps by Service Connector.
 
 
 ### [Python](#tab/python)
@@ -157,7 +157,7 @@ For more information, see [Build a Cassandra app with Python SDK and Azure Cosmo
     )
     
     func GetSession() *gocql.Session {
-        cosmosCassandraContactPoint = os.Getenv("AAZURE_COSMOS_CONTACTPOINT")
+        cosmosCassandraContactPoint = os.Getenv("AZURE_COSMOS_CONTACTPOINT")
         cosmosCassandraPort = os.Getenv("AZURE_COSMOS_PORT")
         cosmosCassandraUser = os.Getenv("AZURE_COSMOS_USERNAME")
         cosmosCassandraPassword = os.Getenv("AZURE_COSMOS_PASSWORD")

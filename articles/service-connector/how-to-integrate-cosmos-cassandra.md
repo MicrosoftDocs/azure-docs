@@ -23,8 +23,6 @@ This page shows the supported authentication types and client types for the Azur
 
 Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
-
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
@@ -33,28 +31,6 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 | Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type        | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                | ![yes icon](./media/green-check.png) |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -74,6 +50,11 @@ Reference the connection details and sample codes in following tables, according
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
 
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+[!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
+
 ### Connect with User-assigned Managed Identity
 
 | Default environment variable name | Description                          | Example value                                                                                                                                                                                                      |
@@ -86,6 +67,11 @@ Reference the connection details and sample codes in following tables, according
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_CLIENTID             | Your client ID                       | `<client-ID>`                                                                                                                                                                                                      |
+
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+[!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ### Connect with Connection String
 
@@ -132,6 +118,10 @@ Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra 
 | AZURE_COSMOS_CLIENTSECRET         | Your client secret                   | `<client-secret>`                                                                                                                                                                                                  |
 | AZURE_COSMOS_TENANTID             | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                      |
 
+#### Sample codes
+
+Follow these steps and sample codes to connect to Azure Cosmos DB for Cassandra with system-assigned managed identity.
+[!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ## Next steps
 

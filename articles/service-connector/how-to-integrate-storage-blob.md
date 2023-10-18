@@ -41,8 +41,6 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Blob Storage.
 
-::: zone pivot="system-identity"
-
 ### System-assigned managed identity
 For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
 
@@ -55,10 +53,6 @@ For default environment variables and sample codes of other authentication type,
 
 Follow these steps and sample codes to connect to Azure Blob Storage with system-assigned managed identity.
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
-
-::: zone-end
-
-::: zone pivot="user-identity"
 
 ### User-assigned managed identity
 
@@ -73,11 +67,6 @@ For default environment variables and sample codes of other authentication type,
 
 Follow these steps and sample codes to connect to Azure Blob Storage with user-assigned managed identity.
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
-
-::: zone-end
-
-
-::: zone pivot="connection-string"
 
 ### Connection string
 
@@ -103,10 +92,6 @@ For default environment variables and sample codes of other authentication type,
 Follow these steps and sample codes to connect to Azure Blob Storage with connection string.
 [!INCLUDE [code sample for blob](./includes/code-blob-secret.md)]
 
-::: zone-end
-
-::: zone pivot="service-principal"
-
 ### Service principal
 
 For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
@@ -122,8 +107,6 @@ For default environment variables and sample codes of other authentication type,
 
 Follow these steps and sample codes to connect to Azure Blob Storage with service principal.
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
-
-::: zone-end
 
 ## Next steps
 
