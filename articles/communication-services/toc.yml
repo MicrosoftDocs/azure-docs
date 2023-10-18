@@ -187,6 +187,12 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    - name: Sending emails using Smtp
+      items:
+        - name: Setting up Smtp Authentication
+          href: quickstarts/email/send-email-smtp/smtp-authentication.md
+        - name: Send email using the .NET SmtpClient
+          href: quickstarts/email/send-email-smtp/send-email-smtp.md
   - name: Job Router
     items: 
       - name: Submit a job for queuing and routing
