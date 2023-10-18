@@ -201,7 +201,7 @@ az k8s-extension update --cluster-type managedClusters \
 --version 1.12.0 # Version to upgrade or downgrade to
 ```
 
-**Note** that this will update the Dapr control plane only, restart your application deployments to update the Dapr sidecars:
+The above command updates the Dapr control plane **only.** To update the Dapr sidecars, restart your application deployments:
 
 ```bash
 kubectl rollout restart deploy/<DEPLOYMENT-NAME>
