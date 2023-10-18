@@ -17,7 +17,7 @@ The following features have been released as public preview features in May 2023
 - Pull.style event consumption using HTTP
 - MQTT v3.1.1 and v5.0 support
 
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
+
 
 
 Here are the articles that we recommend you read through to learn about these features. 

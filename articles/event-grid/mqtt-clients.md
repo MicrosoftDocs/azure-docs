@@ -11,7 +11,7 @@ ms.author: veyaddan
 # MQTT clients
 In this article, you learn about configuring MQTT clients and client groups.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Clients
 Clients can be devices or applications, such as devices or vehicles that send/receive MQTT messages.

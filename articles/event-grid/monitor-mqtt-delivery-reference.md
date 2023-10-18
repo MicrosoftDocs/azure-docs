@@ -9,7 +9,7 @@ ms.date: 05/23/2023
 # Monitor data reference for Azure Event Grid's MQTT delivery (Preview)
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's MQTT delivery. 
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Metrics
 

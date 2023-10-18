@@ -12,7 +12,7 @@ ms.date: 05/23/2023
 
 A namespace in Azure Event Grid is a logical container for one or more topics, clients, client groups, topic spaces and permission bindings. It provides a unique namespace, allowing you to have multiple resources in the same Azure region. With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
 
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
+
 
 This article shows you how to use the Azure portal to create, view and manage an Azure Event Grid namespace.
 

@@ -22,7 +22,7 @@ Events published to Event Grid namespaces will land on a topic, which is a names
 Here are the supported event handlers:
 [!INCLUDE [namespace-event-handlers.md](includes/namespace-event-handlers.md)]
 
-[!INCLUDE [pull-preview-note](./includes/differences-between-consumption-modes.md)]
+[!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
 ## Next steps
 

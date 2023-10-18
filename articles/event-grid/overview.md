@@ -15,23 +15,14 @@ Azure Event Grid is a highly scalable, fully managed Pub Sub message distributio
 
 Azure Event Grid is a generally available service deployed across availability zones in all regions that support them. For a list of regions supported by Event Grid, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
->[!NOTE] 
->The following features have been released with our 2023-06-01-preview API:
->
->- MQTT v3.1.1 and v5.0 support (preview)
->- Pull-style event consumption using HTTP (preview)
->
->The initial regions where these features are available are: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North
-
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
 
 ## Overview
 
 Azure Event Grid is used at different stages of data pipelines to achieve a diverse set of integration goals. 
 
-**MQTT messaging (preview)**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
+**MQTT messaging**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
@@ -43,7 +34,7 @@ When configuring Event Grid for push delivery, Event Grid can send data to [dest
 
 Event Grid offers a rich mixture of features. These features include:
 
-### MQTT messaging (preview)
+### MQTT messaging 
 
 - **[MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md)** support – use any open source MQTT client library to communicate with the service.
 - **Custom topics with wildcards support** - leverage your own topic structure.
@@ -58,7 +49,7 @@ Event Grid offers a rich mixture of features. These features include:
 
 ### Event messaging (HTTP)
 
-- **Flexible event consumption model** – when using HTTP, consume events using pull (preview) or push delivery mode.
+- **Flexible event consumption model** – when using HTTP, consume events using pull or push delivery mode.
 - **System events** – Get up and running quickly with built-in Azure service events.
 - **Your own application events** - Use Event Grid to route, filter, and reliably deliver custom events from your app.
 - **Partner events** – Subscribe to your partner SaaS provider events and process them on Azure.

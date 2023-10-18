@@ -1,5 +1,5 @@
 ---
-title: Publish and consume events using namespace topics (Preview)
+title: Publish and consume events using namespace topics 
 description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model. 
 ms.topic: quickstart
 ms.author: jafernan
@@ -8,11 +8,11 @@ ms.custom: references_regions, devx-track-azurecli
 ms.date: 05/24/2023
 ---
 
-# Publish to namespace topics and consume events in Azure Event Grid (Preview)
+# Publish to namespace topics and consume events in Azure Event Grid
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and consume those events by using the pull delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and pull those events from an event subscription to the namespace topic. For more information about the pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
 
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 
 >[!NOTE]
 > - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North
