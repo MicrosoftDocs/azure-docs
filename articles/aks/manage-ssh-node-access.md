@@ -94,7 +94,7 @@ When you disable SSH at cluster creation time, it takes effect after the cluster
 |`disabled` |The SSH service is disabled. |
 |`Localuser` |The SSH service is enabled and users with SSH key can securely access the node. |
 
-## Disable SSH on a new cluster deployment
+### Disable SSH on a new cluster deployment
 
 By default, the SSH service on AKS cluster nodes is open to all users and pods running on the cluster. You can prevent direct SSH access from the pod network to the nodes to help limit the attack vector if a container in a pod becomes compromised.
 Use the [az aks create][az-aks-create] command to create a new cluster, and include the `--ssh-access disabled` argument to disable SSH (preview) on all the node pools during cluster creation.
@@ -103,7 +103,7 @@ Use the [az aks create][az-aks-create] command to create a new cluster, and incl
 az aks create -g myResourceGroup -n myManagedCluster --ssh-access disabled
 ```
 
-## Disable SSH on an existing cluster
+### Disable SSH on an existing cluster
 
 Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access disabled` argument to disable SSH (preview) on all the node pools in the cluster.
 
@@ -120,7 +120,7 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 > [!IMPORTANT]
 > During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH configuration.
 
-## Disable SSH for a new node pool
+### Disable SSH for a new node pool
 
 Use the [az aks nodepool add][az-aks-nodepool-add] command to add a node pool, and include the `--ssh-access disabled` argument to disable SSH during creation.
 
@@ -133,7 +133,7 @@ The following example output shows that *mynodepool* has been successfully creat
 ```output
 ```
 
-## Disable SSH for an existing node pool
+### Disable SSH for an existing node pool
 
 Use the [az aks nodepool update][az-aks-nodepool-update] command to update a node pool, and include the `--ssh-access disabled` argument to disable SSH (preview).
 
@@ -152,7 +152,7 @@ For the change to take effect, you need to reimage the node pool by using the [a
 az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --node-image only
 ```
 
-## Re-enable SSH on an existing cluster
+### Re-enable SSH on an existing cluster
 
 Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access Localuser` argument to re-enable SSH (preview) on all the node pools in the cluster.
 
@@ -171,7 +171,7 @@ If you select **Y**, all the nodes are reimaged. Otherwise, at any time you can 
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
 
-## Re-enable SSH for a specific node pool
+### Re-enable SSH for a specific node pool
 
 Use the [az aks update][az-aks-update] command to update a specific node pool, and include the `--ssh-access Localuser` argument to re-enable SSH (preview) on that node pool in the cluster. In the following example, *nodepool1* is the target node pool.
 
