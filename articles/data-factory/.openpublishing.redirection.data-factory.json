@@ -347,6 +347,11 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/data-factory/v1/data-factory-sqlserver-connector.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
             "source_path_from_root": "/articles/data-factory/data-factory-json-scripting-reference.md",
             "redirect_url": "/azure/data-factory/",
             "redirect_document_id": false
