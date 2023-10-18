@@ -1,26 +1,26 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Health Data Services
-description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
+title:  Use cURL and DICOMweb Standard APIs in Azure Health Data Services
+description: Use cURL and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 10/18/2023
 ms.author: mmitrik
 ---
 
-# Using DICOMWeb&trade; Standard APIs with cURL
+# Use DICOMweb Standard APIs with cURL
 
-This tutorial uses cURL to demonstrate working with the DICOM service.
+This article shows how to work with the DICOM&reg; service using cURL and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
-In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+Use these sample files:
 
-* blue-circle.dcm
-* dicom-metadata.csv
-* green-square.dcm
-* red-triangle.dcm 
+- blue-circle.dcm
+- dicom-metadata.csv
+- green-square.dcm
+- red-triangle.dcm
 
-The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -29,11 +29,11 @@ The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 >[!NOTE]
->Each of these files represent a single instance and are part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+>Each of these files represents a single instance and is part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
-To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 Once you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
@@ -448,9 +448,4 @@ curl--request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498
 --header "Authorization: Bearer {token value}"
 ```
 
-### Next Steps
-
-For information about the DICOM service, see
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
