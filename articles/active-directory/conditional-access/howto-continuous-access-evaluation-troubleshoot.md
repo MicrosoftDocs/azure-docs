@@ -43,7 +43,7 @@ The continuous access evaluation insights workbook allows administrators to view
 
 ### Accessing the CAE workbook template
 
-Log Analytics integration must be completed before workbooks are displayed. For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+Log Analytics integration must be completed before workbooks are displayed. For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md).
  
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator). 
 1. Browse to **Identity** > **Monitoring & health** > **Workbooks**.
@@ -89,6 +89,6 @@ For more information about named locations, see the article [Using the location 
  
 ## Next steps
 
-- [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Using the location condition](location-condition.md#named-locations)
 - [Continuous access evaluation](concept-continuous-access-evaluation.md)

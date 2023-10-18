@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 03/13/2023
+ms.date: 10/18/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -17,7 +17,7 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 Azure Managed Grafana has the following known limitations:
 
-* All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
+* All users must have accounts in Microsoft Entra ID. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
 * Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
@@ -39,8 +39,10 @@ Azure Managed Grafana has the following known limitations:
   |---------|:------------:|:------------:|
   | Private link | &#x274C; | &#x274C; |
   | Managed private endpoint | &#x274C; | &#x274C; |
-  | Team sync with Azure AD | &#x274C; | &#x274C; |
+  | Team sync with Microsoft Entra ID | &#x274C; | &#x274C; |
   | Enterprise plugins | &#x274C; | &#x274C; |
+
+* The *Current User* authentication option available for Azure Data Explorer triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect Azure Data Explorer to the database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method.
 
 ## Next steps
 

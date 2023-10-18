@@ -23,7 +23,7 @@ More information about device compliance policies can be found in the article, [
 
 Requiring a Microsoft Entra hybrid joined device is dependent on your devices already being Microsoft Entra hybrid joined. For more information, see the article [Configure Microsoft Entra hybrid join](../devices/how-to-hybrid-join.md).
 
-Microsoft recommends you require enable this policy for the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
+Microsoft recommends you require enable this policy for the following roles at a minimum, based on [identity score recommendations](../reports-monitoring/concept-identity-secure-score.md):
 
 - Global administrator
 - Application administrator
@@ -105,4 +105,4 @@ Organizations that use the [Subscription Activation](/windows/deployment/windows
 
 [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
-[Device compliance policies work with Microsoft Entra ID](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Device compliance policies work with Microsoft Entra ID](/mem/intune/protect/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

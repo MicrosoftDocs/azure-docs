@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Renew federation certificates for Microsoft 365 and Microsoft Entra ID
 ## Overview
-For successful federation between Microsoft Entra ID and Active Directory Federation Services (AD FS), the certificates used by AD FS to sign security tokens to Microsoft Entra ID should match what is configured in Microsoft Entra ID. Any mismatch can lead to broken trust. Microsoft Entra ensures that this information is kept in sync when you deploy AD FS and Web Application Proxy (for extranet access).
+For successful federation between Microsoft Entra ID and Active Directory Federation Services (AD FS), the certificates used by AD FS to sign security tokens to Microsoft Entra ID should match what is configured in Microsoft Entra ID. Any mismatch can lead to broken trust. Microsoft Entra ID ensures that this information is kept in sync when you deploy AD FS and Web Application Proxy (for extranet access).
 
 > [!NOTE]
 > This article provides information on manging your federation cerficates.  For information on emergency rotation see [Emergency Rotation of the AD FS certificates](how-to-connect-emergency-ad-fs-certificate-rotation.md)

@@ -19,14 +19,14 @@ Azure Cognitive Search supports query constructs for a broad range of scenarios,
 
 ## Types of queries
 
-| Query form | Parameter | Searchable content | Description |
+| Query form | Searchable content | Description |
 |------------|--------------------|-------------|
-| [full text search](search-lucene-query-architecture.md) | `search` | Inverted indexes of tokenized terms. | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search.|
-| [Vector search](vector-search-overview.md) | `vectors` | Vector indexes of generated embeddings. | Vector queries iterate over vector fields in a search index. |
-| [Hybrid search](hybrid-search-overview.md) | `search`, `vectors` | All of the above, in a single search index. | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
-| Others | `filters`, `facets`, `search=''&queryType=full` | Plain text and alphanumeric content.| Raw content, extracted verbatim from source documents, supporting filters and pattern matching queries like geo-spatial search, fuzzy search, and fielded search. |
+| [full text search](search-lucene-query-architecture.md) | Inverted indexes of tokenized terms. | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search.|
+| [Vector search](vector-search-overview.md) | Vector indexes of generated embeddings. | Vector queries iterate over vector fields in a search index. |
+| [Hybrid search](hybrid-search-overview.md) | All of the above, in a single search index. | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
+| Others | Plain text and alphanumeric content.| Raw content, extracted verbatim from source documents, supporting filters and pattern matching queries like geo-spatial search, fuzzy search, and fielded search. |
 
-This article brings focus to queries that work on plain text and alphanumeric content, extracted intact from original source, used for filters and other specialized query forms.
+This article brings focus to the last category: queries that work on plain text and alphanumeric content, extracted intact from original source, used for filters and other specialized query forms.
 
 ## Autocomplete and suggested queries
 

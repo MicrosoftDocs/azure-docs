@@ -75,7 +75,7 @@ sections:
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the [Microsoft Entra admin center](https://entra.microsoft.com). You can also find the link at Microsoft Entra pass-through authentication: Version release history.
+          - Download the latest version of the Agent. (You find it under Microsoft Entra Connect Pass-through Authentication on the [Microsoft Entra admin center](https://entra.microsoft.com). You can also find the link at Microsoft Entra pass-through authentication: Version release history.
           - The installer restarts the Microsoft Entra Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
           - Run the installer. The upgrade process is quick and doesn't require providing any credentials and the Agent won't be re-registered.
 
@@ -84,7 +84,7 @@ sections:
         answer: |
           If you have configured [password writeback](../../authentication/concept-sspr-writeback.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
           
-          If you haven't configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
+          If you haven't configured password writeback for a specific user or if the user doesn't have a valid Microsoft Entra ID license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
       - question: |
           The user logs on to Microsoft Entra ID with credentials (username, password). In the meantime the user’s password expires, but the user can still access Microsoft Entra resources. Why does this happen?
@@ -115,7 +115,7 @@ sections:
         answer: |
           Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
           
-          If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
+          If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Microsoft Entra ID:
           - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This allows you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
           - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
           - Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
@@ -229,12 +229,12 @@ additionalContent: |
   ## Next steps
 
   - [Current limitations](how-to-connect-pta-current-limitations.md): Learn the scenarios that are supported and the ones that are not.
-  - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-  - [Migrate your apps to Azure AD](../../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
+  - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Microsoft Entra pass-through authentication.
+  - [Migrate your apps to Microsoft Entra ID](../../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Microsoft Entra ID.
   - [Smart Lockout](../../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
   - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
   - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
   - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
-  - [Hybrid Azure AD join](../../devices/how-to-hybrid-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.
-  - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
-  - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.
+  - [Microsoft Entra hybrid join](../../devices/how-to-hybrid-join.md): Configure Microsoft Entra hybrid join capability on your tenant for SSO across your cloud and on-premises resources.
+  - [Microsoft Entra seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
+  - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Microsoft Entra forum to file new feature requests.

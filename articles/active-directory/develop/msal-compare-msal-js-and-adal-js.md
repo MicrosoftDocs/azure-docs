@@ -173,7 +173,7 @@ In addition, as MSAL.js is implemented in TypeScript unlike ADAL.js, it exposes 
 
 ## Use scopes instead of resources
 
-An important difference between the Microsoft Entra ID **v1.0** vs. **v2.0** endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
+An important difference between the Azure Active Directory v1.0 versus 2.0 endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
 
 ```javascript
 authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error, token) {

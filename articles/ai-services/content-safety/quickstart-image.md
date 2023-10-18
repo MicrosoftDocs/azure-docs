@@ -40,6 +40,18 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/java-quickstart-image.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/javascript-quickstart-image.md)]
+
+::: zone-end
+
 
 
 ## Clean up resources

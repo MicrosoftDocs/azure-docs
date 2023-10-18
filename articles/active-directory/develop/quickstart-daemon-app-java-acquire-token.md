@@ -53,9 +53,9 @@ To register your application and add the app's registration information to your 
 
 ### Step 3: Configure the Java project
 
-1. Extract the zip file to a local folder close to the root of the disk, for example, *C:\Azure-Samples*.
-1. Navigate to the sub folder **msal-client-credential-secret**.
-1. Edit *src\main\resources\application.properties* and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
+1. Extract the zip file to a local folder close to the root of the disk, such as `C:\Azure-Samples`.
+1. Navigate to the `msal-client-credential-secret` subfolder.
+1. Edit `src\main\resources\application.properties` and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
 
  ```
    AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/

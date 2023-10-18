@@ -62,7 +62,7 @@ Obtain these values from the portal by following these instructions:
 
 - Get Client ID / Client Secret / Tenant ID
 
-    For information on how to get Client ID, Client Secret, and Tenant ID, see [Create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+    For information on how to get Client ID, Client Secret, and Tenant ID, see [Create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
 - Setting Environment Variables
 

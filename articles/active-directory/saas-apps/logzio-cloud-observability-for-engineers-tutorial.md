@@ -53,19 +53,17 @@ To be able to access and use the SSO link that is created for a Logz.io-Azure in
 
 To configure SSO for the Logz.io resource in the Azure portal, you need to add the Logz.io - Microsoft Entra Integration from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using a Microsoft account.
-2. In the Azure portal, in **Logz.io | Overview**, in the **+ Add** menu, select **Enterprise application**.
-
-   ![Enterprise application option](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-ovrview-enterprise-apps.png)
-   
-3. In the Microsoft Entra Gallery, browse to the **Logz.io - Microsoft Entra Integration** application and select it.
-4. Rename the integration with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Logz.io - Microsoft Entra Integration** in the search box.
+1. Select **Logz.io - Microsoft Entra Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Rename the integration with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
 
    ![Rename the integration](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-rename-logzio-ad-integration.png)
 
 ##### Copy the Application ID
 
-In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
+In **AD app for a logz.io resource | Overview** > **Properties**, copy the **Application ID** property.
 
 ![Copy Application ID](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-copy-application-id-2.png)
 

@@ -35,21 +35,10 @@ To complete the steps outlined in this tutorial, you need the following:
 
 Before you configure Zscaler Two for automatic user provisioning with Microsoft Entra ID, you need to add Zscaler Two from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-In the [Azure portal](https://portal.azure.com), in the left pane, select **Microsoft Entra ID**:
-
-![Select Microsoft Entra ID](common/select-azuread.png)
-
-Go to **Enterprise applications** and then select **All applications**:
-
-![Enterprise applications](common/enterprise-applications.png)
-
-To add an application, select **New application** at the top of the window:
-
-![Select New application](common/add-new-app.png)
-
-In the search box, enter **Zscaler Two**. Select **Zscaler Two** in the results and then select **Add**.
-
-![Results list](common/search-new-app.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Zscaler Two** in the search box.
+1. Select **Zscaler Two** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Assign users to Zscaler Two
 

@@ -17,7 +17,7 @@ You can visualize custom locations as an abstraction layer on top of Azure Arc-e
 
 ## Architecture
 
-When the admin [enables the custom locations feature on the cluster](custom-locations.md), a ClusterRoleBinding is created on the cluster, authorizing the Azure AD application used by the custom locations resource provider. Once authorized, the custom locations resource provider can create ClusterRoleBindings or RoleBindings needed by other Azure resource providers to create custom resources on this cluster. The cluster extensions installed on the cluster determine the list of resource providers to authorize.
+When the admin [enables the custom locations feature on the cluster](custom-locations.md), a ClusterRoleBinding is created on the cluster, authorizing the Microsoft Entra application used by the custom locations resource provider. Once authorized, the custom locations resource provider can create ClusterRoleBindings or RoleBindings needed by other Azure resource providers to create custom resources on this cluster. The cluster extensions installed on the cluster determine the list of resource providers to authorize.
 
 [ ![Use custom locations](./media/conceptual-custom-locations-usage.png) ](./media/conceptual-custom-locations-usage.png#lightbox)
 
