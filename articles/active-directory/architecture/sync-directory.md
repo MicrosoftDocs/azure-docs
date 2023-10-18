@@ -47,7 +47,7 @@ Microsoft designed [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/wha
 Explore the following resources to learn more about directory synchronization with Microsoft Entra ID.
 
 * [What is identity provisioning with Microsoft Entra ID?](../hybrid/what-is-provisioning.md)Provisioning is the process of creating an object based on certain conditions, keeping the object up-to-date and deleting the object when conditions are no longer met. On-premises provisioning involves provisioning from on premises sources (like Active Directory) to Microsoft Entra ID.
-* [Hybrid Identity: Directory integration tools comparison](../hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
+* [Hybrid Identity: Directory integration tools comparison](../hybrid/index.yml) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
 * [Microsoft Entra Connect and Microsoft Entra Connect Health installation roadmap](../hybrid/connect/how-to-connect-install-roadmap.md) provides detailed installation and configuration steps.
 
 ## Next steps

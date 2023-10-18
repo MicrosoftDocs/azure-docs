@@ -70,7 +70,3 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
 - [Leave an organization](leave-the-organization.md) - Screenshot update
 - [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
-
-
-
-
