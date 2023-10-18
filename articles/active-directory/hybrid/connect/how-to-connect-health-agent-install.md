@@ -102,7 +102,7 @@ At this point, the agent services should start to automatically allow the agent 
 
 To verify that the agent was installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they're stopped until the configuration is complete.
 
-- Microsoft Entra Connect Agent Updater
+- Microsoft Azure AD Connect Agent Updater
 - Microsoft Entra Connect Health Agent
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install5.png" alt-text="Screenshot that shows Microsoft Entra Connect Health AD FS services.":::
@@ -182,10 +182,10 @@ The Microsoft Entra Connect Health agent for sync is installed automatically in 
 
 To verify that the agent has been installed, look for the following services on the server. If you completed the configuration, the services should already be running. Otherwise, the services are stopped until the configuration is complete.
 
-- Microsoft Entra Connect Health Sync Insights Service
-- Microsoft Entra Connect Health Sync Monitoring Service
+- Microsoft Azure AD Connect Agent Updater
+- Microsoft Entra Connect Health Agent
 
-:::image type="content" source="media/how-to-connect-health-agent-install/services.png" alt-text="Screenshot that shows the running Microsoft Entra Connect Health for sync services on the server.":::
+:::image type="content" source="media/how-to-connect-health-agent-install/install5.png" alt-text="Screenshot that shows the running Microsoft Entra Connect Health for sync services on the server.":::
 
 > [!NOTE]
 > Remember that you must have Microsoft Entra ID P1 or P2 to use Microsoft Entra Connect Health. If you don't have Microsoft Entra ID P1 or P2, you can't complete the configuration in the [Microsoft Entra admin center](https://entra.microsoft.com). For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
