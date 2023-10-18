@@ -2334,6 +2334,15 @@ groups:
   - id: sc-standard
     title: Basic/Standard
 # Owner: karler
+- id: spring-apps-enterprise-or-consumption-plan-selection
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
+  pivots:
+    - id: sc-enterprise
+      title: Enterprise
+    - id: sc-consumption-plan
+      title: Standard consumption and dedicated (Preview)
+# Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
