@@ -38,7 +38,21 @@ The **Network Function Definition Version** (NFDV) is the smallest component you
 
 For **Containerized Network Function Definition Versions** (CNF NFDVs), the networkFunctionApplications list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
 
-For **Virtualized Network Function Definition Versions** (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template.  It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Service Designer should include numerous copies of the **Network Function Definition** (NFD) with the **Network Service Design** (NSD) if you want to deploy multiple VMs.
+For **Virtualized Network Function Definition Versions** (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template.  It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Service Designer should include numerous copies of the **Network Function Definition** (NFD) with the **Network Service Design** (NSD) if you want to deploy multiple VMs.  The ARM template (for both AzureCore and Nexus) can only deploy ARM resources from the following Resource Providers:
+
+- Microsoft.Compute
+
+- Microsoft.Network
+
+- Microsoft.NetworkCloud
+
+- Microsoft.Storage
+
+- Microsoft.NetworkFabric
+
+- Microsoft.Authorization
+
+- Microsoft.ManagedIdentity
 
 Single **Network Function Definition Group** (NFDGs) can have multiple **Network Function Definition Version** (NFDVs).
 
