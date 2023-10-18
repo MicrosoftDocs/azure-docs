@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/18/2023
 ms.author: danlep
 ---
 
@@ -14,20 +14,20 @@ ms.author: danlep
 
 You can migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform. This article provides migration steps for two scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet.
 
-* **Scenario 1: Non-VNet-injected API Management instance** - Migrate your instance using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. API Management can configure a new virtual IP address automatically during migration (recommended), or you can preserve the original VIP address.
+* **Scenario 1: Non-VNet-injected API Management instance** - Migrate your instance using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
 
-    * If you choose a new VIP, API requests will be responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
+    * **New virtual IP address (recommended)** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
 
-    * If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.  
+    * **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.  
 
 * **Scenario 2: VNet-injected API Management instance** - Migrate your instance by manually updating the VNet configuration settings
 
-    * A new VIP address of your API Management instance is configured automatically during migration. Your service will have no downtime. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+    * The VIP address of your API Management instance will change. API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
 For more information about the `stv1` and `stv2` platforms and the benefits of using the `stv2` platform, see [Compute platform for API Management](compute-infrastructure.md).
 
-> [!IMPORTANT]
-> * Migrating your API Management instance to new infrastructure is a long-running operation. Depending on your scenario, your instance may experience downtime during the last 10-15 minutes of migration, and you may need to update settings for connectivity to your API Management instance. Plan your migration accordingly.
+> [!CAUTION]
+> * Migrating your API Management instance to new infrastructure is a long-running operation. Depending on your service configuration, you may have temporary downtime during migration, and you may need to update your network dependencies after migration to reach your API Management instance. Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]
@@ -156,4 +156,6 @@ To verify that the migration was successful, check the [platform version](comput
 ## Related content
 
 * Learn about [stv1 platform retirement](breaking-changes/stv1-platform-retirement-august-2024.md).
+* Learn about [IP addresses of API Management](api-management-howto-ip-addresses.md)
 * For instances deployed in a VNet, see the [Virtual network configuration reference](virtual-network-reference.md).
+
