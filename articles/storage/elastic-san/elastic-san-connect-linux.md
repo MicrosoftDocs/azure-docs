@@ -84,7 +84,7 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 You can verify the number of sessions using `sudo multipath -ll`
 
 #### Number of sessions
-Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
+You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
 
 ## Next steps
 
