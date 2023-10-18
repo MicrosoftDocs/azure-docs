@@ -60,7 +60,7 @@ In this step, you'll create the mobile network site resource representing the ph
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site will support both 4G and 5G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
 
 8. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-gpu#collect-data-network-values) to fill out the fields. Note the following:
-    - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 5 or 6 on your Azure Stack Edge Pro device.
+    - **ASE N6 virtual subnet** (if this site will support 5G UEs), **ASE SGi virtual subnet** (if this site will support 4G UEs), or **ASE N6/SGi virtual subnet** (if this site will support combined 4G and 5G UEs) must match the corresponding virtual network name on port 5 or 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
@@ -75,7 +75,7 @@ In this step, you'll create the mobile network site resource representing the ph
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site will support both 4G and 5G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro device.
 
 8. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-2#collect-data-network-values) to fill out the fields. Note the following:
-    - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
+    - **ASE N6 virtual subnet** (if this site will support 5G UEs), **ASE SGi virtual subnet** (if this site will support 4G UEs), or **ASE N6/SGi virtual subnet** (if this site will support combined 4G and 5G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
