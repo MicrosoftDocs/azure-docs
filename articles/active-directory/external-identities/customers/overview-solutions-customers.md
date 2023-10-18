@@ -31,7 +31,7 @@ One of the most common ways for users to sign up for an app is by creating an ac
 
 :::image type="content" source="media/overview-solutions-customers/use-case-common.png" alt-text="Screenshot of the common use case demo.":::
 
-When you enter an email address to create an account, your email is verified through a one-time passcode. Then you can create a new password and provide more details, such as your name, country or region, and other information. Once your account is create, your email becomes your sign-in ID.
+When you enter an email address to create an account, your email is verified through a one-time passcode. Then you can create a new password and provide more details, such as your name, country or region, and other information. Once your account is created, your email becomes your sign-in ID.
 
 ### Self-service password reset
 
