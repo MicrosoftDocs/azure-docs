@@ -24,7 +24,7 @@ For a demonstration of this process, see the following video:
 
 <br>
 
-> [![Video that shows how to use gRPC in Spring Apps]](https://www.youtube.com/embed/yNvoQ4YIDCI "How to use gRPC in Spring Apps")
+> [!VIDEO https://www.youtube.com/embed/yNvoQ4YIDCI title="Video that shows how to use gRPC in Spring Apps?"]
 
 ## Prerequisites
 
