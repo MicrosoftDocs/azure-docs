@@ -326,7 +326,7 @@ __package-external.yml__
 
 # [Python](#tab/sdk)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/registry-model/sdk-deploy-and-test.ipynb?name=configure_deployment_copy)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/custom-model/sdk-deploy-and-test.ipynb?name=configure_deployment_copy)]
 
 ---
 
