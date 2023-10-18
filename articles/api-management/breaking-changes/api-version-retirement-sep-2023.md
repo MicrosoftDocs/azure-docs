@@ -42,13 +42,12 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
     * Terraform azurerm provider: 3.0.0
     
 * **Azure SDKs** - Update the Azure API Management SDKs to the latest versions (or later): 
-
     * .NET: 8.0.0 
     * Go: 1.0.0 
     * Python: 3.0.0 
-    * JavaScript: 8.0.1 
-
-## More information
+   - JavaScript: 8.0.1 
+   - Java: 1.0.0-beta3
+   ## More information
 
 * [Azure CLI](/cli/azure/update-azure-cli)
 * [Azure PowerShell](/powershell/azure/install-azure-powershell)
@@ -60,3 +59,4 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 ## Next steps
 
 See all [upcoming breaking changes and feature retirements](overview.md).
+

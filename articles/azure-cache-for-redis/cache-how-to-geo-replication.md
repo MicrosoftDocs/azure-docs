@@ -138,7 +138,7 @@ Be sure to check the following items:
 
 - If you’re using a firewall in either cache, make sure that the firewall settings are similar so you have no connection issues.
 - Make sure both caches are using the same port and TLS/SSL settings
-- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary. Or, use [Azure Active Directory tokens for cache authentication](cache-azure-active-directory-for-authentication.md), which allow you to use the same authentication credential for both the geo-primary and the geo-secondary cache.   
+- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary. Or, use [Microsoft Entra tokens for cache authentication](cache-azure-active-directory-for-authentication.md), which allow you to use the same authentication credential for both the geo-primary and the geo-secondary cache.   
 
 ### Failover with minimal data loss
 
@@ -150,7 +150,7 @@ Geo-failover events can introduce data inconsistencies during the transition, es
 There's no need to run the CLIENT UNPAUSE command as the new geo-primary does retain the client pause.
 
 >[!NOTE]
->Using [Azure Active Directory based authentication](cache-azure-active-directory-for-authentication.md) for your cache is recommended in geo-failover scenarios because it removes the difficulty of managing different access keys for the geo-primary and the geo-secondary cache. 
+>Using [Microsoft Entra ID based authentication](cache-azure-active-directory-for-authentication.md) for your cache is recommended in geo-failover scenarios because it removes the difficulty of managing different access keys for the geo-primary and the geo-secondary cache. 
 >
 
 ## Remove a geo-replication link

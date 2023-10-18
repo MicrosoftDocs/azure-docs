@@ -27,7 +27,7 @@ sections:
             -	Enable/Disable “Allow public clients flows”.
             -	CWAP_AuthSecret (Client secrets).
             -	API Permissions.
-            Modifying any of the above configuration items on the App registration page breaks preauthentication for Azure AD Application Proxy. 
+            Modifying any of the above configuration items on the App registration page breaks preauthentication for Microsoft Entra application proxy.
 
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Microsoft Entra admin center? 
@@ -63,7 +63,7 @@ sections:
               To manually upgrade a connector:
           
               - Download the latest version of the connector. (You can find it under Application Proxy on the Microsoft Entra admin center. You can also find the link at [Microsoft Entra application proxy: Version release history](./application-proxy-release-version-history.md).
-              -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+              -	The installer restarts the Microsoft Entra Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
               -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector is not re-registered.
           
       - question: |
@@ -169,7 +169,7 @@ sections:
               The client secret is valid for one year. A new one-year client secret is automatically created before the current valid client secret expires. Three CWAP_AuthSecret client secrets are kept in the application object at all times. 
           
               > [!IMPORTANT]
-              > Deleting CWAP_AuthSecret breaks preauthentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
+              > Deleting CWAP_AuthSecret breaks preauthentication for Microsoft Entra Application Proxy. Don't delete CWAP_AuthSecret.
 
       - question: |
          I'm using or want to use Microsoft Entra application proxy. Can I replace the "onmicrosoft.com" fallback domain of my tenant in Microsoft 365 as suggested in the article "Add and replace your onmicrosoft.com fallback domain in Microsoft 365"? 
@@ -351,7 +351,7 @@ sections:
               Applications that use the WebSocket protocol, for example QlikSense and Remote Desktop Web Client (HTML5), are now supported. The following are known limitations:
               * Application proxy discards the cookie that is set on the server response while opening the WebSocket connection.
               * There is no SSO applied to the WebSocket request.
-              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Microsoft Entra Application Proxy.
               
               The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           

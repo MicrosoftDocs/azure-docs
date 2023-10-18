@@ -72,7 +72,7 @@ Client workstations are traditionally joined to Active Directory and managed via
 
 [Windows Local Administrator Password Solution](../devices/howto-manage-local-admin-passwords.md) (LAPS) enables a cloud-first solution to manage the passwords of local administrator accounts.
 
-For more information, see [Learn more about cloud-native endpoints](/mem/cloud-native-endpoints-overview).
+For more information, see [Learn more about cloud-native endpoints](/mem/solutions/cloud-native-endpoints/cloud-native-endpoints-overview).
 
 ## Applications
 
@@ -83,7 +83,7 @@ The organization has a process to evaluate Microsoft Entra alternatives when it'
 * Provide a recommendation to change the procurement policy and application development policy to require modern protocols (OIDC/OAuth2 and SAML) and authenticate by using Microsoft Entra ID. New apps should also support [Microsoft Entra app provisioning](../app-provisioning/what-is-hr-driven-provisioning.md) and have no dependency on LDAP queries. Exceptions require explicit review and approval.
 
   > [!IMPORTANT]
-  > Depending on the anticipated demands of applications that require legacy protocols, you can choose to deploy [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) when more current alternatives won't work.
+  > Depending on the anticipated demands of applications that require legacy protocols, you can choose to deploy [Microsoft Entra Domain Services](/entra/identity/domain-services/overview) when more current alternatives won't work.
 
 * Provide a recommendation to create a policy to prioritize use of cloud-native alternatives. The policy should limit deployment of new application servers to the domain. Common cloud-native scenarios to replace Active Directory-joined servers include:
 
@@ -91,7 +91,7 @@ The organization has a process to evaluate Microsoft Entra alternatives when it'
 
      * SharePoint or OneDrive provides collaboration support across Microsoft 365 solutions and built-in governance, risk, security, and compliance.
 
-     * [Azure Files](../../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard SMB or NFS protocol. Customers can use native [Microsoft Entra authentication to Azure Files](../../virtual-desktop/create-profile-container-azure-ad.md) over the internet without line of sight to a domain controller.
+     * [Azure Files](/azure/storage/files/storage-files-introduction) offers fully managed file shares in the cloud that are accessible via the industry-standard SMB or NFS protocol. Customers can use native [Microsoft Entra authentication to Azure Files](/azure/virtual-desktop/create-profile-container-azure-ad) over the internet without line of sight to a domain controller.
 
      * Microsoft Entra ID works with third-party applications in the Microsoft [application gallery](/microsoft-365/enterprise/integrated-apps-and-azure-ads).
 

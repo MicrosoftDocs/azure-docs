@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 description: This article provides instructions on how to recover or purge an already-deleted Azure AI services resource.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 10/5/2023
 ms.author: eur

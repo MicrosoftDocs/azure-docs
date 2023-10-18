@@ -220,7 +220,7 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 
 ## Switch authentication type
 
-When working with Service Bus Explorer, it's possible to use either **Access Key** or **Azure Active Directory** authentication.
+When working with Service Bus Explorer, it's possible to use either **Access Key** or **Microsoft Entra ID** authentication.
 
 1. Select the **Settings** button.
 

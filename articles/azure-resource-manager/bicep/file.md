@@ -252,7 +252,7 @@ For more information, see [Use Bicep modules](./modules.md).
 
 ## Resource and module decorators
 
-You can add a decorator to a resource or module definition. The only supported decorator is `batchSize(int)`. You can only apply it to a resource or module definition that uses a `for` expression.
+You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int) and description. You can only apply it to a resource or module definition that uses a `for` expression.
 
 By default, resources are deployed in parallel. When you add the `batchSize` decorator, you deploy instances serially.
 

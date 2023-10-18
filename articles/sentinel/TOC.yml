@@ -11,46 +11,42 @@
   items:
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+- name: Plan
+  items:
+  - name: Deployment planning guide  
+    href: deploy-overview.md
+  - name: Prerequisites      
+    href: prerequisites.md
+  - name: Workspace architecture
+    items:
+    - name: Review best practices
+      href: best-practices-workspace-architecture.md 
+    - name: Design workspace architecture
+      href: design-your-workspace-architecture.md      
+    - name: Review sample workspace designs
+      href: sample-workspace-designs.md
+    - name: Prepare for multiple workspaces
+      href: prepare-multiple-workspaces.md
+  - name: Prioritize data connectors
+    href: prioritize-data-connectors.md 
+  - name: Plan roles and permissions
+    href: roles.md
+  - name: Plan costs
+    href: billing.md
 - name: Deploy
   items:
-  - name: Plan and prepare
-    items: 
-    - name: Overview and prerequisites      
-      href: prerequisites.md
-    - name: Plan workspace architecture
-      items:
-      - name: Review best practices
-        href: best-practices-workspace-architecture.md 
-      - name: Design workspace architecture
-        href: design-your-workspace-architecture.md      
-      - name: Review sample workspace designs
-        href: sample-workspace-designs.md
-      - name: Prepare for multiple workspaces
-        href: prepare-multiple-workspaces.md
-    - name: Prioritize data connectors
-      href: prioritize-data-connectors.md 
-    - name: Plan roles and permissions
-      href: roles.md
-    - name: Plan costs
-      href: billing.md
-  - name: Deploy
-    items: 
-    - name: Overview   
-      href: deploy-overview.md
-    - name: Enable Microsoft Sentinel and initial features and content
-      href: enable-sentinel-features-content.md
-    - name: Configure content
-      href: configure-content.md
-    - name: Set up multiple workspaces
-      href: use-multiple-workspaces.md
-    - name: Enable User and Entity Behavior Analytics (UEBA)
-      href: enable-entity-behavior-analytics.md
-    - name: Configure data retention and archive 
-      href: configure-data-retention-archive.md
-  - name: Review and fine-tune
-    items: 
-    - name: Review and fine-tune checklist   
-      href: review-fine-tune-overview.md    
+  - name: Enable Microsoft Sentinel and initial features
+    href: enable-sentinel-features-content.md
+  - name: Configure content
+    href: configure-content.md
+  - name: Set up multiple workspaces
+    href: use-multiple-workspaces.md
+  - name: Enable User and Entity Behavior Analytics (UEBA)
+    href: enable-entity-behavior-analytics.md
+  - name: Configure data retention and archive 
+    href: configure-data-retention-archive.md
+  - name: Deploy side-by-side
+    href: deploy-side-by-side.md
 - name: Tutorials
   items:
   - name: Forward syslog data to workspace
@@ -253,8 +249,6 @@
       href: migration-convert-dashboards.md
     - name: Update SOC processes      
       href: migration-security-operations-center-processes.md
-  - name: Deploy side-by-side
-    href: deploy-side-by-side.md
   - name: Find solutions and content
     items:
     - name: Discover and deploy out-of-the-box content
@@ -277,7 +271,7 @@
         items:
         - name: Send CloudWatch events via Lambda function
           href: cloudwatch-lambda-function.md
-      - name: Azure Active Directory
+      - name: Microsoft Entra ID
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
         href: connect-defender-for-cloud.md
@@ -325,9 +319,9 @@
         href: data-connectors/automated-logic-webctrl.md
       - name: Awake Security
         href: data-connectors/awake-security.md
-      - name: Azure Active Directory
+      - name: Microsoft Entra ID
         href: data-connectors/azure-active-directory.md
-      - name: Azure Active Directory Identity Protection
+      - name: Microsoft Entra ID Protection
         href: data-connectors/azure-active-directory-identity-protection.md
       - name: Azure Activity
         href: data-connectors/azure-activity.md

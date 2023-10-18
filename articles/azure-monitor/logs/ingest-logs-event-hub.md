@@ -53,7 +53,7 @@ Azure Monitor currently supports ingestion from Event Hubs in these regions:
 
 ## Collect required information
 
-You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
+You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub instance resource ID in subsequent steps:
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** and copy your **Subscription ID**, **Resource group**, and **Workspace name**. You'll need these details to create resources in this tutorial. 
 
@@ -63,7 +63,7 @@ You need your subscription ID, resource group name, workspace name, workspace re
 
     :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing the Resource JSON screen with the workspace resource ID highlighted.":::
 
-1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub's **Resource ID**. You'll need the event hub's resource ID to associate the data collection rule with the event hub.
+1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub instance's **Resource ID**. You'll need the event hub instance's resource ID to associate the data collection rule with the event hub.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
 ## Create a destination table in your Log Analytics workspace
@@ -112,7 +112,7 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 > [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). 
-> - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+> -  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. 
 > - Column names are case-sensitive. Make sure to use the correct case in your data collection rule. 
 
 ## Create a data collection endpoint
@@ -333,15 +333,15 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
-2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
+1. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
 
-1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**,  search your DCR by name and click **Select**.
+1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**, search for your data collection rule by name, and click **Select**.
 
-[ ![Screenshot of how to assign access to managed identity.](media/ingest-logs-event-hub/assign-access-to-managed-identity.png) ](media/ingest-logs-event-hub/assign-access-to-managed-identity.png#lightbox)
+    :::image type="content" source="media/ingest-logs-event-hub/assign-access-to-managed-identity.png" lightbox="media/ingest-logs-event-hub/assign-access-to-managed-identity.png" alt-text="Screenshot that shows how to assign access to managed identity.":::
 
-4. Select **Review + assign** and verify the details before saving your role assignment.
+1. Select **Review + assign** and verify the details before saving your role assignment.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" alt-text="Screenshot that shows the Review and Assign tab of the Add Role Assignment screen.":::
 
@@ -404,7 +404,7 @@ To create a data collection rule association in the Azure portal:
 1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule association and then provide values for the parameters defined in the template, including: 
 
     - **Region** - Populated automatically based on the resource group you select.
-    - **Event Hub Resource ID** - See [Collect required information](#collect-required-information).  
+    - **Event Hub Instance Resource ID** - See [Collect required information](#collect-required-information).  
     - **Association Name** - Give the association a name.
     - **Data Collection Rule ID** - Generated when you [create the data collection rule](#create-a-data-collection-rule).
   
@@ -443,7 +443,7 @@ To stop ingesting data from the event hub, [delete all data collection rule asso
 
 ## Known issues and limitations
 
-- If you transfer a subscription between Azure AD directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
+- If you transfer a subscription between Microsoft Entra directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
 - You can ingest messages of up to 64 KB from Event Hubs to Azure Monitor Logs.
 
 ## Next steps
@@ -453,5 +453,3 @@ Learn more about to:
 - [Create a custom table](../logs/create-custom-table.md#create-a-custom-table).
 - [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Update an existing data collection rule](../essentials/data-collection-rule-edit.md).
-
-

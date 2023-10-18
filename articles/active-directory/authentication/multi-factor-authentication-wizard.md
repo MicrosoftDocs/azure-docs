@@ -21,7 +21,7 @@ This guide provides step-by-step instructions for IT administrators to implement
 
 ## What to expect and what you need
 
-The setup guides help you configure the core functionality of Microsoft Entra ID. If you need to set up a more advanced configuration, the setup guide points you to the appropriate location in the Microsoft Entra portal.
+The setup guides help you configure the core functionality of Microsoft Entra ID. If you need to set up a more advanced configuration, the setup guide points you to the appropriate location in the Microsoft Entra admin center.
 
 ### Required permissions
 

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Microsoft Entra user data collection for multifactor authentication and self-service password reset 
 
-This document explains how to find user information collected by Azure multifactor authentication Server (MFA Server), Microsoft Entra multifactor authentication (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
+This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server), Microsoft Entra multifactor authentication (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 

@@ -5,7 +5,7 @@ description: Learn how to generate an annotation file from an old Custom Vision 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 02/06/2023

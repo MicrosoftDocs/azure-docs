@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 02/13/2023
 ms.author: aahi

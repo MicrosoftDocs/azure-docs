@@ -90,7 +90,7 @@ sections:
         answer: |
           This usually means there is a problem with the supplied property values. Confirm that the property values you have supplied have a proper value type (Boolean, string, or string collection). For more information, see the allowed values for each operator for [users](../enterprise-users/groups-dynamic-membership.md#supported-properties) or [devices](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
           
-          This error can also result if a person without an Azure AD Premium P1 license attempts to save an update to the administrative unit.
+          This error can also result if a person without a Microsoft Entra ID P1 license attempts to save an update to the administrative unit.
 
       - question: |
           How can I add a single member to an administrative unit in addition to the current dynamic membership rule?

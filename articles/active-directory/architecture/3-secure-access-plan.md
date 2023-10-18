@@ -139,7 +139,7 @@ Generally, organizations customize policy, however consider the following parame
 
 ## Access control methods
 
-Some features, for example entitlement management, are available with a Microsoft Entra ID P1 or P2 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Microsoft Entra ID P2 licenses. Learn more in the following entitlement management section.
+Some features, for example entitlement management, are available with a Microsoft Entra ID P1 or P2 license. Microsoft 365 E5 and Office 365 E5 licenses include Microsoft Entra ID P2 licenses. Learn more in the following entitlement management section.
 
 > [!NOTE]
 > Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Microsoft Entra ID P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 

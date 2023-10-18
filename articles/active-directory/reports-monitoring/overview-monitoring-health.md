@@ -48,7 +48,7 @@ Audit logs provide you with records of system activities for compliance. This da
 
 ### Sign-in logs
 
-The sign-ins logs enable you to find answers to questions such as:
+The sign-in logs enable you to find answers to questions such as:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
@@ -83,4 +83,3 @@ Monitoring Microsoft Entra activity logs requires routing the log data to a moni
 
 
 For an overview of how to access, store, and analyze activity logs, see [How to access activity logs](howto-access-activity-logs.md).
-
