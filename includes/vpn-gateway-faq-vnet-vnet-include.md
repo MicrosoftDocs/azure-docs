@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/22/2022
+ ms.date: 10/18/2023
  ms.author: cherylmc
 
 ---

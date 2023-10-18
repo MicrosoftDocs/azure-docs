@@ -61,7 +61,7 @@ Microsoft Entra ID uses the Windows FIPS 140 Level 1 overall validated cryptogra
 
 ### Authenticator requirements
 
-Government agency cryptographic authenticators are validated for FIPS 140 Level 1 overall. This requirement isn't for non-governmental agencies. The following Microsoft Entra authenticators meet the requirement when running on [Windows in a FIPS 140-approved mode](/windows/security/threat-protection/fips-140-validation):
+Government agency cryptographic authenticators are validated for FIPS 140 Level 1 overall. This requirement isn't for non-governmental agencies. The following Microsoft Entra authenticators meet the requirement when running on [Windows in a FIPS 140-approved mode](/windows/security/security-foundations/certification/fips-140-validation):
 
 * Password
 
