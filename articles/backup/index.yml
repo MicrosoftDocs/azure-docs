@@ -68,7 +68,7 @@ landingContent:
             url: multi-user-authorization-concept.md?tabs=backup-vault
           - text: Enhanced soft delete
             url: backup-azure-enhanced-soft-delete-about.md
-          - text: Azure Kubernetes Service backup (preview)
+          - text: Azure Kubernetes Service backup
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
