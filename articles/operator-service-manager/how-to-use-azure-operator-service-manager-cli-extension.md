@@ -124,6 +124,22 @@ A generic workflow of using the CLI extension is:
 
 For VNFs, you need a single ARM template that would create the Azure resources for your VNF, for example a Virtual Machine, disks and NICs. The ARM template must be stored on the machine from which you're executing the CLI. 
 
+For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template. It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Service Designer should include numerous copies of the Network Function Definition (NFD) with the Network Service Design (NSD) if you want to deploy multiple VMs. The ARM template (for both AzureCore and Nexus) can only deploy ARM resources from the following Resource Providers:
+
+- Microsoft.Compute
+
+- Microsoft.Network
+
+- Microsoft.NetworkCloud
+
+- Microsoft.Storage
+
+- Microsoft.NetworkFabric
+
+- Microsoft.Authorization
+
+- Microsoft.ManagedIdentity
+
 You also need a VHD image that would be used for the VNF Virtual Machine. The VHD image can be stored on the machine from which you're executing the CLI, or in Azure blob storage accessible via a SAS URI.
 
 ## CNF start point
