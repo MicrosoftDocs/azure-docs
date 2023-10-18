@@ -317,7 +317,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Microsoft Entra ID](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&A Microsoft Entra forum](/answers/topics/azure-active-directory.html)
+* [Microsoft Q&A Microsoft Entra forum](/answers/tags/455/entra-id)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
