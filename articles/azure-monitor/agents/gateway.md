@@ -103,8 +103,8 @@ To install a gateway using the setup wizard, follow these steps.
 
 1. From the destination folder, double-click **Log Analytics gateway.msi**.
 1. On the **Welcome** page, select **Next**.
-
-   :::image type="content" source="./media/gateway/gateway-wizard01.png" lightbox="./media/gateway/gateway-wizard01.png" alt-text="Screenshot of Welcome page in the Gateway Setup wizard":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-wizard01.png" lightbox="./media/gateway/gateway-wizard01.png" alt-text="Screenshot of Welcome page in the Gateway Setup wizard" border="false":::
 
 1. On the **License Agreement** page, select **I accept the terms in the License Agreement** to agree to the Microsoft Software License Terms, and then select **Next**.
 1. On the **Port and proxy address** page:
