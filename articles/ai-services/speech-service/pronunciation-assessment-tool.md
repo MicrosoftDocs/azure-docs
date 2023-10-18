@@ -121,7 +121,7 @@ If you want to conduct an unscripted assessment, select the Speaking tab. This a
 
    You can also upload recorded audio for pronunciation assessment. Once successfully uploaded, the audio will be automatically evaluated by the system.
 
-### Selecting advanced options for pronunciation assessment
+## Selecting advanced options for pronunciation assessment
 
 If you are conducting either a scripted or unscripted assessment and you aim to enhance recognition accuracy and customize speech recognition to align with your specific business requirements, you can utilize the advanced options available on either the Reading or Speaking tab. Here's how to proceed. 
 
@@ -297,7 +297,7 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 
 ---
 
-### Assessment scores in streaming mode
+## Assessment scores in streaming mode
 
 Pronunciation Assessment supports uninterrupted streaming mode. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
 
