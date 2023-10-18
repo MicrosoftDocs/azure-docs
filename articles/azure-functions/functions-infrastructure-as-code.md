@@ -219,6 +219,46 @@ The Premium plan offers the same scaling as the Consumption plan but includes de
 
 A Premium plan is a special type of `serverfarm` resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` property. The way that you define the Functions hosting plan depends on whether your function app runs on Windows or on Linux: 
 
+### [Windows](#tab/windows/bicep)
+
+```bicep
+resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+  name: hostingPlanName
+  location: location
+  sku: {
+    name: 'EP1'
+    tier: 'ElasticPremium'
+    family: 'EP'
+  }
+  kind: 'elastic'
+  properties: {
+    maximumElasticWorkerCount: 20
+  }
+}
+```
+
+### [Windows](#tab/windows/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "EP1",
+      "tier": "ElasticPremium",
+      "family": "EP"
+    },
+    "kind": "elastic",
+    "properties": {
+      "maximumElasticWorkerCount": 20
+    }
+  }
+]
+```
+
 ### [Linux](#tab/linux/bicep)
 
 To run your app on Linux, you must also set property `"reserved": true` for the `serverfarms` resource:
@@ -265,20 +305,27 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
 ]
 ```
 
+---  
+::: zone-end
+:::zone pivot="dedicated-plan" 
+In the Dedicated (App Service) plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs in App Service plans, similar to web apps. For more information, see [Dedicated plan](./dedicated-plan.md).
+
+For a sample Bicep file/Azure Resource Manager template, see [Function app on Azure App Service plan]
+
+In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. The way that you define the hosting plan depends on whether your function app runs on Windows or on Linux: 
+
 ### [Windows](#tab/windows/bicep)
 
 ```bicep
-resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
   name: hostingPlanName
   location: location
   sku: {
-    name: 'EP1'
-    tier: 'ElasticPremium'
-    family: 'EP'
-  }
-  kind: 'elastic'
-  properties: {
-    maximumElasticWorkerCount: 20
+    tier: 'Standard'
+    name: 'S1'
+    size: 'S1'
+    family: 'S'
+    capacity: 1
   }
 }
 ```
@@ -293,26 +340,15 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
     "name": "[parameters('hostingPlanName')]",
     "location": "[parameters('location')]",
     "sku": {
-      "name": "EP1",
-      "tier": "ElasticPremium",
-      "family": "EP"
-    },
-    "kind": "elastic",
-    "properties": {
-      "maximumElasticWorkerCount": 20
+      "tier": "Standard",
+      "name": "S1",
+      "size": "S1",
+      "family": "S",
+      "capacity": 1
     }
   }
 ]
 ```
-
----  
-::: zone-end
-:::zone pivot="dedicated-plan" 
-In the Dedicated (App Service) plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs in App Service plans, similar to web apps. For more information, see [Dedicated plan](./dedicated-plan.md).
-
-For a sample Bicep file/Azure Resource Manager template, see [Function app on Azure App Service plan]
-
-In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. The way that you define the hosting plan depends on whether your function app runs on Windows or on Linux: 
 
 ### [Linux](#tab/linux/bicep)
 
@@ -356,18 +392,33 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ]
 ```
 
+---
+
+::: zone-end
+:::zone pivot="consumption-plan"
+<a name="consumption"></a>
+The Consumption plan automatically allocates compute power when your code is running, scales-out as necessary to handle load, and then scales-in when code isn't running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Consumption plan](consumption-plan.md).
+
+The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties. The way that you can explicitly define a hosting plan depends on whether your function app runs on Windows or on Linux.
+
+>[!NOTE]  
+>If you skip this section of the template, a plan is automatically either created or selected on a per-region basis when you create the function app resource itself.
+
 ### [Windows](#tab/windows/bicep)
 
 ```bicep
-resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   name: hostingPlanName
   location: location
   sku: {
-    tier: 'Standard'
-    name: 'S1'
-    size: 'S1'
-    family: 'S'
-    capacity: 1
+    name: 'Y1'
+    tier: 'Dynamic'
+    size: 'Y1'
+    family: 'Y'
+    capacity: 0
+  }
+  properties: {
+    computeMode: 'Dynamic'
   }
 }
 ```
@@ -382,27 +433,18 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
     "name": "[parameters('hostingPlanName')]",
     "location": "[parameters('location')]",
     "sku": {
-      "tier": "Standard",
-      "name": "S1",
-      "size": "S1",
-      "family": "S",
-      "capacity": 1
+      "name": "Y1",
+      "tier": "Dynamic",
+      "size": "Y1",
+      "family": "Y",
+      "capacity": 0
+    },
+    "properties": {
+      "computeMode": "Dynamic"
     }
   }
 ]
 ```
-
----
-
-::: zone-end
-:::zone pivot="consumption-plan"
-<a name="consumption"></a>
-The Consumption plan automatically allocates compute power when your code is running, scales-out as necessary to handle load, and then scales-in when code isn't running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Consumption plan](consumption-plan.md).
-
-The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties. The way that you can explicitly define a hosting plan depends on whether your function app runs on Windows or on Linux.
-
->[!NOTE]  
->If you skip this section of the template, a plan is automatically either created or selected on a per-region basis when you create the function app resource itself.
 
 ### [Linux](#tab/linux/bicep)
 
@@ -447,48 +489,6 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
     "properties": {
       "computeMode": "Dynamic",
       "reserved": true
-    }
-  }
-]
-```
-
-### [Windows](#tab/windows/bicep)
-
-```bicep
-resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-  name: hostingPlanName
-  location: location
-  sku: {
-    name: 'Y1'
-    tier: 'Dynamic'
-    size: 'Y1'
-    family: 'Y'
-    capacity: 0
-  }
-  properties: {
-    computeMode: 'Dynamic'
-  }
-}
-```
-
-### [Windows](#tab/windows/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('hostingPlanName')]",
-    "location": "[parameters('location')]",
-    "sku": {
-      "name": "Y1",
-      "tier": "Dynamic",
-      "size": "Y1",
-      "family": "Y",
-      "capacity": 0
-    },
-    "properties": {
-      "computeMode": "Dynamic"
     }
   }
 ]
@@ -618,6 +618,19 @@ The function app resource is defined by a resource of type `Microsoft.Web/sites`
 
 The way that you define a function app resource depends on whether you're hosting on Linux or on Windows:
 
+### [Windows](#tab/windows)
+
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).
+:::zone pivot="consumption-plan"
+For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
+:::zone-end  
+:::zone pivot="premium-plan"
+For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Premium plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
+:::zone-end  
+:::zone pivot="dedicated-plan"
+For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
+:::zone-end  
+
 ### [Linux](#tab/linux)
 
 When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
@@ -633,19 +646,6 @@ For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux
 For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 ::: zone-end
 
-### [Windows](#tab/windows)
-
-For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).
-:::zone pivot="consumption-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
-:::zone-end  
-:::zone pivot="premium-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Premium plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
-:::zone-end  
-:::zone pivot="dedicated-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
-:::zone-end  
-
 ---
 
 :::zone pivot="consumption-plan"
@@ -655,102 +655,7 @@ For a sample Bicep file/Azure Resource Manager template, see this [function app 
 :::zone pivot="premium-plan,dedicated-plan"
 Set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan. 
 ::: zone-end  
-:::zone pivot="premium-plan"  
-# [Linux](#tab/linux/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp,linux'
-  properties: {
-    reserved: true
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      linuxFxVersion: 'node|14'
-      appSettings: [
-        {
-          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
-          value: applicationInsightsName.properties.ConnectionString
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'WEBSITE_CONTENTSHARE'
-          value: toLower(functionAppName)
-        }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-      ]
-    }
-  }
-}
-```
-
-# [Linux](#tab/linux/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2021-02-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp,linux",
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "reserved": true,
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "siteConfig": {
-        "linuxFxVersion": "node|14",
-        "appSettings": [
-          {
-            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "WEBSITE_CONTENTSHARE",
-            "value": "[toLower(parameters('functionAppName'))]"
-          },
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
+:::zone pivot="premium-plan,consumption-plan"  
 ### [Windows](#tab/windows/bicep)
 
 ```bicep
@@ -850,11 +755,106 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
+# [Linux](#tab/linux/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  properties: {
+    reserved: true
+    serverFarmId: hostingPlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|14'
+      appSettings: [
+        {
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        {
+          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        {
+          name: 'WEBSITE_CONTENTSHARE'
+          value: toLower(functionAppName)
+        }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'node'
+        }
+      ]
+    }
+  }
+}
+```
+
+# [Linux](#tab/linux/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2021-02-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "linuxFxVersion": "node|14",
+        "appSettings": [
+          {
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "WEBSITE_CONTENTSHARE",
+            "value": "[toLower(parameters('functionAppName'))]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
+        ]
+      }
+    }
+  }
+]
+```
+
 ---
 
 :::zone-end
 :::zone pivot="dedicated-plan"
-### [Linux](#tab/linux/bicep)
+### [Windows](#tab/windows/bicep)
 
 ```bicep
 resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
@@ -892,7 +892,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 }
 ```
 
-### [Linux](#tab/linux/json)
+### [Windows](#tab/windows/json)
 
 ```json
 "resources": [
@@ -939,7 +939,9 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
-### [Windows](#tab/windows/bicep)
+
+### [Linux](#tab/linux/bicep)
+
 
 ```bicep
 resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
@@ -975,7 +977,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 }
 ```
 
-### [Windows](#tab/windows/json)
+### [Linux](#tab/linux/json)
 
 ```json
 "resources": [
@@ -1033,13 +1035,11 @@ To successfully deploy your application by using Azure Resource Manager, it's im
 ### Zip deployment 
 
 Zip deployment is a recommended way to deploy your function app code. By default, functions that use zip deployment run in the deployment package itself. For more information, including the requirements for a deployment package, see [Zip deployment for Azure Functions](deployment-zip-push.md). When using resource deployment automation, you can reference the .zip deployment package in your Bicep or ARM template. 
-:::zone-end 
-:::zone pivot="consumption-plan"  
->[!IMPORTANT]  
->Consumption plans on Linux don't support `WEBSITE_RUN_FROM_PACKAGE = 1`. You must instead set the URI of the deployment package directly in the `WEBSITE_RUN_FROM_PACKAGE` setting. For more information, see [WEBSITE\_RUN\_FROM\_PACKAGE](functions-app-settings.md#website_run_from_package).  
-:::zone-end  
-:::zone pivot="dedicated-plan,premium-plan,consumption-plan" 
+
 To use zip deployment in your template, set the `WEBSITE_RUN_FROM_PACKAGE` setting in the app to `1` and include the `/zipDeploy` resource definition. 
+::zone pivot="consumption-plan"  
+For a Consumption plan on Linux, instead set the URI of the deployment package directly in the `WEBSITE_RUN_FROM_PACKAGE` setting, as shown in [this example template](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption#L152). 
+:::zone-end  
 
 This example adds a zip deployment source to an existing app:  
 
@@ -1108,7 +1108,9 @@ resource functionAppName_ZipDeploy 'Microsoft.Web/sites/extensions@2021-02-01' =
 ### Zip deployment considerations
 
 Keep the following things in mind when including zip deployment resources in your template:
-
+::zone pivot="consumption-plan"  
++ Consumption plans on Linux don't support `WEBSITE_RUN_FROM_PACKAGE = 1`. You must instead set the URI of the deployment package directly in the `WEBSITE_RUN_FROM_PACKAGE` setting. For more information, see [WEBSITE\_RUN\_FROM\_PACKAGE](functions-app-settings.md#website_run_from_package). For an example template, see [Function app hosted on Linux in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
+:::zone-end  
 + The `packageUri` must be a location that can be accessed by Functions. Consider using Azure blob storage with a shared access signature (SAS). After the SAS expires, Functions can no longer access the share for deployments. When you regenerate your SAS, remember to update the `WEBSITE_RUN_FROM_PACKAGE` setting with the new URI value. 
 
 + Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed by the update. For more information, see [Application configuration](#application-configuration). 
@@ -1585,6 +1587,13 @@ Functions provides the following options for configuring your function app in Az
 
 The following site settings are required on the `siteConfig` property:
 
+### [Windows](#tab/windows)
+
+:::zone pivot="dedicated-plan"  
++ [`alwaysOn`](functions-app-settings.md#alwayson)
+::: zone-end
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
 ### [Linux](#tab/linux)
 
 :::zone pivot="dedicated-plan"  
@@ -1594,18 +1603,35 @@ The following site settings are required on the `siteConfig` property:
  
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
 
-### [Windows](#tab/windows)
-
-:::zone pivot="dedicated-plan"  
-+ [`alwaysOn`](functions-app-settings.md#alwayson)
-::: zone-end
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
-
 ---
 
 <sup>*</sup>Only required for .NET (C#) apps.
 
 The following application settings are required for a specific operating system and hosting option:
+
+### [Windows](#tab/windows)
+
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
+
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
+
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
+
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
+:::zone pivot="consumption-plan,premium-plan"  
++ [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
+
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
+::: zone-end
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
+
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
+::: zone-end    
+<sup>1</sup>Supported only for Node.js deployments. 
+:::zone pivot="consumption-plan,premium-plan"  
+<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
+::: zone-end  
 
 ### [Linux](#tab/linux)
 
@@ -1638,30 +1664,6 @@ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../a
 ::: zone-end 
 :::zone pivot="consumption-plan,premium-plan"  
 <sup>1</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
-::: zone-end  
-
-### [Windows](#tab/windows)
-
-+ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
-
-+ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
-
-+ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
-
-+ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
-:::zone pivot="consumption-plan,premium-plan"  
-+ [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
-::: zone-end
-:::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
-::: zone-end    
-<sup>1</sup>Supported only for Node.js deployments. 
-:::zone pivot="consumption-plan,premium-plan"  
-<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
 ::: zone-end  
 
 ---
