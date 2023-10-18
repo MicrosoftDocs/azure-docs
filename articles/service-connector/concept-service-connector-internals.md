@@ -51,7 +51,7 @@ Service Connector runs multiple tasks while creating or updating service connect
    - **System assigned managed identity**. Service Connector enables system assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
    - **User assigned managed identity**. Service Connector enables user assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. The user can specify the roles to be granted.
    - **Connection String**. Service Connector retrieves connection string from target services such as Storage, Redis Cache etc., or constructs connection string based on user input, such as Azure database for SQL, PostgreSQL etc.
-   - **Service principal**. Service Connector grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   - **Service principal**. Service Connector grants RBAC roles of target services to the managed identity. The user can specify the roles to be granted.
    
    Service Connector saves corresponding authentication configurations to source services, for example, saving AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_STORAGEACCOUNT_ENDPOINT for Storage with authentication type user assigned managed identity.
 - Creating or updating connection rollback if failure occurs
