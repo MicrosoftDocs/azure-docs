@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 09/13/2023
+ms.date: 10/12/2023
 ms.topic: conceptual
 ---
 
@@ -249,9 +249,11 @@ lrwxrwxrwx 1 root root 12 Oct 31 15:16 lun0 -> ../../../sdc
 
 There's no need to translate the reference back to the `sd[X]` mapping in your preparation script, instead refer to the device directly.
 In this example, this device would be `/dev/disk/azure/scsi1/lun0`. You could provide this ID directly to `fdisk`, `mkfs`, and any other
-tooling required for your workflow.
+tooling required for your workflow. Alternatively, you can use `lsblk` with `blkid` to map the UUID for the disk.
 
-For more information about Azure data disks in Linux, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-cli.md).
+For more information about Azure data disks in Linux, including alternate methods of locating data disks and `/etc/fstab` options,
+see this [article](../virtual-machines/linux/add-disk.md). Ensure that there are no dependencies or races as described by the Tip
+note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
 
@@ -273,7 +275,9 @@ Number Friendly Name Serial Number                    HealthStatus         Opera
 Where disk number 2 is the uninitialized data disk attached to this compute node. These disks can then be initialized, partitioned,
 and formatted as required for your workflow.
 
-For more information about Azure data disks in Windows, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
+For more information about Azure data disks in Windows, including sample PowerShell scripts, see this
+[article](../virtual-machines/windows/attach-disk-ps.md). Ensure any sample scripts are validated for idempotency before
+promotion into production use.
 
 ### Collect Batch agent logs
 

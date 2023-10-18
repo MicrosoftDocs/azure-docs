@@ -99,7 +99,7 @@ The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Python 3.11 | Preview | N/A |
+| Python 3.11 | GA | N/A |
 | Python 3.10 | GA | October, 2026 |
 | Python 3.9 | GA | October, 2025 |
 | Python 3.8 | GA | October, 2024 |

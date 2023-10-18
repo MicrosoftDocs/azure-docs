@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
@@ -71,7 +71,7 @@ You can start the Sign-in diagnostic from a specific sign-in event in the Sign-i
     - You can filter your list to make it easier to find specific sign-in events. 
 1. From the Activity Details window that opens, select the **Launch the Sign-in diagnostic** link.
 
-    ![Screenshot showing how to launch sign-in diagnostics from Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
+    ![Screenshot showing how to launch sign-in diagnostics from Microsoft Entra ID.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
 1. Explore the results and take action as necessary.
 
 ### From a support request
@@ -87,7 +87,7 @@ If you're in the middle of creating a support request *and* the options you sele
 
     ![Screenshot of the support request fields that start the sign-in diagnostics.](media/howto-use-sign-in-diagnostics/sign-in-support-request.png)
 
-## How to use the diagnostic Results
+## How to use the diagnostic results
 
 After the Sign-in diagnostic completes its search, a few things appear on the screen:
 

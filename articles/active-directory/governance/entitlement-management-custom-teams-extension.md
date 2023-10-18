@@ -45,7 +45,7 @@ To create a Logic App and custom extension in a catalog, you'd follow these step
 
 1. In the left menu, select **Catalogs**. 
 
-1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions (Preview)**.
+1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions**.
 
 1. In the header navigation bar, select **Add a Custom Extension**.
 
@@ -68,7 +68,7 @@ This custom extension to the linked Logic App now appears in your Custom Extensi
 
 ## Configuring the Logic App
 
-1. The custom extension created will show under the **Custom Extensions (Preview)** tab. Select the “*Logic app*” in the custom extension that will redirect you to a page to configure the logic app.
+1. The custom extension created will show under the **Custom Extensions** tab. Select the “*Logic app*” in the custom extension that will redirect you to a page to configure the logic app.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-configure-logic-app.png" alt-text="Screenshot of the configure logic apps screen." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-configure-logic-app.png":::
 1. On the left menu, select **Logic app designer**.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-logic-app-designer.png" alt-text="Screenshot of the logic apps designer screen." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-logic-app-designer.png":::
@@ -105,7 +105,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 1. Change to the Policies tab, select the policy, and select **Edit**. 
 
-1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
+1. In the policy settings, go to the **Custom Extensions** tab.
 
 1. In the menu below Stage, select the access package event you wish to use as trigger for this custom extension (Logic App). For our scenario, to trigger the custom extension Logic App workflow when an access package is requested, approved, granted, or removed, select **Request is created**, **Request is approved**, **Assignment is Granted**, and **Assignment is removed**.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-policy.png" alt-text="Screenshot of custom extension policies for an access package.":::
@@ -125,7 +125,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 1. Add **Lifecycle** details.
 
-1. Under the Custom Extensions (Preview) tab, in the menu below Stage, select the access package event you wish to use as trigger for this custom extension (Logic App). For our scenario, to trigger the custom extension Logic App workflow when an access package is requested, approved, granted, or removed, select **Request is created**, **Request is approved**, **Assignment is Granted**, and **Assignment is removed**.
+1. Under the Custom Extensions tab, in the menu below Stage, select the access package event you wish to use as trigger for this custom extension (Logic App). For our scenario, to trigger the custom extension Logic App workflow when an access package is requested, approved, granted, or removed, select **Request is created**, **Request is approved**, **Assignment is Granted**, and **Assignment is removed**.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-access-package-policy.png" alt-text="Screenshot of access package policy selection.":::
 1. In **Review and Create**, review the summary of your access package, and make sure the details are correct, then select **Create**. 
 

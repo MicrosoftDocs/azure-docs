@@ -51,7 +51,7 @@ For example, if you add labs.contoso.com and change the user UPNs and email to r
 
    >[!IMPORTANT]
    > If you change the suffix in Active Directory, add and verify a matching custom domain name in Microsoft Entra ID. 
-   > [Add your custom domain name using the Microsoft Entra portal](../../fundamentals/add-custom-domain.md)
+   > [Add your custom domain name using the Microsoft Entra admin center](../../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 

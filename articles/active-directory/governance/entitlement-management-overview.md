@@ -50,7 +50,7 @@ Entitlement management can help address these challenges.  To learn more about h
 Here are some of capabilities of entitlement management:
 
 - Control who can get access to applications, groups, Teams and SharePoint sites, with multi-stage approval, and ensure users don't retain access indefinitely through time-limited assignments and recurring access reviews.
-- Give users access automatically to those resources, based on the user's properties like department or cost center, and remove a user's access when those properties change (preview).
+- Give users access automatically to those resources, based on the user's properties like department or cost center, and remove a user's access when those properties change.
 - Delegate to non-administrators the ability to create access packages. These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires.
 - Select connected organizations whose users can request access.  When a user who isn't yet in your directory requests access, and is approved, they're automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 
@@ -77,7 +77,7 @@ Entitlement management introduces the concept of an *access package*. An access 
 You can also control access to other resources that rely upon Microsoft Entra security groups or Microsoft 365 Groups.  For example:
 
 - You can give users licenses for Microsoft 365 by using a Microsoft Entra security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
-- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](/azure/role-based-access-control/role-assignments-portal) for that group.
 - You can give users access to manage Microsoft Entra roles by using groups assignable to Microsoft Entra roles in an access package and [assigning a Microsoft Entra role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?

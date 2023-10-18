@@ -47,6 +47,9 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [Azure portal](#tab/configure-portal)
 
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
 ![Screenshot that shows monitoring settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
@@ -130,7 +133,7 @@ For Python:
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable 
-Multi-line logging is a preview feature and can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
+Multi-line logging feature can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
 
 ```yaml
 [log_collection_settings.enable_multiline_logs]

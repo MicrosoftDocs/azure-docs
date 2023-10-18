@@ -27,7 +27,7 @@ Chaos Studio applies limits to the number of resources, duration of activities, 
 | Experiment history retention time (days) | 120 | The time period after which individual results of experiment executions are automatically removed. |
 | Number of experiment resources per region and subscription | 500 | The maximum number of experiment resources a subscription can store in a given region. |
 | Number of targets per action | 50 | The maximum number of resources an individual action can target for execution. For example, the maximum Virtual Machines that can be shut down by a single Virtual Machine Shutdown fault. |
-| Number of agents per target | 1,000 | The maximum number of running that can be associated with a single target. For example, the agents running on all instances within a single Virtual Machine Scale Set. |
+| Number of agents per target | 1,000 | The maximum number of running agents that can be associated with a single target. For example, the agents running on all instances within a single Virtual Machine Scale Set. |
 | Number of targets per region and subscription | 10,000 | The maximum number of target resources within a single subscription and region. |
 
 ## API throttling limits
@@ -36,7 +36,7 @@ Chaos Studio applies limits to all Azure Resource Manager operations. Requests m
 
 | Operation | Requests |
 |--|--|
-| Microsoft.Chaos/experiments/write | 100 |
+| Microsoft.Chaos/experiments/write | 100 | 
 | Microsoft.Chaos/experiments/read | 300 |
 | Microsoft.Chaos/experiments/delete | 100 |
 | Microsoft.Chaos/experiments/start/action | 20 |
@@ -52,3 +52,17 @@ Chaos Studio applies limits to all Azure Resource Manager operations. Requests m
 | Microsoft.Chaos/locations/targetTypes/read | 50 |
 | Microsoft.Chaos/locations/targetTypes/capabilityTypes/read | 50 |
 
+## Recommended actions
+If you have feedback on the current quotas and limits, submit a feedback request in [Community Feedback](https://feedback.azure.com/d365community/forum/18f8dc01-dc37-ec11-b6e6-000d3a9c7101). 
+
+Currently, you can't request increases to Chaos Studio quotas, but a request process is in development.
+
+If you expect to exceed the maximum concurrent experiments executing per region and subscription:
+* Split your experiments across regions. Experiments can target resources outside the experiment resource's region or target multiple resources across different regions.
+* Test more scenarios in each experiment by using more actions, steps, and/or branches (up to the maximum current limits).
+
+If your testing requires longer experiments than the currently supported duration:
+* Run multiple experiments in sequence.
+ 
+If you want to see experiment execution history:
+* Use Chaos Studio's [REST API](../chaos-studio/chaos-studio-samples-rest-api.md) with the "executionDetails" endpoint, for each experiment ID.

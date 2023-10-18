@@ -131,7 +131,7 @@ sections:
       - question: |
           What is the difference between Apache Spark for Synapse and Apache Spark?
         answer: |
-          Apache Spark for Synapse is Apache Spark with added support for integrations with other services (Azure AD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+          Apache Spark for Synapse is Apache Spark with added support for integrations with other services (Microsoft Entra ID, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
           
           Any workload that is currently running on Apache Spark will run on Apache Spark for Azure Synapse without change. 
           

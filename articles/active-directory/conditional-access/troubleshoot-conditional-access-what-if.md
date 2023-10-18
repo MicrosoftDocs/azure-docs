@@ -40,7 +40,7 @@ The following additional information is optional but helps narrow the scope for 
 * Service principal risk (Preview)
 * Filter for devices
 
-This information can be gathered from the user, their device, or the Microsoft Entra sign-ins log.
+This information can be gathered from the user, their device, or the Microsoft Entra sign-in log.
 
 ## Generating results
 

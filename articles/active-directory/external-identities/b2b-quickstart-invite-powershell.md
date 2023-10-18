@@ -5,11 +5,11 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: CelesteDG
-ms.date: 09/22/2023
+ms.date: 09/29/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
-ms.custom: it-pro, seo-update-azuread-jan, mode-api
+ms.custom: it-pro, seo-update-azuread-jan, mode-api, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.collection: engagement-fy23, M365-identity-device-management
 
 #Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user via  PowerShell.
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To complete the scenario in this quickstart, you need:
 
 - A role that allows you to create users in your tenant directory, such as at least a [Guest Inviter role](../roles/permissions-reference.md#guest-inviter) or a [User administrator](../roles/permissions-reference.md#user-administrator).
-- Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Users). You can use the `#Requires` statement to prevent running a script unless the required PowerShell modules are met.
+- Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?viewFallbackFrom=graph-powershell-beta&preserve-view=true&view=graph-powershell-1.0) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?viewFallbackFrom=graph-powershell-beta&preserve-view=true&view=graph-powershell-1.0) (Microsoft.Graph.Users). You can use the `#Requires` statement to prevent running a script unless the required PowerShell modules are met.
 
 ```powershell
 #Requires -Modules Microsoft.Graph.Identity.SignIns, Microsoft.Graph.Users

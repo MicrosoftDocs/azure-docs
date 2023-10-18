@@ -31,7 +31,7 @@ Use these tasks if you're deploying cloud sync to integrate with Active Director
 |-----|-----|
 |[Determine which sync tool is correct for you](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad) |Use the wizard to determine whether cloud sync or Microsoft Entra Connect is the right tool for you.|
 |[Review the cloud sync prerequisites](cloud-sync/how-to-prerequisites.md)|Review the necessary prerequisites before getting started.|
-|[Download and install the provisioning agent](cloud-sync/how-to-install.md)|Download and install the Microsoft Entra Connect Provisioning Agent. |
+|[Download and install the provisioning agent](cloud-sync/how-to-install.md)|Download and install the Microsoft Entra Provisioning Agent. |
 |[Configure cloud sync](cloud-sync/how-to-configure.md)|Configure and tailor synchronization for your organization.|
 |[Verify users are synchronizing](cloud-sync/tutorial-single-forest.md#verify-users-are-created-and-synchronization-is-occurring)|Make sure it's working.|
 

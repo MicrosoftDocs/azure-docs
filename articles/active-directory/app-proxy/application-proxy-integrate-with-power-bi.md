@@ -141,11 +141,11 @@ You can use Microsoft Intune to manage the client apps that your company's workf
 5. Under **APIs my organization uses**, search for “Microsoft Mobile Application Management” and select it.
 6. Add the **DeviceManagementManagedApps.ReadWrite** permission to the application
 7. Click **Grant admin consent** to grant the permission access to the application.
-8. Configure the Intune policy you want by referring to [How to create and assign app protection policies](/intune/app-protection-policies).
+8. Configure the Intune policy you want by referring to [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies).
 
 ## Troubleshooting
 
-If the application returns an error page after trying to load a report for more than a few minutes, you might need to change the timeout setting. By default, Application Proxy supports applications that take up to 85 seconds to respond to a request. To lengthen this setting to 180 seconds, select the back-end timeout to **Long** in the App Proxy settings page for the application. For tips on how to create fast and reliable reports see [Power BI Reports Best Practices](/power-bi/power-bi-reports-performance).
+If the application returns an error page after trying to load a report for more than a few minutes, you might need to change the timeout setting. By default, Application Proxy supports applications that take up to 85 seconds to respond to a request. To lengthen this setting to 180 seconds, select the back-end timeout to **Long** in the App Proxy settings page for the application. For tips on how to create fast and reliable reports see [Power BI Reports Best Practices](/power-bi/guidance/power-bi-optimization).
 
 Using Microsoft Entra application proxy to enable the Power BI mobile app to connect to on premises Power BI Report Server is not supported with Conditional Access policies that require the Microsoft Power BI app as an approved client app.
 

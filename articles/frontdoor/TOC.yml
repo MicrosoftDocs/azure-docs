@@ -10,14 +10,16 @@
         href: classic-overview.md
       - name: Choosing the right load balancer
         href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
-      - name: Tier comparison
-        href: standard-premium/tier-comparison.md
+      - name: Front Door and CDN comparison
+        href: front-door-cdn-comparison.md
   - name: CDN
     items: 
         - name: What is Azure Content Delivery Network (Azure CDN)?
           href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/TOC.json
         - name: Compare product features
           href: ../cdn/cdn-features.md?toc=/azure/frontdoor/TOC.json
+  - name: Front Door and CDN comparison
+    href: front-door-cdn-comparison.md
 - name: Quickstarts
   expanded: true
   items:
@@ -316,6 +318,14 @@
         items:
         - name: Azure Storage Account
           href: integrate-storage-account.md
+        - name: Azure API Management
+          href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Open AI
+          href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Static Web Apps
+          href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Spring Apps
+          href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
@@ -733,7 +743,7 @@
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/
       - name: Microsoft Q&A question page
-        href: /answers/topics/azure-cdn.html
+        href: /answers/tags/155/azure-cdn.html
       - name: Pricing
         href: https://azure.microsoft.com/pricing/details/cdn/
       - name: Pricing calculator
