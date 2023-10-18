@@ -41,3 +41,4 @@ Explore the following table of recommendations to optimize your AKS configuratio
 
 - Explore and analyze costs with [Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 - [Azure Advisor recommendations](../advisor/advisor-cost-recommendations.md) for cost can highlight the over-provisioned services and ways to lower cost.
+- Consider enabling [AKS cost analysis](./cost-analysis.md) to get granular insight into costs associated with Kubernetes resources across your clusters and namespaces.
