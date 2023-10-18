@@ -69,7 +69,7 @@ When viewing the status of user processing history, the status values correspond
 |Completed with errors     | This state is reported if the workflow completed, but one or more tasks that are set have **continueOnError** set as *true* have failed.       |
 |Failed     |  This state is reported if a task with **continueOnError** set as *false* fails.      |
 
-For a complete guide on getting user processed summary information, see: [User workflow history using the Azure portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
+For a complete guide on getting user processed summary information, see: [User workflow history using the Microsoft Entra admin center](check-status-workflow.md#user-workflow-history-using-the-microsoft-entra-admin-center).
 
 
 
@@ -112,7 +112,7 @@ When viewing the status of run history, the status values correspond to the foll
 |Completed     |  This state is reported if the workflow ran successfully for every user.       |
 |Failed     |  This state is reported if all tasks failed for all users the workflow runs for. Canceled users aren't counted as failures in the report.      |
 
-For a complete guide on getting runs information, see: [Run workflow history using the Azure portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
+For a complete guide on getting runs information, see: [Run workflow history using the Microsoft Entra admin center](check-status-workflow.md#run-workflow-history-using-the-microsoft-entra-admin-center).
 
 
 
