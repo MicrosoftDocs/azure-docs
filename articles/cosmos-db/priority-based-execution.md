@@ -35,7 +35,7 @@ Below are the minimum SDK version requirement for priority-based execution.
 - .NET v3: [v3.33.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) 
 - Java v4: [v4.45.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.45.0) 
 - Spark 3.2: [v4.19.0](https://central.sonatype.com/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-2_2-12/4.19.0) or later
-- Javascript v4: [v4.0.0](https://www.npmjs.com/package/@azure/cosmos) 
+- Javascript v4: [v4.0.0](https://www.npmjs.com/package/@azure/cosmos) or later
 
 ## Code Samples
 

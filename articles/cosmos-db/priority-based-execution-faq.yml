@@ -1,18 +1,19 @@
----
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions on Priority-based execution in Azure Cosmos DB
+  titleSuffix: Azure Cosmos DB
+  description: Frequently asked questions on Priority-based execution in Azure Cosmos DB
+  author: richagaur
+  ms.author: richagaur
+  ms.service: cosmos-db
+  ms.custom: ignite-2023
+  ms.topic: conceptual
+  ms.date: 11/15/2023
+
 title: Frequently asked questions on Priority-based execution in Azure Cosmos DB
-titleSuffix: Azure Cosmos DB
-description: Frequently asked questions on Priority-based execution in Azure Cosmos DB
-author: richagaur
-ms.author: richagaur
-ms.service: cosmos-db
-ms.custom: ignite-2023
-ms.topic: conceptual
-ms.date: 11/15/2023
----
 
-# Frequently asked questions on Priority-based execution in Azure Cosmos DB
-
-[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
+summary: |
+  [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Priority based execution allows users to specify priority of requests sent to Azure Cosmos DB. In cases where the number of requests exceeds the capacity that can be processed within the configured Request Units per second (RU/s), then Azure Cosmos DB will throttle low priority requests to prioritize the execution of high priority requests.
 
