@@ -27,7 +27,7 @@ The concept of *service connection* is a key concept in the resource model of Se
 | Property            | Description                                                                                                                                                                                                                                  |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Connection Name     | The unique name of the service connection.                                                                                                                                                                                                   |
-| Source Service Type | Source services are usually Azure compute services. They're the services you can connect to target services. Source services include Azure App Service, Azure Container Apps and Azure Spring Apps.                                                       |
+| Source Service Type | Source services are services you can connect to target services.  They are usually Azure compute services and they include Azure App Service, Azure Container Apps and Azure Spring Apps.                                                       |
 | Target Service Type | Target services are backing services or dependency services that your compute services connect to. Service Connector supports various target service types including major databases, storage, real-time services, state, and secret stores. |
 | Client Type         | Client type refers to your compute runtime stack, development framework, or specific type of client library that accepts the specific format of the connection environment variables or properties.                                           |
 | Authentication Type | The authentication type used for the service connection. It could be a secret/connection string, a managed identity, or a service principal.                                                                                                 |
@@ -48,10 +48,10 @@ Service Connector runs multiple tasks while creating or updating service connect
    [Learn more](#connection-configurations) about connection configurations.
 - Configuring authentication information.
    Service Connector supports all available authentication types between source services and target services.
-   - **System assigned managed identity**. Service Connector enables system assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
-   - **User assigned managed identity**. Service Connector enables user assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   - **System assigned managed identity**. Service Connector enables system assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. The user can specify the roles to be granted.
+   - **User assigned managed identity**. Service Connector enables user assigned managed identity on source services if not enabled yet, then grants RBAC roles of target services to the managed identity. The user can specify the roles to be granted.
    - **Connection String**. Service Connector retrieves connection strings from target services such as Storage, Redis Cache etc., or constructs connection strings based on user input, such as Azure database for SQL, PostgreSQL etc.
-   - **Service principal**. Service Connector grants RBAC roles of target services to the managed identity. User could specify which roles to be granted.
+   - **Service principal**. Service Connector grants RBAC roles of target services to the managed identity. The user can specify the roles to be granted.
    
    Service Connector saves corresponding authentication configurations to source services, for example, saving AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_STORAGEACCOUNT_ENDPOINT for Storage with authentication type user assigned managed identity.
 - Creating or updating connection rollback if failure occurs
