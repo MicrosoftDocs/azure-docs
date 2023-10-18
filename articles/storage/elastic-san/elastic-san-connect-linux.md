@@ -26,7 +26,7 @@ In this article, you'll add the Storage service endpoint to an Azure virtual net
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
-## Connect to Volumes
+## Connect to volumes
 
 ### Set up your client environment
 
