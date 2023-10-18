@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# About Azure Kubernetes Service backup using Azure Backup (preview)
+# About Azure Kubernetes Service backup using Azure Backup
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for cluster state and application data (persistent volumes - CSI driver-based Azure Disks). The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning developer/test environments, or cluster upgrade scenarios. 
 
@@ -61,8 +61,9 @@ Azure Backup provides an instant restore experience because the snapshots are st
 
 ## Pricing
 
-You won't incur any management charges or instance fee when using AKS backup for Operational Tier in preview. However, you'll incur the  charges for:
+You'll incur the  charges for:
 
+- Management charges or instance fee when using AKS backup for Operational Tier.
 - Retention of backup data stored in the blob container. 
 - Disk-based persistent volume snapshots are created by AKS backup are stored in the resource group in your Azure subscription and incur Snapshot Storage charges. Because the snapshots aren't copied to the Backup vault, Backup Storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -72,4 +73,4 @@ Incremental snapshots are always stored on standard storage, irrespective of the
 
 ## Next steps
 
-- [Prerequisites for Azure Kubernetes Service backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
+- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
