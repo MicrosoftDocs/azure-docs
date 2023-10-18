@@ -12,23 +12,23 @@ ms.date: 11/06/2023
 
 # Azure Kubernetes Service cost analysis
 
-<!-- This section could change a lot, I think it makes sense to align what we have here with an abbreviated version of the docs on the ACM side -->
+<!-- This section could change a lot, I think it makes sense to align what we have here with an abbreviated version of the docs on the MCM side -->
 
-An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers and public IP addresses. These resources may be used by multiple applications, which may be maintained by several different teams within your organization. Resource consumption patterns of those applications are often non-uniform, and thus their contribution towards the total cluster resource cost is often non-uniform. Some applications may also have footprints across multiple clusters. This can pose a challenge when performing cost attribution and cost management.
+An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers and public IP addresses. These resources can be used by multiple applications, which could be maintained by several different teams within your organization. Resource consumption patterns of those applications are often nonuniform, and thus their contribution towards the total cluster resource cost is often nonuniform. Some applications can also have footprints across multiple clusters. This can pose a challenge when performing cost attribution and cost management.
 
-Previously, [Azure Cost Management (ACM)](../cost-management-billing/cost-management-billing-overview.md) aggregated cluster resource consumption under the cluster resource group. You could use ACM to analyze costs, but there were several challenges:
+Previously, [Microsoft Cost Management (MCM)](../cost-management-billing/cost-management-billing-overview.md) aggregated cluster resource consumption under the cluster resource group. You could use MCM to analyze costs, but there were several challenges:
 
 * Costs were reported per cluster. There was no breakdown into discrete categories such as compute (including CPU cores and memory), storage, and networking.
 
-* There was no Azure-native functionality to distinguish between types of costs. ACM aggregated the cost of resources used by applications, costs of resources shared across applications, such as system costs, and costs of resources that are associated with the cluster but are idle.
+* There was no Azure-native functionality to distinguish between types of costs. MCM aggregated the cost of resources used by applications, costs of resources shared across applications, such as system costs, and costs of resources that are associated with the cluster but are idle.
 
 * There was no Azure-native capability to display cluster resource usage at a level more granular than a cluster.
 
 * There was no Azure-native mechanism to analyze costs across multiple clusters in the same subscription scope.
 
-As a result, you may use or have used third-party solutions, like Kubecost, to gather and analyze resource consumption and costs at different granularity levels. This solution requires effort to deploy, fine-tune, and maintain for each AKS cluster. You may even need to pay for advanced features.
+As a result, you might have used third-party solutions, like Kubecost, to gather and analyze resource consumption and costs at different granularity levels. This solution requires effort to deploy, fine-tune, and maintain for each AKS cluster. In some cases, you even need to pay for advanced features.
 
-To address these challenges, AKS has integrated with ACM to offer fully-detailed cost information. Azure Cost Management is the source of truth for bill reconciliation for other Azure services, and can now be treated as the same source of truth for AKS cost analysis.
+To address these challenges, AKS has integrated with MCM to offer fully detailed cost information. Microsoft Cost Management is the source of truth for bill reconciliation for other Azure services, and can now be treated as the same source of truth for AKS cost analysis.
 
 ## Prerequisites and limitations
 
@@ -38,7 +38,7 @@ To address these challenges, AKS has integrated with ACM to offer fully-detailed
 
 * To view cost analysis information, you must have one of the following roles on the subscription hosting the cluster: Owner, Contributor, Reader, Cost management contributor, or Cost management reader.
 
-* Once cost analysis has been enabled, you cannot downgrade your cluster to the `Free` tier without first disabling cost analysis.
+* Once cost analysis has been enabled, you can't downgrade your cluster to the `Free` tier without first disabling cost analysis.
 
 ## Enable cost analysis on your AKS cluster
 
@@ -68,7 +68,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --tier Standa
 
 ## Disable cost analysis
 
-You can disable cost analysis at any time. When you disable it, you retain access to past cost data that was collected during the duration when cost analysis was enabled, but no new data will be populated. Should you re-enable the feature, there will be a gap in data for the period in which cost analysis was disabled, but historical and new data will not be impacted.
+You can disable cost analysis at any time. When you disable it, you retain access to past cost data that was collected during the duration when cost analysis was enabled, but no new data will be populated. Should you re-enable the feature, there will be a gap in data for the period in which cost analysis was disabled, but historical and new data won't be impacted.
 
 > [!NOTE]
 > If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
@@ -97,11 +97,11 @@ You can view cost information from the Azure portal.
 
     :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="The Azure portal cost analysis overview page is shown with the 'Kubernetes views' section highlighted." lightbox="./media/cost-analysis/cost-analysis-overview.png":::
 
-    1. After selecting *Kubernetes namespaces*, you will see costs associated with your various Kubernetes namespaces.
+    1. After selecting *Kubernetes namespaces*, you'll see costs associated with your various Kubernetes namespaces.
 
         :::image type="content" source="./media/cost-analysis/cost-analysis-namespaces-inline.png" alt-text="The Azure portal page for cost analysis is shown with the `Kubernetes namespaces`` view expanded." lightbox="./media/cost-analysis/cost-analysis-namespaces.png":::
 
-    1. After selecting *Kubernetes clusters*, you will see costs associated with each cluster.
+    1. After selecting *Kubernetes clusters*, you'll see costs associated with each cluster.
 
         :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="The Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded." lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
 
