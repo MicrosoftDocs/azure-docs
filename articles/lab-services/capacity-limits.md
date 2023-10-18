@@ -16,7 +16,7 @@ If you're close to, or have reached your subscription's core limit, you see warn
 - Publish a lab
 - Increase lab capacity
 
-These actions may be disabled if there are no more cores available for your subscription.
+These actions might be disabled if there are no more cores available for your subscription.
 
 :::image type="content" source="./media/capacity-limits/warning-message.png" alt-text="Screenshot of core limit warning in Azure Lab Services.":::
 

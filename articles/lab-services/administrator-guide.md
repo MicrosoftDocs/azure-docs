@@ -142,7 +142,7 @@ For more information about naming other Azure resources, see [Naming conventions
 
 ## Regions
 
-When you set up your Azure Lab Services resources, you're required to provide a region or location of the data center that hosts the resources. Lab plans can enable one or more regions in which labs may be created. The next sections describe how a region or location might affect each resource that is involved with setting up a lab.
+When you set up your Azure Lab Services resources, you're required to provide a region or location of the data center that hosts the resources. Lab plans can enable one or more regions in which labs might be created. The next sections describe how a region or location might affect each resource that is involved with setting up a lab.
 
 - **Resource group**. The region specifies the datacenter where information about a resource group is stored. Azure resources can be in a different region than the resource group they're in.
 - **Lab plan**. A lab plan's location indicates the region that a resource exists in.  When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. Also, labs are created in the same Azure region as that virtual network.
@@ -203,14 +203,14 @@ Learn more about [Azure role-based access control in Azure Lab Services](./conce
 
 ## Content filtering
 
-Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Azure Lab Services doesn't offer built-in support for content filtering, and doesn't support network-level filtering.
+Your school might need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Azure Lab Services doesn't offer built-in support for content filtering, and doesn't support network-level filtering.
 
 Schools typically approach content filtering by installing third-party software that performs content filtering on each computer. To install third-party content filtering software on each computer, you should install the software on each lab's template VM. 
 
 There are a few key points to highlight as part of this solution:
 
 - If you plan to use the [autoshutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you need to unblock several Azure host names with the third party software.  The autoshutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the autoshutdown settings fail to enable for the lab.
-- You may also want to have each student use a nonadmin account on their VM so that they can't uninstall the content filtering software.  Adding a nonadmin account must be done when creating the lab.
+- You might also want to have each student use a nonadmin account on their VM so that they can't uninstall the content filtering software.  Adding a nonadmin account must be done when creating the lab.
 
 Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md), such as content filtering.
 
@@ -235,7 +235,7 @@ To make labs easy to set up and manage, Azure Lab Services is designed with *no*
 
 To learn about pricing, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
-Billing entries in Azure Cost Management are per lab VM. Tags for lab plan ID and lab name are automatically added to each entry for more flexible analysis and budgeting.
+Billing entries in Microsoft Cost Management are per lab VM. Tags for lab plan ID and lab name are automatically added to each entry for more flexible analysis and budgeting.
 
 ### Azure Compute gallery
 

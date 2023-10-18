@@ -108,7 +108,7 @@ For VMs that require access to a licensing server, you'll create lab plans with 
 
 While you're waiting for capacity to be assigned, you can continue creating lab plans that will be used for setting up your labs.  
 
-In practice, more than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
+In practice, more than one lab plan might be needed depending on your scenario. For example, the math department might only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
 
 1. [Create and configure lab plans](./tutorial-setup-lab-plan.md).
     - If you plan to use a license server, don't forget to enable [advanced networking](./how-to-connect-vnet-injection.md) when creating your lab plans.

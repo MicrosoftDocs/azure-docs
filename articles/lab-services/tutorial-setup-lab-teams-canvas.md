@@ -162,7 +162,7 @@ To publish the lab:
 
 ## Troubleshooting
 
-This section outlines common error messages that you may see, along with the steps to resolve them.
+This section outlines common error messages that you might see, along with the steps to resolve them.
 
 - Insufficient permissions to create lab.
 
@@ -189,11 +189,11 @@ This section outlines common error messages that you may see, along with the ste
   :::image type="content" source="./media/tutorial-setup-lab-teams-canvas/canvas-access-granted-success.png" alt-text="Screenshot of access granted page in Azure Lab Services.":::
 
   > [!IMPORTANT]
-  > Ensure that students and educators are using an up-to-date version of their browser. For older browser versions, students and educators may experience issues with being able to successfully grant access to Azure Lab Services.
+  > Ensure that students and educators are using an up-to-date version of their browser. For older browser versions, students and educators might experience issues with being able to successfully grant access to Azure Lab Services.
 
   - Educator isn't prompted for their credentials after they select sign-in.
   
-  When an educator accesses Azure Lab Services within their course, they may be prompted to sign in. Ensure that the browser's settings allow popups from the url of your Canvas instance, otherwise the popup may be blocked by default.
+  When an educator accesses Azure Lab Services within their course, they might be prompted to sign in. Ensure that the browser's settings allow popups from the url of your Canvas instance, otherwise the popup might be blocked by default.
 
     :::image type="content" source="./media/tutorial-setup-lab-teams-canvas/canvas-sign-in.png" alt-text="Azure Lab Services sign-in screen.":::
 

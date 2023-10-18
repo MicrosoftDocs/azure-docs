@@ -9,7 +9,7 @@ ms.date: 11/08/2022
 
 # Use policies to audit and manage Azure Lab Services
 
-When teams create and run labs on Azure Lab Services, they may face varying requirements to the configuration of resources. Administrators may look for options to control cost, provide customization through templates, or restrict user permissions.
+When teams create and run labs on Azure Lab Services, they might face varying requirements to the configuration of resources. Administrators might look for options to control cost, provide customization through templates, or restrict user permissions.
 
 As a platform administrator, you can use policies to lay out guardrails for teams to manage their own resources. [Azure Policy](../governance/policy/index.yml) helps audit and govern resource state. In this article, you learn about available auditing controls and governance practices for Azure Lab Services.
 

@@ -34,7 +34,7 @@ To create a request for Azure Lab Services capacity, you need to have a lab plan
 
 ### Verify available capacity
 
-Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
+Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and might discover extra capacity in an unused lab plan or lab.
 
 ### Determine the regions for your labs
 
