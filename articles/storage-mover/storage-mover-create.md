@@ -83,7 +83,7 @@ az storage-mover create --name $storageMoverResourceName \
 
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/Azure Powershell)
 
 Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
