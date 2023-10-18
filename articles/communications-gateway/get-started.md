@@ -36,14 +36,17 @@ For Operator Connect and Teams Phone Mobile, also read:
 
 - [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
 - [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
-- [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md)
+- [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md).
 
 For Microsoft Teams Direct Routing, also read:
 
 - [Overview of interoperability of Azure Communications Gateway with Microsoft Teams Direct Routing](interoperability-teams-direct-routing.md).
-- [Emergency calling for Microsoft Teams Direct Routing with Azure Communications Gateway](emergency-calling-teams-direct-routing.md)
+- [Emergency calling for Microsoft Teams Direct Routing with Azure Communications Gateway](emergency-calling-teams-direct-routing.md).
 
-For Zoom Phone Cloud Peering, also read [Overview of interoperability of Azure Communications Gateway with Zoom Phone Cloud Peering](interoperability-zoom.md).
+For Zoom Phone Cloud Peering, also read:
+
+- [Overview of interoperability of Azure Communications Gateway with Zoom Phone Cloud Peering](interoperability-zoom.md).
+- [Emergency calling for Zoom Phone Cloud Peering with Azure Communications Gateway](emergency-calling-zoom.md).
 
 As part of your planning, ensure your network can support the connectivity and interoperability requirements in these articles.
 

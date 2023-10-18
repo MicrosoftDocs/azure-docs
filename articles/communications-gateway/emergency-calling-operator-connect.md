@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway
 
-Azure Communications Gateway supports Operator Connect and Teams Phone Mobile subscribers making emergency calls from Microsoft Teams clients. This article describes how Azure Communications Gateway routes these calls to your network and the key facts you'll need to consider.
+Azure Communications Gateway supports Operator Connect and Teams Phone Mobile subscribers making emergency calls from Microsoft Teams clients. This article describes how Azure Communications Gateway routes these calls to your network and the key facts you need to consider.
 
 ## Overview of emergency calling with Azure Communications Gateway
 

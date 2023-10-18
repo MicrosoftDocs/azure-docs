@@ -62,7 +62,11 @@ For Teams Phone Mobile, you must decide how your network should determine whethe
 
 For more information on these options, see [Call control integration for Teams Phone Mobile](interoperability-operator-connect.md#call-control-integration-for-teams-phone-mobile) and [Mobile Control Point in Azure Communications Gateway](mobile-control-point.md).
 
-If you plan to route emergency calls through Azure Communications Gateway for Operator Connect or Teams Phone Mobile, read [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md) to learn about your options.
+If you plan to route emergency calls through Azure Communications Gateway, read about emergency calling with your chosen communications service:
+
+- [Microsoft Teams Direct Routing](emergency-calling-teams-direct-routing.md)
+- [Operator Connect and Teams Phone Mobile](emergency-calling-operator-connect.md)
+- [Zoom Phone Cloud Peering](emergency-calling-zoom.md)
 
 ## Configure MAPS or ExpressRoute
 
