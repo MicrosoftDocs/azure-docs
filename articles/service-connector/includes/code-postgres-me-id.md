@@ -2,12 +2,11 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/17/2023
+ms.date: 10/18/2023
 ms.author: xiaofanzhou
 ---
 
-
-#### [.NET](#tab/dotnet)
+# [.NET](#tab/dotnet-postgres-me)
 For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 ```csharp
@@ -52,7 +51,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-#### [Java](#tab/java)
+# [Java](#tab/java-postgres-me)
 
 1. Add the following dependencies in your *pom.xml* file:
 
@@ -86,7 +85,7 @@ For more information, see the following resources:
 * [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
 * [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
 
-#### [SpringBoot](#tab/spring)
+# [SpringBoot](#tab/spring-postgres-me)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps.
 
@@ -94,15 +93,17 @@ Update your application following the tutorial [Bind an Azure Database for Postg
 
 For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server#store-data-from-azure-database-for-postgresql) and [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=postgresq).
 
-#### [Python](#tab/python)
+# [Python](#tab/python-postgres-me)
 
 1. Install dependencies.
+
     ```bash
     pip install azure-identity
     pip install psycopg2-binary
     ```
+
 1. Authenticate with access token get via `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
-    
+
     ```python
     from azure.identity import DefaultAzureCredential
     import psycopg2
@@ -129,14 +130,16 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     conn = psycopg2.connect(conn_string + ' password=' + accessToken.token) 
     ```
 
-#### [Django](#tab/django)
+# [Django](#tab/django-postgres-me)
 
 1. Install dependencies.
+
     ```bash
    pip install azure-identity
    ```
+
 1. Get access token via `azure-identity` library using environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
-    
+
     ```python
     from azure.identity import DefaultAzureCredential
     import psycopg2
@@ -160,6 +163,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     ```
 
 1. In setting file, get Azure PostgreSQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
+
     ```python
     # In your setting file, eg. settings.py
     host = os.getenv('AZURE_POSTGRESQL_HOST')
@@ -180,16 +184,18 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     }
     ```
 
-#### [Go](#tab/go)
+# [Go](#tab/go-postgres-me)
 
 1. Install dependencies.
+
     ```bash
     go get github.com/lib/pq
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
     ```
+
 1. In code, get access token via `azidentity`, then use it as password to connect to Azure PostgreSQL along with connection information provided by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
-    
+
     ```go
     import (
     "database/sql"
@@ -239,17 +245,19 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	}
 
 	conn.Close()
-    ```    
+    ```
 
-#### [NodeJS](#tab/nodejs)
+# [NodeJS](#tab/nodejs-postgres-me)
 
 1. Install dependencies.
+
     ```bash
     npm install --save @azure/identity
     npm install --save pg
     ```
+
 1. In code, get the access token via `@azure/identity` and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. **Uncomment the corresponding part of the code snippet according to the authentication type.**
-    
+
     ```javascript
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
@@ -289,7 +297,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     })();
     ```
 
-#### [PHP](#tab/php)
+# [PHP](#tab/php-postgres-me)
 
 For PHP, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
 
@@ -301,6 +309,7 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
     For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
 
 1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
+
     ```php
     <?php
     $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);
@@ -308,17 +317,20 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
     ?>
     ```
 
-#### [Ruby](#tab/ruby)
+# [Ruby](#tab/ruby-potgres-me)
 
 For Ruby, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
 
 1. Install dependencies.
+
     ```bash
     gem install pg
     ```
+
 1. In code, get the access token via REST API and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).
+
     ```ruby
     require 'pg'
     require 'dotenv/load'
@@ -356,10 +368,10 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
         connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password="  + access_token,
     )
     ```
-    
+
     Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token for service principal.
 
----
+-----
 
 Next, if you have created tables and sequences in PostgreSQL flexible server, you need to connect as database owner and grant permission to `aad username` created by Service Connector. The user name from connection string or configuration set by Service Connector should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
 
@@ -370,9 +382,11 @@ az extension add --name rdbms-connect
 
 az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"<aad username>\";GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO \"<aad username>\";"
 ```
+
 The `<owner username>` and `<owner password>` is the owner of existing table that can grant permission to others. `<aad username>` is the user created by Service Connector. Replace them with the actual value.
 
 You can validate the result with the command:
+
 ```azure-cli
 az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "SELECT distinct(table_name) FROM information_schema.table_privileges WHERE grantee='<aad username>' AND table_schema='public';" --output table
 ```
