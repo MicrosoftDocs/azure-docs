@@ -312,8 +312,7 @@ export interface CallingWidgetPageProps {
   userId:
     | CommunicationUserIdentifier
     | MicrosoftTeamsUserIdentifier;
-  callLocator: CallAdapterLocator;
-  alternateCallerId?: string;
+  teamsVoiceAppIdentifier: string;
 }
 ```
 
@@ -334,7 +333,7 @@ import logo from '../logo.svg';
 ```
 ```ts
 export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element => {
-  const { token, userId, callLocator, alternateCallerId } = props;
+  const { token, userId, teamsVoiceAppIdentifier, alternateCallerId } = props;
 
   const [userDisplayName, setUserDisplayName] = useState<string>();
   const [useVideo, setUseVideo] = useState<boolean>(false);
@@ -344,8 +343,7 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
       userId: userId as CommunicationUserIdentifier,
       displayName: userDisplayName ?? "",
       token,
-      locator: callLocator,
-      alternateCallerId,
+      locator: {participantids: [teamsVoiceAppIdentifier]},
     };
     return args;
   }, [userId, userDisplayName, token, callLocator, alternateCallerId]);

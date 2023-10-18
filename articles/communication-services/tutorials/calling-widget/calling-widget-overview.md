@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
+
 # Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
@@ -31,7 +32,6 @@ Following this tutorial will:
 - Allow you to control your customers audio and video experience depending on your customer scenario
 - Move your customers call into a new window so they can continue browsing while on the call
 
-
 This tutorial is broken down into three parts:
 
 - Creating your widget
@@ -41,10 +41,9 @@ This tutorial is broken down into three parts:
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version. 
+- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams calling and chat interoperability](../../concepts/interop/calling-chat.md)
-
 
 ### Set up the project
 
@@ -64,6 +63,7 @@ cd ui-library-calling-widget-app
 ### Get your dependencies
 
 Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
+
 ```json
 "@azure/communication-calling": "1.17.1-beta.5",
 "@azure/communication-chat": "1.4.0-beta.1",
@@ -75,7 +75,6 @@ Then you need to update the dependency array in the `package.json` to include so
 ```
 
 Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
-
 
 ## Initial app setup
 
@@ -89,12 +88,20 @@ To get started, we replace the provided `App.tsx` content with a main page that 
 
 ```ts
 // imports needed
-import { CallAdapterLocator } from '@azure/communication-react';
-import './App.css';
-import { useEffect, useMemo, useState } from 'react';
-import { CommunicationIdentifier, CommunicationUserIdentifier } from '@azure/communication-common';
-import { Spinner, Stack, initializeIcons, registerIcons } from '@fluentui/react';
-import { CallAdd20Regular, Dismiss20Regular } from '@fluentui/react-icons';
+import { CallAdapterLocator } from "@azure/communication-react";
+import "./App.css";
+import { useEffect, useMemo, useState } from "react";
+import {
+  CommunicationIdentifier,
+  CommunicationUserIdentifier,
+} from "@azure/communication-common";
+import {
+  Spinner,
+  Stack,
+  initializeIcons,
+  registerIcons,
+} from "@fluentui/react";
+import { CallAdd20Regular, Dismiss20Regular } from "@fluentui/react-icons";
 ```
 
 ```ts
@@ -120,32 +127,19 @@ function App() {
   };
 
   /**
-   * This decides where the call will be going. This supports many different calling modalities in the Call Composite.
+   * Rawid for teams voice app to call
+   * 
+   * Rawid's for Teams voiceapps are prefixed by 28:orgid:<fetched value from teams tenant>
+   * Rawid's for Teams users are prefixed by 8:orgid<id value>
    *
-   * - Teams meeting locator: {meetingLink: 'url to join link for a meeting'}
-   * - Azure Communication Services group call: {groupId: 'GUID that defines the call'}
-   * - Azure Communication Services Rooms call: {roomId: 'guid that represents a rooms call'}
-   * - Teams adhoc, Azure communications 1:n, PSTN calls all take a participants locator: {participantIds: ['Array of participant id's to call']}
-   *
-   * You can call teams voice apps like a Call queue with the participants locator.
+   * You can also make calls directly to agents by providing their rawid.
    */
-  const locator: CallAdapterLocator = {
-    participantIds: ["<Enter Participant Id's here>"],
-  };
-
-  /**
-   * The phone number needed from your Azure Communication Services resource to start a PSTN call. Can be created under the phone numbers.
-   *
-   * For more information on phone numbers and Azure Communication Services go to this link: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/plan-solution
-   *
-   * This can be left alone if not making a PSTN call.
-   */
-  const alternateCallerId = "<Enter your alternate CallerId here>";
+  const teamsVoiceAppIdentifier = "<Enter the rawid here>";
 
   switch (page) {
     case "calling-widget": {
       return (
-        <Stack verticalAlign='center' style={{ height: "100%", width: "100%" }}>
+        <Stack verticalAlign="center" style={{ height: "100%", width: "100%" }}>
           <Spinner
             label={"Please enter your identification to start application"}
             ariaLive="assertive"
@@ -156,7 +150,7 @@ function App() {
     }
     case "new-window-call": {
       return (
-        <Stack verticalAlign='center' style={{ height: "100%", width: "100%" }}>
+        <Stack verticalAlign="center" style={{ height: "100%", width: "100%" }}>
           <Spinner
             label={"Getting user credentials from server"}
             ariaLive="assertive"
@@ -170,6 +164,7 @@ function App() {
 
 export default App;
 ```
+
 In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating later.
 
 ### Running the app
@@ -189,5 +184,4 @@ a test message.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Part 1: Creating your widget](./calling-widget-tutorial-part-1-creating-your-widget.md)
+> [!div class="nextstepaction"] > [Part 1: Creating your widget](./calling-widget-tutorial-part-1-creating-your-widget.md)
