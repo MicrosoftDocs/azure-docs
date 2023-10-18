@@ -86,10 +86,10 @@ The following list presents the set of features that are currently available for
 | Group of features          | Capability                             | Public preview | General availability |
 |----------------------------|----------------------------------------|----------------|----------------------|
 | DTMF Support in ACS UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
-| Calling Capabilities       | Audio and video                        | ✔️              | ✔️                    |
+| Teams Capabilities         | Audio and video                        | ✔️              | ✔️                    |
 |                            | Screen sharing                         | ✔️              | ✔️                    |
 |                            | Record the call                        | ✔️              | ✔️                    |
-|                            | Park the call                          | ❌             | ❌                   |
+|                            | Park the call                          | ❌             | ❌3                   |
 |                            | Personal voicemail                     | ❌             | ✔️                    |
 | Teams Auto Attendant       | Answer call                            | ✔️              | ✔️                    |
 |                            | Operator routing                       | ❌             | ✔️                    |
