@@ -544,7 +544,7 @@ The response will be similar to the following text:
 
 ## Customizing MLflow model deployments
 
-MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt to to customize how inference is executed.
+MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt to customize how inference is executed.
 
 You will typically select this workflow when:
 
