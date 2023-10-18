@@ -8,13 +8,13 @@ ms.reviewer: jeffwo
 ---
 
 # Azure Monitor agent on Windows client devices
-This article provides instructions and guidance for using the client installer for Azure Monitor Agent. It also explains how to leverage Data Collection Rules on Windows client devices.
+This article provides instructions and guidance for using the client installer for Azure Monitor Agent. It also explains how to use Data Collection Rules on Windows client devices.
 
 Using the new client installer described here, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
 Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 > [!NOTE]
-> This article provides specific guidance for installing the Azure Monitor agent on Windows client devices, subject to [limitations below](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
+> This article provides specific guidance for installing the Azure Monitor agent on Windows client devices, subject to the [limitations](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
 
 ### Comparison with virtual machine extension
 Here is a comparison between client installer and VM extension for Azure Monitor agent:
@@ -27,7 +27,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Central configuration | Via Data collection rules | Same |
 | Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the Microsoft Entra tenant |
 | Data upload to Log Analytics | Via Log Analytics endpoints | Same |
-| Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
+| Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require more extensions. This includes support for Sentinel Windows Event filtering |
 | [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
 
 
@@ -42,8 +42,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
 ## Limitations
-1. The Windows client installer supports latest Windows machines only that are **Microsoft Entra joined** or Microsoft Entra hybrid joined. More information under [prerequisites](#prerequisites) below
-2. The Data Collection rules can only target the Microsoft Entra tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
+1. The Windows client installer supports latest Windows machines only that are **Microsoft Entra joined** or Microsoft Entra hybrid joined. For more information, see the [prerequisites](#prerequisites).
+2. The Data Collection rules can only target the Microsoft Entra tenant scope. That is, all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
 3. No support for Windows machines connected via **Azure private links** 
 4. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. While the agent can be installed via this method on laptops, it is not optimized for battery consumption and network limitations on a laptop.
 
@@ -61,7 +61,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 7. Before using any PowerShell cmdlet, ensure cmdlet related PowerShell module is installed and imported.
 
 ## Install the agent
-1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
+1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown in the following screenshot):
     <!-- convertborder later -->
     :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" alt-text="Diagram shows download agent link on Azure portal." border="false":::
 2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
@@ -69,7 +69,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn
     ```
-4. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the command below with the values from the following table:
+4. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the following command with the values from the following table:
 
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
@@ -99,14 +99,14 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 ## Create and associate a 'Monitored Object'
 You need to create a 'Monitored Object' (MO) that creates a representation for the Microsoft Entra tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single Microsoft Entra tenant**.
 Currently this association is only **limited** to the Microsoft Entra tenant scope, which means configuration applied to the Microsoft Entra tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
-The image below demonstrates how this works:
+The following image demonstrates how this works:
 <!-- convertborder later -->
 :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" alt-text="Diagram shows monitored object purpose and association." border="false":::
 
-Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
+Then, proceed with the following instructions to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
 ### Permissions required
-Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Microsoft Entra tenant admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Microsoft Entra admin 'owner' permissions at the root scope. This is needed for all methods described below in this section.
+Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Microsoft Entra tenant admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It gives the Microsoft Entra admin 'owner' permissions at the root scope. This is needed for all methods described in the following section.
 
 ### Using REST APIs
 
@@ -149,7 +149,7 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 After this step is complete, **reauthenticate** your session and **reacquire** your ARM bearer token.
 
 #### 2. Create Monitored Object
-This step creates the Monitored Object for the Microsoft Entra tenant scope. It will be used to represent client devices that are signed with that Microsoft Entra tenant identity.
+This step creates the Monitored Object for the Microsoft Entra tenant scope. It's used to represent client devices that are signed with that Microsoft Entra tenant identity.
 
 **Permissions required**: Anyone who has 'Monitored Object Contributor' at an appropriate scope can perform this operation, as assigned in step 1.
 
@@ -161,7 +161,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
-| `AADTenantId` | path | string | ID of the Microsoft Entra tenant that the device(s) belong to. The MO will be created with the same ID |
+| `AADTenantId` | path | string | ID of the Microsoft Entra tenant that the device(s) belong to. The MO is created with the same ID |
 
 **Headers**
 - Authorization: ARM Bearer Token
@@ -180,7 +180,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | Description |
 |:---|:---|
-| `location` | The Azure region where the MO object would be stored. It should be the **same region** where you created the Data Collection Rule. This is the location of the region from where agent communications would happen. |
+| `location` | The Azure region where the MO object would be stored. It should be the **same region** where you created the Data Collection Rule. This region is the location where agent communications would happen. |
 
 
 #### 3. Associate DCR to Monitored Object
@@ -394,7 +394,7 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 ```
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
-The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
+The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See the following example:
 <!-- convertborder later -->
 :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" alt-text="Diagram shows agent heartbeat logs on Azure portal." border="false":::
 
@@ -446,7 +446,7 @@ You can use any of the following options to check the installed version of the a
 - Open **Control Panel** > **Programs and Features** > **Azure Monitor Agent** and click 'Uninstall'
 - Open **Settings** > **Apps** > **Apps and Features** > **Azure Monitor Agent** and click 'Uninstall'
 
-If you face issues during 'Uninstall', refer to [troubleshooting guidance](#troubleshoot) below
+If you face issues during 'Uninstall', refer to the [troubleshooting guidance](#troubleshoot).
 
 ### Update the agent
 In order to update the version, install the new version you wish to update to.
