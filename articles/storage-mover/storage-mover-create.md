@@ -50,7 +50,7 @@ To deploy a storage mover into a resource group, you must be a member of the *Co
 
    1. Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
-### [CLI](#tab/Azure CLI)
+### [Azure CLI](#tab/CLI)
 
 Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
@@ -83,7 +83,7 @@ az storage-mover create --name $storageMoverResourceName \
 
 ```
 
-### [PowerShell](#tab/Azure Powershell)
+### [Azure PowerShell](#tab/powershell)
 
 Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
