@@ -35,11 +35,11 @@ Tailor the broker message buffer options by adjusting the following settings:
 
   - **Select a storage class**: Define the desired StorageClass using the `storageClassName` property.
 
-  - **Define access modes**: Determine the access modes you need for your volume. For more details, refer to the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
+  - **Define access modes**: Determine the access modes you need for your volume. For more information, see the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
 
   - **Manage resources**: Fine-tune your resource allocation with the `requests` and `limits` properties. Learn more about resource management [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
 
-By default, the container filesystem is used when no storage class is provided. Currently, there is no way to set a limit on the amount of data that's written. Use a storage class with size limits to reduce the chance of exausting the disk space available on the node.
+By default, the container filesystem is used when no storage class is provided. Currently, there's no way to set a limit on the amount of data that's written. Use a storage class with size limits to reduce the chance of exhausting the disk space available on the node.
 
 To set up your persistent volume for the message buffer in your Broker CRD, follow this example:
 
@@ -58,7 +58,7 @@ spec:
   # ...customize other properties of the `volumeClaimSpec` as needed.
 ```
 
-Once configured, the broker backend transfers PUBLISH messages from memory to disk. This process continues until your specified volume is full or reaches the requested storage limit if it's supported by your storage provider. If your backend can no longer transfer messages to disk, they accumulate in memory. When this happens, backpressure begins rejecting new PUBLISH messages, maintaining the same behavior as before the disk buffer configuration.
+Once configured, the broker backend transfers PUBLISH messages from memory to disk. This process continues until your specified volume is full or reaches the requested storage limit if supported by your storage provider. If your backend can no longer transfer messages to disk, they accumulate in memory. When this happens, backpressure begins rejecting new PUBLISH messages, maintaining the same behavior as before the disk buffer configuration.
 
 ## Considerations for storage providers
 
