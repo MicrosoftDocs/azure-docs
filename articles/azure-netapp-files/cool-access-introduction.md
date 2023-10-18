@@ -34,13 +34,17 @@ Metadata is never cooled and always remains in the standard tier. As such, the a
 
 Standard storage with cool access is supported for the following regions: 
 
-* East US
-* East US 2
-* Japan East
-* North Europe
-* South Central US
-* West Europe
-* West US
+* Australia East 
+* Australia Southeast
+* Brazil South 
+* Canada Central 
+* Canada East
+* Central India 
+* East Asia  
+* East US 2   
+* France Central
+* North Central US  
+* North Europe  
 
 ## Effects of cool access on data
 
