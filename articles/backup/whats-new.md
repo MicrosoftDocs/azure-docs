@@ -78,7 +78,7 @@ Azure Backup now supports SAP HANA instance snapshot backup and enhanced restore
 
  >[!Note]
 >- Original Location Restore (OLR) is not supported.   
->- For pricing, as per SAP advisory, you must do a "weekly full backup + logs" streaming/Bbackint based backup so that the exisiting protected instance fee and storage cost areis applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more on [Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). 
+>- For pricing, as per SAP advisory, you must do a "weekly full backup + logs" streaming/Bbackint based backup so that the exisiting protected instance fee and storage cost areis applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more on [Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 For more information, see [Back up databases' instance snapshots](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
