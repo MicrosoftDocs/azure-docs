@@ -42,6 +42,8 @@ items:
         href: pub-sub-mqtt/overview-iot-mq.md
       - name: Secure communication
         href: pub-sub-mqtt/concept-brokerlistener.md
+      - name: Connect MQTT clients
+        href: pub-sub-mqtt/howto-connect-mqtt-clients.md
     - name: Process messages
       items:
       - name: Overview
