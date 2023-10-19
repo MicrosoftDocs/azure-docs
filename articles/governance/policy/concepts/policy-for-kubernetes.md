@@ -483,7 +483,7 @@ Constraint templates that start with `k8sazure` are the ones installed by the ad
 
 ### View the add-on mutation templates
 
-To view mutation templates downloaded by the add-on, run `kubectl get assign`. You can also filter to specific mutators, such as `kubectl get assignMetadata`
+To view mutation templates downloaded by the add-on, run `kubectl get assign`, `kubectl get assignmetadata`, and `kubectl get modifyset`.
 
 ### Get Azure Policy mappings
 
