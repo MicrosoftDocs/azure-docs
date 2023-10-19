@@ -23,9 +23,11 @@ Using Azure NetApp Files Standard service level with cool access, you can config
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three types of [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
 
-You can configure the Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This migration to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
+You can configure the Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
+
+Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
 
 After inactive data is moved to the cool tier and if it's read randomly again, it becomes "warm" and is moved back to the hot tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the hot tier. 
 
@@ -51,7 +53,7 @@ Standard storage with cool access is supported for the following regions:
 
 This section describes a large-duration, large-dataset warming test. It shows an example scenario of a dataset where 100% of the data is in the cool tier and how it warms over time.   
 
-Typical randomly accessed data starts as part of a working set (read, modify, and write). As data loses relevance, it becomes "cool" and is eventually tiered off to the object storage.  
+Typical randomly accessed data starts as part of a working set (read, modify, and write). As data loses relevance, it becomes "cool" and is eventually tiered off to the cool tier.  
 
 Cool data might become hot again. It’s not typical for the entire working set to start as cold, but some scenarios do exist, for example, audits, year-end processing, quarter-end processing, lawsuits, and end-of-year licensure reviews.  
 
@@ -61,9 +63,8 @@ This scenario provides insight to the warming performance behavior of a 100% coo
 
 This section describes a 4k random-read test across 160 files totaling 10 TB of data.   
 
-**Setup** 
+#### Setup 
 
-**Region:** Japan <br>
 **Capacity pool size:** 100-TB capacity pool <br>
 **Volume allocated capacity:** 100-TB volumes <br>
 **Working Dataset:** 10 TB <br>
@@ -73,13 +74,13 @@ This section describes a 4k random-read test across 160 files totaling 10 TB of 
 **OS:** RHEL 8.3 <br>
 **Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard`
 
-**Methodology**
+#### Methodology
 
 This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (It can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the hot tier.
 
 This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm varies due to the dataset size. This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
 
-**Results**
+#### Results
 
 The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that has been 100% cooled and the buffers cleared (absolute worst-case aged data). 
 
@@ -87,9 +88,8 @@ The following chart shows a test that ran over 2.5 days on the 10-TB working dat
 
 ### 64k sequential-read test
 
-**Setup**
+#### Setup 
 
-**Region:** Japan <br>
 **Capacity pool size:** 100-TB capacity pool <br>
 **Volume allocated capacity:** 100-TB volumes <br>
 **Working Dataset:** 10 TB <br>
@@ -99,7 +99,7 @@ The following chart shows a test that ran over 2.5 days on the 10-TB working dat
 **OS:** RHEL 8.3 <br>
 **Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard` <br>
 
-**Methodology**
+#### Methodology
 
 Sequentially read blocks are not rewarmed to the hot tier. However, small dataset sizes might see performance improvements because of caching (no performance change guarantees). 
  
@@ -109,7 +109,7 @@ This test provides the following data points:
 
 This test ran for 30 minutes to obtain a stable performance number.  
 
-**Results**
+#### Results
 
 The following table summarizes the test results: 
 
@@ -119,8 +119,6 @@ The following table summarizes the test results:
 | Cool data | 899 MB/s |
 
 ### Test conclusions 
-
-The measurements and testing executed in this section are difficult to reproduce. The numbers here show worst-case scenarios. There are diagnostic-level commands that allowed buffers to be dumped and timers shortened, so this testing could be achieved in a reasonable timeframe, and FIO scripts tuned to achieve the goals of each test.  
 
 Data read from the cool tier experiences a performance hit. If you size your time to cool off correctly, then you might not experience a performance hit at all. You might have little cool tier access, and a 30-day window is perfect for keeping warm data warm.
 
