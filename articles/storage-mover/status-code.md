@@ -53,7 +53,7 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM1026"></a>**AZSM1026** |Target type is not supported by the agent | This target type is unsupported by the current Storage Mover agent. |
 | <a name="AZSM1027"></a>**AZSM1027** |The target location is busy | The agent can't access the target location because an existing lease is active. This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM1028"></a>**AZSM1028** |Key Vault access failure | Verify that the agent has been granted permissions to the relevant Key Vault. |
-| <a name="AZSM1030"></a>**AZSM1030** |Cannot verify storage account type | Verify that the blob storage account and container exist, and that the agent has been granted permissions to them. |
+| <a name="AZSM1030"></a>**AZSM1030** |Cannot verify storage account type | Verify that the storage account and container exist, and that the agent has been granted permissions to them. |
 | <a name="AZSM1040"></a>**AZSM1040** |Miscellaneous error while accessing target  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM1041"></a>**AZSM1041** |Failed to send job progress  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
