@@ -38,17 +38,17 @@ The required roles and licenses may vary based on the report. Global Administrat
 |--|--|--|
 | Audit | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
 | Sign-ins | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
-| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
-| Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
-| Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Microsoft Entra ID Free/Microsoft 365 Apps<br>Microsoft Entra ID P1/P2 |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1 or P2 |
+| Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1 or P2 |
+| Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Microsoft Entra ID Free/Microsoft 365 Apps<br>Microsoft Entra ID P1 or P2 |
 
 *The level of access and capabilities for Identity Protection vary with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
-Audit logs are available for features that you've licensed. To access the sign-ins logs using the Microsoft Graph API, your tenant must have a Microsoft Entra ID P1 or P2 license associated with it.
+Audit logs are available for features that you've licensed. To access the sign-in logs using the Microsoft Graph API, your tenant must have a Microsoft Entra ID P1 or P2 license associated with it.
 
 ## Stream logs to an event hub to integrate with SIEM tools
 
-Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md) in your Azure subscription. 
+Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](/azure/event-hubs/event-hubs-create) in your Azure subscription.
 
 ### Recommended uses
 
@@ -63,7 +63,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 1. Create an Event Hubs namespace and event hub.
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
-    - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
+    - [Set up an Event Hubs namespace and an event hub](/azure/event-hubs/event-hubs-create)
     - [Learn more about streaming activity logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
  Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
@@ -104,7 +104,7 @@ Integrating Microsoft Entra logs with Azure Monitor logs provides a centralized 
 ### Quick steps
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
-1. [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+1. [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
 1. Browse to **Identity** > **Monitoring & health** > **Log Analytics** and begin querying the data.
@@ -126,11 +126,11 @@ We recommend using the real-time security detection capabilities of Microsoft Se
 
 ### Quick steps
 
-1. Learn about the [prerequisites](../../sentinel/prerequisites.md), [roles and permissions](../../sentinel/roles.md).
-1. [Estimate potential costs](../../sentinel/billing.md).
-1. [Onboard to Microsoft Sentinel](../../sentinel/quickstart-onboard.md).
-1. [Collect Microsoft Entra data](../../sentinel/connect-azure-active-directory.md).
-1. [Begin hunting for threats](../../sentinel/hunting.md).
+1. Learn about the [prerequisites](/azure/sentinel/prerequisites), [roles and permissions](/azure/sentinel/roles).
+1. [Estimate potential costs](/azure/sentinel/billing).
+1. [Onboard to Microsoft Sentinel](/azure/sentinel/quickstart-onboard).
+1. [Collect Microsoft Entra data](/azure/sentinel/connect-azure-active-directory).
+1. [Begin hunting for threats](/azure/sentinel/hunting).
 
 
 <a name='view-logs-through-the-portal'></a>
@@ -187,7 +187,7 @@ The right solution for your long-term storage depends on your budget and what yo
 - Download logs for manual storage
 - Integrate logs with Azure Monitor logs
   
-[Azure Storage](../../storage/common/storage-introduction.md) is the right solution if you aren't planning on querying your data often. For more information, see [Archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+[Azure Storage](/azure/storage/common/storage-introduction) is the right solution if you aren't planning on querying your data often. For more information, see [Archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 If you plan to query the logs often to run reports or perform analysis on the stored logs, you should [integrate your data with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
 

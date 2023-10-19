@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 11/17/2022
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ---
 
 # Materialized views in Azure Cosmos DB for Apache Cassandra (preview)

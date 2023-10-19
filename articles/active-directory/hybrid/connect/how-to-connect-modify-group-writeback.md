@@ -83,7 +83,7 @@ To configure directory settings to disable automatic writeback of newly created 
   ``` 
 
 > [!NOTE]     
-> We recommend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true).
+> We recommend using Microsoft Graph PowerShell SDK with [PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true).
 
 - Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
 

@@ -43,7 +43,7 @@ Application Health Extensions has two options available: **Binary Health States*
 | -------- | -------------------- | ------------------ |
 | Available Health States | Two available states: *Healthy*, *Unhealthy* | Four available states: *Healthy*, *Unhealthy*, *Initializing*, *Unknown*<sup>1</sup> |
 | Sending Health Signals | Health signals are sent through HTTP/HTTPS response codes or TCP connections. | Health signals on HTTP/HTTPS protocol are sent through the probe response code and response body. Health signals through TCP protocol remain unchanged from Binary Health States. |
-| Identifying *Unhealthy* Instances | Instances will automatically fall into *Unhealthy* state if a *Healthy* signal isn't received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (for example, unreachable endpoint) or an issue with the application (for example, non-2xx status code). | Instances will only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (for example, unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
+| Identifying *Unhealthy* Instances | Instances will automatically fall into *Unhealthy* state if a *Healthy* signal isn't received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (for example, unreachable endpoint) or an issue with the application (for example, non-200 status code). | Instances will only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (for example, unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
 | *Initializing* state for newly created instances | *Initializing* state isn't available. Newly created instances may take some time before settling into a steady state. | *Initializing* state allows newly created instances to settle into a steady Health State before making the instance eligible for rolling upgrades or instance repair operations. |
 | HTTP/HTTPS protocol | Supported | Supported |
 | TCP protocol | Supported | Limited Support – *Unknown* state is unavailable on TCP protocol. See [Rich Health States protocol table](#rich-health-states) for Health State behaviors on TCP. |
@@ -68,8 +68,8 @@ Binary Health State reporting contains two Health States, *Healthy* and *Unhealt
 
 | Protocol | Health State | Description |
 | -------- | ------------ | ----------- |
-| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a 2xx response code. |
-| http/https | Unhealthy | The instance will be marked as *Unhealthy* if a 2xx response code isn't received from the application. |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a 200 response code. |
+| http/https | Unhealthy | The instance will be marked as *Unhealthy* if a 200 response code isn't received from the application. |
 
 **TCP Protocol**
 
@@ -79,7 +79,7 @@ Binary Health State reporting contains two Health States, *Healthy* and *Unhealt
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
 
 Some scenarios that may result in an *Unhealthy* state include: 
-- When the application endpoint returns a non-2xx status code 
+- When the application endpoint returns a non-200 status code 
 - When there's no application endpoint configured inside the virtual machine instances to provide application health status 
 - When the application endpoint is incorrectly configured 
 - When the application endpoint isn't reachable 

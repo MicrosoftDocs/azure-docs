@@ -37,4 +37,4 @@ Microsoft Entra ID exposes tenant-specific and common (tenant-independent) SSO a
 
 ## Next steps
 
-For information about the federation metadata documents that Microsoft Entra ID publishes, see [Federation Metadata](../azuread-dev/azure-ad-federation-metadata.md).
+For information about the federation metadata documents that Microsoft Entra ID publishes, see [Federation Metadata](federation-metadata.md).

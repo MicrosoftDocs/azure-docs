@@ -219,6 +219,9 @@ Defender for Containers relies on the **Defender agent** for several features. T
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, only get partial coverage.
 
+#### Defender agent limitations
+The Defender agent is currently not supported on ARM64 nodes.
+
 #### Network restrictions
 
 ##### Private link

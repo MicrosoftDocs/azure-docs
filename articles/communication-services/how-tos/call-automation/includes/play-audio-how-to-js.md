@@ -69,7 +69,7 @@ const playSource: FileSource = { url: audioUri, kind: "fileSource" };
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts). 
 
 ``` javascript
 const textToPlay = "Welcome to Contoso"; 
@@ -91,6 +91,21 @@ If you want to customize your Text-To-Speech output even more with Azure AI serv
 const ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 
 const playSource: SsmlSource = { ssmlText: ssmlToPlay, kind: "ssmlSource" }; 
 ```
+### Custom voice models
+If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](../../../../ai-services/speech-service/how-to-custom-voice.md).
+
+**Custom voice names regular text exmaple**
+``` javascript
+const textToPlay = "Welcome to Contoso";
+// Provide VoiceName and CustomVoiceEndpointID to play your custom voice
+const playSource: TextSource = { text: textToPlay, voiceName: "YourCustomVoiceName", customVoiceEndpointId: "YourCustomEndpointId"}
+```
+**Custom voice names SSML example**
+``` javascript
+const ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"YourCustomVoiceName\">Hello World!</voice></speak>"; 
+const playSource: SsmlSource = { ssmlText: ssmlToPlay, kind: "ssmlSource", customVoiceEndpointId: "YourCustomEndpointId"}; 
+```
+
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio - All participants

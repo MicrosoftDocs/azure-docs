@@ -52,12 +52,12 @@ In this article you register a web application in the Microsoft Entra admin cent
 ## Clone or download the sample application
 
 To obtain the sample application, you can either clone it from GitHub or download it as a *.zip* file.
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
     
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-dotnet.git
     ```
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Create and upload a self-signed certificate
 

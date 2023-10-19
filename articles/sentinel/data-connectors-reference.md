@@ -358,8 +358,8 @@ Data connectors are available as part of the following offerings:
 ## Microsoft
 
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
-- [Azure Active Directory](data-connectors/azure-active-directory.md)
-- [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
+- [Microsoft Entra ID](data-connectors/azure-active-directory.md)
+- [Microsoft Entra ID Protection](data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Activity](data-connectors/azure-activity.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
 - [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
@@ -656,6 +656,10 @@ Data connectors are available as part of the following offerings:
 ## WithSecure
 
 - [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
+
+## Wiz, Inc.
+
+- [Wiz](data-connectors/wiz.md)
 
 ## ZERO NETWORKS LTD
 

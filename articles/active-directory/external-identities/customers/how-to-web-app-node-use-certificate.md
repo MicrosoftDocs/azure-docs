@@ -21,7 +21,7 @@ Microsoft Entra ID for customers supports two types of authentication for [confi
 
 In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it. 
 
-In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL or Windows PowerShell. If you have a client secret already, you'll learn how to safely delete it.
+In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL, or PowerShell. If you have a client secret already, you'll learn how to safely delete it.
 
 When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
@@ -61,7 +61,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
 
 # [Windows PowerShell](#tab/windows-powershell)
 
-1. Use the steps in [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate). Make sure you export your public certificate with its private key. For the `certificateName`, use *ciam-client-app-cert*. 
+1. Use the steps in [Create a self-signed public certificate to authenticate your application](../../develop/howto-create-self-signed-certificate.md). Make sure you export your public certificate with its private key. For the `certificateName`, use *ciam-client-app-cert*. 
 
 1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type in your pass phrase, type a pass phrase of your choice: 
 

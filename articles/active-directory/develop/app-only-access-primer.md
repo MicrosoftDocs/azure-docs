@@ -51,7 +51,7 @@ Always follow the principle of least privilege: you should never request app rol
  
 ## Designing and publishing app roles for a resource service
 
-If you're building a service on Microsoft Entra ID that exposes APIs for other clients to call, you may wish to support automated access with app roles (app-only permissions). You can define the app roles for your application in the **App roles** section of your app registration in Microsoft Entra portal. For more information on how to create app roles, see [Declare roles for an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application).
+If you're building a service on Microsoft Entra ID that exposes APIs for other clients to call, you may wish to support automated access with app roles (app-only permissions). You can define the app roles for your application in the **App roles** section of your app registration in Microsoft Entra admin center. For more information on how to create app roles, see [Declare roles for an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application).
 
 When exposing app roles for others to use, provide clear descriptions of the scenario to the admin who is going to assign them. App roles should generally be as narrow as possible and support specific functional scenarios, since app-only access isn't constrained by user rights. Avoid exposing a single role that grants full `read` or full `read/write` access to all APIs and resources your service contains.
 

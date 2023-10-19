@@ -5,8 +5,7 @@ description: Learn about Frequently asked questions when using the custom text c
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: faq
 ms.date: 04/22/2022
 ms.author: aahi

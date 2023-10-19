@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 09/28/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: egreenberg
 ---
 # How To: Manage inactive user accounts
 
@@ -67,7 +67,7 @@ The following details relate to the `lastSignInDateTime` property.
     - The last attempted sign-in of a user took place before April 2020.
     - The affected user account was never used for a sign-in attempt.
 
-- The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
+- The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. It may take up to 24 hours to update.
 
 ## How to investigate a single user
 
@@ -82,10 +82,10 @@ If you need to view the latest sign-in activity for a user, you can view the use
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
 
-The last sign-in date and time shown on this tile may take up to 6 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
+The last sign-in date and time shown on this tile may take up to 24 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
 
 ## Next steps
 
-* [Get data using the Microsoft Entra ID reporting API with certificates](./howto-configure-prerequisites-for-reporting-api.md)
+* [Get data using the Microsoft Entra reporting API with certificates](./howto-configure-prerequisites-for-reporting-api.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in activity report API reference](/graph/api/resources/signin)

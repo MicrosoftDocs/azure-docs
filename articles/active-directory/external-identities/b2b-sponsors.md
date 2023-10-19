@@ -1,5 +1,5 @@
 ---
-title: Add sponsors to a guest user in the Microsoft Entra admin center - Microsoft Entra ID (preview)
+title: Add sponsors to a guest user in the Microsoft Entra admin center - External ID (preview)
 description: Shows how an admin can add sponsors to guest users in Microsoft Entra B2B collaboration.
 
 services: active-directory
@@ -13,7 +13,7 @@ author: csmulligan
 manager: CelesteDG
 ms.collection: M365-identity-device-management
 
-# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Microsoft Entra ID.
+# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Microsoft Entra External ID.
 ---
 # Sponsors field for B2B users (preview)
 
@@ -84,5 +84,5 @@ When you invite a guest user, you became their sponsor by default. If you need t
 ## Next steps
 
 - [Add and invite guest users](add-users-administrator.md)
-- [Create a new access package](/azure/active-directory/governance/entitlement-management-access-package-create#approval)
-- [Manage user profile info](/azure/active-directory/fundamentals/how-to-manage-user-profile-info)
+- [Create a new access package](../governance/entitlement-management-access-package-create.md)
+- [Manage user profile info](../fundamentals/how-to-manage-user-profile-info.md)

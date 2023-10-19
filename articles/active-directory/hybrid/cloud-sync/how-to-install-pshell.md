@@ -14,22 +14,22 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Install the Microsoft Entra Connect provisioning agent by using a CLI and PowerShell
-This article shows you how to install the Microsoft Entra Connect provisioning agent by using PowerShell cmdlets.
+# Install the Microsoft Entra Provisioning Agent by using a CLI and PowerShell
+This article shows you how to install the Microsoft Entra Provisioning Agent by using PowerShell cmdlets.
  
 >[!NOTE]
->This article deals with installing the provisioning agent by using the command-line interface (CLI). For information on how to install the Microsoft Entra Connect provisioning agent by using the wizard, see [Install the Microsoft Entra Connect provisioning agent](how-to-install.md).
+>This article deals with installing the provisioning agent by using the command-line interface (CLI). For information on how to install the Microsoft Entra Provisioning Agent by using the wizard, see [Install the Microsoft Entra Provisioning Agent](how-to-install.md).
 
 ## Prerequisite
 
-The Windows server must have TLS 1.2 enabled before you install the Microsoft Entra Connect provisioning agent by using PowerShell cmdlets. To enable TLS 1.2, follow the steps in [Prerequisites for Microsoft Entra Connect cloud sync](how-to-prerequisites.md#tls-requirements).
+The Windows server must have TLS 1.2 enabled before you install the Microsoft Entra Provisioning Agent by using PowerShell cmdlets. To enable TLS 1.2, follow the steps in [Prerequisites for Microsoft Entra Cloud Sync](how-to-prerequisites.md#tls-requirements).
 
 >[!IMPORTANT]
 >The following installation instructions assume that all the [prerequisites](how-to-prerequisites.md) were met.
 
 <a name='install-the-azure-ad-connect-provisioning-agent-by-using-powershell-cmdlets-'></a>
 
-## Install the Microsoft Entra Connect provisioning agent by using PowerShell cmdlets 
+## Install the Microsoft Entra Provisioning Agent by using PowerShell cmdlets 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -93,7 +93,7 @@ The Windows server must have TLS 1.2 enabled before you install the Microsoft En
 Now that you've installed the agent, you can apply more granular permissions to the gMSA. For information and step-by-step instructions on how to configure the permissions, see [Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md).
 
 ## Installing against US government cloud
-By default, the Microsoft Entra Connect provisioning agent installs against the default Azure cloud environment.  If you are installing the agent for use in the US government cloud do the following:
+By default, the Microsoft Entra Provisioning Agent installs against the default Azure cloud environment.  If you are installing the agent for use in the US government cloud do the following:
 
 - In step #8, add **ENVIRONMENTNAME=AzureUSGovernment** to the command line like the example.
     ```
@@ -105,4 +105,4 @@ By default, the Microsoft Entra Connect provisioning agent installs against the 
 
 - [What is provisioning?](../what-is-provisioning.md)
 - [Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

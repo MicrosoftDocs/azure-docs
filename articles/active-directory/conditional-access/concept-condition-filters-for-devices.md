@@ -155,4 +155,4 @@ The filter for devices condition in Conditional Access evaluates policy based on
 - [Update device Graph API](/graph/api/device-update?tabs=http)
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
 - [Common Conditional Access policies](concept-conditional-access-policy-common.md)
-- [Securing devices as part of the privileged access story](/security/compass/privileged-access-devices)
+- [Securing devices as part of the privileged access story](/security/privileged-access-workstations/privileged-access-devices)

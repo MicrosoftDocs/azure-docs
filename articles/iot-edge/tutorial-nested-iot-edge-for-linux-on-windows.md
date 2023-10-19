@@ -7,6 +7,7 @@ ms.author: fcabrera
 ms.date: 05/12/2023
 ms.topic: tutorial
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows
@@ -397,4 +398,3 @@ To learn more about using gateways to create hierarchical layers of IoT Edge dev
 
 > [!div class="nextstepaction"]
 > [Connect Azure IoT Edge devices to create a hierarchy](how-to-connect-downstream-iot-edge-device.md)
-

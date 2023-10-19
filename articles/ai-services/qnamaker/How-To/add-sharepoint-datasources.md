@@ -1,11 +1,11 @@
 ---
 title: SharePoint files - QnA Maker
 description: Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 01/25/2022
 ---
@@ -65,13 +65,13 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 ![Authenticate User Account](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Once the QnA Maker manager selects the account, the Azure Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the SharePoint resource. The Azure Active Directory manager will need to do this for every SharePoint resource, but not every document in that resource.
+Once the QnA Maker manager selects the account, the Microsoft Entra administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the SharePoint resource. The Microsoft Entra manager will need to do this for every SharePoint resource, but not every document in that resource.
 
 ### Active directory manager: grant file read access to QnA Maker
 
 The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the SharePoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal SharePoint enterprise app to have file read permissions.
 
-![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+![Microsoft Entra manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`.
@@ -109,10 +109,12 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
-### Grant access from the Azure Active Directory admin center
+<a name='grant-access-from-the-azure-active-directory-admin-center'></a>
+
+### Grant access from the Microsoft Entra admin center
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
 
 1. Search for `QnAMakerPortalSharePoint` the select the QnA Maker app.
 

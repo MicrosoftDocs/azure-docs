@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
-ms.collection: M365-identity-device-management
 ---
 # Microsoft Entra recommendation: Renew expiring application credentials (preview)
 [Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
@@ -40,7 +39,7 @@ Applications that the recommendation identified appear in the list of **Impacted
 1. Navigate to the **Certificates & Secrets** section of the app registration.
 1. Pick the credential type that you want to rotate and navigate to either **Certificates** or **Client Secret** tab and follow the prompts.
 
-    ![Screenshot of the Certificates and secrets section of Azure AD.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
+    ![Screenshot of the Certificates and secrets section of Microsoft Entra ID.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
 
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
 1. Use the Microsoft Entra sign-in logs to validate that the Key ID of the credential matches the one that was recently added.
@@ -48,9 +47,9 @@ Applications that the recommendation identified appear in the list of **Impacted
  
 ## Known limitations
 
-- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, navigate back to **App registrations** > **Certificates and Secrets** for the application. 
+- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated isn't shown. To find the key ID credential, navigate back to **App registrations** > **Certificates and Secrets** for the application. 
 
-- An **Impacted resource** with credentials that expired recently will be marked as **Complete**. If that resource has more than one credential expiring soon, the status of the resource will be **Active**.
+- An **Impacted resource** with credentials that expired recently are as **Complete**. If that resource has more than one credential expiring soon, the status of the resource is **Active**.
 
 ## Next steps
 

@@ -128,13 +128,9 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Configure ArcGIS Enterprise SSO
 
-
-
-
 1. In a different web browser window, sign in to your ArcGIS Enterprise company site as an administrator
 
-
-1. Select **Organization >EDIT SETTINGS**.
+1. Select **Organization** > **Edit Settings**.
 
     ![Screenshot shows the ArcGIS Enterprise Organization tab with Edit settings called out.](./media/arcgisenterprise-tutorial/configure-1.png)
 

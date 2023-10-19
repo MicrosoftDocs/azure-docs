@@ -77,7 +77,7 @@ There are several keyboard shortcuts you can use to help use some of the feature
 
 #### Input Method Editor
 
-The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME, you must install the language pack for the keyboard you want to use in the remote session must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](../language-packs.md).
+The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME in a remote session, the language pack for the keyboard you want to use must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](../language-packs.md).
 
 To enable IME input using the web client:
 

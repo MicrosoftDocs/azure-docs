@@ -20,6 +20,8 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
+<!-- docutune:ignored "AAD-" -->
+
 Azure Active Directory B2C (Azure AD B2C) provides support for the Microsoft Entra user management. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
 
 ## Protocol
@@ -27,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the Microsoft Ent
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Following [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Microsoft Entra technical profiles include the **AAD-Common** technical profile. The Microsoft Entra technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
- 
+
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
 - **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory.

@@ -44,6 +44,9 @@ items:
       tocHref: /azure/azure-sql/database/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/databox/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/route-server/
       topicHref: /azure/reliability/index
     - name: Reliability
@@ -74,7 +77,19 @@ items:
       tocHref: /azure/container-registry/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/governance/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/machine-learning/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-netapp-files/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/cosmos-db/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/devops/
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/data-explorer/
@@ -186,4 +201,19 @@ items:
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/energy-data-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/migrate/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/media-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/data-share/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /sql/sql-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-monitor/
       topicHref: /azure/reliability/index
