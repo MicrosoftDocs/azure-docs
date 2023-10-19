@@ -44,6 +44,12 @@ landingContent:
             url: quickstart-virtualized-network-function-prerequisites.md
       - linkListType: how-to-guide
         links:
+          - text: Create a custom role
+            url: how-to-create-custom-role.md
+          - text: Assign a custom role
+            url: how-to-assign-custom-role.md
+          - text: Create a user assigned managed identity
+            url: how-to-create-user-assigned-managed-identity.md
           - text: Create a site
             url: how-to-create-site.md
           - text: Delete operator resources
