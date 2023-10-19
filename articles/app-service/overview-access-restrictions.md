@@ -106,7 +106,7 @@ If you want to deny/block one or more specific IP addresses, you can add the IP 
 
 ### Restrict access to the advanced tools site
 
-The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting allows you to use the rules configured for the main site.
+The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting allows you to use the rules configured for the main site. You can't selectively allow access to certain advanced tool site features. For example, you can't selectively allow access only to the WebJobs management console in the advanced tools site.
 
 ### Deploy through a private endpoint
 
@@ -119,6 +119,8 @@ In this scenario, you're accessing your site through a private endpoint and are 
 ### Restrict access to a specific Azure Front Door instance
 
 Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique http header that Azure Front Door sends called X-Azure-FDID. You can find the Front Door ID in the portal.
+
+### Restrict access to Microsoft Azure WebJobs management console
 
 ## Next steps
 > [!NOTE]
