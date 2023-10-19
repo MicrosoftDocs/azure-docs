@@ -174,4 +174,4 @@ Like built-in roles, custom roles are assigned by default at the default organiz
 
 - Feel free to share with us on the [Microsoft Entra administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 - For more about role permissions, see [Microsoft Entra built-in roles](permissions-reference.md).
-- For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md?context=azure/active-directory/roles/context/ugr-context).

@@ -51,7 +51,7 @@ Install [Microsoft Entra Connect](https://www.microsoft.com/download/details.asp
 
 ### Document current federation settings
 
-To find your current federation settings, run [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
+To find your current federation settings, run [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-1.0&viewFallbackFrom=graph-powershell-beta&preserve-view=true).
 
 ```powershell
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com
