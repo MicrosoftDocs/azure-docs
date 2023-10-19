@@ -162,7 +162,7 @@ From [client webpages](./javascript-sdk.md):
   > [!Note]
   > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
 
-    For more information, see [Data collection, retention, and storage in Application Insights](./data-retention-privacy.md).
+    For more information, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
           
 From other sources, if you configure them:
           

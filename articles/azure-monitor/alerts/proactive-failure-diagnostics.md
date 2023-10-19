@@ -429,7 +429,7 @@ Smart Detection of Failure Anomalies complements other similar but distinct feat
 
 *So, you are looking at my application data?*
 
-* No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
+* No. The service is entirely automatic. Only you get the notifications. Your data is [private](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
 *Do I have to subscribe to this alert?*
 
