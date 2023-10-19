@@ -1,6 +1,6 @@
 ---
 title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent
-description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
+description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/02/2023
@@ -12,8 +12,9 @@ ms.topic: conceptual
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
 > [!Important]
-> Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
-> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available. [Learn more](guidance-migration-log-analytics-monitoring-agent.md).
+> - Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
+> - Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available. [Learn more](guidance-migration-log-analytics-monitoring-agent.md).
+> - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
