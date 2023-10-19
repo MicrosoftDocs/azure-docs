@@ -12,7 +12,7 @@
 
 ## Create NAT gateway
 
-All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
+All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
