@@ -469,8 +469,8 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. Run the `azd init` command in a local terminal or CloudShell:
 
-    ```dotnetcli
-    azd init --template https://github.com/alexwolfmsft/azd-storage-test
+    ```azurecli-interactive
+    azd init --template https://github.com/azure-samples/azd-create-storage-account
     ```
 
 1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure.  Enter the name `azdstorage` and press enter.
@@ -479,19 +479,19 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. Next, run the `azd up` command to begin the template provisioning and deployment process.
 
-    ```dotnetcli
+    ```azurecli-interactive
     azd up
     ```
 
 1. If you are not already authenticated to Azure, `azd` will output a message instructing you to sign-in to Azure using the `azd auth login` command.
 
-    ```dotnetcli
+    ```azurecli-interactive
     azd auth login
     ```
 
 1. Once you are authenticated, `azd` will prompt you for the Azure location to provision the storage account to from a list of regions. Select your desired location from the list and press enter.
 
-1. `azd` will also prompt you for a storage account sku. The sku is a custom parameter that was added to the azd template to add flexibility to the storage account provisioning. Choose `Standard_LRS` or whatever sku you would like, and then press enter.
+1. `azd` will also prompt you for a storage account type. The type is a custom parameter that was added to the azd template to add flexibility to the storage account provisioning. Choose `Standard_LRS` or whatever type you would like, and then press enter.
 
 1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
 
