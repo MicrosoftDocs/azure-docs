@@ -69,7 +69,7 @@ The MedTech service enables you to easily modify and extend the capabilities of 
 
 ### Integration
 
-The MedTech service may also be integrated for ingesting device data from these wearables using our [open-source projects](git-projects.md): 
+The MedTech service can also be integrated for ingesting device data from these wearables using our [open-source projects](git-projects.md): 
 
 * Fitbit&#174;
 
@@ -79,7 +79,7 @@ The MedTech service may also be integrated for ingesting device data from these 
 
 The following Microsoft solutions can use MedTech service for extra functionality:
 
-* [**Microsoft Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
+* [**Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
 
 * [**Azure Machine Learning Service**](concepts-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
 
