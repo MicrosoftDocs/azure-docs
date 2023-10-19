@@ -17,18 +17,18 @@ Namespace topic as a destination in Event Grid basic event subscriptions will he
 
 :::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png" alt-text="Forward events from Event Grid basic to Event Grid namespace topic" border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png":::
 
-Event Grid namespaces provides new, and interesting capabilities that you may be interested to use in your solutions. If you are currently using Event Grid basic resources like topics, system topics, domains, and partner topics you will only need to create a new event subscription in you current topic and select Event Grid namespace topic as a handler destination.
+Event Grid namespaces provides new, and interesting capabilities that you might be interested to use in your solutions. If you're currently using Event Grid basic resources like topics, system topics, domains, and partner topics you'll only need to create a new event subscription in your current topic and select Event Grid namespace topic as a handler destination.
 
 ## How to forward events to a new Event Grid namespace
 
-Scenario: Subscribe to an storage account system topic and forward storage events to a new Event Grid namespace.
+Scenario: Subscribe to a storage account system topic and forward storage events to a new Event Grid namespace.
 
 ### Prerequisites
 
 1. Create an Event Grid namespace resource by following instructions from [Create, view, and manage namespaces](create-view-manage-namespaces.md).
 1. Create an Event Grid namespace topic by following instructions from [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md).
 1. Create an Event Grid event subscription in a namespace topic by following instructions from [Create, view, and manage event subscriptions in namespace topics](create-view-manage-event-subscriptions.md).
-1. Create an storage storage account by following instructions from [create a storage account](blob-event-quickstart-portal.md#create-a-storage-account).
+1. Create an Azure storage account by following instructions from [create a storage account](blob-event-quickstart-portal.md#create-a-storage-account).
 
 ### Create and configure the event subscription
 
@@ -39,7 +39,7 @@ Scenario: Subscribe to an storage account system topic and forward storage event
 
 Once the subscription is configured with the basic information, select the **Event Grid Namespace Topic** endpoint type in the endpoint details section and select **Configure an endpoint** to configure the endpoint.
 
-You may want to use this article as a reference to explore how to [subscribe to the blob storage](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage).
+You might want to use this article as a reference to explore how to [subscribe to the blob storage](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage).
 
 :::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png" alt-text="Endpoint configuration to forward events from Event Grid basic to Event Grid namespace topic" border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png":::
 

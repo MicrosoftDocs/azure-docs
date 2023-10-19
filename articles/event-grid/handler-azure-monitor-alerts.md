@@ -30,7 +30,7 @@ Azure Monitor alerts have three resources: alert rules, alert processing rules, 
 - **Alert processing rules**: modify the fired alerts as they're being fired. You can use these rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 - **Action groups**: defines how the user wants to be notified. It’s possible to create alert rules without an action group if the user simply wants to see telemetry condition metrics.
 
-Creating alerts from Event Grid events provides you the following benefits.
+Creating alerts from Event Grid events provides you with the following benefits.
 
 - **Additional actions**: You can connect alerts to action groups with actions that aren't supported by event handlers. For example, sending notifications using email, SMS, voice call, and mobile push notifications.
 - **Easier viewing experience of events/alerts**: You can view all alerts on their resources from all alert types in one place, including alerts portal experience, Azure Mobile app experience, Azure Resource Graph queries, etc.
