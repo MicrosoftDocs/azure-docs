@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/17/2023
+ms.date: 10/19/2023
 ms.reviewer: lualderm
 ---
 
@@ -44,7 +44,11 @@ Information on these newer features is included in this article.
 
 ## Sources
 
-There are three sources for diagnostic information: Metrics, Resource logs, and Activity logs.
+There are three sources for diagnostic information:
+
+- Metrics
+- Resource logs
+- Activity logs
 
 ### Metrics
 
@@ -71,7 +75,7 @@ Currently, there are two category groups:
 - **All**: Every resource log offered by the resource.
 - **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
 
-The "Audit" category is a subset of "All," but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
+The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
 
 The following image shows the logs category groups on the add diagnostics settings page.
 
@@ -150,28 +154,6 @@ There's a cost for collecting data in a Log Analytics workspace, so you should o
 You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries. Diagnostic settings don't allow granular filtering of resource logs.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
-
-## Troubleshooting
-
-Here are some troubleshooting tips.
-
-### Metric category isn't supported
-
-When you deploy a diagnostic setting, you receive an error message similar to "Metric category 'xxxx' isn't supported." You might receive this error even though your previous deployment succeeded.
-
-The problem occurs when you use a Resource Manager template, REST API, the CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal aren't affected because only the supported category names are presented.
-
-The problem occurs because of a recent change in the underlying API. Metric categories other than **AllMetrics** aren't supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor back end redirected these categories to **AllMetrics**. As of February 2021, the back end was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
-
-If you receive this error, update your deployments to replace any metric category names with **AllMetrics** to fix the issue. If the deployment was previously adding multiple categories, only keep one with the **AllMetrics** reference. If you continue to have the problem, contact Azure support through the Azure portal.
-
-### Setting disappears because of non-ASCII characters in resourceID
-
-Diagnostic settings don't support resource IDs with non-ASCII characters. For example, consider the term "Preproducción." Because you can't rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you need to re-create the resource.
-
-### Possibility of duplicated or dropped data
-
-Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
 
 ## Next steps
 

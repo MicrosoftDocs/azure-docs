@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/17/2023
+ms.date: 10/19/2023
 ms.reviewer: lualderm
 ---
 
@@ -229,6 +229,28 @@ To create or update diagnostic settings by using the [Azure Monitor REST API](/r
 For details on using Azure Policy to create diagnostic settings at scale, see [Create diagnostic settings at scale by using Azure Policy](diagnostic-settings-policy.md).
 
 ---
+
+## Troubleshooting
+
+Here are some troubleshooting tips.
+
+### Metric category isn't supported
+
+When you deploy a diagnostic setting, you receive an error message similar to "Metric category 'xxxx' isn't supported." You might receive this error even though your previous deployment succeeded.
+
+The problem occurs when you use a Resource Manager template, REST API, the CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal aren't affected because only the supported category names are presented.
+
+The problem occurs because of a recent change in the underlying API. Metric categories other than **AllMetrics** aren't supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor back end redirected these categories to **AllMetrics**. As of February 2021, the back end was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
+
+If you receive this error, update your deployments to replace any metric category names with **AllMetrics** to fix the issue. If the deployment was previously adding multiple categories, only keep one with the **AllMetrics** reference. If you continue to have the problem, contact Azure support through the Azure portal.
+
+### Setting disappears because of non-ASCII characters in resourceID
+
+Diagnostic settings don't support resource IDs with non-ASCII characters. For example, consider the term "Preproducción." Because you can't rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you need to re-create the resource.
+
+### Possibility of duplicated or dropped data
+
+Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
 
 ## Next steps
 
