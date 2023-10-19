@@ -187,6 +187,86 @@ As a part of AKS backup capability, you can back up all or specific cluster reso
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot shows various backup configurations.":::
 
+
+## Use Hooks during backup
+
+This section describes how to use Backup Hook to do Application Consistent Snapshots of the AKS cluster with MySQL deployed (Persistent Volume with containing the MySQL). 
+
+You  can now use the Custom Hooks capability available in Azure Backup for AKS that helps to do Application Consistent Snapshots of Volumes, which are used for databases deployed as containerized workloads.
+
+
+By using Backup Hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup Extension then orchestrates the steps of running the commands provided in Hooks and takes the Volume snapshot. 
+
+An application consistent snapshot of a Volume with MySQL deployed is taken by doing the following actions:
+
+1. The Pod running MySQL is frozen so that no new transaction is performed on the database.
+2. A snapshot is taken of the Volume as backup.
+3. The Pod running MySQL is unfrozen so that transactions can be done again on the database. 
+
+To enable a *Backup Hook* as part of the configure backup flow to back up MySQ, follow these steps:
+
+1. Write the Custom Resource for Backup Hook with commands to freeze and unfreeze a PostgreSQL Pod. You can also use the following sample YAML script  `"postgresbackuphook.yaml"` with pre-defined commands.
+
+
+      ```json
+      apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
+      kind: BackupHook
+      metadata:
+      # BackupHook CR Name and Namespace
+      name: bkphookname0
+      namespace: default
+      spec:
+      # BackupHook Name. This is the name of the hook that will be executed during backup.
+      # compulsory
+      name: hook1
+      # Namespaces where this hook will be executed.
+      includedNamespaces: 
+      - hrweb
+      excludedNamespaces:
+      labelSelector:
+      # PreHooks is a list of BackupResourceHooks to execute prior to backing up an item.
+      preHooks:
+         - exec:
+            command:
+            - /sbin/fsfreeze
+            - --freeze
+            - /var/lib/postgresql/data
+            container: webcontainer
+            onError: Continue
+      # PostHooks is a list of BackupResourceHooks to execute after backing up an item.
+      postHooks:
+         - exec:
+            container: webcontainer
+            command:
+               - /sbin/fsfreeze
+               - --unfreeze
+            onError: Fail
+            timeout: 10s
+
+
+      ```  
+
+2. 2.	Before you configure backup, the Backup Hook Custom Resource needs to be deployed in the AKS cluster. To deploy the script, run the following `kubectl` command:
+
+      ```dotnetcli
+      kubectl apply -f mysqlbackuphook.yaml
+
+      ```
+
+3. Once the deployment is complete, you can initiate configure backup for the AKS cluster. 
+
+
+   >[!Note]
+   >As part of backup configuration, you have to provide the *Custom Resource name* and the *Namespace* its deployed in as input.
+
+
+
+
+
+
+
+
+
 ## Next steps
 
 - [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
