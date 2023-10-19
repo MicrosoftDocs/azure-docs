@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Use C# and DICOMweb Standard APIs
 
-This article shows how to work with the DICOM&reg; service using C# and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using C# and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
 Use these sample files:
 
@@ -33,7 +33,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you need an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb Standard APIs, you need an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 After you've deployed an instance of the DICOM service, retrieve the URL for your app service:
 

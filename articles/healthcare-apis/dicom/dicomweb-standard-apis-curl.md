@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Use DICOMweb Standard APIs with cURL
 
-This article shows how to work with the DICOM&reg; service using cURL and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using cURL and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
 Use these sample files:
 
@@ -45,9 +45,9 @@ Once you've deployed an instance of the DICOM service, retrieve the URL for your
 For this code, we'll be accessing an Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 
-## Working with the DICOM service
+## Work with the DICOM service
  
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 

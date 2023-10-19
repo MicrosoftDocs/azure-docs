@@ -12,7 +12,7 @@ ms.author: mmitrik
 
 # Using DICOM Standard APIs with Python
 
-This article shows how to work with the DICOM&reg; service using cURL and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOM&reg; service using Python and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
 Use these sample files:
 
@@ -45,7 +45,7 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 
 For this code, you access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
-## Working with the DICOM service
+## Work with the DICOM service
 
 The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb standard awkward. However, after it's up and running, it's easy to use. It just takes a little familiarity to get started.
 
@@ -65,7 +65,7 @@ from urllib3.filepost import encode_multipart_formdata, choose_boundary
 from azure.identity import DefaultAzureCredential
 ```
 
-### Configure user-defined variables to be used throughout
+### Configure user-defined variables
 
 Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service is: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you need to override that value with your own.
 
@@ -101,7 +101,7 @@ bearer_token = f'Bearer {token.token}'
 
 ### Create supporting methods to support `multipart\related`
 
-The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb&trade;. Because of these libraries, we must add a few methods to support working with DICOM files.
+The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb. Because of these libraries, we must add a few methods to support working with DICOM files.
 
 `encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which it can be used.
 
