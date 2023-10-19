@@ -195,7 +195,7 @@ When you use Microsoft Entra Connect to deploy AD FS or the Web Application Prox
     * Ensure the Windows Remote Management/WS-Management (WinRM) service is running via the Services snap-in.
     * In an elevated PowerShell command window, use the command `Enable-PSRemoting –force`.
   * On the machine on which the wizard is running (if the target machine is non-domain joined or is an untrusted domain):
-    * In an elevated PowerShell command window, use the command `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`.
+    * In an elevated PowerShell command window, use the command `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value "<DMZServerFQDN>" -Force –Concatenate`.
     * In the server manager:
       * Add a DMZ WAP host to a machine pool. In the server manager, select **Manage** > **Add Servers**, and then use the **DNS** tab.
       * On the **Server Manager All Servers** tab, right-click the WAP server, and select **Manage As**. Enter local (not domain) credentials for the WAP machine.
