@@ -2,10 +2,10 @@
 title: About ExpressRoute virtual network gateways - Azure| Microsoft Docs
 description: Learn about virtual network gateways for ExpressRoute. This article includes information about gateway SKUs and types.
 services: expressroute
-author: duongau
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 10/18/2023
 ms.author: duau
 
 ---
@@ -71,7 +71,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
-When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Further more, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This set up accommodates most configurations.
+When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Further more, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This set up accommodates most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -111,13 +111,13 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 
 ### Private endpoint connectivity and planned maintenance events
 
-Private endpoint connectivity is stateful. When a connection to a private endpoint is established over ExpressRoute private peering, inbound and outbound connections are routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time. This could result in intermittent connectivity issues during the maintenance event.
+Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time. This could result in intermittent connectivity issues during the maintenance event.
 
-To prevent or reduce the impact of connectivity issues with private endpoints during maintenance activities, we recommend that you adjust the TCP time-out value to a value between 15-30 seconds on your on-premises applications. Examine the requirements of your application to test and configure the optimal value.
+To prevent or reduce the effect of connectivity issues with private endpoints during maintenance activities, we recommend that you adjust the TCP time-out value to a value between 15-30 seconds on your on-premises applications. Examine the requirements of your application to test and configure the optimal value.
 
 ## Route Server
 
-The creation or deletion of an Azure Route Server from a virtual network that has a Virtual Network Gateway (either ExpressRoute or VPN) may cause downtime until the operation is completed.
+The creation or deletion of an Azure Route Server from a virtual network that has a Virtual Network Gateway (either ExpressRoute or VPN) might cause downtime until the operation is completed.
 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 
@@ -134,13 +134,96 @@ By default, connectivity between virtual networks is enabled when you link multi
 
 ### Virtual network peering
 
-A virtual network with an ExpressRoute gateway can have virtual network peering with up to 500 other virtual networks. Virtual network peering without an ExpressRoute gateway may have a higher peering limitation.
+A virtual network with an ExpressRoute gateway can have virtual network peering with up to 500 other virtual networks. Virtual network peering without an ExpressRoute gateway might have a higher peering limitation.
+
+## ExpressRoute scalable gateway (Preview)
+
+The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and Private Endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which auto scales based on the active bandwidth. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
+
+### Availability zone deployment & regional availability
+
+ErGwScale supports both zonal and zonal-redundant deployments in Azure availability zones. For more information about these concepts, review the [Zonal and zone-redundant services](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) documentation.
+
+ErGwScale is available in preview in the following regions:
+
+* Australia Central
+* Australia Central 2
+* Brazil Southeast
+* France Central
+* France South
+* Korea South
+* Norway West
+* South Africa West
+* Sweden Central
+* Sweden South
+* West US 3
+
+### Autoscaling vs. fixed scale unit
+
+The virtual network gateway infrastructure auto scales between the minimum and maximum scale unit that you configure, based on the bandwidth utilization. The scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
+
+### Limitations
+
+- **Basic IP**: **ErGwScale** doesn't support the **Basic IP SKU**. You need to use a **Standard IP SKU** to configure **ErGwScale**.
+- **Minimum and Maximum Scale Units**: You can configure the **scale unit** for ErGwScale between **1-40**. The **minimum scale unit** can't be lower than **1** and the **maximum scale unit** can't be higher than **40**.
+- **Migration Scenarios**: You can't migrate from **Standard/ErGw1Az**, **HighPerf/ErGw2Az/UltraPerf/ErGw3Az** to **ErGwScale** in the **Public preview**.
+
+### Pricing
+
+ErGwScale is free of charge during public preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+
+### Estimated performance per scale unit
+
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Supported number of VMs in the virtual network |
+|--|--|--|--|--|
+| 1 | 1 | 100,000 | 7,000 | 2,000 |
+| 2 | 2 | 200,000 | 14,000 | 4,000 |
+| 3 | 3 | 300,000 | 21,000 | 6,000 |
+| 4 | 4 | 400,000 | 28,000 | 8,000 |
+| 5 | 5 | 500,000 | 35,000 | 10,000 |
+| 6 | 6 | 600,000 | 42,000 | 12,000 |
+| 7 | 7 | 700,000 | 49,000 | 14,000 |
+| 8 | 8 | 800,000 | 56,000 | 16,000 |
+| 9 | 9 | 900,000 | 63,000 | 18,000 |
+| 10 | 10 | 1,000,000 | 70,000 | 20,000 |
+| 11 | 11 | 1,100,000 | 77,000 | 22,000 |
+| 12 | 12 | 1,200,000 | 84,000 | 24,000 |
+| 13 | 13 | 1,300,000 | 91,000 | 26,000 |
+| 14 | 14 | 1,400,000 | 98,000 | 28,000 |
+| 15 | 15 | 1,500,000 | 105,000 | 30,000 |
+| 16 | 16 | 1,600,000 | 112,000 | 32,000 |
+| 17 | 17 | 1,700,000 | 119,000 | 34,000 |
+| 18 | 18 | 1,800,000 | 126,000 | 36,000 |
+| 19 | 19 | 1,900,000 | 133,000 | 38,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 40,000 |
+| 21 | 21 | 2,100,000 | 147,000 | 42,000 |
+| 22 | 22 | 2,200,000 | 154,000 | 44,000 |
+| 23 | 23 | 2,300,000 | 161,000 | 46,000 |
+| 25 | 24 | 2,400,000 | 168,000 | 48,000 |
+| 25 | 25 | 2,500,000 | 175,000 | 50,000 |
+| 26 | 26 | 2,600,000 | 182,000 | 52,000 |
+| 27 | 27 | 2,700,000 | 189,000 | 54,000 |
+| 28 | 28 | 2,800,000 | 196,000 | 56,000 |
+| 29 | 29 | 2,000,000 | 203,000 | 58,000 |
+| 30 | 30 | 3,000,000 | 210,000 | 60,000 |
+| 31 | 31 | 3,100,000 | 217,000 | 62,000 |
+| 32 | 32 | 3,200,000 | 224,000 | 64,000 |
+| 33 | 33 | 3,300,000 | 231,000 | 66,000 |
+| 34 | 34 | 3,400,000 | 238,000 | 68,000 |
+| 35 | 35 | 3,500,000 | 245,000 | 70,000 |
+| 36 | 36 | 3,600,000 | 252,000 | 72,000 |
+| 37 | 37 | 3,700,000 | 259,000 | 74,000 |
+| 38 | 38 | 3,800,000 | 266,000 | 76,000 |
+| 39 | 39 | 3,900,000 | 273,000 | 78,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 80,000 |
 
 ## Next steps
 
 For more information about available connection configurations, see [ExpressRoute Overview](expressroute-introduction.md).
 
 For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
+
+For more information on how to deploy ErGwScale, see [How to configure ErGwScale]().
 
 For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
