@@ -29,9 +29,9 @@ New portal functionality has been added for Azure Image Builder. Search “Image
 
 ### Version 2023-07-01
 
-**Improvements**
+**Coming Soon**
 
-Support has been added for updating Azure Compute Gallery distribution targets. 
+Support for updating Azure Compute Gallery distribution targets.
 
 
 
