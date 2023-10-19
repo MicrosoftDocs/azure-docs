@@ -127,6 +127,10 @@ For the DICOM service to operate properly, it must always have access to the key
 
 - The key is disabled or deleted from the key vault
 - The DICOM service's system assigned managed identity is disabled 
+- The DICOM service's system assigned managed identity loses access to the key vault
 
+In any scenario where the DICOM service can't access the key, API requests will return with `500` errors and your data will be inaccessible until access to the key is restored.  The Resource health view for the DICOM service can help diagnose key access issues.
+
+If key access is lost for less than 30 minutes, 
 
 ## Rotating they key
