@@ -76,7 +76,7 @@ Here's sample input-vnf-nfd.json file:
 |  |*version*: Version of the artifact. Version of the artifact. For VHDs version must be in format A-B-C. 
 
 > [!IMPORTANT]
-> Each variable described in the table above must be unique. For instance, the resource group name cannot already exist, and publisher and artifact store names must be unique in the region. 
+> Each variable described in the previous table must be unique. For instance, the resource group name cannot already exist, and publisher and artifact store names must be unique in the region. 
 
 
 ## Build the Network Function Definition (NFD)
