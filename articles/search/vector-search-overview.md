@@ -132,11 +132,11 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
-+ For `exhaustiveKnn`, use [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs or Azure SDK beta libraries that target the 2023-10-01-Preview version.
++ For exhaustive KNN, use [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs or Azure SDK beta libraries that target the 2023-10-01-Preview version.
 
-Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. Some parameters that affect the query-time characteristics might be modified. 
+Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 
-In addition, fields that specify HNSW algorithm also support exhaustive knn search using the [query request](vector-search-how-to-query.md) parameter `"exhaustive": true`. The opposite isn't true however. If a field is indexed for `exhaustiveKnn`, you can't use HNSW in the query because the additional data structures that enable efficient search don’t exist.
+In addition, fields that specify HNSW algorithm also support exhaustive KNN search using the [query request](vector-search-how-to-query.md) parameter `"exhaustive": true`. The opposite isn't true however. If a field is indexed for `exhaustiveKnn`, you can't use HNSW in the query because the additional data structures that enable efficient search don’t exist.
 
 ### Approximate Nearest Neighbors
 

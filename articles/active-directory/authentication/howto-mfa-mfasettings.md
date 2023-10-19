@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 10/18/2023
 
 ms.author: justinha
 author: justinha
@@ -108,6 +108,9 @@ When a user reports a MFA prompt as suspicious, the event shows up in the Sign-i
 - To view fraud reports in the Sign-ins report, select **Identity** > **Monitoring & health** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Microsoft Entra sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
 
 - To view fraud reports in the Audit logs, select **Identity** > **Monitoring & health** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
+
+>[!NOTE]
+>A user is not reported as High Risk if they perform passwordless authentication.
 
 ### Manage suspicious activity events 
 
@@ -340,6 +343,9 @@ To enable trusted IPs by using Conditional Access policies, complete the followi
    * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multifactor authentications by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
       `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+
+     >[!NOTE]
+     >The **Skip multi-factor authentication for requests from federated users on my intranet** option will affect the Conditional Access evaluation for locations.
 
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
       * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
