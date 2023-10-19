@@ -54,7 +54,7 @@ You can provide model packages as inputs to online endpoints. Use of model packa
 
 :::image type="content" source="media/model-packaging/model-package-targets.png" alt-text="Screenshot that shows all the possible targets for a model package.":::
 
-### Specify model package before deployment
+### Package before deployment
 
 The simplest way to deploy using a model package is by specifying to Azure Machine Learning to deploy a model package, before executing the deployment. When using the Azure CLI, Azure Machine Learning SDK, or Azure Machine Learning studio to create a deployment in an online endpoint, you can specify the use of model packaging as follows:
 
@@ -93,6 +93,9 @@ Azure Machine Learning packages the model first and then executes the deployment
 > [!NOTE]
 > When using packages, if you indicate a base environment with `conda` or `pip` dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). Rather, these dependencies are automatically added for you.
 
+### Deploy a packaged model
+
+You can deploy a model that has been packaged directly to an Online Endpoint. This practice ensure reproducibility of results and it's a best practice. To learn how to deploy an already packaged model see [Package and deploy models to Online Endpoints](how-to-package-models-moe.md). If you want to deploy the package outside of Azure Machine Learning, see [Package and deploy models outside Azure Machine Learning](how-to-package-models-app-service.md).
 
 ## Next step
 
