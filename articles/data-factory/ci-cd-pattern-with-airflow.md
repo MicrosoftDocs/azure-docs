@@ -80,7 +80,7 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 In this workflow, there's no requirement for you to establish your own local environment. Instead, you can start by using the Git-sync feature offered by the Managed Airflow service. This feature automatically synchronizes your DAG files with Airflow webservers, schedulers, and workers, allowing you to develop, test, and execute your data pipelines directly through the Managed Airflow UI. 
 
-Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository).
+Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository.md).
 
 2. **Individual Feature branch Environment:** 
 
@@ -112,7 +112,7 @@ Begin by setting up a local development environment for Apache Airflow on your d
 
 Synchronize your GitHub repository’s branch with Azure Managed Airflow Service. 
 
-Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository).
+Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository.md).
 
 3. **Utilize Managed Airflow Service as Production environment:** 
 
