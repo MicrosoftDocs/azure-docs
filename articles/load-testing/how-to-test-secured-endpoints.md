@@ -170,7 +170,7 @@ Follow the steps in [Import a certificate](/azure/key-vault/certificates/tutoria
 
 ### Grant access to your Azure key vault
 
-[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets/include-grant-key-vault-access-secrets.md)]
+[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 
 ### Reference the certificate in the load test configuration
 

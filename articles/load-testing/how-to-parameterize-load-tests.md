@@ -88,7 +88,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
 #### Grant access to your Azure key vault
 
-[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets/include-grant-key-vault-access-secrets.md)]
+[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 
 1. Grant your Azure Load Testing resource access to the key vault.
     
