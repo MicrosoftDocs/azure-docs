@@ -101,7 +101,6 @@ You can add storage capacity during and after the creation of the server.
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and I/O percentage](concepts-monitoring.md).
 
 ### Maximum IOPS for your configuration
-
 |SKU name                               |Storage size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32,767 |
 |---------------------------------------|------------------------------------------|---|---|----|----|-----|-----|-----|-----|------|------|
 |                                       |Maximum IOPS                              |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
