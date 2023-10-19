@@ -16,14 +16,7 @@ Connectors created using CCP are fully SaaS, without any requirements for servic
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-**How is this CCP different from the previous version?**
-The initial version of the CCP was announced in January of 2022 [here](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455). This version is very similar, with a couple of key differences.
-
-1. The **Content hub** has changed the way data connectors are deployed, so your CCP data connector needs to be deployed as part of a solution instead directly into the data connector gallery.
-1. Improvements have been made for the new data connector kind, `RestApiPoller` and new API, `dataConnectorDefinitions` to update the ApiPolling data connector type.
-1. The previous codeless connector platform used the `ApiPolling` data connector.
-
-**Use the following steps to create your CCP connector and connect your data source from Microsoft Sentinel**:
+**Use the following steps to create your CCP connector and connect your data source from Microsoft Sentinel**
 
 > [!div class="checklist"]
 > * Build the data connector
@@ -32,6 +25,14 @@ The initial version of the CCP was announced in January of 2022 [here](https://t
 > * Connect Microsoft Sentinel to your data source and start ingesting data
 
 This article will show you how to complete each step and provide an example codeless connector to build along the way.
+
+## How is this CCP different from the previous version?
+
+The initial version of the CCP was announced in January of 2022 [here](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455). This version is very similar, with a couple of key differences.
+
+1. The **Content hub** has changed the way data connectors are deployed, so your CCP data connector needs to be deployed as part of a solution instead directly into the data connector gallery.
+1. Improvements have been made for the new data connector kind, `RestApiPoller` and new API, `dataConnectorDefinitions` to update the ApiPolling data connector type.
+1. The previous codeless connector platform used the `ApiPolling` data connector.
 
 ## Prerequisites
 
