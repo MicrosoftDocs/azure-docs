@@ -1,0 +1,130 @@
+### YamlMime:Landing
+
+title: Azure AI services documentation # < 60 chars
+summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
+metadata:
+  title: Azure AI Studio documentation
+  description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  ms.service: azure-ai-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: eric-urban
+  ms.author: eur
+  ms.date: 10/1/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure AI Studio
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AI Studio?
+            url: ./ai-studio/what-is-ai-studio.md
+          - text: What is vector search?
+            url: ../search/vector-search-overview.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: ../search/retrieval-augmented-generation-overview.md
+          - text: What is semantic search?
+            url: ../search/semantic-search-overview.md
+      - linkListType: learn
+        links:
+          - text: Training module
+            url: /training/modules/intro-to-azure-search/
+
+  # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a search service
+            url: ../search/search-create-service-portal.md
+          - text: Create a search index
+            url: ../search/search-get-started-portal.md
+          - text: Create a demo app
+            url: ../search/search-create-app-portal.md
+          - text: Create a skillset
+            url: ../search/cognitive-search-quickstart-blob.md
+
+  # Card
+  - title: Develop apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Add search to web apps
+            url: ../search/tutorial-csharp-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop in .NET
+            url: ../search/search-howto-dotnet-sdk.md
+          - text: Develop in REST
+            url: ../search/search-get-started-rest.md
+      - linkListType: reference
+        links:
+          - text: Azure REST API Reference
+            url: /rest/api/searchservice/
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/search-documents-readme
+
+  # Card
+  - title: Index data
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What's a search index?
+            url: ../search/search-what-is-an-index.md
+          - text: Importing data
+            url: ../search/search-what-is-data-import.md
+          - text: Indexer overview
+            url: ../search/search-indexer-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Index from Azure Blob Storage
+            url: ../search/search-blob-storage-integration.md
+          - text: Index from Azure SQL Database
+            url: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Index from Azure Cosmos DB
+            url: ../search/search-howto-index-cosmosdb.md
+          - text: Index any data
+            url: ../search/tutorial-optimize-indexing-push-api.md
+         
+  # Card
+  - title: Query data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Query types and composition
+            url: ../search/search-query-overview.md
+          - text: Simple syntax (default)
+            url: ../search/query-simple-syntax.md
+          - text: Full Lucene syntax
+            url: ../search/query-lucene-syntax.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a simple query
+            url: ../search/search-query-create.md
+          - text: Create advanced queries
+            url: ../search/search-query-lucene-examples.md
+      - linkListType: reference
+        links:
+          - text: OData language reference
+            url: ../search/query-odata-filter-orderby-syntax.md
+          - text: Search Documents (REST)
+            url: /rest/api/searchservice/search-documents
+
+  # Card
+  - title: Enrich with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is AI enrichment?
+            url: ../search/cognitive-search-concept-intro.md
+          - text: Skillsets
+            url: ../search/cognitive-search-working-with-skillsets.md
+          - text: Knowledge stores
+            url: ../search/knowledge-store-concept-intro.md
