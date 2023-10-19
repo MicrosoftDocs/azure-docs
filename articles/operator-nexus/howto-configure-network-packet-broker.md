@@ -2,22 +2,23 @@
 Network Packet Broker allows operators to efficiently capture, aggregate, filter, and monitor traffic in an Azure Operator Nexus instance. 
 The solution helps operators to monitor large complex networks and provide network-level visibility to aid with service planning and troubleshooting of service problems. 
 It also plays a vital role in enhancing troubleshooting capabilities and enabling organizations to maintain the optimal performance and security of their networks.
-NPB is modelled as a separate top level ARM resource under Microsoft.managednetworkfabric. 
+NPB has been designed and modeled as a separate top level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. 
 Operators can Create, Read, Update and Delete functions. Each NPB will have multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
 
 ## Steps to Enable Network Packet Broker
 **Prequisties**
-1. NPB device is racked and stacked and Network fabric is provisoned
-2. Respective vProbes are setup with dedicated IPs
-3. For internal vProbes Layer 3 Isolation domains with internal networks are created, configuring required connected subnets and extension flag set to NPB (in internal networks)
-4. For NNI use case NNI is created of type NPB and required Layer2 and Layer 3 properties are defined 
+1. NPB devices should be racked, stacked and provisioned successful.
+2. Respective vProbes should be set up with dedicated IPs
+3. For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition to it, the extension flag should be set to NPB (in internal networks).
+4. For the Network to Network Inter-connect (NNI) use case, NNI should be created as type `NPB`. Appropriate layer 2 and layer 3 properties should be defined during the creation of NNI.
+
 **Steps**
-1. Create a Network TAP rule providing the match configuration (currently only inline input method is supported)
-2. Create a Neigbor Group resource defining destinations. 
-3. Create a Network TAP resource refrencing the Tap rules and Neigbor Groups.
-4. Enable the Network TAP resource.
+1. Create a Network TAP rule providing the match configuration (only inline input method is supported)
+1. Create a Neighbor Group resource defining destinations. 
+1. Create a Network TAP resource referencing the Tap rules and Neighbor Groups.
+1. Enable the Network TAP resource.
 ###  NPB
-This resource is auto-created by NNF during bootstrap
+This resource would be auto-created by NNF during bootstrap.
 ### Show NPB
 This command shows the details of NPB logical resource.
 ```azurecli
@@ -72,9 +73,9 @@ NetworkTapRule resource provides ability for providing filtering and forwarding 
 | match-configurations/matchconfigurationName|Name of Match configuration block |  | |
 | match-configurations/sequenceNumber|Sequence number of Match configuration |  | |
 | match-configurations/ipAddressType|Ip address family |  | |
-| match-configurations/matchconditions|List of dynamic match conditions based on port,protocol,Vlan & Ip conditions. |  | |
-| match-configurations/action|Provide action details.Actions can be Drop,Count,Log,Goto,Redirect,Mirror|  | |
-| dynamic-match-configurations|List of dynamic match configurations based Port,Vlan & IP |  | |
+| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, Vlan & Ip conditions. |  | |
+| match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
+| dynamic-match-configurations|List of dynamic match configurations based Port, Vlan & IP |  | |
 > [!NOTE]
 > Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap 
 ### Create Network Tap Rule
@@ -336,8 +337,8 @@ Expected output:
 }
 ```
 ## Neighbor group
-Neighbor Group resource provides the ability to group destinations for forwarding the filtered traffic
-### Parameters for Neigbor Group
+Neighbor Group resource has the ability to group destinations for forwarding the filtered traffic
+### Parameters for Neighbor Group
 | Parameter | Description | Example | Required |
 |-----------|-------------|---------|----------|
 | resource-group | Use an appropriate resource group name specifically for your NeighborGroup |  ResourceGroupName |True |
@@ -345,7 +346,7 @@ Neighbor Group resource provides the ability to group destinations for forwardin
 | location | AzON Azure Region used during NFC Creation |  eastus |True |
 | destination |List of Ipv4 or Ipv6 destinations to forward traffic | 10.10.10.10|True |
 ### Create Neighbor group
-This command creates an Neighbor Group resource:
+This command creates a Neighbor Group resource:
 ```azurecli
  az networkfabric neighborgroup create --resource-group "example-rg" --location "westus3"
 --resource-name "example-neighborgroup" --destination "{ipv4Addresses:['10.10.10.10']}"
@@ -383,7 +384,7 @@ Expected output:
   }
 }
 ```
-### Show Neigbor group resource
+### Show Neighbor group resource
 This command displays an IP extended community resource:
 ```azurecli
  az networkfabric neighborgroup show --resource-group "example-rg" --resource-name "example-neighborgroup"
@@ -422,7 +423,7 @@ Expected output:
 }
 ```
 ## Network TAP
-Network TAP allows Operators to provide define destinations and encapsulation mechanisms to forward filtered traffic based on Network tap Rules
+Network TAP allows Operators to define destinations and encapsulation mechanism to forward filtered traffic based on the Network TAP Rules
 ### Parameters for Network TAP
 | Parameter | Description | Example | Required |
 |-----------|-------------|---------|----------|
@@ -434,8 +435,8 @@ Network TAP allows Operators to provide define destinations and encapsulation me
 | destination |Destination definitions|  |True |
 | destination/name | name of destination |  ||
 | destination/type| type of destination.IsolationDomain or NNI |   ||
-| destination/IsolationDomainProperties| Details of Isolation domain.Encapsulation,Neighbor group IDs | ARM ID of internal network or NNI  |False|
-| destinationTapRuleId| ARMID of the Tap rule which need to be applied | |True |
+| destination/IsolationDomainProperties| Details of Isolation domain. Encapsulation, Neighbor group IDs | Azure Resource Manager (ARM) ID of internal network or NNI  |False|
+| destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
 ### Create Network TAP
 This command creates  network Tap resource:
 ```azurecli
