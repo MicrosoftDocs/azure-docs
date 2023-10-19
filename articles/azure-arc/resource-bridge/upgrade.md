@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Upgrade Arc resource bridge (preview)
 
-This article describes how Arc resource bridge (preview) is upgraded and the two ways upgrade can be performed, using cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. Please refer to the [Private Cloud Providers]() section for more information. 
+This article describes how Arc resource bridge (preview) is upgraded and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. For more information, refer to the [Private Cloud Providers](#private-cloud-providers) section. 
 
 ## Prerequisites
 
