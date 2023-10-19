@@ -11,7 +11,7 @@ ms.custom: kr2b-contr-experiment
 
 # How to create and manage read replicas in Azure Database for MariaDB using PowerShell
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 In this article, you learn how to create and manage read replicas in the Azure Database for MariaDB service using PowerShell. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
