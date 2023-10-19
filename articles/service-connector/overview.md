@@ -23,7 +23,7 @@ Any application that runs on Azure compute services and requires a backing servi
 * **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
 * **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
-See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
+See [what services are supported in Service Connector](#what-services-are-supported-by-service-connector) to see more supported services and application patterns.
 
 ## What are the benefits to using Service Connector?
 
