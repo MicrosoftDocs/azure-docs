@@ -66,7 +66,7 @@ None.
 
 - Locally via CLI by [installing azd](/azure/developer/azure-developer-cli/overview).
 - [GitHub Codespaces](https://github.com/features/codespaces) environments.
-- The Azure portal using [Cloud Shell](azure/cloud-shell/overview)
+- The Azure portal using [Cloud Shell](/azure/cloud-shell/overview)
     
     > [!NOTE]
     > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
