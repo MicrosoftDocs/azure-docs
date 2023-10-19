@@ -3,16 +3,16 @@ title: Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API
 description: Learn how to stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 09/19/2023
+ms.date: 10/19/2023
 ---
 
 # Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes (Preview)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To stay within a supported Kubernetes version, you usually have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and CSI. It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
+To stay within a supported Kubernetes version, you have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and Container Storage Interface (CSI). It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
 
-AKS now automatically stops upgrade operations consisting of a minor version change if deprecated APIs are detected. This feature alerts you with an error message if it detects usage of APIs that are deprecated in the targeted version.
+AKS now automatically stops upgrade operations consisting of a minor version change with deprecated APIs and sends you an error message to alert you about the issue.
 
 ## Before you begin
 
@@ -42,22 +42,22 @@ You have two options to mitigate the issue. You can either [remove usage of depr
 
 1. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**.
 
-2. Navigate to the **Create, Upgrade, Delete and Scale** category, and select **Kubernetes API deprecations**.
+2. Navigate to the **Create, Upgrade, Delete, and Scale** category, and select **Kubernetes API deprecations**.
 
     :::image type="content" source="./media/upgrade-cluster/applens-api-detection-full-v2.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
-3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it's a [watch][k8s-api].
+3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated API usage to know if it's a [watch][k8s-api].
 
 4. Retry your cluster upgrade.
 
-You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated api usage to understand, if it's a [watch][k8s-api] use case.
+You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated API usage to understand if it's a [watch][k8s-api] use case.
 
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
+> This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend removing them as soon as possible after the upgrade completes.
 
-* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specify the `enable-force-upgrade` flag, and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
+* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command. Specify the `enable-force-upgrade` flag and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
     ```azurecli-interactive
     az aks update --name myAKSCluster --resource-group myResourceGroup --enable-force-upgrade --upgrade-override-until 2023-10-01T13:00:00Z

@@ -3,18 +3,18 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 09/19/2023
+ms.date: 10/19/2023
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
 
-Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases or upgrade to get the latest features. This article shows you how to check for and apply upgrades to your AKS cluster.
+Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases and upgrades to get the latest features. This article shows you how to check for and apply upgrades to your AKS cluster.
 
 ## Kubernetes version upgrades
 
-When you upgrade a supported AKS cluster, you can't skip Kubernetes minor versions. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed. *1.14.x* -> *1.16.x* isn't allowed.
+When you upgrade a supported AKS cluster, you can't skip Kubernetes minor versions. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed. *1.14.x* -> *1.16.x* isn't allowed. You can only skip multiple versions when upgrading from an *unsupported version* back to a *supported version*. For example, you can perform an upgrade from an unsupported *1.10.x* to a supported *1.12.x* if available.
 
-You can only skip multiple versions when upgrading from an *unsupported version* back to a *supported version*. For example, you can perform an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* if available. When you perform an upgrade from an *unsupported version* that skips two or more minor versions, the upgrade has no guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend you recreate your cluster instead.
+When you perform an upgrade from an *unsupported version* that skips two or more minor versions, the upgrade has no guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend you recreate your cluster instead.
 
 ## Before you begin
 
@@ -106,7 +106,7 @@ You have CLI core version 2.0.81 and this extension requires a min of 2.34.1.
 Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. You can update older versions by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
+If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. You can update older versions by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, run `az upgrade` to upgrade Azure CLI to the latest version.
 
 If your Azure CLI is updated and you receive the following example output, it means that no upgrades are available:
 
@@ -146,7 +146,7 @@ During the cluster upgrade process, AKS performs the following operations:
     az aks upgrade \
         --resource-group myResourceGroup \
         --name myAKSCluster \
-        --kubernetes-version KUBERNETES_VERSION
+        --kubernetes-version <KUBERNETES_VERSION>
     ```
 
 2. Confirm the upgrade was successful using the [`az aks show`][az-aks-show] command.

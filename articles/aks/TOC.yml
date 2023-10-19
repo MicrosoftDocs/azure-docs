@@ -623,7 +623,7 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Upgrade options for AKS clusters
+        - name: Upgrade options
           href: upgrade-cluster.md
           items:
           - name: Perform manual upgrades
