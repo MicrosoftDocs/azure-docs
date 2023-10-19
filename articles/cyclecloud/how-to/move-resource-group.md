@@ -34,7 +34,7 @@ Once the cluster is terminated, the resources can be moved using [the Azure port
 After the move-resources operation completes, run the following command for each cluster, supplying the correct cluster name, as well as the name of the resource group it was using and the name of the new resource group the resources were moved to:
 
 ```
-/opt/cycle_server/cycle_server clusters update_resource_group --cluster_name CLUSTERNAME --from SOURCE_RESOURCE_GROUP --to DESTINATION_RESOURCE_GROUP
+/opt/cycle_server/cycle_server clusters update_resource_group CLUSTERNAME SOURCE_RESOURCE_GROUP DESTINATION_RESOURCE_GROUP
 ```
 
 > [!WARNING]
