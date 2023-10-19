@@ -603,7 +603,7 @@
             - name: Publish to Microsoft Entra App Gallery
               href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Publish to Microsoft 365 App Stores
-              href: /office/dev/store/add-in-submission-guide
+              href: /partner-center/marketplace/add-in-submission-guide
     - name: Migrate
       items:
         - name: Migrate apps from ADAL to MSAL

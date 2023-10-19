@@ -150,7 +150,7 @@ To configure access policies:
 
 ## Next steps
 
-- Learn how to use [Azure PowerShell](howto-authenticate-service-principal-powershell.md) or [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
+- Learn how to use [Azure PowerShell](howto-authenticate-service-principal-powershell.md) or [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1) to create a service principal.
 - To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal).
 - For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](/azure/role-based-access-control/resource-provider-operations).
 - For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.
