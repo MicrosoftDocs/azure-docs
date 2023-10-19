@@ -66,7 +66,7 @@ For example, to upgrade a resource bridge on Azure Stack HCI, run: `az arcapplia
 
 ## Private cloud providers
 
-Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Please refer to your private cloud provider to see how to upgrade your Arc resource bridge.
+Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
 
 For Arc-enabled VMware, both cloud-managed upgrade and manual upgrade are supported. When GA is announced later this year, resource bridges within n-3 supported versions will be cloud-managed upgrade as the default experience. The tentative supported versions for GA will be 1.0.17, 1.0.16, 1.0.15 and 1.0.14.  Appliances that are below version 1.0.14 have until Nov 30 to upgrade to a supported version. If your appliance is currently version 1.0.13, then when GA is announced, your appliance will be cloud-managed upgrade by default to 1.0.14.  If your appliance version is 1.0.12, you can manual upgrade or [open a support request](#cloud-managed-upgrade) for an out-of-support exception for cloud-managed upgrade - this is a one-time allowance to assist with the transition to GA. For all other appliances that that are not within the supported n-3 supported versions, please deploy a new Arc resource bridge. 
 
