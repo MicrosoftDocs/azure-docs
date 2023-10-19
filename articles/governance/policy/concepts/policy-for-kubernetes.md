@@ -43,7 +43,8 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 3. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
 
 4. [Wait for validation](#policy-evaluation)
-5. [Review limitations and recommendations in our FAQ section](#frequently-asked-questions)
+5. [Logging](#logging) and [troubleshooting](#troubleshooting-the-add-on)
+6. [Review limitations and recommendations in our FAQ section](#frequently-asked-questions)
 
 ## Install Azure Policy Add-on for AKS
 
