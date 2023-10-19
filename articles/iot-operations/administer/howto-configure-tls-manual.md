@@ -138,7 +138,7 @@ Finally, use this external IP as a SAN when creating the server certificate (for
 
 ### Option 2: Deploy TLS listener without a Kubernetes secret
 
-If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods won't* deploy.
+If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods won't deploy.
 
 ```console
 $ kubectl get pods
