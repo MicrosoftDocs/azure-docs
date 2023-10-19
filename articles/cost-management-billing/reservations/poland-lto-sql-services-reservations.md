@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.date: 10/19/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -23,7 +23,7 @@ To take advantage of this limited-time offer, [purchase](https://aka.ms/reservat
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **All services** > **Reservations**.
-1. Select **Add** and then select a product.
+1. Select **Add** and then select a qualified product listed in the [Terms and conditions of the limited time offer](#terms-and-conditions-of-the-limited-time-offer) section.
 1. Select the [scope](prepare-buy-reservation.md#reservation-scoping-options), and then a billing subscription that you want to use for the reservation. You can change the reservation scope after purchase.
 1. Set the **Region** to **Poland Central**.
 1. Select a reservation term and billing frequency.
@@ -102,7 +102,7 @@ For more information, see [Prepay for compute with reserved capacity - Azure D
 
 - Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads.
 
-- For more information about how reservations are applied, see [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md).
+- For more information about how reservation discounts are applied, see [How a reservation discount is applied](reservation-discount-application.md).
 
 **Exchanges and refunds** - The offer follows standard exchange and refund policies for reservations. For more information about exchanges and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
@@ -119,5 +119,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Next steps
 
-- [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md)
-- [Purchase Azure Reserved VM Instances in the Azure portal](https://aka.ms/azure/pricing/PolandCentral/VM/Purchase)
+- [Understand Azure Reserved VM Instances discount](reservation-discount-application.md)
+- [Purchase Azure Reserved VM Instances in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade)
