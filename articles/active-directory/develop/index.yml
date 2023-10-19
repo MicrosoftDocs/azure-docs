@@ -162,7 +162,7 @@ tools:
   items:
   ## ROW 1 ######################
   - title: .NET
-    url: /entra/msal/dotnet
+    url: /entra/msal/dotnet/
     imageSrc: /media/logos/logo_Csharp.svg
   - title: Android
     url: https://github.com/AzureAD/microsoft-authentication-library-for-android

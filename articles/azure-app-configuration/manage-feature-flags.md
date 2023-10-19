@@ -31,6 +31,7 @@ The Feature Manager in the Azure portal for App Configuration provides a UI for 
 To add a new feature flag:
 
 1. Open an Azure App Configuration store and from the **Operations** menu, select **Feature Manager** > **Create**.
+
 :::image type="content" source="media\manage-feature-flags\add-feature-flag.png" alt-text="Screenshot of the Azure platform. Create a feature flag.":::
 
 1. Check the box **Enable feature flag** to make the new feature flag active as soon as the flag has been created.
@@ -42,6 +43,7 @@ To add a new feature flag:
 1. Optionally select an existing label or create a new one, and enter a description for the new feature flag.
 
 1. Leave the **Use feature filter** box unchecked and select **Apply** to create the feature flag. To learn more about feature filters, visit [Use feature filters to enable conditional feature flags](howto-feature-filters-aspnet-core.md) and [Enable staged rollout of features for targeted audiences](howto-targetingfilter-aspnet-core.md).
+
 :::image type="content" source="media\manage-feature-flags\create-feature-flag.png" alt-text="Screenshot of the Azure platform. Feature flag creation form.":::
 
 ## Update feature flags
@@ -51,6 +53,7 @@ To update a feature flag:
 1. From the **Operations** menu, select **Feature Manager**.
 
 1. Move to the right end of the feature flag you want to modify and select the **More actions** ellipsis (**...**). From this menu, you can edit the flag, create a label, update tags, review the history, lock or delete the feature flag.
+
 :::image type="content" source="media\manage-feature-flags\edit-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit a feature flag.":::
 
 1. Select **Edit** and update the feature flag.
@@ -60,6 +63,7 @@ In the **Feature manager**, you can also change the state of a feature flag by c
 ## Access feature flags
 
 In the **Operations** menu, select **Feature manager** to display all your feature flags. Select **Manage view**, then **Edit Columns** to add or remove columns and change the column order. **Manage view** > **Settings** lets you choose how many feature flags to display per page.
+
 :::image type="content" source="media\manage-feature-flags\edit-columns-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit feature flag columns." lightbox="media/edit-columns-feature-flag-expanded.png":::
 
 Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`.
@@ -71,6 +75,7 @@ To view the underlying key-values:
 1. Select **Manage view** > **Settings**.
 
 1. Select **Include feature flags in the configuration explorer** and **Apply**.
+
 :::image type="content" source="media\manage-feature-flags\include-feature-flag-configuration-explorer.png" alt-text="Screenshot of the Azure platform. Include feature flags in Configuration explorer.":::
 
 Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
