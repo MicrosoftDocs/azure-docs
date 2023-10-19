@@ -20,15 +20,15 @@ highlightedContent:
     - title: What are Azure AI services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-ai-services.md
+    - title: What is Azure AI Studio?
+      itemType: overview
+      url: ./ai-studio/what-is-ai-studio.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md
-    - title: Development options
-      itemType: concept
-      url: ./cognitive-services-development-options.md
-    - title: Support and help options
-      itemType: reference
-      url: ./cognitive-services-support-options.md
+    - title: Azure AI Studio quickstart
+      itemType: quickstart
+      url: ./ai-studio/quickstarts/playground-completions.md
     
 # productDirectory section 
 productDirectory:
