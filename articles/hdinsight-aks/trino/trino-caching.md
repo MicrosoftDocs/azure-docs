@@ -3,7 +3,7 @@ title: Configure caching
 description: Learn how to configure caching in Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Configure caching
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 
-HDInsight on AKS Trino has added **final result caching** capability, which provides the following benefits:
+HDInsight on AKS has added **final result caching** capability for Trino, which provides the following benefits:
 
 * Reduce the load on object storage.
 * Improve the query performance.
@@ -41,9 +41,9 @@ Available configuration parameters are:
 |`query.cache.max-result-data-size`|0|Max data size for a result. If this value exceeded, then result doesn't cache.|
 
 > [!NOTE]
-> Final result caching is using query plan and ttl as a cache key.
+> Final result caching uses query plan and ttl as a cache key.
 
-Final result caching can also be controlled through the following session parameters:
+### Final result caching can also be controlled through the following session parameters:
 
 |Session parameter|Default|Description|
 |---|---|---|
@@ -96,7 +96,7 @@ Final result caching can also be controlled through the following session parame
 
 #### Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
 * Review complete cluster [ARM template](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json) sample.
 * Familiarity with [ARM template authoring and deployment](/azure/azure-resource-manager/templates/overview).
