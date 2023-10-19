@@ -23,7 +23,9 @@ zone_pivot_groups: openai-use-your-data
 
 ::: zone pivot="programming-language-python"
 
-[Reference](../python/api/overview/azure/?view=azure-python) | [Source code](https://github.com/Azure/azure-sdk-for-python) | [Package (pypi)](https://pypi.org/project/azure/) | [Samples](https://github.com/Azure-Samples/azure-samples-python-management)
+[Reference](https://platform.openai.com/docs/api-reference?lang=python) | [Source code](https://github.com/openai/openai-python) | [Package (pypi)](https://pypi.org/project/openai/) | [Samples](https://github.com/openai/openai-cookbook/)
+
+Note: the links above reference the OpenAI API for Python. There is no Azure-specific OpenAI Python SDK. [Learn how to switch between the OpenAI services and Azure OpenAI services](/azure/ai-services/openai/how-to/switching-endpoints).
 
 ::: zone-end
 
