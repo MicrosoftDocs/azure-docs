@@ -17,7 +17,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.2 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.4.0 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
 ## Goal
 
@@ -26,7 +26,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Handle file attachments
 
-The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `teamsImage` for image attachments.
+The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `image` for image attachments.
 
 ```js
 export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
@@ -116,7 +116,7 @@ async function renderReceivedMessage(event) {
 
 function renderFileAttachments(attachment) {
     return '<div class="attachment-container">' +
-        '<p class="attachment-type">' + attachment.contentType + '</p>' +
+        '<p class="attachment-type">' + attachment.extension + '</p>' +
         '<img class="attachment-icon" alt="attachment file icon" />' +
         '<div>' +
         '<p>' + attachment.name + '</p>' +
@@ -227,7 +227,7 @@ Then you should see the new message being rendered along with file attachments:
 
 ## Handle image attachments
 
-In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `teamsImage`, which requires the communication token to retrieve the preview image and full scale image.
+In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `image`, which requires the communication token to retrieve the preview image and full scale image.
 
 Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
 
@@ -256,7 +256,6 @@ async function renderReceivedMessage(event) {
 
     // filter out inline images from attchments
     const imageAttachments = event.attachments.filter((attachment) =>
-        attachment.attachmentType === "teamsInlineImage" ||
         attachment.attachmentType === "image");
 
     // fetch and render preview images
