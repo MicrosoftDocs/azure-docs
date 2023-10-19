@@ -86,7 +86,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
     When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type is not supported for Standard service with cool access. 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="The new capacity pool menu includes an option Enable Cool Access, with a selected checkbox. This is the penultimate field, before QoS Type." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="Screenshot that shows the New Capacity Pool window with the Enable Cool Access option selected." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
@@ -96,7 +96,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 2. Select **Enable Cool Access**: 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.png" alt-text="After right-clicking on an existing capacity pool, a menu pops up with the option to Enable Cool Access." lightbox="../media/azure-netapp-files/cool-access-existing-pool.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.png" alt-text="Screenshot that shows the right-click menu on an existing capacity pool. The menu enables you to select the Enable Cool Access option." lightbox="../media/azure-netapp-files/cool-access-existing-pool.png"::: 
 
 ### Configure a volume for cool access 
 
@@ -175,7 +175,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
         * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access window with the Enable Cool Access field selected. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
 ### <a name="modify_cool"></a>Modify cool access configuration for a volume
 

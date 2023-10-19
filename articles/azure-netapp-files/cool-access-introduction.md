@@ -1,5 +1,5 @@
 ---
-title: Standard storage with cool access in Azure NetApp Files | Microsoft Docs
+title: Standard storage with cool access in Azure NetApp Files
 description: With the Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier).
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: anfdocs
+ms.custom: references_regions
 ---
 
 # Standard storage with cool access in Azure NetApp Files 
@@ -82,7 +83,7 @@ This test had a large dataset and ran several days starting the worst-case most-
 
 The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that has been 100% cooled and the buffers cleared (absolute worst-case aged data). 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-test-chart.png" alt-text="Chart titled Cool access Read IOPS warming cooled tier, long duration, 10 TB working set. The y-axis is titled IOPS and show ranges from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential " lightbox="../media/azure-netapp-files/cool-access-test-chart.png"::: 
+:::image type="content" source="../media/azure-netapp-files/cool-access-test-chart.png" alt-text="Diagram that shows cool access read IOPS warming cooled tier, long duration, and 10-TB working set. The y-axis is titled IOPS, ranging from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential." lightbox="../media/azure-netapp-files/cool-access-test-chart.png"::: 
 
 ### 64k sequential-read test
 

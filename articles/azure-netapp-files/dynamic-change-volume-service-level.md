@@ -54,7 +54,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-* [Manage the alloted throughput of a manual QoS volume](manage-manual-qos-capacity-pool.md#modify-the-allotted-throughput-of-a-manual-qos-volume)
+* [Manage the allotted throughput of a manual QoS volume](manage-manual-qos-capacity-pool.md#modify-the-allotted-throughput-of-a-manual-qos-volume)
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
