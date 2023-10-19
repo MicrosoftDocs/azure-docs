@@ -130,7 +130,7 @@ It is always more efficient to use the \_SubscriptionId column than extracting i
 ## \_SubscriptionId
 The **\_SubscriptionId** column holds the subscription ID of the resource that the record is associated with. This gives you a standard column to use to scope your query to only records from a particular subscription, or to compare different subscriptions.
 
-For Azure resources, the value of **__SubscriptionId** is the subscription part of the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Resource ID during ingestion.
+For Azure resources, the value of **__SubscriptionId** is the subscription part of the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Subscription ID during ingestion.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure subscription ID . While these fields are kept for backward compatibility, it is recommended to use the \_SubscriptionId column to perform cross correlation since it will be more consistent.
