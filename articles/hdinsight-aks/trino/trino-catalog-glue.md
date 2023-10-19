@@ -165,7 +165,7 @@ Use existing or create new S3 bucket, it's used in Glue database as location to 
 In AWS Glue, create new database, for example, "trinodb" and configure location, which points to your S3 bucket from previous step, for example, `s3://trinoglues3/`
 
 ### 4. Configure Trino catalog
-Configure a Trino catalog using examples above [Trino catalogs with S3 and Glue as metastore](./trino-catalog-glue.md#trino-catalogs-with-s3-and-glue-as-metastore).
+Configure a Trino catalog using examples above [Trino catalogs with S3 and Glue as metastore](./trino-catalog-glue.md#trino-catalogs-with-aws-s3-and-aws-glue-as-metastore).
 
 ### 5. Create and query sample table
 Here are few sample queries to test connectivity to AWS reading and writing data. Schema name is AWS Glue database name you created earlier.
