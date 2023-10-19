@@ -91,7 +91,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
    > Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the `managedIdentity` resource ID.
 
 
-    Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub` or can be created following [Generate new keys and Get public keys ](/azure/virtual-machines/ssh-keys-portal).
+    Additionally, the sshPublicKeyadmin can be listed by executing `cat ~/.ssh/id_rsa.pub` or `cat ~/.ssh/id_dsa.pub` or can be created following [Generate new keys and Get public keys ](/azure/virtual-machines/ssh-keys-portal).
 
 1. Select **Review + create**.
 1. Select **Create**.
