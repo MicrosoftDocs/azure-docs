@@ -194,4 +194,4 @@ A multi-tenant organization is an organization that has more than one instance o
 - [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [What is Microsoft Entra B2B direct connect?](b2b-direct-connect-overview.md)
 - [About Azure AD B2C](/azure/active-directory-b2c/overview)
-- [About Microsoft Entra multi-tenant organizations](../../active-directory/multi-tenant-organizations/overview.md)
+- [About Microsoft Entra multi-tenant organizations](../multi-tenant-organizations/overview.md)

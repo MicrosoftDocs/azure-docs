@@ -72,7 +72,7 @@ A few important points:
 
 During the previous phases, you can remove users from the Staged Rollout folders to take them out of scope of Microsoft Entra multifactor authentication and route them back to your on-premises Azure MFA server for all MFA requests originating from Microsoft Entra ID.
 
-**Phase 3** requires moving all clients that authenticate to the on-premises MFA Server (VPNs, password managers, and so on) to Microsoft Entra federation via SAML/OAUTH. If modern authentication standards aren't supported, you're required to stand up NPS server(s) with the Microsoft Entra multifactor authentication extension installed. Once dependencies are migrated, users should no longer use the User portal on the MFA Server, but rather should manage their authentication methods in Microsoft Entra ID ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Microsoft Entra ID, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Microsoft Entra ID, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) domain federation setting. The change tells Microsoft Entra ID to no longer perform MFA on-premises and to perform _all_ MFA requests with Microsoft Entra multifactor authentication, regardless of group membership. 
+**Phase 3** requires moving all clients that authenticate to the on-premises MFA Server (VPNs, password managers, and so on) to Microsoft Entra federation via SAML/OAUTH. If modern authentication standards aren't supported, you're required to stand up NPS server(s) with the Microsoft Entra multifactor authentication extension installed. Once dependencies are migrated, users should no longer use the User portal on the MFA Server, but rather should manage their authentication methods in Microsoft Entra ID ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Microsoft Entra ID, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Microsoft Entra ID, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0&preserve-view=true#federatedidpmfabehavior-values) domain federation setting. The change tells Microsoft Entra ID to no longer perform MFA on-premises and to perform _all_ MFA requests with Microsoft Entra multifactor authentication, regardless of group membership. 
 
 The following sections explain the migration steps in more detail.
 
@@ -432,7 +432,7 @@ Using the data points you collected in [Authentication services](#authentication
 ### Update domain federation settings
 Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it's time to update your domain federation settings. After the update, Microsoft Entra no longer sends MFA request to your on-premises federation server.
 
-To configure Microsoft Entra ID to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true&viewFallbackFrom=graph-powershell-) and set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
+To configure Microsoft Entra ID to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true&viewFallbackFrom=graph-powershell-) and set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0&preserve-view=true#federatedidpmfabehavior-values) to `rejectMfaByFederatedIdp`, as shown in the following example.
 
 #### Request
 <!-- {
@@ -507,7 +507,7 @@ If the upgrade had issues, follow these steps to roll back:
    >Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
 
 1. Run the installer for your previous version (for example, 8.0.x.x).
-1. Configure Microsoft Entra ID to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
+1. Configure Microsoft Entra ID to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0&preserve-view=true#federatedidpmfabehavior-values) to `enforceMfaByFederatedIdp`, as shown in the following example.
 
    **Request**
    <!-- {
