@@ -8,6 +8,12 @@ items:
         href: get-started/overview-iot-operations.md
       - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
+      - name: Add OPC UA assets to your cluster
+        href: get-started/quickstart-add-assets.md
+      - name: Use pipelines to process messages
+        href: get-started/quickstart-process-telemetry.md
+      - name: Get insights from your data
+        href: get-started/quickstart-get-insights.md
     - name: Deploy
       items:
       - name: Overview
@@ -130,6 +136,16 @@ items:
       items:
       - name: Overview
         href: administer/overview-manage-solution.md
+      - name: Manage Layered Network
+        items:
+        - name: Layered Network Managment overview
+          href: administer/concept-layered-network-management.md
+        - name: Configure Layered Network Managment
+          href: administer/howto-configure-layered-network-management.md
+        - name: Deploy to an AKS cluster
+          href: administer/howto-deploy-layered-network-managment-aks.md
+        - name: Configure AKS EE clusters
+          href: administer/howto-configure-aks-ee-layered-network-management.md
       - name: Manage Azure MQ
         items:
         - name: Configure TLS
