@@ -4,17 +4,17 @@ description: Learn configuration and troubleshooting options for the Azure Key V
 author: nickomang 
 ms.author: nickoman
 ms.topic: how-to 
-ms.date: 10/02/2023
+ms.date: 10/16/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
 # Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
 
-After following [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](./csi-secrets-store-driver.md) and [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in AKS](./csi-secrets-store-identity-access.md), you can apply additional configurations or perform troubleshooting for the Azure Key Vault Provider for Secrets Store CSI Driver in AKS.
+Follow the steps in [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](./csi-secrets-store-driver.md) and [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in AKS](./csi-secrets-store-identity-access.md). Once you complete these steps, you can apply extra configurations or perform troubleshooting for the Azure Key Vault Provider for Secrets Store CSI Driver in AKS.
 
 ## Configuration options
 
-### Enable and disable autorotation
+### Enable and disable auto-rotation
 
 > [!NOTE]
 > When the Azure Key Vault Provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you defined. The default rotation poll interval is *two minutes*.
@@ -22,23 +22,23 @@ After following [Use the Azure Key Vault Provider for Secrets Store CSI Driver i
 >[!NOTE]
 > When a secret updates in an external secrets store after initial pod deployment, the Kubernetes Secret and the pod mount periodically update depending on how the application consumes the secret data.
 >
-> **Mount the Kubernetes Secret as a volume**: Use the autorotation and Sync K8s secrets features of Secrets Store CSI Driver. The application needs to watch for changes from the mounted Kubernetes Secret volume. When the CSI Driver updates the Kubernetes Secret, the corresponding volume contents automatically update as well.
+> **Mount the Kubernetes Secret as a volume**: Use the auto-rotation and sync K8s secrets features of Secrets Store CSI Driver. The application needs to watch for changes from the mounted Kubernetes Secret volume. When the CSI Driver updates the Kubernetes Secret, the corresponding volume contents automatically update as well.
 >
-> **Application reads the data from the container’s filesystem**: Use the rotation feature of Secrets Store CSI Driver. The application needs to watch for the file change from the volume mounted by the CSI driver.
+> **Application reads the data from the container filesystem**: Use the rotation feature of Secrets Store CSI Driver. The application needs to watch for the file change from the volume mounted by the CSI driver.
 >
 > **Use the Kubernetes Secret for an environment variable**: Restart the pod to get the latest secret as an environment variable. Use a tool such as [Reloader][reloader] to watch for changes on the synced Kubernetes Secret and perform rolling upgrades on pods.
 
-#### Enable autorotation on a new AKS cluster
+#### Enable auto-rotation on a new AKS cluster
 
-* Enable autorotation of secrets on a new cluster using the [`az aks create`][az-aks-create] command and enable the `enable-secret-rotation` add-on.
+* Enable auto-rotation of secrets on a new cluster using the [`az aks create`][az-aks-create] command and enable the `enable-secret-rotation` add-on.
 
     ```azurecli-interactive
     az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
     ```
 
-#### Enable autorotation on an existing AKS cluster
+#### Enable auto-rotation on an existing AKS cluster
 
-* Update an existing cluster to enable autorotation of secrets using the [`az aks addon update`][az-aks-addon-update] command and the `enable-secret-rotation` parameter.
+* Update an existing cluster to enable auto-rotation of secrets using the [`az aks addon update`][az-aks-addon-update] command and the `enable-secret-rotation` parameter.
 
     ```azurecli-interactive
     az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
@@ -52,9 +52,9 @@ After following [Use the Azure Key Vault Provider for Secrets Store CSI Driver i
     az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
     ```
 
-#### Disable autorotation
+#### Disable auto-rotation
 
-To disable autorotation, you first need to disable the add-on. Then, you can re-enable the add-on without the `enable-secret-rotation` parameter.
+To disable auto-rotation, you first need to disable the add-on. Then, you can re-enable the add-on without the `enable-secret-rotation` parameter.
 
 1. Disable the secrets provider add-on using the [`az aks addon disable`][az-aks-addon-disable] command.
 
@@ -174,7 +174,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 |total_sync_k8s_secret|The total number of Kubernetes secrets synced.|`os_type=<runtime os`, `provider=<provider name>`|
 |sync_k8s_secret_duration_sec|The distribution of how long it took to sync the Kubernetes secret.|`os_type=<runtime os>`|
 |total_rotation_reconcile|The total number of rotation reconciles.|`os_type=<runtime os>`, `rotated=<true or false>`|
-|total_rotation_reconcile_error|The total number of rotation reconciles with error.|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
+|total_rotation_reconcile_error|The total number of rotation reconciles with errors.|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
 |total_rotation_reconcile_error|The distribution of how long it took to rotate secrets-store content for pods.|`os_type=<runtime os>`|
 
 ### Migrate from open-source to AKS-managed Secrets Store CSI Driver
