@@ -153,8 +153,6 @@ You can also configure more granular details of the cluster autoscaler by changi
         scale-down-unready-time=10m \
         scale-down-delay-after-add=15m
     ```
-> [!IMPORTANT]
-> A bug has been identified in the "expanders" setting and may not exhibit desired behavior  
 
 | Setting                          | Description                                                                              | Default value |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
@@ -171,7 +169,6 @@ You can also configure more granular details of the cluster autoscaler by changi
 | max-graceful-termination-sec     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node | 600 seconds   |
 | balance-similar-node-groups      | Detects similar node pools and balances the number of nodes between them                 | false      |
 | expander | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to be used in scale up. Possible values: `most-pods`, `random`, `least-waste`, `priority`. | random |
-| expanders (Preview)| Supports passing multiple expanders. Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to be used in scale up. Possible values: `most-pods`, `random`, `least-waste`, `priority`. | random |
 | skip-nodes-with-local-storage    | If true, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath | true |
 | skip-nodes-with-system-pods      | If true, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods) | true |
 | max-empty-bulk-delete            | Maximum number of empty nodes that can be deleted at the same time                       | 10 nodes      |
