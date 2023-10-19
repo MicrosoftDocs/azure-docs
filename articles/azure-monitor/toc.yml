@@ -366,8 +366,6 @@ items:
         displayName: firewall, firewall exceptions, whitelist
     - name: Tutorials
       items:
-      - name: Application Insights SDK for ASP.NET Core applications
-        href: app/tutorial-asp-net-core.md
       - name: Custom metrics with .NET and .NET Core
         href: app/tutorial-asp-net-custom-metrics.md
     - name: Help and support
