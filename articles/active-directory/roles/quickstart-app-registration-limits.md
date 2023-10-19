@@ -1,6 +1,6 @@
 ---
 title: Remove limits on creating app registrations
-description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory
+description: Assign a custom role to grant unrestricted app registrations in the Microsoft Entra Active Directory
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -16,28 +16,30 @@ ms.collection: M365-identity-device-management
 ---
 # Quickstart: Grant permission to create unlimited app registrations
 
-In this quick start guide, you will create a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user. The assigned user can then use the Azure portal, Azure AD PowerShell, or Microsoft Graph API to create application registrations. Unlike the built-in Application Developer role, this custom role grants the ability to create an unlimited number of application registrations. The Application Developer role grants the ability, but the total number of created objects is limited to 250 to prevent hitting [the directory-wide object quota](../enterprise-users/directory-service-limits-restrictions.md). The least privileged role required to create and assign Azure AD custom roles is the Privileged Role Administrator.
+In this quick start guide, you will create a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user. The assigned user can then use the Microsoft Entra admin center, Azure AD PowerShell, or Microsoft Graph API to create application registrations. Unlike the built-in Application Developer role, this custom role grants the ability to create an unlimited number of application registrations. The Application Developer role grants the ability, but the total number of created objects is limited to 250 to prevent hitting [the directory-wide object quota](../enterprise-users/directory-service-limits-restrictions.md). The least privileged role required to create and assign Microsoft Entra custom roles is the Privileged Role Administrator.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 ### Create a custom role
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** and then select **New custom role**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -53,9 +55,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Assign the role
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
 1. Select the Application Registration Creator role and select **Add assignment**.
 
@@ -64,7 +66,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 Done! In this quickstart, you successfully created a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user.
 
 > [!TIP]
-> To assign the role to an application using the Azure portal, enter the name of the application into the search box of the assignment page. Applications are not shown in the list by default, but are returned in search results.
+> To assign the role to an application using the Microsoft Entra admin center, enter the name of the application into the search box of the assignment page. Applications are not shown in the list by default, but are returned in search results.
 
 ### App registration permissions
 
@@ -148,7 +150,7 @@ Body
 
 ### Assign the role
 
-Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role. The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and an Azure AD resource scope.
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role. The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and a Microsoft Entra resource scope.
 
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
@@ -167,6 +169,6 @@ Body
 
 ## Next steps
 
-- Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
-- For more about Azure AD roles, see [Azure AD built-in roles](permissions-reference.md).
+- Feel free to share with us on the [Microsoft Entra administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+- For more about Microsoft Entra roles, see [Microsoft Entra built-in roles](permissions-reference.md).
 - For more about default user permissions, see [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

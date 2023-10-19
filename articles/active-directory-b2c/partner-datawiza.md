@@ -22,7 +22,7 @@ In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2
 
 To get started, you'll need:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - [Docker](https://docs.docker.com/get-docker/), an open platform for developing, shipping, and running applications, is required to run DAB
@@ -59,7 +59,8 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 Go to docs.datawiza.com to: 
 
-1. Learn how to register your web application in an Azure AD B2C tenant, and configure a sign up-and sign-in user flow . See, [Microsoft Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+1. Learn how to register your web application in an Azure AD B2C tenant, and configure a sign up-and sign-in user flow. For more info, see [Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+
 2. [Configure a user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in the Azure portal.
 
 >[!NOTE]
@@ -123,7 +124,7 @@ Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.
 1. Navigate to the on-premises application URL.
 2. The DAP redirects to the page you configured in your user flow.
 3. From the list, select the IdP.
-4. At the prompt, enter your credentials. If necessary, include an Azure AD Multi-Factor Authentication (MFA) token.
+4. At the prompt, enter your credentials. If necessary, include a Microsoft Entra multifactor authentication token.
 5. You're redirected to Azure AD B2C, which forwards the application request to the DAP redirect URI.
 6. The DAB evaluates policies, calculates headers, and sends the user to the upstream application. 
 7. The requested application appears.

@@ -189,13 +189,13 @@ You've completed creation of the application and are now ready to test the app's
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/welcome-screen.png" alt-text="Web app welcome page displaying":::
 
-3. Select **Sign in** link. You should see the Azure AD sign-in screen:
+3. Select **Sign in** link. You should see the Microsoft Entra sign-in screen:
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-in-screen.png" alt-text="Azure AD sign-in screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-in-screen.png" alt-text="Microsoft Entra sign-in screen displaying":::
 
 4. Once you enter your credentials, you should see a consent screen asking you to approve the permissions for the app.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Azure AD consent screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Microsoft Entra consent screen displaying":::
 
 5. Once you consent, you should be redirected back to application home page. 
 
@@ -209,13 +209,13 @@ You've completed creation of the application and are now ready to test the app's
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/graph-call-screen.png" alt-text="Graph call screen displaying":::
 
-8. Go back to the home page, and select the **Sign out** link. You should see the Azure AD sign-out screen.
+8. Go back to the home page, and select the **Sign out** link. You should see the Microsoft Entra sign-out screen.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-out-screen.png" alt-text="Azure AD sign-out screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-out-screen.png" alt-text="Microsoft Entra sign-out screen displaying":::
 
 ## How the application works
 
-In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md) to obtain access tokens.
+In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Microsoft Entra app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md) to obtain access tokens.
 
 ## Next steps
 

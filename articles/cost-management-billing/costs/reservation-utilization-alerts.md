@@ -3,7 +3,7 @@ title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 08/30/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -20,7 +20,7 @@ The reservation utilization alert is used to monitor the utilization of most cat
 
 ## Supported scopes and required permissions
 
-You can create a reservation utilization alert rule at any of the following scopes provided you have adequate permissions. For example, if you are an enterprise admin within an enterprise agreement, the alert rule should be created at the enrollment scope. It's important to note that this alert will monitor all reservations available within the enrollment, regardless of their benefit scope such as single resource group, single subscription, management group, or shared.
+You can create a reservation utilization alert rule at any of the following scopes provided you have adequate permissions. For example, if you're an enterprise admin within an enterprise agreement, the alert rule should be created at the enrollment scope. It's important to note that this alert monitors all reservations available within the enrollment, regardless of their benefit scope. Scopes include single resource group, single subscription, management group, or shared.
 
 | Supported agreement | Alert rule scope | Required role | Supported actions |
 | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ The following table explains the fields in the alert rule form.
 | Utilization percentage | Mandatory | When any of the reservations have a utilization that is less than the target percentage, then the alert notification is sent. | Utilization is less than 95% |
 | Time grain | Mandatory | Choose the time over which reservation utilization value should be averaged. For example, if you choose Last 7-days, then the alert rule evaluates the last 7-day average reservation  utilization of all reservations. **Note**: Last day reservation utilization is subject to change because the usage data refreshes. So, Cost Management relies on the last 7-day or 30-day averaged utilization, which is more accurate. | Last 7-days, Last 30-days|
 | Start on | Mandatory | The start date for the alert rule. | Current or any future date |
-| Sent | Mandatory | Choose the rate at which consecutive alert notifications are sent. For example, assume that you chose the weekly option. If you receive your first alert notification on 2 May, then the next possible notification is sent a week later, which is 9 May. | Daily – If you want everyday notification.<br><br>Weekly – If you want the notifications to be a week apart.<br><br> Monthly – If you want the notifications to be a month apart.|
+| Sent | Mandatory | Choose the rate at which consecutive alert notifications are sent. For example, assume that you chose the weekly option. If you receive your first alert notification on 2 May, then the next possible notification is sent a week later, which is 9 May. **Note**: The `Sent` and `Time grain` fields in the alert rule form are independent of each other. You can set them according to your needs. | Daily – If you want everyday notification.<br><br>Weekly – If you want the notifications to be a week apart.<br><br> Monthly – If you want the notifications to be a month apart.|
 | Until | Mandatory | The end date for the alert rule. | The end date can be anywhere from one day to three years from the current date or the start date, whichever comes first. For example, if you create an alert on 3 March 2023, the end date can be any date from 4 March 2023, to 3 March 2026. |
 | Recipients | Mandatory | You can enter up to 20 email IDs including distribution lists as alert recipients. | admin@contoso.com |
 | Language | Mandatory | The language to be used in the alert email body | Any language supported by the Azure portal |

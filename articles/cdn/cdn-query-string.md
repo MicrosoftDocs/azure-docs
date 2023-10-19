@@ -22,7 +22,7 @@ ms.author: duau
 With Azure Content Delivery Network (CDN), you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. If there's more than one key-value pair in a query string of a request, their order doesn't matter. 
 
 > [!IMPORTANT]
-> The Azure CDN standard and premium products provide the same query string caching functionality, but the user interface is different. This article describes the interface for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**. For query string caching with **Azure CDN Premium from Verizon**, see [Control Azure CDN caching behavior with query strings - premium tier](cdn-query-string-premium.md).
+> The Azure CDN standard and premium products provide the same query string caching functionality, but the user interface is different. This article describes the interface for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai** and **Azure CDN Standard from Edgio**. For query string caching with **Azure CDN Premium from Edgio**, see [Control Azure CDN caching behavior with query strings - premium tier](cdn-query-string-premium.md).
 
 Three query string modes are available:
 
@@ -53,8 +53,9 @@ Three query string modes are available:
 > Because it takes time for the registration to propagate through Azure CDN, cache string settings changes might not be immediately visible:
 > - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
 > - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-> - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
+> - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes. 
 
 ## Next step
 
 - Learn how to [purge cached content](cdn-purge-endpoint.md) from Azure CDN endpoint.
+

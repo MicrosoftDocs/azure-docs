@@ -25,25 +25,42 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 
-Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
+Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_service_options)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_service_options)]
 
 
 ## Select the image to analyze
 
-The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
+You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
+### Image URL
 
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.core.input.visionsource.fromurl).
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
-**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_source)]
+### Image file
 
-> [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](/dotnet/api/azure.ai.vision.core.input.visionsource.fromfile).
+Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
+```csharp
+using var imageSource = VisionSource.FromFile("sample.jpg");
+```
+
+### Image buffer
+
+Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer).
+
+Start by creating a new [ImageSourceBuffer](/dotnet/api/azure.ai.vision.common.imagesourcebuffer), then get access to its [ImageWriter](/dotnet/api/azure.ai.vision.common.imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `Memory<byte>` containing the image data.
+
+```csharp
+using var imageSourceBuffer = new ImageSourceBuffer();
+imageSourceBuffer.GetWriter().Write(imageBuffer);
+using var imageSource = VisionSource.FromImageSourceBuffer(imageSourceBuffer);
+```
+
+Both **VisionSource** and **ImageSourceBuffer** implement **IDisposable**, therefore create the objects with a **using** statement or explicitly call their **Dispose** method after analysis completes.
 
 ## Select analysis options
 
@@ -59,17 +76,17 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 
 Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. [ImageAnalysisFeature](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=visual_features)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=visual_features)]
 
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You don't need to specify visual features if you use a custom model.
 
 
 To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/3/Program.cs?name=model_name)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=model_name)]
 
 
 ### Specify languages
@@ -81,7 +98,7 @@ Language option only applies when you're using the standard model.
 
 Use the [Language](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.language) property of your **ImageAnalysisOptions** object to specify a language.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=language)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=language)]
 
 
 ### Select gender neutral captions
@@ -93,7 +110,7 @@ Gender neutral caption option only applies when you're using the standard model.
 
 Set the [GenderNeutralCaption](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=gender_neutral_caption)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=gender_neutral_caption)]
 
 
 ### Select smart cropping aspect ratios
@@ -105,7 +122,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Set the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=cropping_aspect_rations)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=cropping_aspect_ratios)]
 
 
 ## Get results from the service
@@ -117,7 +134,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/dotnet/api/azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **IDisposable**, therefore create the object with a **using** statement, or explicitly call **Dispose** method after analysis completes.
 
-1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. This is a blocking (synchronous) call until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **AnalyzeAsync** method.
+1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **AnalyzeAsync** method.
 
 1. Check the **Reason** property on the [ImageAnalysisResult](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
 
@@ -125,7 +142,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. If failed, you can construct the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=analyze)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=analyze)]
 
 
 ### Get results using custom model
@@ -135,7 +152,7 @@ This section shows you how to make an analysis call to the service, when using a
 
 The code is similar to the standard model case. The only difference is that results from the custom model are available on the **CustomTags** and/or **CustomObjects** properties of the [ImageAnalysisResult](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresult) object.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/3/Program.cs?name=analyze)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=analyze)]
 
 
 ## Error codes
@@ -151,4 +168,4 @@ In addition to those errors, the SDK has a few other error messages, including:
 
 Make sure the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
 
-To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
+To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new one.

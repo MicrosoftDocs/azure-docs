@@ -4,7 +4,7 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 09/02/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
@@ -14,15 +14,17 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides various 
 
 The following access methods are available:
 
-- Azure Active Directory (Azure AD) workload identity
+- Microsoft Entra Workload ID
 - User-assigned managed identity
 
-## Access with an Azure AD workload identity
+<a name='access-with-an-azure-ad-workload-identity'></a>
 
-An [Azure AD workload identity][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Azure AD then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
+## Access with a Microsoft Entra Workload ID
+
+An [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. Your workload can exchange a service account token projected to its volume for a Microsoft Entra token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
 > [!NOTE]
-> This authentication method replaces Azure AD pod-managed identity (preview). The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> This authentication method replaces Microsoft Entra pod-managed identity (preview). The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ### Prerequisites
 
@@ -33,7 +35,7 @@ Before you begin, you must have the following prerequisites:
 - An existing AKS cluster with `--enable-oidc-issuer` and `--enable-workload-identity` enabled.
 
 > [!NOTE]
-> Azure AD workload identity is supported on both Windows and Linux clusters.
+> Microsoft Entra Workload ID is supported on both Windows and Linux clusters.
 
 ### Configure workload identity
 
@@ -73,7 +75,7 @@ Before you begin, you must have the following prerequisites:
     echo $AKS_OIDC_ISSUER
     ```
 
-5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+5. Establish a federated identity credential between the Microsoft Entra application and the service account issuer and subject. Get the object ID of the Microsoft Entra application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
     export SERVICE_ACCOUNT_NAME="workload-identity-sa"  # sample name; can be changed
@@ -85,8 +87,6 @@ Before you begin, you must have the following prerequisites:
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF
@@ -142,7 +142,10 @@ Before you begin, you must have the following prerequisites:
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-wi
+      labels:  
+        azure.workload.identity/use: "true"
     spec:
+      serviceAccountName: "workload-identity-sa"
       containers:
         - name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
@@ -165,7 +168,7 @@ Before you begin, you must have the following prerequisites:
 
 ## Access with a user-assigned managed identity
 
-1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity you created when you [enabled a managed identity on your AKS cluster][use-managed-identity].
+1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on when you [enabled the Azure Key Vault Provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
 
     ```azurecli-interactive
     az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv

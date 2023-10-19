@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with Maximo Application Suite
-description: Learn how to configure single sign-on between Azure Active Directory and Maximo Application Suite.
+title: Microsoft Entra SSO integration with Maximo Application Suite
+description: Learn how to configure single sign-on between Microsoft Entra ID and Maximo Application Suite.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,44 +14,51 @@ ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with Maximo Application Suite
+# Microsoft Entra SSO integration with Maximo Application Suite
 
-In this article, you learn how to integrate Maximo Application Suite with Azure Active Directory (Azure AD). Customer-Managed - IBM Maximo Application Suite is a CMMS EAM platform, which delivers intelligent asset management, monitoring, predictive maintenance and reliability in a single platform. When you integrate Maximo Application Suite with Azure AD, you can:
+In this article, you learn how to integrate Maximo Application Suite with Microsoft Entra ID. Customer-Managed - IBM Maximo Application Suite is a CMMS EAM platform, which delivers intelligent asset management, monitoring, predictive maintenance and reliability in a single platform. When you integrate Maximo Application Suite with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Maximo Application Suite.
-* Enable your users to be automatically signed-in to Maximo Application Suite with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Maximo Application Suite.
+* Enable your users to be automatically signed-in to Maximo Application Suite with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
-You configure and test Azure AD single sign-on for Maximo Application Suite in a test environment. Maximo Application Suite supports **SP** and **IDP** initiated single sign-on.
+You configure and test Microsoft Entra single sign-on for Maximo Application Suite in a test environment. Maximo Application Suite supports **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
-To integrate Azure Active Directory with Maximo Application Suite, you need:
+To integrate Microsoft Entra ID with Maximo Application Suite, you need:
 
-* An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Maximo Application Suite single sign-on (SSO) enabled subscription.
 
 ## Add application and assign a test user
 
-Before you begin the process of configuring single sign-on, you need to add the Maximo Application Suite application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
+Before you begin the process of configuring single sign-on, you need to add the Maximo Application Suite application from the Microsoft Entra gallery. You need a test user account to assign to the application and test the single sign-on configuration.
 
-### Add Maximo Application Suite from the Azure AD gallery
+<a name='add-maximo-application-suite-from-the-azure-ad-gallery'></a>
 
-Add Maximo Application Suite from the Azure AD application gallery to configure single sign-on with Maximo Application Suite. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+### Add Maximo Application Suite from the Microsoft Entra gallery
 
-### Create and assign Azure AD test user
+Add Maximo Application Suite from the Microsoft Entra application gallery to configure single sign-on with Maximo Application Suite. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+<a name='create-and-assign-azure-ad-test-user'></a>
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+### Create and assign Microsoft Entra test user
 
-## Configure Azure AD SSO
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
-1. In the Azure portal, on the **Maximo Application Suite** application integration page, find the **Manage** section and select **single sign-on**.
+<a name='configure-azure-ad-sso'></a>
+
+## Configure Microsoft Entra SSO
+
+Complete the following steps to enable Microsoft Entra single sign-on.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Maximo Application Suite** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -99,9 +106,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     
     1. Select emailAddress as the [name-id format](../develop/single-sign-on-saml-protocol.md).
 
-    1. Click **Generate file**, wait and then **Download file**. Store this metadata file and upload it in Azure AD side. 
+    1. Click **Generate file**, wait and then **Download file**. Store this metadata file and upload it in Microsoft Entra ID side. 
 
-1. Download the **Federation Metadata XML file** from the Azure portal and upload the Azure AD Federation Metadata XML document to Maximo's SAML configuration panel and save it.
+1. Download the **Federation Metadata XML file** and upload the Microsoft Entra Federation Metadata XML document to Maximo's SAML configuration panel and save it.
 
     ![Screenshot shows to upload Federation Metadata file.](media/maximo-application-suite-tutorial/file.png "Federation")
 
@@ -115,9 +122,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     1. Select Authentication type as **SAML**.
 
-    1. In the **Display Name** textbox, enter the UPN used in Azure AD as they must match.
+    1. In the **Display Name** textbox, enter the UPN used in Microsoft Entra ID as they must match.
 
-    1. In the **Primary email** textbox, enter the UPN used in Azure AD.
+    1. In the **Primary email** textbox, enter the UPN used in Microsoft Entra ID.
         > [!Note]
         > The rest of the fields can be populated as you like with whatever permissions necessary.
 
@@ -125,26 +132,26 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Maximo Application Suite Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Maximo Application Suite Sign-on URL where you can initiate the login flow.  
 
 * Go to Maximo Application Suite Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal to be taken to the Maximo login page where you need to enter in your SAML identity as a fully qualified email address. If the user has already authenticated with the IDP the Maximo Application Suite won't have to login again, and the browser will be redirected to the home page.   
+* Click on **Test this application**, in Azure portal to be taken to the Maximo login page where you need to enter in your SAML identity as a fully qualified email address. If the user has already authenticated with the IDP the Maximo Application Suite won't have to login again, and the browser will be redirected to the home page.   
 
-* You can also use Microsoft My Apps to test the application in any mode. When you click the Maximo Application Suite tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Maximo Application Suite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can also use Microsoft My Apps to test the application in any mode. When you click the Maximo Application Suite tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Maximo Application Suite for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 > [!Note]
 > Screenshots are from MAS Continuous-delivery 8.9 and may differ in future versions.
 
 ## Additional resources
 
-* [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 * [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
 
 ## Next steps

@@ -31,10 +31,10 @@ In either scenario, you can create a personalized sign-up experience by customiz
 
 A self-service sign-up user flow creates a sign-up experience for the application you're providing to external users. You can configure user flow settings to control how the user signs up for the application:
 
-- Account types used for sign-in, such as social accounts like Facebook, or Azure AD accounts
+- Account types used for sign-in, such as social accounts like Facebook, or Microsoft Entra accounts
 - Attributes to be collected from the user signing up, such as first name, postal code, or country/region of residency
 
-The user can sign in to your application, via the web, mobile, desktop, or single-page application (SPA). The application initiates an authorization request to the user flow-provided endpoint. The user flow defines and controls the user's experience. When the user completes the sign-up user flow, Azure AD generates a token and redirects the user back to your application. Upon completion of sign-up, an account is provisioned for the user in the directory. Multiple applications can use the same user flow.
+The user can sign in to your application, via the web, mobile, desktop, or single-page application (SPA). The application initiates an authorization request to the user flow-provided endpoint. The user flow defines and controls the user's experience. When the user completes the sign-up user flow, Microsoft Entra ID generates a token and redirects the user back to your application. Upon completion of sign-up, an account is provisioned for the user in the directory. Multiple applications can use the same user flow.
 
 ## Example of self-service sign-up
 
@@ -46,7 +46,7 @@ They use the email of their choice to sign up.
 
 ![Example showing selection of Facebook for sign-in](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-Azure AD creates a relationship with Woodgrove using the partner's Facebook account, and creates a new guest account for the user after they sign up.
+Microsoft Entra ID creates a relationship with Woodgrove using the partner's Facebook account, and creates a new guest account for the user after they sign up.
 
 Woodgrove wants to know more about the user, like name, business name, business registration code, phone number.
 

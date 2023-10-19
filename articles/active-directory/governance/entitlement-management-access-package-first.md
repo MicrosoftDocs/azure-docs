@@ -45,7 +45,7 @@ This rest of this article uses the Microsoft Entra admin center to configure and
 
 To use entitlement management, you must have one of the following licenses:
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
@@ -56,29 +56,29 @@ For more information, see [License requirements](entitlement-management-overview
 
 A resource directory has one or more resources to share. In this step, you create a group named **Marketing resources** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal requestor.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator or Identity Governance Administrator
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global administrator or User administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left navigation, select **Identity**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
 
 1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
     | Name | Directory role |
     | --- | --- |
-    | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
+    | **Admin1** | Global administrator, or Identity Governance Administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
+4. [Create a Microsoft Entra security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
 
 An *access package* is a bundle of resources that a team or project needs and is governed with policies. Access packages are defined in containers called *catalogs*. In this step, you create a **Marketing Campaign** access package in the **General** catalog.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
 ![Diagram that describes the relationship between the access package elements.](./media/entitlement-management-access-package-first/elm-access-package.png)
 
@@ -88,7 +88,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. On the **Access packages** page open an access package.
 
-1. When opening the access package if you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
+1. When opening the access package if you see **Access denied**, ensure that a Microsoft Entra ID P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 
@@ -118,7 +118,7 @@ An *access package* is a bundle of resources that a team or project needs and is
     :::image type="content" source="./media/entitlement-management-access-package-first/resource-roles.png" alt-text="Screenshot the shows how to select the member role." lightbox="./media/entitlement-management-access-package-first/resource-roles.png":::
 
     >[!IMPORTANT]
-    >The [role-assignable groups](../roles/groups-concept.md) added to an access package will be indicated using the Sub Type **Assignable to roles**. For more information, check out the [Create a role-assignable group](../roles/groups-create-eligible.md) article. Keep in mind that once a role-assignable group is present in an access package catalog, administrative users who are able to manage in entitlement management, including global administrators, user administrators and catalog owners of the catalog, will be able to control the access packages in the catalog, allowing them to choose who can be added to those groups. If you don't see a role-assignable group that you want to add or you are unable to add it, make sure you have the required Azure AD role and entitlement management role to perform this operation. You might need to ask someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >The [role-assignable groups](../roles/groups-concept.md) added to an access package will be indicated using the Sub Type **Assignable to roles**. For more information, check out the [Create a role-assignable group](../roles/groups-create-eligible.md) article. Keep in mind that once a role-assignable group is present in an access package catalog, administrative users who are able to manage in entitlement management, including global Administrators, Identity Governance Administrators and catalog owners of the catalog, will be able to control the access packages in the catalog, allowing them to choose who can be added to those groups. If you don't see a role-assignable group that you want to add or you are unable to add it, make sure you have the required Microsoft Entra role and entitlement management role to perform this operation. You might need to ask someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > When using [dynamic groups](../enterprise-users/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.
@@ -165,7 +165,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
     ![Screenshot of the access package lifecycle tab](./media/entitlement-management-access-package-first/new-access-package-lifecycle.png)
 
-1. Skip the **Custom extensions (Preview)** step.
+1. Skip the **Custom extensions** step.
 
 1. Select **Next** to open the **Review + Create** tab. 
 
@@ -207,15 +207,13 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 In this step, you confirm that the **internal requestor** was assigned the access package and that they're now a member of the **Marketing resources** group.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
 1. Sign out of the My Access portal.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as **Admin1**.
 
-1. Select **Identity Governance**.
-
-1. In the left menu, select **Access packages**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
 
 1. Find and select **Marketing Campaign** access package.
 
@@ -241,7 +239,7 @@ In this step, you confirm that the **internal requestor** was assigned the acces
 
 In this step, you remove the changes you made and delete the **Marketing Campaign** access package.
 
-**Prerequisite role:**  Global administrator or User administrator
+**Prerequisite role:**  Global Administrator or Identity Governance Administrator
 
 1. In the Microsoft Entra admin center **Identity Governance**.
 

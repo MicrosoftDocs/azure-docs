@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: Document processing models for OCR, document layout, invoices, identity, custom  models, and more to extract text, structure, and key-value pairs.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 09/20/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -43,7 +42,8 @@ monikerRange: '<=doc-intel-3.1.0'
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
-| [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
+| [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
+| [Contract](#contract) | Extract agreement and party details.|
 | [Invoice](#invoice)  | Automate invoices. |
 | [Receipt](#receipt)  | Extract receipt data from receipts.|
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
@@ -60,7 +60,6 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
 * [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
-
 
 ### Read OCR
 
@@ -113,20 +112,40 @@ The health insurance card model combines powerful Optical Character Recognition 
 :::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Document Intelligence Studio." lightbox="./media/studio/analyze-health-card.png":::
 
 > [!div class="nextstepaction"]
-> [Learn more: Health insurance card model](concept-insurance-card.md)
+> [Learn more: Health insurance card model](concept-health-insurance-card.md)
 
-### W-2
+### US tax documents
 
-:::image type="icon" source="media/studio/w2.png":::
+:::image type="icon" source="media/studio/tax-documents.png":::
 
-The W-2 form model extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including single and multiple forms on one page.
+The US tax document models analyze and extract key fields and line items from a select group of tax documents. The API supports the analysis of English-language US tax documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
+
+  |Model|Description|ModelID|
+  |---|---|---|
+  |US Tax W-2|Extract taxable compensation details.|**prebuilt-tax.us.W-2**|
+  |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
+  |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
+  |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
 
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
 :::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
 
 > [!div class="nextstepaction"]
-> [Learn more: W-2 model](concept-w2.md)
+> [Learn more: Tax document models](concept-tax-document.md)
+
+### Contract
+
+:::image type="icon" source="media/overview/icon-contract.png":::
+
+ The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
+
+***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)***:
+
+:::image type="content" source="media/studio/analyze-contract.png" alt-text="Screenshot of contract model extraction using Document Intelligence Studio.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: contract model](concept-contract.md)
 
 ### Invoice
 
@@ -236,8 +255,11 @@ A composed model is created by taking a collection of custom models and assignin
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
-| [prebuilt-healthInsuranceCard.us](concept-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |

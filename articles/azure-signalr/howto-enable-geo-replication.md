@@ -34,7 +34,7 @@ Companies seeking local presence or requiring a robust failover system often cho
 ## Example use case
 Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure SignalR Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.
 
-![Diagram of using one Azure SignalR instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-single.png  "Single SignalR Example")
+![Diagram of using one Azure SignalR instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-single.png "Single SignalR Example")
 
 Before the advent of the geo-replication feature, Contoso could set up another Azure SignalR Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure SignalR Service, end users now have better network quality and lower latency. 
 
@@ -43,18 +43,18 @@ However, managing multiple Azure SignalR Services brings some challenges:
 2. The development team would need to manage two separate Azure SignalR Services, each with distinct domain and connection string.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
-![Diagram of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png  "Mutiple SignalR Example")
+![Diagram of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png "Mutiple SignalR Example")
 
 ## Harnessing geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
-![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png  "Replica Example")
+![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png "Replica Example")
 
 ## Create a SignalR replica
 
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
-![Screenshot of creating replica for Azure SignalR on Portal.](./media/howto-enable-geo-replication/signalr-replica-create.png  "Replica create")
+![Screenshot of creating replica for Azure SignalR on Portal.](./media/howto-enable-geo-replication/signalr-replica-create.png "Replica create")
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
@@ -62,7 +62,7 @@ To create a replica, Navigate to the SignalR **Replicas** blade on the Azure por
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
-![Screenshot of overview blade of Azure SignalR replica resource. ](./media/howto-enable-geo-replication/signalr-replica-overview.png  "Replica Overview")
+![Screenshot of overview blade of Azure SignalR replica resource. ](./media/howto-enable-geo-replication/signalr-replica-overview.png "Replica Overview")
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
@@ -83,7 +83,7 @@ To delete a replica in the Azure portal:
 
 The diagram below provides a brief illustration of the SignalR Replicas' functionality:
 
-![Diagram of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
+![Diagram of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png "Replica Arch")
 
 1. The client negotiates with the app server and receives a redirection to the Azure SignalR service. It then resolves the SignalR service's Fully Qualified Domain Name (FQDN) — `contoso.service.signalr.net`. This FQDN points to a Traffic Manager, which returns the Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance (Replica).
@@ -102,11 +102,11 @@ Azure SignalR Service utilizes a traffic manager for health checks and DNS resol
 
 In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the health check failure for that region. Then, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
 
-![Diagram of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
+![Diagram of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png "Replica Failover")
 
 Once the issue in `eastus` is resolved and the region is back online, the health check will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
-![Diagram of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png  "Replica Failover Recover")
+![Diagram of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png "Replica Failover Recover")
 
 
 This failover and recovery process is **automatic** and requires no manual intervention.

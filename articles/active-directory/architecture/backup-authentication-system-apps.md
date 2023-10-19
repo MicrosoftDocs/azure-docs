@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Application requirements for the backup authentication system
 
-The Azure AD backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see the article [Azure AD's backup authentication system](backup-authentication-system.md).
+The Microsoft Entra backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see [Microsoft Entra ID's backup authentication system](backup-authentication-system.md).
 
 ## Application requirements for protection 
 
@@ -45,12 +45,12 @@ All applications using the OAuth 2.0 and/or OIDC protocols should adhere to the 
 
 ##### Native applications 
 
-Native applications are public client applications that run directly on desktop or mobile devices and not in a web browser. They're registered as public clients in their application registration on the Microsoft Entra or Azure portal. 
+Native applications are public client applications that run directly on desktop or mobile devices and not in a web browser. They're registered as public clients in their application registration on the Microsoft Entra admin center or Azure portal. 
 
 Native applications are protected by the backup authentication system when all the following are true: 
 
-1. Your application persists the token cache for at least three days. Applications should use the device’s token cache location or the [token cache serialization API](../develop/msal-net-token-cache-serialization.md) to persist the token cache even when the user closes the application. 
-1. Your application makes use of the MSAL [AcquireTokenSilent API](../develop/msal-net-acquire-token-silently.md) to retrieve tokens using cached Refresh Tokens. The use of the [AcquireTokenInteractive API](../develop/scenario-desktop-acquire-token-interactive.md) may fail to acquire a token from the backup authentication system if user interaction is required. 
+1. Your application persists the token cache for at least three days. Applications should use the device’s token cache location or the [token cache serialization API](/entra/msal/dotnet/how-to/token-cache-serialization) to persist the token cache even when the user closes the application. 
+1. Your application makes use of the MSAL [AcquireTokenSilent API](/entra/msal/dotnet/acquiring-tokens/acquire-token-silently) to retrieve tokens using cached Refresh Tokens. The use of the [AcquireTokenInteractive API](../develop/scenario-desktop-acquire-token-interactive.md) may fail to acquire a token from the backup authentication system if user interaction is required. 
 
 The backup authentication system doesn't currently support the [device authorization grant](../develop/v2-oauth2-device-code.md).
 
@@ -74,7 +74,7 @@ The backup authentication system partially supports the SAML 2.0 SSO protocol. F
 
 ##### Managed identity 
 
-Applications that use Managed Identities to acquire Azure Active Directory access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both [user and system-assigned managed identities](../managed-identities-azure-resources/overview.md). 
+Applications that use Managed Identities to acquire Microsoft Entra access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both [user and system-assigned managed identities](../managed-identities-azure-resources/overview.md). 
 
 ##### Service principal 
 
@@ -82,7 +82,7 @@ The backup authentication system doesn't currently support service principal-bas
 
 ## Next steps
 
-- [Azure AD's backup authentication system](backup-authentication-system.md)
+- [Microsoft Entra ID's backup authentication system](backup-authentication-system.md)
 - [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
 - [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 - [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)

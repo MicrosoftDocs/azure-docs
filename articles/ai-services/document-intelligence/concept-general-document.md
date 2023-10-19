@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -72,11 +71,11 @@ You need the following resources:
 
 1. On the Document Intelligence Studio home page, select **General documents**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Screenshot of analyze general document menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)

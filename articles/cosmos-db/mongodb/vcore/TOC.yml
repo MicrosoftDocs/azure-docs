@@ -1,8 +1,8 @@
-- name: vCore-based MongoDB documentation
+- name: MongoDB vCore documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is vCore-based Azure Cosmos DB for MongoDB?
+    - name: What is Azure Cosmos DB for MongoDB vCore?
       href: introduction.md
 - name: Quickstarts
   items:

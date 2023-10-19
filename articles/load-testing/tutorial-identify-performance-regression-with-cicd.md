@@ -6,26 +6,25 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 09/29/2022
+ms.date: 09/19/2023
 ms.topic: tutorial
-ms.custom: engagement-fy23
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
 
 # Tutorial: Identify performance regressions by automating load tests with CI/CD
 
-This tutorial describes how to quickly identify performance regressions by using Azure Load Testing and CI/CD tools. Quickly identify when your application experiences degraded performance under load by running load tests in Azure Pipelines or GitHub Actions.
+This tutorial describes how to identify performance regressions by using Azure Load Testing and CI/CD tools. Set up a CI/CD workflow in Azure Pipelines to automatically run a load test for your application. Use test fail criteria to get alerted about application changes that affect performance or stability.
 
-In  this tutorial, you'll set up a CI/CD pipeline that runs a load test for a sample application on Azure. You'll verify the application behavior under load directly from the CI/CD dashboard. You'll then use load test fail criteria to get alerted when the application doesn't meet your quality requirements.
+With regression testing, you want to validate that code changes don't affect the application functionality, performance, and stability. Azure Load Testing enables you to verify that your application continues to meet your performance and stability requirements when put under real-world user load. Test fail criteria give you a point-in-time check about how the application performs.
 
-In this tutorial, you'll use a sample Node.js application and JMeter script. The tutorial doesn't require any coding or Apache JMeter skills.
+In this tutorial, you use a sample Node.js application and JMeter script. The tutorial doesn't require any coding or Apache JMeter skills.
 
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Set up the sample application GitHub repository.
-> * Configure service authentication for your CI/CD workflow.
-> * Configure the CI/CD workflow to run a load test.
+> * Deploy the sample application on Azure.
+> * Create a load test by using a JMeter script.
+> * Set up a CI/CD workflow from the Azure portal.
 > * View the load test results in the CI/CD dashboard.
 > * Define load test fail criteria to identify performance regressions.
 
@@ -35,387 +34,170 @@ You'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* If you're using Azure Pipelines, an Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
+* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true).
 
-## Set up the sample application repository
+## Deploy the sample application
 
-To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains an Azure Pipelines definition to deploy the application on Azure and trigger a load test.
+To get started with this tutorial, you first need to set up a sample Node.js web application.
 
-[!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
+[!INCLUDE [include-deploy-sample-application](includes/include-deploy-sample-application.md)]
 
-## Configure service authentication
+Now that you have the application deployed and running, you can create a URL-based load test against it.
 
-Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/CD workflow the permissions to access your Azure load testing resource.
+## Create a load test
 
-# [Azure Pipelines](#tab/pipelines)
+Before you set up the CI/CD workflow in Azure Pipelines, you create an Azure load testing resource and create load test by uploading a JMeter test script in the Azure portal. The JMeter script tests three endpoints in the sample application: `lasttimestamp`, `add`, and `get`.
 
-To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
+After you create the load test, you can then set up the CI/CD workflow from the Azure portal.
 
-Next, you grant permissions to this service principal to create and run a load test with your Azure Load Testing resource.
+### Create the Azure load testing resource
 
-### Create a service connection in Azure Pipelines
+The Azure load testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
 
-Create a service connection in Azure Pipelines so that your CI/CD workflow has access to your Azure subscription. In a next step, you'll then grant permissions to create and run load tests.
+If you already have a load testing resource, skip this section and continue to [Create a load test by uploading a JMeter script](#create-a-load-test-by-uploading-a-jmeter-script).
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+If you don't yet have an Azure load testing resource, create one now:
 
-1. Select **Project settings** > **Service connections**.
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
-1. Select **+ New service connection**, select the **Azure Resource Manager** service connection, and then select **Next**.
+### Create a load test by uploading a JMeter script
 
-1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
+You can create a load test by uploading an Apache JMeter test script. The test script defines the test plan, and describes the application requests to invoke and any custom logic for the load test. Azure Load Testing abstracts the infrastructure for running the test script at scale.
 
-1. Enter the service connection information, and then select **Save** to create the service connection.
+To create a load test by uploading a JMeter script in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
+
+1. Go to your Azure Load Testing resource, select **Tests** from the left pane, select **+ Create**, and then select **Upload a JMeter script**.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
+    
+1. On the **Basics** tab, enter the **Test name** and **Test description** information.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+
+1. On the **Test plan** tab, select the sample application JMeter script, and then select **Upload** to upload the file to Azure.
+
+    You can find the JMeter script `SampleApp.jmx` in the repository you cloned earlier.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
+
+1. On the **Parameters** tab, add an environment variable for the sample application endpoint:
+
+    The test script uses an environment variable to retrieve the endpoint of the sample application.
 
     | Field | Value |
-    | ----- | ----- |
-    | **Scope level** | *Subscription*. |
-    | **Subscription** | Select the Azure subscription that will host your load testing resource. |
-    | **Resource group** | Leave empty. The pipeline creates a new resource group for the Azure Load Testing resource. |
-    | **Service connection name** | Enter a unique name for the service connection. You'll use this name later, to configure the pipeline definition. |
-    | **Grant access permission to all pipelines** | Checked. |
+    |-|-|
+    | **Name** | *webapp* |
+    | **Value** | Hostname of the deployed sample application, without `https://` prefix.
 
-1. Select the service connection that you created from the list, and then select **Manage Service Principal**.
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-parameters.png" alt-text="Screenshot that shows the Parameters plan tab, highlighting the environment variable for the sample app hostname." :::
 
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
-
-1. In the Azure portal, copy the **Application (Client) ID** value.
-
-[!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
-### Grant access to Azure Load Testing
-
-To grant access to your Azure Load Testing resource, assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service. Learn more about [managing users and roles in Azure Load Testing](./how-to-assign-roles.md).
-
-1. Retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you copied.
-
-    ```azurecli-interactive
-    object_id=$(az ad sp show --id "<application-client-id>" --query "id" -o tsv)
-    echo $object_id
-    ```
-    
-1. Assign the `Load Test Contributor` role to the service principal:
-
-    ```azurecli-interactive
-    subscription=$(az account show --query "id" -o tsv)
-    echo $subscription
-
-    az role assignment create --assignee $object_id \
-        --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription \
-        --subscription $subscription
-    ```
-
-# [GitHub Actions](#tab/github)
-
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
-
-Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
-
-[!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
-### Create a service principal
-
-Create a service principal in the Azure subscription and assign the Contributor role so that your GitHub Actions workflow has access to your Azure subscription. In a next step, you'll then grant permissions to create and run load tests.
-
-1. Create a service principal and assign the `Contributor` role:
-
-    ```azurecli-interactive
-    subscription=$(az account show --query "id" -o tsv)
-    echo $subscription
-
-    az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
-                             --scopes /subscriptions/$subscription \
-                             --sdk-auth
-    ```
-
-    The output is a JSON object that represents the service principal. You'll use this information to authenticate with Azure in the GitHub Actions workflow.
-
-    ```output
-    Creating 'contributor' role assignment under scope '/subscriptions/123abc45-6789-0abc-def1-234567890abc'
-    {
-      "clientId": "00000000-0000-0000-0000-000000000000",
-      "clientSecret": "00000000-0000-0000-0000-000000000000",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "tenantId": "00000000-0000-0000-0000-000000000000",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"    
-    }
-    ```
+1. Select **Review + Create**, review the values, and then select **Create** to create and run the load test.
 
     > [!NOTE]
-    > You might get a `--sdk-auth` deprecation warning when you run this command. Alternatively, you can use OpenID Connect (OIDC) based authentication for authenticating GitHub with Azure. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+    > After creating the load test, it might take a few minutes for the load test to finish running.
 
-1. Copy the output JSON object.
+## Set up the CI/CD workflow from the Azure portal
 
-1. Add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. The `azure/login` action in the GitHub Actions workflow uses this secret to authenticate with Azure.
+Now that you have load testing resource and a load test for the sample application, you can set up a new CI workflow to automatically run your load test. Azure Load Testing enables you to set up a new CI workflow in Azure Pipelines from the Azure portal.
 
-    > [!NOTE]
-    > If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principal object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+### Create the CI/CD workflow
+
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure load testing resource.
+
+1. On the left pane, select **Tests** to view the list of tests.
+
+1. Select the test you created previously by selecting the checkbox, and then select **Set up CI/CD**.
+
+    :::image type="content" source="media/tutorial-identify-performance-regression-with-cicd/list-of-tests.png" alt-text="Screenshot that shows the list of tests in Azure portal." lightbox="media/tutorial-identify-performance-regression-with-cicd/list-of-tests.png":::
+
+1. Enter the following details for creating a CI/CD pipeline definition:
+
+    |Setting|Value|
+    |-|-|
+    | **Organization** | Select the Azure DevOps organization where you want to run the pipeline from. |
+    | **Project** | Select the project from the organization selected previously. |
+    | **Repository** | Select the source code repository to store and run the Azure pipeline from. |
+    | **Branch** | Select the branch in the selected repository. |
+    | **Repository branch folder** | (Optional) Enter the repository branch folder name in which you'd like to commit. If empty, the root folder is used. |
+    | **Override existing files** | Check this setting. |
+    | **Service connection** | Select *Create new* to create a new service connection to allow Azure Pipelines to connect to the load testing resource. |
+
+    :::image type="content" source="media/tutorial-identify-performance-regression-with-cicd/set-up-cicd-pipeline.png" alt-text="Screenshot that shows the settings to be configured to set up a CI/CD pipeline." lightbox="media/tutorial-identify-performance-regression-with-cicd/set-up-cicd-pipeline.png":::
+
+    > [!IMPORTANT]
+    > If you're getting an error creating a PAT token, or you don't see any repositories, make sure to [connect your Azure DevOps organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad). Make sure the directory in Azure DevOps matches the directory you're using for Azure Load Testing. After connecting to Microsoft Entra ID, close and reopen your browser window.
+
+1. Select **Create Pipeline** to start creating the pipeline definition.
+
+    Azure Load Testing performs the following actions to configure the pipeline:
+
+    - Create a new service connection of type [Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection) in the Azure DevOps project. The service principal is automatically assigned the *Load Test Contributor* role on the Azure load testing resource.
+
+    - Commit the JMeter script and test configuration YAML to the source code repository.
+
+    - Create a pipeline definition that invokes the Azure load testing resource and runs the load test.
+
+1. When the pipeline creation finishes, you receive a notification in the Azure portal with a link to the pipeline.
+
+### Run the CI/CD workflow
+
+You can now manually trigger the CI/CD workflow to validate that the load test is run correctly.
+
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
     
-    1. In [GitHub](https://github.com), browse to your forked repository, and select **Settings** > **Secrets** > **Actions** > **New repository secret**.
-    
-    1. Enter the new secret information, and then select **Add secret** to create a new secret.
+    Replace the `<your-organization>` text placeholder with your project identifier.
 
-        | Field | Value |
-        | ----- | ----- |
-        | **Name** | *AZURE_CREDENTIALS* |
-        | **Secret** | Paste the JSON role assignment credentials you copied earlier. |
+1. Select **Pipelines** in the left navigation
 
-### Grant access to Azure Load Testing
+    Notice that there's a new pipeline created in your project.
 
-To grant access to your Azure Load Testing resource, assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service. Learn more about [managing users and roles in Azure Load Testing](./how-to-assign-roles.md).
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-pipelines-list.png" alt-text="Screenshot that shows the Azure Pipelines page, showing the pipeline that Azure Load Testing generated." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-pipelines-list.png":::
 
-1. Retrieve the ID of the service principal object:
+1. Select the pipeline, select **Run pipeline**, and then select **Run** to start the CI workflow.
 
-    ```azurecli-interactive
-    object_id=$(az ad sp list --filter "displayname eq 'my-load-test-cicd'" --query "[0].id" -o tsv)
-    echo $object_id
-    ```
+    The first time you run the pipeline, you need to grant the pipeline permission to access the service connection and connect to Azure. Until you grant permission, the CI workflow run remains in the waiting state.
 
-1. Assign the `Load Test Contributor` role to the service principal:
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-run-pipeline.png" alt-text="Screenshot that shows the Azure Pipelines 'Run pipeline' page." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-run-pipeline.png":::
 
-    ```azurecli-interactive
-    az role assignment create --assignee $object_id \
-        --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription \
-        --subscription $subscription
-    ```
----
+1. Select the **Load Test** job to view the job details.
 
-## Configure the CI/CD workflow to run a load test
+    An alert message is shown that the pipeline needs permission to access a resource.
 
-You'll now create a CI/CD workflow to create and run a load test for the sample application. The sample application repository already contains a CI/CD workflow definition that first deploys the application to Azure, and then creates a load test based on JMeter test script (*SampleApp.jmx*). You'll update the sample workflow definition file to specify the Azure subscription and application details.
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-pending-permissions.png" alt-text="Screenshot that shows the Azure Pipelines run details page, showing a warning that the pipeline needs additional permissions." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-pending-permissions.png":::
 
-On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about [ARM templates](/azure/azure-resource-manager/templates/overview).
+1. Select **View** > **Permit** > **Permit** to grant the permission.
 
-# [Azure Pipelines](#tab/pipelines)
+    The CI/CD pipeline run now starts and runs your load test.
 
-You'll create a new Azure pipeline that is linked to your fork of the sample application repository. This repository contains the following items:
-
-- The sample application source code.
-- The *azure-pipelines.yml* pipeline definition file.
-- The *SampleApp.jmx* JMeter test script.
-- The *SampleApp.yaml* Azure Load Testing configuration file.
-
-To create and run the load test, the Azure Pipelines definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
-
-1. Open the [Azure Load Testing task extension](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) in the Azure DevOps Marketplace, and select **Get it free**.
-
-1. Select your Azure DevOps organization, and then select **Install** to install the extension.
-
-    If you don't have administrator privileges for the selected Azure DevOps organization, select **Request** to request an administrator to install the extension.
-
-1. In your Azure DevOps project, select **Pipelines** in the left navigation, and then select **Create pipeline**.
-
-1. On the **Connect** tab, select **GitHub**.
-
-1. Select **Authorize Azure Pipelines** to allow Azure Pipelines to access your GitHub account for triggering workflows.
-
-1. On the **Select** tab, select the sample application's forked repository.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-select-repo.png" alt-text="Screenshot that shows how to select the sample application's GitHub repository.":::
-
-    Azure Pipelines automatically detects the *azure-pipelines.yml* pipeline definition file.
-
-1. Notice that the pipeline definition contains the `LoadTest` stage, which has two tasks.
-
-    The `AzureResourceManagerTemplateDeployment` task deploys a new Azure load testing resource in your Azure subscription.
-
-    Next, the `AzureLoadTest` [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) creates and starts a load test. This task uses the `SampleApp.yaml` [load test configuration file](./reference-test-config-yaml.md), which contains the configuration parameters for the load test, such as the number of parallel test engines.
-
-    ```yml
-    - task: AzureLoadTest@1
-      inputs:
-        azureSubscription: $(serviceConnection)
-        loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: $(loadTestResourceGroup)
-        loadTestResource: $(loadTestResource)
-        env: |
-          [
-            {
-            "name": "webapp",
-            "value": "$(webAppName).azurewebsites.net"
-            }
-          ]
-    ```
-
-    If a load test already exists, the `AzureLoadTest` task won't create a new load test, but will add a test run to this load test. To identify regressions over time, you can then [compare multiple test runs](./how-to-compare-multiple-test-runs.md).
-
-1. On the **Review** tab, replace the following placeholder text at the beginning of the pipeline definition:
-
-    These variables are used to configure the deployment of the sample application, and to create the load test.
-
-    |Placeholder  |Value  |
-    |---------|---------|
-    | `<Name of your webapp>`     | The name of the Azure App Service web app. |
-    | `<Name of your webARM Service connection>` | The name of the service connection that you created in the previous section. |
-    | `<Azure subscriptionId>`     | Your Azure subscription ID. |
-    | `<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
-    | `<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
-
-1. Select **Save and run**, enter text for **Commit message**, and then select **Save and run**.
-
-    Azure Pipelines now runs the CI/CD workflow and will deploy the sample application and create the load test.
-
-1. Select **Pipelines** in the left navigation, and then select new pipeline run from the list to monitor the status.
-
-    You can view the detailed run log by selecting the pipeline job.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
-
-# [GitHub Actions](#tab/github)
-
-You'll create a GitHub Actions workflow in your fork of the sample application repository. This repository contains the following items:
-
-- The sample application source code.
-- The *.github/workflows/workflow.yml* GitHub Actions workflow.
-- The *SampleApp.jmx* JMeter test script.
-- The *SampleApp.yaml* Azure Load Testing configuration file.
-
-To create and run the load test, the GitHub Actions workflow uses the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) from the GitHub Actions Marketplace.
-
-The sample application repository already contains a sample workflow file *.github/workflows/workflow.yml*. The GitHub Actions workflow performs the following steps for every update to the main branch:
-
-
-- Invoke Azure Load Testing by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) and the sample Apache JMeter script *SampleApp.jmx* and the load test configuration file *SampleApp.yaml*.
-
-1. Open the *.github/workflows/workflow.yml* GitHub Actions workflow file in your sample application's repository.
-
-1. Notice the `loadTest` job, which creates and runs the load test:
-
-    - The `azure/login` action authenticates with Azure, by using the `AZURE_CREDENTIALS` secret to pass the service principal credentials.
-
-        ```yml
-          - name: Login to Azure
-            uses: azure/login@v1
-            continue-on-error: false
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-        ```
-
-    - The `azure/arm-deploy` action deploys a new Azure load testing resource in your Azure subscription.
-
-        ```yml
-            - name: Create Azure Load Testing resource
-                    uses: azure/arm-deploy@v1
-                    with:
-                      resourceGroupName: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
-                      template: ./ARMTemplate/template.json
-                      parameters: ./ARMTemplate/parameters.json name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOCATION }}"
-        ```
-
-    - The `azure/load-testing` [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) creates and starts a load test. This action uses the `SampleApp.yaml` [load test configuration file](./reference-test-config-yaml.md), which contains the configuration parameters for the load test, such as the number of parallel test engines.
-
-        ```yml
-          - name: 'Azure Load Testing'
-            uses: azure/load-testing@v1
-            with:
-              loadTestConfigFile: 'SampleApp.yaml'
-              loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
-              resourceGroup: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
-              env: |
-                [
-                  {
-                  "name": "webapp",
-                  "value": "${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
-                  }
-                ]          
-        ```
-
-        If a load test already exists, the `azure/load-testing` action won't create a new load test, but will add a test run to this load test. To identify regressions over time, you can then [compare multiple test runs](./how-to-compare-multiple-test-runs.md).
-    
-1. Replace the following placeholder text at the beginning of the workflow definition file:
-
-    These variables are used to configure the deployment of the sample application, and to create the load test.
-
-    |Placeholder  |Value  |
-    |---------|---------|
-    |`<Name of your webapp>`     | The name of the Azure App Service web app. |
-    |`<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
-    |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
-
-    ```yaml
-    env:
-      AZURE_WEBAPP_NAME: "<Name of your webapp>"    # set this to your application's name
-      LOAD_TEST_RESOURCE: "<Name of your load test resource>"
-      LOAD_TEST_RESOURCE_GROUP: "<Name of your load test resource group>"
-    ```
-
-1. Commit your changes to the main branch.
-
-    The commit will trigger the GitHub Actions workflow in your repository. Verify that the workflow is running by going to the **Actions** tab.
-
----
+You've now configured and run an Azure Pipelines workflow that automatically runs a load test each time a source code update is made.
 
 ## View load test results
 
-Azure Load Testing enables you to view the results of the load test run directly in the CI/CD workflow output. The CI/CD log contains the following client-side metrics:
+While the CI pipeline is running, you can view the load test statistics directly in the Azure Pipelines log. The CI/CD log displays the following load test statistics: response time metrics, requests per second, total number of requests, number of errors, and error rate. Alternately, you can navigate directly to the load test dashboard in the Azure portal by selecting the URL in the pipeline log.
 
-- Response time metrics: average, minimum, median, maximum, and 90-95-99 percentiles.
-- Number of requests per second.
-- Total number of requests.
-- Total number of errors.
-- Error rate.
+:::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-load-test-log.png" alt-text="Screenshot that shows the Azure Pipelines run log, displaying the load testing metrics and Azure portal link." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-load-test-log.png":::
 
-In addition, the [load test results file](./how-to-export-test-results.md) is available as a workflow run artifact, which you can download for further reporting.
+You can also download the load test results file, which is available as a pipeline artifact. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
 
-# [Azure Pipelines](#tab/pipelines)
+:::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results." lightbox="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png":::
 
-1. In your Azure DevOps project, select **Pipelines**, and then select your pipeline definition from the list.
+## Add test fail criteria
 
-1. Select the pipeline run to view the run summary.
+To identify performance regressions, you can analyze the test metrics for each pipeline run logs. Ideally, you want the pipeline run to fail whenever your performance or stability requirements aren't met. 
 
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-run-summary.png" alt-text="Screenshot that shows the pipeline run summary.":::
+Azure Load Testing enables you to define load test fail criteria based on client-side metrics, such as the response time or error rate. When at least one of the fail criteria isn't met, the status of the CI pipeline is set to failed accordingly. With test fail criteria, you can now quickly identify if a specific application build results in a performance regression.
 
-1. Select **Load Test** in the **Jobs** section to view the pipeline log.
+To define test fail criteria for the average response time and the error rate:
 
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-log.png" alt-text="Screenshot that shows the Azure Pipelines run log.":::
+1. In your Azure DevOps project, select **Repos** > **Files**.
 
-    After the load test finishes, you can view the test summary information and the client-side metrics in the pipeline log. The log also shows the URL to go to the Azure Load Testing dashboard for this load test.
+1. Select the `alt-config-<unique_id>.yml` file, and then select **Edit**.
 
-1. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
+    This YAML file specifies the load test configuration settings, such as the reference to the JMeter test script, the list of fail criteria, references to input data files, and more.
 
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
-
-# [GitHub Actions](#tab/github)
-
-1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
-    
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-workflow-run-list.png" alt-text="Screenshot that shows the list of GitHub Actions workflow runs.":::
-    
-1. Select the workflow run from the list to open the run details and logging information.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
-
-    After the load test finishes, you can view the test summary information and the client-side metrics in the workflow log. The log also shows the steps to go to the Azure Load Testing dashboard for this load test.
-
-1. On the screen that shows the workflow run's details, select the **loadTestResults** artifact to download the result files for the load test.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
-
----
-
-## Define test fail criteria
-
-Azure Load Testing enables you to define load test fail criteria. These criteria determine when a load test should pass or fail. For example, your load test should fail when the average response time is greater than a specific value, or when too many errors occur.
-
-When you run a load test as part of a CI/CD pipeline, the status of the pipeline run will reflect the status of the load test. This approach allows you to quickly identify performance regressions, or degraded application behavior when the application is experiencing high load.
-
-In this section, you'll configure test fail criteria based on the average response time and the error rate.
-
-You can specify load test fail criteria for Azure Load Testing in the test configuration YAML file. Learn more about [configuring load test fail criteria](./how-to-define-test-criteria.md).
-
-1. Edit the *SampleApp.yml* file in your fork of the sample application GitHub repository.
-
-1. Add the following snippet at the end of the file:
+1. Replace the `failureCriteria:` with the following snippet to define two test fail criteria:
 
     ```yaml
     failureCriteria: 
@@ -423,14 +205,16 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
         - percentage(error) > 20
     ```
 
-    You've now specified fail criteria for your load test based on the average response time and the error rate. The test will fail if at least one of these conditions is met:
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-update-load-test-config.png" alt-text="Screenshot that shows how to update the load test configuration file with test criteria in Azure Pipelines." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-update-load-test-config.png":::
+
+    You've now specified fail criteria for your load test based on the average response time and the error rate. The test fails if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
     - The aggregate percentage of errors is greater than 20%.
 
-1. Commit and push the changes to the main branch of the repository.
-    
-    The changes will trigger the CI/CD workflow.
+1. Select **Commit** to save the updates.
+
+    Updating the file will trigger the CI/CD workflow.
 
 1. After the test finishes, notice that the CI/CD pipeline run has failed.
 
@@ -440,7 +224,7 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's fail criteria to increase the criterion for average response time:
+1. Edit the `alt-config-<unique_id>.yml` file and change the test's fail criteria to increase the criterion for average response time:
 
     ```yaml
     failureCriteria: 
@@ -456,11 +240,11 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
-You've now created a CI/CD workflow that uses Azure Load Testing to automate running load tests. By using load test fail criteria, you can set the status of the CI/CD workflow and quickly identify performance and application behavior degradations.
+In this tutorial, you've set up a new CI/CD workflow in Azure Pipelines to automatically run a load test with every code change. By using test fail criteria, you can identify when a performance regression was introduced in the application.
 
-* Learn more about [Configuring server-side monitoring](./how-to-monitor-server-side-metrics.md).
-* Learn more about [Comparing results across multiple test runs](./how-to-compare-multiple-test-runs.md).
-* Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
-* Learn more about [Defining test fail criteria](./how-to-define-test-criteria.md).
+* [Manually configure load testing in CI/CD](./how-to-configure-load-test-cicd.md) if you're using GitHub Actions, or want to use an existing workflow.
+* [Identify performance degradation over time by using metrics trends](./how-to-compare-multiple-test-runs.md#view-metrics-trends-across-test-runs).
+* [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks.
+* Learn more about [test fail criteria](./how-to-define-test-criteria.md).

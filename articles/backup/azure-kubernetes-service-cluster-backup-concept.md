@@ -37,7 +37,7 @@ Learn [how to manage the operation to install Backup Extension using Azure CLI](
 
 ## Trusted Access
 
-Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Azure Active Directory (Azure AD) application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Azure AD clusters, and authorized IP range clusters.
+Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Entra application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Microsoft Entra ID clusters, and authorized IP range clusters.
 
 Your Azure resources access AKS clusters through the AKS regional gateway using system-assigned managed identity authentication. The managed identity must have the appropriate Kubernetes permissions assigned via an Azure resource role.
 
@@ -64,7 +64,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, AKS backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
   >[!Note]
   >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
@@ -109,4 +109,3 @@ Also, as part of the backup and restore operations, the following roles are assi
 - [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
 - [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
 - [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
-

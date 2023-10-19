@@ -5,8 +5,7 @@ description: Get started using Content Safety to analyze image and text content 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023, devx-track-python, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 07/18/2023
@@ -38,6 +37,18 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](./includes/quickstarts/python-quickstart-text.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/java-quickstart-text.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/javascript-quickstart-text.md)]
 
 ::: zone-end
 

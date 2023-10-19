@@ -5,12 +5,11 @@ description: Clients making requests against Azure Blob storage can provide an e
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.date: 05/09/2022
 ms.topic: conceptual
 ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ---
 
 # Provide an encryption key on a request to Blob storage

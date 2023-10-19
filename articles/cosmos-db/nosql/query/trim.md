@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -47,7 +47,7 @@ This example illustrates various ways to trim a string expression.
 
 - This function doesn't use the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`TRUNC`](trunc.md)

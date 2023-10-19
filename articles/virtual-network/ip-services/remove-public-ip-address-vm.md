@@ -52,7 +52,7 @@ az network nic ip-config update \
  --name ipconfigmyVM \
  --resource-group myResourceGroup \
  --nic-name myVMNic \
- --public-ip-address ''
+ --public-ip-address null
 ```
 
 - If you don't know the name of the network interface attached to your VM, use the [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) command to view them. For example, the following command lists the names of the network interfaces attached to a VM named *myVM* in a resource group named *myResourceGroup*:
@@ -110,7 +110,7 @@ The following example dissociates a public IP address named *myVMPublicIP* from 
   
 ```azurepowershell
 $nic = Get-AzNetworkInterface -Name myVMNic -ResourceGroup myResourceGroup
-$nic.IpConfigurations.publicipaddress.id = $null
+$nic.IpConfigurations[0].PublicIpAddress = $null
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 

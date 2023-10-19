@@ -1,6 +1,6 @@
 ---
 title: API connector code samples for user flows
-description: Code samples for API connectors in self-service sign-up flows for Azure Active Directory External Identities.
+description: Code samples for API connectors in self-service sign-up flows for Microsoft Entra External ID.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -45,4 +45,3 @@ The following tables provide links to code samples for applying web APIs in your
 
 - [Code and Azure PowerShell samples](code-samples.md)
 - [External Identities pricing](external-identities-pricing.md)
-

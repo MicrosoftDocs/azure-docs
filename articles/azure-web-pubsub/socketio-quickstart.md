@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Incorporate Web PubSub for Socket.IO in your app'
 description: In this quickstart, you learn how to use Web PubSub for Socket.IO on an existing Socket.IO app.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -11,9 +11,9 @@ ms.topic: quickstart
 
 # Quickstart: Incorporate Web PubSub for Socket.IO in your app
 
-This quickstart is for existing Socket.IO users. It demonstrates how quickly you can incorporate Web PubSub for Socket.IO in your app to simplify development, speed up deployment, and achieve scalability without complexity.
+This quickstart demonstrates how to create a Web PubSub for Socket.IO resource and quickly incorporate it in your Socket.IO app to simplify development, speed up deployment, and achieve scalability without complexity.
 
-Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/chat).
+Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://aka.ms/awps/sio/sample/quickstart-esm).
 
 ## Prerequisites
 
@@ -23,13 +23,37 @@ Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript m
 
 ## Create a Web PubSub for Socket.IO resource
 
-1. Go to the [Azure portal](https://portal.azure.com/).
-1. Search for **socket.io**, and then select **Web PubSub for Socket.IO**.
-1. Select a plan, and then select **Create**.
+To create a Web PubSub for Socket.IO, you can use the following one-click button to create or follow the actions below to search in Azure portal.
 
-   :::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal.":::
+- Use the following button to create a Web PubSub for Socket.IO resource in Azure
 
-## Initialize a Node project and install required packages
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://ms.portal.azure.com/#create/Microsoft.WebPubSubForSocketIO)
+
+- Search from Azure portal search bar
+
+    1. Go to the [Azure portal](https://portal.azure.com/).
+
+    1. Search for **socket.io**, in the search bar and then select **Web PubSub for Socket.IO**.
+
+        :::image type="content" source="./media/socketio-quickstart/search.png" alt-text="Screenshot of searching the Web PubSub for Socket.IO service in the Azure portal.":::
+
+- Search from Marketplace
+
+    1. Go to the [Azure portal](https://portal.azure.com/).
+
+    1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal. Type **socket.io** in the search box and press enter. Select the **Web PubSub for Socket.IO** in the search result.
+
+        :::image type="content" source="./media/socketio-quickstart/marketplace.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the marketplace.":::
+
+    1. Click **Create** in the pop out page.
+
+        :::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal.":::
+
+## Sending messages with Socket.IO libraries and Web PubSub for Socket.IO
+
+In the following steps, you create a Socket.IO project and integrate with Web PubSub for Socket.IO.
+
+### Initialize a Node project and install required packages
 
 ```bash
 mkdir quickstart
@@ -38,83 +62,77 @@ npm init
 npm install @azure/web-pubsub-socket.io socket.io-client
 ```
 
-## Write server code
+### Write server code
 
-1. Import required packages and create a configuration for Web PubSub:
+Create a `server.js` file and add following code to create a Socket.IO server and integrate with Web PubSub for Socket.IO.
 
-    ```javascript
-    /*server.js*/
-    const { Server } = require("socket.io");
-    const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
+```javascript
+/*server.js*/
+const { Server } = require("socket.io");
+const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
 
-    // Add a Web PubSub option
-    const wpsOptions = {
-        hub: "eio_hub", // The hub name can be any valid string.
-        connectionString: process.argv[2] || process.env.WebPubSubConnectionString
-    }
-    ```
+let io = new Server(3000);
 
-2. Create a Socket.IO server that Web PubSub for Socket.IO supports:
+// Use the following line to integrate with Web PubSub for Socket.IO
+useAzureSocketIO(io, {
+    hub: "Hub", // The hub name can be any valid string.
+    connectionString: process.argv[2]
+});
 
-    ```javascript
-    /*server.js*/
-    let io = new Server(3000);
-    useAzureSocketIO(io, wpsOptions);
-    ```
+io.on("connection", (socket) => {
+    // Sends a message to the client
+    socket.emit("hello", "world");
 
-3. Write server logic:
+    // Receives a message from the client
+    socket.on("howdy", (arg) => {
+        console.log(arg);   // Prints "stranger"
+    })
+});
+```
 
-    ```javascript
-    /*server.js*/
-    io.on("connection", (socket) => {
-        // Sends a message to the client
-        socket.emit("hello", "world");
+### Write client code
 
-        // Receives a message from the client
-        socket.on("howdy", (arg) => {
-            console.log(arg);   // Prints "stranger"
-        })
-    });
-    ```
+Create a `client.js` file and add following code to connect the client with Web PubSub for Socket.IO.
 
-## Write client code
+```javascript
+/*client.js*/
+const io = require("socket.io-client");
 
-1. Create a Socket.IO client:
+const socket = io("<web-pubsub-socketio-endpoint>", {
+    path: "/clients/socketio/hubs/Hub",
+});
 
-    ```javascript
-    /*client.js*/
-    const io = require("socket.io-client");
+// Receives a message from the server
+socket.on("hello", (arg) => {
+    console.log(arg);
+});
 
-    const webPubSubEndpoint = process.argv[2] || "<web-pubsub-socketio-endpoint>";
-    const socket = io(webPubSubEndpoint, {
-        path: "/clients/socketio/hubs/eio_hub",
-    });
-    ```
+// Sends a message to the server
+socket.emit("howdy", "stranger")
+```
 
-2. Define the client behavior:
+When you use Web PubSub for Socket.IO, `<web-pubsub-socketio-endpoint>` and `path` are required for the client to connect to the service. The `<web-pubsub-socketio-endpoint>` and `path` can be found in Azure portal.
 
-    ```javascript
-    /*client.js*/
+1. Go to the **key** blade of Web PubSub for Socket.IO
 
-    // Receives a message from the server
-    socket.on("hello", (arg) => {
-        console.log(arg);
-    });
+1. Type in your hub name and copy the **Client Endpoint** and **Client Path**
 
-    // Sends a message to the server
-    socket.emit("howdy", "stranger")
-    ```
+    :::image type="content" source="./media/socketio-quickstart/client-url.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal client endpoints blade.":::
 
 ## Run the app
 
 1. Run the server app:
 
     ```bash
-    node server.js "<web-pubsub-connection-string>"
+    node server.js "<connection-string>"
     ```
+
+    The `<connection-string>` is the connection string that contains the endpoint and keys to access your Web PubSub for Socket.IO resource. You can also find the connection string in Azure portal
+
+    :::image type="content" source="./media/socketio-quickstart/connection-string.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal connection string blade.":::
 
 2. Run the client app in another terminal:
 
     ```bash
-    node client.js "<web-pubsub-endpoint>"
+    node client.js
     ```

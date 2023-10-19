@@ -14,7 +14,7 @@ ms.date: 03/03/2023
 
 # Increase the resilience of authentication and authorization in daemon applications you develop
 
-Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
+Learn to use the Microsoft identity platform and Microsoft Entra ID to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
 
 See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 
@@ -44,7 +44,7 @@ If you develop daemon apps on ASP.NET Core, use the Microsoft.Identity.Web libra
 
 Learn more:
 
-* [Microsoft Identity Web authentication library](../develop/microsoft-identity-web.md)
+* [Microsoft Identity Web authentication library](/entra/msal/dotnet/microsoft-identity-web/)
 * [Distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache)
 
 ## Cache and store tokens

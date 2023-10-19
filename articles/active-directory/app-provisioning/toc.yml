@@ -102,7 +102,7 @@ items:
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
       - name: Provisioning insights workbook
         href: provisioning-workbook.md  
     - name: Workday provisioning scenarios
@@ -124,7 +124,7 @@ items:
       - name: Troubleshooting on-premises provisioning
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -165,7 +165,7 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
-    - name: Prepare AD LDS for provisioning from Azure AD
+    - name: Prepare AD LDS for provisioning from Microsoft Entra ID
       href: on-premises-ldap-connector-prepare-directory.md
     - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
       href: inbound-provisioning-api-faqs.md
@@ -176,7 +176,7 @@ items:
     - name: Azure feedback forum
       href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
     - name: Microsoft Q&A question page
-      href: /answers/topics/azure-active-directory.html
+      href: /answers/tags/455/entra-id
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Service updates

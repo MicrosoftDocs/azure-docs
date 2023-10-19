@@ -35,14 +35,12 @@
     items:
     - name: Configure cross-tenant synchronization
       items:
-      - name: Portal
+      - name: Admin center
         href: cross-tenant-synchronization-configure.md
       - name: PowerShell or Graph API
         href: cross-tenant-synchronization-configure-graph.md
     - name: Scoping users or groups to be provisioned
       href: ../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
-    - name: Skip deletion for out-of-scope users
-      href: ../app-provisioning/skip-out-of-scope-deletions.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
     - name: Enable accidental deletions prevention
       href: ../app-provisioning/accidental-deletions.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
     - name: Provision on-demand

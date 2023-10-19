@@ -22,7 +22,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using the Azure CLI:
 
@@ -37,14 +37,14 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
-  - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
+  - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
 
-  - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
+  - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
 
-  - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
+  - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 
   > [!NOTE]
-  > No additional Azure AD directory role assignments required.
+  > No additional Microsoft Entra directory role assignments required.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -56,7 +56,7 @@ In this section, you learn how to enable and disable the system-assigned managed
 
 To create a virtual machine scale set with the system-assigned managed identity enabled:
 
-1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
+1. Create a [resource group](/azure/azure-resource-manager/management/overview#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -70,7 +70,7 @@ To create a virtual machine scale set with the system-assigned managed identity 
 
 ### Enable system-assigned managed identity on an existing Azure virtual machine scale set
 
-If you need to [Enable](/cli/azure/vmss/identity/#az-vmss-identity-assign) the system-assigned managed identity on an existing Azure virtual machine scale set:
+If you need to [Enable](/cli/azure/vmss/identity#az-vmss-identity-assign) the system-assigned managed identity on an existing Azure virtual machine scale set:
 
 ```azurecli-interactive
 az vmss identity assign -g myResourceGroup -n myVMSS
@@ -131,7 +131,7 @@ This section walks you through creation of a virtual machine scale set and assig
    }
    ```
 
-3. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter, with the specified `--role` and `--scope`. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, `<USER ASSIGNED IDENTITY>`, `<ROLE>`, and `<SUBSCRIPTION>` parameter values with your own values.
+3. [Create](/cli/azure/vmss#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter, with the specified `--role` and `--scope`. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, `<USER ASSIGNED IDENTITY>`, `<ROLE>`, and `<SUBSCRIPTION>` parameter values with your own values.
 
    ```azurecli-interactive
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image <SKU Linux Image> --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY> --role <ROLE> --scope <SUBSCRIPTION>
@@ -194,4 +194,4 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 ## Next steps
 
 - [Managed identities for Azure resources overview](overview.md)
-- For the full Azure virtual machine scale set creation Quickstart, see [Create a Virtual Machine Scale Set with CLI](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
+- For the full Azure virtual machine scale set creation Quickstart, see [Create a Virtual Machine Scale Set with CLI](/azure/virtual-machines/linux/tutorial-create-vmss#create-a-scale-set)

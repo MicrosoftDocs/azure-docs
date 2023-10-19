@@ -46,6 +46,8 @@ Use the following steps to enable logging on control plane operations:
 
 1. Select **ControlPlaneRequests** for log type and select the **Send to Log Analytics** option.
 
+1. Optionally, send the diagnostic logs to Azure Storage, Azure Event Hubs, Azure Monitor, or a third party.
+
 You can also store the logs in a storage account or stream to an event hub. This article shows how to send logs to log analytics and then query them. After you enable, it takes a few minutes for the diagnostic logs to take effect. All the control plane operations performed after that point can be tracked. The following screenshot shows how to enable control plane logs:
 
 :::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Enable control plane requests logging":::

@@ -2305,6 +2305,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
 > | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
+> | firewallPolicies / ruleCollectionGroups | No | No |
 > | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
 > | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
@@ -2315,6 +2316,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | internalPublicIpAddresses | No | No |
 > | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
+> | loadBalancers / backendAddressPools | No | No |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkExperimentProfiles | Yes | Yes |
@@ -2324,6 +2326,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
+> | networkSecurityGroups / securityRules | No | No |
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
@@ -2352,6 +2355,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | publicIPPrefixes | Yes | Yes |
 > | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
+> | routeTables / routes | No | No |
 > | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
@@ -2365,6 +2369,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworks / privateDnsZoneLinks | No | No |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworks / taggedTrafficConsumers | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualRouters | Yes | Yes |

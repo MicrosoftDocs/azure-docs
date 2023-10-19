@@ -50,7 +50,7 @@ call_automation_client = CallAutomationClient.from_connection_string((("<Azure C
 -----
 
 ## Send DTMF
-You can send dtmf tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate. 
+You can send DTMF tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate. 
 
 >[!NOTE]
 >This is only supported for external PSTN participants and supports sending a maximum of 18 tones at a time.

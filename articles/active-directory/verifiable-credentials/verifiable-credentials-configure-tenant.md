@@ -1,31 +1,31 @@
 ---
-title: Tutorial - Configure your tenant for Microsoft Entra Verified ID
-description: In this tutorial, you learn how to configure your tenant to support the Verified ID service. 
+title: Tutorial - Manual Microsoft Entra Verified ID setup
+description: In this tutorial, you learn how to manually configure your tenant to support the Verified ID service. 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 01/26/2023
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
 
-# Configure your tenant for Microsoft Entra Verified ID
+# Manual Microsoft Entra Verified ID setup
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in apps and services. In both cases, your Azure AD tenant needs to be configured to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials issued by a third party. In the event that you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials and verify those of others.
+Manual Verified ID setup is the classic way of setting up Verified ID where you as an admin have to configure Azure KeyVault, take care of registering your decentralized ID and verifying your domain.
 
-In this tutorial, you learn how to configure your Azure AD tenant to use the verifiable credentials service.
+In this tutorial, you learn how to use the manual setup to configure your Microsoft Entra tenant to use the verifiable credentials service.
 
 Specifically, you learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Key Vault instance.
-> - Set up the Verified ID service.
-> - Register an application in Azure AD.
+> - Configure your the Verified ID service using the manual setup.
+> - Register an application in Microsoft Entra ID.
 
 The following diagram illustrates the Verified ID architecture and the component you configure.
 
@@ -34,31 +34,27 @@ The following diagram illustrates the Verified ID architecture and the component
 ## Prerequisites
 
 - You need an Azure tenant with an active subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you need the [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) permission to complete the app registration including granting admin consent.
-- Ensure that you have the [contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the Azure subscription or the resource group where you are deploying Azure Key Vault.
+- Ensure that you have the [global administrator](../roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you need the [application administrator](../roles/permissions-reference.md#application-administrator) permission to complete the app registration including granting admin consent.
+- Ensure that you have the [contributor](/azure/role-based-access-control/built-in-roles#contributor) role for the Azure subscription or the resource group where you are deploying Azure Key Vault.
 
 ## Create a key vault
 
-[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. The Verified ID service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
+[Azure Key Vault](/azure/key-vault/general/basic-concepts) is a cloud service that enables the secure storage and access of secrets and keys. The Verified ID service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
-If you don't have an Azure Key Vault instance available, follow [these steps](../../key-vault/general/quick-create-portal.md) to create a key vault using the Azure portal.
+If you don't have an Azure Key Vault instance available, follow [these steps](/azure/key-vault/general/quick-create-portal) to create a key vault using the Azure portal.
 
 >[!NOTE]
 >By default, the account that creates a vault is the only one with access. The Verified ID service needs access to the key vault. You must configure your key vault with access policies allowing the account used during configuration to create and delete keys. The account used during configuration also requires permissions to sign so that it can create the domain binding for Verified ID. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
 
 ### Set access policies for the key vault
 
-A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the Verified ID service administrator account, and for the Request Service API principal that you created.
+A Key Vault [access policy](/azure/key-vault/general/assign-access-policy) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the Verified ID service administrator account, and for the Request Service API principal that you created.
 After you create your key vault, Verifiable Credentials generates a set of keys used to provide message security. These keys are stored in Key Vault. You use a key set for signing, updating, and recovering verifiable credentials.
 
 ### Set access policies for the Verified ID Admin user
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
 1. Go to the key vault you use for this tutorial.
-
 1. Under **Settings**, select **Access policies**.
 
 1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
@@ -75,13 +71,13 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 To set up Verified ID, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-1. Search for *Verified ID*. Then, select **Verified ID**.
+1. Select **Verified ID**.
 
 1. From the left menu, select **Setup**.
 
-1. From the middle menu, select **Define organization settings**
+1. From the middle menu, select **Configure organization settings**
 
 1. Set up your organization by providing the following information:
 
@@ -93,11 +89,6 @@ To set up Verified ID, follow these steps:
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://did.woodgrove.com`.
 
     1. **Key vault**: Select the key vault that you created earlier.
-
-    1. Under **Advanced**, you may choose the **trust system** that you want to use for your tenant. You can choose from either **Web** or **ION**. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as the did method and ION means it uses [did:ion](https://identity.foundation/ion/).
-
-        >[!IMPORTANT]
-        > The only way to change the trust system is to opt-out of the Verified ID service and redo the onboarding.
 
 1. Select **Save**.  
 
@@ -115,15 +106,16 @@ If you ever are in need of manually resetting the permissions, the access policy
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals.":::
 
-## Register an application in Azure AD
+<a name='register-an-application-in-azure-ad'></a>
+
+## Register an application in Microsoft Entra ID
 
 Your application needs to get access tokens when it wants to call into Microsoft Entra Verified ID so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verified ID Request Service. For example, use the following steps for a web application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
 
-1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
-
-1. Under **Manage**, select **App registrations** > **New registration**.  
+1. Under **Applications**, select **App registrations** > **New registration**.  
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
 
@@ -169,7 +161,8 @@ After Azure Key Vault is setup, and the service have a signing key, you must com
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
 
-1. Navigate to the Verified ID service in the Azure portal.  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select **Verifiable credentials**
 1. From the left menu, select **Setup**.
 1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in article [How to register your decentralized ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
 1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in article [Verify domain ownership to your Decentralized Identifier (DID)](how-to-dnsbind.md)

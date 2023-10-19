@@ -226,7 +226,7 @@ Your network design should address several requirements for SAP deployment:
 - Network routing restrictions are enforced by [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) on the subnet level. Group IPs of VMs into [application security groups (ASGs)](/azure/virtual-network/application-security-groups) that are maintained in the NSG rules, and provide role, tier, and SID groupings of permissions.
 - SAP application and database VMs run in the same virtual network, within the same or different subnets of a single virtual network. Use different subnets for application and database VMs. Alternatively, use dedicated application and DBMS ASGs to group rules that are applicable to each workload type within the same subnet.
 - Accelerated networking is enabled on all network cards of all VMs for SAP workloads where technically possible.
-- Ensure secure access for dependency on central services, including for name resolution (DNS), identity management (Windows Server Active Directory domains/Azure Active Directory), and administrative access.
+- Ensure secure access for dependency on central services, including for name resolution (DNS), identity management (Windows Server Active Directory domains/Microsoft Entra ID), and administrative access.
 - Provide access to and by public endpoints, as needed. Examples include for Azure management for ClusterLabs Pacemaker operations in high availability or for Azure services like Azure Backup.
 - Use multiple NICs only if they're necessary to create designated subnets that have their own routes and NSG rules.
 

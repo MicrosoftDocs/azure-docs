@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -21,13 +21,13 @@ ms.reviewer: chmutali
 
 | Troubleshooting | Details |
 |-- | -- |
-| **Issue** | You have successfully configured the Writeback app. You are getting null or empty value from Azure AD. You expect the provisioning service to clear the corresponding email or phone number value in the HR app. But the operation fails. |
+| **Issue** | You have successfully configured the Writeback app. You are getting null or empty value from Microsoft Entra ID. You expect the provisioning service to clear the corresponding email or phone number value in the HR app. But the operation fails. |
 | **Cause** | The provisioning service does not have a default logic for null value processing. When the provisioning service gets an empty string from the source app, it tries to flow the value "as-is" to the target app. If Workday or SuccessFactors cannot process empty values, then an error is returned. |
 | **Resolution** | Update the attribute mapping to use expression mappings as recommended below. |
 
 **Recommended resolutions**
 
-  Let's say the attribute `telephoneNumber` mapped to SAP SuccessFactors attribute `businessPhoneNumber` may be null or empty in Azure AD. 
+  Let's say the attribute `telephoneNumber` mapped to SAP SuccessFactors attribute `businessPhoneNumber` may be null or empty in Microsoft Entra ID. 
   * Option 1: Define an expression to check for empty or null values using functions like [IIF](functions-for-customizing-application-data.md#iif), [IsNullOrEmpty](functions-for-customizing-application-data.md#isnullorempty), [Coalesce](functions-for-customizing-application-data.md#coalesce) or [IsPresent](functions-for-customizing-application-data.md#ispresent) and pass a non-blank literal value (example: 000-000-0000 in this case). 
   
      `IIF(IsNullOrEmpty([telephoneNumber]),"000-000-0000",[telephoneNumber])`
@@ -40,5 +40,5 @@ ms.reviewer: chmutali
 
 ## Next steps
 
-* [Learn more about Azure AD and Workday integration scenarios and web service calls](workday-integration-reference.md)
+* [Learn more about Microsoft Entra ID and Workday integration scenarios and web service calls](workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md)

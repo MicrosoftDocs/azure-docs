@@ -5,8 +5,7 @@ description: Learn how to evaluate and score your Custom Text Analytics for heal
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/14/2023
 ms.author: aahi

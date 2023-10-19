@@ -7,11 +7,9 @@ ms.date: 08/21/2023
 
 # Deploy Microsoft Defender for Storage
 
-Microsoft Defender for Storage is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by Microsoft Threat Intelligence, Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. With protection for Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption.
+Microsoft Defender for Storage is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684), Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. With protection for Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption.
 
 With Microsoft Defender for Storage, organizations can customize their protection and enforce consistent security policies by enabling it on subscriptions and storage accounts with granular control and flexibility.
-
-Defender for Storage in Microsoft Defender for Cloud is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
    > [!TIP] 
    > If you're currently using Microsoft Defender for Storage classic, consider [migrating to the new plan](defender-for-storage-classic-migrate.md), which offers several benefits over the classic plan.
@@ -21,7 +19,7 @@ Defender for Storage in Microsoft Defender for Cloud is an Azure-native layer of
 | Aspect | Details |
 |---------|---------|
 |Release state: | General Availability (GA) |
-| Feature availability: | - Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning - Preview, General Availability (GA) on September 1, 2023<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview<br>- Malware Scanning(add-on) - free during public preview**<br><br> Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud) to learn more. |
+| Feature availability: |- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview<br><br>Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud) to learn more. |
 |Required roles and permissions: | For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions. |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds*<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the classic plan)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts        |
 
@@ -55,4 +53,6 @@ Enabling Defender for Storage via a policy is recommended because it facilitates
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+
+
 

@@ -49,7 +49,7 @@ SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange:
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
-- Inactive - Indicates inactive connection. 
+- Warning - Indicates TLS or Ping is expired. 
 
 > [!IMPORTANT]
 > Before placing or receiving calls, make sure that SBC status is *Online*

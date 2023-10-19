@@ -83,7 +83,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
    It can take some time for the new custom domain settings to propagate to all CDN edge nodes: 
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
     - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes.   
+    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.   
 
 ## Enable HTTPS on your custom domain
 

@@ -26,7 +26,7 @@ In this tutorial, you'll learn:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account] before you begin.
+If you don't have an Azure subscription, create a [free Azure account] before you begin.
 
 * An [Azure Maps account]
 * A [subscription key]
@@ -69,7 +69,7 @@ The following table provides a high-level list of Bing Maps features and the rel
 
 <sup>1</sup> While there's no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
 
-Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
+Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Microsoft Entra authentication.
 
 ## Licensing considerations
 
@@ -84,7 +84,6 @@ Here are some licensing-related resources for Azure Maps:
 * [Azure Maps pricing page]
 * [Azure pricing calculator]
 * [Azure Maps term of use] (Scroll down to the Azure Maps section)
-* [Choose the right pricing tier in Azure Maps]
 
 ## Suggested migration plan
 
@@ -93,7 +92,7 @@ Here's an example of a high-level migration plan.
 1. Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
 1. Create an Azure subscription (if you don’t already have one) at [azure.com]).
 1. Create an [Azure Maps account].
-1. Setup authentication using an Azure Maps [subscription key] or [Azure Active Directory authentication].
+1. Setup authentication using an Azure Maps [subscription key] or [Microsoft Entra authentication].
 1. Migrate your application code.
 1. Test your migrated application.
 1. Deploy your migrated application to production.
@@ -105,7 +104,7 @@ To create an Azure Maps account and get access to the Azure Maps platform, follo
 1. If you don't have an Azure subscription, create a [free Azure account] before you begin.
 2. Sign in to the [Azure portal].
 3. Create an [Azure Maps account].
-4. Get your Azure Maps [subscription key] or setup [Azure Active Directory authentication] for enhanced security.
+4. Get your Azure Maps [subscription key] or setup [Microsoft Entra authentication] for enhanced security.
 
 ## Azure Maps technical resources
 
@@ -172,8 +171,6 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Azure support options]: https://azure.microsoft.com/support/options/
 [azure.com]: https://azure.com
 [Basic snap to road logic]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=basic-snap-to-road-logic
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-[free account]: https://azure.microsoft.com/free/
 [free Azure account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31

@@ -70,7 +70,7 @@
     items:
     - name: Session hosts
       items:
-      - name: Azure AD-joined session hosts
+      - name: Microsoft Entra joined session hosts
         displayName: virtual machines, vms
         href: azure-ad-joined-session-hosts.md
       - name: Virtual machine sizing guidance
@@ -79,22 +79,22 @@
       - name: Custom image templates
         displayName: virtual machines, vms, images, vhd, vhdx
         href: custom-image-templates.md
-      - name: Windows 10 Enterprise multi-session FAQ
-        href: windows-10-multisession-faq.yml
+      - name: Windows Enterprise multi-session FAQ
+        href: windows-multisession-faq.yml
       - name: Fair Share technologies
         displayName: virtual machines, vms, cpu, processor
-        href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Network connectivity
       items:
       - name: Understanding network connectivity
         displayName: connections
         href: network-connectivity.md
       - name: RDP Shortpath
-        displayName: network, udp
+        displayName: network connectivity, connections, udp
         href: rdp-shortpath.md
-      - name: Implement Quality of Service
-        displayName: network, qos
-        href: rdp-quality-of-service-qos.md
+      - name: Azure Private Link
+        displayName: network connectivity, connections, private endpoints
+        href: private-link-overview.md
       - name: Required URL list
         displayName: network, urls, firewall, connections, connectivity
         href: safe-url-list.md
@@ -103,9 +103,9 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Azure Private Link
-        displayName: network, private endpoints
-        href: private-link-overview.md
+      - name: Implement Quality of Service
+        displayName: network, qos
+        href: rdp-quality-of-service-qos.md
     - name: Identity and access management
       items:
       - name: Identities and authentication
@@ -156,10 +156,10 @@
         href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Multiple identity sources
         items:
-        - name: AD DS and Azure AD
+        - name: AD DS and Microsoft Entra ID
           displayName: architecture
           href: /azure/architecture/example-scenario/wvd/multi-forest?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-        - name: Azure AD, AD DS, and Azure AD DS
+        - name: Microsoft Entra ID, AD DS, and Microsoft Entra Domain Services
           displayName: architecture
           href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Manage
@@ -284,12 +284,17 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, applications, apps
             href: msixmgr-tool-syntax-description.md 
-        - name: Use Microsoft Teams
-          displayName: applications, apps, webrtc
-          href: teams-on-avd.md
-        - name: Set up Windows Sandbox
-          displayName: applications, apps
-          href: sandbox.md
+        - name: Specific applications
+          items:
+          - name: Use Microsoft Teams
+            displayName: applications, apps, webrtc
+            href: teams-on-avd.md
+          - name: Use OneDrive with RemoteApp
+            displayName: applications, apps
+            href: onedrive-remoteapp.md
+          - name: Set up Windows Sandbox
+            displayName: applications, apps
+            href: sandbox.md
       - name: Customize session host images
         items:
         - name: Create custom images with Custom image templates
@@ -306,10 +311,10 @@
           href: install-office-on-wvd-master-image.md
       - name: Identity and access management
         items:
-        - name: Enforce Azure AD MFA
+        - name: Enforce Microsoft Entra multifactor authentication
           displayName: identity, multi-factor authentication, multifactor, multi factor, two-factor authentication, two factor
           href: set-up-mfa.md
-        - name: Configure single sign-on using Azure AD
+        - name: Configure single sign-on using Microsoft Entra ID
           displayName: identity, sso
           href: configure-single-sign-on.md
         - name: Configure single sign-on using AD FS
@@ -349,7 +354,7 @@
         - name: Use Azure Files and Active Directory
           displayName: fslogix, user profiles
           href: fslogix-profile-container-configure-azure-files-active-directory.md
-        - name: Use Azure Files and Azure AD
+        - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
           href: create-profile-container-azure-ad.md
       - name: Language packs
@@ -511,8 +516,8 @@
       - name: Configure device redirections
         href: configure-device-redirections.md
       - name: Install the Remote Desktop client for Windows on a per-user basis
-        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration maneger, configmgr, sccm
-        href: install-client-per-user.md
+        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
+        href: install-windows-client-per-user.md
     - name: Set up email discovery
       displayName: connect
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
@@ -599,7 +604,7 @@
   - name: Diagnosing graphics performance issues
     displayName: troubleshooting
     href: remotefx-graphics-performance-counters.md
-  - name: Connections to Azure AD-joined VMs
+  - name: Connections to Microsoft Entra joined VMs
     displayName: troubleshooting, identity
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
@@ -617,9 +622,6 @@
   - name: RDP Shortpath
     displayName: troubleshooting, network, udp
     href: troubleshoot-rdp-shortpath.md
-  - name: Sign-in screen is blank
-    displayName: troubleshooting, logon
-    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     displayName: troubleshooting, mmr
     href: troubleshoot-multimedia-redirection.md
@@ -676,6 +678,8 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Terraform samples
     href: /azure/developer/terraform/configure-azure-virtual-desktop
+  - name: App Assure for Azure Virtual Desktop
+    href: /microsoft-365/fasttrack/windows-and-other-services#app-assure
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Virtual Desktop (classic) documentation

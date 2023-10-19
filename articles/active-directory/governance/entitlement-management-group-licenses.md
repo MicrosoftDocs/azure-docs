@@ -1,5 +1,5 @@
 ---
-title: Manage the lifecycle of group-based licenses in Azure AD
+title: Manage the lifecycle of group-based licenses in Microsoft Entra ID
 description: This step-by-step tutorial shows how to create an access package for managing group-based licenses in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -17,9 +17,11 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an IT admin, I want step-by-step instructions for creating an access package for managing the lifecycle of group-based licenses.
 
 ---
-# Tutorial: Manage the lifecycle of your group-based licenses in Azure AD
+# Tutorial: Manage the lifecycle of your group-based licenses in Microsoft Entra ID
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
  
-With Azure Active Directory (Azure AD), you can use groups to manage the [licenses for your applications](../enterprise-users/licensing-groups-assign.md). You can make the management of these groups even easier by using entitlement management: 
+With Microsoft Entra ID, you can use groups to manage the [licenses for your applications](../enterprise-users/licensing-groups-assign.md). You can make the management of these groups even easier by using entitlement management: 
 
 * Configure periodic access reviews to ensure only employees that need the licenses are in the group. 
 * Allow other employees to request membership to the group.
@@ -28,7 +30,7 @@ In this tutorial, you play the role of an IT administrator for Woodgrove Bank. Y
  
 To use entitlement management, you must have one of these licenses:
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).

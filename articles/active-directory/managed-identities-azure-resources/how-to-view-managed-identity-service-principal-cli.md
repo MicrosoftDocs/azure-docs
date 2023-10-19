@@ -20,7 +20,7 @@ ms.custom: devx-track-azurecli
 
 # View the service principal of a managed identity using Azure CLI
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication without having credentials in your code. 
 
 In this article, you learn how to view the service principal of a managed identity using Azure CLI.
 
@@ -30,7 +30,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md).
 
-- Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
+- Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -44,4 +44,4 @@ az ad sp list --display-name <Azure resource name>
 
 ## Next steps
 
-For more information on managing Azure AD service principals, see [Azure CLI ad sp](/cli/azure/ad/sp).
+For more information on managing Microsoft Entra service principals, see [Azure CLI ad sp](/cli/azure/ad/sp).

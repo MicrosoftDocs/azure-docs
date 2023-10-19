@@ -30,7 +30,6 @@ The following table lists the current versions available for the public and Insi
 
 In this release, we've made the following changes:
 
-- Teams VDI 2.0 plugin now gets loaded for RDP connections.
 - Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:

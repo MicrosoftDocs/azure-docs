@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date:  7/13/2023
+  ms.date:  10/13/2023
   
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -51,19 +51,7 @@ sections:
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
-          Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
-
-          - **Azure VMware Solution to vNet** is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
-
-          - **Azure VMware Solution to on-premises** is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. 
-
-          For example:
-          
-          - If we connect a vNET in Azure West Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
-          
-          - If we connect a vNET in Azure North Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
-          
-          - If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach you will NOT incur any ExpressRoute Global Reach data transfer (egress and ingress) charges. Please note that there will be charges when using an ExpressRoute gateway.
+          [!INCLUDE [data-charges](includes/data-charges.md)]
 
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 
@@ -95,6 +83,8 @@ sections:
       - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
+      - question: Can I use the folder name "AVS-vendor-folders" for vCenter Server VM folders in Azure VMware Solution?
+        answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Please choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
 
   - name: VMware solution software
     questions:
@@ -202,7 +192,7 @@ sections:
           The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
 
           > [!NOTE]
-          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution.
+          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. Also design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.
@@ -304,7 +294,7 @@ sections:
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloudadmin user in vCenter Server and admin access on NSX-T Manager. You can also use a CloudAdmin group to incorporate Azure Active Directory. For more information, see [Access and identity Concepts](concepts-identity.md).
+        answer: You're provided credentials for a cloudadmin user in vCenter Server and admin access on NSX-T Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity Concepts](concepts-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.
@@ -339,7 +329,7 @@ sections:
         answer: No, an Azure VMware Solution private cloud cannot be shared between end customers. 
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
-        answer: Customers can create multi-tenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
+        answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
 
       - question: As a service provider or customer, can I use my existing VMware Cloud Director (vCD) or new vCD deployment in Azure VMware Solution?
         answer: VMware does not allow vCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.

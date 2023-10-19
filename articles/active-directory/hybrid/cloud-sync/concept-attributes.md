@@ -1,6 +1,6 @@
 ---
-title: 'Understand the Azure AD schema and custom expressions'
-description: This article describes the Azure AD schema, the attributes that the provisioning agent flows, and custom expressions.
+title: 'Understand the Microsoft Entra schema and custom expressions'
+description: This article describes the Microsoft Entra schema, the attributes that the provisioning agent flows, and custom expressions.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,25 +18,25 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Understand the Azure AD schema
-An object in Azure Active Directory (Azure AD), like any directory, is a programmatic high-level data construct that represents such things as users, groups, and contacts. When you create a new user or contact in Azure AD, you're creating a new instance of that object. These instances can be differentiated based on their properties.
+# Understand the Microsoft Entra schema
+An object in Microsoft Entra ID, like any directory, is a programmatic high-level data construct that represents such things as users, groups, and contacts. When you create a new user or contact in Microsoft Entra ID, you're creating a new instance of that object. These instances can be differentiated based on their properties.
 
-Properties in Azure AD are the elements responsible for storing information about an instance of an object in Azure AD.
+Properties in Microsoft Entra ID are the elements responsible for storing information about an instance of an object in Microsoft Entra ID.
 
-The Azure AD schema defines the rules for which properties might be used in an entry, the kinds of values that those properties might have, and how users might interact with those values. 
+The Microsoft Entra schema defines the rules for which properties might be used in an entry, the kinds of values that those properties might have, and how users might interact with those values. 
 
-Azure AD has two types of properties:
-- **Built-in properties**: Properties that are predefined by the Azure AD schema. These properties provide different uses and might or might not be accessible.
-- **Directory extensions**: Properties that are provided so that you can customize Azure AD for your own use. For example, if you've extended your on-premises Active Directory with a certain attribute and want to flow that attribute, you can use one of the custom properties that's provided. 
+Microsoft Entra ID has two types of properties:
+- **Built-in properties**: Properties that are predefined by the Microsoft Entra schema. These properties provide different uses and might or might not be accessible.
+- **Directory extensions**: Properties that are provided so that you can customize Microsoft Entra ID for your own use. For example, if you've extended your on-premises Active Directory with a certain attribute and want to flow that attribute, you can use one of the custom properties that's provided. 
 
 ## Attributes and expressions
-When an object such as a user is provisioned to Azure AD, a new instance of the user object is created. This creation includes the properties of that object, which are also known as attributes. Initially, the newly created object has its attributes set to values that are determined by the synchronization rules. These attributes are then kept up to date via the cloud provisioning agent.
+When an object such as a user is provisioned to Microsoft Entra ID, a new instance of the user object is created. This creation includes the properties of that object, which are also known as attributes. Initially, the newly created object has its attributes set to values that are determined by the synchronization rules. These attributes are then kept up to date via the cloud provisioning agent.
 
 ![Object provisioning](media/concept-attributes/attribute-1.png)
 
-For example, a user might be part of a Marketing department. Their Azure AD department attribute is initially created when they're provisioned, and the value is set to Marketing. Six months later if they change to Sales, their on-premises Active Directory department attribute is changed to Sales. This change synchronizes to Azure AD and is reflected in their Azure AD user object.
+For example, a user might be part of a Marketing department. Their Microsoft Entra department attribute is initially created when they're provisioned, and the value is set to Marketing. Six months later if they change to Sales, their on-premises Active Directory department attribute is changed to Sales. This change synchronizes to Microsoft Entra ID and is reflected in their Microsoft Entra user object.
 
-Attribute synchronization might be direct, where the value in Azure AD is directly set to the value of the on-premises attribute. Or, a programmatic expression might handle the synchronization. A programmatic expression is needed in cases where some logic or a determination must be made to populate the value.
+Attribute synchronization might be direct, where the value in Microsoft Entra ID is directly set to the value of the on-premises attribute. Or, a programmatic expression might handle the synchronization. A programmatic expression is needed in cases where some logic or a determination must be made to populate the value.
 
 For example, if you had the mail attribute "john.smith@contoso.com" and needed to strip out the "@contoso.com" portion and flow only the value "john.smith," you'd use something like this:
 
@@ -47,12 +47,12 @@ For example, if you had the mail attribute "john.smith@contoso.com" and needed t
 * **INPUT** (mail): "john.smith@contoso.com"
 * **OUTPUT**: "john.smith"
 
-For more information on how to write custom expressions and the syntax, see [Writing expressions for attribute mappings in Azure Active Directory](../../app-provisioning/functions-for-customizing-application-data.md).
+For more information on how to write custom expressions and the syntax, see [Writing expressions for attribute mappings in Microsoft Entra ID](../../app-provisioning/functions-for-customizing-application-data.md).
 
-The following table lists common attributes and how they're synchronized to Azure AD.
+The following table lists common attributes and how they're synchronized to Microsoft Entra ID.
 
 
-|On-premises Active Directory|Mapping type|Azure AD|
+|On-premises Active Directory|Mapping type|Microsoft Entra ID|
 |-----|-----|-----|
 |cn|Direct|commonName
 |countryCode|Direct|countryCode|
@@ -64,14 +64,14 @@ The following table lists common attributes and how they're synchronized to Azur
 
 ## View the schema
 > [!WARNING]
-> The cloud sync configuration creates a service principal. The service principal is visible in the Azure portal. You should not modify the attribute mappings using the service principal experience in the Azure portal.  This is not supported.
+> The cloud sync configuration creates a service principal. The service principal is visible in the Microsoft Entra admin center. You should not modify the attribute mappings using the service principal experience in the Microsoft Entra admin center.  This is not supported.
 
 To view the schema and verify it, follow these steps.
 
 1.  Go to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Sign in with your global administrator account.
 1.  On the left, select **modify permissions** and ensure that **Directory.ReadWrite.All** is *Consented*.
-1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(DisplayName, ‘{sync config name}’)`. This query returns a filtered list of service principals.  This can also be acquired via the App Registration node under Azure Active Directory.
+1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(DisplayName, ‘{sync config name}’)`. This query returns a filtered list of service principals.  This can also be acquired via the App Registration node under Microsoft Entra ID.
 1.  Locate `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` and note the value for `"id"`.
     ```
     "value": [
@@ -250,4 +250,4 @@ To view the schema and verify it, follow these steps.
 ## Next steps
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

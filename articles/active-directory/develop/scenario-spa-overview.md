@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js, engagement-fy23
 
 # Scenario: Single-page application
 
-Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](../../static-web-apps/authentication-authorization.md) instead.
+Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](/azure/static-web-apps/authentication-authorization) instead.
 
 ## Getting started
 
@@ -47,7 +47,7 @@ The Microsoft identity platform provides **two** options to enable single-page a
 
 To enable this scenario for your application, you need:
 
-* Application registration with Azure Active Directory (Azure AD). The registration steps differ between the implicit grant flow and authorization code flow.
+* Application registration with Microsoft Entra ID. The registration steps differ between the implicit grant flow and authorization code flow.
 * Application configuration with the registered application properties, such as the application ID.
 * Using Microsoft Authentication Library for JavaScript (MSAL.js) to do the authentication flow to sign in and acquire tokens.
 

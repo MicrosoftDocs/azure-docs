@@ -31,7 +31,7 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
+Microsoft Entra ID is the default identity provider for self-service sign-up. This means that users are able to sign up by default with a Microsoft Entra account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
@@ -40,7 +40,7 @@ Azure AD is the default identity provider for self-service sign-up. This means t
 
 ### Define custom attributes (optional)
 
-User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
+User attributes are values collected from the user during self-service sign-up. Microsoft Entra External ID comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
 
 ## Enable self-service sign-up for your tenant
 
@@ -51,10 +51,8 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 > [!NOTE]
 > This setting can also be configured with the [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type in the Microsoft Graph API.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-1. Under **Manage** in the left menu, select **Users**.
-1. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **User settings**, and then under **External users**, select **Manage external collaboration settings**.
 1. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/enable-self-service-sign-up.png" alt-text="Screenshot of the enable guest self-service sign up toggle.":::
@@ -64,32 +62,30 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 
 Next, you'll create the user flow for self-service sign-up and add it to an application.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**, and then select **New user flow**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**, and then select **New user flow**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/new-user-flow.png" alt-text="Screenshot of the new user flow button.":::
 
-5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
-6. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
-7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
-8. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+1. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
+1. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
+1. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Microsoft Entra ID Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
+1. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::
 
    > [!NOTE]
    > You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
 
-8. Select **Create**.
-9. The new user flow appears in the **User flows** list. If necessary, refresh the page.
+1. Select **Create**.
+1. The new user flow appears in the **User flows** list. If necessary, refresh the page.
 
 ## Select the layout of the attribute collection form
 
 You can choose order in which the attributes are displayed on the sign-up page. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
-2. Select **External Identities**, select **User flows**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**.
 3. Select the self-service sign-up user flow from the list.
 4. Under **Customize**, select **Page layouts**.
 5. The attributes you chose to collect are listed. To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
@@ -99,18 +95,17 @@ You can choose order in which the attributes are displayed on the sign-up page.
 
 Now you'll associate applications with the user flow to enable sign-up for those applications. New users who access the associated applications will be presented with your new self-service sign-up experience.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Under **Self-service sign up**, select **User flows**.
-5. Select the self-service sign-up user flow from the list.
-6. In the left menu, under **Use**, select **Applications**.
-7. Select **Add application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**
+1. Under **Self-service sign up**, select **User flows**.
+1. Select the self-service sign-up user flow from the list.
+1. In the left menu, under **Use**, select **Applications**.
+1. Select **Add application**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/assign-app-to-user-flow.png" alt-text="Screenshot of adding an application to the user flow.":::
 
-8. Select the application from the list. Or use the search box to find the application, and then select it.
-9. Click **Select**.
+1. Select the application from the list. Or use the search box to find the application, and then select it.
+1. Click **Select**.
 
 ## Next steps
 

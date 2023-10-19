@@ -1,6 +1,6 @@
 ---
 title: Conditional Access APIs and PowerShell
-description: Using the Azure AD Conditional Access APIs and PowerShell to manage policies like code
+description: Using the Microsoft Entra Conditional Access APIs and PowerShell to manage policies like code
 
 services: active-directory
 ms.service: active-directory
@@ -26,14 +26,14 @@ Microsoft Graph provides a unified programmability model that organizations can 
 
 The following examples are provided as is with no support. You can use these examples as a basis for tooling in your organization. 
 
-Many of the following examples use tools like [Managed Identities](../managed-identities-azure-resources/overview.md), [Logic Apps](../../logic-apps/logic-apps-overview.md), [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage), [Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software/), and [Azure Key Vault](../../key-vault/general/overview.md).
+Many of the following examples use tools like [Managed Identities](../managed-identities-azure-resources/overview.md), [Logic Apps](/azure/logic-apps/logic-apps-overview), [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage), [Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software/), and [Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Configure
 
 ### PowerShell
 
 > [!IMPORTANT]
-> Due to the planned deprecation of PowerShell modules (MSOL & AAD) after December 2022, no further updates are planned for these modules to support new Conditional Access features. See recent announcements for more information: https://aka.ms/AzureADPowerShellDeprecation. New Conditional Access features may not be available or may not be functional within these PowerShell modules as a result of this announcement. Please consider [migrating to Microsoft Graph PowerShell](https://aka.ms/MigrateMicrosoftGraphPowerShell). Additional guidance and examples will be released soon.
+> Due to the planned deprecation of older PowerShell modules no further updates are planned for these modules to support new Conditional Access features. See recent announcements for more information: https://aka.ms/AzureADPowerShellDeprecation. New Conditional Access features may not be available or may not be functional within these PowerShell modules as a result of this announcement. Please consider [migrating to Microsoft Graph PowerShell](https://aka.ms/MigrateMicrosoftGraphPowerShell). Additional guidance and examples will be released soon.
 
 For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) to manage Conditional Access policies.
 
