@@ -542,7 +542,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | **SubmissionId** | Guid? | The Submission ID. |
 | **SubmissionDate** | DateTime? | Reported Date time for this submission. |
 | **Submitter** | String | The submitter email address. |
-| **NetworkMessageId** | Guid? ***NOT "ENTITY"?*** | The network message ID of email to which submission belongs. |
+| **NetworkMessageId** | Guid? | The network message ID of email to which submission belongs. |
 | **Timestamp** | DateTime? | The Time stamp when the message is received (Mail). |
 | **Recipient** | String | The recipient of the mail. |
 | **Sender** | String | The sender of the mail. |
