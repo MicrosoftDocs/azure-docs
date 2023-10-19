@@ -109,7 +109,7 @@ sections:
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
         answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
+          The policy is cached. After a policy update, it might take up to an hour for the changes to take effect.
       
       - question: |
           Why do I see the certificate-based authentication option after it fails?
@@ -154,7 +154,12 @@ sections:
            
         answer: |
           This is commonly seen when a firewall rule setting blocks access to the CRL endpoint. 
-          
+
+      - question: |
+           Can Microsoft Entra CBA be used on SurfaceHub?
+        answer: |
+           Yes. This will work out of the box for most smart card / smart card reader combinations. If the smart card / smart card reader combination requires additional drivers these must be installed prior to using the smart card / smart card reader combination on the surface hub.
+      
 additionalContent: |
   ## Next steps
     If your question isn't answered here, see the following related topics:

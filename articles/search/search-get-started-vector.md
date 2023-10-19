@@ -83,7 +83,7 @@ You're now ready to send the requests to your search service. For each request, 
 
 Use the [Create or Update Index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST API for this request.
 
-The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic search. 
+The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking. 
 
 The following example is a subset of the full index. We trimmed the definition so that you can focus on field definitions, vector configuration, and optional semantic configuration.
 
@@ -237,7 +237,7 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) for property descriptions.
 
-+ The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and eKNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
++ The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
 
 + [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
 

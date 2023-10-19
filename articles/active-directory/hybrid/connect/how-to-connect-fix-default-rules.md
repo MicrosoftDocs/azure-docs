@@ -96,7 +96,7 @@ As with the inbound rule, you can use your own naming convention to name the rul
 
 Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as constant, direct, or expression. 
 
-You now know how to make a new attribute for a user object flow from Active Directory to Microsoft Entra ID. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
+You now know how to make a new attribute for a user object flow from Active Directory to Microsoft Entra ID. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/microsoft-365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
 You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Microsoft Entra ID, simply create an inbound rule only. Make the expression value, `AuthoritativeNull`, flow to the target attribute. 

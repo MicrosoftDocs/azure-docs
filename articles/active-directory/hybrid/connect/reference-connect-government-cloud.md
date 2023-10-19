@@ -20,7 +20,7 @@ This article describes considerations for integrating a hybrid environment with 
 > [!NOTE]
 > To integrate a Microsoft Active Directory environment (either on-premises or hosted in an IaaS that is part of the same cloud instance) with the Azure Government cloud, you need to upgrade to the latest release of [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-For a full list of United States government Department of Defense endpoints, refer to the [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
+For a full list of United States government Department of Defense endpoints, refer to the [documentation](/microsoft-365/enterprise/microsoft-365-u-s-government-dod-endpoints).
 
 <a name='azure-ad-pass-through-authentication'></a>
 

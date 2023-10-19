@@ -31,8 +31,8 @@ Users must have at least the Security Reader role assigned and Log Analytics wor
 
 If you haven't integrated Microsoft Entra logs with Azure Monitor logs, you need to take the following steps before the workbook loads:  
 
-1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
-1. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+1. [Create a Log Analytics workspace in Azure Monitor](/azure/azure-monitor/logs/quick-create-workspace).
+1. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md).
 
 ## How it works 
 
@@ -114,7 +114,7 @@ In order to access the workbook, you need the proper permissions in Microsoft En
 
 ![Screenshot showing how to troubleshoot failing queries.](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
-For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md).
 
 ### Why are the queries in the workbook failing?
 
@@ -144,6 +144,6 @@ You can edit and customize the workbook by going to **Identity** > **Monitoring 
 
 - [Conditional Access report-only mode](concept-conditional-access-report-only.md)
 
-- For more information about Microsoft Entra workbooks, see the article, [How to use Azure Monitor workbooks for Microsoft Entra reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+- For more information about Microsoft Entra workbooks, see the article, [How to use Azure Monitor workbooks for Microsoft Entra reports](../reports-monitoring/howto-use-workbooks.md).
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
