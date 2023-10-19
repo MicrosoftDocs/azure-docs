@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-## Assign a custom role
+# Assign a custom role
 
 In this how-to guide, you learn how to assign a custom role for Service Operators to Azure Operator Service Manager Publisher resources. The permissions in this role are required for deploying a Site Network Service.
 

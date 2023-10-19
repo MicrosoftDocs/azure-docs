@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-## Create a custom role
+# Create a custom role
 
 In this how-to guide, you learn how to create a custom role for Service Operators. A custom role provides the necessary permissions to access Azure Operator Service Manager (AOSM) Publisher resources when deploying a Site Network Service (SNS).
 
