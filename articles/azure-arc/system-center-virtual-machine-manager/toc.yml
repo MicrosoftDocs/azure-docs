@@ -5,7 +5,7 @@
   - name: Azure Arc-enabled System Center Virtual Machine Manager
     href: overview.md
   - name: Switch to the new preview version
-    href: switch-to-the-new-preview-version.md
+    href: switch-to-the-new-preview-version-scvmm.md
 - name: Quickstarts
   items:
   - name: Connect a System Center Virtual Machine Manager management server to Azure Arc
