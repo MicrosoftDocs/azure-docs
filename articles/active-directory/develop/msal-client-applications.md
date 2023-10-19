@@ -49,5 +49,5 @@ In MSAL, the client ID, also called the _application ID_ or _app ID_, is passed 
 For more information about application configuration and instantiating, see:
 
 - [Client application configuration options](msal-client-application-configuration.md)
-- [Instantiating client applications by using MSAL.NET](msal-net-initializing-client-applications.md)
+- [Instantiating client applications by using MSAL.NET](/entra/msal/dotnet/getting-started/initializing-client-applications)
 - [Instantiating client applications by using MSAL.js](msal-js-initializing-client-applications.md)

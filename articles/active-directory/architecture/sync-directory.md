@@ -52,7 +52,7 @@ Explore the following resources to learn more about directory synchronization wi
 
 ## Next steps
 
-* [What is hybrid identity with Microsoft Entra ID?](../../active-directory/hybrid/whatis-hybrid-identity.md) Microsoft's identity solutions span on-premises and cloud-based capabilities. Hybrid identity solutions create a common user identity for authentication and authorization to all resources, regardless of location.
+* [What is hybrid identity with Microsoft Entra ID?](../hybrid/whatis-hybrid-identity.md) Microsoft's identity solutions span on-premises and cloud-based capabilities. Hybrid identity solutions create a common user identity for authentication and authorization to all resources, regardless of location.
 * [Install the Microsoft Entra Connect provisioning agent](../hybrid/cloud-sync/how-to-install.md) walks you through the installation process for the Microsoft Entra Connect provisioning agent and how to initially configure it in the Azure portal.
 * [Microsoft Entra Connect cloud sync new agent configuration](../hybrid/cloud-sync/how-to-configure.md) guides you through configuring Microsoft Entra Connect cloud sync.
 * [Microsoft Entra authentication and synchronization protocol overview](auth-sync-overview.md) describes integration with authentication and synchronization protocols. Authentication integrations enable you to use Microsoft Entra ID and its security and management features with little or no changes to your applications that use legacy authentication methods. Synchronization integrations enable you to sync user and group data to Microsoft Entra ID and then user Microsoft Entra management capabilities. Some sync patterns enable automated provisioning.
