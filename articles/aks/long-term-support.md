@@ -62,14 +62,16 @@ As the list of managed add-ons is large, we list the addons / features that aren
 |  Add On / Feature | Reason it is unsupported |
 ---|---|
 | Istio |  The Istio support cycle is short (six months), and there will not be maintenance releases for K8S 1.27 |
- | Keda | Unable to guarantee future version compatibility with K8S 1.27 |
-| Calico  |  Requires Calico Enterprise agreement past community support |
-| Cillium  |  Requires Cillium Enterprise agreement past community support |
-| Azure Linux | Support timeframe for AZL 2 ends during this LTS cycle |
-| KMS | KMSv2 replaces KMS during this LTS cycle |
+| Keda | Unable to guarantee future version compatibility with Kubernetes 1.27 |
+| Calico  |  Requires Calico Enterprise agreement past Community Support |
+| Cillium  |  Requires Cillium Enterprise agreement past Community Support |
+| Azure Linux | Support timeframe for Azure Linux 2 ends during this LTS cycle |
+| Key Management Service (KMS) | KMSv2 replaces KMS during this LTS cycle |
+| Dapr | AKS extensions are not supported |
+
 
 > [!NOTE]
-> Only Generally Available addons (i.e. not Preview or announced as deprecated) will be supported outside of this list.
+You can't move your cluster to Long Term support if any of these add-ons or features are enabled.  
 
 You can't move a cluster to Long Term support if any of these add-ons / features are enabled in your cluster.  
 
@@ -77,7 +79,7 @@ Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to i
 
 ## How we decide the next LTS version
 Versions of Kubernetes LTS are available for two years from General Availability, we'll mark a later version of Kubernetes as LTS based on the following criteria:
-
+* Sufficient time for customers to migrate from the prior LTS version to the current has passed
 * The previous version has had a two year support window
 * Sufficient time for customers to migrate from the prior LTS version to the current
 
