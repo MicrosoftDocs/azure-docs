@@ -10,10 +10,6 @@ ms.date: 10/19/2023
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.x.
 
-## Preview
-
-On February 27, 2023, we started rolling out a new version of HDInsight: version 5.1. This version is backward compatible with HDInsight 4.0. and 5.0. All new open-source releases will be added as incremental releases on HDInsight 5.1.
-
 All upgraded cluster shapes are supported as part of HDInsight 5.1.
 
 ## Open-source components available with HDInsight 5.x
