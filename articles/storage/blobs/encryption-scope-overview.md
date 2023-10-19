@@ -3,12 +3,12 @@ title: Encryption scopes for Blob storage
 titleSuffix: Azure Storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: engagement-fy23
 ---
