@@ -21,7 +21,7 @@ Then, to configure a snapshot backup, do the following:
 
 1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **DB Instance via snapshot**, and then select **Configure Backup**.
 
-   :::image type="content" source="./media/backup-azure-configure-sap-hana-database-instance-backup/backup-goal-database-via-backint.png" alt-text="Screenshot that shows the 'DB Instance via snapshot' option.":::
+   :::image type="content" source="./media/backup-azure-configure-sap-hana-database-instance-backup/backup-goal-database-instance-via-snapshot.png" alt-text="Screenshot that shows the 'DB Instance via snapshot' option.":::
 
 1. On the **Configure Backup** pane, in the **Backup policy** dropdown list, select the database instance policy, and then select **Add/Edit** to check the available database instances.
 
