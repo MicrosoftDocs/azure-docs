@@ -8,7 +8,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 10/18/2023
 ---
 
 # Set up an indexer connection to Azure SQL Managed Instance using a managed identity
