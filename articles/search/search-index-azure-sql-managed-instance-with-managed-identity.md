@@ -17,7 +17,7 @@ This article describes how to set up an Azure Cognitive Search indexer connectio
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in SQL Managed Instance.
 
-Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
+Before learning more about this feature, it is recommended that you understand what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
 
 * [Indexer overview](search-indexer-overview.md)
 * [SQL Managed Instance indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -30,7 +30,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
   To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Microsoft Entra authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision a Microsoft Entra admin (SQL Managed Instance). 
 
-* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. Connecting through a Shared Private Link is not currently supported when using a managed identity.
+* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. Connecting through a Shared Private Link when using a managed identity is not currently supported.
 
 ## 1 - Assign permissions to read the database
 
@@ -80,7 +80,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 
 4. Select **Reader** role.
-1. Leave **Assign access to** as **Microsoft Entra user, group or service principal**.
+1. Leave **Assign access to** as **Microsoft Entra user, group, or service principal**.
 1. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
 
     Example for SQL Managed Instance using a system-assigned managed identity:
@@ -95,7 +95,7 @@ Create the data source and provide a system-assigned managed identity.
 
 The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support system-assigned managed identity. 
 
-When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of SQL Managed Instance, the resource group of SQL Managed instance, and the name of the SQL database. 
+When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide an Initial Catalog or Database name and a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of SQL Managed Instance, the resource group of SQL Managed instance, and the name of the SQL database. 
 
 Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.  
 
