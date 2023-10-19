@@ -6,7 +6,7 @@ author: sherrygonz
 ms.author: sherryg
 ms.service: azure-operator-service-manager
 ms.topic: quickstart
-ms.date: 09/11/2023
+ms.date: 10/19/2023
 ---
 
 # Quickstart: Complete the prerequisites to deploy a Virtualized Network Function in Azure Operator Service Manager
@@ -42,7 +42,6 @@ az login
 To change the active subscription using the subscription ID, issue the following command.
 
 ```azurecli
- change the active subscription using the subscription ID
 az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 ## Install Azure Operator Service Manager (AOSM) CLI extension
@@ -72,6 +71,19 @@ To verify the registration status of the resource providers, you can run the fol
 # Query the Resource Provider
 az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
+```
+
+Upon success, the following output displays:
+
+```azurecli
+{
+  "ProviderName": "Microsoft.HybridNetwork",
+  "RegistrationState": "Registered"
+}
+{
+  "ProviderName": "Microsoft.ContainerRegistry",
+  "RegistrationState": "Registered"
+}
 ```
 
 > [!NOTE]

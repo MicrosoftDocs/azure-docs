@@ -3,7 +3,7 @@ title: Publish an Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)
 description: Learn how to publish an Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF) 
 author: sherrygonz
 ms.author: sherryg
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
@@ -75,6 +75,10 @@ Here's sample input-vnf-nfd.json file:
 |  |*blob_sas_url*: Optional. SAS URL of the blob artifact you wish to copy to your Artifact Store. Delete if not required.
 |  |*version*: Version of the artifact. Version of the artifact. For VHDs version must be in format A-B-C. 
 
+> [!IMPORTANT]
+> Each variable described in the previous table must be unique. For instance, the resource group name cannot already exist, and publisher and artifact store names must be unique in the region. 
+
+
 ## Build the Network Function Definition (NFD)
 
 To construct the Network Function Definition (NFD), initiate the build process.
@@ -85,12 +89,12 @@ az aosm nfd build -f input-vnf-nfd.json --definition-type vnf
 
 Once the build is complete, examine the generated files to better understand the Network Function Definition (NFD) structure.
 
-These files are created:
+These files are created in a subdirectory called **nfd-bicep-ubuntu-template**:
 
 | File  | Description  |
 |---------|---------|
-|**configMappings** |Maps the deployment parameters for the Network Function Definition Version (NFDV) to the parameters required for the Virtual Machine (VM) ARM template.
-|**schemas** | Defines the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV).
+|**configMappings** |Directory containing files that map the deployment parameters for the Network Function Definition Version (NFDV) to the parameters required for the Virtual Machine (VM) ARM template.
+|**schemas** | Directory containing files that define the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV).
 |**vnfartifactmanifests.bicep** |Bicep template for creating the artifact manifests.
 |**Vnfdefinition.bicep** |Bicep template for creating the Network Function Definition Version (NFDV) itself.
 
@@ -115,7 +119,6 @@ These resources are created:
 |**1.0.0** |Network Function Definition Version.
 |**ubuntu-publisher** |Publisher.
 |**ubuntu-vm-acr-manifest-1-0-0** |Publisher Artifact Manifest.
-|**ubuntu-vm-nfdg-nf-acr-manifest-1-0-0** |Publisher Artifact Manifest.
 |**ubuntu-vm-sa-manifest-1-0-0** |Publisher Artifact Manifest.
 |**ubuntu-acr** |Publisher Artifact Store.
 |**ubuntu-blob-store** |Publisher Artifact Store.
