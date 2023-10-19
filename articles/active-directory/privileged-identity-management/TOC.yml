@@ -7,7 +7,7 @@
 - name: Concepts
   items:
   - name: License requirements
-    href: subscription-requirements.md
+    href: ../governance/licensing-fundamentals.md
   - name: PIM for Groups
     href: concept-pim-for-groups.md
   - name: Roles you can't manage with PIM 
@@ -70,6 +70,12 @@
     items:
     - name: Microsoft Entra roles
       href: pim-how-to-change-default-settings.md
+    - name: Microsoft Entra roles - Microsoft Graph
+      items:
+      - name: Rules in PIM
+        href: /graph/identity-governance-pim-rules-overview?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
+      - name: Customize and update rules
+        href: /graph/identity-governance-pim-rules-overview?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
     - name: Azure roles
       href: pim-resource-roles-configure-role-settings.md
     - name: Groups
@@ -78,6 +84,8 @@
     items:
     - name: Microsoft Entra roles
       href: pim-how-to-configure-security-alerts.md
+    - name: Microsoft Entra roles - Microsoft Graph
+      href: /graph/how-to-pim-alerts?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
     - name: Azure roles
       href: pim-resource-roles-configure-alerts.md
   - name: Audits 
@@ -98,10 +106,12 @@
         href: pim-perform-roles-and-resource-roles-review.md
       - name: Complete an access review
         href: pim-complete-roles-and-resource-roles-review.md
+      - name: Review access to privileged roles - Microsoft Graph
+        href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
   - name: Discovery & Insights for Microsoft Entra roles
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions
-    href: ../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/active-directory/privileged-identity-management/toc.json
+    href: /azure/role-based-access-control/elevate-access-global-admin?toc=/azure/active-directory/privileged-identity-management/toc.json
   - name: Troubleshoot resource access denied
     href: pim-troubleshoot.md
 - name: Reference

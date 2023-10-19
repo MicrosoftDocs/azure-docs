@@ -31,31 +31,25 @@ There are a few recommended patterns that are effective at monitoring and cleani
 
 Use the following instructions to learn how to enhance monitoring of inactive guest accounts at scale and create Access Reviews that follow these patterns. Consider the configuration recommendations and then make the needed changes that suit your environment.
 
+### License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
 ## Monitor guest accounts at scale with inactive guest insights (Preview)
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity governance** > **Dashboard**
+1. Access the inactive guest account report by navigating to the **Guest access governance** card then select **View inactive guests**.
+1. You will see the inactive guest report which will provide insights about inactive guest users based on 90 days of inactivity. The threshold is set to 90 days by default but can be configured using "Edit inactivity threshold" based on your organization's needs.
+1. The following insights are provided as part of this report:
 
-2. Access the inactive guest account report by navigating to "Guest access governance" card and click on "View inactive guests"
-
-3. You will see the inactive guest report which will provide insights about inactive guest users based on 90 days of inactivity. The threshold is set to 90 days by default but can be configured using "Edit inactivity threshold" based on your organization's needs.
-
-4. The following insights are provided as part of this report:
-   
    - Guest account overview (total guests and inactive guests with further categorization of guests who have never signed in or signed in at least once)
    - Guest inactivity distribution (Percentage distribution of guest users based on days since last sign in)
    - Guest inactivity overview (Guest inactivity guidance to configure inactivity threshold)
    - Guest accounts summary (A tabular view with details of all guest accounts with insights into their activity state. The Activity state could be active or inactive based on the configured inactivity threshold)
 
-5. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
-
- ### License requirements
-[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
-
-> [!NOTE]
-> When you access the report for the first time, the insights in this report may not be available immediately and may take some time to generate. If you are getting an error, please follow the instructions ensuring you have Microsoft Entra ID Governance license or wait for some time to see the report generated.  
-> The inactive days calculation is based on the 2 parameters (last sign in date and creation date). If both of the dates are not available in the system, then we consider User state change date i.e. the date when the user state was last changed. This will give us the closest accurate inactivity duration for those special situations.
+1. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
 
 
 ## Create a multi-stage review for guests to self-attest continued access

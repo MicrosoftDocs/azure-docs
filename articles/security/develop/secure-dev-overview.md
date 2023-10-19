@@ -4,7 +4,7 @@ description: Best practices to help you develop more secure code and deploy a mo
 author: TerryLanfear
 manager: rkarlin
 ms.author: terrylan
-ms.date: 02/06/2023
+ms.date: 09/26/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -31,7 +31,7 @@ Security is one of the most important aspects of any application, and it's not a
 
 Following best practices for secure software development requires integrating security into each phase of the software development lifecycle, from requirement analysis to maintenance, regardless of the project methodology ([waterfall](https://en.wikipedia.org/wiki/Waterfall_model), [agile](https://en.wikipedia.org/wiki/Agile_software_development), or [DevOps](https://en.wikipedia.org/wiki/DevOps)). In the wake of high-profile data breaches and the exploitation of operational security flaws, more developers are understanding that security needs to be addressed throughout the development process.
 
-The later you fix a problem in your development lifecycle, the more that fix will cost you. Security issues are no exception. If you disregard security issues in the early phases of your software development, each phase that follows might inherit the vulnerabilities of the preceding phase. Your final product will have accumulated multiple security issues and the possibility of a breach. Building security into each phase of the development lifecycle helps you catch issues early, and it helps you reduce your development costs.
+The later you fix a problem in your development lifecycle, the more that fix costs you. Security issues are no exception. If you disregard security issues in the early phases of your software development, each phase that follows might inherit the vulnerabilities of the preceding phase. Your final product accumulates multiple security issues and the possibility of a breach. Building security into each phase of the development lifecycle helps you catch issues early, and it helps you reduce your development costs.
 
 We follow the phases of the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) (SDL) to introduce activities and Azure services that you can use to fulfill secure software development practices in each phase of the lifecycle.
 
@@ -59,9 +59,9 @@ applications and to help secure your applications on Azure:
 
 [Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/) - A series of online articles that outline different types of application security activities that developers should complete to create more secure code.
 
-[Microsoft identity platform](../../active-directory/develop/index.yml) - The Microsoft identity platform is an evolution of the Azure AD identity service and developer platform. It's a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
+[Microsoft identity platform](../../active-directory/develop/index.yml) - The Microsoft identity platform is an evolution of the Microsoft Entra identity service and developer platform. It's a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
-[Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. This paper is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+[Azure security best practices and patterns](../fundamentals/best-practices-and-patterns.md) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. Guidance is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 [Security and Compliance Blueprints on Azure](../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md) - Azure Security and Compliance Blueprints are resources that can help you build and launch cloud-powered applications that comply with stringent regulations and standards.
 

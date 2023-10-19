@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to use content filters (preview) with Azure OpenAI Service
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 6/5/2023
 author: mrbullwinkle

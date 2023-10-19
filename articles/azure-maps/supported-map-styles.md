@@ -22,11 +22,11 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 **Applicable APIs:**
 
-* [Map image]
-* [Map tile]
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Get Map Static Image]
+* [Get Map Tile]
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## blank and blank_accessible
 
@@ -37,7 +37,7 @@ The **blank** and **blank_accessible** map styles provide a blank canvas for vis
 
 **Applicable APIs:**
 
-* Web SDK map control
+* [Web SDK map control]
 
 ## satellite
 
@@ -47,10 +47,10 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 **Applicable APIs:**
 
-* [Satellite tile]
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Get Map Tile]
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## satellite_road_labels
 
@@ -60,9 +60,9 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## grayscale_dark
 
@@ -72,11 +72,11 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map image]
-* [Map tile]
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Get Map Static Image]
+* [Get Map Tile]
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## grayscale_light
 
@@ -85,9 +85,10 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![grayscale light map style](./media/supported-map-styles/grayscale-light.jpg)
 
 **Applicable APIs:**
-* Web SDK map control
-* Android map control
-* Power BI visual
+
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## night
 
@@ -97,9 +98,9 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## road_shaded_relief
 
@@ -109,10 +110,10 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map tile]
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Get Map Tile]
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## high_contrast_dark
 
@@ -122,9 +123,9 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## high_contrast_light
 
@@ -134,9 +135,9 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* Web SDK map control
-* Android map control
-* Power BI visual
+* [Web SDK map control]
+* [Android map control]
+* [Power BI visual]
 
 ## Map style accessibility
 
@@ -163,8 +164,9 @@ Learn about how to set a map style in Azure Maps:
 > [!div class="nextstepaction"]
 > [Choose a map style]
 
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-[Map image]: /rest/api/maps/render-v2/get-map-static-image
-[Map tile]: /rest/api/maps/render-v2/get-map-tile
-[Satellite tile]: /rest/api/maps/render/getmapimagerytilepreview
+[Android map control]: how-to-use-android-map-control-library.md
 [Choose a map style]: choose-map-style.md
+[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Power BI visual]: power-bi-visual-get-started.md
+[Web SDK map control]: how-to-use-map-control.md

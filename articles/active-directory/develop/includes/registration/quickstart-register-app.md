@@ -22,13 +22,13 @@ Get started with the Microsoft identity platform by registering an application i
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
 > [!TIP]
-> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](../../../../active-directory-b2c/tutorial-register-applications.md).
+> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](/azure/active-directory-b2c/tutorial-register-applications).
 
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The Azure account must be at least a [Cloud application administrator](../../../../active-directory/roles/permissions-reference.md#cloud-application-administrator).
-- Completion of the [Set up a tenant](../../../../active-directory/develop/quickstart-create-new-tenant.md) quickstart.
+- The Azure account must be at least a [Cloud application administrator](../../../roles/permissions-reference.md#cloud-application-administrator).
+- Completion of the [Set up a tenant](../../../develop/quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
 
@@ -38,7 +38,7 @@ Registering your application establishes a trust relationship between your app a
 
 Follow these steps to create the app registration:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../../../../active-directory/roles/permissions-reference.md#cloud-application-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../../../roles/permissions-reference.md#cloud-application-administrator). 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
@@ -80,7 +80,7 @@ Settings for each application type, including redirect URIs, are configured in *
 
 To configure application settings based on the platform or device you're targeting, follow these steps:
 
-1. In the Microsoft Entra Admin Center portal, in **App registrations**, select your application.
+1. In the Microsoft Entra admin center, in **App registrations**, select your application.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
 1. Under **Configure platforms**, select the tile for your application type (platform) to configure its settings.
@@ -140,7 +140,7 @@ If you're using an Azure DevOps service connection that automatically creates a 
 
 ### Add a federated credential
 
-Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation).
+Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](../../../workload-identities/workload-identity-federation.md).
 
 To add a federated credential, follow these steps:
 

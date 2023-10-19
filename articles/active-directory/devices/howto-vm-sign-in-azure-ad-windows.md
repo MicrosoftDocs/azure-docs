@@ -79,7 +79,7 @@ Microsoft Azure operated by 21Vianet:
 
 ### Authentication requirements
 
-[Microsoft Entra Guest accounts](/azure/active-directory/external-identities/what-is-b2b) can't connect to Azure Bastion via Microsoft Entra authentication.
+[Microsoft Entra Guest accounts](../external-identities/what-is-b2b.md) can't connect to Azure VMs or Azure Bastion enabled VMs via Microsoft Entra authentication.
 
 <a name='enable-azure-ad-login-for-a-windows-vm-in-azure'></a>
 
@@ -96,7 +96,7 @@ There are two ways to enable Microsoft Entra login for your Windows VM:
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
 > [!NOTE]
-> If a device object with the same displayName as the hostname of a VM where an extension is installed exists, the VM fails to join Microsoft Entra ID with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
+> If a device object with the same displayName as the hostname of a VM where an extension is installed exists, the VM fails to join Microsoft Entra ID with a hostname duplication error. Avoid duplication by [modifying the hostname](/azure/virtual-network/virtual-networks-viewing-and-modifying-hostnames#modify-a-hostname).
 
 ### Azure portal
 
@@ -180,7 +180,7 @@ An Azure user who has the Owner or Contributor role assigned for a VM doesn't au
 
 There are two ways to configure role assignments for a VM:
 
-- Microsoft Entra portal experience
+- Microsoft Entra admin center experience
 - Azure Cloud Shell experience
 
 > [!NOTE]
@@ -188,7 +188,9 @@ There are two ways to configure role assignments for a VM:
 
 <a name='azure-ad-portal'></a>
 
-### Microsoft Entra portal
+<a name='microsoft-entra-portal'></a>
+
+### Microsoft Entra admin center
 
 To configure role assignments for your Microsoft Entra ID-enabled Windows Server 2019 Datacenter VMs:
 
@@ -198,7 +200,7 @@ To configure role assignments for your Microsoft Entra ID-enabled Windows Server
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -228,9 +230,9 @@ az role assignment create \
 
 For more information about how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
-- [Assign Azure roles by using the Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-- [Assign Azure roles by using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Assign Azure roles by using the Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+- [Assign Azure roles by using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
 <a name='log-in-by-using-azure-ad-credentials-to-a-windows-vm'></a>
 
@@ -252,7 +254,7 @@ To use passwordless authentication for your Windows VMs in Azure, you need the W
 - Windows Server 2022 with [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 > [!IMPORTANT]
-> There is no requirement for Windows client machine to be either Microsoft Entra registered, or Microsoft Entra joined or Microsoft Entra hybrid joined to the *same* directory as the VM. Additionally, to RDP by using Microsoft Entra credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> The Windows client machine is required to be either Microsoft Entra registered, or Microsoft Entra joined or Microsoft Entra hybrid joined to the *same* directory as the VM. Additionally, to RDP by using Microsoft Entra credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. This requirement doesn't exist for [passwordless sign-in](#log-in-using-passwordless-authentication-with-microsoft-entra-id).
 
 To connect to the remote computer:
 
@@ -268,7 +270,7 @@ To connect to the remote computer:
 - You're then prompted to allow the remote desktop connection when connecting to a new PC. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
 
 > [!IMPORTANT]
-> If your organization has configured and is using [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview), your device must satisfy the Conditional Access requirements to allow connection to the remote computer. Conditional Access policies may be applied to the application **Microsoft Remote Desktop (a4a365df-50f1-4397-bc59-1a1564b8bb9c)** for controlled access.
+> If your organization has configured and is using [Microsoft Entra Conditional Access](../conditional-access/overview.md), your device must satisfy the Conditional Access requirements to allow connection to the remote computer. Conditional Access policies may be applied to the application **Microsoft Remote Desktop (a4a365df-50f1-4397-bc59-1a1564b8bb9c)** for controlled access.
 
 > [!NOTE]
 > The Windows lock screen in the remote session doesn't support Microsoft Entra authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected. Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Microsoft Entra ID reevaluates the applicable Conditional Access policies.
@@ -280,7 +282,7 @@ To connect to the remote computer:
 > [!IMPORTANT]
 > Remote connection to VMs that are joined to Microsoft Entra ID is allowed only from Windows 10 or later PCs that are either Microsoft Entra registered (minimum required build is 20H1) or Microsoft Entra joined or Microsoft Entra hybrid joined to the *same* directory as the VM. Additionally, to RDP by using Microsoft Entra credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
 >
-> If you're using a Microsoft Entra registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Microsoft Entra authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/native-client.md). 
+> If you're using a Microsoft Entra registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Microsoft Entra authentication [via the Azure CLI and the native RDP client mstsc](/azure/bastion/native-client). 
 
 
 To log in to your Windows Server 2019 virtual machine by using Microsoft Entra ID: 
@@ -313,7 +315,7 @@ Use Azure Policy to:
 
 With this capability, you can use many levels of enforcement. You can flag new and existing Windows VMs within your environment that don't have Microsoft Entra login enabled. You can also use Azure Policy to deploy the Microsoft Entra extension on new Windows VMs that don't have Microsoft Entra login enabled, and remediate existing Windows VMs to the same standard. 
 
-In addition to these capabilities, you can use Azure Policy to detect and flag Windows VMs that have unapproved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
+In addition to these capabilities, you can use Azure Policy to detect and flag Windows VMs that have unapproved local accounts created on their machines. To learn more, review [Azure Policy](/azure/governance/policy/overview).
 
 
 ## Troubleshoot deployment problems
@@ -377,7 +379,7 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Microsoft Entra tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select **Microsoft Entra ID** > **Properties** > **Directory ID**.
+   > Replace `<TenantID>` with the Microsoft Entra tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select  **Identity** > **Overview** > **Properties** > **Tenant ID**.
    >
    > Attempts to connect to `enterpriseregistration.windows.net` might return 404 Not Found, which is expected behavior. Attempts to connect to `pas.windows.net` might prompt for PIN credentials or might return 404 Not Found. (You don't need to enter the PIN.) Either one is sufficient to verify that the URL is reachable.
 
@@ -417,7 +419,7 @@ You might get the following error message when you initiate a remote desktop con
 Verify that you've [configured Azure RBAC policies](#configure-role-assignments-for-the-vm) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
 
 > [!NOTE]
-> If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
+> If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](/azure/role-based-access-control/troubleshooting).
  
 ### Unauthorized client or password change required
 

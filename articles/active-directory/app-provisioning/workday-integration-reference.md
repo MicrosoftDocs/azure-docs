@@ -175,7 +175,7 @@ Microsoft Entra provisioning service processes each page and iterates through th
 For each worker entry imported from Workday:
 * The [XPATH expression](workday-attribute-reference.md) is applied to retrieve attribute values from Workday.
 * The attribute mapping and matching rules are applied and 
-* The service determines what operation to perform in the target (Azure AD/AD). 
+* The service determines what operation to perform in the target (Microsoft Entra ID / Active Directory). 
 
 Once the processing is complete, it saves the timestamp associated with the start of full sync as a watermark. This watermark serves as the starting point for the incremental sync cycle. 
 
@@ -421,9 +421,13 @@ Let's say you want to retrieve the following data sets from Workday and use them
 
 The above data sets aren't included by default. 
 To retrieve these data sets:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and open your Workday to AD/Azure AD user provisioning app. 
-1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
-1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Microsoft Entra ID. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your Workday to Active Directory / Microsoft Entra user provisioning application.
+1. Select **Provisioning**.
+1. Edit the mappings and open the Workday attribute list from the advanced section. 
+1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in Active Directory or Microsoft Entra ID. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |

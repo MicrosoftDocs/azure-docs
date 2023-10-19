@@ -6,7 +6,7 @@ ms.date: 05/10/2023
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ---
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager (Preview)

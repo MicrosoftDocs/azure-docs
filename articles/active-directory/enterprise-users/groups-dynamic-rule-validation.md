@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Validate a dynamic group membership rule (preview) in Microsoft Entra ID
 
-Microsoft Entra ID, part of Microsoft Entra, now provides the means to validate dynamic group rules (in public preview). On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When you create or update dynamic group rules, you want to know whether a user or a device will be a member of the group. This knowledge helps you evaluate whether a user or device meets the rule criteria and help you troubleshoot when membership isn't expected.
+Microsoft Entra ID provides the means to validate dynamic group rules (in public preview). On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When you create or update dynamic group rules, you want to know whether a user or a device will be a member of the group. This knowledge helps you evaluate whether a user or device meets the rule criteria and help you troubleshoot when membership isn't expected.
 
 ## Prerequisites
 To evaluate the dynamic group rule membership feature, the administrator must have one of the following rules assigned directly: Global Administrator, Groups Administrator, or Intune Administrator.
@@ -28,7 +28,9 @@ To evaluate the dynamic group rule membership feature, the administrator must ha
 
 ## Step-by-step walk-through
 
-To get started, go to **Microsoft Entra ID** > **Groups**. Select an existing dynamic group or create a new dynamic group and select **Dynamic membership rules**. You can then see the **Validate Rules** tab.
+To get started, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+
+Browse to **Identity** > **Groups** > **All groups**. Select an existing dynamic group or create a new dynamic group and select **Dynamic membership rules**. You can then see the **Validate Rules** tab.
 
 ![Find the Validate rules tab and start with an existing rule](./media/groups-dynamic-rule-validation/validate-tab.png)
 

@@ -78,7 +78,7 @@ like custom APIs but also have these attributes:
 * Registered as Logic Apps Connector resources in Azure.
 * Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
 * Available only to the connectors' authors and logic app resource users who have the same 
-Azure Active Directory tenant and Azure subscription in the region where the 
+Microsoft Entra tenant and Azure subscription in the region where the 
 logic apps are deployed.
 
 You can also nominate registered connectors for Microsoft certification. 

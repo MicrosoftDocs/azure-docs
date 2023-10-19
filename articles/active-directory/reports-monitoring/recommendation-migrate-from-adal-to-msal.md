@@ -1,6 +1,6 @@
 ---
 title: Migrate from ADAL to MSAL recommendation
-description: Learn why you should migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries.
+description: Learn why you should migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 ---
 
-# Microsoft Entra recommendation: Migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries
+# Microsoft Entra recommendation: Migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries
 
 [Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
@@ -78,7 +78,7 @@ df.onecloud.azure-test.net/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBla
 
 ### [Microsoft Graph PowerShell SDK](#tab/Microsoft-Graph-PowerShell-SDK)
 
-You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
+You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) to get a list of all applications in your tenant that use ADAL.
 
 1. Open Windows PowerShell as an administrator.
 

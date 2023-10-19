@@ -71,22 +71,22 @@ Invoke the script by using the following command. ResourceGroup.ps1 is the file 
 If you're using an Azure Resource Manager template to create a lab, use the **vmCreationResourceGroupId** property in the lab properties section of your template, as shown in the following example:
 
 ```json
-        {
-            "type": "microsoft.devtestlab/labs",
-            "name": "[parameters('lab_name')]",
-            "apiVersion": "2018-10-15-preview",
-            "location": "eastus",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
-                "labStorageType": "Premium",
-                "premiumDataDisks": "Disabled",
-                "provisioningState": "Succeeded",
-                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
-            },
-            "dependsOn": []
-        },
+{
+    "type": "microsoft.devtestlab/labs",
+    "name": "[parameters('lab_name')]",
+    "apiVersion": "2018-10-15-preview",
+    "location": "eastus",
+    "tags": {},
+    "scale": null,
+    "properties": {
+        "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
+        "labStorageType": "Premium",
+        "premiumDataDisks": "Disabled",
+        "provisioningState": "Succeeded",
+        "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
+    },
+    "dependsOn": []
+},
 ```
 
 

@@ -67,6 +67,7 @@ Event Hubs documentation provides guidance on how to write simple consumer apps 
 
 ## Understanding telemetry points
 
+### Current Telemetry Schema Version: 4.0
 The ground station provides telemetry using Avro as a schema. The schema is below:
 
 ```json
@@ -85,6 +86,29 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
     },
     {
       "name": "contactPlatformIdentifier",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "groundStationName",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "antennaType",
+      "type": {
+        "name": "antennaTypeEnum",
+        "type": "enum",
+        "symbols": [
+          "Microsoft",
+          "KSAT"
+        ]
+      }
+    },
+    {
+      "name": "antennaId",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "spacecraftName",
       "type": [ "null", "string" ]
     },
     {
@@ -112,17 +136,6 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
       "type": "string"
     },
     {
-      "name": "antennaType",
-      "type": {
-        "name": "antennaTypeEnum",
-        "type": "enum",
-        "symbols": [
-          "Microsoft",
-          "KSAT"
-        ]
-      }
-    },
-    {
       "name": "links",
       "type": [
         "null",
@@ -132,6 +145,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
             "name": "antennaLink",
             "type": "record",
             "fields": [
+              {
+                "name": "name",
+                "type": [ "null", "string" ]
+              },
               {
                 "name": "direction",
                 "type": {
@@ -171,6 +188,18 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                       "type": "record",
                       "fields": [
                         {
+                          "name": "name",
+                          "type": [ "null", "string" ]
+                        },
+                        {
+                          "name": "modemName",
+                          "type": [ "null", "string" ]
+                        },
+                        {
+                          "name": "digitizerName",
+                          "type": [ "null", "string" ]
+                        },
+                        {
                           "name": "endpointName",
                           "type": "string"
                         },
@@ -184,6 +213,18 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                         },
                         {
                           "name": "inputRfPowerDbm",
+                          "type": [ "null", "double" ]
+                        },
+                        {
+                          "name": "outputRfPowerDbm",
+                          "type": [ "null", "double" ]
+                        },
+                        {
+                          "name": "packetRate",
+                          "type": [ "null", "double" ]
+                        },
+                        {
+                          "name": "gapCount",
                           "type": [ "null", "double" ]
                         },
                         {
@@ -222,24 +263,35 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 | version | Manually set internally | | Release version of the telemetry |
 | contactID	| Contact resource |	|	Identification number of the contact |
 | contactPlatformIdentifier |	Contact resource	| | |	
+| groundStationName | Contact resource | | Name of groundstation |
+| antennaType	| Respective 1P/3P telemetry builders set this value | MICROSOFT, KSAT, VIASAT | Antenna network used for the contact. |
+| antennaId | Contact resource | | Human-readable name of antenna ID |
+| spacecraftName | Parsed from Contact Platform Identifier | | Name of spacecraft |
 | gpsTime |	Coversion of utcTime | | Time in GPS time that the customer telemetry message was generated. |
 | utcTime	| Current time | | Time in UTC time that the customer telemetry message was generated. |
 | azimuthDecimalDegrees |	ACU: AntennaAzimuth |	|	Antenna's azimuth in decimal degrees. |
 | elevationDecimalDegrees	| ACU: AntennaElevation	| |	Antenna's elevation in decimal degrees. |
-| contactTleLine1	| ACU: Satellite[0].Model.Value	| • String: TLE <br> • "Empty TLE Line 1" if metric is null | First line of the TLE used for the contact. |
-| contactTLeLine2	| ACU: Satellite[0].Model.Value	| • String: TLE <br> • "Empty TLE Line 2" if metric is null | Second line of the TLE used for the contact. |
-| antennaType	| Respective 1P/3P telemetry builders set this value | MICROSOFT, KSAT, VIASAT | Antenna network used for the contact. |
+| contactTleLine1	| ACU: Satellite[0].Model.Value	| String of TLE Line 1 | First line of the TLE used for the contact. |
+| contactTLeLine2	| ACU: Satellite[0].Model.Value	| String of TLE Line 2 | Second line of the TLE used for the contact. |
+| name [Link-level] | Contact profile link | | Name of the link |
 | direction |	Contact profile link | Uplink, Downlink | Direction of the link used for the contact. |
 | polarization | Contact profile link | RHCP, LHCP, DualRhcpLhcp, LinearVertical, LinearHorizontal | Polarization of the link used for the contact. |
-| uplinkEnabled	| ACU: SBandCurrent or UHFTotalCurrent | • NULL (Invalid CenterFrequencyMhz or Downlink direction) <br> • False (Bands other than S and UHF or Amp Current < Threshold) <br> • True (S/UHF-band, Uplink, Amp Current > Threshold) | Idicates whether uplink was enabled for the contact. |
+| uplinkEnabled	| ACU: SBandCurrent or UHFTotalCurrent | • NULL (Invalid CenterFrequencyMhz or Downlink direction) <br> • False (Bands other than S and UHF or Amp Current < Threshold) <br> • True (S/UHF-band, Uplink, Amp Current > Threshold) | Indicates whether uplink was enabled for the contact. |
+| name [Channel-level] | Contact profile link channel | | Name of the channel |
+| modemName | Modem | | Name of modem device |
+| digitizerName | Digitizer | | Name of digitizer device |
 | endpointName | Contact profile link channel	| |	Name of the endpoint used for the contact. |
 | inputEbN0InDb |	Modem: measuredEbN0	| • NULL (Modem model other than QRadio or QRx) <br> • Double: Input EbN0 | Input energy per bit to noise power spectral density in dB. |
 | inputEsN0InDb	| Not used in 1P telemetry | NULL (Not used in 1P telemetry) | Input energy per symbol to noise power spectral density in dB. |
-| inputRfPowerDbm |	Digitizer: inputRfPower	| • NULL (Uplink) <br> • 0 (Digitizer driver other than SNNB or SNWB) <br> • Double: Input Rf Power | Input RF power in dBm. |
+| inputRfPowerDbm |	Digitizer: inputRfPower	| • NULL (Uplink or Digitizer driver other than SNNB or SNWB) <br> • Double: Input Rf Power | Input RF power in dBm. |
+| outputRfPowerDbm | Digitizer: outputRfPower | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Rf Power | Ouput RF power in dBm. |
+| outputPacketRate | Digitizer: rfOutputStream[0].measuredPacketRate | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Packet Rate | Measured packet rate for Uplink |
+| gapCount | Digitizer: rfOutputStream[0].gapCount | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Gap count | Packet gap count for Uplink |
 | modemLockStatus	| Modem: carrierLockState	| • NULL (Modem model other than QRadio or QRx; couldn’t parse lock status Enum) <br> • Empty string (if metric reading was null) <br> • String: Lock status | Confirmation that the modem was locked. |
-| commandsSent | Modem: commandsSent | • 0 (if not Uplink and QRadio) <br> • Double: # of commands sent | Confirmation that commands were sent during the contact. |
+| commandsSent | Modem: commandsSent | • NULL (if not Uplink and QRadio) <br> • Double: # of commands sent | Confirmation that commands were sent during the contact. |
 
 ## Changelog
+2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (groundstation, antenna, spacecraft, modem, digitizer, link, channel) <br>
 2023-06-05 - Updatd schema to show metrics under channels instead of links.
 
 ## Next steps

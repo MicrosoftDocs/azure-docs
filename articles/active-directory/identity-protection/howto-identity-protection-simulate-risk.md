@@ -105,7 +105,7 @@ This risk detection indicates that the application's valid credentials have been
      "AadTenantDomain": "XXXX.onmicrosoft.com",
      "AadTenantId": "99d4947b-XXX-XXXX-9ace-abceab54bcd4",
    ```
-1. In about 8 hours, you'll be able to view a leaked credential detection under **Microsoft Entra ID** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
+1. In about 8 hours, you'll be able to view a leaked credential detection under **Protection** > **Identity Protection** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
 
 ## Testing risk policies
 

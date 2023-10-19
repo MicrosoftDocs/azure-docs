@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 09/25/2023
 ms.author: cwerner
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
@@ -73,30 +73,9 @@ If you have not already done so, you'll need to assign yourself as the applicati
 >
 > Ensure that both the API application and the application you want to add permissions to both have an owner, otherwise the API will not be listed when requesting API permissions.
 
-## Assign users and groups to roles
-
-Once you've added app roles in your application, you can assign users and groups to the roles. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
-
-To assign users and groups to roles by using the Microsoft Entra admin center:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration to which you want to add an app role.
-1. Browse to **Identity** > **Applications** > **Enterprise applications**.
-1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
-1. Select the application in which you want to assign users or security group to roles.
-1. Under **Manage**, select **Users and groups**.
-1. Select **Add user** to open the **Add Assignment** pane.
-1. Select the **Users and groups** selector from the **Add Assignment** pane. A list of users and security groups is displayed. You can search for a certain user or group and select multiple users and groups that appear in the list.
-1. Once you've selected users and groups, select the **Select** button to proceed.
-1. Select **Select a role** in the **Add assignment** pane. All the roles that you've defined for the application are displayed.
-1. Choose a role and select the **Select** button.
-1. Select the **Assign** button to finish the assignment of users and groups to the app.
-
-Confirm that the users and groups you added appear in the **Users and groups** list.
-
 ## Assign app roles to applications
 
-Once you've added app roles in your application, you can assign an app role to a client app by using the Microsoft Entra admin center or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments).
+Once you've added app roles in your application, you can assign an app role to a client app by using the Microsoft Entra admin center or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments). This is not to be confused with [assigning roles to users](../roles/manage-roles-portal.md).
 
 When you assign app roles to an application, you create _application permissions_. Application permissions are typically used by daemon apps or back-end services that need to authenticate and make authorized API call as themselves, without the interaction of a user.
 
@@ -108,8 +87,7 @@ To assign app roles to an application by using the Microsoft Entra admin center:
 1. Select the application to which you want to assign an app role.
 1. Select **API permissions** > **Add a permission**.
 1. Select the **My APIs** tab, and then select the app for which you defined app roles.
-1. Select **Application permissions**.
-1. Select the role(s) you want to assign.
+1. Under **Permission**, select the role(s) you want to assign.
 1. Select the **Add permissions** button complete addition of the role(s).
 
 The newly added roles should appear in your app registration's **API permissions** pane.
@@ -146,6 +124,27 @@ Though you can use app roles or groups for authorization, key differences betwee
 Developers can use app roles to control whether a user can sign in to an app or an app can obtain an access token for a web API. To extend this security control to groups, developers and admins can also assign security groups to app roles.
 
 App roles are preferred by developers when they want to describe and control the parameters of authorization in their app themselves. For example, an app using groups for authorization will break in the next tenant as both the group ID and name could be different. An app using app roles remains safe. In fact, assigning groups to app roles is popular with SaaS apps for the same reasons as it allows the SaaS app to be provisioned in multiple tenants.
+
+## Assign users and groups to Microsoft Entra roles
+
+Once you've added app roles in your application, you can assign users and groups to [Microsoft Entra roles](../roles/permissions-reference.md). Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
+
+To assign users and groups to roles by using the Microsoft Entra admin center:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration to which you want to add an app role.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
+1. Select the application in which you want to assign users or security group to roles.
+1. Under **Manage**, select **Users and groups**.
+1. Select **Add user** to open the **Add Assignment** pane.
+1. Select the **Users and groups** selector from the **Add Assignment** pane. A list of users and security groups is displayed. You can search for a certain user or group and select multiple users and groups that appear in the list.
+1. Once you've selected users and groups, select the **Select** button to proceed.
+1. Select **Select a role** in the **Add assignment** pane. All the roles that you've defined for the application are displayed.
+1. Choose a role and select the **Select** button.
+1. Select the **Assign** button to finish the assignment of users and groups to the app.
+
+Confirm that the users and groups you added appear in the **Users and groups** list.
 
 ## Next steps
 

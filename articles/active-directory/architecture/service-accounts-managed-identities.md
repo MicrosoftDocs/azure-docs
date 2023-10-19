@@ -46,9 +46,9 @@ After the target system accepts the token for authentication, it supports mechan
 Azure control plane operations are managed by Azure Resource Manager and use Azure role-based access control (Azure RBAC). In the data plane, target systems have authorization mechanisms. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
 
 Learn more:
-* [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
-* [What is Azure role-based Azure RBAC?](../../role-based-access-control/overview.md)
-* [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md)
+* [What is Azure Resource Manager?](/azure/azure-resource-manager/management/overview)
+* [What is Azure role-based Azure RBAC?](/azure/role-based-access-control/overview)
+* [Azure control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane)
 * [Azure services that can use managed identities to access other services](../managed-identities-azure-resources/managed-identities-status.md)
 
 ## System-assigned and user-assigned managed identities
@@ -109,7 +109,7 @@ To assess managed identity security:
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
 * Confirm what resources the managed identity accesses
-  * See, [List Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md).
+  * See, [List Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell).
 
 ## Move to managed identities
 

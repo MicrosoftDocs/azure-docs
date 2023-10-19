@@ -108,7 +108,7 @@ application integration page, find the **Manage** section and select **single si
     ![Screenshot for User Attributes & Claims.](./media/solarwinds-orion-tutorial/group-claim.png)
 
 1. Choose **Security groups**.
-1. If you have Azure AD synchronized with your on-premises AD, change **Source attribute** to **sAMAccountName**. Otherwise, leave it as Group ID.
+1. If you have Microsoft Entra ID synchronized with your on-premises AD, change **Source attribute** to **sAMAccountName**. Otherwise, leave it as Group ID.
 
 1. In the **Advanced options**, tick mark **Customize the name of the group claim** and give OrionGroups as the name.
 

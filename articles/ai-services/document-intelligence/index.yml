@@ -6,8 +6,7 @@ summary: Azure AI Document Intelligence (formerly Form Recognizer) is a cloud-ba
 metadata:
   title: Document Intelligence documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Document Intelligence analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Document Intelligence to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
-  ms.service: applied-ai-services
-  ms.subservice: forms-recognizer
+  ms.service: azure-ai-document-intelligence
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar

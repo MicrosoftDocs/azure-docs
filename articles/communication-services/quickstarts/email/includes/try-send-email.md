@@ -26,7 +26,7 @@ Try Email helps you kick starting with sending email using Azure Communication S
 
 To send a message to a recipient, and to specify the message subject and body, 
 
-1. In the Azure Communication Service Resource overview page, click **Try Email** on the left navigation panel under Email.
+1. From the overview page of a provisioned Azure Communication Service resource, click **Try Email** on the left navigation panel under Email.
 
     :::image type="content" source="../media/try-email-domains-select.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/try-email-domains-select.png":::
 
