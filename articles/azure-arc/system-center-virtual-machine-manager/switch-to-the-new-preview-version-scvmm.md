@@ -1,5 +1,5 @@
 ---
-title: Switch to the new preview version
+title: Switch to the new preview version of Arc-enabled SCVMM
 description: Learn how to switch to the new preview version and use its capabilities
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
