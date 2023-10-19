@@ -125,7 +125,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name and then select *Use quick start sample app* to create the app.
+1. On the **Create App** page, fill in the app name *simple-todo-web* and then select *Use quick start sample app* to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
@@ -133,7 +133,7 @@ Use the following steps to connect your service instances:
 
 1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
-   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
+   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-pgsql.postgres.database.azure.com:5432/todo?sslmode=require*
    - **SPRING_DATASOURCE_USERNAME**: *myadmin*
    - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
 
@@ -192,7 +192,8 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 [!INCLUDE [deploy-hello-app-with-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
-   [INFO] Deployment(default) is successfully created
+   [INFO] Start updating app(simple-todo-web)...
+   [INFO] App(simple-todo-web) is successfully updated.
    [INFO] Starting Spring App after deploying artifacts...
    [INFO] Deployment Status: Running
    [INFO]   InstanceName:simple-todo-web--default-xxxxxxx-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
