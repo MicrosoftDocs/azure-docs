@@ -95,7 +95,9 @@ Azure Machine Learning packages the model first and then executes the deployment
 
 ### Deploy a packaged model
 
-You can deploy a model that has been packaged directly to an Online Endpoint. This practice ensure reproducibility of results and it's a best practice. To learn how to deploy an already packaged model see [Package and deploy models to Online Endpoints](how-to-package-models-moe.md). If you want to deploy the package outside of Azure Machine Learning, see [Package and deploy models outside Azure Machine Learning](how-to-package-models-app-service.md).
+You can deploy a model that has been packaged directly to an Online Endpoint. This practice ensures reproducibility of results and it's a best practice. See [Package and deploy models to Online Endpoints](how-to-package-models-moe.md).
+
+If you want to deploy the package outside of Azure Machine Learning, see [Package and deploy models outside Azure Machine Learning](how-to-package-models-app-service.md).
 
 ## Next step
 
