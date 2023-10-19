@@ -49,8 +49,7 @@ TODO
 
     ```azurecli-interactive
     azd init \
-        --template cosmos-db-nosql-dotnet-quickstart \
-        --environment msdocs-cosmos-db-nosql-dotnet-quickstart
+        --template cosmos-db-nosql-dotnet-quickstart
     ```
 
 1. TODO
