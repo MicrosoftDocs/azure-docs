@@ -133,6 +133,52 @@ The below claims will appear only in the attestation token generated for Intel®
 } 
 ```
 
+## Sample JWT generated for TDX attestation
+
+The definitions of below claims are available in Azure Attestation EAT profile
+
+```
+{
+   "attester_tcb_status": "UpToDate",
+   "dbgstat": "disabled",
+   "eat_profile": "https://aka.ms/maa-eat-profile-tdxvm",
+   "exp": 1697706287,
+   "iat": 1697677487,
+   "intuse": "generic",
+   "iss": "https://maasand001.eus.attest.azure.net",
+   "jti": "5f65006d573bc1c04f67820348c20f5d8da72ddbbd4d6c03da8de9f11b5cf29b",
+   "nbf": 1697677487,
+   "tdx_mrconfigid": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_mrowner": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_mrownerconfig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_mrseam": "2fd279c16164a93dd5bf373d834328d46008c2b693af9ebb865b08b2ced320c9a89b4869a9fab60fbe9d0c5a5363c656",
+   "tdx_mrsignerseam": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_mrtd": "5be56d418d33661a6c21da77c9503a07e430b35eb92a0bd042a6b3c4e79b3c82bb1c594e770d0d129a0724669f1e953f",
+   "tdx_report_data": "93c6db49f2318387bcebdad0275e206725d948f9000d900344aa44abaef145960000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_rtmr0": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_rtmr1": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_rtmr2": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_rtmr3": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tdx_seam_attributes": "0000000000000000",
+   "tdx_seamsvn": 3,
+   "tdx_td_attributes": "0000000000000000",
+   "tdx_td_attributes_debug": false,
+   "tdx_td_attributes_key_locker": false,
+   "tdx_td_attributes_perfmon": false,
+   "tdx_td_attributes_protection_keys": false,
+   "tdx_td_attributes_septve_disable": false,
+   "tdx_tee_tcb_svn": "03000600000000000000000000000000",
+   "tdx_xfam": "e718060000000000",
+   "x-ms-attestation-type": "tdxvm",
+   "x-ms-compliance-status": "azure-compliant-cvm",
+   "x-ms-policy-hash": "B56nbp5slhw66peoRYkpdq1WykMkEworvdol08hnMXE",
+   "x-ms-runtime": {
+      "test-claim-name": "test-claim-value"
+   },
+   "x-ms-ver": "1.0"
+} 
+```
+
 ## Next steps
 
 - [View examples of an attestation policy](policy-examples.md)
