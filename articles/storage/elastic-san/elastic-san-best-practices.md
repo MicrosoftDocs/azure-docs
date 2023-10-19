@@ -4,7 +4,7 @@ description: Elastic SAN best practices
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ---
 
@@ -14,7 +14,7 @@ This article provides some general guidance on getting optimal performance with 
 
 ## Client-side optimizations
 
-### General Recommendations (Windows & Linux Virtual Machines)
+### General recommendations (Windows & Linux Virtual Machines)
 
 - For best performance, deploy your VMs and Elastic SAN in the same zone and the same region.
 
@@ -22,7 +22,7 @@ This article provides some general guidance on getting optimal performance with 
 
 - Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable Accelerated Networking on existing VMs, see [Use Azure PowerShell to create a VM with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md)
 
-:::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Enable Accelerated Networking during VM creation." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
+:::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Screenshot of VM creation flow, enable accelerated networking highlighted." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
 
 - You must use 32 sessions per target volume for each volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-volumes), [Linux](elastic-san-connect-linux.md#connect-to-volumes), or on the Connect to volume page for your volumes in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
 
@@ -95,11 +95,11 @@ In cluster configurations, ensure iSCSI initiator names unique across all nodes 
 1.	Select **Start**, search for **iSCSI Initiator** in the search box. This opens the iSCSI Initiator.
 1.	Select **Configuration** to see current initiator name.
     
-    :::image type="content" source="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png" alt-text="iSCSI Initiator Configuration on Windows." lightbox="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png"::: 
+    :::image type="content" source="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png" alt-text="Screenshot of iSCSI Initiator configuration on Windows." lightbox="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png"::: 
 
 1.	To modify it, select **Change**, enter new initiator name and select OK.
     
-    :::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png" alt-text="Update iSCSI Initiator Name on Windows." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png"::: 
+    :::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png" alt-text="Screenshot of updating the iSCSI Initiator Name on Windows." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png"::: 
 
 
 #### Linux
@@ -119,7 +119,7 @@ Update /etc/iscsi/iscsid.conf file with the following values:
 
 
 In cluster configurations, ensure iSCSI initiator names are unique across all nodes that are sharing volumes. In Linux, you can modify /etc/iscsi/initiatorname.iscsi to update the initiator name.
-:::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png" alt-text="Update iSCSI Initiator Name on Linux." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png"::: 
+:::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png" alt-text="Screenshot updating the iSCSI Initiator Name on Linux." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png"::: 
 
 
 ## Elastic SAN optimizations
