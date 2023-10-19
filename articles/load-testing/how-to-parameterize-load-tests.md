@@ -82,7 +82,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
     * In the Azure portal, select your load test, select **Configure**, select the **Parameters** tab, and then configure the **Key Vault reference identity**.
 
-    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how to select key vault reference identity.":::
+        :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how to select key vault reference identity.":::
 
     * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify the reference identity in the YAML configuration file by using the `keyVaultReferenceIdentity` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
@@ -90,13 +90,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
 [!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 
-1. Grant your Azure Load Testing resource access to the key vault.
-    
-    To retrieve the secret from your Azure key vault, you need to give read permission to your Azure Load Testing resource. To enable this, you need to first specify an identity for your load testing resource. Azure Load Testing can use a system-assigned or user-assigned identity.
-    
-    To provide Azure Load Testing access to your key vault, see [Use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
-
-You've now specified a secret in Azure Key Vault and configured your Azure Load Testing resource to retrieve its value. You can now move to [Use secrets in Apache JMeter](#jmeter_secrets).
+Now that you've added a secret in Azure Key Vault, configured a secret for your load test, you can now move to [Use secrets in Apache JMeter](#jmeter_secrets).
 
 ### <a name="cicd_secrets"></a> Use the CI/CD secret store to save load test secrets 
 

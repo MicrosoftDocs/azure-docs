@@ -193,10 +193,6 @@ You can create an Azure load testing resource by using an ARM template and the r
 
 You might need to configure the target resource to allow access from your load testing resource. For example, if you [read a secret or certificate from Azure Key Vault](./how-to-parameterize-load-tests.md), or if you [use customer-managed keys for encryption](./how-to-configure-customer-managed-keys.md), you must also add an access policy that includes the managed identity of your resource. Otherwise, your calls to Azure Key Vault are rejected, even if you use a valid token.
 
-## Grant access to your Azure key vault
-
-[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
-
 ## Related content
 
 * [Use secrets or certificates in your load test](./how-to-parameterize-load-tests.md)
