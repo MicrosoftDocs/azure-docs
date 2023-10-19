@@ -326,7 +326,17 @@ This error occurs when there's a problem with the underlying datastore on which 
 ### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
 This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
-:::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/snapshot-error.png" alt-text="Screenshot of Snapshot error details.":::
+## Protection Readiness Error
+
+**Error Message:** Cannot replicate this virtual machine with current VMware configuration.
+
+**Possible Causes:**
+
+- Change tracking cannot be enabled for the VM as snapshots are already present for the VM.
+      
+**Recommendation:**
+
+- Delete the snapshots or enable change block tracking on the VM and retry.
 
 ## Replication cycle failed
 

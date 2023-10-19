@@ -33,7 +33,7 @@ Once the migration is successful and the VM boots up in Azure, ensure that you s
 ## Replication cycles
 
 > [!Note]
-> Ensure you check for snapshots present from earlier replication attempts or from other third party apps. Change tracking cannot be enabled on the VM if snapshots are already present for the VM. Delete the existing snapshots or enable changed block tracking on the VM.
+> Ensure you check for snapshots present from earlier replication attempts or from other third party apps. Change tracking cannot be enabled on the VM if snapshots are already present for the VM. Delete the existing snapshots or enable change block tracking on the VM.
 
 Replication cycles refer to the periodic process of transferring data from on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
