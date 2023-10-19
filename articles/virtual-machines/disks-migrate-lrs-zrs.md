@@ -4,11 +4,13 @@ description: Learn how to convert a managed disk from locally redundant storage 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 10/18/2023
 ms.author: rogarana
 ---
 
 # Convert a disk from LRS to ZRS
+
+This article explains how to convert an existing disk from locally redundant storage (LRS) to zone-redundant storage (ZRS).
 
 For conceptual information on ZRS, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
 
@@ -22,7 +24,7 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 ## Determine infrastructure redundancy
 
-Before you convert a disk from locally redundant storage (LRS) to zone-redundant storage (ZRS) you must first identify whether the disk is zonal or regional. The migration path your disk requires changes based on whether it is zonal or regional.
+Before you convert a disk from LRS to ZRS, you must first identify whether the disk is zonal or regional. How you migrate your disk changes based on whether it is zonal or regional.
 
 # [Portal](#tab/azure-portal)
 
@@ -138,7 +140,7 @@ az vm start --ids $vmId
 
 ## Zonal migration
 
-In this section, you migrate the data from your current managed disks to zone-redundant storage (ZRS) managed disks.
+In this section, you migrate the data from your current managed disks to ZRS managed disks.
 
 If you have a zonal disk, you can't directly change its type. You must take a snapshot and use that snapshot to create a new ZRS disk.
 
