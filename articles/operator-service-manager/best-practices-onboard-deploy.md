@@ -74,11 +74,11 @@ An NSD is a composite of one or more NFD and any infrastructure components deplo
 
 An example of an NSD is:
 
-- (1) Authentication Server Function (AUSF) NF
-- (2) Unified Data Management (UDM) NF
-- (3) admin VM supporting AUSF/UDM
-- (4) Unity Cloud (UC) Session Management Function (SMF) NF
-- (5) Nexus Azure Kubernetes Service (NAKS) cluster which AUSF, UDM, and SMF are deployed to
+- Authentication Server Function (AUSF) NF
+- Unified Data Management (UDM) NF
+- Admin VM supporting AUSF/UDM
+- Unity Cloud (UC) Session Management Function (SMF) NF
+- Nexus Azure Kubernetes Service (NAKS) cluster which AUSF, UDM, and SMF are deployed to
 
 These five components form a single NSD. Single NSDs can have multiple NSDVs. The collection of all NSDVs for a given NSD is known as an NSDG.
 
