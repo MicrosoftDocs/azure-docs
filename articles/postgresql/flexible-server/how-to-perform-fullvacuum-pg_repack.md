@@ -20,7 +20,7 @@ pg_repack is a PostgreSQL extension that enables you to remove bloat from tables
 ### How to use pg_repack? 
 To use pg_repack, you will need to install the extension in your PostgreSQL database and then run the pg_repack command, specifying the name of the table or index that you want to optimize. The extension will acquire locks on the table or index to prevent other operations from being performed while the optimization is in progress. It will then remove the bloat and reorganize the data in a more efficient manner.
 
-### How full table repack works. 
+### How full table repack works
 
 To perform a full table repack, pg_repack will follow these steps: 
 
