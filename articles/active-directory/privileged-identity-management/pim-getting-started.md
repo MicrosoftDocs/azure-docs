@@ -30,7 +30,7 @@ To use Privileged Identity Management, you must have one of the following licens
 - [!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 
-For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
+For more information, see [License requirements to use Privileged Identity Management](../governance/licensing-fundamentals.md).
 
 > [!Note]
 > When a user who is active in a privileged role in a Microsoft Entra organization with a Premium P2 license goes to **Roles and administrators** in Microsoft Entra ID and selects a role (or even just visits Privileged Identity Management):

@@ -32,7 +32,7 @@ The API is protected through Microsoft Entra ID and uses OAuth2 bearer tokens. T
 
 ### User bearer tokens
 
-The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../../active-directory/roles/permissions-reference.md#global-reader) can perform read-only API calls.
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../roles/permissions-reference.md#global-reader) can perform read-only API calls.
 
 ### Application bearer tokens
 
@@ -46,7 +46,7 @@ The `Verifiable Credentials Service Admin` service supports the following applic
 | VerifiableCredential.Credential.Revoke | Permission to [revoke a previously issued credential](how-to-issuer-revoke.md) |
 | VerifiableCredential.Network.Read | Permission to read entries from the [Verified ID Network](vc-network-api.md) |
 
-The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and permissions required from the above table. When acquiring the access token, via the [client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/.default`.
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and permissions required from the above table. When acquiring the access token, via the [client credentials flow](../develop/v2-oauth2-client-creds-grant-flow.md), the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/.default`.
 
 ## Onboarding
 
