@@ -104,7 +104,7 @@ You can use a storage account and user assigned managed identity, with write acc
 
 If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this after site creation.
 
-If you want to configure diagnostics package gathering during site creation, see [Collect values for diagnostics package gathering](gather-diagnostics.md#collect-values-for-diagnostics-package-gathering).
+If you want to configure diagnostics package gathering during site creation, see [Collect values for diagnostics package gathering](gather-diagnostics.md#set-up-a-storage-account).
 
 ## Choose the authentication method for local monitoring tools
 
