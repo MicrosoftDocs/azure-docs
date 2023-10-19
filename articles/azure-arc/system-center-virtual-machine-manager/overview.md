@@ -1,6 +1,6 @@
 ---
-title:  Overview of the Azure Connected System Center Virtual Machine Manager (preview)
-description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager (preview).
+title:  Overview of the Azure Connected System Center Virtual Machine Manager 
+description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
 ms.date: 07/24/2023
 ms.topic: conceptual
 ms.services: azure-arc
@@ -11,7 +11,7 @@ keywords: "VMM, Arc, Azure"
 ms.custom: references_regions
 ---
 
-# Overview of Arc-enabled System Center Virtual Machine Manager (preview)
+# Overview of Arc-enabled System Center Virtual Machine Manager
 
 Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. With Azure Arc-enabled SCVMM, you get a consistent management experience across Azure.
 
@@ -40,7 +40,7 @@ Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports
 
 ### Supported scenarios
 
-The following scenarios are supported in Azure Arc-enabled SCVMM (preview):
+The following scenarios are supported in Azure Arc-enabled SCVMM:
 
 - SCVMM administrators can connect a VMM instance to Azure and browse the SCVMM virtual machine inventory in Azure.
 - Administrators can use the Azure portal to browse SCVMM inventory and register SCVMM cloud, virtual machines, VM networks, and VM templates into Azure.
@@ -49,7 +49,7 @@ The following scenarios are supported in Azure Arc-enabled SCVMM (preview):
 
 ### Supported regions
 
-Azure Arc-enabled SCVMM (preview) is currently supported in the following regions:
+Azure Arc-enabled SCVMM is currently supported in the following regions:
 
 - East US
 - West US2
