@@ -203,7 +203,7 @@ An application consistent snapshot of a Volume with MySQL deployed is taken by d
 2. A snapshot is taken of the Volume as backup.
 3. The Pod running MySQL is unfrozen so that transactions can be done again on the database. 
 
-To enable a *Backup Hook* as part of the configure backup flow to back up MySQ, follow these steps:
+To enable a *Backup Hook* as part of the configure backup flow to back up MySQL, follow these steps:
 
 1. Write the Custom Resource for Backup Hook with commands to freeze and unfreeze a PostgreSQL Pod. You can also use the following sample YAML script  `"postgresbackuphook.yaml"` with pre-defined commands.
 
