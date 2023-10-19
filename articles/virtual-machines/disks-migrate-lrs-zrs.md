@@ -4,7 +4,7 @@ description: Learn how to convert a managed disk from locally redundant storage 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ---
 
@@ -52,6 +52,8 @@ az disk show --name your_disk_name_here --resource-group your_RG_name_here
 ---
 
 ## Regional migration
+
+You can directly change the disk type of regional disks with the following options.
 
 # [Portal](#tab/azure-portal)
 
