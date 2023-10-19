@@ -1,6 +1,6 @@
 ---
-title: 'Modify group writeback in Azure AD Connect'
-description: This article describes how to modify the default behavior for group writeback in Azure AD Connect. 
+title: 'Modify group writeback in Microsoft Entra Connect'
+description: This article describes how to modify the default behavior for group writeback in Microsoft Entra Connect. 
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,15 +14,15 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Modify Azure AD Connect group writeback default behavior 
+# Modify Microsoft Entra Connect group writeback default behavior 
 
-Group writeback is a feature that allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can change the default behavior in the following ways: 
+Group writeback is a feature that allows you to write cloud groups back to your on-premises Active Directory instance by using Microsoft Entra Connect Sync. You can change the default behavior in the following ways: 
 
 - Only groups that are configured for writeback will be written back, including newly created Microsoft 365 groups. 
-- Groups that are written back will be deleted in Active Directory when they're disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
+- Groups that are written back will be deleted in Active Directory when they're disabled for group writeback, soft deleted, or hard deleted in Microsoft Entra ID. 
 - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
-This article walks you through the options for modifying the default behaviors of Azure AD Connect group writeback. 
+This article walks you through the options for modifying the default behaviors of Microsoft Entra Connect group writeback. 
 
 ## Considerations for existing deployments 
 
@@ -83,7 +83,7 @@ To configure directory settings to disable automatic writeback of newly created 
   ``` 
 
 > [!NOTE]     
-> We recommend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true).
+> We recommend using Microsoft Graph PowerShell SDK with [PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true).
 
 - Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
 
@@ -116,15 +116,15 @@ To disable writeback of all Microsoft 365 groups that were created before these 
 ## Delete groups when they're disabled for writeback or soft deleted 
 
 > [!NOTE]  
-> After you delete written-back groups in Active Directory, they're not automatically restored from the Active Directory Recycle Bin feature if they're re-enabled for writeback or restored from a soft-delete state. New groups will be created. Deleted groups that are restored from Active Directory Recycle Bin before they're re-enabled for writeback, or that are restored from a soft-delete state in Azure AD, will be joined to their respective Azure AD groups. 
+> After you delete written-back groups in Active Directory, they're not automatically restored from the Active Directory Recycle Bin feature if they're re-enabled for writeback or restored from a soft-delete state. New groups will be created. Deleted groups that are restored from Active Directory Recycle Bin before they're re-enabled for writeback, or that are restored from a soft-delete state in Microsoft Entra ID, will be joined to their respective Microsoft Entra groups. 
 
-1. On your Azure AD Connect server, open a PowerShell prompt as an administrator. 
-2. Disable the [Azure AD Connect sync scheduler](./how-to-connect-sync-feature-scheduler.md):
+1. On your Microsoft Entra Connect server, open a PowerShell prompt as an administrator. 
+2. Disable the [Microsoft Entra Connect Sync scheduler](./how-to-connect-sync-feature-scheduler.md):
  
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $false  
    ``` 
-3. Create a custom synchronization rule in Azure AD Connect to delete written-back groups when they're disabled for writeback or soft deleted:  
+3. Create a custom synchronization rule in Microsoft Entra Connect to delete written-back groups when they're disabled for writeback or soft deleted:  
  
    ```PowerShell 
    import-module ADSync 
@@ -182,21 +182,21 @@ To disable writeback of all Microsoft 365 groups that were created before these 
    ```
 
 4. [Enable group writeback](how-to-connect-group-writeback-enable.md). 
-5. Enable the Azure AD Connect sync scheduler: 
+5. Enable the Microsoft Entra Connect Sync scheduler: 
  
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $true  
    ``` 
 
 > [!NOTE] 
-> Creating the synchronization rule will set the flag for full synchronization to `true` on the Azure AD connector. This change will cause the rule changes to propagate through on the next synchronization cycle. 
+> Creating the synchronization rule will set the flag for full synchronization to `true` on the Microsoft Entra connector. This change will cause the rule changes to propagate through on the next synchronization cycle. 
 
 ## Write back Microsoft 365 groups with up to 250,000 members 
 
 Because the default sync rule that limits the group size is created when group writeback is enabled, you must complete the following steps after you enable group writeback: 
 
-1. On your Azure AD Connect server, open a PowerShell prompt as an administrator. 
-2. Disable the [Azure AD Connect sync scheduler](./how-to-connect-sync-feature-scheduler.md): 
+1. On your Microsoft Entra Connect server, open a PowerShell prompt as an administrator. 
+2. Disable the [Microsoft Entra Connect Sync scheduler](./how-to-connect-sync-feature-scheduler.md): 
  
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $false  
@@ -204,23 +204,23 @@ Because the default sync rule that limits the group size is created when group w
 3. Open the [synchronization rule editor](./how-to-connect-create-custom-sync-rule.md). 
 4. Set the direction to **Outbound**. 
 5. Locate and disable the **Out to AD – Group Writeback Member Limit** synchronization rule. 
-6. Enable the Azure AD Connect sync scheduler: 
+6. Enable the Microsoft Entra Connect Sync scheduler: 
 
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $true  
    ``` 
 
 > [!NOTE] 
-> Disabling the synchronization rule will set the flag for full synchronization to `true` on the Azure AD connector. This change will cause the rule changes to propagate through on the next synchronization cycle.  
+> Disabling the synchronization rule will set the flag for full synchronization to `true` on the Microsoft Entra connector. This change will cause the rule changes to propagate through on the next synchronization cycle.  
 
 ## Restore from Active Directory Recycle Bin 
 
-If you're updating the default behavior to delete groups when they're disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](./how-to-connect-sync-recycle-bin.md) feature for your on-premises instances of Active Directory. You can use this feature to manually restore previously deleted Active Directory groups so that they can be rejoined to their respective Azure AD groups, if they were accidentally disabled for writeback or soft deleted. 
+If you're updating the default behavior to delete groups when they're disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](./how-to-connect-sync-recycle-bin.md) feature for your on-premises instances of Active Directory. You can use this feature to manually restore previously deleted Active Directory groups so that they can be rejoined to their respective Microsoft Entra groups, if they were accidentally disabled for writeback or soft deleted. 
 
-Before you re-enable for writeback or restore from soft delete in Azure AD, you first need to restore the group in Active Directory.  
+Before you re-enable for writeback or restore from soft delete in Microsoft Entra ID, you first need to restore the group in Active Directory.  
 
 ## Next steps 
 
-- [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
-- [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md) 
-- [Disable Azure AD Connect group writeback](how-to-connect-group-writeback-disable.md)
+- [Microsoft Entra Connect group writeback](how-to-connect-group-writeback-v2.md) 
+- [Enable Microsoft Entra Connect group writeback](how-to-connect-group-writeback-enable.md) 
+- [Disable Microsoft Entra Connect group writeback](how-to-connect-group-writeback-disable.md)

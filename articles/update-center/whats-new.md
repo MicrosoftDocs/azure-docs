@@ -5,14 +5,30 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/30/2023
+ms.date: 09/18/2023
 ---
 
 # What's new in Azure Update Manager
 
-[Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager.
+[Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
+
+## October 2023
+
+### Azure Migrate, Azure Backup, Azure Site Recovery VMs support (preview)
+
+Azure Update Manager now supports scheduled patching and periodic assessment for [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
+
+## September 2023
+
+**Azure Update Manager is now Generally Available**.  
+
+For more information, see [the announcement](https://techcommunity.microsoft.com/t5/azure-governance-and-management/generally-available-azure-update-manager/ba-p/3928878).
 
 ## August 2023
+
+### Service rebranding
+
+Update management center is now rebranded as Azure Update Manager.
 
 ### New region support
 
@@ -24,9 +40,9 @@ SQL Server patching (preview) allows you to patch SQL Servers. You can now manag
 
 ## July 2023
 
-### Dynamic scope (preview)
+### Dynamic scope
 
-Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+Dynamic scope is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
  
 
 ## May 2023

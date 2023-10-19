@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 04/18/2023
+ms.date: 09/20/2023
 ms.reviewer: cynthn, mattmcinnes
 
 ---
@@ -133,18 +133,14 @@ During the preview:
 
 ### Community gallery
 
-To share a gallery with all Azure users, you can create a community gallery (preview). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a community gallery. Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
-Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md). In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
+Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md). You can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
 For more information, see [Share images using a community gallery](./share-gallery-community.md).
 
 
 > [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->To publish a community gallery, you'll need to enable the preview feature using the azure CLI: `az feature register --name CommunityGallery --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGallery" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see   [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
-> 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
 

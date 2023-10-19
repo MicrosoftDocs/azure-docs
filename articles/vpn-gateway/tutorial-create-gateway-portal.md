@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/07/2023
+ms.date: 10/05/2023
 
 ---
 
@@ -56,7 +56,6 @@ Create a virtual network gateway using the following values:
 * **Name:** VNet1GW
 * **Region:** East US
 * **Gateway type:** VPN
-* **VPN type:** Route-based
 * **SKU:** VpnGw2
 * **Generation:** Generation 2
 * **Virtual network:** VNet1

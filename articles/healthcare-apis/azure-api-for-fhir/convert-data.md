@@ -6,11 +6,13 @@ author: irenepjoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/09/2023
+ms.date: 09/27/2023
 ms.author: irenejoseph
 ---
 
 # Converting your data to FHIR for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 The `$convert-data` custom endpoint in the FHIR service is meant for data conversion from different data types to FHIR. It uses the Liquid template engine and the templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default templates. You can customize these conversion templates as needed. 
 

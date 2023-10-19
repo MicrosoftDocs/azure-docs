@@ -94,7 +94,7 @@ Once you have completed the network configuration, you can verify your configura
 
 ## Automation
 
-Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before they run, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Azure Active Directory service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see [CLI Authentication](https://www.terraform.io/cli/auth).
+Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before they run, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Microsoft Entra service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see [CLI Authentication](https://www.terraform.io/cli/auth).
 
 For the Terraform scripts and related documentation to deploy the inter-connect, see [Azure-OCI Cloud Inter-Connect](https://aka.ms/azureociinterconnecttf).
 

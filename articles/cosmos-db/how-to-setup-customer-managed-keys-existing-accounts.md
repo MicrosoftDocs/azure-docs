@@ -57,7 +57,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
 
 
-1. Configure managed identity to your cosmos account [Configure managed identities with Azure AD for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
+1. Configure managed identity to your cosmos account [Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
 
 1. Update cosmos account to set default identity to point to managed identity added in previous step
 

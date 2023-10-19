@@ -4,7 +4,7 @@ description: This article tells how to use Azure Update Manager in Azure using R
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/15/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 

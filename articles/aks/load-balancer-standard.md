@@ -461,6 +461,163 @@ The following annotations are supported for Kubernetes services with type `LoadB
 > [!NOTE]
 > `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` was deprecated in Kubernetes 1.18 and removed in 1.20.
 
+### Customize the load balancer health probe
+| Annotation | Value | Description |
+| ---------- | ----- | ----------- |
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-interval`          | Health probe interval                                       |                                                                       |
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe`      | The minimum number of unhealthy responses of health probe   |                                                                       | 
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path`      | Request path of the health probe                            |                                                                       |
+| `service.beta.kubernetes.io/port_{port}_no_lb_rule`                             | true/false                                                  | {port} is the port number in the service. When it is set to true, no lb rule and health probe rule for this port will be generated. health check service should not be exposed to the public internet(e.g. istio/envoy health check service)|
+| `service.beta.kubernetes.io/port_{port}_no_probe_rule`                          | true/false                                                  | {port} is the port number in the service. When it is set to true, no health probe rule for this port will be generated.                                                                                                                                                                                                              | 
+| `service.beta.kubernetes.io/port_{port}_health-probe_protocol`                  | Health probe protocol                                       | {port} is the port number in the service. Explicit protocol for the health probe for the service port {port}, overriding port.appProtocol if set.|
+| `service.beta.kubernetes.io/port_{port}_health-probe_port`                      | port number or port name in service manifest                | {port} is the port number in the service. Explicit port for the health probe for the service port {port}, overriding the default value.                                                                                                                                                                                                                  | 
+| `service.beta.kubernetes.io/port_{port}_health-probe_interval`                  | Health probe interval                                       | {port} is port number of service.                                     |
+| `service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe`              | The minimum number of unhealthy responses of health probe   | {port} is port number of service.                                     |
+| `service.beta.kubernetes.io/port_{port}_health-probe_request-path`              | Request path of the health probe                            | {port} is port number of service.                                     | 
+
+As documented [here](../load-balancer/load-balancer-custom-probe-overview.md), Tcp, Http and Https are three protocols supported by load balancer service.
+
+Currently, the default protocol of the health probe varies among services with different transport protocols, app protocols, annotations and external traffic policies.
+
+1. for local services, HTTP and /healthz would be used. The health probe will query NodeHealthPort rather than actual backend service
+1. for cluster TCP services, TCP would be used.
+1. for cluster UDP services, no health probes.
+
+> [!NOTE]
+> For local services with PLS integration and PLS proxy protocol enabled, the default HTTP+/healthz health probe does not work. Thus health probe can be customized the same way as cluster services to support this scenario.
+
+Since v1.20, service annotation `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` is introduced to determine the health probe behavior.
+
+* For clusters <=1.23, `spec.ports.appProtocol` would only be used as probe protocol when `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` is also set.
+* For clusters >1.24,  `spec.ports.appProtocol` would be used as probe protocol and `/` would be used as default probe request path (`service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` could be used to change to a different request path).
+
+Note that the request path would be ignored when using TCP or the `spec.ports.appProtocol` is empty. More specifically:
+
+| loadbalancer sku | `externalTrafficPolicy` | spec.ports.Protocol | spec.ports.AppProtocol | `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` | LB Probe Protocol                 | LB Probe Request Path       |
+| ---------------- | ----------------------- | ------------------- | ---------------------- | -------------------------------------------------------------------------- | --------------------------------- | --------------------------- |
+| standard         | local                   | any                 | any                    | any                                                                        | http                              | `/healthz`                  |
+| standard         | cluster                 | udp                 | any                    | any                                                                        | null                              | null                        |
+| standard         | cluster                 | tcp                 |                        | (ignored)                                                                  | tcp                               | null                        |
+| standard         | cluster                 | tcp                 | tcp                    | (ignored)                                                                  | tcp                               | null                        |
+| standard         | cluster                 | tcp                 | http/https             |                                                                            | TCP(<=1.23) or http/https(>=1.24) | null(<=1.23) or `/`(>=1.24) |
+| standard         | cluster                 | tcp                 | http/https             | `/custom-path`                                                             | http/https                        | `/custom-path`              |
+| standard         | cluster                 | tcp                 | unsupported protocol   | `/custom-path`                                                             | tcp                               | null                        |
+| basic            | local                   | any                 | any                    | any                                                                        | http                              | `/healthz`                  |
+| basic            | cluster                 | tcp                 |                        | (ignored)                                                                  | tcp                               | null                        |
+| basic            | cluster                 | tcp                 | tcp                    | (ignored)                                                                  | tcp                               | null                        |
+| basic            | cluster                 | tcp                 | http                   |                                                                            | TCP(<=1.23) or http/https(>=1.24) | null(<=1.23) or `/`(>=1.24) |
+| basic            | cluster                 | tcp                 | http                   | `/custom-path`                                                             | http                              | `/custom-path`              |
+| basic            | cluster                 | tcp                 | unsupported protocol   | `/custom-path`                                                             | tcp                               | null                        |
+
+Since v1.21, two service annotations `service.beta.kubernetes.io/azure-load-balancer-health-probe-interval` and `load-balancer-health-probe-num-of-probe` are introduced, which customize the configuration of health probe. If `service.beta.kubernetes.io/azure-load-balancer-health-probe-interval` is not set, Default value of 5 is applied. If `load-balancer-health-probe-num-of-probe` is not set, Default value of 2 is applied. And total probe should be less than 120 seconds.
+
+
+### Custom Load Balancer health probe for port
+Different ports in a service may require different health probe configurations. This could be because of service design (such as a single health endpoint controlling multiple ports), or Kubernetes features like the [MixedProtocolLBService](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancers-with-mixed-protocol-types).
+
+The following annotations can be used to customize probe configuration per service port.
+
+| port specific annotation                                         | global probe annotation                                                  | Usage                                                                        |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| service.beta.kubernetes.io/port_{port}_no_lb_rule                | N/A (no equivalent globally)                                             | if set true, no lb rules and probe rules will be generated                   |
+| service.beta.kubernetes.io/port_{port}_no_probe_rule             | N/A (no equivalent globally)                                             | if set true, no probe rules will be generated                                |
+| service.beta.kubernetes.io/port_{port}_health-probe_protocol     | N/A (no equivalent globally)                                             | Set the health probe protocol for this service port (e.g. Http, Https, Tcp)  |
+| service.beta.kubernetes.io/port_{port}_health-probe_port         | N/A (no equivalent globally)                                             | Sets the health probe port for this service port (e.g. 15021)                |
+| service.beta.kubernetes.io/port_{port}_health-probe_request-path | service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path | For Http or Https, sets the health probe request path. Defaults to /         |
+| service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe | service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe | Number of consecutive probe failures before the port is considered unhealthy |
+| service.beta.kubernetes.io/port_{port}_health-probe_interval     | service.beta.kubernetes.io/azure-load-balancer-health-probe-interval     | The amount of time between probe attempts                                    |
+
+For following manifest, probe rule for port httpsserver is different from the one for httpserver because annoations for port httpsserver are specified.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: appservice
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe: "5"
+    service.beta.kubernetes.io/port_443_health-probe_num-of-probe: "4"
+spec:
+  type: LoadBalancer
+  selector:
+    app: server
+  ports:
+    - name: httpserver
+      protocol: TCP
+      port: 80
+      targetPort: 30102
+    - name: httpsserver
+      protocol: TCP
+      appProtocol: HTTPS
+      port: 443
+      targetPort: 30104
+```
+
+In this manifest, the https ports use a different node port, an HTTP readiness check at port 10256 on /healthz(healthz endpoint of kube-proxy).
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/port_443_health-probe_protocol: "http"
+    service.beta.kubernetes.io/port_443_health-probe_port: "10256"
+    service.beta.kubernetes.io/port_443_health-probe_request-path: "/healthz"
+spec:
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8443
+      nodePort: 30104
+      appProtocol: https
+  selector:
+    app: istio-ingressgateway
+    gateway: istio-ingressgateway
+    istio: ingressgateway
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Local
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+```
+
+In this manifest, the https ports use a different health probe endpoint, an HTTP readiness check at port 30000 on /healthz/ready.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/port_443_health-probe_protocol: "http"
+    service.beta.kubernetes.io/port_443_health-probe_port: "30000"
+    service.beta.kubernetes.io/port_443_health-probe_request-path: "/healthz/ready"
+spec:
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8443
+      appProtocol: https
+  selector:
+    app: istio-ingressgateway
+    gateway: istio-ingressgateway
+    istio: ingressgateway
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Local
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+```
+
 ## Troubleshooting SNAT
 
 If you know that you're starting many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or support notifies you that you're exhausting SNAT ports (preallocated ephemeral ports used by PAT), you have several general mitigation options. Review these options and decide what's best for your scenario. It's possible that one or more can help manage your scenario. For detailed information, review the [outbound connections troubleshooting guide](../load-balancer/troubleshoot-outbound-connection.md).

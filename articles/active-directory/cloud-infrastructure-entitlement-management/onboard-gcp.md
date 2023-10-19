@@ -27,7 +27,7 @@ For GCP, Permissions Management is scoped to a *GCP project*. A GCP project is a
 
 There are several moving parts across GCP and Azure, which should be configured before onboarding.
 
-* An Azure AD OIDC App
+* A Microsoft Entra OIDC App
 * A Workload Identity in GCP
 * OAuth2 confidential client grants utilized
 * A GCP service account with permissions to collect
@@ -41,18 +41,20 @@ There are several moving parts across GCP and Azure, which should be configured 
 
 1. On the **Data Collectors** tab, select **GCP**, then select **Create Configuration**.
 
-### 1. Create an Azure AD OIDC app.
+<a name='1-create-an-azure-ad-oidc-app'></a>
 
-1. On the **Permissions Management Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
+### 1. Create a Microsoft Entra OIDC app.
 
-    This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated creates the app of this specified name in your Azure AD tenant with the right configuration.
+1. On the **Permissions Management Onboarding - Microsoft Entra OIDC App Creation** page, enter the **OIDC Azure App Name**.
+
+    This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated creates the app of this specified name in your Microsoft Entra tenant with the right configuration.
 
 1. To create the app registration, copy the script and run it in your command-line app.
 
     > [!NOTE]
     > 1. To confirm the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
-    > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
+    > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Microsoft Entra OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
 1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID** of the GCP project in which the OIDC provider and pool is created. You can change the role name to your requirements.

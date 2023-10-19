@@ -5,7 +5,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/20/2022
+ms.date: 09/28/2023
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory certificate-based authentication on Android devices
-description: Learn about Azure Active Directory certificate-based authentication on Android devices
+title: Microsoft Entra certificate-based authentication on Android devices
+description: Learn about Microsoft Entra certificate-based authentication on Android devices
 
 services: active-directory
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on Android devices
+# Microsoft Entra certificate-based authentication on Android devices
 
-Android devices can use a client certificate on their device for certificate-based authentication (CBA) to Azure Active Directory (Azure AD). CBA can be used to connect to:
+Android devices can use a client certificate on their device for certificate-based authentication (CBA) to Microsoft Entra ID. CBA can be used to connect to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD CBA is supported for certificates on-device on native browsers, and on Microsoft first-party applications on Android devices. 
+Microsoft Entra CBA is supported for certificates on-device on native browsers, and on Microsoft first-party applications on Android devices. 
 
 ## Prerequisites
 
@@ -59,11 +59,11 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. 
 
-To determine if your email application supports Azure AD CBA, contact your application developer.
+To determine if your email application supports Microsoft Entra CBA, contact your application developer.
 
 ## Support for certificates on hardware security key
 
-Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. Azure AD supports CBA with YubiKey.  
+Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. Microsoft Entra ID supports CBA with YubiKey.  
 
 ### Advantages of certificates on hardware security key 
 
@@ -75,13 +75,17 @@ Security keys with certificates:
 - Satisfy the industry requirement to have MFA on separate device 
 - Help in future proofing where multiple credentials can be stored including Fast Identity Online 2 (FIDO2) keys. 
 
-### Azure AD CBA on Android mobile 
+<a name='azure-ad-cba-on-android-mobile-'></a>
 
-Android needs a middleware application to be able to support smartcard or security keys with certificates. To support YubiKeys with Azure AD CBA, YubiKey Android SDK has been integrated into the Microsoft broker code which can be leveraged through the latest Microsoft Authentication Library (MSAL). 
+### Microsoft Entra CBA on Android mobile 
 
-### Azure AD CBA on Android mobile with YubiKey 
+Android needs a middleware application to be able to support smartcard or security keys with certificates. To support YubiKeys with Microsoft Entra CBA, YubiKey Android SDK has been integrated into the Microsoft broker code which can be leveraged through the latest Microsoft Authentication Library (MSAL). 
 
-Because Azure AD CBA with YubiKey on Android mobile is enabled by using the latest MSAL, YubiKey Authenticator app isn't required for Android support. 
+<a name='azure-ad-cba-on-android-mobile-with-yubikey-'></a>
+
+### Microsoft Entra CBA on Android mobile with YubiKey 
+
+Because Microsoft Entra CBA with YubiKey on Android mobile is enabled by using the latest MSAL, YubiKey Authenticator app isn't required for Android support. 
 
 Steps to test YubiKey on Microsoft apps on Android: 
 
@@ -114,7 +118,9 @@ The user should be successfully logged in and redirected to the Outlook homepage
 
 Before installing Microsoft Authenticator, uninstall Company Portal and install it after Microsoft Authenticator installation. 
 
-#### Does Azure AD CBA support YubiKey via NFC? 
+<a name='does-azure-ad-cba-support-yubikey-via-nfc-'></a>
+
+#### Does Microsoft Entra CBA support YubiKey via NFC? 
 
 This feature supports using YubiKey with USB and NFC.
 
@@ -122,7 +128,9 @@ This feature supports using YubiKey with USB and NFC.
 
 This issue happens because of certificate caching. We are working to add a fix to clear the cache. As a workaround, clicking cancel and restarting the login flow will let the user choose a new certificate and successfully login. 
 
-#### Azure AD CBA with YubiKey is failing. What information would help debug the issue? 
+<a name='azure-ad-cba-with-yubikey-is-failing-what-information-would-help-debug-the-issue-'></a>
+
+#### Microsoft Entra CBA with YubiKey is failing. What information would help debug the issue? 
 
 1. Open Microsoft Authenticator app, click the three dots icon in the top right corner and select **Send Feedback**.
 1. Click **Having Trouble?**.
@@ -134,7 +142,7 @@ This issue happens because of certificate caching. We are working to add a fix t
 
 - Sometimes, plugging in the YubiKey and providing permission via the permission dialog and clicking **Use Certificate or smart card** will still take the user to on-device CBA picker pop up (instead of the smart card CBA picker). The user will need to cancel out of the picker, unplug their key, and re-plugin their key before attempting to sign in again.  
 - With the Most Recently Used (MRU) feature, once a user uses CBA for authentication, MRU auth method will be set to CBA. Since the user will be directly taken into CBA flow, there may not be enough time for the user to accept the Android USB consent dialog. As a workaround user needs to remove and re-plugin the YubiKey, accept the consent dialog from YubiKey then click the back button and try again to complete CBA authentication flow.  
-- Azure AD CBA with YubiKey on latest Outlook and Teams fail at times. This could be due to a keyboard configuration change when the YubiKey is plugged in. This can be solved by:
+- Microsoft Entra CBA with YubiKey on latest Outlook and Teams fail at times. This could be due to a keyboard configuration change when the YubiKey is plugged in. This can be solved by:
   - Plug in YubiKey as soon as the application is opened.  
   - Accept the consent dialog from YubiKey before selecting the link **Use Certificate or smart card**. 
 
@@ -167,11 +175,11 @@ This issue happens because of certificate caching. We are working to add a fix t
 
 ## Next steps
 
-- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-- [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
-- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+- [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+- [Microsoft Entra CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+- [Windows SmartCard logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)

@@ -5,8 +5,7 @@ description: This article will explain the differences between a workspace and a
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: conceptual

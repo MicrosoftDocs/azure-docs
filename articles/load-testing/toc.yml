@@ -63,6 +63,7 @@ items:
     - name: Analyze test results
       items:
         - name: Compare test runs
+          displayName: comparison, regression, baseline, compare metrics, compare results
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md

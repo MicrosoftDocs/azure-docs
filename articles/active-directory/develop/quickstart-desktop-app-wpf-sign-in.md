@@ -24,7 +24,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/apps/windows-app-sdk/set-up-your-development-environment) workload installed
 
 ## Register and download your quickstart app
 You have two options to start your quickstart application:
@@ -87,7 +87,7 @@ Where:
 
 To build and run the sample application in Visual Studio, select the **Debug menu** > **Start Debugging**, or press the F5 key. Your application's MainWindow is displayed.
 
-When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
+When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Microsoft Entra account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
 
 If you're running the application for the first time, you'll be prompted to provide consent to allow the application to access your user profile and sign you in. After consenting to the requested permissions, the application displays that you've successfully logged in. You should see some basic token information and user data obtained from the call to the Microsoft Graph API.
 

@@ -1,6 +1,6 @@
 ---
 title: Opt out of Microsoft Entra Verified ID
-description: Learn how to Opt Out of Entra Verified ID
+description: Learn how to Opt Out of Microsoft Entra Verified ID
 documentationCenter: ''
 author: barclayn
 manager: amycolannino
@@ -31,7 +31,7 @@ In this article:
 
 ## When do you need to opt out?
 
-Opting out is a one-way operation. After you opt-out, your Entra Verified ID environment is reset. Opting out may be required to:
+Opting out is a one-way operation. After you opt-out, your Microsoft Entra Verified ID environment is reset. Opting out may be required to:
 
 - Enable new service capabilities.
 - Reset your service configuration.
@@ -41,7 +41,7 @@ Opting out is a one-way operation. After you opt-out, your Entra Verified ID env
 
 When you complete opting out of the Microsoft Entra Verified ID service, the following actions take place:
 
-- The DID keys in Key Vault are [soft deleted](../../key-vault/general/soft-delete-overview.md).
+- The DID keys in Key Vault are [soft deleted](/azure/key-vault/general/soft-delete-overview).
 - The issuer object is deleted from our database.
 - The tenant identifier is deleted from our database.
 - All of the verifiable credentials contracts are deleted from our database.

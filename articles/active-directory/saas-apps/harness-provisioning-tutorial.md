@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Harness.
+title: 'Tutorial: Configure Harness for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and deprovision user accounts to Harness.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,10 +15,10 @@ ms.author: thwimmer
 
 # Tutorial: Configure Harness for automatic user provisioning
 
-In this article, you learn how to configure Azure Active Directory (Azure AD) to automatically provision and deprovision users or groups to Harness.
+In this article, you learn how to configure Microsoft Entra ID to automatically provision and deprovision users or groups to Harness.
 
 > [!NOTE]
-> This article describes a connector that's built on top of the Azure AD user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This article describes a connector that's built on top of the Microsoft Entra user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
@@ -26,22 +26,22 @@ In this article, you learn how to configure Azure Active Directory (Azure AD) to
 
 The scenario outlined in this article assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
+* A Microsoft Entra tenant
 * [A Harness tenant](https://harness.io/pricing/)
 * A user account in Harness with *Admin* permissions
 
 ## Assign users to Harness
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Harness. You can then assign these users or groups to Harness by following the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
+Before you configure and enable automatic user provisioning, decide which users or groups in Microsoft Entra ID need access to Harness. You can then assign these users or groups to Harness by following the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ## Important tips for assigning users to Harness
 
-* We recommended that you assign a single Azure AD user to Harness to test the automatic user provisioning configuration. Additional users or groups can be assigned later.
+* We recommended that you assign a single Microsoft Entra user to Harness to test the automatic user provisioning configuration. Additional users or groups can be assigned later.
 
 * When you assign a user to Harness, you must select any valid application-specific role (if available) in the **Assignment** dialog box. Users with the *Default Access* role are excluded from provisioning.
-* If you currently have a Harness FirstGen App Integration setup in Azure AD and are now trying to set up one for Harness NextGen, make sure the user information is also included in the FirstGen App Integration before attempting to log into Harness NextGen through SSO.
+* If you currently have a Harness FirstGen App Integration setup in Microsoft Entra ID and are now trying to set up one for Harness NextGen, make sure the user information is also included in the FirstGen App Integration before attempting to log into Harness NextGen through SSO.
 
 ## Set up Harness for provisioning
 
@@ -72,13 +72,10 @@ Before you configure and enable automatic user provisioning, decide which users 
 
 ## Add Harness from the gallery
 
-Before you configure Harness for automatic user provisioning with Azure AD, you need to add Harness from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Harness for automatic user provisioning with Microsoft Entra ID, you need to add Harness from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
-
-	![The "Azure Active Directory" button](common/select-azuread.png)
-
-1. Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The "All applications" link](common/enterprise-applications.png)
 
@@ -92,7 +89,7 @@ Before you configure Harness for automatic user provisioning with Azure AD, you 
 
 ## Configure automatic user provisioning to Harness 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Harness based on user or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users or groups in Harness based on user or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](./harness-tutorial.md). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
@@ -100,9 +97,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!NOTE]
 > To learn more about the Harness SCIM endpoint, see the Harness [API Keys](https://docs.harness.io/article/smloyragsm-api-keys) article.
 
-To configure automatic user provisioning for Harness in Azure AD, do the following:
+To configure automatic user provisioning for Harness in Microsoft Entra ID, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Enterprise Applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -124,7 +122,7 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
  
    a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`**. You can obtain your Harness account ID from the URL in your browser when you are logged into Harness.
    b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
-   c. Select **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
+   c. Select **Test Connection** to ensure that Microsoft Entra ID can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications, and then select the **Send an email notification when a failure occurs** check box.
 
@@ -132,25 +130,25 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 1. Select **Save**.
 
-1. Under **Mappings**, select **Synchronize Azure Active Directory Users to Harness**.
+1. Under **Mappings**, select **Synchronize Microsoft Entra users to Harness**.
 
-	![Harness "Synchronize Azure Active Directory Users to Harness" link](media/harness-provisioning-tutorial/usermappings.png)
+	![Harness "Synchronize Microsoft Entra users to Harness" link](media/harness-provisioning-tutorial/usermappings.png)
 
-1. Under **Attribute Mappings**, review the user attributes that are synchronized from Azure AD to Harness. The attributes selected as *Matching* are used to match the user accounts in Harness for update operations. Select **Save** to commit any changes.
+1. Under **Attribute Mappings**, review the user attributes that are synchronized from Microsoft Entra ID to Harness. The attributes selected as *Matching* are used to match the user accounts in Harness for update operations. Select **Save** to commit any changes.
 
 	![Harness user "Attribute Mappings" pane](media/harness-provisioning-tutorial/userattributes.png)
 
-1. Under **Mappings**, select **Synchronize Azure Active Directory Groups to Harness**.
+1. Under **Mappings**, select **Synchronize Microsoft Entra groups to Harness**.
 
-	![Harness "Synchronize Azure Active Directory Groups to Harness" link](media/harness-provisioning-tutorial/groupmappings.png)
+	![Harness "Synchronize Microsoft Entra groups to Harness" link](media/harness-provisioning-tutorial/groupmappings.png)
 
-1. Under **Attribute Mappings**, review the group attributes that are synchronized from Azure AD to Harness. The attributes selected as *Matching* properties are used to match the groups in Harness for update operations. Select **Save** to commit any changes.
+1. Under **Attribute Mappings**, review the group attributes that are synchronized from Microsoft Entra ID to Harness. The attributes selected as *Matching* properties are used to match the groups in Harness for update operations. Select **Save** to commit any changes.
 
 	![Harness group "Attribute Mappings" pane](media/harness-provisioning-tutorial/groupattributes.png)
 
 1. To configure scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Under **Settings**, to enable the Azure AD provisioning service for Harness, toggle the **Provisioning Status** switch to **On**.
+1. Under **Settings**, to enable the Microsoft Entra provisioning service for Harness, toggle the **Provisioning Status** switch to **On**.
 
 	![Provisioning Status switch toggled to "On"](common/provisioning-toggle-on.png)
 
@@ -162,14 +160,14 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![The provisioning Save button](common/provisioning-configuration-save.png)
 
-This operation starts the initial sync of the users or groups you're provisioning. The initial sync takes longer to perform than later ones. Syncs occur approximately every 40 minutes, as long as the Azure AD provisioning service is running. To monitor progress, go to the **Synchronization Details** section. You can also follow links to a provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Harness.
+This operation starts the initial sync of the users or groups you're provisioning. The initial sync takes longer to perform than later ones. Syncs occur approximately every 40 minutes, as long as the Microsoft Entra provisioning service is running. To monitor progress, go to the **Synchronization Details** section. You can also follow links to a provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Harness.
 
-For more information about how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information about how to read the Microsoft Entra provisioning logs, see [Report on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

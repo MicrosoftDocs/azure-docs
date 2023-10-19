@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection security overview
+title: Microsoft Entra ID Protection security overview
 description: Learn how the security overview gives you an insight into your organization’s security posture. 
 
 services: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection - Security overview
+# Microsoft Entra ID Protection - Security overview
 
 The Security overview gives insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
 
@@ -34,4 +34,4 @@ The security overview page is being replaced by the [Microsoft Entra ID Protecti
 
 - [What is risk](concept-identity-protection-risks.md)
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
-- [Identity Secure Score](../fundamentals/identity-secure-score.md)
+- [Identity Secure Score](../reports-monitoring/concept-identity-secure-score.md)

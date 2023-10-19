@@ -13,7 +13,7 @@ ROBOTS: NOINDEX
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:aspnet-core", mode-other
-#Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
+#Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Microsoft Entra instance, then access their data in Microsoft Graph on their behalf.
 ---
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
@@ -26,7 +26,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.
+> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Microsoft Entra organization and calls Microsoft Graph.
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
 > 
@@ -58,7 +58,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > 
 > ## About the code
 > 
-> This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](microsoft-identity-web.md), which is a wrapper around [MSAL.NET](msal-overview.md).
+> This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/), which is a wrapper around [MSAL.NET](msal-overview.md).
 > 
 > ### How the sample works
 > 
@@ -103,7 +103,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > 
 > The `AddAuthentication()` method configures the service to add cookie-based authentication, which is used in browser scenarios and to set the challenge to OpenID Connect.
 > 
-> The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+> The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 > 
 > | *appsettings.json* key | Description                                                                                                                 >                                          |
 > |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

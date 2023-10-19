@@ -1,10 +1,10 @@
 items:  
-- name: Azure Active Directory for customers documentation  
+- name: Microsoft Entra ID for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
   items:   
-    - name: What is Azure Active Directory for customers?  
+    - name: What is Microsoft Entra ID for customers?  
       href: overview-customers-ciam.md 
     - name: Demo overview
       href: overview-solutions-customers.md
@@ -338,13 +338,13 @@ items:
           href: /dotnet/api/microsoft.identitymodel.abstractions
         - name: MSAL.js
           items:
-          - name: msal-angular
+          - name: MSAL-angular
             href: /javascript/api/@azure/msal-angular/
-          - name: msal-browser
+          - name: MSAL-browser
             href: /javascript/api/@azure/msal-browser/
-          - name: msal-react
+          - name: MSAL-react
             href: /javascript/api/@azure/msal-react/
-          - name: msal-node
+          - name: MSAL-node
             href: /javascript/api/@azure/msal-node/
 - name: Resources
   items:

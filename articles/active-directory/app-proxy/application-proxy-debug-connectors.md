@@ -1,6 +1,6 @@
 ---
 title: Debug Application Proxy connectors
-description: Debug issues with Azure Active Directory (Azure AD) Application Proxy connectors.
+description: Debug issues with Microsoft Entra application proxy connectors.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.reviewer: ashishj
 
 # Debug Application Proxy connector issues 
 
-This article helps you troubleshoot issues with Azure Active Directory (Azure AD) Application Proxy connectors. If you're using the Application Proxy service for remote access to an on-premises web application, but you're having trouble connecting to the application, use this flowchart to debug connector issues. 
+This article helps you troubleshoot issues with Microsoft Entra application proxy connectors. If you're using the Application Proxy service for remote access to an on-premises web application, but you're having trouble connecting to the application, use this flowchart to debug connector issues. 
 
 ## Before you begin
 
@@ -45,7 +45,7 @@ This flowchart walks you through the steps for debugging some of the more common
 |6 | Update the connector and updater to use the back-end proxy | If a back-end proxy is in use, you'll want to make sure the connector is using the same proxy. For details about troubleshooting and configuring connectors to work with proxy servers, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md). |
 |7 | Load the app's internal URL on the connector server | On the connector server, load the app's internal URL. |
 |8 | Check internal network connectivity | There's a connectivity issue in your internal network that this debugging flow is unable to diagnose. The application must be accessible internally for the connectors to work. You can enable and view connector event logs as described in [Application Proxy connectors](application-proxy-connectors.md#under-the-hood). |
-|9 | Lengthen the time-out value on the back end | In the **Additional Settings** for your application, change the **Backend Application Timeout** setting to **Long**. See [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). |
+|9 | Lengthen the time-out value on the back end | In the **Additional Settings** for your application, change the **Backend Application Timeout** setting to **Long**. See [Add an on-premises app to Microsoft Entra ID](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). |
 |10 | If issues persist, target specific flow issues, review app and SSO debugging flows | Use the [Debug Application Proxy application issues](application-proxy-debug-apps.md) troubleshooting flow. |
 
 ## Next steps
@@ -54,4 +54,4 @@ This flowchart walks you through the steps for debugging some of the more common
 * [Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md)
 * [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
 * [Troubleshoot Application Proxy and connector errors](application-proxy-troubleshoot.md)
-* [How to silently install the Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)
+* [How to silently install the Microsoft Entra application proxy Connector](application-proxy-register-connector-powershell.md)

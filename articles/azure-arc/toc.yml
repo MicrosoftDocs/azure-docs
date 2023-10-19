@@ -30,6 +30,9 @@
   - name: Deployment overview
     displayName: resource bridge, arcappliance
     href: ./resource-bridge/deploy-cli.md
+  - name: Upgrade
+    displayName: update, resource bridge
+    href: ./resource-bridge/upgrade.md
   - name: Maintenance
     displayName: resource bridge, appliance
     href: ./resource-bridge/maintenance.md

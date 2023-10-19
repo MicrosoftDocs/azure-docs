@@ -258,7 +258,7 @@ events
 
 #### GetEvents with filter
 
- ```TSQ
+```TSQ
 {
   "getEvents": {
     "timeSeriesId": [

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app"
-description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
+description: Download and run a code sample that shows how an ASP.NET web app can sign in Microsoft Entra users.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: cwerner
 
 ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
-# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
+# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Microsoft Entra users.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app
 
-In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts. 
+In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Microsoft Entra accounts. 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 

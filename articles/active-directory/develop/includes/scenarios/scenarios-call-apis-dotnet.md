@@ -27,14 +27,14 @@ In MSAL.NET, `AuthenticationResult` exposes:
 - `AccessToken` for the web API to access resources. This parameter is a string, usually a Base-64-encoded JWT. The client should never look inside the access token. The format isn't guaranteed to remain stable, and it can be encrypted for the resource. Writing code that depends on access token content on the client is one of the biggest sources of errors and client logic breaks. For more information, see [Access tokens](../../access-tokens.md).
 - `IdToken` for the user. This parameter is an encoded JWT. For more information, see [ID tokens](../../id-tokens.md).
 - `ExpiresOn` tells the date and time when the token expires.
-- `TenantId` contains the tenant in which the user was found. For guest users in Azure Active Directory (Azure AD) B2B scenarios, the tenant ID is the guest tenant, not the unique tenant.
+- `TenantId` contains the tenant in which the user was found. For guest users in Microsoft Entra B2B scenarios, the tenant ID is the guest tenant, not the unique tenant.
 When the token is delivered for a user, `AuthenticationResult` also contains information about this user. For confidential client flows where tokens are requested with no user for the application, this user information is null.
 - The `Scopes` for which the token was issued.
 - The unique ID for the user.
 
 ### IAccount
 
-MSAL.NET defines the notion of an account through the `IAccount` interface. This breaking change provides the right semantics. The same user can have several accounts, in different Azure AD directories. Also, MSAL.NET provides better information in the case of guest scenarios because home account information is provided.
+MSAL.NET defines the notion of an account through the `IAccount` interface. This breaking change provides the right semantics. The same user can have several accounts, in different Microsoft Entra directories. Also, MSAL.NET provides better information in the case of guest scenarios because home account information is provided.
 The following diagram shows the structure of the `IAccount` interface.
 
 ![IAccount interface structure](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
@@ -53,7 +53,7 @@ The `IAccount` interface represents information about a single account. The same
 |----------|-------------|
 | `Username` | A string that contains the displayable value in UserPrincipalName (UPN) format, for example, john.doe@contoso.com. This string can be null, unlike HomeAccountId and HomeAccountId.Identifier, which won't be null. This property replaces the `DisplayableId` property of `IUser` in previous versions of MSAL.NET. |
 | `Environment` | A string that contains the identity provider for this account, for example, `login.microsoftonline.com`. This property replaces the `IdentityProvider` property of `IUser`, except that `IdentityProvider` also had information about the tenant, in addition to the cloud environment. Here, the value is only the host. |
-| `HomeAccountId` | The account ID of the home account for the user. This property uniquely identifies the user across Azure AD tenants. |
+| `HomeAccountId` | The account ID of the home account for the user. This property uniquely identifies the user across Microsoft Entra tenants. |
 
 ### Use the token to call a protected API
 

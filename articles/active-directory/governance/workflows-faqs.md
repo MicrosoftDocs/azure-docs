@@ -36,7 +36,7 @@ For more information on syncing employee attributes in Lifecycle Workflows, see:
 
 ### How do I see more details and parameters of tasks and the attributes that are being updated? 
 
-Some tasks do update existing attributes; however, we don’t currently share those specific details. As these tasks are updating attributes related to other Azure AD features, so you can find that info in those docs. For temporary access pass, we're writing to the appropriate attributes listed [here](/graph/api/resources/temporaryaccesspassauthenticationmethod). 
+Some tasks do update existing attributes; however, we don’t currently share those specific details. As these tasks are updating attributes related to other Microsoft Entra features, so you can find that info in those docs. For temporary access pass, we're writing to the appropriate attributes listed [here](/graph/api/resources/temporaryaccesspassauthenticationmethod). 
 
 ### Is it possible for me to create new tasks and how? For example, triggering other graph APIs/web hooks?
 

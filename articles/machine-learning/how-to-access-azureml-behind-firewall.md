@@ -72,7 +72,7 @@ __Outbound traffic__
 
 | Service tag(s) | Ports | Purpose |
 | ----- |:-----:| ----- |
-| `AzureActiveDirectory` | 80, 443 | Authentication using Azure AD. |
+| `AzureActiveDirectory` | 80, 443 | Authentication using Microsoft Entra ID. |
 | `AzureMachineLearning` | 443, 8787, 18881<br>UDP: 5831 | Using Azure Machine Learning services. |
 | `BatchNodeManagement.<region>` | 443 | Communication Azure Batch. |
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
@@ -273,7 +273,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- | 
-| Azure Active Directory | `login.microsoftonline.com` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.com` | TCP | 80, 443 |
 | Azure portal | `management.azure.com` | TCP | 443 |
 | Azure Resource Manager | `management.azure.com` | TCP | 443 |
 
@@ -281,7 +281,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- |
-| Azure Active Directory | `login.microsoftonline.us` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.us` | TCP | 80, 443 |
 | Azure portal | `management.azure.us` | TCP | 443 |
 | Azure Resource Manager | `management.usgovcloudapi.net` | TCP | 443 |
 
@@ -289,7 +289,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
-| Azure Active Directory | `login.chinacloudapi.cn` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.chinacloudapi.cn` | TCP | 80, 443 |
 | Azure portal | `management.azure.cn` | TCP | 443 |
 | Azure Resource Manager | `management.chinacloudapi.cn` | TCP | 443 |
 

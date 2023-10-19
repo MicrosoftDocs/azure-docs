@@ -25,7 +25,7 @@ This article shows you how to:
 If you need to manage Classic virtual machines, see [Using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).
 
 > [!NOTE]
-> If you use the VMAccess extension to reset the password of your VM after you install the Azure Active Directory (Azure AD) Login extension, rerun the Azure AD Login extension to re-enable Azure AD Login for your VM.
+> If you use the VMAccess extension to reset the password of your VM after you install the Microsoft Entra Login extension, rerun the Microsoft Entra Login extension to re-enable Microsoft Entra Login for your VM.
 
 ## Prerequisites
 

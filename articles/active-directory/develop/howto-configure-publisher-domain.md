@@ -23,7 +23,7 @@ In an app's consent prompt, either the publisher domain or the publisher verific
 
 ## Understand multitenant apps
 
-A *multitenant app* is an app that supports user accounts that are outside a single organizational directory. For example, a multitenant app might support all Azure Active Directory (Azure AD) work or school accounts, or it might support both Azure AD work or school accounts and personal Microsoft accounts.
+A *multitenant app* is an app that supports user accounts that are outside a single organizational directory. For example, a multitenant app might support all Microsoft Entra work or school accounts, or it might support both Microsoft Entra work or school accounts and personal Microsoft accounts.
 
 ## Understand default publisher domain values
 

@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/20/2023
+ms.date: 10/09/2023
 ---
 
 # Tutorial: Debug a skillset using Debug Sessions
@@ -68,7 +68,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Create data source, skillset, index, and indexer
 
-In this section, import a Postman collection containing a "buggy" workflow that you fix in this tutorial. 
+In this section, you will import a Postman collection containing a "buggy" workflow that you will fix in this tutorial. 
 
 1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
 

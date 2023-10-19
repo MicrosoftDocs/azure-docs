@@ -19,7 +19,7 @@ Through the Azure portal, you can start and stop:
 - Entire SAP Application tier in one go, which include ABAP SAP Central Services (ASCS) and Application Server instances.
 - Individual SAP instances, which include Central Services and Application server instances.
 - HANA Database
-- You can start and stop instances in the following types of deployments:
+- You can start and stop instances and HANA database in the following types of deployments:
     - Single-Server
     - High Availability (HA)
     - Distributed Non-HA
@@ -45,6 +45,7 @@ The following scenarios are supported when Starting and Stopping SAP systems:
 - Stopping and Starting SAP system or individual instances from the VIS resource only stops or starts the SAP application. The underlying VMs are **not** stopped or started.
 - Stopping a highly available SAP system from the VIS resource gracefully stops the SAP instances in the right order and does not result in a failover of Central Services instance.
 - Stopping the HANA Database from the VIS resource results in the entire HANA instance to be stopped. In case of HANA MDC with multiple tenant DBs, the entire instance is stopped and not the specific Tenant DB.
+- For highly available (HA) HANA databases, start and stop operations through Virtual Instance for SAP solutions resource are supported only when cluster management solution is in place. Any other HANA database high availability configurations without a cluster are not currently supported when starting and stopping using Virtual Instance for SAP solutions resource.
 
 ## Stop SAP system
 

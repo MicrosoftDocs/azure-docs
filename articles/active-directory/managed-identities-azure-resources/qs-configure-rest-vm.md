@@ -22,7 +22,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed system identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed system identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, using CURL to make calls to the Azure Resource Manager REST endpoint, you learn how to perform the following managed identities for Azure resources operations on an Azure VM:
 
@@ -43,9 +43,9 @@ In this section, you learn how to enable and disable system-assigned managed ide
 
 ### Enable system-assigned managed identity during creation of an Azure VM
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
-1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
+1. Create a [resource group](/azure/azure-resource-manager/management/overview#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -142,7 +142,7 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 ### Enable system-assigned identity on an existing Azure VM
 
-To enable system-assigned managed identity on a VM that was originally provisioned without it, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a VM that was originally provisioned without it, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
@@ -252,7 +252,7 @@ To enable system-assigned managed identity on a VM that was originally provision
 
 ### Disable system-assigned managed identity from an Azure VM
 
-To disable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To disable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
@@ -297,7 +297,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
 
 ### Assign a user-assigned managed identity during the creation of an Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No other Microsoft Entra directory role assignments are required.
 
 1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
@@ -317,7 +317,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    az account get-access-token
    ``` 
 
-4. Create a user-assigned managed identity using the instructions found here: [Create a user-assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Create a user-assigned managed identity using the instructions found here: [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity).
 
 5. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* in the resource group *myResourceGroup* with a user-assigned managed identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
@@ -484,7 +484,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 ### Assign a user-assigned managed identity to an existing Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No other Microsoft Entra directory role assignments are required.
 
 1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
@@ -492,7 +492,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    az account get-access-token
    ```
 
-2.  Create a user-assigned managed identity using the instructions found here, [Create a user-assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+2. Create a user-assigned managed identity using the instructions found here, [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity).
 
 3. To ensure you don't delete existing user or system-assigned managed identities that are assigned to the VM, you need to list the identity types assigned to the VM by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed under in the `identity` value.
 
@@ -654,7 +654,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 ### Remove a user-assigned managed identity from an Azure VM
 
-To remove a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.
+To remove a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.
 
 1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
@@ -805,4 +805,4 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 For information on how to create, list, or delete user-assigned managed identities using REST see:
 
-- [Create, list, or delete a user-assigned managed identities using REST API calls](how-to-manage-ua-identity-rest.md)
+- [Create, list, or delete a user-assigned managed identities using REST API calls](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest)
