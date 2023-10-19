@@ -28,6 +28,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## October 2023
 
+- **Addition of New vCore Options in Azure Database for MySQL - Flexible Server**
+We are excited to inform you that we have introduced new 20 vCores options under the Business Critical Service tier for our Azure Database for MySQL - Flexible Server. Please find more information under [Compute Option for Azure Database for MySQL - Flexible Server](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
+
 - **Metrics computation for Azure Database for MySQL - Flexible Server**
 "Host Memory Percent" metric will provide more accurate calculations of memory usage. It will now reflect the actual memory consumed by the server, excluding re-usable memory from the calculation. This improvement ensures that you have a more precise understanding of your server's memory utilization. After the completion of the [scheduled maintenance window](./concepts-maintenance.md), existing servers will benefit from this enhancement.
 - **Known Issues**
