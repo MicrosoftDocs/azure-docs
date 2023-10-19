@@ -458,7 +458,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
-- [Storage account template reference](/azure/templates/microsoft.storage/allversions).g
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
