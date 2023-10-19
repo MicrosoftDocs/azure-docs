@@ -97,7 +97,7 @@ Implement RAG-patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search
 ### Code samples
 
 - [.NET RAG Pattern retail reference solution](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)
-- [.NET samples - Hackathon project](https://github.com/AzureCosmosDB/OpenAIHackathon)
+- [.NET samples - Hackathon project](https://github.com/Azure/Build-Modern-AI-Apps-Hackathon)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-NoSQL_CognitiveSearch)
