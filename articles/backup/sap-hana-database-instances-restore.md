@@ -49,7 +49,7 @@ After the restore is completed, you can revoke these permissions.
 >- The credentials that are used should have permissions to grant roles to other resources. The roles should be Owner or User Access Administrator, as mentioned in [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
 >- You can use the Azure portal to assign all the preceding permissions during the restore.
 
-Learn about the [SA HANA instance snaoshot architecture](azure-backup-architecture-for-sap-hana-backup.md#backup-architecture-for-database-instance-snapshot).
+Learn about the [SA HANA instance snaoshot restore architecture](azure-backup-architecture-for-sap-hana-backup.md#backup-architecture-for-database-instance-snapshot).
 
 ## Restore the entire system to a snapshot restore point
 
