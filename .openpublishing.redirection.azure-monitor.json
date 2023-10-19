@@ -6383,6 +6383,16 @@
             "source_path_from_root": "/articles/azure-monitor/app/tutorial-app-dashboards.md",
             "redirect_url": "/azure/azure-monitor/app/overview-dashboard#create-custom-kpi-dashboards-using-application-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-asp-net-core.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-asp-net-custom-metrics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-asp-net-custom-metrics",
+            "redirect_document_id": false
         }
     ]
 }
