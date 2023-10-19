@@ -125,7 +125,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
     
     - Initiates sign-in flow by triggering the first leg of auth code flow.  
     
-    - Initializes a [confidential client application](../../../active-directory/develop/msal-client-applications.md) instance by using `msalConfig` MSAL configuration object.
+    - Initializes a [confidential client application](../../develop/msal-client-applications.md) instance by using `msalConfig` MSAL configuration object.
         
         ```javascript
             const msalInstance = this.getMsalInstance(this.config.msalConfig);

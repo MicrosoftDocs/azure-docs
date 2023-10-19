@@ -283,7 +283,7 @@ Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d5
 
 - If you attempt to run `azcmagent connect` on a server already connected to Azure, the resource ID is shown on the console to help you locate the resource in Azure.
 - Extended the `azcmagent connect` timeout to 10 minutes.
-- `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine), or [REST API](/rest/api/hybridcompute/machines/get).
+- `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), or [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine).
 - `azcmagent logs` collects only the two most recent logs for each service to reduce ZIP file size.
 - `azcmagent logs` collects Guest Configuration logs again.
 

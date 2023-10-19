@@ -27,7 +27,7 @@ When a membership or ownership is assigned, the assignment:
 - Can't be removed within five minutes of it being assigned
 
 >[!NOTE]
->Every user who is eligible for membership in or ownership of a PIM for Groups must have a Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
+>Every user who is eligible for membership in or ownership of a PIM for Groups must have a Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license. For more information, see [License requirements to use Privileged Identity Management](../governance/licensing-fundamentals.md).
 
 ## Assign an owner or member of a group
 
