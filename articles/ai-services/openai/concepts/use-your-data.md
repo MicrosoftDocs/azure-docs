@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 recommendations: false
 ---
 
@@ -154,8 +154,6 @@ Additionally, data ingestion has the following configuration support:
 ### Azure OpenAI resources
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
-> [!NOTE]
-> If you disable public network access for your Azure OpenAI resources, you can call the `/extensions/chat/completions` API or chat with your existing index in Azure OpenAI Studio. However, vector search and blob/file ingestion in the studio is not supported.
 
 ### Azure Cognitive Search resources
 

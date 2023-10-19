@@ -64,7 +64,7 @@ Authenticators are required to be:
 
 Microsoft Entra joined and Microsoft Entra hybrid joined devices meet this requirement when:
 
-* You run [Windows in a FIPS-140 approved mode](/windows/security/threat-protection/fips-140-validation)
+* You run [Windows in a FIPS-140 approved mode](/windows/security/security-foundations/certification/fips-140-validation)
 
 * On a machine with a TPM that's FIPS 140 Level 1 Overall, or higher, with FIPS 140 Level 3 Physical Security
 
