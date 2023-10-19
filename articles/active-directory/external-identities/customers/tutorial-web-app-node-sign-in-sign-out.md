@@ -136,7 +136,7 @@ The `/` route is the entry point to the application. It renders the *views/index
     
     - It initiates sign-in flow by triggering the first leg of auth code flow.  
     
-    - It initializes a [confidential client application](../../../active-directory/develop/msal-client-applications.md) instance by using MSAL configuration object, `msalConfig`, that you created earlier.
+    - It initializes a [confidential client application](../../develop/msal-client-applications.md) instance by using MSAL configuration object, `msalConfig`, that you created earlier.
         
         ```javascript
             const msalInstance = this.getMsalInstance(this.config.msalConfig);
