@@ -14,7 +14,7 @@ ms.date: 10/19/2023
 
 A Data Product ingests data from one or more sources, digests and enriches this data, and presents this data to provide domain-specific insights and to support further data analysis.
 
-A data type is used to refer to individual data sources.  The data types can be from outside the Data Product, such as from a network element, or created within the Data Product itself by aggregating or enriching the data from other data types.
+A data type is used to refer to individual data sources.  The data types can be from outside the Data Product, such as from a network element. The data types can also be created within the Data Product itself by aggregating or enriching the data from other data types.
 
 Data Product operators can choose which data types to use and the data retention period for each data type.
 
@@ -26,11 +26,11 @@ Data types can also be derived by aggregating or enriching the data from other d
 
 ## Data type settings
 
-Data types are presented as child resources of the Data Product within the Azure portal in the Data Types page shown below. Relevant settings can be controlled independently for each individual data type.
+Data types are presented as child resources of the Data Product within the Azure portal as shown in the Data Types page. Relevant settings can be controlled independently for each individual data type.
 
 :::image type="content" source="media/concept-data-types/data-types.png" alt-text="Screenshot of Data Types portal page.":::
 
 - Data Product operators can turn off individual data types to avoid incurring processing and storage costs associated with a data type that isn't valuable for their specific use cases.
-- Data Product operators can configure different data retention periods for each data type in the Data Retention page shown below. For example, data types containing PII are typically configured with a shorter retention period to comply with privacy legislation.
+- Data Product operators can configure different data retention periods for each data type as shown in the Data Retention page. For example, data types containing PII are typically configured with a shorter retention period to comply with privacy legislation.
 
   :::image type="content" source="media/concept-data-types/data-types-data-retention.png" alt-text="Screenshot of Data Types Data Retention portal page.":::
