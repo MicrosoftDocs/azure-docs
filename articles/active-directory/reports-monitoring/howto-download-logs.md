@@ -68,10 +68,10 @@ The following screenshot shows the download window from the audit and sign-in lo
 The following screenshot shows menu options for the provisioning log download process.
     ![Screenshot of the provisioning log download button options.](./media/howto-download-logs/provisioning-logs-download.png)
 
-If your tenant has enabled the [sign-in logs preview](concept-all-sign-ins.md), more options are available after selecting **Download**. The sign-in logs preview include interactive and non-interactive user sign-ins, service principal sign-ins, and managed identity sign-ins.
+If your tenant has enabled the [sign-in logs preview](./concept-sign-ins.md), more options are available after selecting **Download**. The sign-in logs preview include interactive and non-interactive user sign-ins, service principal sign-ins, and managed identity sign-ins.
     ![Screenshot of the download options for the sign-in logs preview.](media/howto-download-logs/sign-in-preview-download-options.png)
 
 ## Next steps
 
-- [Integrate Microsoft Entra logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+- [Integrate Microsoft Entra logs with Azure Monitor](./howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Access Microsoft Entra logs using the Graph API](quickstart-access-log-with-graph-api.md)

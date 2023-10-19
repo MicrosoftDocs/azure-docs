@@ -116,7 +116,7 @@ The following information is important information about your organization and t
 
 Before you begin planning a Lifecycle Workflow deployment, you should become familiar with the parts of workflow and the terminology around Lifecycle Workflows.
 
-The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](lifecycle-workflows-developer-reference.md) document, uses a GRAPH example to explain the parts of a workflow. 
+The [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md) document, uses the portal to explain the parts of a workflow. The [Developer API reference Lifecycle Workflows](/graph/api/resources/identitygovernance-workflow) document, uses a GRAPH example to explain the parts of a workflow. 
 
 You can use this document to become familiar with the parts of workflow prior to deploying them.
 

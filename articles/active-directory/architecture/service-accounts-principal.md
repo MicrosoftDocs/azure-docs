@@ -67,8 +67,8 @@ Because certificates are more secure, it's recommended you use them, when possib
 
 For more information on Azure Key Vault and how to use it for certificate and secret management, see:
 
-* [About Azure Key Vault](../../key-vault/general/overview.md)
-* [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy.md) 
+* [About Azure Key Vault](/azure/key-vault/general/overview)
+* [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy) 
 
 ### Challenges and mitigations
  
@@ -112,7 +112,7 @@ When using Microsoft Graph, check the API documentation. Ensure the permission t
 
 Learn more:
 
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md?tabs=dotnet)
+* [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=dotnet)
 * [Create a Microsoft Entra application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal with a certificate](../develop/howto-authenticate-service-principal-powershell.md)
 
@@ -135,5 +135,3 @@ Conditional Access:
 Use Conditional Access to block service principals from untrusted locations. 
 
 See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)
-
-

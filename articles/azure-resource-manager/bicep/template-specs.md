@@ -3,7 +3,7 @@ title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
-ms.date: 10/13/2023
+ms.date: 10/16/2023
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -269,7 +269,9 @@ https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsub
 
 ## Parameters
 
-Passing in parameters to template spec is exactly like passing parameters to a Bicep file. Add the parameter values either inline or in a parameter file.
+Passing in parameters to template spec is similar to passing parameters to a Bicep file. Add the parameter values either inline or in a parameter file.
+
+### Inline parameters
 
 To pass a parameter inline, use:
 
@@ -293,43 +295,78 @@ az deployment group create \
 
 ---
 
-To create a local parameter file, use:
+### Parameter files
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "StorageAccountType": {
-      "value": "Standard_GRS"
+- Use Bicep parameters file
+
+    To create a Bicep parameter file, you must specify the `using` statement. Here is an example:
+
+    ```bicep
+    using 'using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>'
+
+    param StorageAccountType = 'Standard_GRS'
+    ```
+
+    For more information, see [Bicep parameters file](./parameter-files.md).
+
+
+    To pass parameter file with:
+
+    # [PowerShell](#tab/azure-powershell)
+
+    Currently, you can't deploy a template spec with a [.bicepparam file](./parameter-files.md) by using Azure PowerShell.
+
+    # [CLI](#tab/azure-cli)
+
+    ```azurecli
+    az deployment group create \
+      --resource-group demoRG \
+      --parameters "./mainTemplate.bicepparam"
+    ```
+
+    Because of the `using` statement in the bicepparam file.  You don't need to specify the `--template-spec` parameter.
+
+    ---
+
+
+- Use JSON parameters file
+
+
+    The following JSON is a sample JSON parameters file:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "StorageAccountType": {
+          "value": "Standard_GRS"
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-And, pass that parameter file with:
+    And, pass that parameter file with:
 
-# [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -TemplateSpecId $id `
-  -ResourceGroupName demoRG `
-  -TemplateParameterFile ./mainTemplate.parameters.json
-```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -TemplateSpecId $id `
+      -ResourceGroupName demoRG `
+      -TemplateParameterFile ./mainTemplate.parameters.json
+    ```
 
-# [CLI](#tab/azure-cli)
+    # [CLI](#tab/azure-cli)
 
-```azurecli
-az deployment group create \
-  --resource-group demoRG \
-  --template-spec $id \
-  --parameters "./mainTemplate.parameters.json"
-```
+    ```azurecli
+    az deployment group create \
+      --resource-group demoRG \
+      --template-spec $id \
+      --parameters "./mainTemplate.parameters.json"
+    ```
 
----
-
-Currently, you can't deploy a template spec with a [.bicepparam file](./parameter-files.md).
+    ---
 
 ## Versioning
 
