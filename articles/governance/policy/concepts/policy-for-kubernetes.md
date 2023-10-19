@@ -290,7 +290,7 @@ definitions. There are sample definition files available to assign in [Azure Pol
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Custom resource definition (CRD) samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's VS Code Extension](https://learn.microsoft.com/azure/governance/policy/how-to/extension-for-vscode#create-policy-definition-from-constraint-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
 With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
-`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutation](./effects.md#mutation) are used to manage your Kubernetes clusters. 
+`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutation) are used to manage your Kubernetes clusters. 
 
 _Audit_ and _deny_ must provide **details** properties
 specific to working with
