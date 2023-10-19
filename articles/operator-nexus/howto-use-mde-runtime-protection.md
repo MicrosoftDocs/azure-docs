@@ -31,13 +31,13 @@ To help with configuring and triggering MDE scans, define these environment vari
 > These environment variable values do not reflect a real deployment and users MUST change them to match their environments.
 
 ```bash
-# SUBSCRIPTION_ID: Subscription of your Undercloud cluster
+# SUBSCRIPTION_ID: Subscription of your cluster
 export SUBSCRIPTION_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-# RESOURCE_GROUP: Resource group of your Undercloud cluster
+# RESOURCE_GROUP: Resource group of your cluster
 export RESOURCE_GROUP="contoso-cluster-rg"
-# MANAGED_RESOURCE_GROUP: Managed resource group managed by your Undercloud cluster
+# MANAGED_RESOURCE_GROUP: Managed resource group managed by your cluster
 export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
-# CLUSTER_NAME: Name of your Undercloud cluster
+# CLUSTER_NAME: Name of your cluster
 export CLUSTER_NAME="contoso-cluster"
 ```
 
@@ -88,7 +88,7 @@ az networkcloud cluster scan-runtime \
 
 ## Retrieve MDE scan information from each node
 This section provides the steps to retrieve MDE scan information.
-First you need to retrieve the list of node names of your Undercloud cluster.
+First you need to retrieve the list of node names of your cluster.
 The following command assigns the list of node names to an environment variable.
 
 ```bash
