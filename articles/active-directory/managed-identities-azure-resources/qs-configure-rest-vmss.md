@@ -331,7 +331,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
    az account get-access-token
    ``` 
 
-4. Create a user-assigned managed identity using the instructions found here: [Create a user-assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Create a user-assigned managed identity using the instructions found here: [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity).
 
 5. Create a virtual machine scale set using CURL to call the Azure Resource Manager REST endpoint. The following example creates a virtual machine scale set named *myVMSS* in the resource group *myResourceGroup* with a user-assigned managed identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
@@ -515,7 +515,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
    az account get-access-token
    ```
 
-2.  Create a user-assigned managed identity using the instructions found here, [Create a user-assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+2.  Create a user-assigned managed identity using the instructions found here, [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity).
 
 3. To ensure you don't delete existing user or system-assigned managed identities that are assigned to the virtual machine scale set, you need to list the identity types assigned to the virtual machine scale set by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed in the `identity` value.
 
@@ -826,4 +826,4 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 For information on how to create, list, or delete user-assigned managed identities using REST see:
 
-- [Create, list, or delete a user-assigned managed identity using REST API calls](how-to-manage-ua-identity-rest.md)
+- [Create, list, or delete a user-assigned managed identity using REST API calls](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest)
