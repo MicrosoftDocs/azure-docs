@@ -39,7 +39,7 @@ ms.service: azure-operator-service-manager
     |User Assigned Identity | Select **identity-for-nginx**                    
  
      
-    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the basics tab where you input project, instance and identity details.":::
+    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the basics tab to input project, instance and identity details.":::
 
 1. Select **Next: Choose a Network Site Design >**.
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
