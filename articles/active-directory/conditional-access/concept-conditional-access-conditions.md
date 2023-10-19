@@ -164,7 +164,7 @@ This setting has an effect on access attempts made from the following mobile app
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device-based policies aren’t supported.| Any My Apps app service | Android and iOS |
 | Microsoft Teams Services - this client app controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
-| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/sharepoint/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/sharepoint/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
 | Office 2019| SharePoint | Windows 10, macOS |

@@ -154,4 +154,4 @@ GET /directory/recommendations/{recommendationId}/impactedResources
 ## Next steps
 
 - [Review the Microsoft Entra recommendations overview](overview-recommendations.md)
-- [Learn about Service Health notifications](overview-service-health-notifications.md)
+- [Learn about Service Health notifications](/azure/service-health/service-health-portal-update)

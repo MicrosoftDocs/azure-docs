@@ -454,7 +454,7 @@ Access reviews activities are recorded and available from the [Microsoft Entra a
 | | Apply decision |
 | Date range| Seven days |
 
-For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Microsoft Entra audit logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hubs. When audit logs are stored in Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
+For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Microsoft Entra audit logs to [Azure Log Analytics](../reports-monitoring/howto-archive-logs-to-storage-account.md) or Azure Event Hubs. When audit logs are stored in Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
 
 ## Next steps
 
