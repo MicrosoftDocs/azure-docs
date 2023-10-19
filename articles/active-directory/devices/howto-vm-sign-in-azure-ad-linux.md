@@ -148,7 +148,7 @@ There are a few ways to open Cloud Shell:
 If you choose to install and use the Azure CLI locally, this article requires you to use version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Create a resource group by running [az group create](/cli/azure/group#az-group-create).
-1. Create a VM by running [az vm create](/cli/azure/vm?preserve-view=true#az-vm-create&preserve-view=true). Use a supported distribution in a supported region.
+1. Create a VM by running [az vm create](/cli/azure/vm?#az-vm-create). Use a supported distribution in a supported region.
 1. Install the Microsoft Entra login VM extension by using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set).
 
 The following example deploys a VM and then installs the extension to enable Microsoft Entra login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Customize the example as needed to support your testing requirements.

@@ -26,9 +26,9 @@ All products in Microsoft 365 can be managed with administrative roles in Micros
 > [!div class="mx-tableFixed"]
 > | Microsoft 365 service | Role content | API content |
 > | ---------------------- | ------------------ | ----------------- |
-> | Admin roles in Office 365 and Microsoft 365 business plans | [Microsoft 365 admin roles](/office365/admin/add-users/about-admin-roles) | Not available |
+> | Admin roles in Office 365 and Microsoft 365 business plans | [Microsoft 365 admin roles](/microsoft-365/admin/add-users/about-admin-roles) | Not available |
 > | Microsoft Entra ID and Microsoft Entra ID Protection| [Microsoft Entra built-in roles](permissions-reference.md) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |
-> | Exchange Online| [Exchange role-based access control](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell for Exchange](/powershell/module/exchange/role-based-access-control/add-managementroleentry)<br>[Fetch role assignments](/powershell/module/exchange/role-based-access-control/get-rolegroup) |
+> | Exchange Online| [Exchange role-based access control](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell for Exchange](/powershell/module/exchange/add-managementroleentry)<br>[Fetch role assignments](/powershell/module/exchange/get-rolegroup) |
 > | SharePoint Online | [Microsoft Entra built-in roles](permissions-reference.md)<br>Also [About the SharePoint admin role in Microsoft 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |
 > | Teams/Skype for Business | [Microsoft Entra built-in roles](permissions-reference.md) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |
 > | Security & Compliance Center (Office 365 Advanced Threat Protection, Exchange Online Protection, Information Protection) | [Office 365 admin roles](/microsoft-365/security/office-365-security/scc-permissions) | [Exchange PowerShell](/powershell/module/exchange/add-managementroleentry)<br>[Fetch role assignments](/powershell/module/exchange/get-rolegroup) |
