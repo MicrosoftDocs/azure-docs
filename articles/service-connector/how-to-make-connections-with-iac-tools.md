@@ -157,7 +157,7 @@ resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
 
 For the formats of properties and values needed when creating a Service Connector resource, check [how to provide correct parameters](./how-to-provide-correct-parameters.md). You can also preview and download an ARM template for reference when creating a Service Connector resource on Azure portal.
 
-:::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a web app":::
+:::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a service connector resource":::
 
 **Using template logics**
 
