@@ -327,7 +327,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 #### Strong identifiers of an Azure resource entity
 
-- ResourceId
+- **ResourceId**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -337,13 +337,13 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'filehash' |
-| Algorithm | Enum | The hash algorithm type. Mandatory. Possible values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
-| Value | String | The hash value. Mandatory. |
+| **Type** | String | 'filehash' |
+| **Algorithm** | Enum | The hash algorithm type. Mandatory. Possible values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
+| **Value** | String | The hash value. Mandatory. |
 
 #### Strong identifiers of a file hash entity
 
-- Algorithm + Value
+- **Algorithm + Value**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -353,13 +353,13 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'registry-key' |
-| Hive | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
-| Key | String | The registry key path. |
+| **Type** | String | 'registry-key' |
+| **Hive** | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
+| **Key** | String | The registry key path. |
 
 #### Strong identifiers of a registry key entity
 
-- Hive + Key
+- **Hive + Key**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -369,16 +369,16 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'registry-value' |
-| Host | Entity (Host) | The host that the registry belongs to. |
-| Key | Entity (RegistryKey) | The registry key entity. |
-| Name | String | The registry value name. |
-| Value | String | String-formatted representation of the value data. |
-| ValueType | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
+| **Type** | String | 'registry-value' |
+| **Host** | Entity ([Host](#host)) | The host that the registry belongs to. |
+| **Key** | Entity ([RegistryKey](#registry-key)) | The registry key entity. |
+| **Name** | String | The registry value name. |
+| **Value** | String | String-formatted representation of the value data. |
+| **ValueType** | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
 
 #### Strong identifiers of a registry value entity
 
-- Key + Name
+- ***Key* + Name**
 
 #### Weak identifiers of a registry value entity
 
@@ -392,16 +392,16 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'security-group' |
-| DistinguishedName | String | The group distinguished name. |
-| SID | String | A single-value attribute that specifies the security identifier (SID) of the group. |
-| ObjectGuid | Guid? | A single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
+| **Type** | String | 'security-group' |
+| **DistinguishedName** | String | The group distinguished name. |
+| **SID** | String | A single-value attribute that specifies the security identifier (SID) of the group. |
+| **ObjectGuid** | Guid? | A single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 
 #### Strong identifiers of a security group entity
 
-- DistinguishedName
-- SID
-- ObjectGuid
+- **DistinguishedName**
+- **SID**
+- **ObjectGuid**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -410,15 +410,15 @@ The following section contains a more in-depth look at the full schemas of each 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
-| Url | Uri | A full URL the entity points to. |
+| Url | Uri | A full URL the entity points to. Mandatory. |
 
 #### Strong identifiers of a URL entity
 
-- Url (when an absolute URL)
+- **Url** (\*\* This identifier is strong when the URL is an absolute URL.)
 
 #### Weak identifiers of a URL entity
 
-- Url (when a relative URL)
+- Url (\*\* This identifier is weak when the URL is a relative URL.)
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -428,38 +428,38 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'iotdevice' |
-| IoTHub | Entity (AzureResource) | The AzureResource entity representing the IoT Hub the device belongs to. |
-| DeviceId | String | The ID of the device in the context of the IoT Hub. Mandatory. |
-| DeviceName | String | The friendly name of the device. |
-| Owners | List\<String> | The owners for the device. |
-| IoTSecurityAgentId | Guid? | The ID of the *Defender for IoT* agent running on the device. |
-| DeviceType | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
-| DeviceTypeId | String | A unique ID to identify each device type according to the device type schema, as the device type itself is a display name and not reliable in comparisons.<br><br>Possible values:<br>Unclassified = 0<br>Miscellaneous = 1<br>Network Device = 2<br>Printer = 3<br>Audio and Video = 4<br>Media and Surveillance = 5<br>Communication = 7<br>Smart Appliance = 9<br>Workstation = 10<br>Server = 11<br>Mobile = 12<br>Smart Facility = 13<br>Industrial = 14<br>Operational Equipment = 15 |
-| Source | String | The source (Microsoft/Vendor) of the device entity. |
-| SourceRef | Entity (Url) | A URL reference to the source item where the device is managed. |
-| Manufacturer | String | The manufacturer of the device. |
-| Model | String | The model of the device. |
-| OperatingSystem | String | The operating system the device is running. |
-| IpAddress | Entity (IP) | The current IP address of the device. |
-| MacAddress | String | The MAC address of the device. |
-| Nics | Entity (Nic) | The current NICs on the device. |
-| Protocols | List\<String> | A list of protocols that the device supports. |
-| SerialNumber | String | The serial number of the device. |
-| Site | String | The site location of the device. |
-| Zone | String | The zone location of the device within a site. |
-| Sensor | String | The sensor monitoring the device. |
-| Importance | Enum? | One of the following values:<li>Low<li>Normal<li>High |
-| PurdueLayer | String | The Purdue Layer of the device. |
-| IsProgramming | Bool? | Indicates whether the device classified as programming device. |
-| IsAuthorized | Bool? | Indicates whether the device classified as authorized device. |
-| IsScanner | Bool? | Indicates whether the device classified as a scanner device. |
-| DevicePageLink | Url | A URL to the device page in Defender for IoT portal. |
-| DeviceSubType | String | The name of the device subtype. |
+| **Type** | String | 'iotdevice' |
+| **IoTHub** | Entity ([AzureResource](#azure-resource)) | The AzureResource entity representing the IoT Hub the device belongs to. |
+| **DeviceId** | String | The ID of the device in the context of the IoT Hub. Mandatory. |
+| **DeviceName** | String | The friendly name of the device. |
+| **Owners** | List\<String> | The owners for the device. |
+| **IoTSecurityAgentId** | Guid? | The ID of the *Defender for IoT* agent running on the device. |
+| **DeviceType** | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
+| **DeviceTypeId** | String ***NOT "ENUM"?*** | A unique ID to identify each device type according to the device type schema, as the device type itself is a display name and not reliable in comparisons.<br><br>Possible values:<br>Unclassified = 0<br>Miscellaneous = 1<br>Network Device = 2<br>Printer = 3<br>Audio and Video = 4<br>Media and Surveillance = 5<br>Communication = 7<br>Smart Appliance = 9<br>Workstation = 10<br>Server = 11<br>Mobile = 12<br>Smart Facility = 13<br>Industrial = 14<br>Operational Equipment = 15 |
+| **Source** | String | The source (Microsoft/Vendor) of the device entity. |
+| **SourceRef** | Entity ([Url](#url)) | A URL reference to the source item where the device is managed. |
+| **Manufacturer** | String | The manufacturer of the device. |
+| **Model** | String | The model of the device. |
+| **OperatingSystem** | String | The operating system the device is running. |
+| **IpAddress** | Entity ([IP](#ip)) | The current IP address of the device. |
+| **MacAddress** | String | The MAC address of the device. |
+| **Nics** | Entity (Nic) | The current NICs on the device. |
+| **Protocols** | List\<String> | A list of protocols that the device supports. |
+| **SerialNumber** | String | The serial number of the device. |
+| **Site** | String | The site location of the device. |
+| **Zone** | String | The zone location of the device within a site. |
+| **Sensor** | String | The sensor monitoring the device. |
+| **Importance** | Enum? | One of the following values:<li>Low<li>Normal<li>High |
+| **PurdueLayer** | String | The Purdue Layer of the device. |
+| **IsProgramming** | Bool? | Indicates whether the device classified as programming device. |
+| **IsAuthorized** | Bool? | Indicates whether the device classified as authorized device. |
+| **IsScanner** | Bool? | Indicates whether the device classified as a scanner device. |
+| **DevicePageLink** | Entity ([Url](#url)) | A URL to the device page in Defender for IoT portal. |
+| **DeviceSubType** | String | The name of the device subtype. |
 
 #### Strong identifiers of an IoT device entity
 
-- IoTHub + DeviceId
+- **IoTHub + DeviceId**
 
 #### Weak identifiers of an IoT device entity
 
@@ -471,17 +471,17 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mailbox' |
-| MailboxPrimaryAddress | String | The mailbox's primary address. |
-| DisplayName | String | The mailbox's display name. |
-| Upn | String | The mailbox's UPN. |
-| AadId | String | The mailbox's Azure AD identifier of the user. |
-| RiskLevel | Enum? | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
-| ExternalDirectoryObjectId | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
+| **Type** | String | 'mailbox' |
+| **MailboxPrimaryAddress** | String | The mailbox's primary address. |
+| **DisplayName** | String | The mailbox's display name. |
+| **Upn** | String | The mailbox's UPN. |
+| **AadId** | String | The mailbox's Azure AD identifier of the user. |
+| **RiskLevel** | RiskLevel? ***NOT "Enum?"?*** | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
+| **ExternalDirectoryObjectId** | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
 
 #### Strong identifiers of a mailbox entity
 
-- MailboxPrimaryAddress
+- **MailboxPrimaryAddress**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -491,22 +491,22 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mail-cluster' |
-| NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster. |
-| CountByDeliveryStatus | IDictionary&lt;String,Int&gt; | Count of mail messages by DeliveryStatus string representation. |
-| CountByThreatType | IDictionary&lt;String,Int&gt; | Count of mail messages by ThreatType string representation. |
-| CountByProtectionStatus | IDictionary&lt;String,long&gt; | Count of mail messages by Protection status string representation. |
-| CountByDeliveryLocation | IDictionary&lt;String,long&gt; | Count of mail messages by Delivery location string representation. |
-| Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster. |
-| Query | String | The query that was used to identify the messages of the mail cluster. |
-| QueryTime | DateTime? | The query time. |
-| MailCount | Int? | The number of mail messages that are part of the mail cluster. |
-| IsVolumeAnomaly | Bool? | Indicates whether the mail cluster is a volume anomaly mail cluster. |
-| Source | String | The source of the mail cluster (default is 'O365 ATP'). |
+| **Type** | String | 'mail-cluster' |
+| **NetworkMessageIds** | IList\<String> | The mail message IDs that are part of the mail cluster. |
+| **CountByDeliveryStatus** | IDictionary\<String,Int> | Count of mail messages by DeliveryStatus string representation. |
+| **CountByThreatType** | IDictionary\<String,Int> | Count of mail messages by ThreatType string representation. |
+| **CountByProtectionStatus** | IDictionary\<String,long> | Count of mail messages by Protection status string representation. |
+| **CountByDeliveryLocation** | IDictionary\<String,long> | Count of mail messages by Delivery location string representation. |
+| **Threats** | IList\<String> | The threats of mail messages that are part of the mail cluster. |
+| **Query** | String | The query that was used to identify the messages of the mail cluster. |
+| **QueryTime** | DateTime? | The query time. |
+| **MailCount** | Int? | The number of mail messages that are part of the mail cluster. |
+| **IsVolumeAnomaly** | Bool? | Indicates whether the mail cluster is a volume anomaly mail cluster. |
+| **Source** | String | The source of the mail cluster (default is `O365 ATP`). |
 
 #### Strong identifiers of a mail cluster entity
 
-- Query + Source
+- **Query + Source**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -516,28 +516,28 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mail-message' |
-| Files | IList&lt;File&gt; | The File entities of this mail message's attachments. |
-| Recipient | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
-| Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
-| Threats | IList&lt;String&gt; | The threats contained in this mail message. |
-| Sender | String | The sender's email address. |
-| SenderIP | String | The sender's IP address. |
-| ReceivedDate | DateTime | The received date of this message. |
-| NetworkMessageId | Guid? | The network message ID of this mail message. |
-| InternetMessageId | String | The internet message ID of this mail message. |
-| Subject | String | The subject of this mail message. |
-| AntispamDirection | Enum? | The directionality of this mail message. Possible values:<li>Unknown<li>Inbound<li>Outbound<li>Intraorg (internal) |
-| DeliveryAction | Enum? | The delivery action of this mail message. Possible values:<li>Unknown<li>DeliveredAsSpam<li>Delivered<li>Blocked<li>Replaced |
-| DeliveryLocation | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
-| CampaignId | String | The identifier of the campaign in which this mail message is present. |
-| SuspiciousRecipients | IList\<String> | The list of recipients who were detected as suspicious. |
-| ForwardedRecipients | IList\<String> | The list of all recipients on the forwarded mail. |
-| ForwardingType | IList\<String> | The forwarding type of the mail, such as SMTP, ETR, etc. |
+| **Type** | String | 'mail-message' |
+| **Files** | IList\<Entity ([File](#file))> | The File entities of this mail message's attachments. |
+| **Recipient** | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
+| **Urls** | IList\<String> | The URLs contained in this mail message. |
+| **Threats** | IList\<String> | The threats contained in this mail message. |
+| **Sender** | String | The sender's email address. |
+| **SenderIP** | String | The sender's IP address. |
+| **ReceivedDate** | DateTime | The received date of this message. |
+| **NetworkMessageId** | Guid? | The network message ID of this mail message. |
+| **InternetMessageId** | String | The internet message ID of this mail message. |
+| **Subject** | String | The subject of this mail message. |
+| **AntispamDirection** | Enum? | The directionality of this mail message. Possible values:<li>Unknown<li>Inbound<li>Outbound<li>Intraorg (internal) |
+| **DeliveryAction** | Enum? | The delivery action of this mail message. Possible values:<li>Unknown<li>DeliveredAsSpam<li>Delivered<li>Blocked<li>Replaced |
+| **DeliveryLocation** | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
+| **CampaignId** | String | The identifier of the campaign in which this mail message is present. |
+| **SuspiciousRecipients** | IList\<String> | The list of recipients who were detected as suspicious. |
+| **ForwardedRecipients** | IList\<String> | The list of all recipients on the forwarded mail. |
+| **ForwardingType** | IList\<String> | The forwarding type of the mail, such as SMTP, ETR, etc. |
 
 #### Strong identifiers of a mail message entity
 
-- NetworkMessageId + Recipient
+- **NetworkMessageId + Recipient**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -547,21 +547,21 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'SubmissionMail' |
-| SubmissionId | Guid? | The Submission ID. |
-| SubmissionDate | DateTime? | Reported Date time for this submission. |
-| Submitter | String | The submitter email address. |
-| NetworkMessageId | Guid? | The network message ID of email to which submission belongs. |
-| Timestamp | DateTime? | The Time stamp when the message is received (Mail). |
-| Recipient | String | The recipient of the mail. |
-| Sender | String | The sender of the mail. |
-| SenderIp | String | The sender's IP. |
-| Subject | String | The subject of submission mail. |
-| ReportType | String | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
+| **Type** | String | 'SubmissionMail' |
+| **SubmissionId** | Guid? | The Submission ID. |
+| **SubmissionDate** | DateTime? | Reported Date time for this submission. |
+| **Submitter** | String | The submitter email address. |
+| **NetworkMessageId** | Guid? ***NOT "ENTITY"?*** | The network message ID of email to which submission belongs. |
+| **Timestamp** | DateTime? | The Time stamp when the message is received (Mail). |
+| **Recipient** | String | The recipient of the mail. |
+| **Sender** | String | The sender of the mail. |
+| **SenderIp** | String ***NOT "ENTITY"?*** | The sender's IP. |
+| **Subject** | String | The subject of submission mail. |
+| **ReportType** | String ***NOT "ENUM"?*** | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
 
 #### Strong identifiers of a SubmissionMail entity
 
-- SubmissionId, Submitter, NetworkMessageId, Recipient
+- **SubmissionId, Submitter, NetworkMessageId, Recipient**
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
@@ -569,7 +569,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Entities | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
+| **Entities** | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
 
 [Back to list of schema types](#list-of-entity-type-schemas)
 
