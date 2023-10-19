@@ -116,7 +116,7 @@ Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-s
 
 3. **Utilize Managed Airflow Service as Production environment:** 
 
-After successfully developing and testing data pipelines on local development setup, developers can raise a Pull Request (PR) to the branch that is synchronized with the Managed Airflow Service. Once the branch is merged, developers can apply the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
+You can raise a Pull Request (PR) to the branch that is sync with the Managed Airflow Service after successfully developing and testing data pipelines on local development setup. Once the branch is merged you can utilize the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
 
 ### Sample CI/CD Pipeline using [GitHub Actions](https://github.com/features/actions).
 
