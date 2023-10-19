@@ -103,7 +103,6 @@ Once you have submitted the short code program brief application in the Azure po
     - Lower case letters: a - z
     - Numbers: 0-9
     - Spaces
-    - Special characters: *+*, *-*, _ , &
 
 ### Is a number purchase required to use alphanumeric sender ID?
 The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.

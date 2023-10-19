@@ -16,6 +16,8 @@ items:
     href: elastic-san-networking-concepts.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
+  - name: Best practices
+    href: elastic-san-best-practices.md
   - name: Performance
     href: elastic-san-performance.md
   - name: Clustered applications

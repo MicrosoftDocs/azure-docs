@@ -434,7 +434,7 @@ The following device attributes can be used.
  managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
  memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
  objectId | a valid Microsoft Entra object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
- profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0#properties&preserve-view=true) in Microsoft Entra ID | device.profileType -eq "RegisteredDevice"
+ profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0&preserve-view=true#properties) in Microsoft Entra ID | device.profileType -eq "RegisteredDevice"
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
 <!-- docutune:enable -->
@@ -442,7 +442,7 @@ The following device attributes can be used.
 > [!NOTE]
 > When using `deviceOwnership` to create Dynamic Groups for devices, you need to set the value equal to `Company`. On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/mem/intune/developer/reports-ref-devices#ownertypes) for more details. 
 > When using `deviceTrustType` to create Dynamic Groups for devices, you need to set the value equal to `AzureAD` to represent Microsoft Entra joined devices, `ServerAD` to represent Microsoft Entra hybrid joined devices or `Workplace` to represent Microsoft Entra registered devices.
-> When using `extensionAttribute1-15` to create Dynamic Groups for devices you need to set the value for `extensionAttribute1-15` on the device. Learn more on [how to write `extensionAttributes` on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
+> When using `extensionAttribute1-15` to create Dynamic Groups for devices you need to set the value for `extensionAttribute1-15` on the device. Learn more on [how to write `extensionAttributes` on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http&preserve-view=true#example-2--write-extensionattributes-on-a-device)
 
 ## Next steps
 
