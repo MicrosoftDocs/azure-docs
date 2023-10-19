@@ -173,7 +173,7 @@ Securing your workspace and associated resources within a virtual network have t
 
 - The workspace and default storage account must be in the same VNet. However, subnets within the same VNet are allowed. For example, the workspace in one subnet and storage in another.
 
-    We _recommend_ that the Azure Key Vault and Azure Container Registry for the workspace are also in the same VNet. However both of these resources can also be in a [peered](/virtual-network/virtual-network-peering-overview) VNet.
+    We _recommend_ that the Azure Key Vault and Azure Container Registry for the workspace are also in the same VNet. However both of these resources can also be in a [peered](/azure/virtual-network/virtual-network-peering-overview) VNet.
 
 ## Secure the training environment
 
