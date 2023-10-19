@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server.
 
-When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses)**.  
+When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses) and Private Endpoint**.  
 The following characteristics apply whether you choose to use the private access or the public access option:
 
 - Connections from allowed IP addresses need to authenticate to the PostgreSQL server with valid credentials.
@@ -29,7 +29,7 @@ The following characteristics apply whether you choose to use the private access
 
 ## Use Public Access Networking with Flexible Server
 
-When you choose the public access method, your flexible server is accessed through a public endpoint over the internet. The public endpoint is a publicly resolvable DNS address. The phrase *allowed IP addresses* refers to a range of IP addresses that you choose to give permission to access your server. These permissions are called *firewall rules*.
+When you choose the **Public Access** method, your PostgreSQL Flexible server is accessed through a public endpoint over the internet. The public endpoint is a publicly resolvable DNS address. The phrase **allowed IP addresses** refers to a range of IP addresses that you choose to give permission to access your server. These permissions are called *firewall rules*.
 
 Choose this networking option if you want the following capabilities:
 
@@ -46,12 +46,21 @@ Characteristics of the public access method include:
 
 ### Firewall rules
 
-If a connection attempt comes from an IP address that you haven't allowed through a firewall rule, the originating client will get an error.
+Server-level firewall rules apply to all databases on the same Azure Database for PostgreSQL server. If the source IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted otherwise it is rejected. For example, if your application connects with JDBC driver for PostgreSQL, you may encounter this error attempting to connect when the firewall is blocking the connection.
+```java
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
+```
+> [!NOTE]
+> To access Azure Database for PostgreSQL- Flexible Server from your local computer, ensure that the firewall on your network and local computer allow outgoing communication on TCP port 5432.
+
+### Programmatically managed Firewall rules
+In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI. See [Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md)
 
 ### Allow all Azure IP addresses
 
-If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all IP addresses for Azure datacenters.
-
+It is recommended that you find the outgoing IP address of any application or service and explicitly allow access to those individual IP addresses or ranges. If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all IP addresses for Azure datacenters.
+This setting can be enabled from the Azure portal by checking the **Allow public access from any Azure service within Azure to this server** checkbox on **Networking pane** and hitting **Save**. 
+ 
 > [!IMPORTANT]  
 > The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you select this option, make sure that your sign-in and user permissions limit access to only authorized users.
 
