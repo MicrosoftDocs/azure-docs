@@ -207,7 +207,7 @@ Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](
 1. Navigate to the sample project directory and run the following command to configure the app in Azure Spring Apps:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config
    ```
 
    The following list describes the command interactions:
