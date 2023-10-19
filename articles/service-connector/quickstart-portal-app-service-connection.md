@@ -71,7 +71,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## View service connections in App Service
 
-1. Once the connection has successfuly been created, the **Service Connector** page displays existing App Service connections.
+1. Once the connection has successfully been created, the **Service Connector** page displays existing App Service connections.
 
 1. Select the **>** button to expand the list and see the environment variables required by your application code. Select **Hidden value** to view the hidden value.
 
