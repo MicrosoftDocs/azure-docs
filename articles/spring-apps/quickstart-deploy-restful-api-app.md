@@ -44,7 +44,6 @@ The following diagram shows the architecture of the system:
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
-- [curl](https://curl.se/download.html).
 
 ::: zone-end
 
@@ -56,7 +55,6 @@ The following diagram shows the architecture of the system:
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
-- [curl](https://curl.se/download.html).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -65,7 +63,6 @@ The following diagram shows the architecture of the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
-- [curl](https://curl.se/download.html).
 
 ---
 
