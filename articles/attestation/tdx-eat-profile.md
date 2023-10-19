@@ -2,15 +2,15 @@
 title: Azure Attestation EAT profile for TDX
 description: Azure Attestation EAT profile for TDX
 services: attestation
-author: mssindhurid
+author: mbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 10/18/2023
-ms.author: mssindhurid 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Azure Attestation EAT profile for Intel® Trust Domain Extensions (Intel® TDX)
+# Azure Attestation EAT profile for Intel® Trust Domain Extensions (TDX)
 
 This profile outlines claims for an [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) attestation result generated as an Entity Attestation Token (EAT) by Azure Attestation.
 
