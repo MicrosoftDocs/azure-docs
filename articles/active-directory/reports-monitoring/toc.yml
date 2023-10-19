@@ -61,7 +61,7 @@ items:
     - name: How to use Identity Recommendations
       href: howto-use-recommendations.md
     - name: How to use Identity Workbooks
-      href: howto-use-azure-monitor-workbooks.md
+      href: ./howto-use-workbooks.md
   - name: Recommendations
     expanded: false
     items:
@@ -147,7 +147,7 @@ items:
   expanded: false
   items:
   - name: Microsoft Entra SLA performance
-    href: reference-azure-ad-sla-performance.md
+    href: ./reference-sla-performance.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
