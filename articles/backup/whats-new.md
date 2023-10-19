@@ -16,7 +16,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
-- Novemner 2023
+- November 2023
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
@@ -72,9 +72,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## SAP HANA instance snapshot backup support is now generally available
 
-Azure Backup now supports SAP HANA instance snapshot backup that provides a cost-effective backup solution using Managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
+Azure Backup now supports SAP HANA instance snapshot backup and enhanced restore, which provides a cost-effective backup solution using Managed disk incremental snapshots. SinceBecause instant backup uses snapshot, the effect on the database is minimum. 
 
-You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
+ You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot. Currently, the snapshots are stored on your storage account/operational tier and isn't stored in Recovery Services vault. 
+
+ >[!Note]
+>- Original Location Restore (OLR) is not supported.   
+>- For pricing, as per SAP advisory, you must do a "weekly full backup + logs" streaming/Bbackint based backup so that the exisiting protected instance fee and storage cost areis applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more on [Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). 
 
 For more information, see [Back up databases' instance snapshots](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
