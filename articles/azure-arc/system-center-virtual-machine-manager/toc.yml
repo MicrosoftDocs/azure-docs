@@ -23,6 +23,8 @@
     items:
     - name: Install Arc agent at scale for SCVMM VMs
       href: enable-guest-management-at-scale.md
+    - name: Install Arc agents using a script
+      href: install-arc-agents-using -script.md
   - name: Administer
     items:
     - name: Perform recovery operations
