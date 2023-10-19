@@ -64,6 +64,8 @@
       href: reliability-batch.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Chaos Studio
+      href: reliability-chaos-studio.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
@@ -302,6 +304,8 @@
       href: reliability-backup.md
     - name: Azure Batch
       href: reliability-batch.md
+    - name: Azure Chaos Studio
+      href: reliability-chaos-studio.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
