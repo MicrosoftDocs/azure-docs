@@ -364,10 +364,6 @@ items:
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-    - name: Tutorials
-      items:
-      - name: Custom metrics with .NET and .NET Core
-        href: app/tutorial-asp-net-custom-metrics.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
