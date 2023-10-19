@@ -40,7 +40,7 @@ ms.custom: template-how-to
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-basics-tab.png" alt-text="Screenshot of the Azure portal. It shows the basics tab for a SIM policy. The Add a network scope button is highlighted.":::
 
 1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).  
-SIM policies can define the default QoS settings for services that use the policy.  
+SIM policies define the default QoS settings for services that use the policy.  
 
     > [!IMPORTANT]
     >  With the exception of **Maximum Bit Rate**, QoS settings are overridden by [service](configure-service-azure-portal.md#configure-basic-settings-for-the-service) or [data flow policy](configure-service-azure-portal.md#configure-data-flow-policy-rules-and-data-flow-templates) QoS settings. In addition, data flow policy rules override service policy rules.
