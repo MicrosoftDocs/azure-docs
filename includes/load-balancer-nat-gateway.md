@@ -1,18 +1,18 @@
- ---
+---
  title: include file
  description: include file
- services: load-balancer
+ services: virtual-network
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: virtual-network
  ms.topic: include
  ms.date: 10/19/2023
  ms.author: mbender
  ms.custom: include file
- ---
+---
 
 ## Create NAT gateway
 
-All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network.
+All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -33,7 +33,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal":::
+    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal.":::
 
 1. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
 

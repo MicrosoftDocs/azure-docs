@@ -29,7 +29,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Name | Enter **lb-vnet**. |
     | Region | Select **East US**. |
 
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
