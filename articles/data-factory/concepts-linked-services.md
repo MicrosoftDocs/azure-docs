@@ -14,10 +14,6 @@ ms.date: 10/25/2022
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1](v1/data-factory-create-datasets.md)
-> * [Current version](concepts-linked-services.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory and Azure Synapse Analytics.
