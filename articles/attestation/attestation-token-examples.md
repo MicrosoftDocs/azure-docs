@@ -135,7 +135,7 @@ The below claims appear only in the attestation token generated for Intel® Xeon
 
 ## Sample JWT generated for TDX attestation
 
-The definitions of below claims are available in [Azure Attestation TDX EAT profile](tdx-eat-profile.md)
+The definitions of below claims are available in [Azure Attestation TDX EAT profile](trust-domain-extensions-eat-profile.md)
 
 ```
 {
