@@ -1,10 +1,11 @@
 ---
-title: Switch to the new previous version
+title: Switch to the new preview version
 description: Learn how to switch to the new preview version and use its capabilities
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: jyothisuri
-ms.author: jsuri
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 ms.topic: how-to 
 ms.date: 09/18/2023
 keywords: "VMM, Arc, Azure"
