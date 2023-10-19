@@ -54,7 +54,7 @@ If you need to review sign-in activity for apps or service principals, the `Serv
 
 ### Managed identity sign-in logs
 
-The `ManagedIdentitySignInLogs` provide similar insights as the service principal sign-in logs, but for managed identities, where Azure manages the secrets. For more information, see [Managed identity sign-ins](./concept-sign-ins.md#managed-identity-for-azure-resources-sign-ins).
+The `ManagedIdentitySignInLogs` provide similar insights as the service principal sign-in logs, but for managed identities, where Azure manages the secrets. For more information, see [Managed identity sign-ins](./concept-sign-ins.md#managed-identity-sign-ins).
 
 ### Provisioning logs
 
