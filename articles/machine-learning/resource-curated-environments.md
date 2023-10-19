@@ -29,5 +29,5 @@ This article lists the curated environments with latest framework versions in Az
 * Only have required dependencies and access right in the image/container.
 
 >[!IMPORTANT]
-> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md).
+> For more information about curated environment packages and versions, see [How to manage environments in the Azure Machine Learning studio](./how-to-manage-environments-in-studio.md).
 
