@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 01/11/2023
+10/20/2023
 ---
 
 # Optimizing sinks
