@@ -3,7 +3,7 @@ title: Design a Virtualized Network Function (VNF) for Ubuntu
 description: Learn how to design a Virtualized Network Function (VNF) for Ubuntu.
 author: sherrygonz
 ms.author: sherryg
-ms.date: 09/13/2023
+ms.date: 10/19/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
@@ -32,7 +32,6 @@ Once you execute this command an input.json file generates.
 > Edit the input.json file, replacing it with the values shown in the sample. Save the file as **input-vnf-nsd.json**.
 
 ```json
-Sample input-vnf-nsd.json
 {
     "location": "uksouth",
     "publisher_name": "ubuntu-publisher",
@@ -46,7 +45,6 @@ Sample input-vnf-nsd.json
             "type": "vnf",
             "multiple_instances": false,
             "publisher": "ubuntu-publisher",
-            "publisher_scope": "private",
             "publisher_resource_group": "ubuntu-publisher-rg"
         }
     ],
@@ -67,7 +65,6 @@ Sample input-vnf-nsd.json
 |    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD.    |
 |    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
-|     |   *publisher_scope*: The scope that the publisher is published under. Currently only 'private' is supported.      |
 |    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
 |    |    *multiple_instances*: Valid values are true or false.  WhetherControls if the NSD should allow arbitrary numbers of this type of NF.  If set to false only a single instance is allowed. Only supported on VNFs. For CNFs, set to false.     |
 |**nsd_name**     |    Network Service Design Group Name. The collection of Network Service Design Versions. Created if it doesn't exist.     |
@@ -84,14 +81,14 @@ az aosm nsd build -f input-vnf-nsd.json
 ```
 After the build process completes, review the following generated files to gain insights into the NSD's architecture and structure. 
 
-These files are created:
+These files are created in a subdirectory called **nsd-bicep-templates**:
 
 |Files  |Description  |
 |---------|---------|
 |**artifact_manifest.bicep**     |   A bicep template for creating the Publisher and artifact stores.      |
-|**configMappings**     |      Converts the config group values inputs to the deployment parameters required for each NF.   |
+|**configMappings**     |      A directory containing files that convert the config group values inputs to the deployment parameters required for each NF.   |
 |**nsd_definition.bicep**     |   A bicep template for creating the NSDV itself.      |
-|**schemas**    |     Defines to the inputs required in the config group values for this NSDV.    |
+|**schemas**    | A directory containing files that define to the inputs required in the config group values for this NSDV.    |
 |**ubuntu-vm-nfdg_nf.bicep**    |   A bicep template for deploying the NF.  Uploaded to the artifact store.      |
 
 ## Publish the Network Service Design (NSD)
@@ -109,6 +106,7 @@ These resources are created:
 |---------|---------|
 |**ubuntu-nsdg**    |    The Network Service Design.     |
 |**1.0.0 (ubuntu-nsdg/1.0.0)**     |   The   Network Service Design Version.    |
+|**ubuntu-vm-nfdg-nf-acr-manifest-1-0-0** |Publisher Artifact Manifest.
 |**ubuntu_nsdg_ConfigGroupSchema**     |    The Configuration Group Schema.     |
 
 ## Next steps:
