@@ -87,7 +87,7 @@ Because the SDK batches data for submission, there might be a delay before items
 * Continue to use the application. Take more actions to generate more telemetry.
 * Select **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
 * Verify that [required outgoing ports](./ip-addresses.md) are open.
-* Use [Search](./diagnostic-search.md) to look for specific events.
+* Use [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search) to look for specific events.
 * Check the [FAQ][FAQ].
 
 ## Basic usage
@@ -486,4 +486,4 @@ process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 <!--references-->
 
-[FAQ]: ../faq.yml
+[FAQ]: ./app-insights-overview.md#frequently-asked-questions

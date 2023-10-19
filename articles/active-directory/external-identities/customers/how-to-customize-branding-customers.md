@@ -35,7 +35,7 @@ You can also create user flows programmatically using the Company Branding Graph
 
 By default, Microsoft offers a neutral branding for your tenant that can be personalized to suit your company's specific requirements. This default branding doesn't include any pre-existing Microsoft branding. In the event that the custom company branding fails to load, the sign-in page will automatically switch back to this neutral branding. Additionally, each custom branding property can be manually added to the custom sign-in page.  
 
-You can customize this neutral branding with a custom background image or color, favicon, layout, header, and footer. You can also customize the sign-in form and add custom text to different instances or upload [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
+You can customize this neutral branding with a custom background image or color, favicon, layout, header, and footer. You can also customize the sign-in form and add custom text to different instances or upload [custom CSS](../../fundamentals/reference-company-branding-css-template.md). 
 The following image displays the neutral default branding of the tenant. You can find the numbered branding elements and their corresponding descriptions after the image.
 
    :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::
@@ -48,9 +48,9 @@ The following image displays the neutral default branding of the tenant. You can
 
 ## How to customize the default sign-in experience
 
-Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
+Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](../../fundamentals/reference-company-branding-css-template.md). 
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../../roles/permissions-reference.md#global-administrator).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. Browse to **Company Branding** > **Default sign-in** > **Edit**.
 
@@ -167,7 +167,7 @@ Your tenant name replaces the Microsoft banner logo in the neutral default sign-
 
 :::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name." lightbox="media/how-to-customize-branding-customers/tenant-name.png":::
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Global Administrator](../../roles/permissions-reference.md#global-administrator).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Properties**.
 1. Edit the **Name** field. 
@@ -183,4 +183,4 @@ You can use the Microsoft Graph API to customize a few items programmatically. F
 ## Next steps
 
 In this article we learned how to customize the look and feel of the customer sign-in and sing-up experience. To learn more about customizing the language of the tenant, see the [Language customization](how-to-customize-languages-customers.md) article.
-For an understanding of the differences in workforce tenant branding, see the article [How to customize branding for your workforce](/azure/active-directory/fundamentals/how-to-customize-branding).
+For an understanding of the differences in workforce tenant branding, see the article [How to customize branding for your workforce](../../fundamentals/how-to-customize-branding.md).

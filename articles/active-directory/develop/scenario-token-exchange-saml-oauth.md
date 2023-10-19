@@ -26,7 +26,7 @@ Many apps are implemented with SAML. However, the Graph API uses the OIDC/OAuth 
 The general strategy is to add the OIDC/OAuth stack to your app. With your app that implements both standards you can use a session cookie. You aren't exchanging a token explicitly. You're logging a user in with SAML, which generates a session cookie. When the Graph API invokes an OAuth flow, you use the session cookie to authenticate. This strategy assumes the Conditional Access checks pass and the user is authorized.
 
 > [!NOTE]
-> The recommended library for adding OIDC/OAuth behavior to your applications is the [Microsoft Authentication Library (MSAL)](/entra/msal).
+> The recommended library for adding OIDC/OAuth behavior to your applications is the [Microsoft Authentication Library (MSAL)](/entra/msal/).
 
 ## Next steps
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

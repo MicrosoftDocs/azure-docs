@@ -100,7 +100,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | North Central US, Sweden Central | 4,096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US, Sweden Central | N/A | 4,097 | Sep 2021 |
 
@@ -123,6 +123,18 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
 | dalle2 | East US | N/A | 1000 | N/A |
+
+### Fine-tuning models (Preview)
+
+`babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
+
+`gpt-35-turbo-0613` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+
+|  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
+|  --- | --- | --- | --- | --- |
+| `babbage-002` | North Central US, Sweden Central | 16,384 | Sep 2021 |
+| `davinci-002` | North Central US, Sweden Central | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | North Central US, Sweden Central | 4096 | Sep 2021 |
 
 ### Whisper models (Preview)
 

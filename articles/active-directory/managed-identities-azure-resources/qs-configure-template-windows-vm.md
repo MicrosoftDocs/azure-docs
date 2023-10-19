@@ -32,14 +32,14 @@ In this article, using the Azure Resource Manager deployment template, you learn
 
 ## Azure Resource Manager templates
 
-As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates allow you to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
+As with the Azure portal and scripting, [Azure Resource Manager](/azure/azure-resource-manager/management/overview) templates allow you to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
-   - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/templates/export-template-portal.md), or from the [current state of the deployment](../../azure-resource-manager/templates/export-template-portal.md).
-   - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then uploading and deploying by using PowerShell or CLI.
-   - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to both create and deploy a template.
+   - Using a [custom template from the Azure Marketplace](/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
+   - Deriving from an existing resource group, by exporting a template from either [the original deployment](/azure/azure-resource-manager/templates/export-template-portal), or from the [current state of the deployment](/azure/azure-resource-manager/templates/export-template-portal).
+   - Using a local [JSON editor (such as VS Code)](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal), and then uploading and deploying by using PowerShell or CLI.
+   - Using the Visual Studio [Azure Resource Group project](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to both create and deploy a template.
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user-assigned managed identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/templates/deployment-modes.md) to deployments.
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user-assigned managed identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](/azure/azure-resource-manager/templates/deployment-modes) to deployments.
 
 ## System-assigned managed identity
 
@@ -47,7 +47,7 @@ In this section, you will enable and disable a system-assigned managed identity 
 
 ### Enable system-assigned managed identity during creation of an Azure VM or on an existing VM
 
-To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
+To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
@@ -78,12 +78,12 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 ### Assign a role the VM's system-assigned managed identity
 
-After you enable a system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created. You can find detailed information to help you with this step in the [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md) article.
+After you enable a system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created. You can find detailed information to help you with this step in the [Assign Azure roles using Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template) article.
 
 
 ### Disable a system-assigned managed identity from an Azure VM
 
-To remove system-assigned managed identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
+To remove system-assigned managed identity from a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
@@ -116,11 +116,11 @@ The following example shows you how to remove a system-assigned managed identity
 In this section, you assign a user-assigned managed identity to an Azure VM using Azure Resource Manager template.
 
 > [!NOTE]
-> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
+> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](./how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity).
 
 ### Assign a user-assigned managed identity to an Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment. No other Microsoft Entra directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment. No other Microsoft Entra directory role assignments are required.
 
 1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
 
@@ -206,7 +206,7 @@ To assign a user-assigned identity to a VM, your account needs the [Managed Iden
 
 ### Remove a user-assigned managed identity from an Azure VM
 
-To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment. No other Microsoft Entra directory role assignments are required.
+To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment. No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 

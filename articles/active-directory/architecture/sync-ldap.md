@@ -42,7 +42,7 @@ Use LDAP synchronization when you need to synchronize identity data between your
 
 Explore the following resources to learn more about LDAP synchronization with Microsoft Entra ID.
 
-* [Hybrid Identity: Directory integration tools comparison](../hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
+* [Hybrid Identity: Directory integration tools comparison](../hybrid/index.yml) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
 * [Microsoft Entra Connect and Microsoft Entra Connect Health installation roadmap](../hybrid/connect/how-to-connect-install-roadmap.md) provides detailed installation and configuration steps.
 * The [Generic LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) enables you to integrate the synchronization service with an LDAP v3 server.
 
@@ -53,5 +53,5 @@ Explore the following resources to learn more about LDAP synchronization with Mi
 
 ## Next steps
 
-* [What is hybrid identity with Microsoft Entra ID?](../../active-directory/hybrid/whatis-hybrid-identity.md) Microsoft's identity solutions span on-premises and cloud-based capabilities. Hybrid identity solutions create a common user identity for authentication and authorization to all resources, regardless of location.
+* [What is hybrid identity with Microsoft Entra ID?](../hybrid/whatis-hybrid-identity.md) Microsoft's identity solutions span on-premises and cloud-based capabilities. Hybrid identity solutions create a common user identity for authentication and authorization to all resources, regardless of location.
 * [Microsoft Entra authentication and synchronization protocol overview](auth-sync-overview.md) describes integration with authentication and synchronization protocols. Authentication integrations enable you to use Microsoft Entra ID and its security and management features with little or no changes to your applications that use legacy authentication methods. Synchronization integrations enable you to sync user and group data to Microsoft Entra ID and then user Microsoft Entra management capabilities. Some sync patterns enable automated provisioning.
