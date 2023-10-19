@@ -49,17 +49,17 @@ export interface ChatAttachment {
   /** The type of attachment. */
   attachmentType: AttachmentType;
   /** The type of content of the attachment, if available */
-  contentType?: string;
+  extension?: string;
   /** The name of the attachment content. */
   name?: string;
   /** The URL that is used to provide original size of the inline images */
-  url: string;
+  url?: string;
   /** The URL that provides the preview of attachment */
   previewUrl?: string;
 }
 
 /** Type of Supported Attachments. */
-export type AttachmentType = "teamsInlineImage" | "teamsImage" | "file";
+export type AttachmentType = "image" | "file";
 ```
 
 As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
@@ -69,18 +69,18 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
     {
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
         "attachmentType": "file",
-        "contentType": "pdf",
+        "extension": "pdf",
         "name": "business report.pdf",
         "url": "",
         "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
     },
     {
         "id": "9d89acb2-c4e4-4cab-b94a-7c12a61afe30",
-        "attachmentType": "teamsImage",
-        "contentType": "png",
+        "attachmentType": "image",
+        "extension": "png",
         "name": "Screenshot.png",
-        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
-        "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
+        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
+        "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
       }
 ]
 ```
@@ -242,7 +242,7 @@ async function renderReceivedMessage(event) {
 
     // Inject image tag for all image attachments
     var imageAttachmentHtml = event.attachments
-        .filter(attachment => attachment.attachmentType === "teamsImage")
+        .filter(attachment => attachment.attachmentType === "image")
         .map(attachment => renderImageAttachments(attachment))
         .join('');
     messagesContainer.innerHTML += imageAttachmentHtml;
@@ -257,7 +257,7 @@ async function renderReceivedMessage(event) {
     // filter out inline images from attchments
     const imageAttachments = event.attachments.filter((attachment) =>
         attachment.attachmentType === "teamsInlineImage" ||
-        attachment.attachmentType === "teamsImage");
+        attachment.attachmentType === "image");
 
     // fetch and render preview images
     fetchPreviewImages(imageAttachments);
