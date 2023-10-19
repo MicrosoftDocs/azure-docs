@@ -58,12 +58,12 @@ The following Azure services support managed identities for Azure resources:
 | Azure Load Testing                | [Use managed identities for Azure Load Testing](/azure/load-testing/how-to-use-a-managed-identity)  |
 | Azure Logic Apps                | [Authenticate access to Azure resources using managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)                                                                                                       |
 | Azure Log Analytics cluster     | [Azure Monitor customer-managed key](/azure/azure-monitor/logs/customer-managed-keys)
-| Azure Machine Learning Services | [Use Managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md?tabs=python)                                                                                         |
+| Azure Machine Learning Services | [Use Managed identities with Azure Machine Learning](/azure/machine-learning/how-to-identity-based-service-authentication?tabs=python)                                                                                         |
 | Azure Managed Disk              | [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](/azure/virtual-machines/disks-enable-customer-managed-keys-portal)                                                                                        |
 | Azure Media services            | [Managed identities](/azure/media-services/latest/concept-managed-identities) |
 | Azure Monitor                   | [Azure Monitor customer-managed key](/azure/azure-monitor/logs/customer-managed-keys?tabs=portal)                                                                                              |
 | Azure Policy                    | [Remediate non-compliant resources with Azure Policy](/azure/governance/policy/how-to/remediate-resources)      |
-| Microsoft Purview                   | [Credentials for source authentication in Microsoft Purview](../../purview/manage-credentials.md) |
+| Microsoft Purview                   | [Credentials for source authentication in Microsoft Purview](/purview/manage-credentials) |
 | Azure Resource Mover            | [Move resources across regions (from resource group)](/azure/resource-mover/move-region-within-resource-group)
 | Azure Site Recovery             | [Replicate machines with private endpoints](/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault)                                  |
 | Azure Search                    | [Set up an indexer connection to a data source using a managed identity](/azure/search/search-howto-managed-identities-data-sources)                                                                                            |
@@ -76,7 +76,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Stack Edge                | [Manage Azure Stack Edge secrets using Azure Key Vault](/azure/databox-online/azure-stack-edge-gpu-activation-key-vault#recover-managed-identity-access)
 | Azure Static Web Apps           | [Securing authentication secrets in Azure Key Vault](/azure/static-web-apps/key-vault-secrets)
 | Azure Stream Analytics          | [Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities](/azure/stream-analytics/stream-analytics-managed-identities-adls)                                                                                         |
-| Azure Synapse                   | [Azure Synapse workspace managed identity](../../synapse-analytics/security/synapse-workspace-managed-identity.md)                                                                                         |
+| Azure Synapse                   | [Azure Synapse workspace managed identity](/azure/data-factory/data-factory-service-identity)                                                                                         |
 | Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](/azure/virtual-machines/linux/image-builder-permissions-cli#using-managed-identity-for-azure-storage-access)|
 | Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
 | Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](/azure/virtual-machines/windows/security-policy#managed-identities-for-azure-resources)                                                                  |

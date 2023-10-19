@@ -92,7 +92,7 @@ sections:
       - question: |
          Is TLS 1.2 required for all connections?
         answer: |
-              Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
+              Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](/purview/prepare-tls-1.2-in-office-365) for useful references and resources.
           
       - question: |
          Can I place a forward proxy device between the connector server(s) and the back-end application server?
@@ -374,5 +374,5 @@ sections:
           1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration works since they have different external URLS.
           
           2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-             - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
-             - [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)
+             - [Application Proxy Application Management](/powershell/module/azuread/?preserve-view=true#application_proxy_application_management)
+             - [Application Proxy Connector Management](/powershell/module/azuread/?preserve-view=true#application_proxy_connector_management)

@@ -50,7 +50,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
+* [Microsoft 365 Audit logs](/purview/audit-solutions-overview)
 
 * [Azure Key Vault logs](/azure/key-vault/general/logging?tabs=Vault)
 
@@ -64,7 +64,7 @@ From the Azure portal, you can view the Microsoft Entra audit logs and download 
 
 * **[Azure Event Hubs](/azure/event-hubs/event-hubs-about) -integrated with a SIEM**- [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/howto-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
-* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 

@@ -108,7 +108,7 @@ Many applications use credentials to authenticate in Microsoft Entra ID. Any oth
 
 * Azure Monitor – [Microsoft Entra workbook to help you assess Solorigate risk - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
-* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
+* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/defender-cloud-apps/investigate-anomaly-alerts)
 
 * PowerShell - [Sample PowerShell script to find credential lifetime](https://github.com/madansr7/appCredAge).
 

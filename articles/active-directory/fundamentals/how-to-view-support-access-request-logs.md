@@ -64,4 +64,4 @@ There are three activities that can be associated with an automated or system-in
 ## Next steps
 
 - [Manage Microsoft Support access requests](how-to-manage-support-access-requests.md)
-- [Learn about audit logs](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Learn about audit logs](../reports-monitoring/concept-audit-logs.md)
