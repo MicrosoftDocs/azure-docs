@@ -19,6 +19,8 @@ items:
 - name: How-tos
   expanded: false
   items: 
+    - name: Import DICOM files
+      href: import-files.md
     - name: Use the DICOM service for digital pathology
       href: dicom-digital-pathology.md
     - name: Configure CORS
