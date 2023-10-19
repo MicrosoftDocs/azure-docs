@@ -80,7 +80,7 @@ ms.date: 08/29/2023
 
        resp, err := client.GetChatCompletions(context.TODO(), azopenai.ChatCompletionsOptions{
            Messages: []azopenai.ChatMessage{
-               {Content: to.Ptr("Your question goes here."), Role: to.Ptr(azopenai.ChatRoleUser)},
+               {Content: to.Ptr("What are the differences between Azure Machine Learning and Azure AI services?"), Role: to.Ptr(azopenai.ChatRoleUser)},
            },
            MaxTokens: to.Ptr[int32](512),
            AzureExtensionsOptions: &azopenai.AzureChatExtensionOptions{
