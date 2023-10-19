@@ -80,6 +80,10 @@ The custom role permissions limit access to the list of the permissions shown he
 
     :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment page for custom assignment.":::
 
+    This image shows the same step 5 tasks, but for a CNF vs a VNF.
+
+    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the add role assignment page.":::
+
 7. Select **Review and assign**.
 
 ### Repeat the role assignment

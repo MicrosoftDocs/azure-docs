@@ -37,7 +37,9 @@ ms.service: azure-operator-service-manager
     |Site    |  Enter **ngnix-site**.       |
     |Managed Identity Type    |    Select **System Assigned**.     |
  
-    :::image type="content" source="media/create-site-network-service-basic.png" alt-text="Screenshot shows the Basics tab where you enter project and instance details for your site network service.":::
+    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the Basics tab where you enter project and instance details.":::    
+
+
 1. Select **Next: Choose a Network Site Design >**.
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
     > [!NOTE]
