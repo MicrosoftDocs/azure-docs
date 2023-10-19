@@ -122,6 +122,9 @@
           href: howto-set-up-defender-for-cloud-security.md
         - name: Use Azure Policy for AKS Clusters
           href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: MDE Runtime Protection
+          href: howto-use-mde-runtime-protection.md
+
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting

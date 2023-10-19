@@ -158,7 +158,7 @@ Once your user(s) has been successfully created in Microsoft Entra ID, you may p
 
 ## Additional steps for pre-hire scenario
 
-There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra Admin Center](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
+There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra Admin Center](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow) tutorial.
 
 ### Edit the users attributes using the Microsoft Entra admin center
 
@@ -233,7 +233,7 @@ The manager attribute is used for email notification tasks.  It's used by the li
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
-For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/how-to-manage-user-profile-info.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
+For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/how-to-manage-user-profile-info.md?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
 ### Enabling the Temporary Access Pass (TAP)
 
@@ -258,6 +258,6 @@ A user with groups and Teams memberships is required before you begin the tutori
 
 ## Next steps
 - [On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
-- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md)
+- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow)
 - [Tutorial: Off-boarding users from your organization using Lifecycle workflows with The Microsoft Entra Admin Center](tutorial-offboard-custom-workflow-portal.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph](tutorial-offboard-custom-workflow-graph.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)

@@ -21,12 +21,16 @@ items:
   - name: Deploy with multiple addresses - Bicep
     displayName: Resource Manager,ARM,template
     href: quick-create-multiple-ip-bicep.md
+  - name: Deploy with multiple addresses - Terraform
+    href: quick-create-multiple-ip-terraform.md
   - name: Deploy with multiple addresses - ARM template
     displayName: Resource Manager
     href: quick-create-multiple-ip-template.md
   - name: Deploy with Availability Zones - Bicep
     displayName: ARM, Resource Manager, Template
     href: deploy-bicep.md
+  - name: Deploy with Availability Zones - Terraform
+    href: deploy-terraform.md
   - name: Deploy with Availability Zones - ARM template
     displayName: Resource Manager
     href: deploy-template.md

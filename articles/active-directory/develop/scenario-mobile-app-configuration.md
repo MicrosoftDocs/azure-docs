@@ -135,7 +135,7 @@ For considerations about the browsers on Android, see [Xamarin.Android-specific 
 
 On UWP, you can use corporate networks. The following sections explain the tasks that you should complete in the corporate scenario.
 
-For more information, see [UWP-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).
+For more information, see [UWP-specific considerations with MSAL.NET](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/uwp).
 
 ## Configure the application to use the broker
 

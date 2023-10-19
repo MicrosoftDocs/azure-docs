@@ -18,7 +18,7 @@ ms.custom: kr2b-contr-experiment, not-enterprise-apps
 
 In this tutorial, learn how to integrate Microsoft Entra ID with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-hybrid-join.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Microsoft Entra ID to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. With this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Microsoft Entra ID without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Microsoft Entra ID. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
 
-Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
+Learn more: [Zero Trust security](/azure/security/fundamentals/zero-trust)
 
 <a name='datawiza-with-azure-ad-authentication-architecture'></a>
 
@@ -116,7 +116,7 @@ To get started, you need:
 
 ## Next steps
 
-* [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
+* [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](/azure/active-directory-b2c/partner-datawiza)
 * [Tutorial: Configure Datawiza to enable Microsoft Entra multifactor authentication and SSO to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
 * [Tutorial: Configure Datawiza to enable Microsoft Entra multifactor authentication and SSO to Oracle PeopleSoft](./datawiza-sso-oracle-peoplesoft.md)
 * Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com)

@@ -198,6 +198,6 @@ When you use B2B collaboration, you can invite an external user to your organiza
 
 ## Next steps
 
-- [License requirements to use Privileged Identity Management](subscription-requirements.md)
+- [License requirements to use Privileged Identity Management](../governance/licensing-fundamentals.md)
 - [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](../roles/security-planning.md?toc=/azure/active-directory/privileged-identity-management/toc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

@@ -36,15 +36,15 @@ To analyze activity logs with Log Analytics, you need:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/essentials/tutorial-resource-logs.md)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](/azure/azure-monitor/essentials/tutorial-resource-logs)
 
-- [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
+- [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-azure-monitor-logs.md)
 
 - [Manage emergency access account in Microsoft Entra ID](../roles/security-emergency-access.md)
 
-- [KQL quick reference](/azure/data-explorer/kql-quick-reference)
+- [KQL quick reference](/azure/data-explorer/kusto/query/kql-quick-reference)
 
-- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
+- [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)
 
 
 
