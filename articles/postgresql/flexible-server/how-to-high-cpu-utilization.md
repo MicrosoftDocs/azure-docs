@@ -18,9 +18,14 @@ This article shows you how to quickly identify the root cause of high CPU utiliz
 
 In this article, you'll learn: 
 
+- About troubleshooting guides to identify and get recommendations to mitigate root causes.
 - About tools to identify high CPU utilization such as Azure Metrics, Query Store, and pg_stat_statements. 
 - How to identify root causes, such as long running queries and total connections. 
 - How to resolve high CPU utilization by using Explain Analyze, Connection Pooling, and Vacuuming tables. 
+
+## Troubleshooting guides
+
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high CPU scenario can be found. How to setup the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high CPU utilization 
 
@@ -191,3 +196,4 @@ vacuum analyze <table_name>;
 
 - Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
 - Troubleshoot High Memory Utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
+- Troubleshoot and identify slow queries [Identify Slow Queries](./how-to-identify-slow-queries.md).
