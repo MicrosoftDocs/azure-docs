@@ -35,7 +35,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 To use the DICOMweb Standard APIs, you need an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you've deployed an instance of the DICOM service, retrieve the URL for your app service:
+After you deploy an instance of the DICOM service, retrieve the URL for your app service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
@@ -49,7 +49,7 @@ In your application, install the following NuGet packages:
 
 ## Create a DicomWebClient
 
-After you've deployed your DICOM service, you create a DicomWebClient. Run the code snippet to create DicomWebClient, which you use for the rest of this tutorial. Ensure you have both NuGet packages installed. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
+After you deploy your DICOM service, you create a DicomWebClient. Run the code snippet to create DicomWebClient, which you use for the rest of this tutorial. Ensure you have both NuGet packages installed. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
@@ -60,7 +60,7 @@ client.HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Head
 ```
 With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Delete operations.
 
-## Store DICOM Instances (STOW)
+## Store DICOM instances (STOW)
 
 Using the DicomWebClient that we've created, we can now store DICOM files.
 
@@ -92,7 +92,7 @@ DicomWebResponse response = await client.StoreAsync(new[] { dicomFile }, "1.2.82
 
 Before moving on to the next part of the tutorial, upload the `green-square.dcm` file using either of the preceding methods.
 
-## Retrieving DICOM instance(s) (WADO)
+## Retrieve DICOM instance (WADO)
 
 The code snippets show how to perform each of the retrieve queries using the DicomWebClient created previously.
 

@@ -10,9 +10,9 @@ ms.date: 02/15/2022
 ms.author: mmitrik
 ---
 
-# Using DICOM Standard APIs with Python
+# Use DICOMweb Standard APIs with Python
 
-This article shows how to work with the DICOM&reg; service using Python and [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using Python and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
 Use these sample files:
 
@@ -36,7 +36,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 To use the DICOMweb Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
+After you deploy an instance of the DICOM service, retrieve the URL for your App service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
@@ -49,7 +49,7 @@ For this code, you access a Public Preview Azure service. It's important that yo
 
 The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb standard awkward. However, after it's up and running, it's easy to use. It just takes a little familiarity to get started.
 
-### Import the appropriate Python libraries
+### Import the Python libraries
 
 First, import the necessary Python libraries.
 
@@ -138,13 +138,13 @@ if (response.status_code != 200):
     print('Error! Likely not authenticated!')
 ```
 
-## Uploading DICOM Instances (STOW)
+## Upload DICOM instances (STOW)
 
 The following examples highlight persisting DICOM files.
 
 ### Store instances using `multipart/related`
 
-This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to preload the DICOM file (as bytes) into memory. By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
+This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to preload the DICOM file (as bytes) into memory. When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
 
 _Details:_
 
@@ -185,7 +185,7 @@ response = client.post(url, body, headers=headers, verify=False)
 
 This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to preload the DICOM file (as bytes) into memory.  
 
-By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
+When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
 
 _Details:_
 * Path: ../studies/{study}
@@ -249,7 +249,7 @@ response = client.post(url, body, headers=headers, verify=False)
 response  # response should be a 409 Conflict if the file was already uploaded in the above request
 ```
 
-## Retrieve DICOM Instances (WADO)
+## Retrieve DICOM instances (WADO)
 
 The following examples highlight retrieving DICOM instances.
 

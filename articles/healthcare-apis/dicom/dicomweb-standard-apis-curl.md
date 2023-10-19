@@ -42,28 +42,28 @@ Once you've deployed an instance of the DICOM service, retrieve the URL for your
 3. Copy the **Service URL** of your DICOM service. 
 4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing an Public Preview Azure service. It's important that you don't upload any private health information (PHI).
+For this code, we access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 
 ## Work with the DICOM service
  
-The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb Standard awkward. However, after you get it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 
-* {Service URL} This is the URL to access your DICOM service that you provisioned in the Azure portal, for example, ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+* {Service URL} The service URL is the URL to access your DICOM service that you provisioned in the Azure portal, for example, ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 * {path-to-dicoms} - The path to the directory that contains the red-triangle.dcm file, such as `C:/dicom-server/docs/dcms`
     * Ensure to use forward slashes as separators and end the directory _without_ a trailing forward slash.
 
 
-## Uploading DICOM Instances (STOW)
+## Upload DICOM instances (STOW)
 
 ### Store-instances-using-multipart/related
 
 This request intends to demonstrate how to upload DICOM files using multipart/related. 
 
 >[!NOTE]
->The DICOM service is more lenient than the DICOM standard. However, the example below demonstrates a POST request that complies tightly to the standard.
+>The DICOM service is more lenient than the DICOM standard. However, the example demonstrates a POST request that complies tightly to the standard.
 
 _Details:_
 
@@ -76,7 +76,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. The following have been used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -104,7 +104,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. The following have been used successfully.
 
  * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
  * Content-Type: multipart/related; boundary=ABCD1234
@@ -143,7 +143,7 @@ curl --location --request POST "{Service URL}/v{version}/studies"
 --data-binary "@{path-to-dicoms}/green-square.dcm"
 ```
 
-## Retrieving DICOM (WADO)
+## Retrieve DICOM (WADO)
 
 ### Retrieve all instances within a study
 
@@ -163,7 +163,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 --output "suppressWarnings.txt"
 ```
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but they aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ### Retrieve metadata of all instances in study
 
@@ -176,7 +176,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but they aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata"
@@ -195,7 +195,7 @@ _Details:_
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but it's not the DICOM file, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but it's not the DICOM file, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"
@@ -278,7 +278,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 ## Query DICOM (QIDO)
 
-In the following examples, we'll search for items using their unique identifiers. You can also search for other attributes, such as `PatientName`.
+In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as `PatientName`.
 
 ### Search for studies
 
