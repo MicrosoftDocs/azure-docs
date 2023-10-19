@@ -28,7 +28,7 @@ The data produced by the MCC varies according to the functionality, which leads 
 
 ## MCC variants
 
-To support the range of function provided by the MCC, multiple MCC Data Products are listed below.  These Data Products share the same underlying infrastructure and data analysis capabilities, but provide enrichment and visualizations specific to each MCC variant.
+Multiple MCC Data Products support the range of function provided by the MCC. These Data Products share the same underlying infrastructure and data analysis capabilities, but provide enrichment and visualizations specific to each MCC variant.
 
 - MCC Serving Gateway (SGW) Data Product
 - MCC Packet Data Network Gateway (PGW) Data Product
