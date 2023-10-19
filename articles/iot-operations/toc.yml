@@ -18,6 +18,10 @@ items:
       items:
       - name: Overview
         href: deploy/overview-deploy-iot-operations.md
+      - name: How to
+        items:
+        - name: Prepare your Kubernetes cluster
+          href: deploy/howto-prepare-cluster.md
     - name: Manage assets
       items:
       - name: Overview
