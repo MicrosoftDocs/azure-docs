@@ -77,6 +77,6 @@ The following image shows an example for this command.
 
 ## Next steps
 
-- [Microsoft Entra reports overview](overview-reports.md).
+- [Microsoft Entra reports overview](./overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
 - [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)

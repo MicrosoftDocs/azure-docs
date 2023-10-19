@@ -56,7 +56,7 @@ After adding your application to Microsoft Entra ID, use the steps in [Test the 
 
 ## Deploy Conditional Access App Control
 
-To configure your application with the Conditional Access Application Control, follow the instructions in [Deploy Conditional Access Application Control for Microsoft Entra apps](/cloud-app-security/proxy-deployment-aad).
+To configure your application with the Conditional Access Application Control, follow the instructions in [Deploy Conditional Access Application Control for Microsoft Entra apps](/defender-cloud-apps/proxy-deployment-aad).
 
 
 ## Test Conditional Access App Control

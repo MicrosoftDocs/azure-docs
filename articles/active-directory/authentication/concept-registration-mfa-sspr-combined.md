@@ -124,7 +124,7 @@ Users can access manage mode by going to [Security info](https://aka.ms/mysecuri
 ## Key usage scenarios
 
 ### Update a password in MySignIns (preview)
-A user navigates to [Security info](https://aka.ms/mysecurityinfo). After signing in, the user can update their password. For more information about different authentication methods that you can require by using Conditional Access policies, see [How to secure the registration of security info](/azure/active-directory/conditional-access/howto-conditional-access-policy-registration). When finished, the user has the new password updated on the Security info page.
+A user navigates to [Security info](https://aka.ms/mysecurityinfo). After signing in, the user can update their password. For more information about different authentication methods that you can require by using Conditional Access policies, see [How to secure the registration of security info](../conditional-access/howto-conditional-access-policy-registration.md). When finished, the user has the new password updated on the Security info page.
 
 
 ### Protect Security info registration with Conditional Access
