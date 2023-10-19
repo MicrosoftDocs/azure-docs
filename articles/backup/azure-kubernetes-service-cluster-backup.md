@@ -246,26 +246,20 @@ To enable a *Backup Hook* as part of the configure backup flow to back up MySQ, 
 
       ```  
 
-2. 2.	Before you configure backup, the Backup Hook Custom Resource needs to be deployed in the AKS cluster. To deploy the script, run the following `kubectl` command:
+2. Before you configure backup, the Backup Hook Custom Resource needs to be deployed in the AKS cluster. To deploy the script, run the following `kubectl` command:
 
       ```dotnetcli
       kubectl apply -f mysqlbackuphook.yaml
 
       ```
 
-3. Once the deployment is complete, you can initiate configure backup for the AKS cluster. 
+3. Once the deployment is complete, you can [configure backup for the AKS cluster](#configure-backups). 
 
 
    >[!Note]
    >As part of backup configuration, you have to provide the *Custom Resource name* and the *Namespace* its deployed in as input.
-
-
-
-
-
-
-
-
+   >
+   >    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png" alt-text="Screenshot shows how to add namespace for the backup configuration." lightbox="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png":::
 
 ## Next steps
 
