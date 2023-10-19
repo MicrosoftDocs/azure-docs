@@ -72,7 +72,7 @@ NFDVs should reference fixed images and charts. An update to an image version or
 
 An NSD is a composite of one or more NFD and any infrastructure components deployed at the same time. An SNS refers to a single NSD. It's recommended that the NSD includes any infrastructure required (NAKS/AKS clusters, virtual machines, etc.) and then deploys the NFs required on top. Such design guarantees consistent and repeatable deployment of entire site from a single SNS PUT.
 
-An example of a NSD is:
+An example of an NSD is:
 
 - (1) Authentication Server Function (AUSF) NF
 - (2) Unified Data Management (UDM) NF
@@ -90,7 +90,7 @@ These five components form a single NSD. Single NSDs can have multiple NSDVs. Th
 
 * Changes in the infrastructure ARM template, for example, AKS/NAKS or VM.
 
-Changes in NFDV shouldn't trigger a NSDV update. The versions of a NFD should be exposed within the CGS, so operators's can control them using CGVs.
+Changes in NFDV shouldn't trigger an NSDV update. The versions of an NFD should be exposed within the CGS, so operator's can control them using CGVs.
 
 ## Azure Operator Service Manager (AOSM) CLI extension and Network Service Design considerations
 
@@ -108,7 +108,7 @@ It’s recommended to always start with a single CGS for the entire NF. If there
 
 ### Scenario
 
-- FluentD, Kibana, Splunk (common 3rd-party components) are always deployed for all NFs within a NSD. We recommend these components are grouped into a single NFDG.
+- FluentD, Kibana, Splunk (common 3rd-party components) are always deployed for all NFs within an NSD. We recommend these components are grouped into a single NFDG.
 
 - NSD has multiple NFs that all share a few configurations (deployment location, publisher name, and a few chart configurations).
 
@@ -122,7 +122,7 @@ General recommendations when it comes to exposing parameters via CGS:
 
 - Parameters that are rarely configured should have default values defined.
 
-- When multiple CGS are used, we recommend there's little to no overlap between the parameters. If overlap is required, make sure the parameters names are clearly distinguishable between the CGSs.
+- When multiple CGSs are used, we recommend there's little to no overlap between the parameters. If overlap is required, make sure the parameters names are clearly distinguishable between the CGSs.
 
 - What can be defined via API (AKS, Azure Operator Nexus, Azure Operator Service Manager (AOSM)) should be considered for CGS. As opposed to, defining those configuration values via CloudInit files.
 
@@ -134,7 +134,7 @@ It's recommended to have a single SNS for the entire site, including the infrast
 
 ### Scenario - single Network Function (NF)
 
-A NF with one or two application components deployed to a K8s cluster.
+An NF with one or two application components deployed to a K8s cluster.
 
 Azure Operator Service Manager (AOSM) resources breakdown:
 
