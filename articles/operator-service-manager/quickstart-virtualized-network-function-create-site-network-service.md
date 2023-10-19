@@ -25,8 +25,8 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 ### Create resource
 
-1. In Azure portal, select **Create resource**.
-1. Search for **Site Network Service** and select **Create**.
+1. In Azure portal, enter "Site Network Services" into the search and select **Site Network Service** from the results.
+1. Select **+ Create**.
 
    :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service.":::
 
@@ -67,7 +67,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
 
     :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
 
-1. Select a **Configuration Group Value** resource for each schema listed in the selected network service design. The dropdown options include only the configuration group resources that conform to the given schema and are available in your subscription (selected on the **Basics** tab).
+1. Copy and paste the following JSON file into the ubuntu-sns-cgvs dialog that appears. Edit the place holders to contain your virtual network ID, your managed identity, and your SSH public key values.
 
 
 
@@ -87,8 +87,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
     }
     ```
 
-   > [!NOTE]
-   > Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the `managedIdentity` resource ID.
+1. Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the managedIdentity resource ID.
 
 
     Additionally, the sshPublicKeyadmin can be listed by executing `cat ~/.ssh/id_rsa.pub` or `cat ~/.ssh/id_dsa.pub` or can be created following [Generate new keys and Get public keys ](/azure/virtual-machines/ssh-keys-portal).
