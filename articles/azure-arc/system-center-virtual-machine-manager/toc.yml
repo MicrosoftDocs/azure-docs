@@ -27,6 +27,10 @@
     items:
     - name: Perform recovery operations
       href: disaster-recovery.md
+  - name: Use VM lifecycle and self-serve capabilities
+    items:
+    - name: Set up and manage self-service access to SCVMM resources
+      href: setup-and-manage-self-service-access-scvmm.md
 
 - name: Reference
   items:
