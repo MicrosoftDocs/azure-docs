@@ -4,8 +4,8 @@ description: This article describes management functions for Astro on the Azure 
 author: flang-msft
 
 ms.author: franlanglois
-ms.topic: conceptual
-ms.date: 10/04/2023
+ms.topic: how-to
+ms.date: 10/19/2023
 
 ms.custom: ignite-2023-metadata-update
 ---
@@ -29,11 +29,11 @@ To enable SSO, follow these steps:
 
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
-   :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time.":::
+   <!-- :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: -->
 
-> [!NOTE]
-> If you are also seeing Admin consent screen then please check your [tenant consent settings](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
->
+    > [!NOTE]
+    > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
+    >
 
 1. Choose an Microsoft Entra account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
 
@@ -49,7 +49,7 @@ To delete an Astro resource:
 
 1. Confirm that you want to delete the Astro resource by entering the name of the resource.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for Astro resource.":::
+    :::image type="content" source="media/astronomer-manage/astronomer-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for an Astro resource.":::
 
 1. Select the reason why would you like to delete the resource.
 
