@@ -32,20 +32,22 @@ ms.service: azure-operator-service-manager
     |---------|---------|
     |Subscription     |   Select your subscription.      |
     |Resource group     |     Select resource group **operator-rg** you created when creating the *Site*.   |
-    |Name     |  Enter **ngnix-sns**.       |
+    |Name     |  Enter **nginx-sns**.       |
     |Region     |  Select the location you used for your prerequisite resources.       |
-    |Site    |  Enter **ngnix-site**.       |
-    |Managed Identity Type    |    Select **System Assigned**.     |
+    |Site    |  Enter **nginx-site**.       |
+    |Managed Identity Type    |    Select **User Assigned**.     |
+    |User Assigned Identity | Select **identity-for-nginx**                    
  
-    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the Basics tab where you enter project and instance details.":::    
-
+     
+    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the basics tab where you input project, instance and identity details.":::
 
 1. Select **Next: Choose a Network Site Design >**.
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
     > [!NOTE]
     > Be sure to select the same Publisher Offering Location you defined in the Network Service Design Quickstart.
+    
 
-     :::image type="content" source="media/create-site-network-service-network-service-design.png" alt-text="Screenshot shows the Choose a Network Service Design tab where you choose the details of the initial Network Service Design version.":::
+    :::image type="content" source="media/create-site-network-service-network-service-design.png" alt-text="Screenshot shows the Choose a Network Service Design tab where you choose the details of the initial Network Service Design version.":::
    
 1. Select **Next: Set initial configuration >**. 
 1. Select **Create New** and enter *nginx-sns-cgvs* in the **Name** field.
