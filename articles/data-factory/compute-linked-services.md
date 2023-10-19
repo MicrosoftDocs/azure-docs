@@ -7,7 +7,7 @@ ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.custom: synapse
 ---
 
