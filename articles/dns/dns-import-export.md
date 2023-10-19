@@ -6,14 +6,14 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.custom: devx-track-azurecli
-ms.date: 08/01/2023
+ms.date: 10/20/2023
 ms.author: greglin
 ms.topic: how-to
 ---
 
 # Import and export a DNS zone file using the Azure CLI
 
-In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure CLI.
+In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure CLI. You can also [import and export a zone file using the Azure portal](dns-import-export-portal.md).
 
 ## Introduction to DNS zone migration
 
