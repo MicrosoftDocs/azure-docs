@@ -61,7 +61,7 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
 1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
-   <!-- IMPORTANT: If you're updating this code example, please remember to to also update it in: 1) articles\azure-monitor\app\javascript-sdk.md and 2) articles\azure-monitor\app\api-filtering-sampling.md -->
+   <!-- IMPORTANT: If you're updating this code example, please remember to also update it in: 1) articles\azure-monitor\app\javascript-sdk.md and 2) articles\azure-monitor\app\api-filtering-sampling.md -->
 	```html
 	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
 	<script type="text/javascript">
