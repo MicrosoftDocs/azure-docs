@@ -47,7 +47,7 @@ Some agencies are modernizing their authentication credentials. There are multip
   * See, [Overview of Microsoft Entra certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 * **Windows Hello for Business** has phishing-resistant multifactor authentication
   * See, [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * See, [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+  * See, [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/)
 
 ### Protection from external phishing
 
