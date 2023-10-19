@@ -27,15 +27,6 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 - \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
 - *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
 
-> [!NOTE]
-> ***QUESTIONS FOR OFER:***
->
-> - ***Identifier?*** These identifiers are internal entities, and while they are components of strong identifiers, they are unavailable to be used for entity mapping.
-> For entities that have strong identifiers that don't use internal entities, I simply removed the combinations that do contain internal entities.
-> - ***BUT ---*** in the cases below where they appear (example: DNS), there are no strong identifiers or combinations that don't contain internal entities. Does this mean that there is no possibility of using a strong identifier to map these entities? Is it therefore recommended not to do so at all?
->
-> ***-YECHIEL***
-
 | Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
 | [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
@@ -115,13 +106,13 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Name + UPNSuffix**
 - **AadUserId**
 - **Sid**  
-\*\* This identifier is strong **except** when the account is one of the built-in accounts listed in the **Note** below.
+\*\* This identifier is strong as long as the account **is not** one of the built-in accounts listed in the **Note** below.
 - **Sid + [*Host*](#host)**  
 \*\* When the account is one of the built-in accounts listed in the **Note** below, the Host component is required to make this identifier a strong one.
-- **Name + [*Host*](#host) + NTDomain**  
-\*\* When the account is a local account; and the NTDomain is a built-in domain, that is, a Workgroup; then the Host component is required to make this identifier a strong one.
 - **Name + NTDomain**  
-\*\* When the account is a domain account, NTDomain is not a built-in domain/workgroup and is different from the host name. In this case, this is a strong identifier even without the Host component.
+\*\* This combination is a strong identifier when the account is a domain account, since NTDomain is not a built-in domain/workgroup and is different from the host name. In this case, this is a strong identifier even without the Host component.
+- **Name + NTDomain + [*Host*](#host)**  
+\*\* The Host component is necessary to create a strong identifier when the account is a local account, meaning that the NTDomain is a built-in domain/workgroup.  
 - **Name + DnsDomain**
 - **PUID**
 - **ObjectGuid**
@@ -192,7 +183,7 @@ The following section contains a more in-depth look at the full schemas of each 
 #### Strong identifiers of an IP entity
 
 - **Address**  
-\*\* For global IP addresses, the address alone is a unique, strong identifier.
+\*\* Address alone is a unique, strong identifier when the IP address is a global address.
 - **Address + AddressScope**  
 \*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
 
