@@ -56,7 +56,7 @@ Use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL accou
 
 1. During initialization, configure a unique environment name.
 
-    > [!TIP]
+    > [!NOTE]
     > The environment name will also be used as the target resource group name.
 
 1. Deploy the Azure Cosmos DB account and other resources for this quickstart with `azd provision`.
@@ -97,8 +97,8 @@ For this sample code, the container uses the `/category` property as a logical p
 
 Application requests to most Azure services must be authorized. Using the <xref:Azure.Identity.DefaultAzureCredential> class provided by the <xref:Azure.Identity> client library and namespace is the recommended approach for implementing passwordless connections to Azure services in your code.
 
-> [!WARNING]
-> You can also authorize requests to Azure services using passwords, connection strings, or other credentials directly. However, this approach should be used with caution. Developers must be diligent to never expose these secrets in an unsecure location. Anyone who gains access to the password or secret key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+> [!IMPORTANT]
+> You can also authorize requests to Azure services using passwords, connection strings, or other credentials directly. However, this approach should be used with caution. Developers must be diligent to never expose these secrets in an unsecure location. Anyone who gains access to the password or secret key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication.
 
 `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime.
 
