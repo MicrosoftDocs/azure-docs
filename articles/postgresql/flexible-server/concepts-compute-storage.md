@@ -101,7 +101,7 @@ You can add storage capacity during and after the creation of the server.
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and I/O percentage](concepts-monitoring.md).
 
 ### Maximum IOPS for your configuration
-|SKU name                               |Storage size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32,767 |
+|SKU name                               |Storage size in GiB                       |32 |64 |128 |256 |512|1,024|2,048|4,096|8,192|16,384|32,767|
 |---------------------------------------|------------------------------------------|---|---|----|----|-----|-----|-----|-----|------|------|-------|
 |                                       |Maximum IOPS                              |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 |**Burstable**                          |                                          |   |   |    |    |     |     |     |     |      |      |      |
@@ -113,7 +113,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 |B12ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |3,800*|3,800*|3,800*|3,800* |3,800* |3,800* |
 |B16ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |4,300*|4,300*|4,300*|4,300* |4,300* |4,300* |
 |B20ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |5,000 |5,000*|5,000*|5,000* |5,000* |5,000* |
-|**General Purpose**                   |                                |   |   |    |     |      |      |      |      |       |       |
+|**General Purpose**                               |                     |   |   |    |     |      |      |      |      |       |       |       |
 |D2s_v3 / D2ds_v4                                  |3,200 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
 |D2ds_v5 / D2ads_v5                                |3,750 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
 |D4s_v3  / D4ds_v4   / D4ds_v5 / D4ads_v5          |6,400 IOPS           |120|240|500 |1,100|2,300 |5,000 |6,400*|6,400*|6,400* |6,400* |6,400* |
