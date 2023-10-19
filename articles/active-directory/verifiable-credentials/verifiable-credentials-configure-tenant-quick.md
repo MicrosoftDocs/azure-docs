@@ -28,7 +28,7 @@ Specifically, you learn how to:
 
 ## Prerequisites
 
-- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you need the [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) permission to complete the app registration including granting admin consent.
+- Ensure that you have the [global administrator](../roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you need the [application administrator](../roles/permissions-reference.md#application-administrator) permission to complete the app registration including granting admin consent.
 - Ensure that you have a custom domain registered for the Microsoft Entra tenant. If you don't have one registered, the setup defaults to the manual setup experience.
 
 ## Set up Verified ID
