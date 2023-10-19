@@ -67,6 +67,8 @@ Users aren't directly listed in the local administrator group, the permissions a
 > [!NOTE]
 > The above actions are not applicable to users who have not signed in to the relevant device previously. In this case, the administrator privileges are applied immediately after their first sign-in to the device. 
 
+If you need troubleshooting, see [No local administrator group privileges on Azure AD joined device](/troubleshoot/azure/active-directory/no-local-admin-privileges-azure-ad-joined-device). 
+
 <a name='manage-administrator-privileges-using-azure-ad-groups-preview'></a>
 
 ## Manage administrator privileges using Microsoft Entra groups (preview)
