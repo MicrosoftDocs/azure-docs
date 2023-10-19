@@ -79,7 +79,7 @@ In Microsoft Entra ID, users who have privileged roles, such as administrators, 
 
 - Use cloud-only accounts for Microsoft Entra ID and Microsoft 365 privileged roles.
 
-- Deploy privileged access devices for privileged access to manage Microsoft 365 and Microsoft Entra ID. See [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
+- Deploy privileged access devices for privileged access to manage Microsoft 365 and Microsoft Entra ID. See [Device roles and profiles](/security/privileged-access-workstations/privileged-access-devices#device-roles-and-profiles).
 
   Deploy Microsoft Entra Privileged Identity Management (PIM) for just-in-time access to all human accounts that have privileged roles. Require strong authentication to activate roles. See [What is Microsoft Entra Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
