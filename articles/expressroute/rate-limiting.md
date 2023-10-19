@@ -11,9 +11,9 @@ ms.author: duau
 
 # Rate limiting for ExpressRoute Direct circuits (Preview)
 
-Rate limiting is a feature that enables you to control the traffic volume between your on-premises network and Azure over an ExpressRoute Direct circuit. It applies to the traffic over either private or Microsoft peering of the ExpressRoute circuit. This feature helps help distribute the port bandwidth evenly among the circuits, ensures network stability, and prevents network congestion. This document outlines the steps to enable rate limiting for your ExpressRoute Direct circuits.
+Rate limiting is a feature that enables you to control the traffic volume between your on-premises network and Azure over an ExpressRoute Direct circuit. It applies to the traffic over either private or Microsoft peering of the ExpressRoute circuit. This feature helps distribute the port bandwidth evenly among the circuits, ensures network stability, and prevents network congestion. This document outlines the steps to enable rate limiting for your ExpressRoute Direct circuits.
 
-## Pre-requisites
+## Prerequisites
 
 Before you enable rate limiting for your ExpressRoute Direct circuit, ensure that you satisfy the following prerequisites:
 
@@ -25,7 +25,7 @@ Before you enable rate limiting for your ExpressRoute Direct circuit, ensure tha
 
 ### New ExpressRoute Direct circuits
 
-You can enable rate limiting for an ExpressRoute Direct circuit, either during the creation of the circuit or after it is created.
+You can enable rate limiting for an ExpressRoute Direct circuit, either during the creation of the circuit or after it's created.
 
 > [!NOTE]
 > - Currently, the only way to enable rate limiting is through the Azure portal.
@@ -43,7 +43,7 @@ To enable rate limiting while creating an ExpressRoute Direct circuit, follow th
 
     :::image type="content" source="./media/rate-limiting/create-circuit.png" alt-text="Screenshot of the configuration tab for a new ExpressRoute Direct circuit.":::
 
-1. Select **Next: Tags** and provide tagging for the circuit, if required.
+1. Select **Next: Tags** and provide tagging for the circuit, if necessary.
 
 1. Select **Review + create** and then select **Create** to create the circuit.
 
@@ -69,17 +69,17 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
 1. How is rate limiting applied?
 
-    Rate limiting is applied on the Microsoft and private peering sub-interfaces of Microsoft edge routers that connect to customer edge routers.
+    Rate limiting is applied on the Microsoft and private peering subinterfaces of Microsoft edge routers that connect to customer edge routers.
 
 1. How does rate limiting affect my circuit performance?
 
-    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth is set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (i.e. 2) Gbps. However, this isn’t a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting will limit the throughput to the configured bandwidth.
+    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth gets set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, it isn't a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
 
 1. How can I check the rate limiting status of my ExpressRoute Direct port circuits?
 
-    In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See an example screen clip below.
+    In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See the following screenshot:
 
-1. How can I monitor if my traffic is affected by the rate limiting feature?
+1. How can I monitor if my traffic gets affected by the rate limiting feature?
 
     To monitor your traffic, follow these steps:
 
@@ -99,11 +99,11 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
     
     1. Under **Bandwidth**, select the **new bandwidth value** that you want to set for your circuit. You can only increase the bandwidth up to the maximum capacity of your Direct port.
     
-    1. Select the **Save** button at the top of the page to apply the changes. If you enabled rate limiting for your circuit, it will automatically adjust to the new bandwidth value.
+    1. Select the **Save** button at the top of the page to apply the changes. If you enabled rate limiting for your circuit, it automatically adjusts to the new bandwidth value.
     
 1. How does increasing the circuit bandwidth affect the traffic flow through the circuit? 
 
-    Increasing the circuit bandwidth doesn’t affect the traffic flow through the circuit. The bandwidth increase is seamless and the circuit bandwidth upgrade will be reflected in a few minutes. However, the bandwidth increase is irreversible.
+    Increasing the circuit bandwidth doesn’t affect the traffic flow through the circuit. The bandwidth increase is seamless and the circuit bandwidth upgrade reflects in a few minutes. However, the bandwidth increase is irreversible.
 
 1. Can I enable or disable rate limiting for a specific circuit configured over my ExpressRoute Direct port? 
 
