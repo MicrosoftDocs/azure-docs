@@ -31,36 +31,35 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 ## Create a site
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-1. Select **Create a resource**.
-1. Search for **Sites**, then select **Create**.
-1. On the **Basics tab**,  enter or select the following information and accept the defaults for the remaining settings:
+1. Prior to creating a site, navigate to the resource group you created in the [Quickstart: Design a Network Service Design (NSD) for Ubuntu Virtual Machine (VM) as a Virtualized Network Function (VNF)](quickstart-virtualized-network-function-network-design.md) and select **Network Service Design Version**.
+
+    :::image type="content" source="media/network-service-design-version.png" alt-text="Screenshot showing the network service design version used in creating your site.":::
+
+1. Select **NVFI from site**, select **View value as JSON**, and locate the "name" of the NFVI. Note this information. You'll need it in a later step. 
+
+    :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
+
+1. Type Sites into the search and select **Sites** from the results.
+1. Select  **+Create**.
+1. On the **Basics tab**,  enter or select the following information:
 
 |Setting  |Value  |
 |---------|---------|
 |**Subscription**     | Select the **Subscription**.        |
 |**Resource Group**     |   Select **OperatorResourceGroup**.      |
-|**Name**     |   Enter *ubuntu-vm-site*.      |
+|**Name**     |   Enter *ubuntu-vm-site*.  This name should be unique in your subscription to avoid confusion when you create the SNS later.     |
 |**Region**     |    Select the location you used for your prerequisite resource.     |
 
    :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
 
 > [!NOTE]
- > The site must be located in the same region as the [prerequisite resources](quickstart-containerized-network-function-prerequisites.md).  
+ > The site must be located in the same region as the [prerequisite resources](quickstart-virtualized-network-function-prerequisites.md).  
 
-1. Navigate to the resource group that contains the network service design version and select **Network Service Design Version**.
 
-    :::image type="content" source="media/network-service-design-version.png" alt-text="Screenshot showing the network service design version used in creating your site.":::
-
-1. Select **NVFI from site** and locate the "name" of the NFVI.
-
-    :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
-
-1. Navigate to the **Add NFVI** tab of the **Create site** screen and enter *ubuntu_NFVI*" for the **NFVI name**.
+7. Navigate to the **Add NFVI** tab of the **Create site** screen and select **+ Add NFVI**.
+1. Enter the NFVI name you noted earlier.  Select **NFVI type** as "Azure Core", set **NFVI location** to the location of your resources, and select **Add NFVI**.
 
     :::image type="content" source="media/create-site-add-ubuntu.png" alt-text="Screenshot showing the NFVI tab where you enter the name, type and location of the NFVI.":::
-
-    > [!NOTE]
-    > This example features a single Network Function Virtual Infrastructure (NFVI) named ubuntu_NFVI. If you modified the nsd_name in the input.json file while publishing NSD, the NFVI name should be <nsd_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
 
 1. Select **Review + create**, then select **Create**.
 
