@@ -27,8 +27,8 @@ Application developers who have built apps that send email using the SMTP protoc
 
 ### Assigning a custom role to the Entra application
 
-The Entra application must have the "Microsoft.Communication/CommunicationServices/Read" and
-"Microsoft.Communication/EmailServices/write" permissions on the Azure Communication Service Resource. This can be done either by using the Contributor role, or by creating a custom role. Follow these steps to create a custom role by cloning an existing role.
+The Entra application must have the **Microsoft.Communication/CommunicationServices/Read** and
+**Microsoft.Communication/EmailServices/write** permissions on the Azure Communication Service Resource. This can be done either by using the **Contributor** role, or by creating a **custom role**. Follow these steps to create a custom role by cloning an existing role.
 
 1. In the portal, a custom role can be created by first navigating to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
     :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
@@ -56,7 +56,8 @@ When assigning the Entra application a role for the Azure Communication Services
 - **DNS**: Use the DNS name smtp.azurecomm.net. Do not use an IP address for the Microsoft 365 or Office 365 server, as IP Addresses are not supported.
 
 ### How to set up SMTP AUTH client submission
-Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). As long as your scenario meets the requirements for SMTP AUTH client submission, the following settings will enable you to send email from your device or application.
+
+Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). Provided your scenario aligns with the prerequisites for SMTP AUTH client submission, these settings will empower you to send emails from your device or application using SMTP Commands.
 
 | Device or Application setting | Value |
 |--|--|
