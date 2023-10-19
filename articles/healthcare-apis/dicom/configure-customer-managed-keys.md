@@ -25,17 +25,23 @@ For more information, see [About keys](../../key-vault/keys/about-keys.md).
 
 To create a key in your key vault, see [Add a key to Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault)
 
-## Enable system assigned managed identity
+## Enable a managed identity
 
-Before you configure keys, you need to enable a system-assigned managed identity for the DICOM service.
+Before you configure keys, you need to enable a managed identity for the DICOM service.  Either a system assigned or user assigned managed identity can be used.
+
+### System assigned managed identity
 
 1. In the Azure portal, go to the DICOM instance and then select **Identity** from the left pane.
 
 2. On the **Identity** page, select the **System assigned** tab, and then set the **Status** field to **On**. Choose **Save**.
 
-:::image type="content" source="media/dicom-identity-sys-assign2.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/dicom-identity-sys-assign2.png":::
+:::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/system-assigned-managed-identity.png"::
 
-### Assign Key Vault Crypto Officer role to the managed identity
+### User assigned managed identity
+
+If desired, a user assigned managed identity can be used.  See [Managed user-assigned managed identities](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for details.
+
+## Assign Key Vault Crypto Officer role to the managed identity
 
 The system assigned managed identity needs the [Key Vault Crypto Officer](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role in order to access keys and use them to encrypt and decrypt data.  
 
