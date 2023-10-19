@@ -555,6 +555,8 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
+        - name: Legacy authentication
+          href: containers/container-insights-authentication.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
@@ -571,8 +573,6 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
-        - name: Legacy authentication
-          href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
       - name: Monitor

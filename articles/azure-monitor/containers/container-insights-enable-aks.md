@@ -2,7 +2,7 @@
 title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 10/18/2023
 ms.custom: ignite-2022, devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -30,7 +30,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-### From existing cluster
+### From existing cluster+
 
 This options enables Container insights on a cluster and gives you the option of also enabling [Managed Prometheus and Managed Grafana](./prometheus-metrics-enable.md) for the cluster.
 
@@ -138,7 +138,6 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 
 1.	Download Terraform template file depending on whether you want to enable Syslog collection.
 
-
    **Syslog**
    - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
 
@@ -188,22 +187,20 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 
 1. Download Azure Policy template and parameter files depending on whether you want to enable Syslog collection.
 
-- Template file: [https://aka.ms/enable-monitoring-msi-azure-policy-template](https://aka.ms/enable-monitoring-msi-azure-policy-template)
-- Parameter file: [https://aka.ms/enable-monitoring-msi-azure-policy-parameters](https://aka.ms/enable-monitoring-msi-azure-policy-parameters)
-
-
+   - Template file: [https://aka.ms/enable-monitoring-msi-azure-policy-template](https://aka.ms/enable-monitoring-msi-azure-policy-template)
+   - Parameter file: [https://aka.ms/enable-monitoring-msi-azure-policy-parameters](https://aka.ms/enable-monitoring-msi-azure-policy-parameters)
 
 2. Create the policy definition using the following command: 
 
-```
-az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
-```
+    ```
+    az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
+    ```
 
 3. Create the policy assignment using the following CLI command or any [other available method](../../governance/policy/assign-policy-portal.md).
 
-```
-az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
-```
+    ```
+    az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
+    ```
 
 > [!TIP]
 > - Make sure when performing remediation task, the policy assignment has access to workspace you specified.
@@ -304,12 +301,9 @@ Use the following procedures to enable network isolation by connecting your clus
     ```
 
 
-
-
 ## Limitations
 
-- When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
-
+- Dependency on DCR/DCRA for region availability. For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
 - You must be on a machine on the same private network to access live logs from a private cluster.
 
 ## Next steps

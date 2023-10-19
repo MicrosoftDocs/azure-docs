@@ -3,7 +3,7 @@ title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/17/2023
+ms.date: 10/18/2023
 ms.reviewer: viviandiec
 ---
 
@@ -29,7 +29,7 @@ See the following articles for onboarding details for different cluster configur
 
 ## Authentication
 
-Container insights defaults to managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
+Container insights uses managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
 
 > [!Note] 
 > [ContainerLogV2](container-insights-logging-v2.md) is the default schema when you onboard Container insights with using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
@@ -38,6 +38,13 @@ Container insights defaults to managed identity authentication. This authenticat
 ## Agent
 
 Container insights relies on a containerized [Azure Monitor agent](../agents/agents-overview.md) for Linux. This specialized agent collects performance and event data from all nodes in the cluster and sends it to a Log Analytics workspace. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
+
+### Data collection rule
+[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent.  When you enable Container insights on a cluster, a DCR is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
+
+> [!NOTE]
+> Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
+
 
 Since 03/01/2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format is mcr.microsoft.com/azuremonitor/containerinsights/ciprod:<semver compatible version>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
 
@@ -126,6 +133,7 @@ The following table lists the extra firewall configuration required for managed 
 |--------------|------|---|
 | `global.handler.control.monitor.azure.us` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
+
 
 ## Next steps
 
