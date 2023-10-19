@@ -114,6 +114,8 @@ During the creation of the load balancer, you configure:
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create test virtual machine
 
 In this section, you create a VM named **lb-TestVM**.  This VM is used to test the load balancer configuration.

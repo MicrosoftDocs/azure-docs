@@ -135,6 +135,8 @@ During the creation of the load balancer, you'll configure:
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)]
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Install IIS
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.

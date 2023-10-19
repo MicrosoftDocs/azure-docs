@@ -75,5 +75,3 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **lb-VM2** |
     | Availability zone | **Zone 2** |
     | Network security group | Select the existing **lb-NSG** |
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
