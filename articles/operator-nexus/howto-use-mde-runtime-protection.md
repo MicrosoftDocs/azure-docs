@@ -21,7 +21,7 @@ This document provides the steps to execute those tasks.
 
 ## Before you begin
 
-1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
+- Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
 
 ## Setting variables
 
@@ -135,7 +135,7 @@ Script execution result can be found in storage account:
 The extraction of MDE scan requires a few manual steps: To download the MDE scan report and extract the scan run information, and scan detailed result report.
 This section will guide you on each of these steps.
 
-### 1. Download the scan report
+### Download the scan report
 As indicated earlier the MDE agent information response provides the URL storing the detailed report data.
 
 Download the report from the returned URL `<url to download mde scan results>`, and open the file `mde-agent-information.json`.
@@ -143,7 +143,7 @@ Download the report from the returned URL `<url to download mde scan results>`, 
 The `mde-agent-information.json` file contains lots of information about the scan and it can be overwhelming to analyze such long detailed report.
 This guide provides a few examples of extracting some essential information that can help you decide if you need to analyze thoroughly the report.
 
-### 2. Extracting the list of MDE scans
+### Extracting the list of MDE scans
 The `mde-agent-information.json` file contains a detailed scan report but you might want to focus first on a few details.
 This section details the steps to extract the list of scans run providing the information such as start and end time for each scan, threats found, state (succeeded or failed), etc.
 
@@ -187,7 +187,7 @@ date -d @$(echo "1697204573732/1000" | bc) "+%Y-%m-%dT%H:%M:%S"
 2023-10-13T13:42:53
 ```
 
-### 3. Extracting the MDE scan results
+### Extracting the MDE scan results
 This section details the steps to extract the report about the list of threats identified during the MDE scans.
 To extract the scan result report from `mde-agent-information.json` file, execute the following command.
 
