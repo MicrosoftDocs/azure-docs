@@ -561,6 +561,6 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](./diagnostic-search.md)
+* [Search events and logs](./search-and-transaction-diagnostics.md?tabs=transaction-search)
 * [sampling](./sampling.md)
 

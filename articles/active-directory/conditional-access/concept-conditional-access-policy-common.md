@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 10/11/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,6 +32,7 @@ Microsoft recommends these policies as the base for all organizations. We recomm
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
 - [Securing security info registration](howto-conditional-access-policy-registration.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for admins accessing Microsoft admin portals](how-to-policy-mfa-admin-portals.md)
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
 - [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
 - [Require compliant or Microsoft Entra hybrid joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
@@ -72,7 +73,7 @@ These policies help secure organizations with remote workers.
 
 # [Protect administrator](#tab/protect-administrator)
 
-These policies are directed at highly privileged administrators in your environment, where compromise may cause the most damage.
+These policies are directed at highly privileged administrators in your environment, where compromise might cause the most damage.
 
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)

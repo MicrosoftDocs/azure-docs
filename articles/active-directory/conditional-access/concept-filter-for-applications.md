@@ -39,7 +39,7 @@ Custom security attributes are security sensitive and can only be managed by del
 
 1. Assign the appropriate role to the users who will manage or report on these attributes at the directory scope.
 
-    For detailed steps, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
 
 ## Create custom security attributes
 

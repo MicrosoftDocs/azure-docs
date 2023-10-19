@@ -39,7 +39,7 @@ If you have already downloaded the provisioning agent and configured it for anot
 1.  Select **Download on-premises agent**, and select **Accept terms & download**.  
 
    > [!NOTE]
-   > Please use different provisioning agents for on-premises application provisioning and Microsoft Entra Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent.
+   > Please use different provisioning agents for on-premises application provisioning and Microsoft Entra Connect cloud sync / HR-driven provisioning. All three scenarios should not be managed on the same agent.
   
 1.  Open the provisioning agent installer, agree to the terms of service, and select **next**.
 1.  When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.

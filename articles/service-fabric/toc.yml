@@ -473,6 +473,10 @@
       href: how-to-managed-cluster-public-ip-prefix.md
     - name: Use multiple network interface cards
       href: how-to-managed-cluster-use-multiple-network-interface-cards.md
+    - name: Use Azure DDoS Protection in a managed cluster
+      href: how-to-managed-cluster-ddos-protection.md
+    - name: Troubleshoot SNAT Port exhaustion issues in a managed cluster
+      href: how-to-managed-cluster-troubleshoot-snat-port-exhaustion-issues.md
   - name: Set up your development environment
     items:
     - name: Windows

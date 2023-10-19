@@ -59,7 +59,7 @@ Let's say you have an application that signs in a user and then accesses a prote
 
 1. The identity provider/authorization server validates the access token.  If successful the request for protected resources is granted, and a response is sent back to the client application.
 
-For more information, read [Authentication and authorization](/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-the-microsoft-identity-platform).
+For more information, read [Authentication and authorization](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
 
 ### Authentication and authorization standards
 
@@ -70,19 +70,19 @@ These are the most well-known and commonly used authentication and authorization
 OAuth is an open-standards identity management protocol that provides secure access for websites, mobile apps, and Internet of Things and other devices. It uses tokens that are encrypted in transit and eliminates the need to share credentials. OAuth 2.0, the latest release of OAuth, is a popular framework used by major social media platforms and consumer services, from Facebook and LinkedIn to Google, PayPal, and Netflix. To learn more, read about [OAuth 2.0 protocol](/azure/active-directory/develop/active-directory-v2-protocols).
 #### OpenID Connect (OIDC)
 
-With the release of the OpenID Connect (which uses public-key encryption), OpenID became a widely adopted authentication layer for OAuth. Like SAML, OpenID Connect (OIDC) is widely used for single sign-on (SSO), but OIDC uses REST/JSON instead of XML. OIDC was designed to work with both native and mobile apps by using REST/JSON protocols. The primary use case for SAML, however, is web-based apps. To learn more, read about [OpenID Connect protocol](/azure/active-directory/develop/active-directory-v2-protocols).
+With the release of the OpenID Connect (which uses public-key encryption), OpenID became a widely adopted authentication layer for OAuth. Like SAML, OpenID Connect (OIDC) is widely used for single sign-on (SSO), but OIDC uses REST/JSON instead of XML. OIDC was designed to work with both native and mobile apps by using REST/JSON protocols. The primary use case for SAML, however, is web-based apps. To learn more, read about [OpenID Connect protocol](../develop/v2-protocols.md).
 
 #### JSON web tokens (JWTs)
 
-JWTs are an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. JWTs can be verified and trusted because they’re digitally signed. They can be used to pass the identity of authenticated users between the identity provider and the service requesting the authentication. They also can be authenticated and encrypted. To learn more, read [JSON Web Tokens](/azure/active-directory/develop/active-directory-v2-protocols#tokens).
+JWTs are an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. JWTs can be verified and trusted because they’re digitally signed. They can be used to pass the identity of authenticated users between the identity provider and the service requesting the authentication. They also can be authenticated and encrypted. To learn more, read [JSON Web Tokens](../develop/v2-protocols.md#tokens).
 
 #### Security Assertion Markup Language (SAML)
 
-SAML is an open standard utilized for exchanging authentication and authorization information between, in this case, an IAM solution and another application. This method uses XML to transmit data and is typically the method used by identity and access management platforms to grant users the ability to sign in to applications that have been integrated with IAM solutions. To learn more, read [SAML protocol](/azure/active-directory/develop/active-directory-saml-protocol-reference).
+SAML is an open standard utilized for exchanging authentication and authorization information between, in this case, an IAM solution and another application. This method uses XML to transmit data and is typically the method used by identity and access management platforms to grant users the ability to sign in to applications that have been integrated with IAM solutions. To learn more, read [SAML protocol](../develop/saml-protocol-reference.md).
 
 #### System for Cross-Domain Identity Management (SCIM)
 
-Created to simplify the process of managing user identities, SCIM provisioning allows organizations to efficiently operate in the cloud and easily add or remove users, benefitting budgets, reducing risk, and streamlining workflows. SCIM also facilitates communication between cloud-based applications.  To learn more, read [Develop and plan provisioning for a SCIM endpoint](/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json).
+Created to simplify the process of managing user identities, SCIM provisioning allows organizations to efficiently operate in the cloud and easily add or remove users, benefitting budgets, reducing risk, and streamlining workflows. SCIM also facilitates communication between cloud-based applications.  To learn more, read [Develop and plan provisioning for a SCIM endpoint](../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/active-directory/develop/toc.json&bc=/active-directory/develop/breadcrumb/toc.json).
 
 #### Web Services Federation (WS-Fed)
 
@@ -92,9 +92,9 @@ WS-Fed was developed by Microsoft and used extensively in their applications, th
 
 To learn more, see:
 
-- [Single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks)
-- [Authentication vs authorization](/azure/active-directory/develop/authentication-vs-authorization)
-- [OAuth 2.0 and OpenID Connect](/azure/active-directory/develop/active-directory-v2-protocols)
-- [App types and authentication flows](/azure/active-directory/develop/authentication-flows-app-scenarios)
-- [Security tokens](/azure/active-directory/develop/security-tokens)
+- [Single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md)
+- [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md)
+- [Authentication vs authorization](../develop/authentication-vs-authorization.md)
+- [OAuth 2.0 and OpenID Connect](../develop/v2-protocols.md)
+- [App types and authentication flows](../develop/authentication-flows-app-scenarios.md)
+- [Security tokens](../develop/security-tokens.md)

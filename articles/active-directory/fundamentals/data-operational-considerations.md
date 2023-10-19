@@ -41,7 +41,7 @@ Microsoft personnel can execute operations only from a secure access workstation
 
 Physical access to servers that comprise the Microsoft Entra service, and access to Microsoft Entra back-end systems, is restricted by Azure facility, premises, and physical security. Microsoft Entra customers have no access to physical assets or locations, therefore they can't bypass the logical role-based access control (RBAC) policy checks. Personnel with operator access are authorized to run approved workflows for maintenance.  
 
-Learn more: [Azure facilities, premises, and physical security](../../security/fundamentals/physical-security.md)
+Learn more: [Azure facilities, premises, and physical security](/azure/security/fundamentals/physical-security)
 
 ## Change control process
 

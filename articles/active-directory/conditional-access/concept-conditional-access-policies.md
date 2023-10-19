@@ -75,7 +75,7 @@ The information used to calculate the device platform comes from unverified sour
 
 #### Locations
 
-Locations connect IP addresses, geographies, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md) to Conditional Access policy decisions. Administrators can choose to define locations and  mark some as trusted like those for their organization's primary network locations.
+Locations connect IP addresses, geographies, and [Global Secure Access' compliant network](/entra/global-secure-access/how-to-compliant-network) to Conditional Access policy decisions. Administrators can choose to define locations and  mark some as trusted like those for their organization's primary network locations.
 
 #### Client apps
 
@@ -158,6 +158,6 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 [Planning a cloud-based Microsoft Entra multifactor authentication deployment](../authentication/howto-mfa-getstarted.md)
 
-[Managing device compliance with Intune](/intune/device-compliance-get-started)
+[Managing device compliance with Intune](/mem/intune/protect/device-compliance-get-started)
 
-[Microsoft Defender for Cloud Apps and Conditional Access](/cloud-app-security/proxy-intro-aad)
+[Microsoft Defender for Cloud Apps and Conditional Access](/defender-cloud-apps/proxy-intro-aad)
