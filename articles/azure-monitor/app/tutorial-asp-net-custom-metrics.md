@@ -27,7 +27,7 @@ To complete this tutorial, you need:
   * Azure development
 * .NET 6.0
 * Azure subscription and user account (with the ability to create and delete resources)
-* The [completed sample application](./tutorial-asp-net-core.md) deployed or an existing ASP.NET Core application with the [Application Insights for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package installed and [configured to gather server-side telemetry](asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
+* The [completed sample application](/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core) deployed or an existing ASP.NET Core application with the [Application Insights for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package installed and [configured to gather server-side telemetry](asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ### Custom metrics overview
 
