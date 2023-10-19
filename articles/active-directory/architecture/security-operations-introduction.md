@@ -134,7 +134,7 @@ For more information, see [What is Identity Protection](../identity-protection/o
 For the best results, we recommend that you monitor your domain controllers using Microsoft Defender for Identity. This approach enables the best detection and automation capabilities. Follow the guidance from these resources:
 
 * [Microsoft Defender for Identity architecture](/defender-for-identity/architecture)
-* [Connect Microsoft Defender for Identity to Active Directory quickstart](/defender-for-identity/install-step2)
+* [Connect Microsoft Defender for Identity to Active Directory quickstart](/defender-for-identity/directory-service-accounts)
 
 If you don't plan to use Microsoft Defender for Identity, monitor your domain controllers by one of these approaches:
 

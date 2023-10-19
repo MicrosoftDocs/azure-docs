@@ -77,8 +77,8 @@ The goal of Microsoft Entra joined devices is to simplify:
 
 Microsoft Entra join can be deployed by using any of the following methods:
 
-- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Bulk deployment](/intune/windows-bulk-enroll)
+- [Windows Autopilot](/autopilot/windows-autopilot)
+- [Bulk deployment](/mem/intune/enrollment/windows-bulk-enroll)
 - [Self-service experience](device-join-out-of-box.md)
 
 ## Next steps
