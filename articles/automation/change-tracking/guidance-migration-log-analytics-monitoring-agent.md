@@ -55,7 +55,7 @@ Currently, the following aren't supported:
 
 1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
 1. On the **Assess virtual machines** tab, select the machines and then select **Next**.
-1. On **Assign workspace** tab, assign a new Log Analytics workspace resource ID to which the settings of AMA based solution shoult be stored and select **Next**.
+1. On **Assign workspace** tab, assign a new Log Analytics workspace resource ID to which the settings of AMA based solution should be stored and select **Next**.
    
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-inline.png" alt-text="Screenshot of assigning new Log Analytics resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-expanded.png":::
    
