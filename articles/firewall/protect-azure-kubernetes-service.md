@@ -6,7 +6,7 @@ ms.service: firewall
 ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 services: firewall
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/19/2023
 ms.author: victorh
 ---
 
@@ -172,7 +172,7 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 > For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
 
 
- You can use the following three network rules to configure your firewall.  You might need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules only allows traffic destined to the Azure Region CIDR that we're using, in this case East US. 
+ You can use the following three network rules to configure your firewall.  You might need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 
 Finally, we add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you need to adapt it when using your own options.
 
