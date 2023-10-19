@@ -1,6 +1,6 @@
 ---
 title: Standard storage with cool access in Azure NetApp Files
-description: With the Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier).
+description: Explains how to use standard storage with cool access to configure inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -19,13 +19,13 @@ ms.custom: references_regions
 
 # Standard storage with cool access in Azure NetApp Files 
 
-Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that have not been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
+Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that have not been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
 Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
 
-You can configure the Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
+You can configure the standard storage with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
 
 Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
 
@@ -68,7 +68,7 @@ This section describes a 4k random-read test across 160 files totaling 10 TB of 
 **Capacity pool size:** 100-TB capacity pool <br>
 **Volume allocated capacity:** 100-TB volumes <br>
 **Working Dataset:** 10 TB <br>
-**Service Level:** Standard service level with cool access <br>
+**Service Level:** Standard storage with cool access <br>
 **Volume Count/Size:** 1 <br>
 **Client Count:** Four standard 8-s clients <br>
 **OS:** RHEL 8.3 <br>
@@ -93,7 +93,7 @@ The following chart shows a test that ran over 2.5 days on the 10-TB working dat
 **Capacity pool size:** 100-TB capacity pool <br>
 **Volume allocated capacity:** 100-TB volumes <br>
 **Working Dataset:** 10 TB <br>
-**Service Level:** Standard service level with cool access <br>
+**Service Level:** Standard storage with cool access <br>
 **Volume Count/Size:** 1 <br>
 **Client Count:** One large client <br>
 **OS:** RHEL 8.3 <br>
@@ -288,9 +288,9 @@ Your first twelve-month savings:
 
 
 > [!TIP]     
-> You can use the [Azure NetApp Files Standard service level with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/calc/) to interactively estimate cost savings based on changeable input parameters.
+> You can use the [Azure NetApp Files standard storage with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/calc/) to interactively estimate cost savings based on changeable input parameters.
 
 ## Next steps
 
-* [Manage Azure NetApp Files Standard service level with cool access](manage-cool-access.md)
+* [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)

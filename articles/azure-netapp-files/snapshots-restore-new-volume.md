@@ -24,7 +24,7 @@ ms.author: anfdocs
 
 * Currently, you can [restore a snapshot only to a new volume](snapshots-introduction.md#restoring-cloning-an-online-snapshot-to-a-new-volume). 
 
-* If you use the cool access feature, see [Manage Azure NetApp Files Standard service level with cool access]( manage-cool-access.md#considerations) for more considerations. 
+* If you use the standard storage with cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations. 
 
 ## Steps
 

@@ -20,16 +20,16 @@ ms.author: anfdocs
 
 Using Azure NetApp Files [standard storage with cool access](cool-access-introduction.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, you reduce the total cost of ownership of your data stored in Azure NetApp Files.
 
-The Standard service level with cool access allows you to configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data needs to be read from the Azure storage account.
+The standard storage with cool access feature allows you to configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data needs to be read from the Azure storage account.
 
-The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-introduction.md#metrics) for details. 
+The standard storage with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The standard storage with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-introduction.md#metrics) for details. 
 
 ## Considerations
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers. 
 * This feature is available only at the **Standard** service level. It is not supported for the Ultra or Premium service level.  
 * Although cool access is available for the Standard service level, how you're billed for using the feature will differ from the Standard service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
-* You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for the cool access feature, you cannot convert it back to a non-cool-access capacity pool.  
+* You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you cannot convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
@@ -100,7 +100,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 ### Configure a volume for cool access 
 
-Standard service level with cool access can be enabled during the creation of a volume and on existing volumes that are part of a capacity pool that has cool access enabled. 
+Standard storage with cool access can be enabled during the creation of a volume and on existing volumes that are part of a capacity pool that has cool access enabled. 
 
 #### Enable cool access on a new volume 
 
