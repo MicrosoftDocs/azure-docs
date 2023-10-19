@@ -11,7 +11,7 @@ ms.date: 10/19/2023
 tags: connectors
 ---
 
-# Integrate CICS Programs on IBM mainframes with Azure by using Azure Logic Apps and the IBM CICS connector
+# Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector
 
 With Azure Logic Apps and the IBM CICS connector, you can access and run IBM mainframe apps running on Customer Information Control System (CICS) systems. CICS provides a transaction program (TP) Monitor with an integrated Transaction Manager (TM). The connector communicates with IBM CICS transaction programs by using TCP/IP. The CICS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
