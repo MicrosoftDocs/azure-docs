@@ -17,7 +17,7 @@ keywords: "VMM, Arc, Azure"
 In this article, you learn how to install Arc agents at scale for SCVMM VMs and use Azure management capabilities.
 
 >[!NOTE]
->This article is applicable only for Windows VMs on hosts running on WS 2016, WS 2019, and WS 2022 OS versions. If you’re using a Windows VM which is not running on these host OS versions or if you're using a Linux VM, [install Arc agents through the script](install-arc-agents-using -script.md).
+>This article is applicable only for Windows VMs on hosts running on WS 2016, WS 2019, and WS 2022 OS versions. If you’re using a Windows VM which is not running on these host OS versions or if you're using a Linux VM, [install Arc agents through the script](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/install-arc-agents-using-script).
 
 ## Prerequisites
 
