@@ -23,6 +23,8 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand NAS permissions 
+        href: network-attached-storage-permissions.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
       - name: Understand the use of LDAP
