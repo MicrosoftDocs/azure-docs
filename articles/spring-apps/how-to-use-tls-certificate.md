@@ -22,7 +22,7 @@ This article shows you how to use public certificates in Azure Spring Apps for y
 When you let Azure Spring Apps manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Apps instance.
 
 > [!NOTE]
-> Azure CLI and Terraform support and samples will be coming soon to this article.
+> Azure CLI and Terraform support and samples is coming soon to this article.
 
 ## Prerequisites
 
@@ -53,11 +53,16 @@ You need to grant Azure Spring Apps access to your key vault before you import y
 After you grant access to your key vault, you can import your certificate using these steps:
 
 1. Go to your service instance.
+
 1. From the left navigation pane of your instance, select **TLS/SSL settings**.
+
 1. Select **Import Key Vault Certificate** in the **Public Key Certificates** section.
-1. Select your Key Vault in **Key vault** and the certificate in **Certificate**, then **Select**.
-1. Enter your certificate name in **Certificate name**, tick the **Enable auto sync** checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](./how-to-custom-domain.md#certificate-auto-sync).
-1. When you have successfully imported your certificate, you'll see it in the list of Public Key Certificates.
+
+1. Select your key vault in the **Key Vault** section, select your certificate in the **Certificate** section, and then select **Select**.
+
+1. Enter your certificate name in the **Certificate name** section, select the **Enable auto sync** checkbox if needed, and then select **Apply**. For more information, see the [[Auto sync certificate]](./how-to-custom-domain.md#auto-sync-certificate) section of [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md).
+
+After you've successfully imported your certificate, you see it in the list of Public Key Certificates.
 
 > [!NOTE]
 > The Azure Key Vault and Azure Spring Apps instances should be in the same tenant.
@@ -95,7 +100,7 @@ X509Certificate cert = (X509Certificate) factory.generateCertificate(is);
 
 ### Load a certificate into the trust store
 
-For a Java application, you can choose **Load into trust store** for the selected certificate. The certificate will be automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
+For a Java application, you can choose **Load into trust store** for the selected certificate. The certificate is automatically added to the Java default TrustStores to authenticate a server in SSL authentication.
 
 The following log from your app shows that the certificate is successfully loaded.
 

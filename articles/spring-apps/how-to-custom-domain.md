@@ -192,7 +192,7 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter your certificate name, tick the **Enable auto sync** checkbox if needed, and then select **Apply**. For more details of certificate auto sync, see [here](#certificate-auto-sync).
+1. On the opened **Set certificate name** page, enter your certificate name, select the **Enable auto sync** checkbox if needed, and then select **Apply**. For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
 
    :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of setting certificate name.":::
 
@@ -214,9 +214,21 @@ az spring certificate add \
     --enable-auto-sync false
 ```
 
-If you wish to enable certificate auto sync, explicitly set `--enable-auto-sync true`. For more details of certificate auto sync, see [here](#certificate-auto-sync).
+Use the following command to enable auto sync:
 
-Use the following command show a list of imported certificates:
+```azurecli
+az spring certificate add \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <cert-name> \
+    --vault-uri <key-vault-uri> \
+    --vault-certificate-name <key-vault-cert-name> \
+    --enable-auto-sync true
+```
+
+For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
+
+Use the following command to show a list of imported certificates:
 
 ```azurecli
 az spring certificate list \
@@ -226,37 +238,39 @@ az spring certificate list \
 
 ---
 
-
 > [!IMPORTANT]
-> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in the [Add SSL Binding](#add-ssl-binding) section.
+> To secure a custom domain with this certificate, you need to add the certificate to a specific domain. For more information, see the [Add SSL binding](#add-ssl-binding) section.
 
-### Certificate auto sync
+### Auto sync certificate
 
-Certificate stored in key vault may get renewed before it expires. DevOps team in your organization may also replace it with a new one regularly, since your organization may have some security policies in certificate management. Once you enable auto sync for a certificate, Azure Spring Apps will start to poll your key vault for a new version regularly (usually every 24 hours). If a new version is found, Azure Spring Apps will import it, and then reload it for various components using the certificate without causing any downtime. The components include:
-- App custom domain
-- [VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) custom domain
-- [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md) custom domain
-- [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md) custom domain
+Certificate stored in Azure Key Vault sometimes gets renewed before it expires. Similarly, your organization's security policies in certificate management makes the DevOps team replace certificates with new ones regularly. After you enable auto sync for a certificate, Azure Spring Apps starts to sync your key vault for a new version regularly (usually every 24 hours). If a new version is available, Azure Spring Apps imports it, and then reloads it for various components using the certificate without causing any downtime. 
+
+The following list shows the components included in the auto sync certificate:
+
+- App custom domain.
+- [VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) custom domain.
+- [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md) custom domain.
+- [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md) custom domain.
 - [Application Configuration Service for Tanzu](./how-to-enterprise-application-configuration-service.md)
 
-Whenever Azure Spring Apps imports or reloads a certificate for you, an activity log will be generated.  To see activity logs, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
+When Azure Spring Apps imports or reloads a certificate, an activity log is generated. To see the activity logs, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
 
 > [!NOTE]
-> This feature works with private certificates and public certificates imported from key vault. It is unavailable to content certificate, which is uploaded by customer.
+> The certificate auto sync feature works with private certificates and public certificates imported from Azure Key Vault. This feature is unavailable to content certificate, which is uploaded by customer.
 
-You may choose to enable or disable certificate auto sync feature during importing a certificate from key vault to Azure Spring Apps. For instructions, see [here](#import-certificate-to-azure-spring-apps).
+You can choose to enable or disable the certificate auto sync feature during importing a certificate from your key vault to Azure Spring Apps. For more information, see the [Import certificate to Azure Spring Apps](#import-certificate-to-azure-spring-apps) section.
 
-You may also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
+You can also enable or disable this feature for a certificate that has already been imported to Azure Spring Apps.
 
 #### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to enable or disable auto sync for an imported certificate:
 
 1. Go to the list of **Private Key Certificates** or **Public Key Certificates**.
-1. Scroll to the right.
-1. Click *...*, and then select **Enable auto sync** or **Disble auto sync**.
 
-   :::image type="content" source="./media/how-to-custom-domain/edit-auto-sync.png" alt-text="Screenshot of toggle certificate auto sync." lightbox="./media/how-to-custom-domain/edit-auto-sync.png":::
+1. Select the ellipsis (**...**) button after to the **Auto sync** tab, and then select **Enable auto sync** or **Disable auto sync**.
+
+   :::image type="content" source="./media/how-to-custom-domain/edit-auto-sync.png" alt-text="Screenshot of the Azure portal that shows the Enable auto sync option selected." lightbox="./media/how-to-custom-domain/edit-auto-sync.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
