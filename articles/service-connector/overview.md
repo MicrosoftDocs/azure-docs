@@ -6,12 +6,12 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
-ms.date: 06/14/2022
+ms.date: 10/19/2023
 ---
 
 # What is Service Connector?
 
-Service Connector helps you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
+Service Connector helps you connect Azure compute services to other backing services. Service Connector configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
 
 This article provides an overview of Service Connector.
 
@@ -35,11 +35,12 @@ Service Connector is designed for your ease of use. To create a connection, you'
 
 Once a service connection is created, developers can validate and check the health status of their connections. Service Connector can suggest some actions to take to fix broken connections.
 
-## What services are supported in Service Connector?
+## What services are supported by Service Connector?
 
 **Compute Services:**
 
 * Azure App Service
+* Azure Functions
 * Azure Spring Apps
 * Azure Container Apps
 
