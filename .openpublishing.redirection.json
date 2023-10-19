@@ -11,7 +11,7 @@
           "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-arc/switch-to-the-new-preview-version.md",
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
             "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
             "redirect_document_id": false
         },
