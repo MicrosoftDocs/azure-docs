@@ -74,7 +74,7 @@ In the cloud, we acknowledge upfront that failures will certainly happen. Instea
 
 We'll use the terms *RTO (Recovery Time Objective)*, to indicate the time between the beginning of an outage impacting Service Connector and the recovery to full availability. We'll use *RPO (Recovery Point Objective)*, to indicate the time between the last operation correctly restored and the time of the start of the outage affecting Service Connector. Expected and maximum RPO is 24 hours and RTO is 24 hours.
 
-Operations against Service Connector may fail during the disaster time, before the failover happens. Once the failover is completed, data will be restored and the customer isn't required to take any action.
+Operations against Service Connector might fail during the disaster time, before the failover happens. Once the failover is completed, data will be restored and the customer isn't required to take any action.
 
 Service connector handles business continuity and disaster recovery (BCRD) for storage and compute. The platform strives to have as minimal of an impact as possible in case of issues in storage/compute, in any region. The data layer design prioritizes availability over latency in the event of a disaster – meaning that if a region goes down, Service Connector will attempt to serve the end-user request from its paired region.
 
