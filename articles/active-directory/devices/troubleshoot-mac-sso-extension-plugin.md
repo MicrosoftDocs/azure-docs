@@ -591,7 +591,7 @@ Finished SSO request.
 
 At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
 
-Next, examine server-side [Microsoft Entra sign-in logs](../reports-monitoring/concept-sign-in-log-activity-details.md#correlation-id) based on the correlation ID collected from the client-side SSO extension logs. For more information, see [Sign-in logs in Microsoft Entra ID](../reports-monitoring/concept-sign-ins.md).
+Next, examine server-side [Microsoft Entra sign-in logs](../reports-monitoring/concept-sign-in-log-activity-details.md) based on the correlation ID collected from the client-side SSO extension logs. For more information, see [Sign-in logs in Microsoft Entra ID](../reports-monitoring/concept-sign-ins.md).
 
 <a name='view-azure-ad-sign-in-logs-by-correlation-id-filter'></a>
 
