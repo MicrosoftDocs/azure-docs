@@ -74,4 +74,4 @@ Organizations that use the [Subscription Activation](/windows/deployment/windows
 
 [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
-[Device compliance policies work with Microsoft Entra ID](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Device compliance policies work with Microsoft Entra ID](/mem/intune/protect/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

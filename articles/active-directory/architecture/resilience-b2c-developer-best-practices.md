@@ -32,7 +32,7 @@ The Azure AD B2C directory service supports billions of authentications a day. I
 
 ### How to optimize directory reads and writes
 
-- **Avoid write functions to the directory on sign-in**: Never execute a write on sign-in without a precondition (if clause) in your custom policies. One use case that requires a write on a sign-in is [just-in-time migration of user passwords](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Avoid any scenario that requires a write on every sign-in. [Preconditions](../../active-directory-b2c/userjourneys.md) in a user journey will look like this:
+- **Avoid write functions to the directory on sign-in**: Never execute a write on sign-in without a precondition (if clause) in your custom policies. One use case that requires a write on a sign-in is [just-in-time migration of user passwords](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Avoid any scenario that requires a write on every sign-in. [Preconditions](/azure/active-directory-b2c/userjourneys) in a user journey will look like this:
 
   ```xml
   <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
@@ -49,11 +49,11 @@ The Azure AD B2C directory service supports billions of authentications a day. I
   - Understand and plan your migration timeline. When planning to migrate users to Azure AD B2C using Microsoft Graph, consider the application and tenant limits to calculate the time needed to complete the migration of users. If you split your user creation job or script using two applications, you can use the per application limit. It would still need to remain below the per tenant threshold.
   - Understand the effects of your migration job on other applications. Consider the live traffic served by other relying applications to make sure you don't cause throttling at the tenant level and resource starvation for your live application. For more information, see the [Microsoft Graph throttling guidance](/graph/throttling).
   - Use a [load test sample](https://github.com/azure-ad-b2c/load-tests) to simulate sign-up and sign-in. 
-  - Learn more about [Azure Active Directory B2C service limits and restrictions](../../active-directory-b2c/service-limits.md?pivots=b2c-custom-policy).
+  - Learn more about [Azure Active Directory B2C service limits and restrictions](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy).
   
 ## Extend token lifetimes
 
-In an unlikely event, when the Azure AD B2C authentication service is unable to complete new sign-ups and sign-ins, you can still provide mitigation for users who are signed in. With [configuration](../../active-directory-b2c/configure-tokens.md), you can allow users that are already signed in to continue using the application without any perceived disruption until the user signs out from the application or the [session](../../active-directory-b2c/session-behavior.md) times out due to inactivity.
+In an unlikely event, when the Azure AD B2C authentication service is unable to complete new sign-ups and sign-ins, you can still provide mitigation for users who are signed in. With [configuration](/azure/active-directory-b2c/configure-tokens), you can allow users that are already signed in to continue using the application without any perceived disruption until the user signs out from the application or the [session](/azure/active-directory-b2c/session-behavior) times out due to inactivity.
 
 Your business requirements and desired end-user experience will dictate your frequency of token refresh for both web and Single-page applications (SPAs).
 
