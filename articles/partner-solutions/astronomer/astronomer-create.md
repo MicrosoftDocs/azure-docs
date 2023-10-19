@@ -17,15 +17,17 @@ In this quickstart, you'll use the Azure portal and Marketplace to find and crea
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you are an Owner or a Contributor in the subscription.
 
 ## Create a new Astro resource
 
 ### Find the service
 
 1. Use the [Azure portal](https://portal.azure.com) to find the Apache Airflow on Astro - An Azure Native ISV Service application.
-2. Go to Marketplace and search for **"Apache Airflow on Astro - An Azure Native ISV Service"**.
+2. Alternatively, go to Marketplace and search for **"Apache Airflow on Astro - An Azure Native ISV Service"**.
 3. Subscribe to the corresponding service.
+
+    :::image type="content" source="media/astronomer-create/astronomer-marketplace.png" alt-text="screenshot of astro application in the marketplace":::
 
 ### Basics
 
