@@ -73,5 +73,5 @@ spec:
 
 - [Configure Azure IoT MQ authorization](../administer/howto-configure-authorization.md)
 - [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md)
-- [Configure Azure IoT MQ TLS](../administer/howto-configure-tls.md)
-
+- [Configure Azure IoT MQ TLS with automatic certificate management](../administer/howto-configure-tls-auto.md)
+- [Configure Azure IoT MQ TLS with manual certificate management](../administer/howto-configure-tls-manual.md)

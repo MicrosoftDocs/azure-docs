@@ -5,138 +5,69 @@ description: Configure IoT MQ message buffer behavior to enhance message managem
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/18/2023
 
 #CustomerIntent: As an operator, I want to configure message buffer settings to enance message managment.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
 
 # Configure disk-backed message buffer behavior
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the Azure IoT MQ distributed MQTT broker. Thie benefits include:
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+- **Efficient queue management**: In an MQTT broker, each subscriber is associated with a message queue. The speed a subscriber processes messages directly impacts the size of the queue. If a subscriber processes messages slowly or if they disconnect but request an MQTT persistent session, the queue can grow larger than the available memory.
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental "why would I want to do this?" question. Keep it short.
+- **Data preservation for persistent sessions**: The **diskBackedMessageBufferSettings** feature ensures that when a queue exceeds the available memory, it's seamlessly buffered to disk. This prevents data loss and supports MQTT persistent sessions, allowing subscribers to resume their sessions with their message queues intact upon reconnection. The disk is used as ephemeral storage and serves as a spillover from memory. Data written to disk isn't durable and is lost when the pod exits.
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+- **Handling connectivity challenges**: [Connectors](../connect-to-cloud/overview-connect-to-cloud.md), which are treated as subscribers with persistent sessions, can face connectivity challenges, when unable to communicate with external systems like Event Grid MQTT broker due to network disconnect. In such scenarios, messages (PUBLISHes) accumulate. The Azure IoT MQ broker intelligently buffers these messages to memory or disk until connectivity is restored, ensuring message integrity.
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+In rare cases where numerous slow subscribers or connectors face extended communication challenges, the disk space allocated for queue buffering can become a limitation. [Configuring the `memoryProfile` to `low`](./howto-configure-availability-scale.md) temporarily offers a solution, optimizing memory usage until the persistence feature is fully implemented and enhancing system resilience. Currently, it's not possible to disable disk-backed message buffering.
 
--->
+Understanding and configuring the **diskBackedMessageBufferSettings** feature maintains a robust and reliable message queuing system. Proper configuration is important in scenarios where message processing speed and connectivity are critical factors.
 
-TODO: Add your introductory paragraph
+## Configuration options
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+Tailor the broker message buffer options by adjusting the following settings:
 
--->
+- **Configure the volume**: Specify a persistent volume claim template to mount a dedicated storage volume for your message buffer.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+  - **Select a storage class**: Define the desired StorageClass using the `storageClassName` property.
 
-Required: Make Prerequisites the first H2 after the H1. 
+  - **Define access modes**: Determine the access modes you need for your volume. For more information, see the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+  - **Manage resources**: Fine-tune your resource allocation with the `requests` and `limits` properties. Learn more about resource management [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
 
--->
+By default, the container filesystem is used when no storage class is provided. Currently, there's no way to set a limit on the amount of data that's written. Use a storage class with size limits to reduce the chance of exhausting the disk space available on the node.
 
-## Prerequisites
+To set up your persistent volume for the message buffer in your Broker CRD, follow this example:
 
-TODO: List the prerequisites
+```yaml
+spec:
+  diskBackedMessageBufferSettings:
+    volumeClaimSpec:
+      storageClassName: 'foo'
+      accessModes:
+        - 'ReadWriteOnce'
+      resources:
+        requests:
+          storage: '1G'
+        limits:
+          storage: '1G'
+  # ...customize other properties of the `volumeClaimSpec` as needed.
+```
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+Once configured, the broker backend transfers PUBLISH messages from memory to disk. This process continues until your specified volume is full or reaches the requested storage limit if supported by your storage provider. If your backend can no longer transfer messages to disk, they accumulate in memory. When this happens, backpressure begins rejecting new PUBLISH messages, maintaining the same behavior as before the disk buffer configuration.
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+## Considerations for storage providers
 
-For portal-based procedures, minimize bullets and numbering.
+Consider the behavior of your chosen storage provider. For example, when using providers like `rancher.io/local-path`. If the provider doesn't support limits, filling up the volume consumes the node's disk space. This could lead to Kubernetes marking the node and all associated pods as unhealthy. It's crucial to understand how your storage provider behaves in such scenarios.
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+## Persistence
 
--->
-
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-<!-- 5. Next step/Related content------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
+It's important to understand that the **diskBackedMessageBufferSettings** feature isn't synonymous with *persistence*. In this context, *persistence* refers to data that survives across pod restarts. However, this feature provides temporary storage space for data to be saved to disk, preventing memory overflows and data loss during pod restarts.
 
 ## Next step
 
-TODO: Add your next step link(s)
-
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+Configure the [availability and scale](./howto-configure-availability-scale.md) of your Azure IoT MQ broker.
