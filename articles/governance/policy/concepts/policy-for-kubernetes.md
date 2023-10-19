@@ -593,7 +593,7 @@ Finally, to identify the AKS cluster version that you are using, please follow t
 #### 1.2.1  
 - Released October 2023 
 - Kubernetes 1.25+ 
-- Gatekeeper 3.13.1 
+- Gatekeeper 3.13.3
 
 #### 1.1.0 
 - Released July 2023 
