@@ -39,23 +39,23 @@ Supported runtimes:
 
 | Description | Runtime Value for CLI |
 |-|-|
-| .NET Core 3.1 | DOTNETCORE|3.1 |
-| .NET 5.0 | DOTNETCORE|6.0 |
-| Node JS 12 | NODE|12-lts |
-| Node JS 14 | NODE|14-lts |
-| Python 3.6 | PYTHON|3.6 |
-| Python 3.7 | PYTHON|3.7 |
-| Python 3.8 | PYTHON|3.8 |
-| PHP 7.3 | PHP|7.3 |
-| PHP 7.4 | PHP|7.4 |
-| Ruby 2.5 | RUBY|2.5 |
-| Ruby 2.6 | RUBY|2.6 |
-| Java 8 | JAVA|8-jre8 |
-| Java 11 | JAVA|11-java11 |
-| Tomcat 8.5 | TOMCAT|8.5-jre8 |
-| Tomcat 8.5 | TOMCAT|8.5-java11 |
-| Tomcat 9.0 | TOMCAT|9.0-jre8 |
-| Tomcat 9.0 | TOMCAT|9.0-java11 |
+| .NET Core 3.1 | DOTNETCORE\|3.1 |
+| .NET 5.0 | DOTNETCORE\|6.0 |
+| Node JS 12 | NODE\|12-lts |
+| Node JS 14 | NODE\|14-lts |
+| Python 3.6 | PYTHON\|3.6 |
+| Python 3.7 | PYTHON\|3.7 |
+| Python 3.8 | PYTHON\|3.8 |
+| PHP 7.3 | PHP\|7.3 |
+| PHP 7.4 | PHP\|7.4 |
+| Ruby 2.5 | RUBY\|2.5 |
+| Ruby 2.6 | RUBY\|2.6 |
+| Java 8 | JAVA\|8-jre8 |
+| Java 11 | JAVA\|11-java11 |
+| Tomcat 8.5 | TOMCAT\|8.5-jre8 |
+| Tomcat 8.5 | TOMCAT\|8.5-java11 |
+| Tomcat 9.0 | TOMCAT\|9.0-jre8 |
+| Tomcat 9.0 | TOMCAT\|9.0-java11 |
 
 ```azurecli-interactive
  az webapp create \
