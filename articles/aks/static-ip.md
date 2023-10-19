@@ -5,9 +5,9 @@ description: Learn how to create and use a static IP address with the Azure Kube
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/22/2023
-
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
 ---
 

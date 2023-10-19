@@ -131,8 +131,7 @@ Run the following command to create the deployer and the SAP library. The comman
 
 # [Linux](#tab/linux)
 
-
-Run the following command to deploy the control plane:
+Set the environment variables for the service principal:
 
 ```bash
 
@@ -140,6 +139,13 @@ export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export       ARM_CLIENT_ID="<appId>"
 export   ARM_CLIENT_SECRET="<password>"
 export       ARM_TENANT_ID="<tenantId>"
+
+```
+
+Run the following command to deploy the control plane:
+
+```bash
+
 export            env_code="MGMT"
 export         region_code="WEEU"
 export           vnet_code="DEP00"
@@ -159,7 +165,7 @@ library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-S
 
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "{library_parameter_file}"            \
+    --library_parameter_file "${library_parameter_file}"            \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
@@ -299,10 +305,7 @@ Rerun the control plane deployment to enable private endpoints for the storage a
 
 ```bash
 
-export ARM_SUBSCRIPTION_ID="<subscriptionId>"
-export       ARM_CLIENT_ID="<appId>"
-export   ARM_CLIENT_SECRET="<password>"
-export       ARM_TENANT_ID="<tenantId>"
+
 export            env_code="MGMT"
 export         region_code="WEEU"
 export           vnet_code="DEP00"
@@ -322,7 +325,7 @@ library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-S
 
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "{library_parameter_file}"            \
+    --library_parameter_file "${library_parameter_file}"            \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \

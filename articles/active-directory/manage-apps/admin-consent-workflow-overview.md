@@ -32,7 +32,7 @@ As an admin, the following options exist for you to determine how users consent 
 - Disable user consent. For example, a high school may want to turn off user consent so that the school IT administration has full control over all the applications that are used in their tenant. 
 - Allow users to consent to the required permissions. It's NOT recommended to keep user consent open if you have sensitive data in your tenant. 
 - If you still want to retain admin-only consent for certain permissions but want to assist your end-users in onboarding their application, you can use the admin consent workflow to evaluate and respond to admin consent requests. This way, you can have a queue of all the requests for admin consent for your tenant and can track and respond to them directly through the Microsoft Entra admin center. 
-To learn how to configure the admin consent workflow, see [configure-admin-consent-workflow.md](configure-admin-consent-workflow.md).
+To learn how to configure the admin consent workflow, see [Configure the admin consent workflow](configure-admin-consent-workflow.md).
 
 ## How the admin consent workflow works
 

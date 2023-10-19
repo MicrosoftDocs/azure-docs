@@ -46,7 +46,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 ### Identify and resolve synchronization issues
 
-Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) and [Microsoft Entra Connect Health](../hybrid/connect/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Long term unresolved synchronization errors can generate support incidents. [Troubleshooting errors during synchronization](../hybrid/connect/tshoot-connect-sync-errors.md) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
+Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](/microsoft-365/enterprise/set-up-directory-synchronization) and [Microsoft Entra Connect Health](../hybrid/connect/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Long term unresolved synchronization errors can generate support incidents. [Troubleshooting errors during synchronization](../hybrid/connect/tshoot-connect-sync-errors.md) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
 
 <a name='azure-ad-connect-sync-configuration'></a>
 
@@ -136,7 +136,7 @@ The [Microsoft Entra Connect Configuration Documenter](https://github.com/Micros
 
 ### Group-based licensing for Microsoft cloud services
 
-Microsoft Entra ID streamlines the management of licenses through [group-based licensing](../fundamentals/licensing-whatis-azure-portal.md) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Microsoft Entra ID, including:
+Microsoft Entra ID streamlines the management of licenses through [group-based licensing](../fundamentals/concept-group-based-licensing.md) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Microsoft Entra ID, including:
 
 - **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in Microsoft 365.
 
@@ -190,7 +190,7 @@ The [default delta sync](../hybrid/connect/how-to-connect-sync-feature-scheduler
 
 #### Microsoft Entra Connect troubleshooting recommended reading
 
-- [Prepare directory attributes for synchronization with Microsoft 365 by using the IdFix tool](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Prepare directory attributes for synchronization with Microsoft 365 by using the IdFix tool](/microsoft-365/enterprise/set-up-directory-synchronization)
 - [Microsoft Entra Connect: Troubleshooting Errors during synchronization](../hybrid/connect/tshoot-connect-sync-errors.md)
 
 ## Summary

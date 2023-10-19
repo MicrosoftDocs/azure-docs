@@ -27,7 +27,7 @@ Microsoft Entra ID, Microsoft Graph, and other Azure services also limit the num
 <a name='azure-ad-service-limits-relevant-to-testing'></a>
 
 ## Microsoft Entra service limits relevant to testing
-General Microsoft Entra usage constraints and service limits can be found [here](../enterprise-users/directory-service-limits-restrictions.md).  General Azure subscription and service limits, quotas, and constraints can be found [here](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+General Microsoft Entra usage constraints and service limits can be found [here](../enterprise-users/directory-service-limits-restrictions.md).  General Azure subscription and service limits, quotas, and constraints can be found [here](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 The following table lists Microsoft Entra service limits to consider when setting up a test environment or running tests. 
 
@@ -55,7 +55,7 @@ The following table lists Microsoft Entra throttling limits to consider when run
 | Limit type | Resource unit quota | Write quota |
 |-------------------|----------------|----------------|
 | application+tenant pair | S: 3500, M:5000, L:8000 per 10 seconds | 3000 per 2 minutes and 30 seconds |
-| application | 150,000 per 20 seconds | 70,000 per 5 minutes |
+| application | 150,000 per 20 seconds | 35,000 per 5 minutes |
 | tenant | Not Applicable | 18,000 per 5 minutes |
 
 The application + tenant pair limit varies based on the number of users in the tenant requests are run against. The tenant sizes are defined as follows: S - under 50 users, M - between 50 and 500 users, and L - above 500 users.

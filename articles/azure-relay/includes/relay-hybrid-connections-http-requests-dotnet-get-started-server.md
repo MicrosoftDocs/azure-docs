@@ -108,6 +108,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         using System.Threading;
         using System.Threading.Tasks;
         using Microsoft.Azure.Relay;
+        using System.Net;
    
         public class Program
         {

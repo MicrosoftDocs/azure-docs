@@ -53,7 +53,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>mcr.microsoft.com</i>          | HTTPS:443 | Microsoft Container Registry (MCR).                                          |
 | <i>*.data.mcr.microsoft.com</i>   | HTTPS:443 | MCR storage backed by the Azure CDN.                                         |
 | <i>management.azure.com</i>       | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
-| <i>login.microsoftonline.com</i>  | HTTPS:443 | Azure Active Directory authentication.                                       |
+| <i>login.microsoftonline.com</i>  | HTTPS:443 | Microsoft Entra authentication.                                       |
 | <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                                               |
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
 
@@ -77,7 +77,7 @@ Azure Firewall provides the FQDN tag `AzureKubernetesService` to simplify the fo
 | <i>mcr.microsoft.com</i>           | HTTPS:443 | Microsoft Container Registry (MCR).                                          |
 | <i>*.data.mcr.microsoft.com</i>    | HTTPS:443 | MCR storage backed by the Azure CDN.                                         |
 | <i>management.chinacloudapi.cn</i> | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
-| <i>login.chinacloudapi.cn</i>      | HTTPS:443 | Azure Active Directory authentication.                                       |
+| <i>login.chinacloudapi.cn</i>      | HTTPS:443 | Microsoft Entra authentication.                                       |
 | <i>packages.microsoft.com</i>      | HTTPS:443 | Microsoft packages repository.                                               |
 | <i>*.azk8s.cn</i>                  | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
 

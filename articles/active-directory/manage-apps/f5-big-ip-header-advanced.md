@@ -20,7 +20,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
 
 * Improved Zero Trust governance through Microsoft Entra preauthentication and Conditional Access 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
-  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
+  * See, [Zero Trust security](/azure/security/fundamentals/zero-trust)
 * Full SSO between Microsoft Entra ID and BIG-IP published services
 * Managed identities and access from one control plane
   * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
@@ -370,7 +370,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 Use the BIG-IPs session management setting to define the conditions for user session termination or continuation. Create policy with **Access Policy** > **Access Profiles**. Select an application from the list.
 
-Regarding SLO functionality, a SLO URI in Microsoft Entra ensures an IdP-initiated sign-out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Microsoft Entra SAML sign-out endpoint, for SP initiated sign-out. Therefore, enable the APM to know when a user signs out.
+Regarding SLO functionality, a SLO URI in Microsoft Entra ID ensures an IdP-initiated sign-out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Microsoft Entra SAML sign-out endpoint, for SP initiated sign-out. Therefore, enable the APM to know when a user signs out.
 
 
 If there's no BIG-IP web portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. The application session can be reinstated through SSO. Therefore, SP-initiated sign out needs careful consideration. 

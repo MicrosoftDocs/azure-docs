@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/22/2023
+ms.date: 09/12/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -88,7 +88,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the Http status code is in the 5xx range. The default is `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token.If you need to build the metadata endpoint URL based on Issuer, set this to `true`.|
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-|token_endpoint_auth_method| No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview), `private_key_jwt`. For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|token_endpoint_auth_method| No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic`, `private_key_jwt`. For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 |token_signing_algorithm| No | Specifies the signing algorithm to use when `token_endpoint_auth_method` is set to `private_key_jwt`. Possible values: `RS256` (default) or `RS512`.|
 | SingleLogoutEnabled | No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](./session-behavior.md#sign-out).  Possible values: `true` (default), or `false`. |
 |ReadBodyClaimsOnIdpRedirect| No| Set to `true` to read claims from response body on identity provider redirect. This metadata is used with [Apple ID](identity-provider-apple-id.md), where claims return in the response payload.|

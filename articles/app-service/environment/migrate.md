@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 08/07/2023
+ms.date: 10/06/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -136,7 +136,7 @@ If your migration includes a custom domain suffix, for App Service Environment v
 
 After completing the previous steps, you should continue with migration as soon as possible.
 
-Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. During migration, scaling and environment configurations are blocked and the following events occur:
+Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. Note that the service window may be extended in rare cases where manual intervention by the service team is required. During migration, scaling and environment configurations are blocked and the following events occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from the Isolated to Isolated v2 SKU.

@@ -26,7 +26,7 @@ Currently, you can measure consumption only by using the Azure portal or by insp
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 

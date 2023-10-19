@@ -451,7 +451,7 @@ sections:
 
           - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
 
-          - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
@@ -524,7 +524,7 @@ sections:
 
           - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Microsoft Entra ID.
 
           - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 

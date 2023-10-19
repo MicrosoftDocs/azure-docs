@@ -65,7 +65,7 @@ items:
     - name: Cloud monitoring with Azure Monitor Workbooks
       href: monitor-private-5g-core-workbooks.md
     - name: Cloud monitoring of UE usage with Event Hubs (preview)
-      href: ue-usage-event-hub.md  
+      href: ue-usage-event-hub.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
@@ -88,12 +88,18 @@ items:
     items:
     - name: How to open a support request 
       href: open-support-request.md
+  - name: Kubectl access
+    items:
+    - name: Set up kubectl access
+      href: set-up-kubectl-access.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network
       href: collect-required-information-for-private-mobile-network.md
     - name: Deploy a private mobile network - Azure portal
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+    - name: Configure Azure Private 5G Core network for accessing UE IP addresses
+      href: configure-access-for-user-equipment-ip-addresses.md
   - name: Slices
     items:
     - name: Create and manage network slices - Azure portal
@@ -124,6 +130,8 @@ items:
       href: upgrade-packet-core-arm-template.md
     - name: Reinstall a packet core instance
       href: reinstall-packet-core.md
+    - name: Create custom alerts
+      href: monitor-private-5g-core-alerts.md  
   - name: Policy control
     items:
     - name: Collect the required information for a service
@@ -150,7 +158,7 @@ items:
       href: manage-sim-groups.md
   - name: Local monitoring tools
     items:
-    - name: Enable Azure Active Directory
+    - name: Enable Microsoft Entra ID
       href: enable-azure-active-directory.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md

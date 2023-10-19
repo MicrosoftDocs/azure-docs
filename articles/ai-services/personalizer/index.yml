@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Personalizer documentation
-summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior.
+summary: Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
 
 metadata:
   ms.topic: landing-page

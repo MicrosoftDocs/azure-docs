@@ -107,6 +107,11 @@ Next, use the YAML file to create and register this custom environment in your w
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
+##### [Optional] Create a custom environment with Intel® Extension for Scikit-Learn
+
+Want to speed up your scikit-learn scripts on Intel hardware? Try adding [Intel® Extension for Scikit-Learn](https://www.intel.com/content/www/us/en/developer/tools/oneapi/scikit-learn.html) into your conda yaml file and following the subsequent steps detailed above. We will show you how to enable these optimizations later in this example:
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_sklearnex_conda_file)]
+
 ## Configure and submit your training job
 
 In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
@@ -131,6 +136,14 @@ To use the training script, first create a directory where you will store the fi
 Next, create the script file in the source directory.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_script_file)]
+
+#### [Optional] Enable Intel® Extension for Scikit-Learn optimizations for more performance on Intel hardware
+
+If you have installed Intel® Extension for Scikit-Learn (as demonstrated in the previous section), you can enable the performance optimizations by adding the two lines of code to the top of the script file, as shown below.
+
+To learn more about Intel® Extension for Scikit-Learn, visit the package's [documentation](https://intel.github.io/scikit-learn-intelex/).
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_sklearnex_script_file)]
 
 ### Build the training job
 

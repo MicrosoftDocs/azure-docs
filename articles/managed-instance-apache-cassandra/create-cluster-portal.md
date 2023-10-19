@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
    > - Azure Monitoring
-   > - Azure Active Directory
+   > - Microsoft Entra ID
    > - Azure Security
 
 1. Next select the **Data center** tab.
@@ -186,7 +186,7 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - seed_provider
    > - initial_token
    > - autobootstrap
-   > - client_ecncryption_options
+   > - client_encryption_options
    > - server_encryption_options
    > - transparent_data_encryption_options
    > - audit_logging_options
@@ -204,7 +204,11 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - data_file_directories
    > - commitlog_directory
    > - cdc_raw_directory
-   > - saved_caches_directory 
+   > - saved_caches_directory
+   > - endpoint_snitch
+   > - partitioner
+   > - rpc_address
+   > - rpc_interface 
 
 ## De-allocate cluster
 
