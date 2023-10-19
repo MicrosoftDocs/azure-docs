@@ -89,9 +89,11 @@ Use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL accou
 - [Get an item](#read-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named `cosmicworks` with a container named `products`. The `products` container is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code in the Azure Develop CLI template creates a database named `cosmicworks` with a container named `products`. The `products` container is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-For this sample code, the container uses the `/category` property as a logical partition key.
+For this sample, the container uses the `/category` property as a logical partition key.
+
+The code blocks used to perform these operations in this sample are included in this section. You can also [browse the entire template's source](https://vscode.dev/github/azure-samples/cosmos-db-nosql-dotnet-quickstart) using Visual Studio Code for the Web.
 
 ### Authenticate the client
 
