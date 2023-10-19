@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/21/2022
+ms.date: 10/20/2023
 ---
 
 # Mapping data flow Debug Mode

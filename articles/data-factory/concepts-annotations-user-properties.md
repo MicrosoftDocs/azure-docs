@@ -7,7 +7,7 @@ ms.reviewer: olmoloce
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 10/20/2023
 ---
 
 # Monitor Azure Data Factory and Azure Synapse Analytics pipelines with annotations and user properties
