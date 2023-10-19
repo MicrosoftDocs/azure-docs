@@ -49,7 +49,9 @@ More details on eligible subscription types are as follows:
 |Ireland|
 |Italy|
 |Sweden|
-
+|United States|
+|Canada|
+|United Kingdom|
 
 
 ## Find information about other countries/regions

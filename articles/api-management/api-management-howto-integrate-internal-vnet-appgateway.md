@@ -72,7 +72,7 @@ In the first setup example, all your APIs are managed only from within your virt
 
 In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps.
 
-If you use Azure Active Directory or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
+If you use Microsoft Entra ID or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specifications in the developer portal, disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.

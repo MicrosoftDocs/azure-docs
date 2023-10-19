@@ -54,7 +54,7 @@ The KMSI setting is managed in **User settings**.
 
 ## Troubleshoot 'Stay signed in?' issues
 
-If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Microsoft Entra sign-ins logs. The prompt the user sees is called an "interrupt."
+If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Microsoft Entra sign-in logs. The prompt the user sees is called an "interrupt."
 
 ![Sample 'Stay signed in?' prompt](media/how-to-manage-stay-signed-in-prompt/kmsi-stay-signed-in-prompt.png)
 

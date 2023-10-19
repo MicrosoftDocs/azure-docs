@@ -24,13 +24,13 @@ To enable this functionality, ensure the following:
  - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machines `openssh-server` can be installed via a package manager and needs to be enabled.  SSHD needs to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Owner or Contributer role assigned.
 
-Authenticating with Azure AD credentials has additional requirements:
+Authenticating with Microsoft Entra credentials has additional requirements:
  - `aadsshlogin` and `aadsshlogin-selinux` (as appropriate) must be installed on the Arc-enabled server. These packages are installed with the `Azure AD based SSH Login – Azure Arc` VM extension. 
  - Configure role assignments for the VM.  Two Azure roles are used to authorize VM login:
    - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
    - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
  
-    An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to Azure AD login to the VM over SSH. There's an intentional (and audited) separation between the set of people who control virtual machines and the set of people who can access virtual machines. 
+    An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to Microsoft Entra login to the VM over SSH. There's an intentional (and audited) separation between the set of people who control virtual machines and the set of people who can access virtual machines. 
 
     > [!NOTE]
     > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.

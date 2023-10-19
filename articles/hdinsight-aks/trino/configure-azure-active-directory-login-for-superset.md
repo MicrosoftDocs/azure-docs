@@ -1,20 +1,20 @@
 ---
-title: Configure Azure Active Directory OAuth2 login for Apache Superset
-description: Learn how to configure Azure Active Directory OAuth2 login for Superset
+title: Configure Microsoft Entra ID OAuth2 login for Apache Superset
+description: Learn how to configure Microsoft Entra ID OAuth2 login for Superset
 ms.service: hdinsight-aks
 ms.topic: how-to 
 ms.date: 08/29/2023
 ---
 
-# Configure Azure Active Directory OAuth2 login
+# Configure Microsoft Entra ID OAuth2 login
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article describes how to allow users to use their Azure Active Directory (Azure AD) account ("Microsoft work or school account") to log in to Apache Superset. 
+This article describes how to allow users to use their Microsoft Entra account ("Microsoft work or school account") to log in to Apache Superset. 
 
-The following configuration allows users to have Superset accounts automatically created when they use their Azure AD login. Azure groups can be automatically mapped to Superset roles, which allow control over who can access Superset and what permissions are given.
+The following configuration allows users to have Superset accounts automatically created when they use their Microsoft Entra login. Azure groups can be automatically mapped to Superset roles, which allow control over who can access Superset and what permissions are given.
 
-1. Create an Azure Active Directory service principal. The steps to create Azure Active Directory are described [here](/azure/active-directory/develop/howto-create-service-principal-portal).
+1. Create a Microsoft Entra service principal. The steps to create Microsoft Entra ID are described [here](/azure/active-directory/develop/howto-create-service-principal-portal).
 
     For testing, set the redirect URL to: `http://localhost:8088/oauth-authorized/azure`
 

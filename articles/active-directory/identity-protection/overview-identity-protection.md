@@ -70,7 +70,7 @@ When user remediation isn't enabled, an administrator must manually review them 
 
 Data from Identity Protection can be exported to other tools for archive, further investigation, and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Microsoft Entra ID Protection and Microsoft Graph](howto-identity-protection-graph-api.md) 
 
-Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Microsoft Entra ID Protection](../../sentinel/data-connectors-reference.md#microsoft). 
+Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Microsoft Entra ID Protection](/azure/sentinel/data-connectors-reference#microsoft). 
 
 Organizations may store data for longer periods by changing the diagnostic settings in Microsoft Entra ID. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to another solution. Detailed information about how to do so can be found in the article, [How To: Export risk data](howto-export-risk-data.md). 
 

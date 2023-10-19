@@ -4,7 +4,7 @@ description: Learn configuration and troubleshooting options for the Azure Key V
 author: nickomang 
 ms.author: nickoman
 ms.topic: how-to 
-ms.date: 10/16/2023
+ms.date: 10/19/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 

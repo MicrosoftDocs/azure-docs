@@ -1007,7 +1007,7 @@ items:
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
-    - name: Enable Azure AD authentication for Azure-SSIS IR
+    - name: Enable Microsoft Entra authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
       displayName: active directory
     - name: Connect to data with Windows Authentication
@@ -1336,6 +1336,8 @@ items:
       href: airflow-get-ip-airflow-cluster.md
     - name: Sync a GitHub repository with Airflow
       href: airflow-sync-github-repository.md
+    - name: Diagnostic logs and metrics
+      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

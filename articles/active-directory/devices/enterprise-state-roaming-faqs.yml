@@ -35,19 +35,19 @@ sections:
           If an application owner can't be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10 and newer, all the apps will be tagged as acquired by the Microsoft account. This is because most users acquire apps through the Windows Store, and there was no Windows Store support for Microsoft Entra accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
           
           > [!NOTE]
-          > Windows 10 or newer devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft accounts to a domain account. The ability to connect a Microsoft account to a domain account and have all the user's data sync to the Microsoft account (that is, the Microsoft account roaming via the connected Microsoft account and Active Directory functionality) is removed from Windows 10 and newer devices that are joined to a connected Active Directory or Microsoft Entra environment.
+          > Windows 10 or newer devices that are enterprise-owned and are connected to Microsoft Entra ID can no longer connect their Microsoft accounts to a domain account. The ability to connect a Microsoft account to a domain account and have all the user's data sync to the Microsoft account (that is, the Microsoft account roaming via the connected Microsoft account and Active Directory functionality) is removed from Windows 10 and newer devices that are joined to a connected Active Directory or Microsoft Entra environment.
           
       - question: |
           How do I upgrade from Microsoft account settings sync in Windows 8 to Microsoft Entra settings sync in Windows 10 or newer?
         answer: |
           If you're joined to the Active Directory domain running Windows 8.1 with a connected Microsoft account, you'll sync settings through your Microsoft account. After upgrading to Windows 10 and newer, you'll continue to sync user settings via Microsoft account as long as you're a domain-joined user, and the Active Directory domain doesn't connect with Microsoft Entra ID.
           
-          If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Microsoft Entra administrator doesn't enable Enterprise State Roaming, your connected Microsoft Entra account will stop syncing settings. If you're running Windows 10 and newer and you sign in with a Microsoft Entra identity, you'll start syncing windows settings as soon as your administrator enables settings sync via Microsoft Entra ID.
+          If the on-premises Active Directory domain does connect with Microsoft Entra ID, your device will attempt to sync settings using the connected Microsoft Entra account. If the Microsoft Entra administrator doesn't enable Enterprise State Roaming, your connected Microsoft Entra account will stop syncing settings. If you're running Windows 10 and newer and you sign in with a Microsoft Entra identity, you'll start syncing windows settings as soon as your administrator enables settings sync via Microsoft Entra ID.
           
-          If you stored any personal data on your corporate device, you should know Windows OS and application data will begin syncing to Azure AD. This has the following implications:
+          If you stored any personal data on your corporate device, you should know Windows OS and application data will begin syncing to Microsoft Entra ID. This has the following implications:
           
-          * Your personal Microsoft account settings will drift apart from the settings on your work or school Azure AD accounts. This is because the Microsoft account and Microsoft Entra settings sync are now using separate accounts.
-          * Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites that were previously synced via a connected Microsoft account will be synced via Azure AD.
+          * Your personal Microsoft account settings will drift apart from the settings on your work or school Microsoft Entra accounts. This is because the Microsoft account and Microsoft Entra settings sync are now using separate accounts.
+          * Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites that were previously synced via a connected Microsoft account will be synced via Microsoft Entra ID.
           
       - question: |
           How do Microsoft account and Microsoft Entra Enterprise State Roaming interoperability work?

@@ -43,7 +43,7 @@ Best practices for using hard-coded keys in source files include:
 
 + During early development and proof-of-concept testing when security is looser, use sample or public data.
 
-+ For mature solutions or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
++ For mature solutions or production scenarios, switch to [Microsoft Entra ID and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
 
 ### [**Portal**](#tab/portal-use)
 

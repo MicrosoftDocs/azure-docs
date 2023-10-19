@@ -4,7 +4,7 @@ description: Learn how to use the Azure Key Vault provider for Secrets Store CSI
 author: nickomang 
 ms.author: nickoman
 ms.topic: how-to 
-ms.date: 10/16/2023
+ms.date: 10/19/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
@@ -44,7 +44,7 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
 2. Create an AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command and enable the `azure-keyvault-secrets-provider` add-on.
 
     > [!NOTE]
-    > If you want to use Azure AD workload identity, you need to use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, as shown in the following example:
+    > If you want to use Microsoft Entra Workload ID, you must also use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, such as in the following example:
     >
     > ```azurecli-interactive
     > az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-oidc-issuer --enable-workload-identity

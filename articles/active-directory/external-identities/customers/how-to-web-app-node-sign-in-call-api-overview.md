@@ -19,7 +19,7 @@ ms.custom: developer, devx-track-js
 
 In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Microsoft Entra ID for customers. To authorize access to the web API, you must serve requests that include a valid access token, which is issued by External ID for customers itself.
 
-To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](../../develop/microsoft-identity-web.md) respectively.
+To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/entra/msal/dotnet/microsoft-identity-web/) respectively.
 
 We've organized the content into four separate articles so it's easy for you to follow:
 
