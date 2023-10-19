@@ -18,7 +18,7 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2`, `stv2.1` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv2`, `stv2.1` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints | Developer, Basic, Standard, Premium |
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
@@ -35,8 +35,8 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 Support for API Management instances hosted on the `stv1` platform will be retired by 31 August 2024.
 
 > [!WARNING]
-> * After 31 August 2024, any instance hosted on the `stv1` platform will be shut down, and your instance won't respond to API requests. 
-> * If your instance is shut down, data from your instance will be backed up by Azure. If you choose to restore the instance, it will be restored on the `stv2` platform.
+> * After 31 August 2024, any instance hosted on the `stv1` platform will be shut down, and the instance won't respond to API requests. 
+> * Data from a shut-down instance will be backed up by Azure. The owner may trigger restoration of the instance on the `stv2` platform, but the instance will remain shut down until then.
 
 
 ## What do I need to do?
