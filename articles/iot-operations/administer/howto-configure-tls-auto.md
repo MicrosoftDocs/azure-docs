@@ -112,11 +112,11 @@ If you don't have a CA certificate, cert-manager can generate a root CA certific
     
 Create the self-signed CA certificate with the following command:
 
-    ```bash
-    kubectl apply -f ca.yaml
-    ```
-    
-    cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate spec. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
+```bash
+kubectl apply -f ca.yaml
+```
+
+cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate spec. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
 
 ### Distribute the root certificate
 
