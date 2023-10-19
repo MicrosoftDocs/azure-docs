@@ -56,6 +56,12 @@
 - name: How-to guides
   expanded: false
   items:
+  - name: Create a custom role
+    href: how-to-create-custom-role.md
+  - name: Assign a custom role
+    href: how-to-assign-custom-role.md
+  - name: Create a user assigned managed identity
+    href: how-to-create-user-assigned-managed-identity.md
   - name: Create a site
     href: how-to-create-site.md
   - name: Delete operator resources
