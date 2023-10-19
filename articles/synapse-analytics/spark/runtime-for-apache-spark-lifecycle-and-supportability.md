@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/19/2022
-ms.author: ekote 
+ms.author: eskot 
 ms.reviewer: wiassaf
 ---
 
