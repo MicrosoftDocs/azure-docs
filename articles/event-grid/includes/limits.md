@@ -19,7 +19,7 @@ Event Grid offers a standard tier and basic tier. Event Grid standard tier enabl
 
 ## Namespace resource limits
 
-[Azure Event Grid namespaces](../concepts-pull-delivery.md#namespaces) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
+[Azure Event Grid namespaces](../concepts-pull-delivery.md#namespace) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
 | Limit description                      | Limit |

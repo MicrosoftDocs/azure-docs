@@ -50,10 +50,10 @@ Create a Key Vault resource by following instructions from [Create a key vault u
 
 When creating an event subscription, follow these steps:
 
-1. Enter a **name** for event subscription
+1. Enter a **name** for event subscription.
 1. For **Event Schema**, select the event schema as **Cloud Events Schema v1.0**. It's the only schema type that's supported for Azure Monitor alerts destination).
-1. Select the **Topic Type** to **Key Vault** if it's not already set.
-1. For **Source Resource**, select your Key Vault resource if it's not already selected.
+1. Select the **Topic Type** to **Key Vault**.
+1. For **Source Resource**, select the Key Vault resource.
 1. Enter a name for the Event Grid system topic to be created.
 1. For **Filter to Event Types**, select the event types that you are interested in.
 1. For **Endpoint Type**, select **Azure Monitor Alert** as a destination.

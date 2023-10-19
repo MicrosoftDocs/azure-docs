@@ -40,4 +40,4 @@ The name of the namespace can be 3-50 characters long.  It can include alphanume
 
 ## Throughput units
 
-Throughput units (TUs) control the capacity of Azure Event Grid namespace and allow user to control capacity of their namespace resource for message ingress and egress. For more information about limits, see [Azure Event Grid quotas and limits](quotas-limits.md).
+Throughput units (TUs) control the capacity of Azure Event Grid namespace and allow user to control capacity of their namespace resource for message ingress and egress. For more information about limits, see [Azure Event Grid quotas and limits](../quotas-limits.md).
