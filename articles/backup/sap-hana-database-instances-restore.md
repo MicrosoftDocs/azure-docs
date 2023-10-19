@@ -83,7 +83,7 @@ To select and restore the required point in time for the system database, follow
 
 1. Below the **Restore Point** box, select the **Select** link.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-logs-over-snapshot-restore-point.png" alt-text="Screenshot that shows how to select the log restore points of the system database instance for restore.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-over-snapshot.png" alt-text="Screenshot that shows how to select the log restore points of the system database instance for restore.":::
 
 1. On the **Select restore point** pane, select the restore point, and then select **OK**.
 
@@ -115,7 +115,7 @@ To restore the tenant database, do the following:
 
 1. On the **Restore** pane, select the target VM to which the disks should be attached, the required HANA instance, and the resource group.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/log-over-snapshots-for-tenant-database-restore-point.png" alt-text="Screenshot that shows where to select the restore point of the log over snapshots for the tenant database.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-over-snapshot.png" alt-text="Screenshot that shows where to select the restore point of the log over snapshots for the tenant database.":::
 
    Ensure that the target VM and target disk resource group have relevant permissions by using the PowerShell or CLI script.
 
