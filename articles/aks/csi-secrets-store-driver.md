@@ -121,6 +121,8 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
 
 ## Next steps
 
+In this article, you learned how to use the Azure Key Vault provider for Secrets Store CSI Driver in an AKS cluster. You now need to provide an identity to access the Azure Key Vault. To learn how, continue to the next article.
+
 > [!div class="nextstepaction"]
 > [Provide an identity to access the Azure Key Vault provider for Secrets Store CSI Driver in AKS](./csi-secrets-store-identity-access.md)
 

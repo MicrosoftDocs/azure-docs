@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
-description: Learn configuration and troubleshooting options for the Azure Key Vault Provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS).
+title: Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
+description: Learn configuration and troubleshooting options for the Azure Key Vault provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
 ms.topic: how-to 
@@ -8,16 +8,16 @@ ms.date: 10/19/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
-# Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
+# Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
 
-Follow the steps in [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](./csi-secrets-store-driver.md) and [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in AKS](./csi-secrets-store-identity-access.md). Once you complete these steps, you can apply extra configurations or perform troubleshooting for the Azure Key Vault Provider for Secrets Store CSI Driver in AKS.
+Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driver in an AKS cluster](./csi-secrets-store-driver.md) and [Provide an identity to access the Azure Key Vault provider for Secrets Store CSI Driver in AKS](./csi-secrets-store-identity-access.md). Once you complete these steps, you can apply extra configurations or perform troubleshooting.
 
 ## Configuration options
 
 ### Enable and disable auto-rotation
 
 > [!NOTE]
-> When the Azure Key Vault Provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you defined. The default rotation poll interval is *two minutes*.
+> When the Azure Key Vault provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you defined. The default rotation poll interval is *two minutes*.
 
 >[!NOTE]
 > When a secret updates in an external secrets store after initial pod deployment, the Kubernetes Secret and the pod mount periodically update depending on how the application consumes the secret data.
@@ -71,7 +71,7 @@ To disable auto-rotation, you first need to disable the add-on. Then, you can re
 ### Sync mounted content with a Kubernetes secret
 
 > [!NOTE]
-> The YAML examples in this section are incomplete. You need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
+> The YAML examples in this section are incomplete. You need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault provider for Secrets Store CSI Driver][identity-access-methods].
 
 You might want to create a Kubernetes secret to mirror your mounted secrets content. Your secrets sync after you start a pod to mount them. When you delete the pods that consume the secrets, your Kubernetes secret is also deleted.
 
@@ -135,7 +135,7 @@ You might want to create a Kubernetes secret to mirror your mounted secrets cont
 
 ### Access metrics
 
-#### The Azure Key Vault Provider
+#### The Azure Key Vault provider
 
 Metrics are served via Prometheus from port 8898, but this port isn't exposed outside the pod by default.
 
@@ -145,7 +145,7 @@ Metrics are served via Prometheus from port 8898, but this port isn't exposed ou
     kubectl port-forward -n kube-system ds/aks-secrets-store-provider-azure 8898:8898 & curl localhost:8898/metrics
     ```
 
-##### Metrics provided by the Azure Key Vault Provider for Secrets Store CSI Driver
+##### Metrics provided by the Azure Key Vault provider for Secrets Store CSI Driver
 
 |Metric|Description|Tags|
 |----|----|----|
@@ -204,14 +204,14 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 
 ## Troubleshooting
 
-For troubleshooting steps, see [Azure Key Vault Provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).
+For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).
 
 ## Next steps
 
-To learn more about the Azure Key Vault Provider for Secrets Store CSI Driver, see the following resources:
+To learn more about the Azure Key Vault provider for Secrets Store CSI Driver, see the following resources:
 
-* [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
-* [Upgrading the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/upgrading/)
+* [Using the Azure Key Vault provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
+* [Upgrading the Azure Key Vault provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/upgrading/)
 * [Using Secrets Store CSI with AKS and Azure Key Vault](https://github.com/Azure-Samples/secrets-store-csi-with-aks-akv)
 
 <!-- LINKS INTERNAL -->
