@@ -27,7 +27,9 @@ This article provides guidance to move from Change Tracking and Inventory using 
 
 :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-inline.png" alt-text="Screenshot of onboarding a single VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-expanded.png":::
 
-1. Select **Switch to CT&I with AMA** to evaluate the incoming events and logs across LA agent and AMA version.
+Select **Switch to CT&I with AMA** to evaluate the incoming events and logs across LA agent and AMA version.
+
+:::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
 ### [Using Azure portal - for Automation account](#tab/ct-at-scale)
 
@@ -75,7 +77,7 @@ Follow these steps to migrate using scripts.
 
 #### Onboard at scale
 
-Use the [script](Azure Services/Azure Monitor/Agents/Migration Tools/DCR Config Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) to migrate Change tracking workspace settings to data collection rule.
+Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) to migrate Change tracking workspace settings to data collection rule.
  
 #### Parameters
 
