@@ -1,8 +1,8 @@
 ---
 title: Send Azure Blob storage events to web endpoint - PowerShell
 description: Use Azure Event Grid to subscribe to Blob storage events, trigger an event, and view the result. Use Azure PowerShell to route storage events to a web endpoint.
-author: normesta
-ms.author: normesta
+author: stevenmatthew
+ms.author: shaas
 ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
