@@ -1,6 +1,6 @@
 ---
-title: Manage Azure NetApp Files Standard service level with cool access | Microsoft Docs
-description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier).
+title: Manage Azure NetApp Files Standard service level with cool access 
+description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -12,13 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/28/2023
+ms.date: 10/20/2023
 ms.author: anfdocs
 ---
 
 # Manage Azure NetApp Files Standard service level with cool access
 
-Using Azure NetApp Files Standard service level with [cool access](cool-access-introduction.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
+Using Azure NetApp Files Standard service level with [cool access](cool-access-introduction.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
 The Standard service level with cool access allows you to configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
 
@@ -128,7 +128,7 @@ Standard service with cool access can be enabled during the creation of a new vo
         * *Cool access is enabled, and cool access retrieval policy is set to `Never`:*   
             Cold data will not be retrieved. 
         * *Cool access is disabled:*     
-            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to standard storage. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
+            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to the hot tier. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
 
         The following limitations apply to the cool access retrieval policy settings:    
         
@@ -167,7 +167,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
         * *Cool access is enabled, and cool access retrieval policy is set to `Never`:*   
             Cold data will not be retrieved. 
         * *Cool access is disabled:*     
-            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to standard storage. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
+            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to the hot tier. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
 
         The following limitations apply to the cool access retrieval policy settings:    
         
