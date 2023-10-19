@@ -17,9 +17,9 @@ In this quick start, you learn about how to add and remove multiple sender addre
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
-- An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
-- Smtp credentials created using an Entra application with access to the Communication Resource. [How to create authentication credentials for sending emails using Smtp](./smtp-authentication.md)
+- An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
+- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using Smtp](./smtp-authentication.md)
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -29,7 +29,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
-- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+- To view the subdomains associated with your Azure Communication Email Resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Azure Communication Email Resource and open the **Provision domains** tab from the left navigation pane.
 
 ### Create a new C# application
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
@@ -62,7 +62,7 @@ Replace with your domain details and modify the content, recipient details as re
 ```csharp
 //Replace with your domain and modify the content, recipient details as required
 
-string smtpAuthUsername = "<Communication Resource Name>|<Entra Application Id>|<Entra Application Tenant Id>";
+string smtpAuthUsername = "<Azure Communication Services Resource name>|<Entra Application Id>|<Entra Application Tenant Id>";
 string smtpAuthPassword = "<Entra Application Client Secret>";
 string sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
 string recipient = "emailalias@contoso.com";
@@ -82,7 +82,7 @@ To send an email message, you need to:
 using System.Net;
 using System.Net.Mail;
 
-string smtpAuthUsername = "<Communication Resource Name>|<Entra Application Id>|<Entra Application Tenant Id>";
+string smtpAuthUsername = "<Azure Communication Services Resource name>|<Entra Application Id>|<Entra Application Tenant Id>";
 string smtpAuthPassword = "<Entra Application Client Secret>";
 string sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
 string recipient = "emailalias@contoso.com";
