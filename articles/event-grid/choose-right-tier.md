@@ -42,7 +42,7 @@ The standard tier of Event Grid is focused on providing support for higher ingre
 | Throughput                                                                                                                         | High, up to 40 MB/s (ingress) and 80 MB/s (egress) | Low, up to 5 MB/s (ingress and egress) |
 | MQTT v5 and v3.1.1                                                                                                                 | Yes                                                |                                        |
 | Pull delivery                                                                                                                      | Yes                                                |                                        |
-| Publish and subscribe to custom events                                                                                             | Yes                                                |                                        |
+| Publish and subscribe to custom events                                                                                             | Yes                                                | Yes                                    |
 | Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
 | Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
@@ -53,7 +53,7 @@ The standard tier of Event Grid is focused on providing support for higher ingre
 
 - [Azure Event Grid overview](overview.md)
 - [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/)
-- [Azure Event Grid quotas and limits](..//azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Azure Event Grid quotas and limits](quotas-limits.md)
 - [MQTT overview](mqtt-overview.md)
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)

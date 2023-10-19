@@ -15,11 +15,11 @@ ms.custom: include file, build-2023
 
 ## Event Grid throttle limits
 
-Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
+Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull-delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
 
 ## Namespace resource limits
 
-[Azure Event Grid namespaces](../concepts-pull-delivery.md#namespaces) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
+[Azure Event Grid namespaces](../concepts-pull-delivery.md#namespace) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
 | Limit description                      | Limit |
@@ -37,10 +37,10 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 |----------------------------------------------|-----------------------------------------------------------------------------------|
 | MQTT connections per namespace               | 10,000 per TU                                                                     |
 | Sessions per namespace                       | 10,000 per TU                                                                     |
-| MQTT inbound publish requests per namespace  | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT inbound publish requests per connection | Up to 100 messages per second or 1 MB per second (whichever comes first)          |
-| MQTT outbound publish requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT outbound publish requests per connection| Up to 100 messages per second or 1 MB per second (whichever comes first)          |
+| MQTT inbound publishing requests per namespace  | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT inbound publishing requests per connection | Up to 100 messages per second or 1 MB per second (whichever comes first)          |
+| MQTT outbound publishing requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
+| MQTT outbound publishing requests per connection| Up to 100 messages per second or 1 MB per second (whichever comes first)          |
 | Connect requests                             | 200 requests per second per TU                                                    |
 | Subscribe and unsubscribe requests           | 200 requests per second per TU                                                    |
 | Max message size                             | 512 KB                                                                            |

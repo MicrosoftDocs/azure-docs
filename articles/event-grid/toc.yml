@@ -379,6 +379,8 @@ items:
           href: handler-storage-queues.md
         - name: Azure Monitor alerts
           href: handler-azure-monitor-alerts.md
+        - name: Event Grid namespace topic
+          href: handler-event-grid-namespace-topic.md
       - name: Event delivery
         items:
         - name: Event filtering

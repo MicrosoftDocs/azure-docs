@@ -38,31 +38,7 @@ A publisher is the application that sends events to Event Grid. It may be the sa
 
 An event source is where the event happens. Each event source is related to one or more event types. For example, your application is the event source for custom events that you define. When using namespace topics, the event sources supported is your own applications.
 
-## Namespaces
-
-An Event Grid Namespace is a management container for the following resources:
-
-| Resource   | Protocol supported |
-| :--- | :---: |
-| Namespace topics | HTTP |
-| Topic Spaces | MQTT |
-| Clients | MQTT |
-| Client Groups | MQTT |
-| CA Certificates | MQTT |
-| Permission bindings | MQTT |
-
-With an Azure Event Grid namespace, you can group now together related resources and manage them as a single unit in your Azure subscription.
-
-A Namespace exposes two endpoints:
-
-- An HTTP endpoint to support general messaging requirements using Namespace Topics.
-- An MQTT endpoint for IoT messaging or solutions that use MQTT.
-  
-A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It's also the container of managed identities used for all contained resources that use them.
-
-## Throughput units
-
-The capacity of Azure Event Grid namespace is controlled by throughput units (TUs) and allows user to control capacity of their namespace resource for message ingress and egress. For more information, see [Azure Event Grid quotas and limits](quotas-limits.md).
+[!INCLUDE [common-namespace-concepts](./includes/common-namespace-concepts.md)]
 
 ## Topics
 
@@ -70,7 +46,7 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 ## Namespace topics
 
-Namespace topics are topics that are created within an Event Grid [namespace](#namespaces). The event source supported by namespace topic is your own application. When designing your application, you have to decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event handlers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
+Namespace topics are topics that are created within an Event Grid [namespace](#namespace). The event source supported by namespace topic is your own application. When designing your application, you have to decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event handlers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
 Namespace topics support [pull delivery](pull-delivery-overview.md). See [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if pull delivery is the right approach given your requirements.
 
