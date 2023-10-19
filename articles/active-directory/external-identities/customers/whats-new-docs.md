@@ -17,7 +17,7 @@ Welcome to what's new in Microsoft Entra ID for customers documentation. This ar
 
 ## September 2023
 
-This month, we renamed Microsoft Entra ID to Microsoft Entra ID. For more information about the rebranding, see the [New name for Microsoft Entra ID](/azure/active-directory/fundamentals/new-name) article.
+This month, we renamed Microsoft Entra ID to Microsoft Entra ID. For more information about the rebranding, see the [New name for Microsoft Entra ID](../../fundamentals/new-name.md) article.
 
 ### Updated articles
 

@@ -73,7 +73,7 @@ If you use entitlement management, you can confine access packages to a subset o
 
 With an inventory of external users and organizations, determine the access to grant to the users. You can use the Microsoft Graph API to determine Microsoft Entra group membership or application assignment.
 
-* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0&preserve-view=true)
+* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph/context&view=graph-rest-1.0&preserve-view=true)
 * [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0&preserve-view=true)
 
 ### Enumerate application permissions

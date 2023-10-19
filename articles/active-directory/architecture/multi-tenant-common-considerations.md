@@ -240,7 +240,7 @@ Microsoft Teams has features to limit access and based on user type. Changes to 
 
 The tenant switching mechanism for Microsoft Teams might require users to manually switch the context of their Teams client when working in Teams outside their home tenant.
 
-You can enable Teams users from another entire external domain to find, call, chat, and set up meetings with your users with Teams Federation. [Manage external meetings and chat with people and organizations using Microsoft identities](/microsoftteams/manage-external-access) describes how you can allow users in your organization to chat and meet with people outside the organization who are using Microsoft as an identity provider.
+You can enable Teams users from another entire external domain to find, call, chat, and set up meetings with your users with Teams Federation. [Manage external meetings and chat with people and organizations using Microsoft identities](/microsoftteams/trusted-organizations-external-meetings-chat) describes how you can allow users in your organization to chat and meet with people outside the organization who are using Microsoft as an identity provider.
 
 ### Licensing considerations for guest users in Teams
 
