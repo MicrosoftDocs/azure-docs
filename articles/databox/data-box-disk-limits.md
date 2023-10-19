@@ -59,32 +59,37 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure storage account size limits
 
-Here are the limits on the size of data that can be copied into a storage account. Make sure that the data you upload conforms to these limits. 
+[!INCLUDE [data-box-storage-account-size-limits](../../includes/data-box-storage-account-size-limits.md)]
+
+<!--Here are the limits on the size of data that can be copied into a storage account. Make sure that the data you upload conforms to these limits. 
 
 | Type of data             | Default limit          |
 |--------------------------|------------------------|
-| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
-
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|-->
 
 ## Azure object size limits
 
-Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
+[!INCLUDE [data-box-object-size-limits](../../includes/data-box-object-size-limits.md)]
+
+<!--Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
 
 | Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Block Blob        | ~ 4.75 TiB                                                 |
 | Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned, else the upload fails. <br> Both the VHD and VHDX are 512 bytes aligned.) |
 |Azure Files        | 1 TiB <br> Max. size of share is 5 TiB     |
-| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets for managed disks](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets for managed disks](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|-->
 
 
 ## Azure block blob, page blob, and file naming conventions
 
-| Entity                                       | Conventions                                                                                                                                                                                                                                                                                                               |
+[!INCLUDE [data-box-naming-conventions](../../includes/data-box-naming-conventions.md)]
+
+<!--| Entity                                       | Conventions                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Container names for block blob and page blob <br> Fileshare names for Azure Files | Must be a valid DNS name that is 3 to 63 characters long. <br>  Must start with a letter or number. <br> Can contain only lowercase letters, numbers, and the hyphen (-). <br> Every hyphen (-) must be immediately preceded and followed by a letter or number. <br> Consecutive hyphens are not permitted in names. |
 | Directory and file names for Azure files     |<li> Case-preserving, case-insensitive and must not exceed 255 characters in length. </li><li> Cannot end with the forward slash (/). </li><li>If provided, it will be automatically removed. </li><li> Following characters are not allowed: <code>" \\ / : \| < > * ?</code></li><li> Reserved URL characters must be properly escaped. </li><li> Illegal URL path characters are not allowed. Code points like \\uE000 are not valid Unicode characters. Some ASCII or Unicode characters, like control characters (0x00 to 0x1F, \\u0081, etc.), are also not allowed. For rules governing Unicode strings in HTTP/1.1 see RFC 2616, Section 2.2: Basic Rules and RFC 3987. </li><li> Following file names are not allowed: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, dot character (.), and two dot characters (..).</li>|
-| Blob names for block blob and page blob      | Blob names are case-sensitive and can contain any combination of characters. <br> A blob name must be between 1 to 1,024 characters long. <br> Reserved URL characters must be properly escaped. <br>The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (for example, the forward slash '/') that correspond to the name of a virtual directory. |
+| Blob names for block blob and page blob      | Blob names are case-sensitive and can contain any combination of characters. <br> A blob name must be between 1 to 1,024 characters long. <br> Reserved URL characters must be properly escaped. <br>The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (for example, the forward slash '/') that correspond to the name of a virtual directory. | -->
 
 ## Managed disk naming conventions
 
