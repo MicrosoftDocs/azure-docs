@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Use sensitivity labels to help control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They protect content without hindering user collaboration. Use sensitivity labels to send organization-wide content across devices, apps, and services, while protecting data. Sensitivity labels help organizations meet compliance and security policies. 
  
-See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true)
+See, [Learn about sensitivity labels](/purview/sensitivity-labels?preserve-view=true&view=o365-worldwide)
 
 ## Before you begin
 
@@ -33,8 +33,8 @@ Enforce protection settings such as encryption, watermarks, and access restricti
 
 Learn more:
 
-* [Restrict access to content by using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+* [Restrict access to content by using sensitivity labels to apply encryption](/purview/encryption-sensitivity-labels?preserve-view=true&view=o365-worldwide)
+* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
 
 Sensitivity labels on containers can restrict access to the container, but content in the container doesn't inherit the label. For example, a user takes content from a protected site, downloads it, and then shares it without restrictions, unless the content had a sensitivity label.
 
@@ -64,7 +64,7 @@ As you plan the governance of external access to your content, consider content,
 To define High, Medium, or Low Business Impact (HBI, MBI, LBI) for data, sites, and groups, consider the effect on your organization if the wrong content types are shared. 
 
 * Credit card, passport, national/regional ID numbers
-  * [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
+  * [Apply a sensitivity label to content automatically](/purview/apply-sensitivity-label-automatically?preserve-view=true&view=o365-worldwide)
 * Content created by corporate officers: compliance, finance, executive, etc.
 * Strategic or financial data in libraries or sites. 
 
@@ -91,7 +91,7 @@ A sensitivity label in a document or email is customizable, clear text, and pers
 
 Determine the access criteria if Microsoft 365 Groups, Teams, or SharePoint sites are restricted with sensitivity labels. You can label content in containers or use automatic labeling for files in SharePoint, OneDrive, etc.
 
-Learn more: [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+Learn more: [Get started with sensitivity labels](/purview/get-started-with-sensitivity-labels?preserve-view=true&view=o365-worldwide)
 
 #### Sensitivity labels on containers
 
