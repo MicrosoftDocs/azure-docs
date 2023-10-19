@@ -128,6 +128,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 
 The IP address created earlier can now be assigned to the firewall frontend.
 
+
 > [!NOTE]
 > Set up of the public IP address to the Azure Firewall may take a few minutes.
 > To leverage FQDN on network rules we need DNS proxy enabled, when enabled the firewall will listen on port 53 and will forward DNS requests to the DNS server specified previously. This will allow the firewall to translate that FQDN automatically.
