@@ -15,7 +15,7 @@ ms.subservice: azure-arc-scvmm
 
 # Install Arc agents using a script
 
-In this article, you learn how to install Arc agents on Azure-enabled SCVMM VMs using a script.
+In this article, you will learn how to install Arc agents on Azure-enabled SCVMM VMs using a script.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Ensure the following before you install Arc agents using a script for SCVMM VMs:
 - The target machine:
      - Is powered on and the resource bridge has network connectivity to the host running the VM.
      - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
-     - Is able to connect through the firewall to communicate over the internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
+     - Is able to connect through the firewall to communicate over the Internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
      - Has Azure CLI [installed](https://learn.microsoft.com/cli/azure/install-azure-cli).
      - Has the Arc agent installation script downloaded from [here](https://download.microsoft.com/download/7/1/6/7164490e-6d8c-450c-8511-f8191f6ec110/arcscvmm-enable-guest-management.ps1).
 
