@@ -114,7 +114,7 @@ Microsoft Graph APIs are highly customizable based on your organizational needs.
 
 | Resource types| Reference links |
 | - | - | 
-| Users, groups, and other directory objects| [directoryObject API](/graph/api/resources/directoryObject) |
+| Users, groups, and other directory objects| [directoryObject API](/graph/api/resources/directoryobject) |
 | Directory roles| [directoryRole API](/graph/api/resources/directoryrole) |
 | Conditional Access policies| [Conditional Access policy API](/graph/api/resources/conditionalaccesspolicy) |
 | Devices| [devices API](/graph/api/resources/device) |

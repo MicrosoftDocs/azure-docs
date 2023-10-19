@@ -128,7 +128,7 @@ For this request we'll use the follow HTTP request parameters to create the SAS 
 }
 ```
 
-These parameters are included in the POST body of the request for the SAS credential. For more information on the parameters for creating a SAS credential, see the [List Service SAS REST reference](/rest/api/storagerp/storageaccounts/listservicesas).
+These parameters are included in the POST body of the request for the SAS credential. For more information on the parameters for creating a SAS credential, see the [List Service SAS REST reference](/rest/api/storagerp/storage-accounts/list-service-sas).
 
 First, convert the parameters to JSON, then call the storage `listServiceSas` endpoint to create the SAS credential:
 

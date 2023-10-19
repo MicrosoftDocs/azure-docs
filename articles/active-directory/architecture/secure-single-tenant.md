@@ -59,7 +59,7 @@ In this diagram, there are nonproduction Azure resources and nonproduction insta
 >[!NOTE]
 >You cannot have more than one Microsoft 365 environment in a single Microsoft Entra tenant. However, you can have multiple Dynamics 365 environments in a single Microsoft Entra tenant.
 
-Another scenario for isolation within a single tenant could be separation between locations, subsidiary or implementation of tiered administration (according to the "[Enterprise Access Model](/security/compass/privileged-access-access-model)").
+Another scenario for isolation within a single tenant could be separation between locations, subsidiary or implementation of tiered administration (according to the "[Enterprise Access Model](/security/privileged-access-workstations/privileged-access-access-model)").
 
 Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Microsoft Entra ID allows granular management of Microsoft Entra ID trusting applications through multiple capabilities such as Conditional Access, user and group filtering, administrative unit assignments and application assignments.
 
