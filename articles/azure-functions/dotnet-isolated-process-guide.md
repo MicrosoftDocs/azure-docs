@@ -546,13 +546,13 @@ var host = new HostBuilder()
     .Build();
 ```
 
-As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeExceptions` property to "true" as part of configuring the builder:
+As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to "true" as part of configuring the builder:
 
 ```csharp
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
     {
-        options.EnableUserCodeExceptions = true;
+        options.EnableUserCodeException = true;
     })
     .Build();
 ```
