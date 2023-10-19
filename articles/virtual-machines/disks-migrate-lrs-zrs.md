@@ -6,6 +6,7 @@ ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 10/19/2023
 ms.author: rogarana
+ms.custom: references_regions
 ---
 
 # Convert a disk from LRS to ZRS
