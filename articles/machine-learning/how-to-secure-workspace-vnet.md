@@ -57,7 +57,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
-* If your Azure Container Registry uses a __private endpoint__, it must be in the same _virtual network_ as the storage account and compute targets used for training or inference. If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
+* If your Azure Container Registry uses a __private endpoint__, we _recommend_ that it be in the same _virtual network_ as the storage account and compute targets used for training or inference. However it can also be in a [peered](/virtual-network/virtual-network-peering-overview) VNet.
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
@@ -171,7 +171,7 @@ Azure Machine Learning uses an associated Key Vault instance to store the follow
 Azure key vault can be configured to use either a private endpoint or service endpoint. To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
 
 > [!TIP]
-> Regardless of whether you use a private endpoint or service endpoint, the key vault must be in the same network as the private endpoint of the workspace.
+> We recommend placing the key vault in the same VNet as your workspace, however it can also be in a [peered](/virtual-network/virtual-network-peering-overview) VNet.
 
 # [Private endpoint](#tab/pe)
 
