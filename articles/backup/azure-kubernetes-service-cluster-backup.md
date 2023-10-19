@@ -187,6 +187,35 @@ As a part of AKS backup capability, you can back up all or specific cluster reso
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot shows various backup configurations.":::
 
+
+## Use Hooks during backup
+
+This section describes how to use Backup Hook to do Application Consistent Snapshots of the AKS cluster with MySQL deployed (Persistent Volume with containing the MySQL). 
+
+
+
+You  can now use the Custom Hooks capability available in Azure Backup for AKS that helps to do Application Consistent Snapshots of Volumes, which are used for databases deployed as containerized workloads.
+
+Azure Backup performs To take an application consistent snapshot of a Volume with MySQL deployed, do the following actions:
+
+1.	The Pod running MySQL is frozen so that no new transaction is performed on the database.
+2.	A Snapshot is taken of the Volume as backup.
+3.	The Pod running MySQL is unfrozen so that transactions can be performed again on the database. 
+
+By using Backup Hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup Extension takes care of the responsibility of orchestrating the steps of running the commands provided in Hooks and taking the Volume snapshot. 
+
+Now to enable a Backup Hook as part of the configure backup flow to backup MySQL is below
+
+1.	Write down the Custom Resource for Backup Hook with commands to freeze and unfreeze a Postgres Pod. Below is a sample YAML script  “postgresbackuphook.yaml” with pre-defined commands 
+
+
+
+
+
+
+
+
+
 ## Next steps
 
 - [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
