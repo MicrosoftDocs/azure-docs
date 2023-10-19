@@ -5,7 +5,7 @@ keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognit
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 09/01/2022
 ms.author: aahi
@@ -129,7 +129,7 @@ az group delete --name $resourceGroupName
 
 ---
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](recover-purge-resources.md).
 
 ## See also
 

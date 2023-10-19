@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for FedRAMP High
 description: Details of the FedRAMP High Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/19/2023
+ms.date: 10/18/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -4353,9 +4353,9 @@ Policy And Procedures
 |[Perform security function verification at a defined frequency](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff30edfad-4e1d-1eef-27ee-9292d6d89842) |CMA_C1709 - Perform security function verification at a defined frequency |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1709.json) |
 |[Verify security functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fece8bb17-4080-5127-915f-dc7267ee8549) |CMA_C1708 - Verify security functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1708.json) |
 
-### Software, Firmware, And Information Integrity
+### Security Function Verification
 
-**ID**: FedRAMP High SI-7
+**ID**: FedRAMP High SI-6
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

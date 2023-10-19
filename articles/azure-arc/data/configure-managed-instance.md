@@ -4,6 +4,7 @@ description: Configure Azure Arc-enabled SQL managed instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -200,4 +201,3 @@ Trace flags can be enabled as follows:
 ```azurecli
 az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --trace-flags "3614,1234" 
 ```
-

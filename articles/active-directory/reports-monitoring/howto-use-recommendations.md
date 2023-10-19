@@ -17,7 +17,7 @@ ms.reviewer: hafowler
 
 The Microsoft Entra recommendations feature provides you with personalized insights with actionable guidance to:
 
-- Help you identify opportunities to implement best practices for Microsoft Entra ID-related features.
+- Help you identify opportunities to implement best practices for Microsoft Entra related features.
 - Improve the state of your Microsoft Entra tenant.
 - Optimize the configurations for your scenarios.
 
@@ -154,4 +154,4 @@ GET /directory/recommendations/{recommendationId}/impactedResources
 ## Next steps
 
 - [Review the Microsoft Entra recommendations overview](overview-recommendations.md)
-- [Learn about Service Health notifications](overview-service-health-notifications.md)
+- [Learn about Service Health notifications](/azure/service-health/service-health-portal-update)

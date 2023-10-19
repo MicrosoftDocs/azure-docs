@@ -60,15 +60,12 @@ Microsoft Entra hybrid join supports a broad range of Windows devices. Because t
   - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019
 
-For devices running the Windows desktop operating system, supported versions are listed in this article [Windows 10 release information](/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows.
+For devices running the Windows desktop operating system, supported versions are listed in this article [Windows 10 release information](/windows/release-health/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows.
 
 ### Windows down-level devices
 
-- Windows 8.1
-- Windows 7 support ended on January 14, 2020. For more information, see [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 for support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008)
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
@@ -87,7 +84,7 @@ As a first planning step, you should review your environment and determine wheth
 
 - If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Microsoft Entra ID as Microsoft Entra hybrid joined.
 
-- If you're using [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is Microsoft Entra hybrid joined. Enabling such technologies before completion of Microsoft Entra hybrid join will result in the device getting unjoined on every reboot.
+- If you're using [Unified Write Filter](/windows/iot/iot-enterprise/customize/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is Microsoft Entra hybrid joined. Enabling such technologies before completion of Microsoft Entra hybrid join will result in the device getting unjoined on every reboot.
 
 <a name='handling-devices-with-azure-ad-registered-state'></a>
 

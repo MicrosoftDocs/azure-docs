@@ -60,7 +60,7 @@ You'll use Service Connector to create a new service connection in Container App
 
     ### [SMI](#tab/SMI)
 
-    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's automatically generated in Azure Active Directory and tied to the lifecycle of the service instance.
+    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's automatically generated in Microsoft Entra ID and tied to the lifecycle of the service instance.
 
     ### [UMI](#tab/UMI)
 
@@ -82,7 +82,7 @@ You'll use Service Connector to create a new service connection in Container App
 
     ### [Service principal](#tab/SP)
 
-    1. Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
+    1. Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
     1. Select a service principal from the list and enter a **secret**
 
     ---

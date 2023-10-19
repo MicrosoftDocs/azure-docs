@@ -30,4 +30,4 @@ Additionally, certain Microsoft Entra features don't yet support storage of Cust
 
 ## Azure role-based access control (Azure RBAC)
 
-Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md#where-is-azure-rbac-data-stored).
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. For more information, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview#where-is-azure-rbac-data-stored).

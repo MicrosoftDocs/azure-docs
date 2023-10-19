@@ -86,6 +86,16 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 
     The request you submitted is now listed in **Pending Requests**.
 
+
+## Following are the time limits per frequency type while creating the request.
+| Frequency Type                | Time Limit (in hours)                |
+|----------------------------|-----------------------------------|
+|ASAP                        |    24                  |
+|Once                        |    2160                |
+|Daily                        |    23                  |
+|Weekly                        |    23                |
+|Monthly                    |    672                    |
+
 ## Approve or reject a request for permissions
 
 1. On the Permissions Management home page, select the **Remediation** tab, and then select the **My requests** subtab.

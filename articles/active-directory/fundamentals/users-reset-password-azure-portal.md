@@ -60,11 +60,8 @@ Administrators can reset a user's password if the password is forgotten, if the 
 After you've reset your user's password, you can perform the following basic processes:
 
 - [Add or delete users](./add-users.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Add or change profile information](./how-to-manage-user-profile-info.md)
-
 - [Create a basic group and add members](./how-to-manage-groups.md)
 
 Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Microsoft Entra user management documentation](../enterprise-users/index.yml).

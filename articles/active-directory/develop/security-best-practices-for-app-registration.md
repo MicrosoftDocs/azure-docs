@@ -67,7 +67,7 @@ Consider the following guidance related to certificates and secrets:
 - If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
 - Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
 - Monitor your production pipelines to prevent credentials of any kind from being committed into code repositories.
-- [Credential Scanner](../../security/develop/security-code-analysis-overview.md#credential-scanner) is a static analysis tool that can be used to detect credentials (and other sensitive content) in source code and build output.
+- [Credential Scanner](/previous-versions/azure/security/develop/security-code-analysis-overview#credential-scanner) is a static analysis tool that can be used to detect credentials (and other sensitive content) in source code and build output.
 
 ## Application ID URI
 

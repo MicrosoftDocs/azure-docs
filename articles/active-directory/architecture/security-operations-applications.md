@@ -65,23 +65,23 @@ The log files you use for investigation and monitoring are:
 
 * [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
+* [Sign-in logs](../reports-monitoring/concept-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
+* [Microsoft 365 Audit logs](/purview/audit-solutions-overview)
 
-* [Azure Key Vault logs](../../key-vault/general/logging.md)
+* [Azure Key Vault logs](/azure/key-vault/general/logging)
 
-From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra ID logs with other tools, which allow more automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools, which allow more automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level with security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](/azure/sentinel/overview)** – enables intelligent security analytics at the enterprise level with security information and event management (SIEM) capabilities.
 
 * **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where there are Sigma templates for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** – automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](/azure/azure-monitor/overview)** – automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Microsoft Entra ID logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](/azure/event-hubs/event-hubs-about) integrated with a SIEM**- [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/howto-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
-* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)** – discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - detects risk on workload identities across sign-in behavior and offline indicators of compromise.
 
@@ -108,7 +108,7 @@ Many applications use credentials to authenticate in Microsoft Entra ID. Any oth
 
 * Azure Monitor – [Microsoft Entra workbook to help you assess Solorigate risk - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
-* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
+* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/defender-cloud-apps/investigate-anomaly-alerts)
 
 * PowerShell - [Sample PowerShell script to find credential lifetime](https://github.com/madansr7/appCredAge).
 
@@ -134,7 +134,7 @@ Applications should follow the principle of least privilege. Investigate applica
 | Application permissions (app roles) for other APIs are granted |Medium| Microsoft Entra audit logs| “Add app role assignment to service principal”, <br>-where-<br>Target(s) identifies any other API.| Alert as in the preceding row.<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Highly privileged delegated permissions are granted on behalf of all users |High| Microsoft Entra audit logs| “Add delegated permission grant”, where Target(s) identifies an API with sensitive data (such as Microsoft Graph), <br> DelegatedPermissionGrant.Scope includes high-privilege permissions, <br>-and-<br>DelegatedPermissionGrant.ConsentType is “AllPrincipals”.| Alert as in the preceding row.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ServicePrincipalAssignedAppRoleWithSensitiveAccess.yaml)<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/AzureADRoleManagementPermissionGrant.yaml)<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/SuspiciousOAuthApp_OfflineAccess.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-For more information on monitoring app permissions, see this tutorial: [Investigate and remediate risky OAuth apps](/cloud-app-security/investigate-risky-oauth).
+For more information on monitoring app permissions, see this tutorial: [Investigate and remediate risky OAuth apps](/defender-cloud-apps/investigate-risky-oauth).
 
 ### Azure Key Vault
 
@@ -142,9 +142,9 @@ Use Azure Key Vault to store your tenant’s secrets. We recommend you pay atten
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)| Resource type: Key Vaults| Look for: any access to Key Vault outside regular processes and hours, any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](/azure/key-vault/general/logging?tabs=Vault)| Resource type: Key Vaults| Look for: any access to Key Vault outside regular processes and hours, any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-After you set up Azure Key Vault, [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli). See [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone, text, or [Event Grid](../../key-vault/general/event-grid-overview.md) notification, if health is affected. In addition, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights gives you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
+After you set up Azure Key Vault, [enable logging](/azure/key-vault/general/howto-logging?tabs=azure-cli). See [how and when your Key Vaults are accessed](/azure/key-vault/general/logging?tabs=Vault), and [configure alerts](/azure/key-vault/general/alert) on Key Vault to notify assigned users or distribution lists via email, phone, text, or [Event Grid](/azure/key-vault/general/event-grid-overview) notification, if health is affected. In addition, setting up [monitoring](/azure/key-vault/general/alert) with Key Vault insights gives you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) also has some [example queries](/azure/azure-monitor/logs/queries) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
 
 ### End-user consent
 
@@ -152,7 +152,7 @@ After you set up Azure Key Vault, [enable logging](../../key-vault/general/howto
 |-|-|-|-|-|
 | End-user consent to application| Low| Microsoft Entra audit logs| Activity: Consent to application / ConsentContext.IsAdminConsent = false| Look for: high profile or highly privileged accounts, app requests high-risk permissions, apps with suspicious names, for example generic, misspelled, etc.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AuditLogs/ConsentToApplicationDiscovery.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-The act of consenting to an application isn't malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](../../security/fundamentals/steps-secure-identity.md).
+The act of consenting to an application isn't malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](/azure/security/fundamentals/steps-secure-identity).
 
 For more information on consent operations, see the following resources:
 
@@ -160,7 +160,7 @@ For more information on consent operations, see the following resources:
 
 * [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
-* [Incident response playbook - App consent grant investigation](/security/compass/incident-response-playbook-app-consent)
+* [Incident response playbook - App consent grant investigation](/security/operations/incident-response-playbook-app-consent)
 
 ### End user stopped due to risk-based consent
 
@@ -180,8 +180,8 @@ Monitor application authentication using the following formation:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Applications that are using the ROPC authentication flow|Medium | Microsoft Entra Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow. This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
-|Applications using the Device code flow |Low to medium|Microsoft Entra Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows appear, without a need for them, investigate for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| Applications that are using the ROPC authentication flow|Medium | Microsoft Entra sign-in log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow. This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+|Applications using the Device code flow |Low to medium|Microsoft Entra sign-in log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows appear, without a need for them, investigate for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Application configuration changes
 
@@ -191,8 +191,8 @@ Monitor changes to application configuration. Specifically, configuration change
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Dangling URI| High| Microsoft Entra ID Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Redirect URI configuration changes| High| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Dangling URI| High| Microsoft Entra logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Redirect URI configuration changes| High| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 Alert when these changes are detected.
 
@@ -200,7 +200,7 @@ Alert when these changes are detected.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to AppID URI| High| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update<br>Application<br>Activity: Update Service principal| Look for any AppID URI modifications, such as adding, modifying, or removing the URI.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationIDURIChanged.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to AppID URI| High| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update<br>Application<br>Activity: Update Service principal| Look for any AppID URI modifications, such as adding, modifying, or removing the URI.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationIDURIChanged.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 Alert when these changes are detected outside approved change management procedures.
 
@@ -208,25 +208,25 @@ Alert when these changes are detected outside approved change management procedu
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to application ownership| Medium| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Add owner to application| Look for any instance of a user being added as an application owner outside of normal change management activities.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationOwnership.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to application ownership| Medium| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Add owner to application| Look for any instance of a user being added as an application owner outside of normal change management activities.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationOwnership.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 ### Log-out URL modified or removed
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to log-out URL| Low| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| Changes to log-out URL| Low| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Resources
 
 * GitHub Microsoft Entra toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
-* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
+* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](/azure/key-vault/general/security-features)
 
 * Solorgate risk information and tools - [Microsoft Entra workbook to help you access Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
-* OAuth attack detection guidance - [Unusual addition of credentials to an OAuth app](/cloud-app-security/investigate-anomaly-alerts)
+* OAuth attack detection guidance - [Unusual addition of credentials to an OAuth app](/defender-cloud-apps/investigate-anomaly-alerts)
 
-* Microsoft Entra ID monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](../..//azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
+* Microsoft Entra monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs)
 
 ## Next steps
 

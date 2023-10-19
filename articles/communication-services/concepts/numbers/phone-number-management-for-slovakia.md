@@ -22,7 +22,7 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
-
+|Alphanumeric Sender ID\**|General Availability      |-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -37,13 +37,16 @@ More details on eligible subscription types are as follows:
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
+| Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go|           
 
 
 ## Azure subscription billing locations where Slovakia phone numbers are available
 | Country/Region |
 | :---------- |
 |Slovakia|
-
+|United States|
+|Canada|
+|United Kingdom|
 
 ## Find information about other countries/regions
 

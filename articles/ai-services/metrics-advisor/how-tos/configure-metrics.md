@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # Configure metrics and fine tune detection configuration
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Use this article to start configuring your Metrics Advisor instance using the web portal and fine-tune the anomaly detection results.
 
 ## Metrics
