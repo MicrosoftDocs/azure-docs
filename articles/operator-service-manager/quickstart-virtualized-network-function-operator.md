@@ -12,12 +12,6 @@ ms.service: azure-operator-service-manager
 
 This quickstart contains the prerequisite tasks for Operator and Virtualized Network Function (VNF). While it's possible to automate these tasks within your NSD (Network Service Definition), in this quickstart, the actions are performed manually.
 
-## Permissions
-
-To perform these tasks, you need either the 'Owner' or 'User Access Administrator' role in both the operator and the Network Function Definition Publisher Resource Groups. You created the operator Resource Group in prior tasks and would have called it OperatorResourceGroup.  The Network Function Definition Publisher Resource Group was created  in [Quickstart: Publish Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)](quickstart-publish-virtualized-network-function-definition.md) and named ubuntu-publisher-rg in the input.json file.
-
-In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the deployment of the Virtual Network Function and the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
-
 ## Deploy prerequisites for Virtual Machine (VM)
 
 1. Follow the actions to [Create resource groups](../azure-resource-manager/management/manage-resource-groups-cli.md) for the prerequisites in the same region as your Publisher resources.
@@ -143,6 +137,8 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 To perform this task, you need either the 'Owner' or 'User Access Administrator' role in the respective Resource Group.
 In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-sns* inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service. (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
 
+In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the deployment of the Virtual Network Function and the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
+
 ### Grant Contributor role to Managed Identity
 
 1. Access the Azure portal and open the Resource Group created earlier in this case *OperatorResourceGroup*.
@@ -169,7 +165,8 @@ In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-s
 1. On the side menu, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
 
-    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment."::: 
+    :::image type="content" source="media/quickstart-virtual-network-function-operator-add-role-assignment-screen.png" alt-text="Screenshot showing the identity for ubuntu VM SNS add role assignment.":::
+
 
 1. Select the **Managed Identity Operator** role.
 
