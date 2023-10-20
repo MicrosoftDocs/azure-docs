@@ -54,7 +54,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 > [!div class="nextstepaction"]
 > [Get started with sending sms](../../quickstarts/sms/send.md)
 
-The following documents may be interesting to you:
+The following documents might be interesting to you:
 
 - Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
