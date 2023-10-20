@@ -22,7 +22,11 @@ In this article, we will explain what types of the authentication are available 
 
 ## Types of operations
 
-There are two types of operations on online endpoints: control plane operations and data plane operations. Control plane operations are operations that control the online endpoints themselves, such as create, read, update and delete (CRUD) operations on online endpoints and online deployments. Data plane operations are operations that don't change the online endpoints but interact with them with data, such as sending a scoring request to the online endpoint and getting a response from it.
+There are two types of operations on online endpoints: control plane operations and data plane operations.
+
+- Control plane operations are operations that control the online endpoints themselves, such as create, read, update and delete (CRUD) operations on online endpoints and online deployments. For online endpoints/deployments, request to control plane goes to the workspace. 
+- Data plane operations are operations that don't change the online endpoints but interact with them with data, such as sending a scoring request to the online endpoint and getting a response from it. For online endpoints/deployments, request to data plane goes to the scoring Uri of the online endpoint.
+
 
 ## Control plane authentication and authorization
 
@@ -40,6 +44,13 @@ For control plane operations, you will need to have a proper Azure role-based ac
 | Delete operations on online endpoints and deployments | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete` on the scope of workspace. |
 | Create/update/delete operations on online endpoints and deployments via ML Studio | Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` on the scope of resource group where the workspace belongs. |
 | Read operations on online endpoints and deployments | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read` on the scope of workspace. |
+| Fetch an Azure Machine Learning token (`aml_token`) for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` on the scope of endpoint. |
+| Fetch a key for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action` on the scope of endpoint. |
+| Regenerate keys for online endpoints (both managed and Kubernetes) | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action` on the scope of endpoint. |
+| Fetch a Microsoft Entra token (`aad_token`) for invoking *managed* online endpoints | - |
+
+> [!NOTE]
+> You can fetch Microsoft Entra token (`aad_token`) directly from Microsoft Entra ID, and you don't need Azure RBAC permission on the workspace.
 
 See [Manage access to Azure Machine Learning](how-to-assign-roles.md) for more.
 
@@ -51,17 +62,12 @@ For data plane operations, you can choose from 3 types of authentication: key, A
 
 ### Authorization for data plane operations
 
-For data plane operations, you will need to have a proper Azure role-based access control (Azure RBAC) allowed for your identity of choice to your resources. Specifically for data plane operations on online endpoints, you will need the identity to have the role assigned with the below actions:
+For data plane operations, you will need to have a proper Azure role-based access control (Azure RBAC) allowed for your identity of choice to your resources, only if you endpoint is set to use Microsoft Entra token (`aad_token`). Specifically for data plane operations on online endpoints, you will need the identity to have the role assigned with the below actions:
 
 | To do... | Required Azure RBAC action |
 | -- | -- |
 | Invoke *managed* online endpoints with Microsoft Entra token (`aad_token`). | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` on the scope of endpoint. |
-| Fetch an Azure Machine Learning token (`aml_token`) for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` on the scope of endpoint. |
-| Fetch a key for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action` on the scope of endpoint. |
-| Regenerate keys for online endpoints (both managed and Kubernetes) | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action` on the scope of endpoint. |
-
-> [!NOTE]
-> For Microsoft Entra Auth(`aad_token`), you will get the token directly from Microsoft Entra ID, and you don't need additional permission on the workspace, other than the above.
+| Invoke online endpoints with key or Azure Machine Learning token (`aml_token`). | - |
 
 
 ## Assigning roles for authorization
