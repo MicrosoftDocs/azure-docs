@@ -42,8 +42,6 @@ items:
     href: receive-real-time-telemetry.md
   - name: Use Azure Resource Graph Queries
     href: resource-graph-samples.md
-  - name: Cancel a contact
-    href: delete-contact.md
     
 - name: Tutorials
   items:
