@@ -75,7 +75,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
    
    - **Step 3: Ensuring proper peering configuration:**
 
-   Verify that any peering connections or routes between your cluster and external networks are correctly established for both IPv4 and IPv6 traffic.
+If the configurations in steps 1 and 2 are correct but traffic issues persist, please ensure that any peering connections or routes between your cluster and external networks are properly established for both IPv4 and IPv6 traffic.
 
    Action: Review and update peering configurations as necessary to accommodate dual stack traffic.
 
