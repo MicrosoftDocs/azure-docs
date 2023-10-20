@@ -20,12 +20,12 @@ Learn more about [Backup extension](./azure-kubernetes-service-cluster-backup-co
 
 Before you start:
 
-1. Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](./azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
+1. You must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level before you install an extension in an AKS cluster. [Learn more](./azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
 2. In case you have the cluster within a private virtual network and firewall, allowlist the `*.blob.core.windows.net` container.
     Backup extension uses these container images and if they are not accessible, the extension won't be installed.
 3. Backup extension requires a storage account and a blob container in input. In case the AKS cluster is inside a private virtual network, enable private endpoint between the storage account and the AKS cluster by following these steps.
-4.	Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
-5.	In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
+   1. Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
+   2. In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
 6.	Specific FQDN application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extensions).
 
 

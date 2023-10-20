@@ -63,7 +63,7 @@ To configure backup of an AKS cluster, follow these steps:
         1. **Labels**: You can filter Kubernetes resources by [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) assigned to them. The labels are entered in the form of *key-value* pair where multiple labels can be combined with an `AND` logic. 
              For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the key *"env"* having the value *"prod"* and a label with the key *"tier"* for which the value that isn't *"web"*. These resources will be backed up.
         
-        1. **API Groups**: You can also pick up resources by providing the Kubernetes API group and Kind. Thus, you can choose for backup Kubernetes resources such as *Deployments*.
+        1. **API Groups**: You can also pick up resources by providing the Kubernetes API group and Kind. So, you can choose for backup Kubernetes resources such as *Deployments*.
         
         1. **Other options**: You can select the checkbox and enable or disable backup for Cluster scoped resources, Persistent Volumes and Secrets.
     

@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Quickstart: Configure backup of an AKS cluster 
 
-This quickstart how to configure backup of an AKS Cluster and utilize the Backup configuration to back up specific items from the cluster. 
+This quickstart describes how to configure backup of an AKS Cluster and utilize the Backup configuration to back up specific items from the cluster. 
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations.
 
@@ -39,14 +39,14 @@ To configure backup of an AKS cluster, follow these steps:
     >[!NOTE]
     >Before you enable *Trusted Access*, enable the `TrustedAccessPreview` feature flag for the Microsoft.ContainerServices resource provider on the subscription.
 
-1. Select the backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
+1. Select the backup policy, which defines the schedule for backups and their retention period, and then select **Next**.
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot showing Backup policy page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
 
 1. Select **Add/Edit** to define the Backup Instance configuration.
     
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot showing the Add/Edit option for configure backup." lightbox="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png":::
 
-1. In the context pane, define the cluster resources you want to back up. Learn about [backup configurations](./azure-kubernetes-service-cluster-backup-concept.md).
+1. In the context pane, define the cluster resources you want to back up. [Learn more](./azure-kubernetes-service-cluster-backup-concept.md).
     :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to the Backup pane." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
 
 1. Select **Snapshot resource group** where the Persistent volumes (Azure Disk) snapshots will be stored. Then select **Validate**.  
