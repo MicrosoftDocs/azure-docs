@@ -24,8 +24,6 @@ This guide provides detailed steps for troubleshooting issues related to setting
 * Connected IPV4 and IPV6
 * Necessary permissions to make changes to the cluster configuration.
 
-
-
 ## Dual-stack configuration 
 
 Dual-stack configuration involves running both IPv4 and IPv6 protocols on your CNI network. This allows Kubernetes services that support both protocols to communicate over either IPv4 or IPv6.
@@ -38,27 +36,17 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
 
    - **Step 1: Verifying dual-stack L3 network**
 
-Ensure that your L3 network, which is used as the CNI, is configured correctly to handle both IPv4 and IPv6 traffic. You can use the following command to verify this.
+  Make certain that your Layer 3 (L3) network, serving as the Container Network Interface (CNI), is properly set up to manage both IPv4 and IPv6 traffic. Utilize the `az networkcloud l3network show` command for validation.
+   - Example:
 
-     ```bash
-     az networkcloud l3network create --name "<YourL3NetworkName>" \
-         --resource-group "<YourResourceGroupName>" \
-         --subscription "<YourSubscription>" \
-         --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
-         --location "<ClusterAzureRegion>" \
-         --ip-allocation-type "DualStack" \
-         --ipv4-connected-prefix "<YourNetworkIpv4Prefix>" \
-         --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
-         --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
-         --vlan <YourNetworkVlan>
-         
-     ``` 
+> [!NOTE]
+> For instructions on creating an L3 network, please refer to the [prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md)
 
    - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
   To ensure proper configuration for dual-stack networking in your Nexus Kubernetes cluster, follow these steps:
   
-  1. Execute the command `az network cloud kubernetes-cluster show` to retrieve information about your cluster.
+  1. Execute the command `az networkcloud kubernetes-cluster show` to retrieve information about your cluster.
   2. Examine the `networkConfiguration` section in the Nexus Kubernetes cluster configuration.
   3. Confirm that `podCidrs` and `serviceCidrs` are set as arrays, each containing one IPv4 prefix and one IPv6 prefix.
   4. Thoroughly review the cluster configuration settings to validate CIDR assignments.
