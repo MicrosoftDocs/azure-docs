@@ -57,19 +57,19 @@ ms.service: azure-operator-service-manager
     
     ```json
     { 
-        "nginx-nfdg": { 
-            "deploymentParameters": { 
-                "service_port": 5222, 
-                "serviceAccount_create": false 
-            }, 
-            "customLocationId": "<resource id of your custom location>", 
-            "nginx_nfdg_nfd_version": "1.0.0" 
+    "nginx-nfdg": { 
+        "deploymentParameters": { 
+            "service_port": 5222, 
+            "serviceAccount_create": false 
         }, 
-        "managedIdentity": ""
+        "customLocationId": "<resource id of your custom location>", 
+        "nginx_nfdg_nfd_version": "1.0.0" 
+    }, 
+    "managedIdentity": "`<managed-identity-resource-id>"
     }
     ```
 
-   > [!NOTE]
+   > [!TIP]
    > Refer to the Retrieve Custom Location section for config group value for the customlocationID. For more information, see [Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)](quickstart-containerized-network-function-operator.md).
 
 10. Allow the deployment state to reach a state of **Succeeded**. This status indicates your CNF is up and running.
