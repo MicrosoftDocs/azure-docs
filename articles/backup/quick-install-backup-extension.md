@@ -25,8 +25,8 @@ Before you start:
     Backup extension uses these container images and if they are not accessible, the extension won't be installed.
 3. Backup extension requires a storage account and a blob container in input. In case the AKS cluster is inside a private virtual network, enable private endpoint between the storage account and the AKS cluster by following these steps.
 4.	Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
-5.	In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](https://learn.microsoft.com/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
-6.	Specific FQDN application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extension).
+5.	In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
+6.	Specific FQDN application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extensions).
 
 
 ## Install Backup extension in an AKS cluster
