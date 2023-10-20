@@ -333,7 +333,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-workspace-resource.md).
+> - To get started, you need a connection string. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
@@ -342,7 +342,6 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
-
 
 ### Enable-InstrumentationEngine
 
@@ -393,6 +392,13 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 
 #### Examples
 
+##### Example with a single connection string
+In this example, all apps on the current computer are assigned a single connection string.
+
+```powershell
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/'
+```
+
 ##### Example with a single instrumentation key
 In this example, all apps on the current computer are assigned a single instrumentation key.
 
@@ -421,6 +427,9 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 > The naming of AppFilter in this context can be confusing, `AppFilter` sets the application name regex filter (HostingEnvironment.SiteName in the case of .NET on IIS). `VirtualPathFilter` sets the virtual path regex filter (HostingEnvironment.ApplicationVirtualPath in the case of .NET on IIS). To instrument a single app you would use the VirtualPathFilter as follows: `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
 
 #### Parameters
+
+##### -ConnectionString
+**Required.** Use this parameter to supply a single connection string for use by all apps on the target computer.
 
 ##### -InstrumentationKey
 **Required.** Use this parameter to supply a single instrumentation key for use by all apps on the target computer.
