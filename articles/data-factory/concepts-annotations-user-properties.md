@@ -47,7 +47,7 @@ To monitor User properties, go to the Activity runs monitoring view. Here you se
 
 ![Screenshot showing how to use User Properties in the Monitor tab.](./media/concepts-annotations-user-properties/monitor-user-properties.png "Monitor User Properties")
 
-You can remove some from the view if you select on the Bookmark sign:
+You can remove some from the view if you select the Bookmark sign:
 
 ![Screenshot showing how to remove User Properties.](./media/concepts-annotations-user-properties/remove-user-properties.png "Remove User Properties")
 
