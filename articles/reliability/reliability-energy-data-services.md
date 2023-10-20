@@ -43,7 +43,7 @@ During a zone-wide outage, no action is required during zone recovery. There may
 
 Azure Data Manager for Energy is a regional service and, therefore, is susceptible to region-down service failures. Azure Data Manager for Energy follows an active-passive failover configuration to recover from regional disaster. An active-passive configuration keeps warm Azure Data Manager for Energy resource running in the secondary region, but doesn't send traffic there unless the primary region fails. 
 
-:::image type="content" source="media/reliability-energy-data-services/cross-region-disaster-recovery.png" alt-text="Diagram of Azure data manager for energy cross region disaster recovery workflow." lightbox="media/reliability-energy-data-services/cross-region-disaster-recovery.png":::
+:::image type="content" source="../energy-data-services/media/reliability-energy-data-services/cross-region-disaster-recovery.png" alt-text="Diagram of Azure data manager for energy cross region disaster recovery workflow." lightbox="media/reliability-energy-data-services/cross-region-disaster-recovery.png":::
 
 Below is the list of primary and secondary regions for regions where disaster recovery is supported:
 
@@ -67,7 +67,7 @@ Azure Data Manager for Energy service continuously monitors service health in th
 ##### Managing the resources in your subscription
 You must handle the failover of your business apps connecting to Azure Data Manager for Energy resource and hosted in the same primary region. Additionally, you're responsible for recovering any diagnostic logs stored in your Log Analytics Workspace. 
 
-If you [set up private links](how-to-set-up-private-links.md) to your Azure Data Manager for Energy resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions).  
+If you [set up private links](../energy-data-services/how-to-set-up-private-links.md) to your Azure Data Manager for Energy resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](cross-region-replication-azure.md#azure-paired-regions).  
     
 > [!CAUTION]
 > If you don't enable public access networks or create a secondary private endpoint before an outage, you'll lose access to the failed over Azure Data Manager for Energy resource in the secondary region. You will be able to access the Azure Data Manager for Energy resource only after the primary region failback is complete.
@@ -80,4 +80,4 @@ If you [set up private links](how-to-set-up-private-links.md) to your Azure Data
 
 ## Next steps
 
-- [Reliability in Azure](../reliability/availability-zones-overview.md)
+- [Reliability in Azure](availability-zones-overview.md)
