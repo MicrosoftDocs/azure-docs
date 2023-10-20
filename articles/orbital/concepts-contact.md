@@ -54,9 +54,9 @@ If you don't know your spacecraft's pass timings or which ground station sites a
 
 See [how-to schedule a contact](schedule-contact.md) for instructions to use the Azure portal. See [API documentation](/rest/api/orbital/) for instructions to use the Azure Orbital Ground Station API.
 
-## Delete a scheduled contact
+## Cancel a scheduled contact
 
-In order to delete a contact, you must have the following prerequisites:
+In order to cancel a scheduled contact, you must delete the contact resource. You must have the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [authorized](register-spacecraft.md) spacecraft resource.
