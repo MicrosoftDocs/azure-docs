@@ -11,11 +11,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/ad-auth-no-join-linux-vm.md",
-      "redirect_url": "/entra/identity/domain-services/ad-auth-no-join-linux-vm",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/app-provisioning/accidental-deletions.md",
       "redirect_url": "/entra/identity/app-provisioning/accidental-deletions",
       "redirect_document_id": false
@@ -1166,168 +1161,553 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/1-secure-access-posture.md",
-      "redirect_url": "/entra/identity/authentication/1-secure-access-posture",
+      "source_path_from_root": "/articles/active-directory/authentication/certificate-based-authentication-faq.yml",
+      "redirect_url": "/entra/identity/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/10-secure-local-guest.md",
-      "redirect_url": "/entra/identity/authentication/10-secure-local-guest",
+      "source_path_from_root": "/articles/active-directory/authentication/certificate-based-authentication-federation-android.md",
+      "redirect_url": "/entra/identity/authentication/certificate-based-authentication-federation-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/11-onboard-external-user.md",
-      "redirect_url": "/entra/identity/authentication/11-onboard-external-user",
+      "source_path_from_root": "/articles/active-directory/authentication/certificate-based-authentication-federation-get-started.md",
+      "redirect_url": "/entra/identity/authentication/certificate-based-authentication-federation-get-started",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/2-secure-access-current-state.md",
-      "redirect_url": "/entra/identity/authentication/2-secure-access-current-state",
+      "source_path_from_root": "/articles/active-directory/authentication/certificate-based-authentication-federation-ios.md",
+      "redirect_url": "/entra/identity/authentication/certificate-based-authentication-federation-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/3-secure-access-plan.md",
-      "redirect_url": "/entra/identity/authentication/3-secure-access-plan",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-authenticator-app.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-authenticator-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/4-secure-access-groups.md",
-      "redirect_url": "/entra/identity/authentication/4-secure-access-groups",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-default-enablement.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-default-enablement",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/5-secure-access-b2b.md",
-      "redirect_url": "/entra/identity/authentication/5-secure-access-b2b",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-methods-manage.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-methods-manage",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/6-secure-access-entitlement-managment.md",
-      "redirect_url": "/entra/identity/authentication/6-secure-access-entitlement-managment",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-methods.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-methods",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/7-secure-access-conditional-access.md",
-      "redirect_url": "/entra/identity/authentication/7-secure-access-conditional-access",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-oath-tokens.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-oath-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/8-secure-access-sensitivity-labels.md",
-      "redirect_url": "/entra/identity/authentication/8-secure-access-sensitivity-labels",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-operator-assistance.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-operator-assistance",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/9-secure-access-teams-sharepoint.md",
-      "redirect_url": "/entra/identity/authentication/9-secure-access-teams-sharepoint",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-passwordless.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-passwordless",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/architecture-icons.md",
-      "redirect_url": "/entra/identity/authentication/architecture-icons",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-phone-options.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-phone-options",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/architecture.md",
-      "redirect_url": "/entra/identity/authentication/architecture",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-security-questions.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-security-questions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-header-based.md",
-      "redirect_url": "/entra/identity/authentication/auth-header-based",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-strengths.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-strengths",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-kcd.md",
-      "redirect_url": "/entra/identity/authentication/auth-kcd",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-authentication-web-browser-cookies.md",
+      "redirect_url": "/entra/identity/authentication/concept-authentication-web-browser-cookies",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-ldap.md",
-      "redirect_url": "/entra/identity/authentication/auth-ldap",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-certificateuserids.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-certificateuserids",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-oauth2.md",
-      "redirect_url": "/entra/identity/authentication/auth-oauth2",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-limitations.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-limitations",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-oidc.md",
-      "redirect_url": "/entra/identity/authentication/auth-oidc",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-migration.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-migration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-password-based-sso.md",
-      "redirect_url": "/entra/identity/authentication/auth-password-based-sso",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-mobile-android.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-mobile-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-passwordless.md",
-      "redirect_url": "/entra/identity/authentication/auth-passwordless",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-mobile-ios.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-mobile-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-prov-overview.md",
-      "redirect_url": "/entra/identity/authentication/auth-prov-overview",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-smartcard.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-smartcard",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-radius.md",
-      "redirect_url": "/entra/identity/authentication/auth-radius",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-technical-deep-dive.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication-technical-deep-dive",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-remote-desktop-gateway.md",
-      "redirect_url": "/entra/identity/authentication/auth-remote-desktop-gateway",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication.md",
+      "redirect_url": "/entra/identity/authentication/concept-certificate-based-authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-saml.md",
-      "redirect_url": "/entra/identity/authentication/auth-saml",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-fido2-hardware-vendor.md",
+      "redirect_url": "/entra/identity/authentication/concept-fido2-hardware-vendor",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-ssh.md",
-      "redirect_url": "/entra/identity/authentication/auth-ssh",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-authprovider.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-authprovider",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/auth-sync-overview.md",
-      "redirect_url": "/entra/identity/authentication/auth-sync-overview",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-data-residency.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-data-residency",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/automate-provisioning-to-applications-introduction.md",
-      "redirect_url": "/entra/identity/authentication/automate-provisioning-to-applications-introduction",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-howitworks.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-howitworks",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/automate-provisioning-to-applications-solutions.md",
-      "redirect_url": "/entra/identity/authentication/automate-provisioning-to-applications-solutions",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-licensing.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-licensing",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/b2c-deployment-plans.md",
-      "redirect_url": "/entra/identity/authentication/b2c-deployment-plans",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-regional-opt-in.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-regional-opt-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/backup-authentication-system-apps.md",
-      "redirect_url": "/entra/identity/authentication/backup-authentication-system-apps",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-mfa-telephony-fraud.md",
+      "redirect_url": "/entra/identity/authentication/concept-mfa-telephony-fraud",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/backup-authentication-system.md",
-      "redirect_url": "/entra/identity/authentication/backup-authentication-system",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-password-ban-bad-combined-policy.md",
+      "redirect_url": "/entra/identity/authentication/concept-password-ban-bad-combined-policy",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/deployment-plans.md",
-      "redirect_url": "/entra/identity/authentication/deployment-plans",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-password-ban-bad-on-premises.md",
+      "redirect_url": "/entra/identity/authentication/concept-password-ban-bad-on-premises",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/govern-service-accounts.md",
-      "redirect_url": "/entra/identity/authentication/govern-service-accounts",
+      "source_path_from_root": "/articles/active-directory/authentication/concept-password-ban-bad.md",
+      "redirect_url": "/entra/identity/authentication/concept-password-ban-bad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-registration-mfa-sspr-combined.md",
+      "redirect_url": "/entra/identity/authentication/concept-registration-mfa-sspr-combined",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-resilient-controls.md",
+      "redirect_url": "/entra/identity/authentication/concept-resilient-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-sspr-howitworks.md",
+      "redirect_url": "/entra/identity/authentication/concept-sspr-howitworks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-sspr-licensing.md",
+      "redirect_url": "/entra/identity/authentication/concept-sspr-licensing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-sspr-policy.md",
+      "redirect_url": "/entra/identity/authentication/concept-sspr-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-sspr-writeback.md",
+      "redirect_url": "/entra/identity/authentication/concept-sspr-writeback",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-system-preferred-multifactor-authentication.md",
+      "redirect_url": "/entra/identity/authentication/concept-system-preferred-multifactor-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md",
+      "redirect_url": "/entra/identity/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/feature-availability.md",
+      "redirect_url": "/entra/identity/authentication/feature-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/fido2-compatibility.md",
+      "redirect_url": "/entra/identity/authentication/fido2-compatibility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-find-coverage-gaps.md",
+      "redirect_url": "/entra/identity/authentication/how-to-authentication-find-coverage-gaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-methods-manage.md",
+      "redirect_url": "/entra/identity/authentication/how-to-authentication-methods-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-sms-supported-apps.md",
+      "redirect_url": "/entra/identity/authentication/how-to-authentication-sms-supported-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-two-way-sms-unsupported.md",
+      "redirect_url": "/entra/identity/authentication/how-to-authentication-two-way-sms-unsupported",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-certificate-based-authentication.md",
+      "redirect_url": "/entra/identity/authentication/how-to-certificate-based-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-additional-context.md",
+      "redirect_url": "/entra/identity/authentication/how-to-mfa-additional-context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-authenticator-lite.md",
+      "redirect_url": "/entra/identity/authentication/how-to-mfa-authenticator-lite",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-number-match.md",
+      "redirect_url": "/entra/identity/authentication/how-to-mfa-number-match",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-registration-campaign.md",
+      "redirect_url": "/entra/identity/authentication/how-to-mfa-registration-campaign",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-server-migration-utility.md",
+      "redirect_url": "/entra/identity/authentication/how-to-mfa-server-migration-utility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa.md",
+      "redirect_url": "/entra/identity/authentication/how-to-migrate-mfa-server-to-azure-mfa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication.md",
+      "redirect_url": "/entra/identity/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation.md",
+      "redirect_url": "/entra/identity/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-methods-activity.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-methods-activity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-deployment.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-faqs.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-phone.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-phone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-security-key-windows.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-security-key-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-security-key.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-security-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-passwordless-troubleshoot.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-passwordless-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-sms-signin.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-sms-signin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-temporary-access-pass.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-temporary-access-pass",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-authentication-use-email-signin.md",
+      "redirect_url": "/entra/identity/authentication/howto-authentication-use-email-signin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-adfs.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-adfs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-app-passwords.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-app-passwords",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-getstarted.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-getstarted",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-mfasettings.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-mfasettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-nps-extension-advanced.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-nps-extension-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-nps-extension-errors.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-nps-extension-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-nps-extension-rdg.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-nps-extension-rdg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-nps-extension-vpn.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-nps-extension-vpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-nps-extension.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-nps-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-reporting-datacollection.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-reporting-datacollection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-reporting.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-reporting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-server-settings.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-server-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-userdevicesettings.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-userdevicesettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfa-userstates.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfa-userstates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-adfs-2.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-adfs-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-adfs-windows-server.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-adfs-windows-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy-ha.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy-ha",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy-mobileapp.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy-mobileapp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy-upgrade-pf.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy-upgrade-pf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy-upgrade.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy-userportal.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy-userportal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-deploy.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-dir-ad.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-dir-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-dir-ldap.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-dir-ldap",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-dir-radius.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-dir-radius",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-iis.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-iis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-nps-rdg.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-nps-rdg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-nps-vpn.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-nps-vpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-mfaserver-windows.md",
+      "redirect_url": "/entra/identity/authentication/howto-mfaserver-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-agent-versions.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-agent-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-deploy.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-faq.yml",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-monitor.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-operations.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-ban-bad-on-premises-troubleshoot.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-ban-bad-on-premises-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-password-smart-lockout.md",
+      "redirect_url": "/entra/identity/authentication/howto-password-smart-lockout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-registration-mfa-sspr-combined-troubleshoot.md",
+      "redirect_url": "/entra/identity/authentication/howto-registration-mfa-sspr-combined-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-registration-mfa-sspr-combined.md",
+      "redirect_url": "/entra/identity/authentication/howto-registration-mfa-sspr-combined",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-sspr-authenticationdata.md",
+      "redirect_url": "/entra/identity/authentication/howto-sspr-authenticationdata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-sspr-customization.md",
+      "redirect_url": "/entra/identity/authentication/howto-sspr-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-sspr-deployment.md",
+      "redirect_url": "/entra/identity/authentication/howto-sspr-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-sspr-reporting.md",
+      "redirect_url": "/entra/identity/authentication/howto-sspr-reporting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/howto-sspr-windows.md",
+      "redirect_url": "/entra/identity/authentication/howto-sspr-windows",
       "redirect_document_id": false
     },
     {
@@ -1336,348 +1716,73 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/monitor-sign-in-health-for-resilience.md",
-      "redirect_url": "/entra/identity/authentication/monitor-sign-in-health-for-resilience",
+      "source_path_from_root": "/articles/active-directory/authentication/multi-factor-authentication-faq.yml",
+      "redirect_url": "/entra/identity/authentication/multi-factor-authentication-faq",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multi-tenant-common-considerations.md",
-      "redirect_url": "/entra/identity/authentication/multi-tenant-common-considerations",
+      "source_path_from_root": "/articles/active-directory/authentication/multi-factor-authentication-get-started-adfs.md",
+      "redirect_url": "/entra/identity/authentication/multi-factor-authentication-get-started-adfs",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multi-tenant-common-solutions.md",
-      "redirect_url": "/entra/identity/authentication/multi-tenant-common-solutions",
+      "source_path_from_root": "/articles/active-directory/authentication/multi-factor-authentication-wizard.md",
+      "redirect_url": "/entra/identity/authentication/multi-factor-authentication-wizard",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multi-tenant-user-management-introduction.md",
-      "redirect_url": "/entra/identity/authentication/multi-tenant-user-management-introduction",
+      "source_path_from_root": "/articles/active-directory/authentication/overview-authentication.md",
+      "redirect_url": "/entra/identity/authentication/overview-authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multi-tenant-user-management-scenarios.md",
-      "redirect_url": "/entra/identity/authentication/multi-tenant-user-management-scenarios",
+      "source_path_from_root": "/articles/active-directory/authentication/passwords-faq.yml",
+      "redirect_url": "/entra/identity/authentication/passwords-faq",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-baseline.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-baseline",
+      "source_path_from_root": "/articles/active-directory/authentication/troubleshoot-authentication-strengths.md",
+      "redirect_url": "/entra/identity/authentication/troubleshoot-authentication-strengths",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-decision-tree.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-decision-tree",
+      "source_path_from_root": "/articles/active-directory/authentication/troubleshoot-sspr-writeback.md",
+      "redirect_url": "/entra/identity/authentication/troubleshoot-sspr-writeback",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-introduction.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-introduction",
+      "source_path_from_root": "/articles/active-directory/authentication/troubleshoot-sspr.md",
+      "redirect_url": "/entra/identity/authentication/troubleshoot-sspr",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-solution-one.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-solution-one",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-configure-custom-password-protection.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-configure-custom-password-protection",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-solution-three.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-solution-three",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-enable-azure-mfa.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-enable-azure-mfa",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/multilateral-federation-solution-two.md",
-      "redirect_url": "/entra/identity/authentication/multilateral-federation-solution-two",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-enable-cloud-sync-sspr-writeback",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/ops-guide-auth.md",
-      "redirect_url": "/entra/identity/authentication/ops-guide-auth",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-enable-sspr-writeback.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-enable-sspr-writeback",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/ops-guide-govern.md",
-      "redirect_url": "/entra/identity/authentication/ops-guide-govern",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-enable-sspr.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-enable-sspr",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/ops-guide-iam.md",
-      "redirect_url": "/entra/identity/authentication/ops-guide-iam",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/ops-guide-intro.md",
-      "redirect_url": "/entra/identity/authentication/ops-guide-intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/ops-guide-ops.md",
-      "redirect_url": "/entra/identity/authentication/ops-guide-ops",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/parallel-identity-options.md",
-      "redirect_url": "/entra/identity/authentication/parallel-identity-options",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/protect-m365-from-on-premises-attacks.md",
-      "redirect_url": "/entra/identity/authentication/protect-m365-from-on-premises-attacks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/recover-from-deletions.md",
-      "redirect_url": "/entra/identity/authentication/recover-from-deletions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/recover-from-misconfigurations.md",
-      "redirect_url": "/entra/identity/authentication/recover-from-misconfigurations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/recoverability-overview.md",
-      "redirect_url": "/entra/identity/authentication/recoverability-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-app-development-overview.md",
-      "redirect_url": "/entra/identity/authentication/resilience-app-development-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-b2b-authentication.md",
-      "redirect_url": "/entra/identity/authentication/resilience-b2b-authentication",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-b2c-developer-best-practices.md",
-      "redirect_url": "/entra/identity/authentication/resilience-b2c-developer-best-practices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-b2c.md",
-      "redirect_url": "/entra/identity/authentication/resilience-b2c",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-client-app.md",
-      "redirect_url": "/entra/identity/authentication/resilience-client-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-daemon-app.md",
-      "redirect_url": "/entra/identity/authentication/resilience-daemon-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-in-credentials.md",
-      "redirect_url": "/entra/identity/authentication/resilience-in-credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-in-hybrid.md",
-      "redirect_url": "/entra/identity/authentication/resilience-in-hybrid",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-in-infrastructure.md",
-      "redirect_url": "/entra/identity/authentication/resilience-in-infrastructure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-on-premises-access.md",
-      "redirect_url": "/entra/identity/authentication/resilience-on-premises-access",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-overview.md",
-      "redirect_url": "/entra/identity/authentication/resilience-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-with-continuous-access-evaluation.md",
-      "redirect_url": "/entra/identity/authentication/resilience-with-continuous-access-evaluation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-with-device-states.md",
-      "redirect_url": "/entra/identity/authentication/resilience-with-device-states",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilience-with-monitoring-alerting.md",
-      "redirect_url": "/entra/identity/authentication/resilience-with-monitoring-alerting",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilient-end-user-experience.md",
-      "redirect_url": "/entra/identity/authentication/resilient-end-user-experience",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/resilient-external-processes.md",
-      "redirect_url": "/entra/identity/authentication/resilient-external-processes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/road-to-the-cloud-establish.md",
-      "redirect_url": "/entra/identity/authentication/road-to-the-cloud-establish",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/road-to-the-cloud-implement.md",
-      "redirect_url": "/entra/identity/authentication/road-to-the-cloud-implement",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/road-to-the-cloud-introduction.md",
-      "redirect_url": "/entra/identity/authentication/road-to-the-cloud-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/road-to-the-cloud-migrate.md",
-      "redirect_url": "/entra/identity/authentication/road-to-the-cloud-migrate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/road-to-the-cloud-posture.md",
-      "redirect_url": "/entra/identity/authentication/road-to-the-cloud-posture",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-best-practices.md",
-      "redirect_url": "/entra/identity/authentication/secure-best-practices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-external-access-resources.md",
-      "redirect_url": "/entra/identity/authentication/secure-external-access-resources",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-fundamentals.md",
-      "redirect_url": "/entra/identity/authentication/secure-fundamentals",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-introduction.md",
-      "redirect_url": "/entra/identity/authentication/secure-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-multiple-tenants.md",
-      "redirect_url": "/entra/identity/authentication/secure-multiple-tenants",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-resource-management.md",
-      "redirect_url": "/entra/identity/authentication/secure-resource-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-service-accounts.md",
-      "redirect_url": "/entra/identity/authentication/secure-service-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/secure-single-tenant.md",
-      "redirect_url": "/entra/identity/authentication/secure-single-tenant",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-applications.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-applications",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-consumer-accounts.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-consumer-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-devices.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-devices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-infrastructure.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-infrastructure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-introduction.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-privileged-accounts.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-privileged-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-privileged-identity-management.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-privileged-identity-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/security-operations-user-accounts.md",
-      "redirect_url": "/entra/identity/authentication/security-operations-user-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-computer.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-computer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-govern-on-premises.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-govern-on-premises",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-group-managed.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-group-managed",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-managed-identities.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-managed-identities",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-on-premises.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-on-premises",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-principal.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-principal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-standalone-managed.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-standalone-managed",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/service-accounts-user-on-premises.md",
-      "redirect_url": "/entra/identity/authentication/service-accounts-user-on-premises",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/sync-directory.md",
-      "redirect_url": "/entra/identity/authentication/sync-directory",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/sync-ldap.md",
-      "redirect_url": "/entra/identity/authentication/sync-ldap",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/authentication/sync-scim.md",
-      "redirect_url": "/entra/identity/authentication/sync-scim",
+      "source_path_from_root": "/articles/active-directory/authentication/tutorial-risk-based-sspr-mfa.md",
+      "redirect_url": "/entra/identity/authentication/tutorial-risk-based-sspr-mfa",
       "redirect_document_id": false
     },
     {
@@ -1723,6 +1828,11 @@
     {
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/how-to-configure-aws-iam.md",
       "redirect_url": "/entra/permissions-management/how-to-configure-aws-iam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/how-to-configure-okta-as-an-identity-provider.md",
+      "redirect_url": "/entra/permissions-management/how-to-configure-okta-as-an-identity-provider",
       "redirect_document_id": false
     },
     {
@@ -2263,6 +2373,31 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/terms-of-use.md",
       "redirect_url": "/entra/identity/conditional-access/terms-of-use",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/conditional-access/troubleshoot-conditional-access-what-if.md",
+      "redirect_url": "/entra/identity/conditional-access/troubleshoot-conditional-access-what-if",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/conditional-access/troubleshoot-conditional-access.md",
+      "redirect_url": "/entra/identity/conditional-access/troubleshoot-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/conditional-access/troubleshoot-policy-changes-audit-log.md",
+      "redirect_url": "/entra/identity/conditional-access/troubleshoot-policy-changes-audit-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/conditional-access/what-if-tool.md",
+      "redirect_url": "/entra/identity/conditional-access/what-if-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/conditional-access/workload-identity.md",
+      "redirect_url": "/entra/identity/conditional-access/workload-identity",
       "redirect_document_id": false
     },
     {
@@ -4548,6 +4683,11 @@
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/licensing-preview-terms.md",
       "redirect_url": "/entra/fundamentals/licensing-preview-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/licensing.md",
+      "redirect_url": "/entra/fundamentals/licensing",
       "redirect_document_id": false
     },
     {
@@ -8406,6 +8546,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/arborxr-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/arborxr-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/arc-facilities-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/arc-facilities-tutorial",
       "redirect_document_id": false
@@ -9321,6 +9466,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/cic-intelligent-compensation-control-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/cic-intelligent-compensation-control-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/cimpl-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/cimpl-tutorial",
       "redirect_document_id": false
@@ -9623,6 +9773,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/collaborativeinnovation-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/collaborativeinnovation-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/colloquial-provisioning-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/colloquial-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
@@ -10073,6 +10228,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/dialpad-provisioning-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/dialpad-provisioning-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/diffchecker-provisioning-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/diffchecker-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
@@ -11786,6 +11946,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/insider-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/insider-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/insidertrack-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/insidertrack-tutorial",
       "redirect_document_id": false
@@ -12136,6 +12301,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/kairos-business-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/kairos-business-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/kallidus-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/kallidus-tutorial",
       "redirect_document_id": false
@@ -12323,6 +12493,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/knowledgeowl-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/knowledgeowl-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/kofax-totalagility-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/kofax-totalagility-tutorial",
       "redirect_document_id": false
     },
     {
@@ -12788,6 +12963,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/mcm-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/mcm-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/mdcomune-business-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/mdcomune-business-tutorial",
       "redirect_document_id": false
     },
     {
@@ -13906,6 +14086,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/pressreader-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/pressreader-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/prezi-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/prezi-tutorial",
       "redirect_document_id": false
@@ -14791,6 +14976,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/senomix-timesheets-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/senomix-timesheets-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/sensoscientific-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/sensoscientific-tutorial",
       "redirect_document_id": false
@@ -15096,6 +15286,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/smart-map-pro-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/smart-map-pro-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/smart360-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/smart360-tutorial",
       "redirect_document_id": false
@@ -15266,6 +15461,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/splashtop-secure-workspace-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/splashtop-secure-workspace-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/splashtop-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/splashtop-tutorial",
       "redirect_document_id": false
@@ -15383,6 +15583,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/supermood-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/supermood-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/supply-chain-catalyst-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/supply-chain-catalyst-tutorial",
       "redirect_document_id": false
     },
     {
@@ -15568,6 +15773,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/teachme-biz-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/teachme-biz-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/team-today-provisioning-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/team-today-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
@@ -15908,6 +16118,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/travelperk-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/travelperk-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/treasury-intelligence-solutions-tis-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/treasury-intelligence-solutions-tis-tutorial",
       "redirect_document_id": false
     },
     {
@@ -16286,6 +16501,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/visual-paradigm-online-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/visual-paradigm-online-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/vmware-horizon-unified-access-gateway-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/vmware-horizon-unified-access-gateway-tutorial",
       "redirect_document_id": false
@@ -16408,6 +16628,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/webtma-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/webtma-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/webxt-recognition-tutorial.md",
+      "redirect_url": "/entra/identity/saas-apps/webxt-recognition-tutorial",
       "redirect_document_id": false
     },
     {
@@ -17226,6 +17451,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/verifiable-credentials/idemia.md",
+      "redirect_url": "/entra/identity/verified-id/idemia",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/index.yml",
       "redirect_url": "/entra/identity/verified-id/index",
       "redirect_document_id": false
@@ -17308,6 +17538,11 @@
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md",
       "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-issuer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant-quick.md",
+      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-tenant-quick",
       "redirect_document_id": false
     },
     {
@@ -31530,7 +31765,6 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/index",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-nextsteps.md",
       "redirect_url": "/azure/active-directory/hybrid/index",
@@ -31546,8 +31780,6 @@
       "redirect_url": "/azure/active-directory/hybrid/index",
       "redirect_document_id": false
     },
-
-
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/add-users-azure-active-directory.md",
       "redirect_url": "/azure/active-directory/fundamentals/add-users",
