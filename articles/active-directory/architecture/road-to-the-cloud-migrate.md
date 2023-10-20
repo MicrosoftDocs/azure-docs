@@ -108,7 +108,7 @@ You can integrate non-Windows workstations with Microsoft Entra ID to enhance th
 
     * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319).
 
-* For Linux, you can [sign in to a Linux virtual machine (VM) by using Microsoft Entra credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+* For Linux, you can [sign in to a Linux virtual machine (VM) by using Microsoft Entra credentials](../devices/howto-vm-sign-in-azure-ad-linux.md).
 
 ### Replace other Windows versions for workstations
 

@@ -138,9 +138,9 @@ items:
         href: administer/overview-manage-solution.md
       - name: Manage Layered Network
         items:
-        - name: Layered Network Managment overview
+        - name: Layered Network Management overview
           href: administer/concept-layered-network-management.md
-        - name: Configure Layered Network Managment
+        - name: Configure Layered Network Management
           href: administer/howto-configure-layered-network-management.md
         - name: Deploy to an AKS cluster
           href: administer/howto-deploy-layered-network-managment-aks.md
@@ -148,8 +148,10 @@ items:
           href: administer/howto-configure-aks-ee-layered-network-management.md
       - name: Manage Azure MQ
         items:
-        - name: Configure TLS
-          href: administer/howto-configure-tls.md
+        - name: Configure automatic TLS
+          href: administer/howto-configure-tls-auto.md
+        - name: Configure manual TLS
+          href: administer/howto-configure-tls-manual.md
         - name: Configure authentication
           href: administer/howto-configure-authentication.md
         - name: Configure authorization
