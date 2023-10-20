@@ -18,9 +18,9 @@ Within ACS you can send and receive reactions when on a group call:
 - Laugh ![Laugh reaction](media/reaction-laugh.png)
 - Surprise ![Like reaction](media/reaction-surprise.png)
 
-To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
+To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message will be built with Type `ReactionMessage` that uses `Reaction` enums as an attribute. 
 
-You'll need to subscribe for events which provide the subscriber event data as:
+You need to subscribe for events that provide the subscriber event data:
 ```javascript
 export interface ReactionEventPayload {
     /**
@@ -59,5 +59,5 @@ reaction.on('reaction', event => {
 ```
 
 ### Key things to note about using Reactions:
-- For teams interoperability scenarios, the functionality of the feature depends on the meeting poilicy for the reaction capability.
+- For teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the reaction capability.
 - On direct 1:1 calls between a CTE user and a teams user, the reaction functionality is disabled.
