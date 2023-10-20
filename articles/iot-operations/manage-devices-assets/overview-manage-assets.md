@@ -42,7 +42,7 @@ The following tasks are useful for operations teams in sectors such as industry,
 
 The Operations Experience web app lets operations teams perform all these tasks in a simplified web app interface. The web app uses the other services described previously, to enable all these tasks. 
 
-The web app uses the OPC UA Broker service, which exchanges data with on-premise OPC UA servers. OPC UA servers are software applications that communicate with assets. OPC UA servers expose OPC UA tags that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
+The web app uses the OPC UA Broker service, which exchanges data with local OPC UA servers. OPC UA servers are software applications that communicate with assets. OPC UA servers expose OPC UA tags that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
 A data pipeline is a sequence of stages that process and transform data from one or more sources to one or more destinations. A data pipeline can perform various operations on the data, such as filtering, aggregating, enriching, validating, or analyzing.
 
