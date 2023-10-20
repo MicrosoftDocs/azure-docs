@@ -42,7 +42,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
    ```
 "ipAllocationType": "IPV4",
   "ipv4ConnectedPrefix": "166.XXX.XXX.X/24",
-  "ipv6ConnectedPrefix": fda0:d59c:da0a:c4a::/64,
+  "ipv6ConnectedPrefix": fda0:XXXX:XXXX:XXX::/64,
 ```
 
 > [!NOTE]
