@@ -38,7 +38,7 @@ You can choose to import your certificate into your Azure Spring Apps instance f
 You need to grant Azure Spring Apps access to your key vault before you import your certificate using these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Key vaults**, then select the Key Vault you'll import your certificate from.
+1. Select **Key vaults**, then select the Key Vault you import your certificate from.
 1. In the left navigation pane, select **Access policies**, then select **Create**.
 1. Select **Certificate permissions**, then select **Get** and **List**.
 
@@ -58,7 +58,7 @@ After you grant access to your key vault, you can import your certificate using 
 
 1. Select **Import Key Vault Certificate** in the **Public Key Certificates** section.
 
-1. Select your key vault in the **Key Vault** section, select your certificate in the **Certificate** section, and then select **Select**.
+1. Select your key vault in the **Key vaults** section, select your certificate in the **Certificate** section, and then select **Select**.
 
 1. Enter your certificate name in the **Certificate name** section, select the **Enable auto sync** checkbox if needed, and then select **Apply**. For more information, see the [[Auto sync certificate]](./how-to-custom-domain.md#auto-sync-certificate) section of [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md).
 
@@ -74,7 +74,8 @@ You can import a certificate file stored locally using these steps:
 1. Go to your service instance.
 1. From the left navigation pane of your instance, select **TLS/SSL settings**.
 1. Select **Upload public certificate** in the **Public Key Certificates** section.
-1. When you've successfully imported your certificate, you'll see it in the list of Public Key Certificates.
+
+After you've successfully imported your certificate, you see it in the list of Public Key Certificates.
 
 ## Load a certificate
 
