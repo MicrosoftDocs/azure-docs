@@ -163,16 +163,14 @@ The flow for authenticating with client certificates is:
 
 To avoid storing, and disclosing, the client certificate alongside the JMeter script, you store the certificate in Azure Key Vault.
 
-1. Follow the steps in [Import a certificate](/azure/key-vault/certificates/tutorial-import-certificate) to store your certificate in Azure Key Vault.
+Follow the steps in [Import a certificate](/azure/key-vault/certificates/tutorial-import-certificate) to store your certificate in Azure Key Vault.
 
-    > [!IMPORTANT]
-    > Azure Load Testing only supports PKCS12 certificates. Upload the client certificate in PFX file format.
+> [!IMPORTANT]
+> Azure Load Testing only supports PKCS12 certificates. Upload the client certificate in PFX file format.
 
-1. Verify that your load testing resource has permissions to retrieve the certificate from your key vault.
+### Grant access to your Azure key vault
 
-    Azure Load Testing retrieves the certificate as a *secret* to ensure that the private key for the certificate is available.
-    
-    [Assign the Get secret permission to your load testing resource](./how-to-use-a-managed-identity.md#grant-access-to-your-azure-key-vault) in Azure Key Vault.
+[!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 
 ### Reference the certificate in the load test configuration
 
