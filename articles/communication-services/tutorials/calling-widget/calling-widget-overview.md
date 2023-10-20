@@ -38,8 +38,8 @@ Following this tutorial will:
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams calling and chat interoperability](../../concepts/interop/calling-chat.md)
-- Check out working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
-- Check out working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
+- Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
+- Working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
 ### Set up the project
 
@@ -205,7 +205,7 @@ Now we need to make a widget that can show in three different modes:
 - Setup: This state is when the widget asks for information from the user like their name.
 - In a call: The widget is replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
 
-Lets create a folder called `src/components`, in this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
+Lets create a folder called `src/components`. In this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
 
 `CallingWidgetComponent.tsx`
 
@@ -271,7 +271,6 @@ export const CallingWidgetComponent = (
 
     const theme = useTheme();
 
-    // add this before the React template
     const credential = useMemo(() => {
         try {
             return new AzureCommunicationTokenCredential(widgetAdapterArgs.token);
@@ -300,7 +299,7 @@ export const CallingWidgetComponent = (
 
     const adapter = useAzureCommunicationCallAdapter(callAdapterArgs as AzureCommunicationCallAdapterArgs, afterCreate);
 
-    /** widget template for when widget is open, put any fields here for user information desired */
+    // Widget template for when widget is open, put any fields here for user information desired
     if (widgetState === 'setup' ) {
         return (
             <Stack styles={callingWidgetSetupContainerStyles(theme)} tokens={{ childrenGap: '1rem' }}>
@@ -332,15 +331,15 @@ export const CallingWidgetComponent = (
                     onChange={(_, checked?: boolean | undefined) => {
                         setConsentToData(!!checked);
                     }}
-                ></Checkbox><PrimaryButton
+                ></Checkbox>
+                <PrimaryButton
                     styles={startCallButtonStyles(theme)}
                     onClick={() => {
-                        if (displayName && consentToData && adapter && widgetAdapterArgs.teamsAppIdentifier) {
-                            setWidgetState('inCall');
-                            console.log(callAdapterArgs.locator);
-                            adapter.startCall([`28:orgid:${widgetAdapterArgs.teamsAppIdentifier.teamsAppId}`]);
-                            // adapter?.joinCall({microphoneOn: true, cameraOn:false});
-                        }
+                      if (displayName && consentToData && adapter && widgetAdapterArgs.teamsAppIdentifier) {
+                          setWidgetState('inCall');
+                          console.log(callAdapterArgs.locator);
+                          adapter.startCall([`28:orgid:${widgetAdapterArgs.teamsAppIdentifier.teamsAppId}`]);
+                      }
                     }}
                 >
                     StartCall
@@ -352,33 +351,35 @@ export const CallingWidgetComponent = (
     if (widgetState === 'inCall' && adapter) {
         return (
             <Stack styles={callingWidgetInCallContainerStyles(theme)}>
-                <CallComposite adapter={adapter} options={{
-                    callControls: {
-                        cameraButton: useLocalVideo,
-                        screenShareButton: useLocalVideo,
-                        moreButton: false,
-                        peopleButton: false,
-                        displayType: 'compact'
-                    },
-                    localVideoTile: !useLocalVideo ? false : { position: 'floating' }
-                }}></CallComposite>
+              <CallComposite 
+                adapter={adapter} 
+                options={{
+                  callControls: {
+                    cameraButton: useLocalVideo,
+                    screenShareButton: useLocalVideo,
+                    moreButton: false,
+                    peopleButton: false,
+                    displayType: 'compact'
+                  },
+                  localVideoTile: !useLocalVideo ? false : { position: 'floating' }
+                }}/>
             </Stack>
         )
     }
 
     return (
         <Stack
-            horizontalAlign="center"
-            verticalAlign="center"
-            styles={callingWidgetContainerStyles(theme)}
-            onClick={() => {
-                setWidgetState('setup');
-            }}
+          horizontalAlign="center"
+          verticalAlign="center"
+          styles={callingWidgetContainerStyles(theme)}
+          onClick={() => {
+            setWidgetState('setup');
+          }}
         >
             <Stack
-                horizontalAlign="center"
-                verticalAlign="center"
-                style={{ height: '4rem', width: '4rem', borderRadius: '50%', background: theme.palette.themePrimary }}
+              horizontalAlign="center"
+              verticalAlign="center"
+              style={{ height: '4rem', width: '4rem', borderRadius: '50%', background: theme.palette.themePrimary }}
             >
                 <Icon iconName="callAdd" styles={callIconStyles(theme)} />
             </Stack>
@@ -387,7 +388,7 @@ export const CallingWidgetComponent = (
 };
 ```
 
-####Styling the widget
+#### Styling the widget
 
 We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet above.
 
@@ -530,7 +531,7 @@ after you fill out your name click start call and the call should begin. The wid
 
 ## Next steps
 
-If you haven't check out our documentation on Teams auto attendants and Teams call queues.
+If you haven't had the chance, check out our documentation on Teams auto attendants and Teams call queues.
 
 > [!div class="nextstepaction"] 
 > [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
