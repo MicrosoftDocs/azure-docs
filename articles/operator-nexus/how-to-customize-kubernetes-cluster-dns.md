@@ -11,7 +11,7 @@ ms.author: jcroth
 
 # Customize DNS on a Nexus Kubernetes cluster
 
-Nexus Kubernetes clusters use a combination of CoreDNS and node-local-DNS for cluster DNS management and resolution, with node-local-DNS taking precidence for name resolution outside the cluster. 
+Nexus Kubernetes clusters use a combination of CoreDNS and node-local-DNS for cluster DNS management and resolution, with node-local-DNS taking precedence for name resolution outside the cluster. 
 
 Azure Operator Nexus is a managed service, so you can't modify the main configuration for CoreDNS or node-local-dns. Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default CoreDNS and node-local-dns ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` or `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml`command.
 
