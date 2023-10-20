@@ -60,7 +60,7 @@ When your Data Flow is executed in Spark, the service determines optimal code pa
 
 ## Total Sink Processing Time vs. Transformation Processing Time
 
-Each transformation stage includes a total time for that stage to complete with each partition execution time totaled together. When you select on the Sink, you see "Sink Processing Time". This time includes the total of the transformation time *plus* the I/O time it took to write your data to your destination store. The difference between the Sink Processing Time and the total of the transformation is the I/O time to write the data.
+Each transformation stage includes a total time for that stage to complete with each partition execution time totaled together. When you select the Sink, you see "Sink Processing Time". This time includes the total of the transformation time *plus* the I/O time it took to write your data to your destination store. The difference between the Sink Processing Time and the total of the transformation is the I/O time to write the data.
 
 You can also see detailed timing for each partition transformation step if you open the JSON output from your data flow activity in the pipeline monitoring view. The JSON contains millisecond timing for each partition, whereas the UX monitoring view is an aggregate timing of partitions added together:
 
