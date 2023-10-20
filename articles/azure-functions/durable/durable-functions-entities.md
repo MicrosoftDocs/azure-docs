@@ -114,7 +114,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 ### Example: Function-based syntax - C#
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[Function(nameof(Counter))]
 public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
 {
     return dispatcher.DispatchAsync(operation =>
@@ -159,7 +159,7 @@ public class Counter
 
     public int Get() => this.CurrentValue;
 
-    [FunctionName(nameof(Counter))]
+    [Function(nameof(Counter))]
     public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
     {
         return dispatcher.DispatchAsync<Counter>();
@@ -185,7 +185,7 @@ public class Counter : TaskEntity<int>
 
     public int Get() => this.State;
 
-    [FunctionName(nameof(Counter))]
+    [Function(nameof(Counter))]
     public Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
     {
         return dispatcher.DispatchAsync(this);
@@ -194,7 +194,7 @@ public class Counter : TaskEntity<int>
 ```
 You can also dispatch by using a static method.
 ```csharp
-[FunctionName(nameof(Counter))]
+[Function(nameof(Counter))]
 public static Task RunEntityStaticAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
 {
     return dispatcher.DispatchAsync<Counter>();
@@ -383,13 +383,19 @@ public static async Task<HttpResponseMessage> Run(
 ```
 # [C# (Isolated)](#tab/isolated-process)
 ```csharp
-[FunctionName("QueryCounter")]
+[Function("QueryCounter")]
 public static async Task<HttpResponseData> Run(
     [HttpTrigger(AuthorizationLevel.Function)] HttpRequestData req,
     [DurableClient] DurableTaskClient client)
 {
     var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
-    object? entity = await client.Entities.GetEntityAsync<int>(entityId);
+    EntityMetadata<int>? entity = await client.Entities.GetEntityAsync<int>(entityId);
+
+    if (entity is null)
+    {
+        return request.CreateResponse(HttpStatusCode.NotFound);
+    }
+    
     HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
     await response.WriteAsJsonAsync(entity);
 
@@ -456,7 +462,7 @@ public static async Task Run(
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName("CounterOrchestration")]
+[Function("CounterOrchestration")]
 public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
