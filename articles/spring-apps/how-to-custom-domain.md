@@ -192,9 +192,9 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter your certificate name, select the **Enable auto sync** checkbox if needed, and then select **Apply**. For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
+1. On the opened **Set certificate name** page, enter your certificate name, select **Enable auto sync** if needed, and then select **Apply**. For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
 
-   :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of setting certificate name.":::
+   :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of the Set certificate name dialog box.":::
 
 1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
@@ -214,7 +214,7 @@ az spring certificate add \
     --enable-auto-sync false
 ```
 
-Use the following command to enable auto sync:
+To enable certificate auto sync, include the `--enable-auto-sync true` setting when you add the certificate, as shown in the following example. For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
 
 ```azurecli
 az spring certificate add \
@@ -225,8 +225,6 @@ az spring certificate add \
     --vault-certificate-name <key-vault-cert-name> \
     --enable-auto-sync true
 ```
-
-For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
 
 Use the following command to show a list of imported certificates:
 
@@ -239,7 +237,7 @@ az spring certificate list \
 ---
 
 > [!IMPORTANT]
-> To secure a custom domain with this certificate, you need to add the certificate to a specific domain. For more information, see the [Add SSL binding](#add-ssl-binding) section.
+> To secure a custom domain with this certificate, be sure to bind the certificate to the specific domain. For more information, see the [Add SSL binding](#add-ssl-binding) section.
 
 ### Auto sync certificate
 
