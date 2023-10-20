@@ -193,7 +193,7 @@ The response contains the sections that are suitable for traffic along the given
 
 This option can be used to color the sections when rendering the map, as in The following image:
 
-:::image type="content" source="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" lightbox="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" border="false" alt-text="Screenshot showing a Colored sections rendered on map.":::
+:::image type="content" source="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" lightbox="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" border="false" alt-text="Screenshot showing colored sections rendered on map.":::
 
 ## Calculate and optimize a multi-stop route
 
