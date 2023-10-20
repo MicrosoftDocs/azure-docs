@@ -39,6 +39,12 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
   Make certain that your Layer 3 (L3) network, serving as the Container Network Interface (CNI), is properly set up to manage both IPv4 and IPv6 traffic. Utilize the `az networkcloud l3network show` command for validation.
    - Example:
 
+   ```
+"ipAllocationType": "IPV4",
+  "ipv4ConnectedPrefix": "166.XXX.XXX.X/24",
+  "ipv6ConnectedPrefix": fda0:d59c:da0a:c4a::/64,
+```
+
 > [!NOTE]
 > If the output only contains an IPv4 address, please consult the [prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md) to establish a dual-stack network.
 
@@ -63,7 +69,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
      ],
      "serviceCidrs": [
          "10.XXX.X.X/16",
-         "fdbe:8fbe:17b7:ffff::/108"
+         "fda0:XXXX:XXXX:ffff::/108"
      ]
      ```
 
