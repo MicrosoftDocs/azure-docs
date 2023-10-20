@@ -43,7 +43,7 @@ Azure IoT Operations Preview runs on Arc-enabled Kubernetes clusters on the edge
 
 ## Manage devices and assets
 
-Azure IoT Operations Preview can connect to various industrial devices and assets. You can use the [Azure IoT Operations Experience portal](../manage-devices-assets/howto-configure-assets-endpoint.md) to manage the devices and assets that you want to connect to.
+Azure IoT Operations Preview can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
 
 The [OPC UA Broker Preview](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
