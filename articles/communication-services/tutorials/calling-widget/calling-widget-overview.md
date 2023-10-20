@@ -38,13 +38,15 @@ Following this tutorial will:
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams calling and chat interoperability](../../concepts/interop/calling-chat.md)
+- Check out working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
+- Check out working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
 ### Set up the project
 
 Only use this step if you are creating a new application.
 
 To set up the react App, we use the `create-react-app` command line tool. This tool
-creates an easy to run TypeScript application powered by React. This command will create a simple react application using TypeScript.
+creates an easy to run TypeScript application powered by React. This command creates a simple react application using TypeScript.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -75,7 +77,7 @@ Once you run these commands, you’re all set to start working on your new proje
 To get started, we replace the provided `App.tsx` content with a main page that will:
 
 - Store all of the Azure Communication information that we need to create a CallAdapter to power our Calling experience
-- Display our widget that will be exposed to the end user.
+- Display our widget that is exposed to the end user.
 
 Your `App.tsx` file should look like this:
 
@@ -99,20 +101,20 @@ function App() {
   /**
    * Token for local user.
    */
-  const token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVFODQ4MjE0Qzc3MDczQUU1QzJCREU1Q0NENTQ0ODlEREYyQzRDODQiLCJ4NXQiOiJYb1NDRk1kd2M2NWNLOTVjelZSSW5kOHNUSVEiLCJ0eXAiOiJKV1QifQ.eyJza3lwZWlkIjoiYWNzOmI2YWFkYTFmLTBiMWQtNDdhYy04NjZmLTkxYWFlMDBhMWQwMV8wMDAwMDAxYi1lZWI0LTZhYWMtMDJjMy01OTNhMGQwMDBlZGIiLCJzY3AiOjE3OTIsImNzaSI6IjE2OTc4MzQ1MTgiLCJleHAiOjE2OTc5MjA5MTgsInJnbiI6ImFtZXIiLCJhY3NTY29wZSI6InZvaXAiLCJyZXNvdXJjZUlkIjoiYjZhYWRhMWYtMGIxZC00N2FjLTg2NmYtOTFhYWUwMGExZDAxIiwicmVzb3VyY2VMb2NhdGlvbiI6InVuaXRlZHN0YXRlcyIsImlhdCI6MTY5NzgzNDUxOH0.gzVgK6oDwV_it0PlUKdF028O0O9c1R5yjfkEhza9Cc1jxIrvToD0bnKV4Gxz385YH6HL8GPzmn8HPUbGxhgU4xOhnTZjP15LOIfYUDKXTkwkl6VYuJ9ogcPziuaRKMOcZ-NcXaLEGetGybE_-s3m4xj5oRWHuweqD3DhprGhYtw5Jrb6xOhmEevxL4SCEyG3Mada2nJumA9xCOThRIaeurzrgtJu22rE1tJJrqWxY5cMKgta7MeWf14aML6K7CWeK7c_7I7O-7ecqKul9dJ6_F0-IQwbRZqv_n1EFfXXdmegjMTCeItJtUQRg0G3u1CvCmssjJIRFrodfFlC_BzsVQ";
+  const token = "<Enter your ACS token here>";
 
   /**
    * User identifier for local user.
    */
   const userId: CommunicationIdentifier = {
-    communicationUserId: "8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_0000001b-eeb4-6aac-02c3-593a0d000edb",
+    communicationUserId: "<Enter your ACS ID here>",
   };
 
   /**
    * Enter your Teams voice app identifier from the Teams admin center here
    */
   const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
-    teamsAppId: 'ffca549c-0809-4351-975c-6b1e8909bed3', cloud: 'public'
+    teamsAppId: '<Enter your teams voice app ID here>', cloud: 'public'
   }
 
   const widgetParams = {
@@ -198,12 +200,12 @@ In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20R
 
 ### Creating the Widget
 
-Now we will need to make a widget that can show in 3 different modes:
-- Waiting: This is the state the component will be in before and after a call is made
-- Setup: This state is when the widget will ask for information from the user like their name.
+Now we need to make a widget that can show in three different modes:
+- Waiting: This widget state is how the component will be in before and after a call is made
+- Setup: This state is when the widget asks for information from the user like their name.
 - In a call: The widget will functionally be replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
 
-Lets create a folder called `src/components`, in this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following:
+Lets create a folder called `src/components`, in this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
 
 `CallingWidgetComponent.tsx`
 
@@ -387,9 +389,9 @@ export const CallingWidgetComponent = (
 
 ####Styling the widget
 
-We will need to write some styles to make sure the widget looks appropriate and can hold our call composite.
+We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These should already be in the widget if copying the snippet above.
 
-lets make a new folder called `src/styles` in this folder create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following:
+lets make a new folder called `src/styles` in this folder create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following snippet:
 
 ```ts
 import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
@@ -528,4 +530,8 @@ after you fill out your name click start call and the call should begin. This sh
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Part 1: Creating your widget](./calling-widget-tutorial-part-1-creating-your-widget.md)
+If you haven't check out our documentation on Teams auto attendants and Teams call queues.
+
+> [!div class="nextstepaction"] 
+> [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
+> [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md)
