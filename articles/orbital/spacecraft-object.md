@@ -1,5 +1,5 @@
 ---
-title: Spacecraft resouce - Azure Orbital Ground Station
+title: Spacecraft resource - Azure Orbital Ground Station
 description: Learn about how you can represent your spacecraft details in Azure Orbital Ground Station.
 author: hrshelar
 ms.service: orbital
@@ -24,7 +24,7 @@ The spacecraft resource captures three types of information:
 
 ### Links
 
-Make sure to capture each link that you wish to use with Azure Orbital Ground Station when you create the spacecraft resouce. The following details are required:
+Make sure to capture each link that you wish to use with Azure Orbital Ground Station when you create the spacecraft resource. The following details are required:
 
 | **Field**        | **Values**                     |
 |------------------|--------------------------------|
