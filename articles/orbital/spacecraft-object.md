@@ -20,7 +20,7 @@ The spacecraft resource captures three types of information:
 
 - **Links** - RF details on center frequency, direction, and bandwidth for each link.
 - **Ephemeris** - The latest spacecraft TLE.
-- **Licensing** - Authorizations held on a per-link, per-site basis.
+- **Licensing** - Authorizations are held on a per-link, per-site basis.
 
 ### Links
 
@@ -45,9 +45,9 @@ As TLEs are prone to expiration, the user must keep the TLE up-to-date using the
 
 ### Licensing
 
-In order to uphold regulatory requirements across the world, the spacecraft resource contains authorizations on a per-link and per-site level that permits usage of the Azure Orbital Ground Station sites.
+In order to uphold regulatory requirements across the world, the spacecraft resource contains authorizations for specific links and sites that permit usage of the Azure Orbital Ground Station sites.
 
-The platform will deny scheduling or execution of contacts if the spacecraft resource links are not authorized. The platform will also deny contact if a profile contains links that are not included in the spacecraft resource authorized links.
+The platform will deny scheduling or execution of contacts if the spacecraft resource links aren't authorized. The platform will also deny contact if a profile contains links that aren't included in the spacecraft resource authorized links.
 
 For more information, see the [spacecraft authorization and ground station licensing](register-spacecraft.md) documentation.
 
