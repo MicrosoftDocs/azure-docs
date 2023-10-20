@@ -24547,7 +24547,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/update-center/manage-update-settings.md",
+            "source_path": "articles/update-center/manage-update-settings.md",
             "redirect_url": "/azure/update-manager/manage-update-settings",
             "redirect_document_id": false
         },
@@ -24612,11 +24612,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/update-center/toc.yml",
-            "redirect_url": "/azure/update-manager/toc",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/update-center/troubleshoot.md",
             "redirect_url": "/azure/update-manager/troubleshoot",
             "redirect_document_id": false
@@ -24627,7 +24622,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/update-center/tutorial-dynamic-grouping-for-scheduled-patching.md",
+            "source_path": "articles/update-center/tutorial-dynamic-grouping-for-scheduled-patching.md",
             "redirect_url": "/azure/update-manager/tutorial-dynamic-grouping-for-scheduled-patching",
             "redirect_document_id": false
         },
