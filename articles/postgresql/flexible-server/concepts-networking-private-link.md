@@ -12,7 +12,10 @@ ms.topic: conceptual
 
 # Azure Database for PostgreSQL Flexible Server Networking with Private Link - Preview
 
-*Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNet). That functionality is introduced in addition to already [existing networking capabilities provided by VNET injection](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With Private Link, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+*Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNet). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server supports Private Link based networking in Preview.
 
 Private Link is exposed to users through two  Azure resource types:
 
@@ -22,7 +25,7 @@ Private Link is exposed to users through two  Azure resource types:
 ## Private Endpoints
 
 A **Private Endpoint** adds a network interface to a resource, providing it with a private IP address assigned from your VNET (Virtual Network). Once applied, you can communicate with this resource exclusively via the virtual network (VNET).
-For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/private-link-overview.md). A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
+For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/private-link-overview.md). A **private endpoint** is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
 The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Azure Active Directory (AAD) tenants) or if they have overlapping address spaces.
 
@@ -46,17 +49,17 @@ Clients can connect to the private endpoint from the same VNet, peered VNet in s
 
 ### Limitations and Supported Features for Private Link Private Preview with Azure Database for PostgreSQL - Flexible Server
 
-In the private preview of Private Endpoint for PostgreSQL flexible server, **we only support single-instance, non-HA servers**. Most features work, but anything that communicates to other servers/instances we've had to redesign because we've changed the backend architecture for even better security.
+In  preview of Private Endpoint for PostgreSQL flexible server, there are certain limitations as explain in cross feature availability matrix below.
 
-Cross Feature Availability Matrix
+Cross Feature Availability Matrix for preview of Private Endpoint in Azure Database for PostgreSQL - Flexible Server.
 
 | **Feature** | **Availability** | **Notes** |
 | --- | --- | --- |
-| High Availability (HA) | No | |
+| High Availability (HA) | Yes |Works as designed |
 | Read Replica | No | |
 | Geo Read Replica | No | |
-| Point in Time Restore (PITR) | No | |
-| Allowing also public/internet access with firewall rules | No | |
+| Point in Time Restore (PITR) | Yes |Works as designed |
+| Allowing also public/internet access with firewall rules | Yes | Works as designed|
 | Major Version Upgrade (MVU) | Yes | Works as designed |
 | Azure Active Directory Authentication (AAD Auth) | Yes | Works as designed |
 | Connection pooling with PGBouncer | Yes | Works as designed |
@@ -85,9 +88,9 @@ To establish connectivity from an on-premises environment to the Azure Database 
 
 ## Network Security and Private Link
 
-When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the file and blob subresources.
+When you use private endpoints, traffic is secured to a **private-link resource**. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more sub-resources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the file and blob sub-resources.
 
-Private endpoints provide a privately accessible IP address for the Azure service, but don't necessarily restrict public network access to it. All other Azure services require another [access controls](../../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
+**Private endpoints** provide a privately accessible IP address for the Azure service, but don't necessarily restrict public network access to it. All other Azure services require another [access controls](../../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
 
 Private endpoints support network policies. Network policies enable support for Network Security Groups (NSG), User Defined Routes (UDR), and Application Security Groups (ASG). For more information about enabling network policies for a private endpoint, see [Manage network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). To use an ASG with a private endpoint, see [Configure an application security group (ASG) with a private endpoint](../../private-link/configure-asg-private-endpoint.md).
 ## Private Link and DNS
@@ -106,6 +109,10 @@ By default, network policies are disabled for a subnet in a virtual network. To 
 Network policies can be enabled either for Network Security Groups only, for User-Defined Routes only, or for both. For more you can see [Azure docs](../../private-link/disable-private-endpoint-network-policy.md?tabs=network-policy-portal)
 
 Limitations to Network Security Groups (NSG) and Private Endpoints are listed [here](../../private-link/private-endpoint-overview.md)
+
+ > [!IMPORTANT]
+ > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to **destination port 5432** within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to **Azure storage** for log archival. If you create **[Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md)** to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please **make sure to allow traffic to  destination port 5432** within the subnet, and also to Azure storage by using **[service tag](../../virtual-network/service-tags-overview.md) Azure Storage** as a destination. Also, if you elect to use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Microsoft Entra ID using Microsoft Entra [service tag](../../virtual-network/service-tags-overview.md).
+  > When setting up [Read Replicas across Azure regions](./concepts-read-replicas.md) , Azure Database for PostgreSQL - Flexible Server requires ability to send\receive traffic to **destination port 5432** for both primary and replica, as well as to **[Azure storage](../../virtual-network/service-tags-overview.md#available-service-tags)** in primary and replica regions from both primary and replica servers. 
 
 ## Private Link combined with firewall rules
 
