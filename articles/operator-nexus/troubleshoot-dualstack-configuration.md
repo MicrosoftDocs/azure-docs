@@ -32,7 +32,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
 
 ## Common issues
 
-   - A dual stack Nexus Kubernetes cluster has been established, yet we're unable to observe the dual stack features, as they remain unseen or inaccessible.
+   - A dual-stack Nexus Kubernetes cluster has been established, yet you're having trouble observing the dual-stack address on the CNI network. Additionally, the Kubernetes services are not receiving dual-stack addresses.
 
 ## Configuration steps
 
