@@ -1,7 +1,7 @@
 ---
 title: How use Smtp to send an email with Azure Communication Services using .NET.
 titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about how to add multiple sender address to Email Communication Services.
+description: Learn about how to use SMTP to send emails to Email Communication Services.
 author: ddouglas
 services: azure-communication-services
 ms.author: ddouglas
