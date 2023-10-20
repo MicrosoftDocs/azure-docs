@@ -78,7 +78,8 @@ The custom role permissions limit access to the list of the permissions shown he
 
 5. Select **Managed Identity**, then Choose **+ Select Members** then find and choose your new managed identity. Choose **Select**.
 
-    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment page for custom assignment.":::
+    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshow showing the add role assignment page with managed identity and select members.":::    
+
 
 7. Select **Review and assign**.
 
@@ -89,10 +90,10 @@ Repeat the role assignment tasks for all of your chosen scopes.
 ## Assign Managed Identity Operator role to the Managed Identity itself
 
 1. Go to the Azure portal and search for **Managed Identities**.
-1. Select *identity-for-ubuntu-vm-sns* from the list of **Managed Identities**.
+1. Select *identity-for-nginx-sns* from the list of **Managed Identities**.
 1. On the side menu, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
-:::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role.":::
+:::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role add role assignment.":::
 
 1. Select the **Managed Identity Operator** role.
 
