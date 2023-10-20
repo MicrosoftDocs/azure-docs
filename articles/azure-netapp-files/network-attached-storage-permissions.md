@@ -52,7 +52,7 @@ When creating an Azure NetApp Files volume, there are several options configurab
 * **Index**: The order in which an export policy rule will be evaluated. If a client falls under multiple rules in the policy, then the first applicable rule will apply to the client and subsequent rules will be ignored.
 * **Allowed clients**: Specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values are not supported in Azure NetApp Files.
 * **Access**: Specifies the level of access allowed to non-root users. For NFS volumes without Kerberos enabled, the options are: Read only, Read & write, or No access. For volumes with Kerberos enabled, the options are: Kerberos 5, Kerberos 5i, or Kerberos 5p.
-* **Root access**: Specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](../hpc-cache/access-policies.md#root-squash) to the anonymous user ID 65534. 
+* **Root access**: Specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](#root-squashing) to the anonymous user ID 65534. 
 * **chown mode**: This controls what users can run change ownership commands on the export (chown). If set to "Restricted," only the root user can run chown. If set to "Unrestricted," any user with the proper file/folder permissions can run chown commands.
 
 ### Default policy rule in Azure NetApp Files
@@ -69,4 +69,37 @@ The default rule has the following values:
 
 These values can be changed at volume creation or after the volume has been created.
 
+### Export policy rules with NFS Kerberos enabled in Azure NetApp Files
 
+NFS Kerberos can be enabled only on volumes using NFSv4.1 in Azure NetApp Files. Kerberos provides added security by offering different modes of encryption for NFS mounts, depending on the Kerberos type in use.
+
+When Kerberos is enabled, the values for the export policy rules change to allow specification of which Kerberos mode should be allowed. Multiple Kerberos security modes can be enabled in the same rule if you need access to more than one. 
+
+Those security modes include:
+
+* **Kerberos 5**: Only initial authentication is encrypted.
+* **Kerberos 5i**: User authentication plus integrity checking.
+* **Kerberos 5p**: User authentication, integrity checking and privacy. All packets are encrypted.
+
+Only Kerberos-enabled clients will be able to access volumes with export rules specifying Kerberos; no AUTH_SYS access is allowed when Kerberos is enabled.
+
+## Root squashing 
+
+In some scenarios, root access to an Azure NetApp Files volume may need to be restricted. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
+
+In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions will generally fall under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules will create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
+
+To learn more about managing export policies, see [Configure export policies for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
+
+## SMB shares 
+
+To control access to specific files and folders in a file system, permissions can be applied. File and folder permissions are more granular than share permissions. The following table shows the differences in permission attributes that file and share permissions can apply.
+
+| SMB share permission | NFS export policy rule permissions | SMB file permission attributes | NFS file permission attributes |
+| --- | --- | --- | --- |
+| <ul>File and folder permissions can overrule share permissions, as most restrictive permissions win.<li>Change</li><li>Full control</ul></ul> |
+| <ul><li>Read</li><li>Write</li><li>Root</ul></ul> |
+| <ul><li>Full control</li><li>Traverse folder/execute</li><li>Read data/list folders</li><li>Read attributes</li><li>Read extended attributes</li><li>Write data/create files</li><li>Append data/create folders</li><li>Write attributes</li><li>Write extended attributes</li><li>Delete subfolders/files</li><li>Delete</li><li>Read permissions</li><li>Change permissions</li><li>Take ownership</li></ul> |
+| NFSv3 <br /> <ul><li>Read</li><li>Write</li><li>Execute</li></ul> <br /> NFSv4.1 <br /> <ul><li>Read data/list files and folders</li><li>Write data/create files and folders</li><li>Append data/create subdirectories</li><li>Execute files/traverse directories</li><li>Delete files/directories</li><li>Delete subdirectories (directories only)</li><li>Read attributes (GETATTR)</li><li>Write attributes (SETATTR/chmod)</li><li>Read named attributes</li><li>write named attributes</li><li>Read ACLs</li><li>Write ACLs</li><li>Write owner (chown)</li><li>Synchronize I/O</li></ul> |
+
+File and folder permissions can overrule share permissions, as most restrictive permissions win.|
