@@ -97,7 +97,7 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 
 1. 100 VMs per Automation Account can be migrated in one instance 
 1. Any VM with > 100 file/registry settings for migration via portal is not supported at present 
-1. Arc VM migration is not supported with portal, We recommend that you use PowerShell script migration.
+1. Arc VM migration is not supported with portal, we recommend that you use PowerShell script migration.
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
@@ -106,7 +106,7 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 
 1. 100 VMs per Automation Account can be migrated in one instance 
 1. Any VM with > 100 file/registry settings for migration via portal is not supported at present 
-1. Arc VM migration is not supported with portal, We recommend that you use PowerShell script migration.
+1. Arc VM migration is not supported with portal, we recommend that you use PowerShell script migration.
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
