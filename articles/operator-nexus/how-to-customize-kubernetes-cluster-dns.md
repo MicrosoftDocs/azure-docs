@@ -222,7 +222,7 @@ For general CoreDNS troubleshooting steps, such as checking the endpoints or res
 
 ### Enable DNS query logging
 
-1. Add the following configuration to your coredns-custom ConfigMap:
+1. Add the following configuration to your coredns-custom `ConfigMap`:
 
    ```yaml
    apiVersion: v1
