@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/17/2023
+ms.date: 10/20/2023
 ms.author: wchi
 ---
 
@@ -225,5 +225,5 @@ For more information, refer to [Build a Go app with the gocql client to manage A
 For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-nodejs)
 
 
-### [Others](#tab/others)
+### [Other](#tab/other)
 For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

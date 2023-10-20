@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 10/20/2023
 ---
 
 # Integrate Azure Blob Storage with Service Connector
