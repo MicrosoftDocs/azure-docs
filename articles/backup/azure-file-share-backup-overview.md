@@ -68,6 +68,7 @@ The following diagram explains the lifecycle of the lease acquired by Azure Back
 
 :::image type="content" source="./media/azure-file-share-backup-overview/backup-lease-lifecycle-diagram.png" alt-text="Diagram explaining the lifecycle of the lease acquired by Azure Backup." border="false":::
 
+Learn [how to use Hooks during backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-backup).
 
 ## Next steps
 

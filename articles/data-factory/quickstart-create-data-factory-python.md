@@ -14,9 +14,6 @@ ms.custom: seo-python-october2019, devx-track-python, mode-api
 
 # Quickstart: Create a data factory and pipeline using Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
