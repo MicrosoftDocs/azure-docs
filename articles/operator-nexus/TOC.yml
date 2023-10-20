@@ -137,7 +137,7 @@
       href: troubleshoot-internet-host-virtual-machine.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
-    - name: Troubleshooting Dual Stack Configuration Issues for Nexus Kubernetes Cluster
+    - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
       href: troubleshoot-dualstack-configuration.md
     - name: BareMetal Actions
       expanded: false
