@@ -85,7 +85,7 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgre-flexible.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#is-the-service-zone-resilient-
     - name: Azure Disk Encryption 
@@ -323,7 +323,9 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgresql-flexible-server.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
+    - naME: Azure Deployment Environments
+      href: ../deployment-environments/concept-environments-reliability-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Disk Encryption 

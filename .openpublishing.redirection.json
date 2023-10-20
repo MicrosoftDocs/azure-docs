@@ -24490,6 +24490,15 @@
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/energy-data-services/reliability-energy-data-services.md",
+            "redirect_url": "/azure/reliability/reliability-energy-data-services",
+            "redirect_document_id": false
         }
+
+
+
+        
     ]
 }

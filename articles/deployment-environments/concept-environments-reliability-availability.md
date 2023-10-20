@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/25/2023
-ms.custom: references_regions
+ms.custom: subject-reliability, references_regions
 ---
 
 # Reliability in Azure Deployment Environments 
@@ -15,7 +15,8 @@ This article describes reliability support in Azure Deployment Environments, a
 
 ## Availability zone support 
 
-Azure availability zones consist of at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability if a local zone fails. In the case of a local zone failure, availability zones allow the services to fail over to the other availability zones to provide continuity in service with minimal interruption. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. 
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+
 
 Availability zone support for all resources in Azure Deployment Environments is enabled automatically. There's no action for you to take. 
 
@@ -37,9 +38,9 @@ Regions supported:
 
 For more detailed information on availability zones in Azure, see [Regions and availability zones](../reliability/availability-zones-overview.md). 
 
-## Disaster recovery: cross-region failover 
+## Cross-region disaster recovery and business continuity
 
-Azure provides protection from regional or large geography disasters by making use of another region if there's a region-wide disaster.
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 You can replicate the following Deployment Environments resources in an alternate region to prevent data loss if a cross-region failover occurs:
  
@@ -55,7 +56,7 @@ You can replicate the following Deployment Environments resources in an alternat
 
 For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). 
 
-## Related content 
+## Next steps 
 
 - To learn more about how Azure supports reliability, see [Azure reliability](/azure/reliability). 
 - To learn more about Deployment Environments resources, see [Azure Deployment Environments key concepts](./concept-environments-key-concepts.md).
