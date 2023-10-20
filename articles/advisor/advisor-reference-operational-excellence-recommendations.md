@@ -28,13 +28,13 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
-We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
+We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. The latest version of the Immersive Reader SDK provides you with updated security, performance, and an expanded set of features for customizing and enhancing your integration experience.
 
 Learn more about [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/).
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
-We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
+We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. The latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 
 Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
 
@@ -83,7 +83,7 @@ Your pool is using a deprecated internal component. Delete and recreate your poo
 
 Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](https://aka.ms/batch_deprecatedcomponent_learnmore).
 
-### Upgrade to the latest API version to ensure your Batch account remains operational.
+### Upgrade to the latest API version to ensure your Batch account remains operational
 
 In the past 14 days, you have invoked a Batch management or service API version that is scheduled for deprecation. Upgrade to the latest API version to ensure your Batch account remains operational.
 
@@ -113,35 +113,35 @@ Azure Monitor for VMs monitors your Azure virtual machines (VM) and Virtual Mach
 
 Learn more about [Virtual machine - AddMonitorProdVM (Add Azure Monitor to your virtual machine (VM) labeled as production)](/azure/azure-monitor/insights/vminsights-overview).
 
-### Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.
+### Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers
 
 Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers. Frequent DNS lookups and NTP sync can be viewed as malicious traffic and blocked by the DDOS service in the Azure environment
 
 Learn more about [Virtual machine - GetVmlistFortigateNtpIssue (Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.)](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-release-notes/236526/known-issues).
 
-### An Azure environment update has been rolled out that may affect your Checkpoint Firewall.
+### An Azure environment update has been rolled out that might affect your Checkpoint Firewall
 
-The image version of the Checkpoint firewall installed may have been affected by the recent Azure environment update. A kernel panic resulting in a reboot to factory defaults can occur in certain circumstances.
+The image version of the Checkpoint firewall installed might have been affected by the recent Azure environment update. A kernel panic resulting in a reboot to factory defaults can occur in certain circumstances.
 
-Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that may affect your Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
+Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that might affect your Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
 
-### The iControl REST interface has an unauthenticated remote command execution vulnerability.
+### The iControl REST interface has an unauthenticated remote command execution vulnerability
 
 An unauthenticated remote command execution vulnerability allows for unauthenticated attackers with network access to the iControl REST interface, through the BIG-IP management interface and self IP addresses, to execute arbitrary system commands, create or delete files, and disable services. This vulnerability can only be exploited through the control plane and can't be exploited through the data plane. Exploitation can lead to complete system compromise. The BIG-IP system in Appliance mode is also vulnerable
 
 Learn more about [Virtual machine - GetF5vulnK03009991 (The iControl REST interface has an unauthenticated remote command execution vulnerability.)](https://support.f5.com/csp/article/K03009991).
 
-### NVA Accelerated Networking enabled but potentially not working.
+### NVA Accelerated Networking enabled but potentially not working
 
 Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on your VM, but actual state for accelerated networking is not enabled.
 
 Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-### Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled may disconnect during maintenance operation
+### Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled might disconnect during maintenance operation
 
-We have identified that you're running a Network virtual Appliance (NVA) called Citrix Application Delivery Controller (ADC), and the NVA has accelerated networking enabled. The Virtual machine that this NVA is deployed on may experience connectivity issues during a platform maintenance operation. It is recommended that you follow the article provided by the vendor: https://aka.ms/Citrix_CTX331516
+We have identified that you're running a Network virtual Appliance (NVA) called Citrix Application Delivery Controller (ADC), and the NVA has accelerated networking enabled. The Virtual machine that this NVA is deployed on might experience connectivity issues during a platform maintenance operation. It is recommended that you follow the article provided by the vendor: https://aka.ms/Citrix_CTX331516
 
-Learn more about [Virtual machine - GetCitrixVFRevokeError (Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled may disconnect during maintenance operation)](https://aka.ms/Citrix_CTX331516).
+Learn more about [Virtual machine - GetCitrixVFRevokeError (Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled might disconnect during maintenance operation)](https://aka.ms/Citrix_CTX331516).
 
 ### Update your outdated Azure Spring Cloud SDK to the latest version
 
@@ -223,7 +223,7 @@ Learn more about [Kubernetes service - ClustersWithDeprecatedMarinerSKU (Outdate
 
 ### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
+This cluster has not enabled the Standard tier that includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
 Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
@@ -257,7 +257,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure C
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
-Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
+Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup might also be more cost-effective as a single copy of your data is retained.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
@@ -306,13 +306,13 @@ Injecting a cache into a virtual network (VNet) imposes complex requirements on 
 
 Learn more about [Redis Cache Server - PrivateLink (Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications)](https://aka.ms/VnetToPrivateLink).
 
-### Support for TLS versions 1.0 and 1.1 is retiring on September 30, 2024.
+### Support for TLS versions 1.0 and 1.1 is retiring on September 30, 2024
 
 Support for TLS 1.0/1.1 is retiring on September 30, 2024. Configure your cache to use TLS 1.2 only and your application to use TLS 1.2 or later. See https://aka.ms/TLSVersions for more information.
 
 Learn more about [Redis Cache Server - TLSVersion (Support for TLS versions 1.0 and 1.1 is retiring on September 30, 2024.)](https://aka.ms/TLSVersions).
 
-### TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.
+### TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses
 
 TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses. We highly recommend that you configure your cache to use TLS 1.2 only and your application to use TLS 1.2 or later. See https://aka.ms/TLSVersions for more information.
 
@@ -336,11 +336,11 @@ Check to see if your storage account has soft delete enabled before using the da
 
 Learn more about [Redis Cache Server - PersistenceSoftEnable (Using persistence with soft delete enabled can increase storage costs.)](https://aka.ms/redis/persistence).
 
-### You may benefit from using an Enterprise tier cache instance
+### You might benefit from using an Enterprise tier cache instance
 
 This instance of Azure Cache for Redis is using one or more advanced features from the list - more than 6 shards, geo-replication, zone-redundancy or persistence. Consider switching to an Enterprise tier cache to get the most out of your Redis experience. Enterprise tier caches offer higher availability, better performance and more powerful features like active geo-replication.
 
-Learn more about [Redis Cache Server - ConsiderUsingRedisEnterprise (You may benefit from using an Enterprise tier cache instance)](https://aka.ms/redisenterpriseupgrade).
+Learn more about [Redis Cache Server - ConsiderUsingRedisEnterprise (You might benefit from using an Enterprise tier cache instance)](https://aka.ms/redisenterpriseupgrade).
 
 
 
@@ -374,13 +374,13 @@ Learn more about [Api Management - shgw-config-api-v1-usage (Use Configuration A
 
 ### Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.
 
-Traces generated by Azure API Management service may contain sensitive information that is intended for service owner and must not be exposed to clients using the service. Using tracing enabled subscription keys in production or automated scenarios creates a risk of sensitive information exposure if client making call to the service requests a trace.
+Traces generated by Azure API Management service might contain sensitive information that is intended for service owner and must not be exposed to clients using the service. Using tracing enabled subscription keys in production or automated scenarios creates a risk of sensitive information exposure if client making call to the service requests a trace.
 
 Learn more about [Api Management - heavy-tracing-usage (Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.)](/azure/api-management/api-management-howto-api-inspector).
 
 ### Self-hosted gateway instances were identified that use gateway tokens that expire soon
 
-At least one deployed self-hosted gateway instance was identified that uses a gateway token that expires in the next 7 days. To ensure that it can connect to the control-plane, generate a new gateway token and update your deployed self-hosted gateways  (does not impact data-plane traffic).
+At least one deployed self-hosted gateway instance was identified that uses a gateway token that expires in the next seven days. To ensure that it can connect to the control-plane, generate a new gateway token and update your deployed self-hosted gateways  (does not impact data-plane traffic).
 
 Learn more about [Api Management - ShgwGatewayTokenNearExpiry (Self-hosted gateway instance(s) were identified that use gateway tokens that expire soon)]().
 
@@ -406,7 +406,7 @@ Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v
 
 ### Repair your log alert rule
 
-We have detected that one or more of your alert rules have invalid queries specified in their condition section. Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries may become invalid overtime due to changes in referenced resources, tables, or commands. We recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure.
+We have detected that one or more of your alert rules have invalid queries specified in their condition section. Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries might become invalid overtime due to changes in referenced resources, tables, or commands. We recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure.
 
 Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](https://aka.ms/aa_logalerts_queryrepair).
 
@@ -537,7 +537,7 @@ Learn more about [App Server Instance - AppOSDBSupport (Ensure the Operating sys
 
 ### Set the parameter net.ipv4.tcp_keepalive_time to '300' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_time = 300. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_time = 300 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads in order.
 
 Learn more about [App Server Instance - AppIPV4TCPKeepAlive (Set the parameter net.ipv4.tcp_keepalive_time to '300' in the Application VM OS in SAP workloads)](https://launchpad.support.sap.com/#/notes/1410736).
 
@@ -549,19 +549,19 @@ Learn more about [Database Instance - DBOSDBSupport (Ensure the Operating system
 
 ### Set the parameter net.ipv4.tcp_retries2 to '15' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries2 = 15. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries2 = 15 to enable faster reconnection after an ASCS failover. This is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIpv4Retries2 (Set the parameter net.ipv4.tcp_retries2 to '15' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
 ### See the parameter net.ipv4.tcp_keepalive_probes to '9' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_probes = 9. This is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_probes = 9 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIPV4Probes (See the parameter net.ipv4.tcp_keepalive_probes to '9' in the Application VM OS in SAP workloads)](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
 ### Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0 to enable faster reconnection after an ASCS failover . This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIpv4Recycle (Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
@@ -579,19 +579,19 @@ Learn more about [App Server Instance - VM_0001 (Azure Center for SAP recommenda
 
 ### Set the parameter net.ipv4.tcp_retries1 to '3' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries1 = 3. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_retries1 = 3 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIpv4Retries1 (Set the parameter net.ipv4.tcp_retries1 to '3' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
 ### Set the parameter net.ipv4.tcp_tw_reuse to '0' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_reuse = 0. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_reuse = 0 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIpv4TcpReuse (Set the parameter net.ipv4.tcp_tw_reuse to '0' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
 ### Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_intvl = 75. This setting is recommended for all Application VM OS in SAP workloads in order to enable faster reconnection after an ASCS failover
+In the Application VM OS, edit the /etc/sysctl.conf file and add net.ipv4.tcp_keepalive_intvl = 75 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIPV4intvl (Set the parameter net.ipv4.tcp_keepalive_intvl to '75' in the Application VM OS in SAP workloads)](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
@@ -663,20 +663,20 @@ Learn more about [Database Instance - GetFsTrimForDb (Disable fstrim in SLES OS 
 
 ### For better performance and support, ensure HANA data filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem may lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaDataFileSystemSupported (For better performance and support, ensure HANA data filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
 ### For better performance and support, ensure HANA shared filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem may lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaSharedFileSystem (For better performance and support, ensure HANA shared filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
 
 ### For better performance and support, ensure HANA log filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem may lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaLogFileSystemSupported (For better performance and support, ensure HANA log filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
@@ -799,7 +799,7 @@ Learn more about [Host Pool - ProductionEnvHostPools (Not enough production envi
 
 ### Set up staging environments in Azure App Service
 
-Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
+Deploying an app to a slot first and swapping it into production, ensures that all instances of the slot are warmed up before being swapped into production. Doing this eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
