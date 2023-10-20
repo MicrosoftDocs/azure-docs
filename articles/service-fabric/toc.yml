@@ -477,6 +477,8 @@
       href: how-to-managed-cluster-ddos-protection.md
     - name: Troubleshoot SNAT Port exhaustion issues in a managed cluster
       href: how-to-managed-cluster-troubleshoot-snat-port-exhaustion-issues.md
+    - name: Use Azure Application Gateway in a Service Fabric managed cluster
+      href: how-to-managed-cluster-application-gateway.md
   - name: Set up your development environment
     items:
     - name: Windows
