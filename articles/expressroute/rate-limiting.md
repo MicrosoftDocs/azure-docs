@@ -79,6 +79,8 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
     In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See the following screenshot:
 
+    :::image type="content" source="./media/rate-limiting/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
+
 1. How can I monitor if my traffic gets affected by the rate limiting feature?
 
     To monitor your traffic, follow these steps:
