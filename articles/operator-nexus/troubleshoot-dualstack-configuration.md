@@ -38,7 +38,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
 
    - **Step 1: Verifying dual-stack L3 network**
 
-     Confirm that your network infrastructure fully supports dual stack configurations. Ensure your L3 network is properly configured to handle both IPv4 and IPv6 traffic by using following command to create an L3 network with the specified configurations:
+Ensure that your L3 network, which is used as the CNI, is configured correctly to handle both IPv4 and IPv6 traffic. You can use the following command to verify this.
 
      ```bash
      az networkcloud l3network create --name "<YourL3NetworkName>" \
