@@ -128,10 +128,8 @@ items:
           href: dead-letter-event-subscriptions-namespace-topics.md
         - name: Event retention
           href: event-retention.md
-        - name: Event delivery
-          items:
-            - name: Event filtering
-              href: namespace-event-filtering.md
+        - name: Event filtering
+          href: namespace-event-filtering.md            
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
