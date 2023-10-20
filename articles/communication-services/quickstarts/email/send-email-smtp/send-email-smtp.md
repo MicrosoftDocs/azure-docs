@@ -49,13 +49,12 @@ dotnet build
 
 ### Construct your email message
 
-To send an email message, you need to:
+To construct an email message, you need to:
 
 - Define the Smtp Authentication credentials using an Entra application.
-- Define the email subject and body.
-- Define your Sender Address. Construct your email message with your Sender information you get your MailFrom address from your verified domain.
+- Define the Email Subject and Body.
+- Define your Sender Address. You get your MailFrom Address from your Verified Domain.
 - Define the Recipient Address.
-- Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 
