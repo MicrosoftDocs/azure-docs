@@ -65,7 +65,7 @@ Once the spacecraft is authorized, TLE updates are the only modifications possib
 
 ## Delete spacecraft resource
 
-You can delete the spacecraft object via the Portal or the API.
+You can delete the spacecraft resource via the Azure portal or the Azure Orbital Ground Station API. You must first delete all scheduled contacts associated with that spacecraft resource. See [contact resource](concepts-contact.md) for more information.
 
 ## Next steps
 
