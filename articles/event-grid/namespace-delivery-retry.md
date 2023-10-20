@@ -16,7 +16,7 @@ Event Grid namespaces provides durable delivery. It tries to deliver each messag
 
 ## Retry schedule
 
-When Event Grid namespace receives an error when delivering, events can be retried, dropped or dead-lettered depending on the type of error. Even though you may have configured retention and maximum delivery count. Event Grid will drop or dead-letter events depending on the following errors:
+When Event Grid namespace receives an error when delivering, events can be retried, dropped or dead-lettered depending on the type of error. Even though you may have configured retention and maximum delivery count. Event Grid drop or dead-letter events depending on the following errors:
 
 - ArgumentException
 - TimeoutException
