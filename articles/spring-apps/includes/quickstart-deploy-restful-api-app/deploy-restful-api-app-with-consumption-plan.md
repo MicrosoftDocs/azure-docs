@@ -136,6 +136,8 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view the details.
 
+1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
+
 1. Go to the created app, expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
 
 1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values that you created previously.
