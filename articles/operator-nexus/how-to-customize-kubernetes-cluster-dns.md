@@ -92,7 +92,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
 
 If you need to specify a forward server for your network traffic, you can create a `ConfigMap` to customize DNS.
 
-1. Create a file named `customdns.yaml` and paste the following example configuration. Make sure to replace the `forward` name and the address with the values for your own environment.  The "bind 169.254.20.10" line is required. 
+1. Create a file named `customdns.yaml` and paste the following example configuration. Make sure to replace the `forward` name and the address with the values for your own environment.  The `bind 169.254.20.10` line is required and should not be changed. 
 
      ```yaml
      apiVersion: v1
@@ -108,13 +108,13 @@ If you need to specify a forward server for your network traffic, you can create
          }
      ```
 
-2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+2. Create the `ConfigMap`.
 
      ```console
      kubectl apply -f customdns.yaml
      ```
 
-3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
+3. Restart CoreDNS without downtime by performing a `Daemonset` rollout.
 
      ```console
      kubectl rollout restart -n kube-system daemonset/node-local-dns
@@ -122,9 +122,9 @@ If you need to specify a forward server for your network traffic, you can create
 
 ## Use custom domains
 
-You may want to configure custom domains that can only be resolved internally. For example, you may want to resolve the custom domain *puglife.local*, which isn't a valid top-level domain. Without a custom domain ConfigMap, the Nexus Kubernetes cluster can't resolve the address.
+You may want to configure custom domains that can only be resolved internally. For example, you may want to resolve the custom domain `puglife.local`, which isn't a valid top-level domain. Without a custom domain `ConfigMap`, the Nexus Kubernetes cluster can't resolve the address.
 
-1. Create a new file named `customdns.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address with the values for your own environment.  The "bind 169.254.20.10" line is required. 
+1. Create a new file named `customdns.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address with the values for your own environment.  The `bind 169.254.20.10` line is required and should not be modified. 
 
      ```yaml
      apiVersion: v1
@@ -142,13 +142,13 @@ You may want to configure custom domains that can only be resolved internally. F
          }
      ```
 
-2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+2. Create the `ConfigMap`.
 
      ```console
      kubectl apply -f customdns.yaml
      ```
 
-3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
+3. Restart CoreDNS without downtime by performing a `Daemonset` rollout.
 
      ```console
      kubectl rollout restart -n kube-system daemonset/node-local-dns
@@ -183,7 +183,7 @@ CoreDNS can also be used to configure stub domains.
 
      ```
 
-2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+2. Create the `ConfigMap`.
 
      ```console
      kubectl apply -f customdns.yaml
