@@ -5,7 +5,7 @@ description: Learn how to resize a gateway SKU.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/20/2023
 ms.author: cherylmc
 
 ---

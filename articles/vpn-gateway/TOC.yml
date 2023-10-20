@@ -83,8 +83,6 @@
         href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-delete-vnet-gateway-powershell.md
-    - name: Manage legacy Gateway SKUs
-      href: vpn-gateway-about-skus-legacy.md
   - name: Site-to-site connections
     items:
     - name: Configure site-to-site connections
@@ -219,6 +217,8 @@
     items:
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
+    - name: Manage legacy gateway SKUs
+      href: vpn-gateway-about-skus-legacy.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
