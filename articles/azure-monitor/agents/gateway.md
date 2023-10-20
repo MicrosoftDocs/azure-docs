@@ -103,8 +103,8 @@ To install a gateway using the setup wizard, follow these steps.
 
 1. From the destination folder, double-click **Log Analytics gateway.msi**.
 1. On the **Welcome** page, select **Next**.
-   <!-- convertborder later -->
-   :::image type="content" source="./media/gateway/gateway-wizard01.png" lightbox="./media/gateway/gateway-wizard01.png" alt-text="Screenshot of Welcome page in the Gateway Setup wizard" border="false":::
+   
+   :::image type="content" source="./media/gateway/gateway-wizard01.png" lightbox="./media/gateway/gateway-wizard01.png" alt-text="Screenshot of Welcome page in the Gateway Setup wizard":::
 
 1. On the **License Agreement** page, select **I accept the terms in the License Agreement** to agree to the Microsoft Software License Terms, and then select **Next**.
 1. On the **Port and proxy address** page:
@@ -115,15 +115,15 @@ To install a gateway using the setup wizard, follow these steps.
    b. If the server where the gateway is installed needs to communicate through a proxy, enter the proxy address where the gateway needs to connect. For example, enter `http://myorgname.corp.contoso.com:80`.  If you leave this field blank, the gateway will try to connect to the internet directly.  If your proxy server requires authentication, enter a username and password.
 
    c. Select **Next**.
-
-   :::image type="content" source="./media/gateway/gateway-wizard02.png" lightbox="./media/gateway/gateway-wizard02.png" alt-text="Screenshot of configuration for the gateway proxy":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-wizard02.png" lightbox="./media/gateway/gateway-wizard02.png" alt-text="Screenshot of configuration for the gateway proxy" border="false":::
 
 1. If you do not have Microsoft Update enabled, the Microsoft Update page appears, and you can choose to enable it. Make a selection and then select **Next**. Otherwise, continue to the next step.
 1. On the **Destination Folder** page, either leave the default folder C:\Program Files\OMS Gateway or enter the location where you want to install the gateway. Then select **Next**.
 1. On the **Ready to install** page, select **Install**. If User Account Control requests permission to install, select **Yes**.
 1. After Setup finishes, select **Finish**. To verify that the service is running, open the services.msc snap-in and verify that **OMS Gateway** appears in the list of services and that its status is **Running**.
-
-   :::image type="content" source="./media/gateway/gateway-service.png" lightbox="./media/gateway/gateway-service.png" alt-text="Screenshot of local services, showing that OMS Gateway is running":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-service.png" lightbox="./media/gateway/gateway-service.png" alt-text="Screenshot of local services, showing that OMS Gateway is running" border="false":::
 
 ## Install the Log Analytics gateway using the command line
 
@@ -256,12 +256,12 @@ To configure integration, update the system proxy configuration by using Netsh o
 After completing the integration with Log Analytics, remove the change by running `netsh winhttp reset proxy`. Then, in the Operations console, use the **Configure proxy server** option to specify the Log Analytics gateway server. 
 
 1. On the Operations Manager console, under **Operations Management Suite**, select **Connection**, and then select **Configure Proxy Server**.
-
-   :::image type="content" source="./media/gateway/scom01.png" lightbox="./media/gateway/scom01.png" alt-text="Screenshot of Operations Manager, showing the selection Configure Proxy Server":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/scom01.png" lightbox="./media/gateway/scom01.png" alt-text="Screenshot of Operations Manager, showing the selection Configure Proxy Server" border="false":::
 
 1. Select **Use a proxy server to access the Operations Management Suite** and then enter the IP address of the Log Analytics gateway server or virtual IP address of the load balancer. Be careful to start with the prefix `http://`.
-
-   :::image type="content" source="./media/gateway/scom02.png" lightbox="./media/gateway/scom02.png" alt-text="Screenshot of Operations Manager, showing the proxy server address":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/scom02.png" lightbox="./media/gateway/scom02.png" alt-text="Screenshot of Operations Manager, showing the proxy server address" border="false":::
 
 1. Select **Finish**. Your Operations Manager management group is now configured to communicate through the gateway server to the Log Analytics service.
 
@@ -340,8 +340,8 @@ An error in step 3 means that the module wasn't imported. The error might occur 
 ## Troubleshooting
 
 To collect events logged by the gateway, you should have the Log Analytics agent installed.
-
-:::image type="content" source="./media/gateway/event-viewer.png" lightbox="./media/gateway/event-viewer.png" alt-text="Screenshot of the Event Viewer list in the Log Analytics gateway log":::
+<!-- convertborder later -->
+:::image type="content" source="./media/gateway/event-viewer.png" lightbox="./media/gateway/event-viewer.png" alt-text="Screenshot of the Event Viewer list in the Log Analytics gateway log" border="false":::
 
 ### Log Analytics gateway event IDs and descriptions
 
@@ -373,8 +373,8 @@ The following table shows the performance counters available for the Log Analyti
 | Log Analytics Gateway/Error Count |Number of errors |
 | Log Analytics Gateway/Connected Client |Number of connected clients |
 | Log Analytics Gateway/Rejection Count |Number of rejections due to any TLS validation error |
-
-:::image type="content" source="./media/gateway/counters.png" lightbox="./media/gateway/counters.png" alt-text="Screenshot of Log Analytics gateway interface, showing performance counters":::
+<!-- convertborder later -->
+:::image type="content" source="./media/gateway/counters.png" lightbox="./media/gateway/counters.png" alt-text="Screenshot of Log Analytics gateway interface, showing performance counters" border="false":::
 
 ## Assistance
 
