@@ -51,7 +51,9 @@ Ensure that your L3 network, which is used as the CNI, is configured correctly t
          --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
          --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
          --vlan <YourNetworkVlan>
+         
      ```
+Verify 
 
    - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
@@ -75,7 +77,7 @@ Ensure that your L3 network, which is used as the CNI, is configured correctly t
    
    - **Step 3: Ensuring proper peering configuration:**
 
-If the configurations in steps 1 and 2 are correct but traffic issues persist, please ensure that any peering connections or routes between your cluster and external networks are properly established for both IPv4 and IPv6 traffic.
+If the configurations in steps 1 and 2 are correct but traffic issues persist, please ensure that any peering connections or routes between your cluster and external networks are properly established for both IPv4 and IPv6 traffic. When Nexus Kubernetes cluster isn't configured with IPv6 in "podCidrs" and "serviceCidrs," IPv4 peering occurs on CE but not IPv6.
 
    Action: Review and update peering configurations as necessary to accommodate dual stack traffic.
 
@@ -105,10 +107,7 @@ If the configurations in steps 1 and 2 are correct but traffic issues persist, p
 
 ##  Additional recommendations:
 
-Check for any conflicting configurations or policies that might be affecting dual stack functionality.
 Scrutinize logs and error messages for indicators of configuration issues.
-Consider consulting relevant documentation or community forums for specific platform-related troubleshooting steps.
-When Nexus Kubernetes cluster isn't configured with IPv6 in "podCidrs" and "serviceCidrs," IPv4 peering occurs on CE but not IPv6.
 
 ## Conclusion
 Setting up a dual-stack configuration involves enabling both IPv4 and IPv6 on your network, and ensuring services can communicate over both. By following the steps outlined in this guide, you should be able to identify and resolve common configuration issues related to setting up a dual stack cluster. If you continue to experience difficulties, consider seeking further assistance from your network administrator or consulting platform-specific support resources.
