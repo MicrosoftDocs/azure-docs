@@ -98,9 +98,9 @@ sections:
         answer: |
           Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
 
-      - question: Can I do in-place upgrades for Windows 10 deployments?
+      - question: Can I do in-place upgrades for the session host operating system?
         answer: |
-          Yes, provided your deployment is running either Windows 10 single-session or Windows 10 Enterprise multi-session. For more information, see [In-place upgrade for supported VMs running Windows in Azure](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/in-place-system-upgrade).                   
+          Yes, provided your deployment is running either the single-session or Enterprise multi-session editions. For more information, see [In-place upgrade for supported VMs running Windows in Azure](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/in-place-system-upgrade).                   
           
 additionalContent: |
 
