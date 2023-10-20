@@ -24,7 +24,6 @@ This guide provides detailed steps for troubleshooting issues related to setting
 * Connected IPV4 and IPV6
 * Necessary permissions to make changes to the cluster configuration.
 
- [How-to-install-ManagedNetworkFabric-CLI-extension](./howto-install-cli-extensions.md#install-managednetworkfabric-cli-extension)
 
  [How to Sign-in to your Azure account](./howto-configure-isolation-domain.md#prerequisites)
 
