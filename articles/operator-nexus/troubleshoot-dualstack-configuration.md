@@ -56,7 +56,6 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
   2. Examine the `networkConfiguration` section in the `az networkcloud kubernetescluster show` output.
   3. Confirm that `podCidrs` and `serviceCidrs` are set as arrays, each containing one IPv4 prefix and one IPv6 prefix.
   4. Thoroughly review the cluster configuration settings to validate CIDR assignments.
-  5. Ensure that the assigned `podCidr` and `serviceCidr` ranges are accurately configured for both IPv4 and IPv6 addresses.
   
   By following these steps, you can guarantee the correct setup of dual-stack networking in your Nexus Kubernetes cluster.
 
