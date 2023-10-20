@@ -40,7 +40,7 @@ We recommend the following steps as you prepare to migrate to TLS 1.2:
 
 - Notify your customers and partners of your product or service's migration to TLS 1.2.
 
-For more detailed guidance, see the [checklist to deprecate older TLS versions in your environment](../../security/engineering/solving-tls1-problem.md#figure-1-security-protocol-support-by-os-version).
+For more detailed guidance, see the [checklist to deprecate older TLS versions in your environment](/security/engineering/solving-tls1-problem#figure-1-security-protocol-support-by-os-version).
 
 ## Quick Tips
 
@@ -64,7 +64,7 @@ For more detailed guidance, see the [checklist to deprecate older TLS versions
 
 ## Next steps
 
-- [Solving the TLS 1.0 Problem, 2nd Edition](../../security/engineering/solving-tls1-problem.md) – deep dive into migrating to TLS 1.2.
+- [Solving the TLS 1.0 Problem, 2nd Edition](/security/engineering/solving-tls1-problem) – deep dive into migrating to TLS 1.2.
 
 - [How to enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client) – for Microsoft Configuration Manager.
 
