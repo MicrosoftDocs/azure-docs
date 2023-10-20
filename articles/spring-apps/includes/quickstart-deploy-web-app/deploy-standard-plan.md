@@ -135,7 +135,7 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
-1. Configure the **Authentication** tab with the following information:
+1. Configure the **Next: Authentication** tab with the following information:
 
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
    - **Continue with...**: Select **Database credentials**
@@ -144,7 +144,9 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
-1. Select **Review and Create** to review your selections, then select **Create** to create the connection.
+1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+
+1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
