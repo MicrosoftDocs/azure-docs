@@ -115,7 +115,7 @@ Standard storage with cool access can be enabled during the creation of a volume
 
     * **Cool Access Retrieval Policy**   
 
-        You can set this option to `Default`, `On-Read`, or `Never`.   
+        This option specifies under which conditions data will be moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
 
         The following list describes the data retrieval behavior with the cool access retrieval policy settings:
 
@@ -155,7 +155,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
         This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days. 
     * **Cool Access Retrieval Policy**   
 
-        You can set this option to `Default`, `On-Read`, or `Never`.   
+        This option specifies under which conditions data will be moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
 
         The following list describes the data retrieval behavior with the cool access retrieval policy settings:
 

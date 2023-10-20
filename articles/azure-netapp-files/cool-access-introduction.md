@@ -29,7 +29,7 @@ You can configure the standard storage with cool access on a volume by specifyin
 
 Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
 
-After inactive data is moved to the cool tier and if it's read randomly again, it becomes "warm" and is moved back to the hot tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the hot tier. 
+By `Default` (unless cool access retrieval policy is configured otherwise), after inactive data is moved to the cool tier and if it's read randomly again, it becomes "warm" and is moved back to the hot tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the hot tier.
 
 Metadata is never cooled and always remains in the hot tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 
@@ -46,7 +46,6 @@ Standard storage with cool access is supported for the following regions:
 * East Asia  
 * East US 2   
 * France Central
-* North Central US  
 * North Europe  
 
 ## Effects of cool access on data
