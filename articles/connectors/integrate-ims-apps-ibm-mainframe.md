@@ -43,7 +43,7 @@ After you generate the metadata file from the HIS Designer for Logic Apps, you a
 
   The IBM IMS connector doesn't have triggers, so use another trigger to start your logic app, such as the **Recurrence** trigger. You can then add the IMS connector actions. To get started, create a blank logic app workflow.
 
-* [Download and install the HIS Designer for Logic Apps](https://aka.ms/3270-design-tool-download).
+* [Download and install the HIS Designer for Logic Apps](https://aka.ms/his-desiner-logicapps-download).
 The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
   This tool helps you define the methods, and parameters for the tasks in your app that you add and run as IMS connector actions. The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you are using Host Integration Server, then you can leverage the TI Designer to create the HIDX file.
