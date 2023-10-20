@@ -16,6 +16,6 @@ groups:
   prompt: Choose your service-to-service communication style
   pivots:
   - id: non-dapr
-    title: Container App FQDN
+    title: Container app FQDN
   - id: dapr
     title: Dapr service invocation API

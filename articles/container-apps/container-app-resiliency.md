@@ -20,17 +20,17 @@ With Azure Container Apps resiliency, you can proactively prevent, detect, and r
 
 Resiliency policies are configured as a sub-resource to a container app. When a container app request request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). Thus retries, timeouts, and other resiliency policies are appropriately enforced and tailored to the specific requirement of the requested application. 
 
-In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: Container App FQDN or Dapr Service Invocation.
+In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: your container app's fully qualified domain name (FQDN) or Dapr service invocation.
 
 ::: zone pivot="non-dapr"
 
-## Configuring resiliency when using Container App FQDN
+## Configuring resiliency when using container app FQDN
 
-When initiating requests from one container app to another using the application’s fully qualified domain name (FQDN), you can configure and apply Azure Container Apps resiliency policies.
+When initiating requests from one container app to another using the application’s FQDN, you can configure and apply any of the Azure Container Apps resiliency policies.
 
 :::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps without Dapr enabled.":::
 
-The supported resiliency policies include:
+### Supported resiliency policies
 
 - Timeouts
 - Retries (HTTP and TCP)
@@ -47,7 +47,7 @@ When leveraging Dapr’s Service Invocation API for container app-to-container a
 
 :::image type="content" source="media/container-app-resiliency/sidecar-to-sidecar-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps with Dapr enabled.":::
 
-The supported resiliency policies include:
+### Supported resiliency policies
 
 - Timeouts
 - Retries (HTTP)
