@@ -94,7 +94,7 @@ Locals can reference any expression element including functions, input schema, p
 
 :::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
 
-To reference a local in a transformation, either select on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and select on the pencil icon.
+To reference a local in a transformation, either select the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and select the pencil icon.
 
 :::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
