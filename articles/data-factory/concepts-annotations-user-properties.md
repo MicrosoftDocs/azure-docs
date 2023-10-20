@@ -27,7 +27,7 @@ User properties allow you to define dynamic values and can be added to any activ
 
 ## Create and use annotations and user properties
 
-As we discussed, annotations are static values that you can assign to pipelines, datasets, linked services, and triggers. Let's assume you want to filter for pipelines that belong to the same business unit or project name. We first create the annotation. Select on the Properties icon, + New button and name your annotation appropriately. We advise being consistent with your naming.
+As we discussed, annotations are static values that you can assign to pipelines, datasets, linked services, and triggers. Let's assume you want to filter for pipelines that belong to the same business unit or project name. We first create the annotation. Select the Properties icon, + New button and name your annotation appropriately. We advise being consistent with your naming.
 
 ![Screenshot showing how to create an annotation.](./media/concepts-annotations-user-properties/create-annotations.png "Create Annotation")
 
