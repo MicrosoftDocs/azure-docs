@@ -18,7 +18,7 @@ App Service Environment is a single-tenant deployment of Azure App Service that 
 
 You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
 
-The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet.
+The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet. If you plan to scale near max capacity of 200 instances in our App Service Environment and you plan frequent up/down scale operations, we recommend a `/23` address space (512 addresses) for your subnet.
 
 If you use a smaller subnet, be aware of the following limitations:
 
