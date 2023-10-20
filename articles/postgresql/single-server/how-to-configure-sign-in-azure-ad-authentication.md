@@ -34,8 +34,7 @@ To set the Microsoft Entra administrator (you can use a user or a group), please
 
 > [!IMPORTANT]
 > When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. 
-> The Microsoft Entra Admin user in Azure Database for PostgreSQL will have the role `azure_ad_admin`.
-> Only one Microsoft Entra admin can be created per PostgreSQL server and selection of another one will overwrite the existing Microsoft Entra admin configured for the server. 
+> The Microsoft Entra Admin user in Azure Database for PostgreSQL will have the role `azure_pg_admin`. 
 > You can specify a Microsoft Entra group instead of an individual user to have multiple administrators.
 
 Only one Microsoft Entra admin can be created per PostgreSQL server and selection of another one will overwrite the existing Microsoft Entra admin configured for the server. You can specify a Microsoft Entra group instead of an individual user to have multiple administrators. Note that you will then sign in with the group name for administration purposes.
@@ -162,6 +161,16 @@ You are now authenticated to your Azure Database for PostgreSQL server using Mic
 <a name='authenticate-with-azure-ad-as-a-group-member'></a>
 
 ## Authenticate with Microsoft Entra ID as a group member
+
+<a name='step-0-create-entra-id-role-in-azure-database-for-postgresql'></a>
+
+### Step 0: Create Entra ID role in Azure Database for PostgreSQL
+
+Before adding Entra ID users or groups to access your database, as a PostreSQL administrator or super user create a new role called azure_ad_user
+
+```
+CREATE ROLE azure_ad_user WITH LOGIN;
+```
 
 <a name='step-1-create-azure-ad-groups-in-azure-database-for-postgresql'></a>
 
