@@ -84,7 +84,7 @@ Use the following steps to connect your service instances:
     - **Username**: *myadmin*
     - **Password**: Enter your password.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication-enterprise.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png":::
 
 1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
 
