@@ -30,7 +30,7 @@ Create a User Assigned Managed Identity. For details, refer to [Create a User As
 
 ## Assign custom role
 
-Assign a customer role to your User Assigned Managed Identity.
+Assign a custom role to your User Assigned Managed Identity.
 
 ### Choose scope for assigning custom role
 
@@ -70,7 +70,7 @@ The custom role permissions limit access to the list of the permissions shown he
 
 3. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing the access control screen.":::
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page.":::
 
 4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*. 
 
@@ -78,11 +78,8 @@ The custom role permissions limit access to the list of the permissions shown he
 
 5. Select **Managed Identity**, then Choose **+ Select Members** then find and choose your new managed identity. Choose **Select**.
 
-    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment page for custom assignment.":::
+    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment and select managed identities.":::   
 
-    This image shows the same step 5 tasks, but for a CNF vs a VNF.
-
-    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the add role assignment page.":::
 
 7. Select **Review and assign**.
 
@@ -93,11 +90,10 @@ Repeat the role assignment tasks for all of your chosen scopes.
 ## Assign Managed Identity Operator role to the Managed Identity itself
 
 1. Go to the Azure portal and search for **Managed Identities**.
-1. Select *identity-for-ubuntu-vm-sns* from the list of **Managed Identities**.
+1. Select *identity-for-nginx-sns* from the list of **Managed Identities**.
 1. On the side menu, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
-
-    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment."::: 
+:::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role add role assignment.":::
 
 1. Select the **Managed Identity Operator** role.
 
@@ -108,7 +104,7 @@ Repeat the role assignment tasks for all of your chosen scopes.
 
     :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
 
-Completion of all the tasks outlined in this article ensures that the Service Network Slice (SNS) has the necessary permissions to function effectively within the specified Azure environment.
+Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
 ## Assign other required permissions to the Managed Identity
 

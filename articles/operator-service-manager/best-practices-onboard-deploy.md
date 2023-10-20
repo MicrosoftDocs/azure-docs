@@ -14,7 +14,12 @@ Microsoft has developed many proven practices for managing Network Functions (NF
 
 ## Technical overview
 
-Onboard an MVP first.  You can add config detail in subsequent versions. Structure your artifacts to align with planned use if possible. Separate globally defaulted artifacts from those artifacts you want to vary by site.
+- Onboard an MVP first.
+
+- You can add config detail in subsequent versions.
+
+- Structure your artifacts to align with planned use if possible.
+- Separate globally defaulted artifacts from those artifacts you want to vary by site.
 
 -  Achieve maximum benefit from Azure Operator Service Manager (AOSM) by considering service composition of multiple NFs with a reduced, templated config set that matches the needs of your network vs exposing hundreds of config settings you don't use.
 
@@ -126,9 +131,13 @@ General recommendations when it comes to exposing parameters via CGS:
 
 - What can be defined via API (AKS, Azure Operator Nexus, Azure Operator Service Manager (AOSM)) should be considered for CGS. As opposed to, defining those configuration values via CloudInit files.
 
+- A single User Assigned Managed Identity should be used in all the Network Function ARM templates and should be exposed via CGS.
+
 ## Site Network Service (SNS)
 
 It's recommended to have a single SNS for the entire site, including the infrastructure.
+
+It's recommended that every SNS is deployed with a User Assigned Managed Identity (UAMI) rather than a System Assigned Managed Identity. This UAMI should have permissions to access the NFDV, and needs to have the role of Managed Identity Operator on itself. It's usual for Network Service Designs to also require this UAMI to be provided as a Configuration Group Value, which is ultimately passed through and used to deploy the Network Function. For more information, see [Create and assign a User Assigned Managed Identity](how-to-create-user-assigned-managed-identity.md).
 
 ## Azure Operator Service Manager (AOSM) resource mapping per use case
 
