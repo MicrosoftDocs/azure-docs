@@ -12,7 +12,7 @@ ms.date: 09/05/2023
 
 # Use Azure Application Gateway in a Service Fabric managed cluster
 
-[Azure Application Gateway](../application-gateway/overview.md) is a web traffic load balancer that enables you to manage traffic to your web applications. There are [several benefits to using Application Gateway](https://azure.microsoft.com/products/application-gateway/#overview). Service Fabric managed cluster supports Azure Application Gateway and allows you to connect your node types to an Application Gateway. You can [create an Azure Application Gateway](../application-gateway/quick-create-portal.md) and pass the resource id to the service fabric managed cluster ARM template. 
+[Azure Application Gateway](../application-gateway/overview.md) is a web traffic load balancer that enables you to manage traffic to your web applications. There are [several benefits to using Application Gateway](https://azure.microsoft.com/products/application-gateway/#overview). Service Fabric managed cluster supports Azure Application Gateway and allows you to connect your node types to an Application Gateway. You can [create an Azure Application Gateway](../application-gateway/quick-create-portal.md) and pass the resource ID to the service fabric managed cluster ARM template. 
 
 
 ## How to use Application Gateway in a Service Fabric managed cluster
@@ -108,7 +108,7 @@ The following section describes the steps that should be taken to use Azure Appl
    ```
 
 4.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) that assigns roles and adds application gateway configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `appGatewayName`, and `appGatewayBackendPoolId` obtained above.
-5.	You can also modify your existing ARM template and add new property `appGatewayBackendPoolId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource Id of the application gateway.
+5.	You can also modify your existing ARM template and add new property `appGatewayBackendPoolId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource ID of the application gateway.
 
   	   #### ARM template:
          
