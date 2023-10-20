@@ -167,13 +167,7 @@ spec:
 
 ```
 
-
-
-
-
-
-
-
+Learn [how to use Hooks during backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-backup).
 
 ## Pricing
 
