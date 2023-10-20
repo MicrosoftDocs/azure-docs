@@ -13,7 +13,7 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Consume models deployed in Azure Machine Learning from Fabric using Batch Endpoints
+# Run Azure Machine Learning models from Fabric using Batch Endpoints
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
@@ -164,7 +164,7 @@ To create this pipeline in your existing Fabric workspace and invoke batch endpo
 
     1. In the first field, asking for the name of the property, type **Uri**, which indicated the path to the data.
 
-    1. In the second field, asking for the value of the property, type the path to locate the data. Here we want to add a path that leads to the Storage Account that is both linked to OneLake in Fabric and to Azure Machine Learning. In this example, we will use the value **azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled** which has the path to CSV files with the expected input data for the model we have deployed. You can also use directly a path to the Storage Account like "https://<storage-account>.dfs.azure.com".
+    1. In the second field, asking for the value of the property, type the path to locate the data. Here we want to add a path that leads to the Storage Account that is both linked to OneLake in Fabric and to Azure Machine Learning. In this example, we will use the value **azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled** which has the path to CSV files with the expected input data for the model we have deployed. You can also use directly a path to the Storage Account like `https://<storage-account>.dfs.azure.com``.
     
         > [!TIP]
         > If you input is of type **Literal**, replace the property **Uri** by **Value**.
@@ -201,14 +201,34 @@ To create this pipeline in your existing Fabric workspace and invoke batch endpo
 
 1. Optionally, you can configure the section **Job settings**. You can add the following properties:
 
-    For model deployments:
-    
-    For pipeline deployments:
+    <table>
+        <tbody>
+            <tr>
+                <tdrowspan=2>For model deployments</td>
+                <td>`MiniBatchSize`</td>
+                <td>The size of the batch size</td>
+            </tr>
+            <tr>
+                <td>`ComputeInstanceCount`</td>
+                <td>The number of compute instances to ask from the deployment</td>
+            </tr>
+            <tr>
+                <td rowspan=2>For pipeline deployments</td>
+                <td>`ContinueOnStepFailure`</td>
+                <td>Indicates if the pipeline should stop processing nodes after a failure.</td>
+            </tr>
+            <tr>
+                <td>`DefaultDatastore`</td>
+                <td>Indicates the default data store to use for outputs. </td>
+            </tr>
+            <tr>
+                <td>`ForceRun`</td>
+                <td>Indicates if the pipeline should force all the components to run even if when the output can be inferred from a previous run.</td>
+            </tr>
+        </tbody>
+    </table>
 
-1. Your pipeline is ready to be used.
-
-## Limitations
-
+1. Once configured, you can test the pipeline.
 
 
 ## Next steps
