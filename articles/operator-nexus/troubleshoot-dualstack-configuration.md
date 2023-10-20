@@ -52,8 +52,7 @@ Ensure that your L3 network, which is used as the CNI, is configured correctly t
          --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
          --vlan <YourNetworkVlan>
          
-     ```
-Verify 
+     ``` 
 
    - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
