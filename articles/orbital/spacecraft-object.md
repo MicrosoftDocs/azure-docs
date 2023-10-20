@@ -65,7 +65,7 @@ Once the spacecraft is authorized, TLE updates are the only modifications possib
 
 ## Delete spacecraft resource
 
-You can delete the spacecraft object via the Portal or the API. See [How-to: Delete Contact](delete-contact.md).
+You can delete the spacecraft object via the Portal or the API.
 
 ## Next steps
 
