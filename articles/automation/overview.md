@@ -40,7 +40,7 @@ Configuration Management in Azure Automation is supported by two capabilities:
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking/overview.md).
+[Change Tracking and Inventory](change-tracking/overview.md) combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items.Change Tracking & Inventory is now supported with the Azure Monitoring Agent version. [Learn more](change-tracking/overview-monitoring-agent.md).
 
 ### Azure Automation State Configuration
 

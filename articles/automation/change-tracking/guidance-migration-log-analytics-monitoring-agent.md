@@ -40,7 +40,7 @@ Select **Switch to CT&I with AMA** to evaluate the incoming events and logs acro
 
 1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
 1. On the **Assess virtual machines** tab, select the machines and then select **Next**.
-1. On **Assign workspace** tab, assign a new Log Analytics workspace resource ID to which the settings of AMA based solution should be stored and select **Next**.
+1. On **Assign workspace** tab, assign a new [Log Analytics workspace resource ID](#obtain-log-analytics-workspace-resource-id) to which the settings of AMA based solution should be stored and select **Next**.
    
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-inline.png" alt-text="Screenshot of assigning new Log Analytics resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-expanded.png":::
    
@@ -90,6 +90,17 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 `OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. | 
 
 ---
+
+### Obtain Log Analytics Workspace Resource ID
+
+To obtain the Log Analytics Workspace resource ID, follow these steps:
+
+1. Sign in to [Azure portal](https://portal.azure.com)
+1. In **Log Analytics Worspace**, select the specific workspace and select **Json View**.
+1. Copy the **Resource ID**.
+
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-inline.png" alt-text="Screenshot on how to obtain Log Analytics workspace resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-expanded.png":::
+
 
 ## Limitations
 
