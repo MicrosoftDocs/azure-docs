@@ -328,16 +328,9 @@ You can delete the ExpressRoute Direct resource by running the following command
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
 
-## Public Preview
-
-The following scenario is in public preview:
-
-ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
-
 ### Enable ExpressRoute Direct and circuits in different subscriptions
 
-1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
-
+ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 
 1. Sign in to Azure and select the ExpressRoute Direct subscription. 
 
@@ -346,7 +339,6 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-
 
 1. . Get ExpressRoute Direct details 
 
@@ -400,4 +392,4 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
     ```
 ## Next steps
 
-For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
+For more information about ExpressRoute Direct, see the [ExpressRoute Direct overview](expressroute-erdirect-about.md).
