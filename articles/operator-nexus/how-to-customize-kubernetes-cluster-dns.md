@@ -27,7 +27,16 @@ Before proceeding with this how-to guide, it's recommended that you:
      implementation of the guide.
 
 [qs]: ./quickstarts-kubernetes-cluster-deployment-bicep.md
-* When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default node-local-dns ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml` command.
+## The ConfigMap data format
+
+Both CoreDNS and node-local-DNS use a Kubernetes `ConfigMap` to store configuration options. To see the default CoreDNS and node-local-dns `ConfigMap`s, use `kubectl`:
+
+<code>```console</code>
+kubectl get configmaps --namespace=kube-system coredns -o yaml
+kubectl get configmaps --namespace=kube-system node-local-dns -o yaml
+<code>```</code>
+
+When you create configurations like the examples below, the names in the `data` field *must* end in `.server` or `.override`.
 
 <!-- ## Plugin support
 
