@@ -72,7 +72,7 @@ When you have column names that include special characters or spaces, surround t
 
 ### Parameters
 
-Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either select on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 is referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
+Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either select the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 is referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
 
 ### Cached lookup
 
