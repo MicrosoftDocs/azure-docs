@@ -149,7 +149,7 @@ You may want to configure custom domains that can only be resolved internally. F
 
 CoreDNS can also be used to configure stub domains.
 
-1. Create a file named `customdns.yaml` and paste the following example configuration. Make sure to update the custom domains and IP addresses with the values for your own environment.  The "bind 169.254.20.10" line is required. 
+1. Create a file named `customdns.yaml` and paste the following example configuration. Make sure to update the custom domains and IP addresses with the values for your own environment.  The `bind 169.254.20.10` line is required and should not be modified. 
 
      ```yaml
      apiVersion: v1
