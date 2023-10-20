@@ -68,7 +68,7 @@ The current alert rule wizard is different from the earlier experience:
 1. You can edit the rule **Description** and **Severity**. These details are used in all alert actions. You can also choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 1. Use the [Suppress Alerts](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
 
-   ![Screenshot that shows the Alert Details pane.](media/alerts-log/AlertsPreviewSuppress.png)
+   :::image type="content" source="media/alerts-log/AlertsPreviewSuppress.png" lightbox="media/alerts-log/AlertsPreviewSuppress.png" alt-text="Screenshot that shows the Alert Details pane.":::
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
@@ -77,7 +77,7 @@ The current alert rule wizard is different from the earlier experience:
 1. (Optional) Customize actions in log alert rules:
     - **Custom email subject**: Overrides the *email subject* of email actions. You can't modify the body of the mail and this field *isn't for email addresses*.
     - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log alerts](./alerts-log-webhook.md).
-    ![Screenshot that shows Action overrides for log alerts.](media/alerts-log/AlertsPreviewOverrideLog.png)
+    :::image type="content" source="media/alerts-log/AlertsPreviewOverrideLog.png" lightbox="media/alerts-log/AlertsPreviewOverrideLog.png" alt-text="Screenshot that shows Action overrides for log alerts.":::
 1. After you've finished editing all the alert rule options, select **Save**.
 
 ## Manage log alerts using PowerShell
