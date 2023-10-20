@@ -141,7 +141,7 @@
           href: sap/cross-workspace.md
         - name: Respond to SAP incidents with playbooks
           href: sap/sap-incident-response-playbooks.md
-        - name: SAP solution deployment guide
+        - name: Deployment guide
           items: 
           - name: Overview
             href: sap/deployment-overview.md
@@ -166,7 +166,7 @@
           - name: Disable the connector
             displayName: disable, stop ingestion, stop
             href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
-        - name: SAP solution reference
+        - name: Reference
           items:    
           - name: SAP solution data reference
             href: sap/sap-solution-log-reference.md
