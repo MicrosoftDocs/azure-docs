@@ -333,6 +333,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
+        builder.Build();
     });
     
     builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
