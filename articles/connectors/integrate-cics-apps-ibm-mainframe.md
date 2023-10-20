@@ -56,9 +56,9 @@ The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-frame
 
 To effectively invoke a Mainframe Program, logic apps need to understand the type, parameters and return values of it. The CICS connector manages the process and data conversions necessary to allow input data to be provided to the Mainframe Programs from the logic app workflow and to send any output data generated from the Mainframe Program to the workflow. The IBM CICS connector provides data type conversion, tabular data definition, and code page translation.
 
-For this process to begin, Azure Logic Apps requires this information be provided as metadata. This metadata is created with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2.md). The Designer allows a manual creation of methods that will then be used by the logic app. It also can import mainframe COBOL program definitions (copybooks) that provide all this program structures.
+For this process to begin, Azure Logic Apps requires this information be provided as metadata. This metadata is created with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). The Designer allows a manual creation of methods that will then be used by the logic app. It also can import mainframe COBOL program definitions (copybooks) that provide all this program structures.
 
-After downloading and installing the HIS Designer for Logic Apps, follow the steps here: [Designing Artifacts for Host Applications](/host-integration-server/core/application-integration-lahostapps.md) to generate the HIDX file from the metadata artifact.
+After downloading and installing the HIS Designer for Logic Apps, follow the steps here: [Designing Artifacts for Host Applications](/host-integration-server/core/application-integration-lahostapps) to generate the HIDX file from the metadata artifact.
 
 ## Upload the HIDX file
 
