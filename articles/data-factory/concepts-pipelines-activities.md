@@ -13,9 +13,6 @@ ms.date: 10/24/2022
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1](v1/data-factory-create-pipelines.md)
-> * [Current version](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
