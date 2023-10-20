@@ -208,7 +208,7 @@ sections:
         answer:
           Azure OpenAI on your data currently doesn't support function calling. 
       - question: |
-          Not currently.
+          Does the query language and the data source language need to be the same?
         answer:
           You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
       - question: |
