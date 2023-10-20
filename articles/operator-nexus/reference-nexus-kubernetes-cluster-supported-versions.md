@@ -30,7 +30,7 @@ Examples:
 
 Each number in the version indicates general compatibility with the previous version:
 
-* **Major version numbers** change when breaking changes to the API may be introduced
+* **Major version numbers** change when breaking changes to the API might be introduced
 * **Minor version numbers** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch version numbers** change when backwards-compatible bug fixes are made.
 
@@ -65,7 +65,7 @@ The combination of these values is represented in the API as the single kubernet
 
 ### Version bundles
 
-By extending the version of Kubernetes to include a secondary value for the patch version, the version bundle, Operator Nexus Kubernetes service can account for cases where the deployment is modified to include extra Operating System related updates. Such updates may include but aren't limited to: updated operating system images, patch releases for features (add-ons) and so on. Version bundles are always backward compatible with prior version bundles within the same patch version, for example, 1.25.4-2 is backwards compatible with 1.25.4-1.
+By extending the version of Kubernetes to include a secondary value for the patch version, the version bundle, Operator Nexus Kubernetes service can account for cases where the deployment is modified to include extra Operating System related updates. Such updates might include but aren't limited to: updated operating system images, patch releases for features (add-ons) and so on. Version bundles are always backward compatible with prior version bundles within the same patch version, for example, 1.25.4-2 is backwards compatible with 1.25.4-1.
 
 Changes to the configuration of a deployed Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
 
@@ -136,14 +136,14 @@ Supported versions:
 
 * Can be deployed as new Operator Nexus Kubernetes clusters.
 * Can be the target of upgrades from prior versions. Limited by normal upgrade paths.
-* May have extra patches or Version Bundles within the minor version.
+* Might have extra patches or Version Bundles within the minor version.
 
 > [!NOTE]
-> In exceptional circumstances, Nexus Kubernetes service support may be terminated early or immediately if a vulnerability or security concern is identified. Microsoft will proactively notified customers if this were to occur and work to mitigate any potential issues.
+> In exceptional circumstances, Nexus Kubernetes service support might be terminated early or immediately if a vulnerability or security concern is identified. Microsoft will proactively notified customers if this were to occur and work to mitigate any potential issues.
 
 ### End of life (EOL)
 
-End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Extended availability` may be utilized to return to a supported version.
+End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Extended availability` might be utilized to return to a supported version.
 
 ## Extended availability policy
 
