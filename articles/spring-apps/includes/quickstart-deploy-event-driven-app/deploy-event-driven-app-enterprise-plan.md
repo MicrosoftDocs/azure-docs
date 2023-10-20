@@ -20,6 +20,12 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to prepare the sample locally:
+
+[!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following steps to prepare the sample locally:
@@ -35,6 +41,58 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 ### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-enterprise-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to create a Service Bus instance and an Azure Spring Apps instance:
+
+### 3.1. Sign in to the Azure portal
+
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create a Service Bus instance
+
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
+
+### 3.3. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-enterprise-spring-apps](provision-enterprise-azure-spring-apps.md)]
+
+### 3.4. Connect app instance to Service Bus instance
+
+Use the following steps to connect your service instances:
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+
+1. On the **Create App** page, fill in the app name *simple-event-driven-app* and leave other with default values.
+
+1. Select **Create** to finish the app creation and select the app to view the details.
+
+1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png":::
+
+1. Fill out the **Basics** tab with the following information:
+
+    - **Service type**: **Service Bus**
+    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Subscription**: Select your subscription.
+    - **Namespace**: Select the namespace you created.
+    - **Client type**: **SpringBoot**
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png":::
+
+1. Configure the **Authentication** tab with the following information:
+
+    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png":::
+
+1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+
+1. Select **Review and Create** to review your selections, then select **Create** to create the connection.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -168,6 +226,15 @@ Now, both the Service Bus and the app in Azure Spring Apps have been created, bu
 ### [Azure portal](#tab/Azure-portal-ent)
 
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [deploy-event-driven-app-with-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
+
+   ```output
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   ```
 
 ### [Azure CLI](#tab/Azure-CLI)
 

@@ -36,9 +36,9 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-enterprise"
 
-- The Azure portal is the easiest and fastest way to create resources and deploy applications with a single click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The Azure CLI is a powerful command line tool to manage Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
-
+- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The **Azure portal + Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+- The **Azure CLI** option is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 ::: zone-end
 
 ## 1. Prerequisites
@@ -71,6 +71,12 @@ This article provides the following options for deploying to Azure Spring Apps:
 ### [Azure portal](#tab/Azure-portal-ent)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -108,9 +114,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
 
-1. Send a message to the `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
-
-1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+[!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
 1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
@@ -122,9 +126,17 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-1. Send a message to the `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+[!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
-1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
+
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
+
+1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
 1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
@@ -134,9 +146,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-1. Send a message to the `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
-
-1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+[!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
 1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
