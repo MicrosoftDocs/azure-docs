@@ -213,7 +213,7 @@
         href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
-  - name: Managing gateway SKUs
+  - name: Manage gateway SKUs
     items:
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
