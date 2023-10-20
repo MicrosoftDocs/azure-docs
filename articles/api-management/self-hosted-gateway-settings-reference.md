@@ -59,9 +59,12 @@ This guidance helps you provide the required information to define how to authen
 > [!IMPORTANT]
 > Support for Kubernetes Ingress is currently experimental and not covered through Azure Support. Learn more on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway-ingress).
 
-| Name                           | Description              | Required | Default           | Availability |
-|----|------|----------|-------------------| ----|
-| neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, it can be achieved by using a headless Service. | No | N/A | v2.0+ |
+| Name                    | Description              | Required | Default           | Availability |
+|-------------------------|------------------------|----------|-------------------| ----|
+| k8s.ingress.enabled     | Capability to enable Kubernetes Ingress integration. | No | `false` | v1.2+ |
+| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v1.2+ |
+| k8s.ingress.dns.suffix  | DNS suffix to use for building DNS hostname for services to send requests to. | No | `svc.cluster.local` | v2.4+ |
+| k8s.ingress.config.path | Path to Kubernetes configuration to use (Kubeconfig). | No | N/A | v2.4+ |
 
 ##  Metrics
 
