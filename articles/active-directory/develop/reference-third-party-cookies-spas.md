@@ -1,5 +1,5 @@
 ---
-title: How to handle Intelligent Tracking Protection (ITP) in Safari
+title: How to handle third-party cookie blocking in browsers
 description: Single-page app (SPA) authentication when third-party cookies are no longer allowed.
 services: active-directory
 author: OwenRichards1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/14/2022
 ms.author: owenrichards
-ms.reviewer: ludwignick
+ms.reviewer: ludwignick; emilylauber
 ms.custom: aaddev
 ---
 
 # Handle ITP in Safari and other browsers where third-party cookies are blocked
 
-Many browsers block _third-party cookies_, cookies on requests to domains other than the domain shown in the browser's address bar. This block breaks the implicit flow and requires new authentication patterns to successfully sign in users. In the Microsoft identity platform, we use the authorization flow with Proof Key for Code Exchange (PKCE) and refresh tokens to keep users signed in when third-party cookies are blocked.
+Many browsers block _third-party cookies_, cookies on requests to domains other than the domain shown in the browser's address bar. These cookies are also known as _cross-domain cookies_. This block breaks the implicit flow and requires new authentication patterns to successfully sign in users. In the Microsoft identity platform, we use the authorization flow with Proof Key for Code Exchange (PKCE) and refresh tokens to keep users signed in when third-party cookies are blocked.
 
 ## What is Intelligent Tracking Protection (ITP)?
 
@@ -25,13 +25,13 @@ Apple Safari has an on-by-default privacy protection feature called [Intelligent
 
 A common form of user tracking is done by loading an iframe to third-party site in the background and using cookies to correlate the user across the Internet. Unfortunately, this pattern is also the standard way of implementing the [implicit flow](v2-oauth2-implicit-grant-flow.md) in single-page apps (SPAs). When a browser blocks third-party cookies to prevent user tracking, SPAs are also broken.
 
-Safari isn't alone in blocking third-party cookies to enhance user privacy. Brave blocks third-party cookies by default, and Chromium (the platform behind Google Chrome and Microsoft Edge) has announced that they as well will stop supporting third-party cookies in the future.
+Safari isn't alone in blocking third-party cookies to enhance user privacy. Brave blocks third-party cookies by default, and Chromium (the platform behind Google Chrome and Microsoft Edge) has announced that they as well will stop supporting third-party cookies [in the future](https://privacysandbox.com/open-web/#the-privacy-sandbox-timeline).
 
 The solution outlined in this article works in all of these browsers, or anywhere third-party cookies are blocked.
 
 ## Overview of the solution
 
-To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
+To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0 and higher, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x. See the [migration guide](https://learn.microsoft.com/azure/active-directory/develop/migrate-spa-implicit-to-auth-code) for moving a SPA from implicit to auth code flow. 
 
 For the Microsoft identity platform, SPAs and native clients follow similar protocol guidance:
 
@@ -48,9 +48,9 @@ SPAs have two more restrictions:
 
 ## Performance and UX implications
 
-Some applications using the implicit flow attempt sign-in without redirecting by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed-in user (assuming consent has already been granted). This pattern meant applications didn't need a full page redirect to sign the user in, improving performance and user experience - the user visits the web page and is signed in already. Because `prompt=none` in an iframe is no longer an option when third-party cookies are blocked, applications must visit the login page in a top-level frame to have an authorization code issued.
+Some applications using the implicit flow attempt sign-in without redirecting by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed-in user (assuming consent has already been granted). This pattern meant applications didn't need a full page redirect to sign the user in, improving performance and user experience - the user visits the web page and is signed in already. Because `prompt=none` in an iframe is no longer an option when third-party cookies are blocked, applications must visit adjust their sign-in patterns to have an authorization code issued.
 
-There are two ways of accomplishing sign-in:
+Without third-party cookies, there are two ways of accomplishing sign-in:
 
 - **Full page redirects**
   - On the first load of the SPA, redirect the user to the sign-in page if no session already exists (or if the session is expired). The user's browser will visit the login page, present the cookies containing the user session, and then redirect back to the application with the code and tokens in a fragment.
@@ -69,15 +69,24 @@ There are two ways of accomplishing sign-in:
 
 A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. However, there are a couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
 
-Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page.
+Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page within an embedded iframe.
 
 You can achieve single sign-on between iframed and parent apps with same-origin _and_ cross-origin JavaScript script API access by passing a user (account) hint from the parent app to the iframed app. For more information, see [Using MSAL.js in iframed apps](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/iframe-usage.md) in the MSAL.js repository on GitHub.
 
 ## Security implications of refresh tokens in the browser
 
-Issuing refresh tokens to the browser is considered a security issue. Cross-site scripting (XSS) attacks or compromised JS packages can steal the refresh token and use it remotely until it expires or is revoked. In order to minimize the risk of stolen refresh tokens, SPAs will be issued tokens valid for only 24 hours. After 24 hours, the app must acquire a new authorization code via a top-level frame visit to the login page.
+Cross-site scripting (XSS) attacks or compromised JS packages can steal the refresh token and use it remotely until it expires or is revoked. Application developeres are responsible for reducing their application's risk to cross-site scripting. In order to minimize the risk of stolen refresh tokens, SPAs will be issued tokens valid for only 24 hours. After 24 hours, the app must acquire a new authorization code via a top-level frame visit to the login page.
 
 This limited-lifetime refresh token pattern was chosen as a balance between security and degraded UX. Without refresh tokens or third-party cookies, the authorization code flow (as recommended by the [OAuth security best current practices draft](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) becomes onerous when new or additional tokens are required. A full page redirect or popup is needed for every single token, every time a token expires (every hour usually, for the Microsoft identity platform tokens).
+
+## User type specific mitigations 
+Not all users and applications will be uniformly affected by third-party cookies. There are some scenarios where due to architecture or device management, the refreshing of tokens can be done without third-party cookies. 
+
+For *managed enterprise device* scenarios, certain browser and platform combinations have support for [device conditional access](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-conditions#supported-browsers). Leveraging device identity will minimize the need for third-party cookies as the authentication state can come from the device instead of the browser.  
+
+For *Azure AD B2C application* scenarios, customers can set up a [custom login domain](https://learn.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow) to match the application's domain. Browsers would not block third-party cookies in this scenario as the cookies remain in the same domain (ex: login.contoso.com to app.contoso.com).
+
+ -   
 
 ## Next steps
 
