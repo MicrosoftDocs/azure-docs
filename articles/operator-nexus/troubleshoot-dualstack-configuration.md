@@ -10,7 +10,7 @@ author: v-yamohammed
 ---
 # Troubleshooting Dual Stack Configuration Issues
 
-  This guide provides detailed steps for troubleshooting issues related to setting up a dual stack cluster. If you've created a dual stack cluster but aren't experiencing the expected dual stack functionality, this guide will help you identify and resolve potential configuration problems.
+This guide provides detailed steps for troubleshooting issues related to setting up a dual stack Nexus Kubernetes cluster. If you've created a dual stack cluster but are experiencing issues, this guide will help you identify and resolve potential configuration problems.
    
 ## Prerequisites
 
