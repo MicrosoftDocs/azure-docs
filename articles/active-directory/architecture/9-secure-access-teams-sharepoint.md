@@ -33,15 +33,15 @@ Sharing in Microsoft 365 is partially governed by the **External Identities, Ext
 
 Learn more:
 
-* [Azure portal](https://portal.azure.com/)
+* [Microsoft Entra admin center](https://entra.microsoft.com)
 * [External Identities in Microsoft Entra ID](../external-identities/external-identities-overview.md)
 
 ### Guest user access
 
 Guest users are invited to have access to resources. 
 
-1. Sign in to the **Azure portal**
-1. Browse to **Microsoft Entra ID** > **External Identities** > **External collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 1. Find the **Guest user access** options. 
 1. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
 
@@ -87,8 +87,8 @@ The External Identities collaboration feature in Microsoft Entra ID controls per
 
 Learn more:
 
-* [Manage external meetings and chat in Microsoft Teams](/microsoftteams/manage-external-access)
-* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/about-microsoft-365-identity)
+* [Manage external meetings and chat in Microsoft Teams](/microsoftteams/trusted-organizations-external-meetings-chat)
+* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/deploy-identity-solution-identity-model)
 * [Identity models and authentication for Microsoft Teams](/microsoftteams/identify-models-authentication)
 * [Sensitivity labels for Microsoft Teams](/microsoftteams/sensitivity-labels)
 
@@ -98,7 +98,7 @@ SharePoint administrators can find organization-wide settings in the SharePoint 
 
 Learn more: 
 * [SharePoint admin center](https://microsoft-admin.sharepoint.com) - access permissions are required
-* [Get started with the SharePoint admin center](/sharepoint/get-started-new-admin-center)
+* [Get started with the SharePoint admin center](/sharepoint/manage-sites-in-new-admin-center)
 * [External sharing overview](/sharepoint/external-sharing-overview)
 
 <a name='integrating-sharepoint-and-onedrive-with-azure-ad-b2b'></a>

@@ -81,7 +81,7 @@ This table shows requirements for specific attributes in the SAML 2.0 message.
 |Attribute|Description|
 | ----- | ----- |
 |NameID|The value of this assertion must be the same as the Microsoft Entra user’s ImmutableID. It can be up to 64 alpha numeric characters. Any non-html safe characters must be encoded, for example a “+” character is shown as “.2B”.|
-|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Azure AD/Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Microsoft Entra ID).|
+|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Microsoft Entra ID / Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Microsoft Entra ID).|
 |Issuer|Required to be a URI of the identity provider. Do not reuse the Issuer from the sample messages. If you have multiple top-level domains in your Microsoft Entra tenants the Issuer must match the specified URI setting configured per domain.|
 
 >[!IMPORTANT]
@@ -92,16 +92,32 @@ A request and response message pair is shown for the sign-on message exchange.
 The following is a sample request message that is sent from Microsoft Entra ID to a sample SAML 2.0 identity provider. The sample SAML 2.0 identity provider is Active Directory Federation Services (AD FS) configured to use SAML-P protocol. Interoperability testing has also been completed with other SAML 2.0 identity providers.
 
 ```xml
-  <samlp:AuthnRequest 
-    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
-    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
-    ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
-    IssueInstant="2014-01-30T16:18:35Z" 
-    Version="2.0" 
-    AssertionConsumerServiceIndex="0" >
-        <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
-        <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-  </samlp:AuthnRequest>
+  <?xml version="1.0"?>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="_f6f7cf98-e2c8-470e-ace9-4c0dabdd36cb" Version="2.0" IssueInstant="2023-10-09T15:48:00.361Z">
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">urn:federation:MicrosoftOnline</Issuer>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <Reference URI="#_f6f7cf98-e2c8-470e-ace9-4c0dabdd36cb">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+          <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+        <DigestValue>f5c2T/UEzCMjKYp6yuscKKFojDI=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>BdlWtxZE+ZvkfbD1B8wskZwiGVDDFRcnlIDrAOvvOd625vpEHpjW4j8Y3Buks+W1PLV1nC2cCRIAmPZMsxt7GLjT9AjYpgo+E5FlGQq7AezcLsKRrmxI4eVwRpy4zWthq/Gae9HGF5gajU+dE4jMd2275lk7poCHdlPXJR+EH6oikILBjWZeeWs4HAxYn7TtZ4/H2tcaz8yOQkWWlbR8ZVsUF5ZTbdtr24N9Mk4ZWooJN0jYN5nBv0LuGTlmpwjcdY9fuaBLwqlq6nUKzpDNiPXTn7BW8+EPidS/GonXzbJl18WwyaDKPre1qWtJzSuLInoYIWIcSdA+uwhETrcaew==</SignatureValue>
+    <KeyInfo>
+      <ds:X509Data xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509SKI>bwzmkdKETWhixlS99FL36FH37EI=</ds:X509SKI>
+      </ds:X509Data>
+      <KeyName>MicrosoftOnline</KeyName>
+    </KeyInfo>
+  </Signature>
+  <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+</samlp:AuthnRequest>
 ```
 
 The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Microsoft Entra ID / Microsoft 365.
@@ -175,21 +191,23 @@ It is recommended that you always import the latest Microsoft Entra metadata whe
 <a name='add-azure-ad-as-a-relying-party'></a>
 
 ## Add Microsoft Entra ID as a relying party
+
 You must enable communication between your SAML 2.0 identity provider and Microsoft Entra ID. This configuration will be dependent on your specific identity provider and you should refer to documentation for it. You would typically set the relying party ID to the same as the entityID from the Microsoft Entra metadata.
 
 >[!NOTE]
 >Verify the clock on your SAML 2.0 identity provider server is synchronized to an accurate time source. An inaccurate clock time can cause federated logins to fail.
 
-## Install Windows PowerShell for sign-on with SAML 2.0 identity provider
-After you have configured your SAML 2.0 identity provider for use with Microsoft Entra sign-on, the next step is to download and install the Azure AD PowerShell Module for Windows PowerShell. Once installed, you will use these cmdlets to configure your Microsoft Entra domains as federated domains.
+## Install PowerShell for sign-on with SAML 2.0 identity provider
 
-The Azure AD PowerShell Module for Windows PowerShell is a download for managing your organizations data in Microsoft Entra ID. This module installs a set of cmdlets to Windows PowerShell; you run those cmdlets to set up single sign-on access to Microsoft Entra ID and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100))
+After you have configured your SAML 2.0 identity provider for use with Microsoft Entra sign-on, the next step is to download and install the Azure AD PowerShell module. Once installed, you will use these cmdlets to configure your Microsoft Entra domains as federated domains.
+
+The Azure AD PowerShell module is a download for managing your organizations data in Microsoft Entra ID. This module installs a set of cmdlets to PowerShell; you run those cmdlets to set up single sign-on access to Microsoft Entra ID and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100))
 
 <a name='set-up-a-trust-between-your-saml-identity-provider-and-azure-ad'></a>
 
 ## Set up a trust between your SAML identity provider and Microsoft Entra ID
-Before configuring federation on a Microsoft Entra domain, it must have a custom domain configured. You cannot federate the default domain that is provided by Microsoft. The default domain from Microsoft ends with “onmicrosoft.com”.
-You will run a series of cmdlets in the Windows PowerShell command-line interface to add or convert domains for single sign-on.
+Before configuring federation on a Microsoft Entra domain, it must have a custom domain configured. You cannot federate the default domain that is provided by Microsoft. The default domain from Microsoft ends with `onmicrosoft.com`.
+You will run a series of PowerShell cmdlets to add or convert domains for single sign-on.
 
 Each Microsoft Entra domain that you want to federate using your SAML 2.0 identity provider must either be added as a single sign-on domain or converted to be a single sign-on domain from a standard domain. Adding or converting a domain sets up a trust between your SAML 2.0 identity provider and Microsoft Entra ID.
 
@@ -257,11 +275,11 @@ Once federation has been configured you can switch back to “non-federated” (
 <a name='provision-user-principals-to-azure-ad--microsoft-365'></a>
 
 ## Provision user principals to Microsoft Entra ID / Microsoft 365
-Before you can authenticate your users to Microsoft 365, you must provision Microsoft Entra ID with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Microsoft Entra ID in advance, then they cannot be used for federated sign-in. Either Microsoft Entra Connect or Windows PowerShell can be used to provision user principals.
+Before you can authenticate your users to Microsoft 365, you must provision Microsoft Entra ID with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Microsoft Entra ID in advance, then they cannot be used for federated sign-in. Either Microsoft Entra Connect or PowerShell can be used to provision user principals.
 
 Microsoft Entra Connect can be used to provision principals to your domains in your Microsoft Entra Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Microsoft Entra ID](../whatis-hybrid-identity.md).
 
-Windows PowerShell can also be used to automate adding new users to Microsoft Entra ID and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure AD PowerShell Module](/powershell/azure/active-directory/install-adv2).
+PowerShell can also be used to automate adding new users to Microsoft Entra ID and to synchronize changes from the on-premises directory. To use the PowerShell cmdlets, you must download the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2).
 
 This procedure shows how to add a single user to Microsoft Entra ID.
 
@@ -290,9 +308,9 @@ As the administrator, before you verify and manage single sign-on (also called i
 
 1. You have reviewed the Microsoft Entra SAML 2.0 Protocol Requirements
 2. You have configured your SAML 2.0 identity provider
-3. Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
+3. Install PowerShell for single sign-on with SAML 2.0 identity provider
 4. Set up a trust between SAML 2.0 identity provider and Microsoft Entra ID
-5. Provisioned a known test user principal to Microsoft Entra ID (Microsoft 365) either through Windows PowerShell or Microsoft Entra Connect.
+5. Provisioned a known test user principal to Microsoft Entra ID (Microsoft 365) via either PowerShell or Microsoft Entra Connect.
 6. Configure directory synchronization using [Microsoft Entra Connect](../whatis-hybrid-identity.md).
 
 After setting up single sign-on with your SAML 2.0 SP-Lite based identity Provider, you should verify that it is working correctly.

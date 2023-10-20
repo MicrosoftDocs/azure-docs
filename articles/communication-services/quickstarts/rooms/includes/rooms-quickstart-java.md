@@ -170,13 +170,15 @@ Create a new `room` using the `roomParticipants` defined in the code snippet abo
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
+boolean pstnDialOutEnabled = false;
 
-CreateRoomOptions roomOptions = new CreateRoomOptions()
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
     .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
     .setParticipants(roomParticipants);
 
-CommunicationRoom roomCreated = roomsClient.createRoom(roomOptions);
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
 
 System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
@@ -204,14 +206,16 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
+boolean pstnDialOutEnabled = true;
 
-UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
     .setValidFrom(validFrom)
-    .setValidUntil(validUntil);
+    .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 
-System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
+System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + ", validUntil: " + roomResult.getValidUntil() + " and pstnDialOutEnabled: " + roomResult.getPstnDialOutEnabled());
 ```
 
 ## Add or update participants
@@ -348,7 +352,7 @@ Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
+Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22:16:46.784Z and pstnDialOutEnabled: true
 
 Participant(s) added/updated
 

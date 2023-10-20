@@ -58,7 +58,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**.
       1. Value name: **TenantId**.
       1. Value type: **REG_SZ**.
-      1. Value data: The GUID or **Tenant ID** of your Microsoft Entra instance (This value can be found in the **Azure portal** > **Microsoft Entra ID** > **Properties** > **Tenant ID**).
+      1. Value data: The GUID or **Tenant ID** of your Microsoft Entra tenant, which can be found in **Identity** > **Overview** > **Properties** > **Tenant ID**.
    1. Select **OK**.
 1. Right-click on the Registry and select **New** > **Registry Item**.
    1. On the **General** tab, configure the following.
@@ -83,7 +83,7 @@ If your Microsoft Entra ID is federated with AD FS, you first need to configure 
 
 To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) available on the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/configmgr/). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/mem/configmgr/). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Microsoft Entra ID with the user credentials after authenticating with Microsoft Entra ID.
 

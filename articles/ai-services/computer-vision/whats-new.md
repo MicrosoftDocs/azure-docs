@@ -5,8 +5,7 @@ description: Stay up to date on recent releases and updates to Azure AI Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: build-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
@@ -15,7 +14,7 @@ ms.author: pafarley
 
 # What's new in Azure AI Vision
 
-Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
+Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
 ## September 2023
 
@@ -60,9 +59,9 @@ Search and interact with video content in the same intuitive way you think and w
 
 You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
 
-### Image Retrieval APIs (public preview)
+### Multi-modal embeddings APIs (public preview)
 
-The [Image Retrieval APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+The [Multi-modal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
 
 ### Background removal APIs (public preview)
 

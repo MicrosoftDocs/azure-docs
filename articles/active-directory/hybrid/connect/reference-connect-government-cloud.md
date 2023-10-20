@@ -20,7 +20,7 @@ This article describes considerations for integrating a hybrid environment with 
 > [!NOTE]
 > To integrate a Microsoft Active Directory environment (either on-premises or hosted in an IaaS that is part of the same cloud instance) with the Azure Government cloud, you need to upgrade to the latest release of [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-For a full list of United States government Department of Defense endpoints, refer to the [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
+For a full list of United States government Department of Defense endpoints, refer to the [documentation](/microsoft-365/enterprise/microsoft-365-u-s-government-dod-endpoints).
 
 <a name='azure-ad-pass-through-authentication'></a>
 
@@ -37,7 +37,7 @@ Before you deploy the Pass-through Authentication agent, verify whether a firewa
 > - the pass-through authentication agent
 > - [Microsoft Entra application proxy connector](../../app-proxy/what-is-application-proxy.md) 
 >
-> For information on URLS for the Microsoft Entra Connect Provisioning Agent see the [installation pre-requisites](../cloud-sync/how-to-prerequisites.md)  for cloud sync.
+> For information on URLS for the Microsoft Entra Provisioning Agent see the [installation pre-requisites](../cloud-sync/how-to-prerequisites.md)  for cloud sync.
 
 
 |URL |How it's used|

@@ -26,8 +26,10 @@ Because this configuration is widely used with the *Workday to Active Directory 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your app and it's used in Graph Explorer operations.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your application and go to Properties section of your provisioning app. In this example we are using Workday.
+1. Copy the GUID value in the *Object ID* field. This value is also called the **ServicePrincipalId** of your app and it's used in Graph Explorer operations.
 
    ![Screenshot of Workday App Service Principal ID.](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
@@ -57,10 +59,10 @@ Copy the Response into a text file. It looks like the JSON text shown, with valu
 Here's the JSON block to add to the mapping. 
 
 ```json
-        {
-            "key": "SkipOutOfScopeDeletions",
-            "value": "True"
-        }
+{
+  "key": "SkipOutOfScopeDeletions",
+  "value": "True"
+}
 ```
 
 ## Step 4: Update the secrets endpoint with the SkipOutOfScopeDeletions flag

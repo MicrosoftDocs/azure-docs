@@ -1,6 +1,6 @@
 ---
 title: Configure a Logic App for Lifecycle Workflow use
-description: Configure an Azure Logic App for use with Lifecycle Workflows 
+description: Configure an Azure Logic App for use with Lifecycle Workflows
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -8,8 +8,6 @@ ms.topic: reference
 ms.date: 06/22/2023
 ms.custom: template-how-to
 ---
-
-
 
 # Configure a Logic App for Lifecycle Workflow use
 
@@ -22,11 +20,9 @@ Before configuring your Azure Logic App custom extension for use with Lifecycle 
 - Normal
 - Proof of Possession(POP)
 
-
 To determine the security token type of your custom task extension, you'd check the **Custom extensions** page:
 
 :::image type="content" source="media/configure-logic-app-lifecycle-workflows/custom-task-extension-token-type.png" alt-text="Screenshot of custom task extension and token type.":::
-
 
 > [!NOTE]
 > New custom task extensions will only have Proof of Possession(POP) token security type. Only task extensions created before the inclusion of the Proof of Possession token security type will have a type of Normal.
@@ -47,7 +43,8 @@ To configure those you follow these steps:
 1. On the left of the screen, select **Logic App code view**.
 
 1. In the editor paste the following code:
-    ```LCW Logic App code view template
+
+    ```json
     {
       "definition": {
         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
@@ -206,30 +203,30 @@ To configure those you follow these steps:
       },
       "parameters": {}
     }
-        
     ```
+
 1. Select Save.
 
 1. Switch to the **Logic App designer** and inspect the configured trigger and callback action. To build your custom business logic, add other actions between the trigger and callback action. If you're only interested in the fire-and-forget scenario, you may remove the callback action.
 
-1. On the left of the screen, select **Identity**. 
+1. On the left of the screen, select **Identity**.
 
 1. Under the system assigned tab, enable the status to register it with Microsoft Entra ID.
 
-1. Select Save.    
+1. Select Save.
 
 ## Configure authorization policy for custom task extension with POP security token type
 If the security token type is **Proof of Possession (POP)** for your custom task extension, you'd set the authorization policy by following these steps:
 
-1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Microsoft Entra portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications** in the Microsoft Entra admin center to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
 1. Create two authorization policies based on these tables:
 
-    Policy name: POP-Policy
-    
-    Policy type: AADPOP   
+    Policy name: `POP-Policy`
+
+    Policy type: `AADPOP`
     
     |Claim  |Value  |
     |---------|---------|
@@ -239,28 +236,27 @@ If the security token type is **Proof of Possession (POP)** for your custom task
     |u     |  management.azure.com   |
     |p     |  /subscriptions/(subscriptionId)/resourceGroups/(resourceGroupName)/providers/Microsoft.Logic/workflows/(LogicApp name)   |
 
-
 1. Save the Authorization policy.
-
 
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
--	For Issuer, ensure you did include the slash after your Tenant ID
--	For appid, ensure the custom claim is “appid” in all lowercase. The appid value represents Lifecycle Workflows and is always the same.
+
+-	For `Issuer`, ensure you included the slash after your Tenant ID
+-	For `appid`, ensure the custom claim is `appid` in all lowercase. The `appid` value represents Lifecycle Workflows and is always the same.
 
 ## Configure authorization policy for custom task extension with normal security token type
 
 If the security token type is **Normal** for your custom task extension, you'd set the authorization policy by following these steps:
 
-1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Microsoft Entra portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications** in the Microsoft Entra admin center to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
 1. Create two authorization policies based on these tables:
 
-    Policy name: AzureADLifecycleWorkflowsAuthPolicy 
+    Policy name: `AzureADLifecycleWorkflowsAuthPolicy`
 
-    Policy type: AAD 
+    Policy type: `AAD`
     
     |Claim  |Value  |
     |---------|---------|
@@ -268,9 +264,9 @@ If the security token type is **Normal** for your custom task extension, you'd s
     |Audience     | Application ID of your Logic Apps Managed Identity       |
     |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
-    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
+    Policy name: `AzureADLifecycleWorkflowsAuthPolicyV2App`
 
-    Policy type: AAD   
+    Policy type: `AAD`
  
     |Claim  |Value  |
     |---------|---------|
@@ -282,9 +278,10 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
--	For Issuer, ensure you did include the slash after your Tenant ID
--	For Audience, ensure you're using the Application ID and not the Object ID of your Managed Identity
--	For appid, ensure the custom claim is “appid” in all lowercase. The appid value represents Lifecycle Workflows and is always the same.
+
+-	For `Issuer`, ensure you includes the slash after your Tenant ID.
+-	For Audience, ensure you're using the Application ID and not the Object ID of your Managed Identity.
+-	For `appid`, ensure the custom claim is `appid` in all lowercase. The `appid` value represents Lifecycle Workflows and is always the same.
 
 ## Using the Logic App with Lifecycle Workflows
 

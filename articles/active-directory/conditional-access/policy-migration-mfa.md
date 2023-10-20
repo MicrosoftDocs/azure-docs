@@ -1,6 +1,6 @@
 ---
 title: Migrate a classic Conditional Access policy 
-description: This article shows how to migrate a classic Conditional Access policy in the Azure portal.
+description: This article shows how to migrate a classic Conditional Access policy.
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate from a classic policy
 
-This article shows an example of how to migrate a classic policy that requires **multifactor authentication** for a cloud app.
+This article shows an example of how to migrate a classic policy that requires **Multifactor authentication** for a cloud app.
 
 ![Classic policy details requiring MFA for Salesforce app](./media/policy-migration/33.png)
 

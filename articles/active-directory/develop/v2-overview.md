@@ -51,7 +51,7 @@ Choose your preferred [application scenario](authentication-flows-app-scenarios.
 
 For a more in-depth look at building applications using the Microsoft identity platform, see our multipart tutorial series for the following applications:
 
-- [React Single-page app (SPA)](single-page-app-tutorial-01-register-app.md)
+- [React Single-page app (SPA)](tutorial-single-page-app-react-register-app.md)
 - [.NET Web app](web-app-tutorial-01-register-application.md)
 - [.NET Web API](web-api-tutorial-01-register-app.md)
 
@@ -73,7 +73,7 @@ Learn how core authentication and Microsoft Entra concepts apply to the Microsof
 
 ## More identity and access management options
 
-[Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
+[Azure AD B2C](/azure/active-directory-b2c/overview) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
 
 [Microsoft Entra B2B](../external-identities/what-is-b2b.md) - Invite external users into your Microsoft Entra tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 

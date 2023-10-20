@@ -7,6 +7,7 @@ ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-js
 ms.topic: best-practice
 ms.date: 09/11/2023
 ---

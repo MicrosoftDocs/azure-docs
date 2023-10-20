@@ -305,7 +305,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+* [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 
 * [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 
@@ -317,7 +317,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Microsoft Entra ID](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&A Microsoft Entra forum](/answers/topics/azure-active-directory.html)
+* [Microsoft Q&A Microsoft Entra forum](/answers/tags/455/entra-id)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

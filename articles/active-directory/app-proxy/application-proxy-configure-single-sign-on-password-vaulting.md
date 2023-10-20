@@ -45,7 +45,7 @@ You should already have published and tested your app with Application Proxy. If
 1. Select **Users and Groups**.
 1. Assign users to the application with selecting **Add user**. 
 1. If you want to predefine credentials for a user, check the box front of the user name and select **Update credentials**.
-1. Select **Microsoft Entra ID** > **App registrations** > **All applications**.
+1. Browse to **Identity** > **Applications** > **App registrations** > **All applications**.
 1. From the list, select the app that you configured with Password SSO.
 1. Select **Branding**. 
 1. Update the **Home page URL** with the **Sign on URL** from the Password SSO page and select **Save**.  

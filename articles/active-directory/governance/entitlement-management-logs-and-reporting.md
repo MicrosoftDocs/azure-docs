@@ -34,7 +34,7 @@ Microsoft Entra ID stores audit events for up to 30 days in the audit log. Howev
 
 Before you use the Azure Monitor workbooks, you must configure Microsoft Entra ID to send a copy of its audit logs to Azure Monitor.
 
-Archiving Microsoft Entra audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
+Archiving Microsoft Entra audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md).
 
 **Prerequisite role**: Global Administrator
 
@@ -44,7 +44,7 @@ Archiving Microsoft Entra audit logs requires you to have Azure Monitor in an Az
 
 1. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to send the Microsoft Entra audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md) to send the Microsoft Entra audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
@@ -62,7 +62,7 @@ Archiving Microsoft Entra audit logs requires you to have Azure Monitor in an Az
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#azure-rbac) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](/azure/azure-monitor/logs/manage-access#azure-rbac) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -89,11 +89,11 @@ Use the following procedure to view events:
     ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Microsoft Entra admin center
-You can create your own queries on Microsoft Entra ID audit events, including entitlement management events.  
+You can create your own queries on Microsoft Entra audit events, including entitlement management events.  
 
 1. In Identity of the Microsoft Entra admin center, select **Logs** under the Monitoring section in the left navigation menu to create a new query page.
 
-1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Microsoft Entra ID audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
+1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Microsoft Entra audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
 
 1. Next, in the query text area, delete the string "search *" and replace it with the following query:
 
@@ -113,7 +113,7 @@ If you would like to know the oldest and newest audit events held in Azure Monit
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Microsoft Entra audit logs schema in Azure Monitor](../reports-monitoring/overview-reports.md).
+For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Microsoft Entra audit logs schema in Azure Monitor](../reports-monitoring/overview-monitoring-health.md).
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
@@ -153,7 +153,7 @@ $wks = Get-AzOperationalInsightsWorkspace
  
 ### Retrieve Log Analytics ID with multiple Azure subscriptions
 
- [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you want to make sure you connect to the one that has the Log Analytics workspace with the Microsoft Entra ID logs. 
+ [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you want to make sure you connect to the one that has the Log Analytics workspace with the Microsoft Entra logs. 
  
  The following cmdlets display a list of subscriptions, and find the ID of the subscription that has the Log Analytics workspace:
  
@@ -165,7 +165,7 @@ $subs | ft
  
 You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Microsoft Entra ID logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Microsoft Entra admin center in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) returns the list of workspaces. Then you can find the one that has the Microsoft Entra logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Microsoft Entra admin center in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -173,7 +173,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### Send the query to the Log Analytics workspace
-Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/kusto/query/).
+Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/data-explorer/kusto/query/).
  
 For example, you can retrieve the date range of the audit event records from the Log Analytics workspace, with PowerShell cmdlets to send a query like:
  
@@ -215,4 +215,4 @@ order by ActivityDateTime desc
 ```
 
 ## Next steps
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)

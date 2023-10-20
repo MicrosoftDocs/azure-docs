@@ -5,7 +5,7 @@ description: Learn how to run Azure AI services Docker containers disconnected f
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: reference
 ms.date: 07/28/2023
 ms.author: aahi
@@ -23,6 +23,7 @@ Containers enable you to run Azure AI services APIs in your own environment, and
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
+  * [Summarization](../language-service/summarization/how-to/use-containers.md)
 * [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
 * [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 

@@ -16,11 +16,11 @@ manager: celestedg
 ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
-# B2B collaboration user claims mapping in Microsoft Entra ID
+# B2B collaboration user claims mapping in Microsoft Entra External ID
 
-Microsoft Entra ID supports customizing the claims that are issued in the SAML token for [B2B collaboration](what-is-b2b.md) users. When a user authenticates to the application, Microsoft Entra ID issues a SAML token to the app that contains information (or claims) about the user that uniquely identifies them. By default, this claim includes the user's user name, email address, first name, and last name.
+With Microsoft Entra External ID, you can customize the claims that are issued in the SAML token for [B2B collaboration](what-is-b2b.md) users. When a user authenticates to the application, Microsoft Entra ID issues a SAML token to the app that contains information (or claims) about the user that uniquely identifies them. By default, this claim includes the user's user name, email address, first name, and last name.
 
-In the [Azure portal](https://portal.azure.com), you can view or edit the claims that are sent in the SAML token to the application. To access the settings, select **Microsoft Entra ID** > **Enterprise applications** > the application that's configured for single sign-on > **Single sign-on**. See the SAML token settings in the **User Attributes** section.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), you can view or edit the claims that are sent in the SAML token to the application. To access the settings, browse to **Identity** > **Applications** > **Enterprise applications** > the application that's configured for single sign-on > **Single sign-on**. See the SAML token settings in the **User Attributes** section.
 
 :::image type="content" source="media/claims-mapping/view-claims-in-saml-token-attributes.png" alt-text="Screenshot of the SAML token attributes in the UI.":::
 

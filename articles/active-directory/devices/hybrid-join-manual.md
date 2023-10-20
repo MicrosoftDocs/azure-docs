@@ -80,9 +80,9 @@ In your forest, the SCP object for the autoregistration of domain-joined devices
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
 Depending on how you have deployed Microsoft Entra Connect, the SCP object might have already been configured.
-You can verify the existence of the object and retrieve the discovery values by using the following Windows PowerShell script:
+You can verify the existence of the object and retrieve the discovery values by using the following PowerShell script:
 
-   ```PowerShell
+   ```powershell
    $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
    $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration,DC=fabrikam,DC=com";

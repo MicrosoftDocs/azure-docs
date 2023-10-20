@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: quickstart
-ms.date: 08/25/2023
+ms.date: 09/26/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -23,6 +23,15 @@ In this quickstart, we'll guide you through customizing the look and feel of you
 - External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a> or [create a tenant with customer configurations in the Microsoft Entra admin center](quickstart-tenant-setup.md). 
 
 ## Customize your sign-in experience
+
+When you set up a customer tenant free trial, the guide will start automatically as part of the configuration of your new customer tenant. If you created your customer tenant with an Azure subscription, you can start the guide manually by following the steps below.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
+1. Browse to **Home** > **Go to Microsoft Entra ID** 
+1. On the **Get started** tab, select **Start the guide**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/guide-link.png" alt-text="Screenshot that shows how to start the guide.":::
 
 You can customize your customer's sign-in and sign-up experience in the External ID for customers tenant. Follow the guide that will help you set up the tenant in three easy steps. First you must specify how would you like your customer to sign in. At this step you can choose between two options: **Email and password** or **Email and one-time passcode**. You can configure social accounts later, which would allow your customers to sign in using their [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) account. You can also [define custom attributes](how-to-define-custom-attributes.md) to collect from the user during sign-up.
 

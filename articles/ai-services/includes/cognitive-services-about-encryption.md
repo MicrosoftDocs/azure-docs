@@ -3,7 +3,7 @@
  description: include file
  services: cognitive-services
  author: erindormier
- ms.service: cognitive-services
+ ms.service: azure-ai-services
  ms.topic: include
  ms.date: 03/11/2020
  ms.author: egeaney

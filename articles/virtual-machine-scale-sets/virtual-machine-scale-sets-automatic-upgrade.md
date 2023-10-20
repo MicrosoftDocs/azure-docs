@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: devx-track-linux
-ms.date: 07/25/2023
+ms.date: 10/17/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -408,6 +408,30 @@ Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-roll
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
+
+## Investigate and Resolve Auto Upgrade Errors
+
+The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the top most errors that can result in Rolling Upgrades.
+
+**RollingUpgradeInProgressWithFailedUpgradedVMs**
+- Error is triggered for a VM failure.
+- The detailed error message mentions whether the rollout will continue/pause based on the configured threshold.
+
+**MaxUnhealthyUpgradedInstancePercentExceededInRollingUpgrade**
+- Error is triggered when the percent of upgraded VMs exceed the max threshold allowed for unhealthy VMs.
+- The detailed error message aggregates the most common error contributing to the unhealthy VMs. See [MaxUnhealthyUpgradedInstancePercent](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
+**MaxUnhealthyInstancePercentExceededInRollingUpgrade**
+- Error is triggered when the percent of unhealthy VMs exceed the max threshold allowed for unhealthy VMs during an upgrade.
+- The detailed error message displays the current unhealthy percent and the configured allowable unhealthy VM percentage. See [maxUnhealthyInstancePercent](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
+**MaxUnhealthyInstancePercentExceededBeforeRollingUpgrade**
+- Error is triggered when the percent of unhealthy VMs exceed the max threshold allowed for unhealthy VMs before an upgrade takes place.
+- The detailed error message displays the current unhealthy percent and the configured allowable unhealthy VM percentage. See [maxUnhealthyInstancePercent](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
+**InternalExecutionError**
+- Error is triggered when an unhandled, unformatted or unexpected occurs during execution.
+- The detailed error message displays the cause of the error.
 
 ## Next steps
 > [!div class="nextstepaction"]

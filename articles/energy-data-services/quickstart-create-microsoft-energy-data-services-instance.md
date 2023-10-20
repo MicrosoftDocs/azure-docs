@@ -22,14 +22,14 @@ Azure Data Manager for Energy is a managed "Platform as a service (PaaS)" offeri
 | Prerequisite | Details |
 | ------------ | ------- |
 Active Azure Subscription | You need the Azure subscription ID in which you want to install Azure Data Manager for Energy. You need to have appropriate permissions to create Azure resources in this subscription. 
-Application ID | You need an [application ID](../active-directory/develop/application-model.md) (often referred to as "App ID" or a "client ID"). This application ID is used for authentication to Azure Active Directory and will be associated with your Azure Data Manager for Energy instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by navigating to Active directory and selecting *App registrations* > *New registration*.
+Application ID | You need an [application ID](../active-directory/develop/application-model.md) (often referred to as "App ID" or a "client ID"). This application ID is used for authentication to Microsoft Entra ID and will be associated with your Azure Data Manager for Energy instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by navigating to Active directory and selecting *App registrations* > *New registration*.
 Client Secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting *Certificates & secrets* > *Client secrets* > *New client secret*. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
 
 ## Create an Azure Data Manager for Energy instance
 
 
-1. Save your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
+1. Save your **Application (client) ID** and **client secret** from Microsoft Entra ID to refer to them later in this quickstart.  
 
 1. Sign in to [Microsoft Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home)
 
@@ -106,7 +106,7 @@ Deleting a Microsoft Energy Data instance also deletes any data that you've inge
 
 1. Sign in to the Azure portal and delete the *resource group* in which these components are installed.
 
-2. This step is optional. Go to Azure Active Directory and delete the *app registration* that you linked to your Azure Data Manager for Energy instance.
+2. This step is optional. Go to Microsoft Entra ID and delete the *app registration* that you linked to your Azure Data Manager for Energy instance.
 
 Any set locks at the resource group (RG) level must be removed before deleting any resource in the RG. Resources not deleted due to locks are considered active until the resource is successfully deleted.
 

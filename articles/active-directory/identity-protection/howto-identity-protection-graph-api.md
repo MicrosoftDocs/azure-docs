@@ -22,14 +22,7 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Microsoft
 To successfully complete this tutorial, make sure you have the required prerequisites:
 
 - Microsoft Graph PowerShell SDK is installed. For more information, see the article [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true).
-- Identity Protection is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
-
-   ```powershell
-   # Connect to Graph beta Endpoint
-   Select-MgProfile -Name 'beta'
-   ```
-
-- Microsoft Graph PowerShell using a global administrator role and the appropriate permissions. The IdentityRiskEvent.Read.All, IdentityRiskyUser.ReadWrite.All Or IdentityRiskyUser.ReadWrite.All delegated permissions are required. To set the permissions to IdentityRiskEvent.Read.All and IdentityRiskyUser.ReadWrite.All, run:
+- Microsoft Graph PowerShell using a [Security Administrator](../roles/permissions-reference.md#security-administrator) role. The IdentityRiskEvent.Read.All, IdentityRiskyUser.ReadWrite.All Or IdentityRiskyUser.ReadWrite.All delegated permissions are required. To set the permissions to IdentityRiskEvent.Read.All and IdentityRiskyUser.ReadWrite.All, run:
 
    ```powershell
    Connect-MgGraph -Scopes "IdentityRiskEvent.Read.All","IdentityRiskyUser.ReadWrite.All"
@@ -91,5 +84,5 @@ Invoke-MgDismissRiskyUser -UserIds $riskyUsers.Id
 
 - [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
-- [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
+- [Overview of Microsoft Graph](/graph/overview)
 - [Microsoft Entra ID Protection](./overview-identity-protection.md)

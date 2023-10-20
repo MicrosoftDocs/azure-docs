@@ -92,7 +92,7 @@ To configure single sign-on on **Parallels Desktop** side, follow the latest ver
 
 ### Create Parallels Desktop test user
 
-Add existing user accounts to the Admin or User groups on the Azure AD side, following Parallels's Azure SSO setup guide that can be found on [this page](https://kb.parallels.com/en/129240). When a user account gets deactivated following their departure from the organization, that is immediately reflected in the user count of the Parallels's product license.
+Add existing user accounts to the Admin or User groups on the Microsoft Entra ID side, following Parallels's Azure SSO setup guide that can be found on [this page](https://kb.parallels.com/en/129240). When a user account gets deactivated following their departure from the organization, that is immediately reflected in the user count of the Parallels's product license.
 
 ## Test SSO 
 

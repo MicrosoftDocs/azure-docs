@@ -53,7 +53,7 @@ This tutorial uses the following libraries:
 | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) | Microsoft Authentication Library for JavaScript Angular Wrapper    |
 | [MSAL Browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Microsoft Authentication Library for JavaScript v2 browser package |
 
-You can find the source code for all of the MSAL.js libraries in the [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
+You can find the source code for all of the MSAL.js libraries in the [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
 ### Get the completed code sample
 
@@ -86,7 +86,7 @@ To complete registration, provide the application a name, specify the supported 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
    1. You may need to switch terminal types. Select the down arrow next to the **+** icon in the terminal and select **Command Prompt**.
-1. Run the following commands to create a new Angular project with the name _msal-angular-tutorial_, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
+1. Run the following commands to create a new Angular project with the name `msal-angular-tutorial`, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
 
    ```cmd
    npm install -g @angular/cli
