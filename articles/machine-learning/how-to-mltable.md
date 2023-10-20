@@ -221,7 +221,7 @@ tbl.save("./titanic")
 > [!IMPORTANT]
 > - If colocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
 > - If colocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
-> - We don’t support this parameter combination: data is in local, colocated == False, `save_path_dirc` is a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
+> - We don’t support this parameter combination: data is in local, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
 > - Parameters `show_progress` (default as True), `allow_copy_errors` (default as False), `overwrite`(default as True) are optional.
 >
 
