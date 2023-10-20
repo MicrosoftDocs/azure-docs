@@ -17,11 +17,6 @@ This guide provides detailed steps for troubleshooting issues related to setting
 * Install the latest version of the
     [az CLI extensions](./howto-install-cli-extensions.md)
 * Tenant ID
-* Subscription ID
-* Cluster name and resource group
-* Cluster extended location name
-* VLAN network
-* Connected IPV4 and IPV6
 * Necessary permissions to make changes to the cluster configuration.
 
 ## Dual-stack configuration 
