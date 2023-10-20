@@ -22,7 +22,7 @@ In mapping data flow, many transformation properties are entered as expressions.
 
 ## Open Expression Builder
 
-There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also select on a column context and open the expression builder directly to that expression.
+There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also select a column context and open the expression builder directly to that expression.
 
 :::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Open Expression Builder derive":::
 
