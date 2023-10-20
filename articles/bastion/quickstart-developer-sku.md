@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/12/2023
+ms.date: 10/20/2023
 ms.author: cherylmc
 
 ---
@@ -84,6 +84,9 @@ When you create Azure Bastion using default settings, the settings are configure
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 
 ## <a name="connect"></a>Connect to a VM
+
+> [!NOTE]
+> Before connecting to a VM, verify that your NSG rules allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
 
 When the Bastion deployment is complete, the screen changes to the **Connect** page.
 
