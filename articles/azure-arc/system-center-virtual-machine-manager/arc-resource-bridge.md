@@ -1,7 +1,6 @@
 ---
 title: Azure Arc resource bridge
 description: Learn about Azure Arc resource bridge. 
-ms.topic: Concepts
 ms.date: 10/20/2023
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
@@ -14,7 +13,7 @@ ms.subservice: azure-arc-scvmm
 
 # Azure Arc resource bridge
 
-Azure Arc resource bridge (preview) is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. The resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/overview.md).
+Azure Arc resource bridge (preview) is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. The resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/)).
 
 Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure. The resource bridge is provided with the credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as *arc-enabled* Azure resources.
 Arc resource bridge delivers the following benefits:
@@ -58,4 +57,4 @@ Management from Azure is unavailable during that service outage.
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the Arc resource bridge release notes on GitHub. To learn more about upgrade options, visit Upgrade Arc resource bridge.
 
 ## Next steps
-Learn more about [Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/)
+Learn more about [Arc-enabled SCVMM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/overview)
