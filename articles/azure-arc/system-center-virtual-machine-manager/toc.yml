@@ -15,7 +15,7 @@
 - name: Concepts
   items:
   - name: Custom locations
-    href: custom-locations.md
+    href: custom-locations-scvmm.md
   - name: Azure Arc Resource Bridge
     href: arc-resource-bridge.md
   - name: Azure Arc agent

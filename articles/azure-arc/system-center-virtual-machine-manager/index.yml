@@ -5,11 +5,11 @@ summary: Learn how to manage  Hybrid environment with Azure Arc-enabled System C
 metadata:
   title: Azure Arc-enabled System Center Virtual Machine Manager
   description: Learn about how to manage Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
-  author: jyothisuri
+  author: PriskeyJeronika-MS
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 04/28/2022
-  ms.author: jsuri
+  ms.author: v-gjeronika
 
 landingContent:
   - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
