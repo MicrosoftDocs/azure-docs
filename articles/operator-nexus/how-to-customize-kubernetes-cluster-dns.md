@@ -17,7 +17,7 @@ Azure Operator Nexus is a managed service, so you can't modify the main configur
 
 This article shows you how to use ConfigMaps for basic DNS customization options in your Nexus Kubernetes cluster.
 
-## Before you begin
+## Prerequisites
 
 * This article assumes that you have an existing Nexus Kubernetes cluster. 
 * When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default node-local-dns ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml` command.
