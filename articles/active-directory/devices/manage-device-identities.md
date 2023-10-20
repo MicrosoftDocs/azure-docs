@@ -34,7 +34,7 @@ From there, you can go to **All devices** to:
 
 - Identify devices, including:
    - Devices that have been joined or registered in Microsoft Entra ID.
-   - Devices deployed via [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
+   - Devices deployed via [Windows Autopilot](/autopilot/windows-autopilot).
    - Printers that use [Universal Print](/universal-print/fundamentals/universal-print-getting-started).
 - Complete device identity management tasks like enable, disable, delete, and manage.
    - The management options for [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/autopilot/windows-autopilot) are limited in Microsoft Entra ID. These devices must be managed from their respective admin interfaces.
@@ -106,6 +106,9 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Intune Service Administrator
 - Security Administrator
 - Security Reader
+  
+> [!NOTE]
+> When devices that utilize [Windows Autopilot](/mem/autopilot/windows-autopilot) are reused, **and there is a new device owner**, that new device owner must contact an administrator to acquire the BitLocker recovery key for that device. Administrative unit scoped administrators will lose access to BitLocker recovery keys after device ownership changes. These scoped administrators will need to contact a non-scoped administrator for the recovery keys.
 
 ## View and filter your devices
 
@@ -165,7 +168,7 @@ You must be assigned one of the following roles to manage device settings:
 - **Users may join devices to Microsoft Entra ID**: This setting enables you to select the users who can register their devices as Microsoft Entra joined devices. The default is **All**.
 
    > [!NOTE]
-   > The **Users may join devices to Microsoft Entra ID** setting is applicable only to Microsoft Entra join on Windows 10 or newer. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying) because these methods work in a userless context.
+   > The **Users may join devices to Microsoft Entra ID** setting is applicable only to Microsoft Entra join on Windows 10 or newer. This setting doesn't apply to Microsoft Entra hybrid joined devices, [Microsoft Entra joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enable-azure-ad-login-for-a-windows-vm-in-azure), or Microsoft Entra joined devices that use [Windows Autopilot self-deployment mode](/autopilot/self-deploying) because these methods work in a userless context.
 
 - **Users may register their devices with Microsoft Entra ID**: You need to configure this setting to allow users to register Windows 10 or newer personal, iOS, Android, and macOS devices with Microsoft Entra ID. If you select **None**, devices aren't allowed to register with Microsoft Entra ID. Enrollment with Microsoft Intune or mobile device management for Microsoft 365 requires registration. If you've configured either of these services, **ALL** is selected, and **NONE** is unavailable.
 - **Require multifactor authentication to register or join devices with Microsoft Entra ID**: 

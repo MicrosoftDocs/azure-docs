@@ -76,7 +76,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 
 ## February 2023
 
-- *Public preview* - Entitlement Management customers can now create access packages that leverage Microsoft Entra Verified ID [learn more](../../active-directory/governance/entitlement-management-verified-id-settings.md)
+- *Public preview* - Entitlement Management customers can now create access packages that leverage Microsoft Entra Verified ID [learn more](../governance/entitlement-management-verified-id-settings.md)
 
 - The Request Service API can now do revocation check for verifiable credentials presented that was issued with [StatusList2021](https://w3c.github.io/vc-status-list-2021/) or the [RevocationList2020](https://w3c-ccg.github.io/vc-status-rl-2020/) status list types.
 
@@ -86,7 +86,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 
 ## November 2022
 
-- Microsoft Entra Verified ID now reports events in the [audit log](../../active-directory/reports-monitoring/concept-audit-logs.md). Only management changes made via the Admin API are currently logged. Issuance or presentations of verifiable credentials aren't reported in the audit log. The log entries have a service name of `Verified ID` and the activity will be `Create authority`, `Update contract`, etc.  
+- Microsoft Entra Verified ID now reports events in the [audit log](../reports-monitoring/concept-audit-logs.md). Only management changes made via the Admin API are currently logged. Issuance or presentations of verifiable credentials aren't reported in the audit log. The log entries have a service name of `Verified ID` and the activity will be `Create authority`, `Update contract`, etc.  
 
 ## September 2022
 

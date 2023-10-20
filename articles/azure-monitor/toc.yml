@@ -359,19 +359,9 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: Application data collection, retention, and storage
-        href: app/data-retention-privacy.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-    - name: Tutorials
-      items:
-      - name: Application Insights SDK for ASP.NET Core applications
-        href: app/tutorial-asp-net-core.md
-      - name: Custom metrics with .NET and .NET Core
-        href: app/tutorial-asp-net-custom-metrics.md
-      - name: Dashboard with application data
-        href: app/tutorial-app-dashboards.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -1162,8 +1152,6 @@ items:
     items:
      - name: Dashboard using log data
        href: visualize/tutorial-logs-dashboards.md
-     - name: Dashboard using application data
-       href: app/tutorial-app-dashboards.md
   - name: Power BI
     href: logs/log-powerbi.md
 - name: Analyze
