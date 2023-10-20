@@ -78,7 +78,7 @@ The custom role permissions limit access to the list of the permissions shown he
 
 5. Select **Managed Identity**, then Choose **+ Select Members** then find and choose your new managed identity. Choose **Select**.
 
-    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshow showing the add role assignment page with managed identity and select members.":::    
+    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshow showing the add role assignment and select managed identities.":::   
 
 
 7. Select **Review and assign**.
