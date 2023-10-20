@@ -10,8 +10,6 @@ ms.date: 10/19/2023
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.x.
 
-All upgraded cluster shapes are supported as part of HDInsight 5.1.
-
 ## Open-source components available with HDInsight 5.x
 
 The following table lists the versions of open-source components that are associated with HDInsight 5.x.
