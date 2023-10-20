@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-10/20/2023
+ms.date: 10/20/2023
 ---
 
 # How does Azure Data Factory Managed Airflow work? 

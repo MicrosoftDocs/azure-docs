@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-10/20/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 <!--

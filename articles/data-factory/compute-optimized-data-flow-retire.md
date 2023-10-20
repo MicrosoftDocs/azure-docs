@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-10/20/2023
+ms.date: 10/20/2023
 ---
 
 # Retirement of data flow compute optimized option

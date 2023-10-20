@@ -3,7 +3,7 @@ author: ssabat
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: include
-10/20/2023
+ms.date: 10/20/2023
 ms.author: susabat
 ms.reviewer: jburchel
 ---

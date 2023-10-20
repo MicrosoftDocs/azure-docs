@@ -6,7 +6,7 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
-10/20/2023
+ms.date: 10/20/2023
 ---
 
 # Management hub in Azure Data Factory

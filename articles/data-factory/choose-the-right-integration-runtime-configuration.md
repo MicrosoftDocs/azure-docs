@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
-10/20/2023
+ms.date: 10/20/2023
 ---
 
 # Choose the right integration runtime configuration for your scenario
