@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
+title: Get Started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
+# Get Started with Azure Communication Services UI library calling to Teams Voice Apps
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -30,13 +30,7 @@ If you wish to try it out, you can download the code from [GitHub](https://githu
 Following this tutorial will:
 
 - Allow you to control your customers audio and video experience depending on your customer scenario
-- Move your customers call into a new window so they can continue browsing while on the call
-
-This tutorial is broken down into three parts:
-
-- Creating your widget
-- using post messaging to start a calling experience in a new window
-- Embed your calling experience
+- Teach you how to build a simple widget for starting calls on your webapp using the UI library.
 
 ## Prerequisites
 
@@ -81,95 +75,436 @@ Once you run these commands, you’re all set to start working on your new proje
 To get started, we replace the provided `App.tsx` content with a main page that will:
 
 - Store all of the Azure Communication information that we need to create a CallAdapter to power our Calling experience
-- Control the different pages of our application
-- Register the different fluent icons we use in the UI library and some new ones for our purposes
+- Display our widget that will be exposed to the end user.
+
+Your `App.tsx` file should look like this:
 
 `src/App.tsx`
 
 ```ts
-// imports needed
-import { CallAdapterLocator } from "@azure/communication-react";
-import "./App.css";
-import { useEffect, useMemo, useState } from "react";
-import {
-  CommunicationIdentifier,
-  CommunicationUserIdentifier,
-} from "@azure/communication-common";
-import {
-  Spinner,
-  Stack,
-  initializeIcons,
-  registerIcons,
-} from "@fluentui/react";
-import { CallAdd20Regular, Dismiss20Regular } from "@fluentui/react-icons";
-```
 
-```ts
-type AppPages = "calling-widget" | "new-window-call";
+import './App.css';
+import { CommunicationIdentifier, MicrosoftTeamsAppIdentifier } from '@azure/communication-common';
+import { Spinner, Stack, initializeIcons, registerIcons, Text } from '@fluentui/react';
+import { CallAdd20Regular, Dismiss20Regular } from '@fluentui/react-icons';
+import logo from './logo.svg';
+
+import { CallingWidgetComponent } from './components/CallingWidgetComponent';
 
 registerIcons({
   icons: { dismiss: <Dismiss20Regular />, callAdd: <CallAdd20Regular /> },
 });
 initializeIcons();
 function App() {
-  const [page, setPage] = useState<AppPages>("calling-widget");
-
   /**
    * Token for local user.
    */
-  const token = "<Enter your Azure Communication Services token here>";
+  const token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVFODQ4MjE0Qzc3MDczQUU1QzJCREU1Q0NENTQ0ODlEREYyQzRDODQiLCJ4NXQiOiJYb1NDRk1kd2M2NWNLOTVjelZSSW5kOHNUSVEiLCJ0eXAiOiJKV1QifQ.eyJza3lwZWlkIjoiYWNzOmI2YWFkYTFmLTBiMWQtNDdhYy04NjZmLTkxYWFlMDBhMWQwMV8wMDAwMDAxYi1lZWI0LTZhYWMtMDJjMy01OTNhMGQwMDBlZGIiLCJzY3AiOjE3OTIsImNzaSI6IjE2OTc4MzQ1MTgiLCJleHAiOjE2OTc5MjA5MTgsInJnbiI6ImFtZXIiLCJhY3NTY29wZSI6InZvaXAiLCJyZXNvdXJjZUlkIjoiYjZhYWRhMWYtMGIxZC00N2FjLTg2NmYtOTFhYWUwMGExZDAxIiwicmVzb3VyY2VMb2NhdGlvbiI6InVuaXRlZHN0YXRlcyIsImlhdCI6MTY5NzgzNDUxOH0.gzVgK6oDwV_it0PlUKdF028O0O9c1R5yjfkEhza9Cc1jxIrvToD0bnKV4Gxz385YH6HL8GPzmn8HPUbGxhgU4xOhnTZjP15LOIfYUDKXTkwkl6VYuJ9ogcPziuaRKMOcZ-NcXaLEGetGybE_-s3m4xj5oRWHuweqD3DhprGhYtw5Jrb6xOhmEevxL4SCEyG3Mada2nJumA9xCOThRIaeurzrgtJu22rE1tJJrqWxY5cMKgta7MeWf14aML6K7CWeK7c_7I7O-7ecqKul9dJ6_F0-IQwbRZqv_n1EFfXXdmegjMTCeItJtUQRg0G3u1CvCmssjJIRFrodfFlC_BzsVQ";
 
   /**
    * User identifier for local user.
    */
   const userId: CommunicationIdentifier = {
-    communicationUserId: "<Enter your user Id>",
+    communicationUserId: "8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_0000001b-eeb4-6aac-02c3-593a0d000edb",
   };
 
   /**
-   * Rawid for teams voice app to call
-   * 
-   * Rawid's for Teams voiceapps are prefixed by 28:orgid:<fetched value from teams tenant>
-   * Rawid's for Teams users are prefixed by 8:orgid<id value>
-   *
-   * You can also make calls directly to agents by providing their rawid.
+   * Enter your Teams voice app identifier from the Teams admin center here
    */
-  const teamsVoiceAppIdentifier = "<Enter the rawid here>";
-
-  switch (page) {
-    case "calling-widget": {
-      return (
-        <Stack verticalAlign="center" style={{ height: "100%", width: "100%" }}>
-          <Spinner
-            label={"Please enter your identification to start application"}
-            ariaLive="assertive"
-            labelPosition="top"
-          />
-        </Stack>
-      );
-    }
-    case "new-window-call": {
-      return (
-        <Stack verticalAlign="center" style={{ height: "100%", width: "100%" }}>
-          <Spinner
-            label={"Getting user credentials from server"}
-            ariaLive="assertive"
-            labelPosition="top"
-          />
-        </Stack>
-      );
-    }
+  const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
+    teamsAppId: 'ffca549c-0809-4351-975c-6b1e8909bed3', cloud: 'public'
   }
+
+  const widgetParams = {
+    userId,
+    token,
+    teamsAppIdentifier,
+  };
+
+
+  if (!token || !userId || !teamsAppIdentifier) {
+    return (
+      <Stack verticalAlign='center' style={{ height: '100%', width: '100%' }}>
+        <Spinner label={'Getting user credentials from server'} ariaLive="assertive" labelPosition="top" />;
+      </Stack>
+    )
+
+  }
+
+
+  return (
+    <Stack
+      style={{ height: "100%", width: "100%", padding: "3rem" }}
+      tokens={{ childrenGap: "1.5rem" }}
+    >
+      <Stack style={{ margin: "auto" }}>
+        <Stack
+          style={{ padding: "3rem" }}
+          horizontal
+          tokens={{ childrenGap: "2rem" }}
+        >
+          <Text style={{ marginTop: "auto" }} variant="xLarge">
+            Welcome to a Calling Widget sample
+          </Text>
+          <img
+            style={{ width: "7rem", height: "auto" }}
+            src={logo}
+            alt="logo"
+          />
+        </Stack>
+
+        <Text>
+          Welcome to a Calling Widget sample for the Azure Communication Services UI
+          Library. Sample has the ability to:
+        </Text>
+        <ul>
+          <li>
+            Adhoc call teams users with a tenant set that allows for external
+            calls
+          </li>
+          <li>Joining Teams interop meetings as a Azure Communication Services user</li>
+          <li>Make a calling Widget PSTN call to a help phone line</li>
+          <li>Join a Azure Communication Services group call</li>
+        </ul>
+        <Text>
+          As a user all you need to do is click the widget below, enter your
+          display name for the call - this will act as your caller id, and
+          action the <b>start call</b> button.
+        </Text>
+      </Stack>
+      <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
+        <CallingWidgetComponent
+          widgetAdapterArgs={widgetParams}
+          onRenderLogo={() => {
+            return (
+              <img
+                style={{ height: '4rem', width: '4rem', margin: 'auto' }}
+                src={logo}
+                alt="logo"
+              />
+            );
+          }}
+        />
+      </Stack>
+    </Stack>
+  );;
 }
 
 export default App;
+
 ```
 
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating later.
+In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating in the next section.
+
+### Creating the Widget
+
+Now we will need to make a widget that can show in 3 different modes:
+- Waiting: This is the state the component will be in before and after a call is made
+- Setup: This state is when the widget will ask for information from the user like their name.
+- In a call: The widget will functionally be replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
+
+Lets create a folder called `src/components`, in this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following:
+
+`CallingWidgetComponent.tsx`
+
+```ts
+import { IconButton, PrimaryButton, Stack, TextField, useTheme, Checkbox, Icon } from '@fluentui/react';
+import React, { useState } from 'react';
+import {
+    callingWidgetSetupContainerStyles,
+    checkboxStyles,
+    startCallButtonStyles,
+    callingWidgetContainerStyles,
+    callIconStyles,
+    logoContainerStyles,
+    collapseButtonStyles
+} from '../styles/CallingWidgetComponent.styles';
+
+import { AzureCommunicationTokenCredential, CommunicationIdentifier, MicrosoftTeamsAppIdentifier } from '@azure/communication-common';
+import {
+    CallAdapter,
+    CallComposite,
+    useAzureCommunicationCallAdapter,
+    AzureCommunicationCallAdapterArgs
+} from '@azure/communication-react';
+// lets add to our react imports as well
+import { useCallback, useMemo } from 'react';
+
+import { callingWidgetInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
+
+/**
+ * Properties needed for our widget to start a call.
+ */
+export type WidgetAdapterArgs = {
+    token: string;
+    userId: CommunicationIdentifier;
+    teamsAppIdentifier: MicrosoftTeamsAppIdentifier;
+};
+
+export interface CallingWidgetComponentProps {
+    /**
+     *  arguments for creating an AzureCommunicationCallAdapter for your Calling experience
+     */
+    widgetAdapterArgs: WidgetAdapterArgs;
+    /**
+     * Custom render function for displaying logo.
+     * @returns
+     */
+    onRenderLogo?: () => JSX.Element;
+}
+
+/**
+ * Widget for Calling Widget
+ * @param props
+ */
+export const CallingWidgetComponent = (
+    props: CallingWidgetComponentProps
+): JSX.Element => {
+    const { onRenderLogo, widgetAdapterArgs } = props;
+
+    const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new');
+    const [displayName, setDisplayName] = useState<string>();
+    const [consentToData, setConsentToData] = useState<boolean>(false);
+    const [useLocalVideo, setUseLocalVideo] = useState<boolean>(false);
+
+    const theme = useTheme();
+
+    // add this before the React template
+    const credential = useMemo(() => {
+        try {
+            return new AzureCommunicationTokenCredential(widgetAdapterArgs.token);
+        } catch {
+            console.error('Failed to construct token credential');
+            return undefined;
+        }
+    }, [widgetAdapterArgs.token]);
+
+    const callAdapterArgs = useMemo(() => {
+        return {
+            userId: widgetAdapterArgs.userId,
+            credential: credential,
+            locator: {participantIds: [`28:orgid:${widgetAdapterArgs.teamsAppIdentifier.teamsAppId}`]},
+            displayName: displayName
+        }
+    }, [widgetAdapterArgs.userId, widgetAdapterArgs.teamsAppIdentifier.teamsAppId, credential, displayName]);
+
+    const afterCreate = useCallback(async (adapter: CallAdapter): Promise<CallAdapter> => {
+        adapter.on('callEnded', () => {
+            setDisplayName(undefined);
+            setWidgetState('new');
+        });
+        return adapter;
+    }, [])
+
+    const adapter = useAzureCommunicationCallAdapter(callAdapterArgs as AzureCommunicationCallAdapterArgs, afterCreate);
+
+    /** widget template for when widget is open, put any fields here for user information desired */
+    if (widgetState === 'setup' ) {
+        return (
+            <Stack styles={callingWidgetSetupContainerStyles(theme)} tokens={{ childrenGap: '1rem' }}>
+                <IconButton
+                    styles={collapseButtonStyles}
+                    iconProps={{ iconName: 'Dismiss' }}
+                    onClick={() => setWidgetState('new')} />
+                <Stack tokens={{ childrenGap: '1rem' }} styles={logoContainerStyles}>
+                    <Stack style={{ transform: 'scale(1.8)' }}>{onRenderLogo && onRenderLogo()}</Stack>
+                </Stack>
+                <TextField
+                    label={'Name'}
+                    required={true}
+                    placeholder={'Enter your name'}
+                    onChange={(_, newValue) => {
+                        setDisplayName(newValue);
+                    }} />
+                <Checkbox
+                    styles={checkboxStyles(theme)}
+                    label={'Use video - Checking this box will enable camera controls and screen sharing'}
+                    onChange={(_, checked?: boolean | undefined) => {
+                        setUseLocalVideo(true);
+                    }}
+                ></Checkbox>
+                <Checkbox
+                    required={true}
+                    styles={checkboxStyles(theme)}
+                    label={'By checking this box, you are consenting that we will collect data from the call for customer support reasons'}
+                    onChange={(_, checked?: boolean | undefined) => {
+                        setConsentToData(!!checked);
+                    }}
+                ></Checkbox><PrimaryButton
+                    styles={startCallButtonStyles(theme)}
+                    onClick={() => {
+                        if (displayName && consentToData && adapter && widgetAdapterArgs.teamsAppIdentifier) {
+                            setWidgetState('inCall');
+                            console.log(callAdapterArgs.locator);
+                            adapter.startCall([`28:orgid:${widgetAdapterArgs.teamsAppIdentifier.teamsAppId}`]);
+                            // adapter?.joinCall({microphoneOn: true, cameraOn:false});
+                        }
+                    }}
+                >
+                    StartCall
+                </PrimaryButton>
+            </Stack>
+        );
+    }
+
+    if (widgetState === 'inCall' && adapter) {
+        return (
+            <Stack styles={callingWidgetInCallContainerStyles(theme)}>
+                <CallComposite adapter={adapter} options={{
+                    callControls: {
+                        cameraButton: useLocalVideo,
+                        screenShareButton: useLocalVideo,
+                        moreButton: false,
+                        peopleButton: false,
+                        displayType: 'compact'
+                    },
+                    localVideoTile: !useLocalVideo ? false : { position: 'floating' }
+                }}></CallComposite>
+            </Stack>
+        )
+    }
+
+    return (
+        <Stack
+            horizontalAlign="center"
+            verticalAlign="center"
+            styles={callingWidgetContainerStyles(theme)}
+            onClick={() => {
+                setWidgetState('setup');
+            }}
+        >
+            <Stack
+                horizontalAlign="center"
+                verticalAlign="center"
+                style={{ height: '4rem', width: '4rem', borderRadius: '50%', background: theme.palette.themePrimary }}
+            >
+                <Icon iconName="callAdd" styles={callIconStyles(theme)} />
+            </Stack>
+        </Stack>
+    );
+};
+```
+
+####Styling the widget
+
+We will need to write some styles to make sure the widget looks appropriate and can hold our call composite.
+
+lets make a new folder called `src/styles` in this folder create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following:
+
+```ts
+import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
+
+export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
+  return {
+    label: {
+      color: theme.palette.neutralPrimary,
+    },
+  };
+};
+
+export const callingWidgetContainerStyles = (theme: Theme): IStackStyles => {
+  return {
+    root: {
+      width: "5rem",
+      height: "5rem",
+      padding: "0.5rem",
+      boxShadow: theme.effects.elevation16,
+      borderRadius: "50%",
+      bottom: "1rem",
+      right: "1rem",
+      position: "absolute",
+      overflow: "hidden",
+      cursor: "pointer",
+      ":hover": {
+        boxShadow: theme.effects.elevation64,
+      },
+    },
+  };
+};
+
+export const callingWidgetSetupContainerStyles = (theme: Theme): IStackStyles => {
+  return {
+    root: {
+      width: "18rem",
+      minHeight: "20rem",
+      maxHeight: "25rem",
+      padding: "0.5rem",
+      boxShadow: theme.effects.elevation16,
+      borderRadius: theme.effects.roundedCorner6,
+      bottom: 0,
+      right: "1rem",
+      position: "absolute",
+      overflow: "hidden",
+      cursor: "pointer",
+      background: theme.palette.white
+    },
+  };
+};
+
+export const callIconStyles = (theme: Theme): IIconStyles => {
+  return {
+    root: {
+      paddingTop: "0.2rem",
+      color: theme.palette.white,
+      transform: "scale(1.6)",
+    },
+  };
+};
+
+export const startCallButtonStyles = (theme: Theme): IButtonStyles => {
+  return {
+    root: {
+      background: theme.palette.themePrimary,
+      borderRadius: theme.effects.roundedCorner6,
+      borderColor: theme.palette.themePrimary,
+    },
+    textContainer: {
+      color: theme.palette.white,
+    },
+  };
+};
+
+export const logoContainerStyles: IStackStyles = {
+  root: {
+    margin: "auto",
+    padding: "0.2rem",
+    height: "5rem",
+    width: "10rem",
+    zIndex: 0,
+  },
+};
+
+export const collapseButtonStyles: IButtonStyles = {
+  root: {
+    position: "absolute",
+    top: "0.2rem",
+    right: "0.2rem",
+    zIndex: 1,
+  },
+};
+
+export const callingWidgetInCallContainerStyles = (theme: Theme): IStackStyles => {
+  return {
+    root: {
+      width: '35rem',
+      height: '25rem',
+      padding: '0.5rem',
+      boxShadow: theme.effects.elevation16,
+      borderRadius: theme.effects.roundedCorner6,
+      bottom: 0,
+      right: '1rem',
+      position: 'absolute',
+      overflow: 'hidden',
+      cursor: 'pointer',
+      background: theme.semanticColors.bodyBackground
+    }
+  }
+}
+```
 
 ### Running the app
 
-We can then test to see that the basic application is working by running:
+Finally we can run the application to make our calls! Run the following commands to install our dependencies and run our app.
 
 ```bash
 # Install the newe dependencies
@@ -179,8 +514,17 @@ npm install
 npm run start
 ```
 
-Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `Please enter your identification to start application` as
-a test message.
+Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following:
+
+![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash-widget-closed.png)
+
+Then when you action the widget button, you should see:
+
+![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-splash-widget-open.png)
+
+after you fill out your name click start call and the call should begin. This should look like so:
+
+![Screenshot of click to call sample app home page with calling experience embedded in widget](../media/calling-widget/calling-widget-embedded-start.png)
 
 ## Next steps
 
