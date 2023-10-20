@@ -58,7 +58,7 @@ cd ui-library-calling-widget-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
+Then you need to update the dependency array in the `package.json` to include some beta packages from Azure Communication Services for the widget experience we are going to build to work:
 
 ```json
 "@azure/communication-calling": "1.17.1-beta.5",
@@ -203,7 +203,7 @@ In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20R
 Now we need to make a widget that can show in three different modes:
 - Waiting: This widget state is how the component will be in before and after a call is made
 - Setup: This state is when the widget asks for information from the user like their name.
-- In a call: The widget will functionally be replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
+- In a call: The widget is replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
 
 Lets create a folder called `src/components`, in this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
 
@@ -389,7 +389,7 @@ export const CallingWidgetComponent = (
 
 ####Styling the widget
 
-We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These should already be in the widget if copying the snippet above.
+We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet above.
 
 lets make a new folder called `src/styles` in this folder create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following snippet:
 
@@ -516,15 +516,15 @@ npm install
 npm run start
 ```
 
-Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following:
+Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following splash screen:
 
 ![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash-widget-closed.png)
 
-Then when you action the widget button, you should see:
+Then when you action the widget button, you should see a little menu:
 
 ![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-splash-widget-open.png)
 
-after you fill out your name click start call and the call should begin. This should look like so:
+after you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
 
 ![Screenshot of click to call sample app home page with calling experience embedded in widget](../media/calling-widget/calling-widget-embedded-start.png)
 
