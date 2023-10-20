@@ -1,6 +1,6 @@
 ---
 title: Connect to CICS programs on IBM mainframes
-description: Integrate CICS programs with workflows in Azure Logic Apps using the IBM CICS connector.
+description: Integrate CICS programs with workflows in Azure Logic Apps using the IBM **CICS Program Call** connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -11,15 +11,19 @@ ms.date: 10/19/2023
 tags: connectors
 ---
 
-# Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector
+# Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps with the CICS Program Call connector (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To access and run IBM mainframe apps on Customer Information Control System (CICS) systems from Standard workflows in Azure Logic Apps, you can use the IBM CICS built-in, service provider-based connector. CICS provides a Transaction Program (TP) Monitor with an integrated Transaction Manager (TM). The connector communicates with IBM CICS transaction programs by using TCP/IP. The CICS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+To access and run IBM mainframe apps on Customer Information Control System (CICS) systems from Standard workflows in Azure Logic Apps, you can use the **CICS Program Call** built-in, service provider-based connector. CICS provides a Transaction Program (TP) Monitor with an integrated Transaction Manager (TM). The connector communicates with IBM CICS transaction programs by using TCP/IP. The CICS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
 This how-to guide describes the following aspects about the CICS connector:
 
-* Why use the IBM CICS connector in Azure Logic Apps
+* Why use the CICS connector in Azure Logic Apps
 
 * Prerequisites and setup for using the CICS connector
 
@@ -27,13 +31,16 @@ This how-to guide describes the following aspects about the CICS connector:
 
 ## Why use this connector?
 
-CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft Host Integration Server (HIS) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers use the HIS Transaction Integrator (TI) to integrate CICS systems with Windows operating systems for many years. The CICS connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs. The following diagram describes how the CICS connector interacts with an IBM mainframe system:
+CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft Host Integration Server (HIS) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers use the HIS Transaction Integrator (TI) to integrate CICS systems with Windows operating systems for many years. The **CICS Program Call** connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs. The following diagram describes how the CICS connector interacts with an IBM mainframe system:
 
-:::image type="content" source="media/integrate-cics-apps-ibm-mainframe/la-cics-connector1.png" alt-text="Conceptual diagram showing how CICS connector works with IBM mainframe system.":::
+:::image type="content" source="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png" alt-text="Conceptual diagram showing how the CICS Program Call connector works with IBM mainframe system.":::
 
 To extend those scenarios, the CICS connector in a Standard workflow works with the HIS Designer for Azure Logic Apps, which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the mainframe and the workflow. The HIS Designer converts that information into metadata that the CICS connector uses when calling an action that represents that task from your workflow. The CICS connector provides data type conversion, tabular data definition, and code page translation.
 
 After you generate the metadata file from the HIS Designer, you add that file as a map artifact to the Standard logic app resource in Azure. That way, your logic app workflow can access your app's metadata when you add a CICS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters for the CICS connector. You can then provide parameters to the host application, and the connector returns the results to your workflow. That way, you can integrate your legacy apps with Azure, Microsoft, and other apps, services, and systems that Azure Logic Apps supports.
+
+## Connector technical reference
+
 
 ## Prerequisites
 
@@ -41,7 +48,7 @@ After you generate the metadata file from the HIS Designer, you add that file as
 
 * Access to the mainframe that hosts the CICS system
 
-* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the CICS connector to drive your mainframe app.
+* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **CICS Program Call** connector to drive your mainframe app.
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-desiner-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
@@ -78,11 +85,13 @@ For your workflow to use the HIDX file, follow these steps:
      > To use artifacts in an integration account from your workflow, make sure that the integration account is 
      > [linked to your Standard logic app resource](../logic-apps/enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cstandard).
 
-1. Now, add a CICS action to your workflow.
+1. Now, [add a CICS action to your workflow](#add-cics-action).
 
-## Add and run a CICS action
+Later in this guide, when you add a **CICS Program Call** connector action to your workflow for the first time, you're prompted to create a connection between your workflow and the mainframe system. After you create the connection, you can select your previously added HIDX file, the method to run, and the parameters to use.
 
-Later in this guide, when you add a CICS connector action to your workflow for the first time, you're prompted to create a connection between your workflow and the mainframe system by providing connection information, such as the host server name and CICS system configuration information. After you create the connection, you can select your previously added HIDX file, the method to run, and the parameters to use.
+<a name="add-cics-action"></a>
+
+## Add a CICS action
 
 After you finish all these steps, you can use the action that you added to your workflow to your IBM mainframe, enter data, return results, and so on. You can also continue adding other actions to your workflow for integrating with other apps, services, and systems.
 
@@ -92,66 +101,62 @@ After you finish all these steps, you can use the action that you added to your 
 
    This example continues with the **Request** trigger named **When a HTTP request is received**.
 
-   :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/la-CICS-connector3.png" alt-text="Request trigger":::
+   :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/request-trigger.png" alt-text="Screenshot showing Azure portal, Standard workflow designer, and Request trigger.":::
 
-1. To add a CICS connector action, [follow these general steps to add the action named **Call a CICS Program**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. To add a CICS connector action, [follow these general steps to add the **CICS Program Call** built-in connector action named **Call a CICS Program**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/la-CICS-connector4.png" alt-text="Call an CICS Program":::
+1. After the connection details pane appears, provide the following information, such as the host server name and CICS system configuration information:
 
-1. The Create connection page will appear. Complete all the information following the guidance in each text box and then select on **Create New**:
-
-
-   |Property  |Required  |Value  |Description  |
-   |---------|---------|---------|---------|
-   |**Connection Name**     |    Yes     |  <*connection-name*>     |   The name for your connection      |
-   |**Programming Model**     |   Yes      | <*CICS-programming-model*>        |      The selected Programming model for CICS   |
-   |**Code Page**     |    No     | <*code-page*>         | The code page number to use for converting text         |
-   |**Password**     |     No    | <*password*>         | The optional user password for connection authentication         |
-   |**Port Number**     |   Yes      | <*port-number*>         | The port number to use for connection authentication         |
-   |**Server Name**     | Yes        | <*server-name*>         | The server name         |
-   |**Time out**     |   No      | <*time-out*>         | The timeout period in seconds while waiting for responses from the server         |
-   |**User Name**     |       No  | <*user-Name*>         | The optional username for connection authentication         |
-   |**Use TLS**     |     No    | <*tls*>         | Secure the connection with Transport Security Layer (TLS)          |
-   |**Validate Server certificate**     |  No       | <*validate-server-certificate*>         | Validate the server's certificate         |
-   |**Server certificate common name**     |   No      |<*server-cert-common-name*>         | The name of the Transport Security layer (TLS) certificate to use         |
-   |**Use IBM Request Header Format**     |  No       | <*IBM-request-header*>         | The server expects ELM or TRM headers in the IBM format         |
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Connection Name** | Yes | <*connection-name*> | The name for your connection |
+   | **Programming Model** | Yes | <*CICS-programming-model*> | The selected Programming model for CICS. For more information, see [Programming Models](/host-integration-server/core/programming-models2) and [Choosing the Appropriate Programming Model](/host-integration-server/core/programming-models2). |
+   | **Code Page** | No | <*code-page*> | The code page number to use for converting text |
+   | **Password** | No | <*password*> | The optional user password for connection authentication |
+   | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication |
+   | **Server Name** | Yes | <*server-name*> | The server name |
+   | **Timeout** | No | <*time-out*> | The timeout period in seconds while waiting for responses from the server |
+   | **User Name** | No | <*user-Name*> | The optional username for connection authentication |
+   | **Use TLS** | No | True or false | Secure the connection with Transport Security Layer (TLS). |
+   | **Validate Server certificate** | No | True or false | Validate the server's certificate. |
+   | **Server certificate common name** | No | <*server-cert-common-name*> | The name of the Transport Security layer (TLS) certificate to use |
+   | **Use IBM Request Header Format** | No | True or false | The server expects ELM or TRM headers in the IBM format |
 
    For example:
 
-   ![Connection properties](./media/integrate-cics-apps-ibm-mainframe/la-cics-connector5.png)
+   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/cics-connection.png" alt-text="Screenshot showing CICS action's connection properties.":::
 
-1. In the **Parameters** section, provide the necessary information for the action:
+1. When you're done, select **Create New**.
 
-   |Property  |Required  |Value  |Description  |
-   |---------|---------|---------|---------|
-   |**Hidx Name**      |   Yes      |     <*HIDX-file-name*>    |   Select the CICS HIDX file that you want to use.      |
-   |**Method Name**     |   Yes      |      <*method-name*>   |  Select the method in the HIDX file that you want to use. After you select a method, the **Add new parameter** list appears so you can select parameters to use with that method.       |
-   ||||
+1. After the action details pane appears, in the **Parameters** section, provide the required information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the CICS HIDX file that you want to use. |
+   | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. |
+   | **Advanced parameters** | This list appears after you select a method so that you can add other parameters to use with the selected method. |
 
    For example:
 
-   **Select the HIDX file and Method**
+   **Select HIDX file and method**
 
-   ![Select HIDX file](./media/integrate-cics-apps-ibm-mainframe/la-cics-connector6.png)
+   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/action-parameters.png" alt-text="Screenshot showing CICS action with selected HIDX file and method.":::
 
+   **Select advanced parameters**
 
-   **Select the parameters**
+   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot showing CICS action with all parameters.":::
 
-   ![Select parameters](./media/integrate-cics-apps-ibm-mainframe/la-cics-connector7.png)
+1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
-1. When you're done, save and run your logic app.
+## Test your workflow
 
-   After your logic app finishes running, the steps from the run appear. 
-   Successful steps show check marks, while unsuccessful steps show the letter "X".
+1. To run your workflow, on the workflow menu, select **Overview**. On the **Overview** toolbar, select **Run** > **Run**.
+
+   After your workflow finishes running, your workflow's run history appears. Successful steps show check marks, while unsuccessful steps show an eclamation point (**!**).
 
 1. To review the inputs and outputs for each step, expand that step.
 
 1. To review the outputs, select **See raw outputs**.
-
-## Connector reference
-
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/si3270/).
-
 
 ## Next steps
 
