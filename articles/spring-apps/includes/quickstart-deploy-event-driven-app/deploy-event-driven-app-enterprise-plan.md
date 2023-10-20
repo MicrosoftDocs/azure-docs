@@ -84,7 +84,7 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png":::
 
-1. Configure the **Authentication** tab with the following information:
+1. Configure the **Next: Authentication** tab with the following information:
 
     - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
 
@@ -92,7 +92,7 @@ Use the following steps to connect your service instances:
 
 1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
 
-1. Select **Review and Create** to review your selections, then select **Create** to create the connection.
+1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
