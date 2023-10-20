@@ -76,7 +76,7 @@ Management regions contain the infrastructure used for the ordering, monitoring 
 
 ## Availability zone support
 
-[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
 ### Zone down experience for service regions
 
@@ -89,7 +89,7 @@ During a zone-wide outage, calls handled by the affected zone are terminated, wi
 ## Disaster recovery: fallback to other regions
 
 
-[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+[!INCLUDE [introduction to disaster recovery](../reliability/includes/reliability-disaster-recovery-description-include.md)]
 
 
 This section describes the behavior of Azure Communications Gateway during a region-wide outage.
