@@ -91,7 +91,7 @@ When you select a sink transformation icon in your map, the slide-in panel on th
   
 ## Error rows
 
-Enabling error row handling in your data flow sink will be reflected in the monitoring output. When you set the sink to "report success on error", the monitoring output shows the number of success and failed rows when you select on the sink monitoring node.
+Enabling error row handling in your data flow sink will be reflected in the monitoring output. When you set the sink to "report success on error", the monitoring output shows the number of success and failed rows when you select the sink monitoring node.
 
 :::image type="content" source="media/data-flow/error-row-2.png" alt-text="Screenshot shows error rows.":::
 
