@@ -1,6 +1,6 @@
 ---
 title: Prepare your Kubernetes cluster
-description: Prepare an Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows machines.
+description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows machines.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
@@ -9,11 +9,11 @@ ms.date: 10/19/2023
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
 
-# Prepare your Arc-enabled Kubernetes cluster
+# Prepare your Azure Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations - enabled by Azure Arc Preview. This article describes how to prepare an Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations - enabled by Azure Arc Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows environments.
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
@@ -21,12 +21,14 @@ This article also includes guidance for setting up an environment by using WSL o
 
 ## Prerequisites
 
-To prepare your Arc-enabled Kubernetes cluster, you need:
+To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 - [Azure CLI version 2.38.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
+
+## Prepare your cluster
 
 # [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -72,7 +74,7 @@ To set up your WSL Ubuntu environment:
 
 ## Verify your cluster
 
-To verify that your Kubernetes cluster is now Arc-enabled, run the following command:
+To verify that your Kubernetes cluster is now Azure Arc-enabled, run the following command:
 
 ```bash/powershell
 kubectl get deployments,pods -n azure-arc
@@ -110,4 +112,4 @@ pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0           
 
 ## Next step
 
-Now that you have an Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md).

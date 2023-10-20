@@ -20,7 +20,7 @@ items:
         href: deploy/overview-deploy-iot-operations.md
       - name: How to
         items:
-        - name: Prepare your Kubernetes cluster
+        - name: Prepare your Azure Arc-enabled Kubernetes cluster
           href: deploy/howto-prepare-cluster.md
     - name: Manage assets
       items:
