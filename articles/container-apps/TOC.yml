@@ -113,7 +113,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md
+      href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
   items:
     - name: Overview
