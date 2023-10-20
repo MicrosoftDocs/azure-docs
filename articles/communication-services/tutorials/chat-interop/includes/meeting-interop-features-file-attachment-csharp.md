@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Enable File Attachment Support
-author: <TODO>
-ms.author: <TODO>
-ms.date: <TODO>
+author: palatter
+ms.author: palatter
+ms.date: oct 20, 2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for <TODO>.
+In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
