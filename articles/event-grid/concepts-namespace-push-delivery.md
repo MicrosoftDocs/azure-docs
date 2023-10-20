@@ -1,13 +1,13 @@
 ---
-title: Azure Event Grid concepts (push delivery) for namespaces
-description: Describes Azure Event Grid and its concepts in the push delivery model. Defines several key components of Event Grid.
+title: Azure Event Grid namespaces - Push delivery concepts
+description: Describes concepts about the push delivery model supported by Azure Event Grid namespaces. 
 ms.topic: conceptual
 ms.date: 10/12/2023
 ---
 
-# Azure Event Grid push delivery for namespaces - Concepts
+# Azure Event Grid namespaces - Push delivery concepts
 
-This article describes the main concepts related to the new resource model that uses namespaces.
+This article describes the main concepts about the push delivery model supported by Azure Event Grid namespaces.
 
 > [!NOTE]
 > For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
@@ -16,7 +16,7 @@ This article describes the main concepts related to the new resource model that 
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice may have an `orderId` attribute and a `URL` attribute to the order’s state representation.
+An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice might have an `orderId` attribute and a `URL` attribute to the order’s state representation.
 
 ## CloudEvents
 
@@ -34,7 +34,7 @@ The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 
 
 ## Publishers
 
-A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the event source. You can publish events from your own application when using Namespace topics.
+A publisher is the application that sends events to Event Grid. It might be the same application where the events originated, the event source. You can publish events from your own application when using Namespace topics.
 
 ## Event sources
 

@@ -1,13 +1,14 @@
 ---
-title: Azure Event Grid concepts (pull delivery)
-description: Describes Azure Event Grid and its concepts in the pull delivery model. Defines several key components of Event Grid.
+title: Azure Event Grid namespaces - Pull delivery concepts
+description: Describes concepts about the pull delivery model supported by Azure Event Grid namespaces. 
 ms.topic: conceptual
 ms.date: 05/24/2023
 ---
 
-# Azure Event Grid's pull delivery - Concepts
+# Azure Event Grid namespaces - Pull delivery concepts
 
-This article describes the main concepts related to the new resource model that uses namespaces.
+This article describes the main concepts about the pull delivery model supported by Azure Event Grid namespaces.
+
 
 > [!NOTE]
 > For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
