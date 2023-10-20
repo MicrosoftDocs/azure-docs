@@ -35,6 +35,47 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
+### Access to cluster nodes via Azure Arc for Kubernetes
+Once you are connected to a cluster via Arc, create an interactive shell connection to a individual node by use the `kubectl debug` command to run a privileged container on your node.
+
+1. To list your nodes, use the `kubectl get nodes` command:
+
+    ```bash
+    kubectl get nodes
+    ```
+
+    The following example resembles output from the command:
+
+    ```output
+    NAME                                     STATUS   ROLES           AGE    VERSION
+    cluster-01-627e99ee-agentpool1-md-chfwd   Ready    <none>          125m   v1.27.1
+    cluster-01-627e99ee-agentpool1-md-kfw4t   Ready    <none>          125m   v1.27.1
+    cluster-01-627e99ee-agentpool1-md-z2n8n   Ready    <none>          124m   v1.27.1
+    cluster-01-627e99ee-control-plane-5scjz   Ready    control-plane   129m   v1.27.1
+    ```
+
+2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
+
+    ```bash
+    kubectl debug node/cluster-01-627e99ee-agentpool1-md-chfwd -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
+    ```
+
+    The following example resembles output from the command:
+
+    ```output
+    Creating debugging pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg with container debugger on node cluster-01-627e99ee-agentpool1-md-chfwd.
+    If you don't see a command prompt, try pressing enter.
+    root [ / ]#
+    ```
+
+    This privileged container gives access to the node. You can interact with the node session by running `chroot /host` from the privileged container.
+
+3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
+
+    ```bash
+    kubectl delete pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg 
+    ```
+
 ### Azure Arc for servers
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
