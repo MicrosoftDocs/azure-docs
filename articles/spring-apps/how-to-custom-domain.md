@@ -268,7 +268,7 @@ Use the following steps to enable or disable auto sync for an imported certifica
 
 1. Go to the list of **Private Key Certificates** or **Public Key Certificates**.
 
-1. Select the ellipsis (**...**) button after to the **Auto sync** tab, and then select **Enable auto sync** or **Disable auto sync**.
+1. Select the ellipsis (**...**) button after the **Auto sync** tab, and then select either **Enable auto sync** or **Disable auto sync**.
 
    :::image type="content" source="./media/how-to-custom-domain/edit-auto-sync.png" alt-text="Screenshot of the Azure portal that shows the Enable auto sync option selected." lightbox="./media/how-to-custom-domain/edit-auto-sync.png":::
 
