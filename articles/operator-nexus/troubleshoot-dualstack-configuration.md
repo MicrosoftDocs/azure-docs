@@ -55,7 +55,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
 
    - **Step 2: Validating Nexus Kubernetes Cluster Configuration:**
 
-   In the `networkConfiguration` section of the Nexus Kubernetes Cluster configuration, ensure you've set dual-stack cluster network assignments for `podCidrs` and `serviceCidrs`. Each of these values should be an array consisting of one IPv4 prefix and one IPv6 prefix. Examine the cluster configuration settings to ensure CIDR assignments are correct. Confirm that the assigned Pod CIDR and Service CIDR ranges are accurately configured for both IPv4 and IPv6 addresses.
+   In the `networkConfiguration` section of the Nexus Kubernetes cluster configuration, ensure you've set dual-stack cluster network assignments for `podCidrs` and `serviceCidrs`. Each of these values should be an array consisting of one IPv4 prefix and one IPv6 prefix. Examine the cluster configuration settings to ensure CIDR assignments are correct. Confirm that the assigned pod CIDR and service CIDR ranges are accurately configured for both IPv4 and IPv6 addresses.
 
    - Example:
 
