@@ -90,14 +90,14 @@ Use these built-in roles to consume the feature sets defined in the feature stor
 
 |Scope| Role|
 |----|------|
-| the feature store | AzureML Data Scientist|
+| the feature store | Azure Machine Learning Data Scientist|
 | storage accounts of source data, that is, data sources of feature sets | Blob storage data reader role |
 | storage account of feature store offline store | Blob storage data reader role |
 
 > [!NOTE]
-> The `AzureML Data Scientist` allows the users to create and update feature sets in the feature store.
+> The `Azure Machine Learning Data Scientist` allows the users to create and update feature sets in the feature store.
 
-To avoid using the `AzureML Data Scientist` role, you can use these individual actions:
+To avoid using the `Azure Machine Learning Data Scientist` role, you can use these individual actions:
 
 |Scope| Action/Role|
 |----|------|
@@ -113,11 +113,11 @@ To develop feature sets in the feature store, use these built-in roles:
 
 |Scope| Role|
 |----|------|
-| the feature store | AzureML Data Scientist|
+| the feature store | Azure Machine Learning Data Scientist|
 | storage accounts of source data | Blob storage data reader role |
 | storage account of feature store offline store | Blob storage data reader role |
 
-To avoid using the `AzureML Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
+To avoid using the `Azure Machine Learning Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
 
 |Scope| Role|
 |----|------|
@@ -134,7 +134,7 @@ In addition to all of the permissions that the `feature set consumer` role requi
 
 |Scope| Action/Role |
 |----|------|
-| feature store | AzureML Data Scientist role |
+| feature store | Azure Machine Learning Data Scientist role |
 | storage account of feature store offline store | Blob storage data contributor role |
 | storage accounts of source data | Blob storage data reader role |
 

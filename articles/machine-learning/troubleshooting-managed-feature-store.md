@@ -391,10 +391,10 @@ Code: AuthorizationFailed
 
 #### Solution:
 
-1. If the feature retrieval job uses a managed identity, assign the `AzureML Data Scientist` role on the feature store to the identity.
-1. If the problem happens when user runs code in an Azure Machine Learning Spark notebook, and that notebook uses the user's own identity to access the Azure Machine Learning service, assign the `AzureML Data Scientist` role on the feature store to the user's Microsoft Entra identity.
+1. If the feature retrieval job uses a managed identity, assign the `Azure Machine Learning Data Scientist` role on the feature store to the identity.
+1. If the problem happens when user runs code in an Azure Machine Learning Spark notebook, and that notebook uses the user's own identity to access the Azure Machine Learning service, assign the `Azure Machine Learning Data Scientist` role on the feature store to the user's Microsoft Entra identity.
 
-`AzureML Data Scientist` is a recommended role. User can create their own custom role with the following actions
+`Azure Machine Learning Data Scientist` is a recommended role. User can create their own custom role with the following actions
 - Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action
 - Microsoft.MachineLearningServices/workspaces/featuresets/read
 - Microsoft.MachineLearningServices/workspaces/read
@@ -554,9 +554,9 @@ Code: AuthorizationFailed
 
 #### Solution:
 
-Assign the `AzureML Data Scientist` role on the feature store to the materialization identity (a user assigned managed identity) of the feature store.
+Assign the `Azure Machine Learning Data Scientist` role on the feature store to the materialization identity (a user assigned managed identity) of the feature store.
 
-`AzureML Data Scientist` is a recommended role. You can create your own custom role with these actions:
+`Azure Machine Learning Data Scientist` is a recommended role. You can create your own custom role with these actions:
 - Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action
 - Microsoft.MachineLearningServices/workspaces/featuresets/read
 - Microsoft.MachineLearningServices/workspaces/read
