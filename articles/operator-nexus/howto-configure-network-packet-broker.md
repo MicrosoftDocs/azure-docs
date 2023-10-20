@@ -10,15 +10,13 @@ ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Network Packet Broker
-Network Packet Broker allows operators to efficiently capture, aggregate, filter, and monitor traffic in an Azure Operator Nexus instance. 
-The solution helps operators to monitor large complex networks and provide network-level visibility to aid with service planning and troubleshooting of service problems. 
-It also plays a vital role in enhancing troubleshooting capabilities and enabling organizations to maintain the optimal performance and security of their networks.
-NPB has been designed and modeled as a separate top level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. 
-Operators can Create, Read, Update and Delete functions. Each NPB will have multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
+Azure Operator Nexus's Network Packet Broker is a specialized offering from Microsoft Azure tailored for telecommunication service providers. With Azure Operator Nexus's Network Packet Broker, telecom operators can efficiently capture, aggregate, filter, and monitor traffic across their infrastructure (AON), allowing for deep packet inspection, traffic analysis, and enhanced network monitoring. This is particularly crucial in the telecommunications industry, where maintaining high-quality service, ensuring security, and complying with regulatory requirements are paramount. By leveraging this solution, operators can achieve better visibility into their network traffic, troubleshoot issues more effectively, and ultimately deliver improved services to their customers while maintaining the highest standards of network security and performance. 
+
+The NPB has been designed and modeled as a separate top level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. Operators can Create, Read, Update and Delete Network TAP, Network TAP rule and Neighbor Group functions. Each network packet broker will have multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
 
 ## Steps to Enable Network Packet Broker
 **Prequisties**
-1. NPB devices should be racked, stacked and provisioned successful.
+1. NPB devices are correctly racked, stacked, and provisioned..
 2. Respective vProbes should be set up with dedicated IPs
 3. For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition to it, the extension flag should be set to NPB (in internal networks).
 4. For the Network to Network Inter-connect (NNI) use case, NNI should be created as type `NPB`. Appropriate layer 2 and layer 3 properties should be defined during the creation of NNI.
