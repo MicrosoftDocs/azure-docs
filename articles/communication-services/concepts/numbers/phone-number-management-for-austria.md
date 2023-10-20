@@ -49,7 +49,7 @@ More details on eligible subscription types are as follows:
 |Canada|
 |United Kingdom|
 
-## Azure subscription billing locations where Australia alphanumeric sender IDs are available
+## Azure subscription billing locations where Austria alphanumeric sender IDs are available
 | Country/Region |
 | :---------- |
 | Australia |
