@@ -27,24 +27,24 @@ The standard storage with cool access feature provides options for the “coolne
 ## Considerations
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers. 
-* This feature is available only at the **Standard** service level. It is not supported for the Ultra or Premium service level.  
-* Although cool access is available for the Standard service level, how you're billed for using the feature will differ from the Standard service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
-* You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you cannot convert it back to a non-cool-access capacity pool.  
+* This feature is available only at the **Standard** service level. It's not supported for the Ultra or Premium service level.  
+* Although cool access is available for the Standard service level, how you're billed for using the feature differs from the Standard service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
+* You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
-* After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
+* After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
 * You can't use large volumes with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR): 
     * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.
-    * If the volume is in a CRR relationship as a destination volume (data protection volume), enabling cool access is not supported for the volume.
+    * If the volume is in a CRR relationship as a destination volume (data protection volume), enabling cool access isn't supported for the volume.
     * The cool access setting is updated automatically on the destination volume to be the same as the source volume. When you update the cool access setting on the source volume, the same setting is applied at the destination volume.
 * Considerations for using cool access with [Azure NetApp Files backup](backup-requirements-considerations.md): 
     * When a backup is in progress for a volume, you can’t enable cool access on the volume.  
     * If a volume already contains cool-tiered data, you can’t enable backup for the volume.
     * If backup is already enabled on a volume, you can enable cool access only if the baseline backup is complete.
 * Considerations for using cool access with [snapshot restore](snapshots-restore-new-volume.md):
-    * When restoring a snapshot of a cool access enabled volume to a new volume, the new volume will inherit the cool access configuration from the parent volume. Once the new volume is created, the cool access settings can be modified.  
+    * When restoring a snapshot of a cool access enabled volume to a new volume, the new volume inherits the cool access configuration from the parent volume. Once the new volume is created, the cool access settings can be modified.  
     * You can't restore from a snapshot of a non-cool-access volume to a cool access volume.  Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
 * Considerations for [moving volumes to another capacity pool](dynamic-change-volume-service-level.md): 
     * If you move a cool access volume to another capacity pool (service level change), that pool must also be enabled for cool access. 
@@ -84,7 +84,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 #### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool  
 1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level and the **auto** QoS type.  
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
-    When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type is not supported for Standard service with cool access. 
+    When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type isn't supported for Standard service with cool access. 
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="Screenshot that shows the New Capacity Pool window with the Enable Cool Access option selected." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
 

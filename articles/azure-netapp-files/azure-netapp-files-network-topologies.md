@@ -164,7 +164,7 @@ The following table describes the network topologies supported by each network f
 |     [Connectivity over Virtual WAN (VWAN)](configure-virtual-wan.md)    |    Yes    |     No    |
 
 
-\* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
+\* This option incurs a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Virtual network for Azure NetApp Files volumes
 
