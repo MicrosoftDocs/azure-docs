@@ -15,7 +15,7 @@ This guide provides detailed steps for troubleshooting issues related to setting
 ## Prerequisites
 
 * Install the latest version of the
-    [appropriate CLI extensions](./howto-install-cli-extensions.md)
+    [az CLI extensions](./howto-install-cli-extensions.md)
 * Tenant ID
 * Subscription ID
 * Cluster name and resource group
