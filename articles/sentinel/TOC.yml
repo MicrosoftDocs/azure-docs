@@ -9,10 +9,6 @@
     href: whats-new.md
   - name: Best practices
     href: best-practices.md
-- name: Quickstart
-  items:
-  - name: Onboard to Microsoft Sentinel
-    href: quickstart-onboard.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -47,6 +43,8 @@
   items:
   - name: Enable Microsoft Sentinel and initial features and content
     href: enable-sentinel-features-content.md
+  - name: Onboard to Microsoft Sentinel
+    href: quickstart-onboard.md
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces
