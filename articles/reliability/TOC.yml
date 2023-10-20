@@ -69,7 +69,7 @@
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
@@ -307,7 +307,7 @@
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry

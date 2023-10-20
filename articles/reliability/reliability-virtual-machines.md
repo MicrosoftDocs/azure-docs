@@ -407,7 +407,7 @@ To learn more about availability zone readiness options, see:
 
 Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
-#### Create a resource with availability zone enabled
+### Create a resource with availability zones enabled
 
 Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
 - [Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
