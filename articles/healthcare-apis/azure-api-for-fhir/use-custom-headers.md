@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
  
  # Add custom HTTP headers to audit logs in FHIR service 
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 [!INCLUDE [Specific IP ranges for storage account](../includes/custom-header-auditlog.md)]
     

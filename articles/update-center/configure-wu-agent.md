@@ -2,7 +2,7 @@
 title: Configure Windows Update settings in Azure Update Manager
 description: This article tells how to configure Windows update settings to work with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 05/02/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -23,7 +23,7 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Manager remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Manager
+To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Manager remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Manager.
 
 You can enable this setting in PowerShell:
 

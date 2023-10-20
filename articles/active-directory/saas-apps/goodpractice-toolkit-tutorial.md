@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Mind Tools Toolkit'
-description: Learn how to configure single sign-on between Azure Active Directory and Mind Tools Toolkit.
+title: 'Tutorial: Microsoft Entra integration with Mind Tools Toolkit'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Mind Tools Toolkit.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,24 +12,24 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Mind Tools Toolkit
+# Tutorial: Microsoft Entra integration with Mind Tools Toolkit
 
-In this tutorial, you'll learn how to integrate Mind Tools Toolkit with Azure Active Directory (Azure AD). When you integrate Mind Tools Toolkit with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Mind Tools Toolkit with Microsoft Entra ID. When you integrate Mind Tools Toolkit with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Mind Tools Toolkit.
-* Enable your users to be automatically signed in to Mind Tools Toolkit (single sign-on) with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Mind Tools Toolkit.
+* Enable your users to be automatically signed in to Mind Tools Toolkit (single sign-on) with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Mind Tools Toolkit, you need the following items:
+To configure Microsoft Entra integration with Mind Tools Toolkit, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Mind Tools Toolkit subscription with single sign-on (SSO) enabled.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Mind Tools Toolkit supports SP-initiated SSO.
 * Mind Tools Toolkit supports just-in-time user provisioning.
@@ -39,33 +39,35 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Add Mind Tools Toolkit from the gallery
 
-To configure the integration of Mind Tools Toolkit into Azure AD, you need to add Mind Tools Toolkit from the gallery to your list of managed SaaS apps.
+To configure the integration of Mind Tools Toolkit into Microsoft Entra ID, you need to add Mind Tools Toolkit from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
-1. On the leftmost navigation pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Mind Tools Toolkit** in the search box.
 1. Select **Mind Tools Toolkit** from the search results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Mind Tools Toolkit
+<a name='configure-and-test-azure-ad-sso-for-mind-tools-toolkit'></a>
 
-Configure and test Azure AD SSO with Mind Tools Toolkit using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Mind Tools Toolkit.
+## Configure and test Microsoft Entra SSO for Mind Tools Toolkit
 
-To configure and test Azure AD SSO with Mind Tools Toolkit, perform the following steps:
+Configure and test Microsoft Entra SSO with Mind Tools Toolkit using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Mind Tools Toolkit.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Mind Tools Toolkit, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Mind Tools Toolkit SSO](#configure-mind-tools-toolkit-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Mind Tools Toolkit test user](#create-mind-tools-toolkit-test-user)** - to have a counterpart of B.Simon in Mind Tools Toolkit that is linked to the Azure AD representation of user.
+    1. **[Create Mind Tools Toolkit test user](#create-mind-tools-toolkit-test-user)** - to have a counterpart of B.Simon in Mind Tools Toolkit that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mind Tools Toolkit** > **Single sign-on**.
@@ -87,9 +89,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![The Set up Mind Tools Toolkit section, with the configuration URLs highlighted](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -101,9 +105,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Mind Tools Toolkit.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mind Tools Toolkit.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mind Tools Toolkit**.
@@ -123,9 +129,9 @@ In this section, a user called B.Simon is created in Mind Tools Toolkit. Mind To
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Mind Tools Toolkit Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Mind Tools Toolkit Sign-on URL where you can initiate the login flow. 
 
 * Go to Mind Tools Toolkit Sign-on URL directly and initiate the login flow from there.
 

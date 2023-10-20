@@ -14,7 +14,7 @@ ms.reviewer: janicericketts
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
 
-In this tutorial, you build a Blazor Server app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+In this tutorial, you build a Blazor Server app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Microsoft Entra ID.
 
 We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
 
@@ -22,7 +22,7 @@ In this tutorial:
 
 > [!div class="checklist"]
 >
-> - Create a new Blazor Server app configured to use Azure AD for authentication for users in a single organization (in the Azure Active Directory tenant the app is registered)
+> - Create a new Blazor Server app configured to use Microsoft Entra ID for authentication for users in a single organization (in the Microsoft Entra tenant the app is registered)
 > - Handle both authentication and authorization using `Microsoft.Identity.Web`
 > - Retrieve data from a protected web API, Microsoft Graph
 
@@ -30,11 +30,11 @@ In this tutorial:
 
 - [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The Azure account must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
+- The Azure account must have permission to manage applications in Microsoft Entra ID. Any of the following Microsoft Entra roles include the required permissions:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
-- The tenant-id or domain of the Azure Active Directory associated with your Azure Account
+- The tenant-id or domain of the Microsoft Entra ID associated with your Azure Account
 
 ## Create the app using the .NET CLI
 
@@ -52,7 +52,7 @@ dotnet tool install --global msidentity-app-sync
 
 This tool will automate the following tasks for you:
 
-- Register your application in Azure Active Directory
+- Register your application in Microsoft Entra ID
   - Create a secret for your registered application
   - Register redirect URIs based on your launchsettings.json
 - Initialize the use of user secrets in your project
@@ -65,7 +65,7 @@ For more information on user secrets storage, see [safe storage of app secrets d
 
 ## Use the Microsoft Identity App Sync Tool
 
-Run the following command to register your app in your tenant and update the .NET configuration of your application. Provide the username/upn belonging to your Azure Account (for instance, `username@domain.com`) and the tenant ID or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from single sign-on (SSO).
+Run the following command to register your app in your tenant and update the .NET configuration of your application. Provide the username/upn belonging to your Azure Account (for instance, `username@domain.com`) and the tenant ID or domain name of the Microsoft Entra ID associated with your Azure Account. If you use an account that is signed in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from single sign-on (SSO).
 
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>

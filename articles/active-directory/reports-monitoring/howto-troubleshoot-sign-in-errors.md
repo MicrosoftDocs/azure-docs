@@ -1,7 +1,7 @@
 ---
 
 title: How to troubleshoot sign-in errors
-description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
+description: Learn how to troubleshoot sign-in errors using Microsoft Entra reports in the Microsoft Entra admin center
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,21 +14,21 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 ---
 
-# How to: Troubleshoot sign-in errors using Azure Active Directory reports
+# How to: Troubleshoot sign-in errors using Microsoft Entra reports
 
-The Azure Active Directory (Azure AD) sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
+The Microsoft Entra sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
 - What’s the status of these sign-ins?
 
-In addition, the sign-ins logs can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure. Some common sign-in errors are also described.
+In addition, the sign-in logs can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure. Some common sign-in errors are also described.
 
 ## Prerequisites
 
 You need:
 
-* An Azure AD tenant with a Premium P1/P2 license.
+* A Microsoft Entra tenant with a P1 or P2 license.
 * A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 * In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
@@ -81,7 +81,7 @@ The following error codes are associated with sign-in events, but this list isn'
     - Because the user didn't sign-in completely, the User field may display an Object ID or a globally unique identifier (GUID) instead of a username.
     - In some of these situations, the User ID shows up like "00000000-0000-0000".
 
-- **90025**: An internal Azure AD service hit its retry allowance to sign the user in.
+- **90025**: An internal Microsoft Entra service hit its retry allowance to sign the user in.
     - This error often happens without the user noticing and is usually resolved automatically. 
     - If it persists, have the user sign in again.
 
@@ -89,7 +89,7 @@ The following error codes are associated with sign-in events, but this list isn'
     - This error often appears if the user hasn't completed setting up MFA.
     - Instruct the user to complete the setup process through to sign-in.
 
-If all else fails, or the issue persists despite taking the recommended course of action, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For more information, see [how to get support for Azure AD](../fundamentals/how-to-get-support.md). 
+If all else fails, or the issue persists despite taking the recommended course of action, open a support request. For more information, see [how to get support for Microsoft Entra ID](../fundamentals/how-to-get-support.md). 
 
 ## Next steps
 

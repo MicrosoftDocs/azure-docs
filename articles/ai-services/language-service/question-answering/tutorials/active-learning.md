@@ -1,8 +1,7 @@
 ---
 title: Enrich your project with active learning
 description: In this tutorial, learn how to enrich your question answering projects with active learning
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback

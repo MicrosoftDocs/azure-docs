@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -48,7 +48,7 @@ The following example checks if various static substrings exist in a string.
 
 - This function performs a full scan.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`CONCAT`](concat.md)

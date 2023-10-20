@@ -1,5 +1,5 @@
 ---
-title: Token protection in Azure AD Conditional Access
+title: Token protection in Microsoft Entra Conditional Access
 description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Token protection (sometimes referred to as token binding in the industry) attempts to reduce attacks using token theft by ensuring a token is usable only from the intended device. When an attacker is able to steal a token, by hijacking or replay, they can impersonate their victim until the token expires or is revoked. Token theft is thought to be a relatively rare event, but the damage from it can be significant. 
 
-Token protection creates a cryptographically secure tie between the token and the device (client secret) it's issued to. Without the client secret, the bound token is useless. When a user registers a Windows 10 or newer device in Azure AD, their primary identity is [bound to the device](../devices/concept-primary-refresh-token.md#how-is-the-prt-protected). What this means: A policy can ensure that only bound sign-in session (or refresh) tokens, otherwise known as Primary Refresh Tokens (PRTs) are used by applications when requesting access to a resource.
+Token protection creates a cryptographically secure tie between the token and the device (client secret) it's issued to. Without the client secret, the bound token is useless. When a user registers a Windows 10 or newer device in Microsoft Entra ID, their primary identity is [bound to the device](../devices/concept-primary-refresh-token.md#how-is-the-prt-protected). What this means: A policy can ensure that only bound sign-in session (or refresh) tokens, otherwise known as Primary Refresh Tokens (PRTs) are used by applications when requesting access to a resource.
 
 > [!IMPORTANT]
 > Token protection is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
@@ -36,7 +36,7 @@ With this preview, we're giving you the ability to create a Conditional Access p
 
 This preview supports the following configurations for access to resources with Token Protection conditional access policies applied:
 
-* Windows 10 or newer devices that are Azure AD joined, hybrid Azure AD joined, or Azure AD registered.
+* Windows 10 or newer devices that are Microsoft Entra joined, Microsoft Entra hybrid joined, or Microsoft Entra registered.
 * OneDrive sync client version 22.217 or later
 * Teams native client version 1.6.00.1331 or later 
 * Power BI desktop version 2.117.841.0 (May 2023) or later
@@ -45,7 +45,7 @@ This preview supports the following configurations for access to resources with 
 
 ### Known limitations
 
-- External users (Azure AD B2B) aren't supported and shouldn't be included in your Conditional Access policy.
+- External users (Microsoft Entra B2B) aren't supported and shouldn't be included in your Conditional Access policy.
 - The following applications don't support signing in using protected token flows and users are blocked when accessing Exchange and SharePoint:
    - PowerShell modules accessing Exchange, SharePoint, or Microsoft Graph scopes that are served by Exchange or SharePoint
    - PowerQuery extension for Excel
@@ -79,7 +79,7 @@ This process helps to assess your users’ client and app compatibility for toke
 
 ### Create a Conditional Access policy
 
-Users who perform specialized roles like those described in [Privileged access security levels](/security/compass/privileged-access-security-levels#specialized) are possible targets for this functionality. We recommend piloting with a small subset to begin. 
+Users who perform specialized roles like those described in [Privileged access security levels](/security/privileged-access-workstations/privileged-access-security-levels#specialized) are possible targets for this functionality. We recommend piloting with a small subset to begin. 
 
 :::image type="content" source="media/concept-token-protection/exposed-policy-attributes.png" alt-text="Screenshot of a configured Conditional Access policy and its components." lightbox="media/concept-token-protection/exposed-policy-attributes.png":::
 
@@ -124,7 +124,7 @@ Monitoring Conditional Access enforcement of token protection before and after e
 
 #### Sign-in logs 
 
-Use Azure AD sign-in log to verify the outcome of a token protection enforcement policy in report only mode or in enabled mode. 
+Use Microsoft Entra sign-in log to verify the outcome of a token protection enforcement policy in report only mode or in enabled mode. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
@@ -136,7 +136,7 @@ Use Azure AD sign-in log to verify the outcome of a token protection enforcement
 
 #### Log Analytics  
 
-You can also use [Log Analytics](../reports-monitoring/tutorial-log-analytics-wizard.md) to query the sign-in logs (interactive and non-interactive) for blocked requests due to token protection enforcement failure.
+You can also use [Log Analytics](../reports-monitoring/tutorial-configure-log-analytics-workspace.md) to query the sign-in logs (interactive and non-interactive) for blocked requests due to token protection enforcement failure.
 
 Here's a sample Log Analytics query searching the non-interactive sign-in logs for the last seven days, highlighting **Blocked** versus **Allowed** requests by **Application**. These queries are only samples and are subject to change.
 

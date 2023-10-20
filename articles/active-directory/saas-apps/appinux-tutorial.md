@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Appinux"
-description: Learn how to configure single sign-on between Azure Active Directory and Appinux.
+title: "Tutorial: Microsoft Entra single sign-on (SSO) integration with Appinux"
+description: Learn how to configure single sign-on between Microsoft Entra ID and Appinux.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Appinux
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Appinux
 
-In this tutorial, you'll learn how to integrate Appinux with Azure Active Directory (Azure AD). When you integrate Appinux with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Appinux with Microsoft Entra ID. When you integrate Appinux with Microsoft Entra ID, you can:
 
-- Control in Azure AD who has access to Appinux.
-- Enable your users to be automatically signed-in to Appinux with their Azure AD accounts.
-- Manage your accounts in one central location - the Azure portal.
+- Control in Microsoft Entra ID who has access to Appinux.
+- Enable your users to be automatically signed-in to Appinux with their Microsoft Entra accounts.
+- Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - Appinux single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 - Appinux supports **SP** initiated SSO
 
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Appinux from the gallery
 
-To configure the integration of Appinux into Azure AD, you need to add Appinux from the gallery to your list of managed SaaS apps.
+To configure the integration of Appinux into Microsoft Entra ID, you need to add Appinux from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Appinux into Azure AD, you need to add Appinux f
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Appinux
+<a name='configure-and-test-azure-ad-sso-for-appinux'></a>
 
-Configure and test Azure AD SSO with Appinux using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Appinux.
+## Configure and test Microsoft Entra SSO for Appinux
 
-To configure and test Azure AD SSO with Appinux, perform the following steps:
+Configure and test Microsoft Entra SSO with Appinux using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Appinux.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Appinux, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+   1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+   1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Appinux SSO](#configure-appinux-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create Appinux test user](#create-appinux-test-user)** - to have a counterpart of B.Simon in Appinux that is linked to the Azure AD representation of user.
+   1. **[Create Appinux test user](#create-appinux-test-user)** - to have a counterpart of B.Simon in Appinux that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appinux** > **Single sign-on**.
@@ -80,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
    > [!NOTE]
-   > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Appinux Client support team](https://support.appinux.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Appinux Client support team](https://support.appinux.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Appinux application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
@@ -102,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`        | `user.employeeid`                            |
 
    > [!NOTE]
-   > Appinux expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
+   > Appinux expects roles for users assigned to the application. Please set up these roles in Microsoft Entra ID so that users can be assigned the appropriate roles. To understand how to configure roles in Microsoft Entra ID, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -112,9 +116,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -126,9 +132,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Appinux.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Appinux.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appinux**.
@@ -140,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Appinux SSO
 
-To configure single sign-on on **Appinux** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Appinux support team](https://support.appinux.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Appinux** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Appinux support team](https://support.appinux.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Appinux test user
 
@@ -151,9 +159,9 @@ In this section, a user called Britta Simon is created in Appinux. Appinux suppo
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-- Click on **Test this application** in Azure portal. This will redirect to Appinux Sign-on URL where you can initiate the login flow.
+- Click on **Test this application**, this will redirect to Appinux Sign-on URL where you can initiate the login flow.
 
 - Go to Appinux Sign-on URL directly and initiate the login flow from there.
 

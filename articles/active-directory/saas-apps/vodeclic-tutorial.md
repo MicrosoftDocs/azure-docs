@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Vodeclic'
-description: Learn how to configure single sign-on between Azure Active Directory and Vodeclic.
+title: 'Tutorial: Microsoft Entra integration with Vodeclic'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Vodeclic.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,34 +12,34 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Vodeclic
+# Tutorial: Microsoft Entra integration with Vodeclic
 
-In this tutorial, you learn how to integrate Vodeclic with Azure Active Directory (Azure AD).
-Integrating Vodeclic with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Vodeclic with Microsoft Entra ID.
+Integrating Vodeclic with Microsoft Entra ID provides you with the following benefits:
 
-* You can control in Azure AD who has access to Vodeclic.
-* You can enable your users to be automatically signed-in to Vodeclic (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can control in Microsoft Entra ID who has access to Vodeclic.
+* You can enable your users to be automatically signed-in to Vodeclic (Single Sign-On) with their Microsoft Entra accounts.
+* You can manage your accounts in one central location.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with Vodeclic, you need the following items:
+To configure Microsoft Entra integration with Vodeclic, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Vodeclic single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Vodeclic supports **SP** and **IDP** initiated SSO
 
 ## Adding Vodeclic from the gallery
 
-To configure the integration of Vodeclic into Azure AD, you need to add Vodeclic from the gallery to your list of managed SaaS apps.
+To configure the integration of Vodeclic into Microsoft Entra ID, you need to add Vodeclic from the gallery to your list of managed SaaS apps.
 
 **To add Vodeclic from the gallery, perform the following steps:**
 
@@ -49,25 +49,29 @@ To configure the integration of Vodeclic into Azure AD, you need to add Vodeclic
 
 	 ![Vodeclic in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you configure and test Azure AD single sign-on with Vodeclic based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Vodeclic needs to be established.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD single sign-on with Vodeclic, you need to complete the following building blocks:
+In this section, you configure and test Microsoft Entra single sign-on with Vodeclic based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between a Microsoft Entra user and the related user in Vodeclic needs to be established.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+To configure and test Microsoft Entra single sign-on with Vodeclic, you need to complete the following building blocks:
+
+1. **[Configure Microsoft Entra Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Vodeclic Single Sign-On](#configure-vodeclic-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Vodeclic test user](#create-vodeclic-test-user)** - to have a counterpart of Britta Simon in Vodeclic that is linked to the Azure AD representation of user.
+3. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+4. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
+5. **[Create Vodeclic test user](#create-vodeclic-test-user)** - to have a counterpart of Britta Simon in Vodeclic that is linked to the Microsoft Entra representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+<a name='configure-azure-ad-single-sign-on'></a>
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+### Configure Microsoft Entra single sign-on
 
-To configure Azure AD single sign-on with Vodeclic, perform the following steps:
+In this section, you enable Microsoft Entra single sign-on.
+
+To configure Microsoft Entra single sign-on with Vodeclic, perform the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vodeclic** application integration page, select **Single sign-on**.
@@ -100,7 +104,7 @@ To configure Azure AD single sign-on with Vodeclic, perform the following steps:
     `https://<companyname>.lms.vodeclic.net/auth/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Vodeclic Client support team](mailto:hotline@vodeclic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Vodeclic Client support team](mailto:hotline@vodeclic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -112,17 +116,19 @@ To configure Azure AD single sign-on with Vodeclic, perform the following steps:
 
 	a. Login URL
 
-	b. Azure AD Identifier
+	b. Microsoft Entra Identifier
 
 	c. Logout URL
 
 ### Configure Vodeclic Single Sign-On
 
-To configure single sign-on on **Vodeclic** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Vodeclic support team](mailto:hotline@vodeclic.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Vodeclic** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Vodeclic support team](mailto:hotline@vodeclic.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create a Microsoft Entra test user 
+
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -134,7 +140,9 @@ The objective of this section is to create a test user in the Azure portal calle
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Vodeclic.
 
@@ -162,14 +170,14 @@ In this section, you create a user called Britta Simon in Vodeclic. Work with [
 
 ### Test single sign-on 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
 When you click the Vodeclic tile in the Access Panel, you should be automatically signed in to the Vodeclic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

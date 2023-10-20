@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/17/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -56,7 +56,7 @@ In this example, the function counts the number of times the specified scalar fi
 
 - This function benefits from a [range index](../../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`AVG`](average.md)

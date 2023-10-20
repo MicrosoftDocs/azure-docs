@@ -3,7 +3,7 @@ title: "Azure AI services SKUs and pricing"
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 10/28/2021
 ms.author: pafarley

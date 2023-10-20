@@ -5,8 +5,7 @@ description: The Speech SDK supports numerous programming languages for speech t
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: rhurey

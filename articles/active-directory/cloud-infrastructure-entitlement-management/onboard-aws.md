@@ -23,7 +23,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account in Mi
 
 There are several moving parts across AWS and Azure, which are required to be configured before onboarding.
 
-* An Azure AD OIDC App
+* A Microsoft Entra OIDC App
 * An AWS OIDC account
 * An (optional) AWS Management account
 * An (optional) AWS Central logging account
@@ -39,11 +39,13 @@ There are several moving parts across AWS and Azure, which are required to be co
 
 1. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**.
 
-### 1. Create an Azure AD OIDC App
+<a name='1-create-an-azure-ad-oidc-app'></a>
 
-1. On the **Permissions Management Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure app name**.
+### 1. Create a Microsoft Entra OIDC App
 
-    This app is used to set up an OpenID Connect (OIDC) connection to your AWS account. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated on this page create the app of this specified name in your Azure AD tenant with the right configuration.
+1. On the **Permissions Management Onboarding - Microsoft Entra OIDC App Creation** page, enter the **OIDC Azure app name**.
+
+    This app is used to set up an OpenID Connect (OIDC) connection to your AWS account. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated on this page create the app of this specified name in your Microsoft Entra tenant with the right configuration.
 
 1. To create the app registration, copy the script and run it in your Azure command-line app.
 
@@ -51,7 +53,7 @@ There are several moving parts across AWS and Azure, which are required to be co
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
 
-1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
+1. Return to Permissions Management, and in the **Permissions Management Onboarding - Microsoft Entra OIDC App Creation**, select **Next**.
 
 ### 2. Set up an AWS OIDC account
 
@@ -60,7 +62,7 @@ There are several moving parts across AWS and Azure, which are required to be co
 1. Select **Launch Template**. This link takes you to the **AWS CloudFormation create stack** page.
 1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create Stack.**
 
-    This AWS CloudFormation stack creates an OIDC Identity Provider (IdP) representing Azure AD STS and an AWS IAM role with a trust policy that allows external identities from Azure AD to assume it via the OIDC IdP. These entities are listed on the **Resources** page.
+    This AWS CloudFormation stack creates an OIDC Identity Provider (IdP) representing Microsoft Entra STS and an AWS IAM role with a trust policy that allows external identities from Microsoft Entra ID to assume it via the OIDC IdP. These entities are listed on the **Resources** page.
 
 1. Return to Permissions Management, and in the **Permissions Management Onboarding - AWS OIDC Account Setup** page, select **Next**.
 
@@ -120,7 +122,7 @@ Choose this option to automatically detect and add to the monitored account list
 
 - Deploy Management account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Microsoft Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 
 Any current or future accounts found get onboarded automatically. 
 
@@ -164,7 +166,7 @@ To view status of onboarding after saving the configuration:
 
 1. Return to Permissions Management, and in the **Permissions Management Onboarding - AWS Member Account Details** page, select **Next**.
 
-    This step completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
+    This step completes the sequence of required connections from Microsoft Entra STS to the OIDC connection account and the AWS member account.
     
 #### Option 3: Select authorization systems 
 
@@ -172,7 +174,7 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
 - Deploy Management account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Microsoft Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 - Click Verify and Save. 
 - Go to the newly create Data Collector row under AWSdata collectors. 
 - Click on Status column when the row has **Pending** status 

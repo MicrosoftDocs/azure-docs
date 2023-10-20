@@ -13,9 +13,9 @@ ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Investigate risk with Identity Protection in Azure AD for customers
+# Investigate risk with Identity Protection in Microsoft Entra ID for customers
 
-Azure AD [Identity Protection](../../identity-protection/overview-identity-protection.md) provides ongoing risk detection for your customer tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. In this article, you learn how to investigate and mitigate risks.
+Microsoft Entra [Identity Protection](../../identity-protection/overview-identity-protection.md) provides ongoing risk detection for your customer tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. In this article, you learn how to investigate and mitigate risks.
 
 ## Identity Protection reporting
 
@@ -30,7 +30,7 @@ Consider the following points when using Identity Protection:
 - Identity Protection is not available in trial tenants.
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. Detection is limited because the external identity provider manages the social account credentials.
-- Currently in Azure AD customer tenants, a subset of the [Azure AD Identity Protection risk detections](../../identity-protection/overview-identity-protection.md) is available. Azure AD for customers supports the following risk detections:  
+- Currently in Microsoft Entra customer tenants, a subset of the [Microsoft Entra ID Protection risk detections](../../identity-protection/overview-identity-protection.md) is available. Microsoft Entra ID for customers supports the following risk detections:  
 
 |Risk detection type  |Description  |
 |---------|---------|
@@ -40,7 +40,7 @@ Consider the following points when using Identity Protection:
 |Unfamiliar sign-in properties     | Sign-in with properties we haven't seen recently for the given user.        |
 |Admin confirmed user compromised    | An admin has indicated that a user was compromised.             |
 |Password spray     | Sign-in through a password spray attack.      |
-|Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
+|Microsoft Entra threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
 
 ## Investigate risky users
 
@@ -65,7 +65,7 @@ An administrator can choose to dismiss a user's risk in the Microsoft Entra admi
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. Make sure you're using the directory that contains your Microsoft Entra customer tenant: Select the Directories + subscriptions icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
 
 1. Browse to **Identity** > **Protection** > **Security Center**.
 

@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Before you create an external-access security plan, review the following two articles, which add context and information for the security plan.
 
-* [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+* [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 * [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 ## Before you begin
@@ -46,13 +46,13 @@ See the following links to articles about resource grouping strategies:
 
 * Microsoft Teams groups files, conversation threads, and other resources
   * Formulate an external access strategy for Teams
-  * See, [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md)
+  * See, [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md)
 * Use entitlement management access packages to create and delegate package management of applications, groups, teams, SharePoint sites, etc. 
   * [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 * Apply Conditional Access policies to up to 250 applications, with the same access requirements
   *  [What is Conditional Access?](../conditional-access/overview.md) 
 * Define access for external user application groups
-  *  [Overview: Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md) 
+  *  [Overview: Cross-tenant access with Microsoft Entra External ID](../external-identities/cross-tenant-access-overview.md) 
 
 Document the grouped applications. Considerations include:
 
@@ -139,16 +139,18 @@ Generally, organizations customize policy, however consider the following parame
 
 ## Access control methods
 
-Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD Premium P2 licenses. Learn more in the following entitlement management section.
+Some features, for example entitlement management, are available with a Microsoft Entra ID P1 or P2 license. Microsoft 365 E5 and Office 365 E5 licenses include Microsoft Entra ID P2 licenses. Learn more in the following entitlement management section.
 
 > [!NOTE]
-> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD Premium P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
+> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Microsoft Entra ID P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
 
-Other combinations of Microsoft 365, Office 365, and Azure AD have functionality to manage external users. See, [Microsoft 365 guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
+Other combinations of Microsoft 365, Office 365, and Microsoft Entra ID have functionality to manage external users. See, [Microsoft 365 guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
 
-## Govern access with Azure AD Premium P2 and Microsoft 365 or Office 365 E5
+<a name='govern-access-with-azure-ad-premium-p2-and-microsoft-365-or-office-365-e5'></a>
 
-Azure AD Premium P2, included in Microsoft 365 E5, has additional security and governance capabilities.
+## Govern access with Microsoft Entra ID P2 and Microsoft 365 or Office 365 E5
+
+Microsoft Entra ID P2, included in Microsoft 365 E5, has additional security and governance capabilities.
 
 ### Provision, sign-in, review access, and deprovision access
 
@@ -156,10 +158,10 @@ Entries in bold are recommended actions.
 
 | Feature| Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
 | - | - | - | - | - |
-| Azure AD B2B collaboration| Invite via email, one-time password (OTP), self-service|N/A| **Periodic partner review**| Remove account<br>Restrict sign-in |
+| Microsoft Entra B2B collaboration| Invite via email, one-time password (OTP), self-service|N/A| **Periodic partner review**| Remove account<br>Restrict sign-in |
 | Entitlement management| **Add user by assignment or self-service access**|N/A| Access reviews|**Expiration of, or removal from, access package**|
 | Office 365 groups|N/A|N/A| Review group memberships| Group expiration or deletion<br> Removal from group |
-| Azure AD security groups|N/A| **Conditional Access policies**: Add external users to security groups as needed|N/A| N/A|
+| Microsoft Entra security groups|N/A| **Conditional Access policies**: Add external users to security groups as needed|N/A| N/A|
 
 ### Resource access 
  
@@ -170,7 +172,7 @@ Entries in bold are recommended actions.
 | Entitlement management| **Add user by assignment or self-service access**| **Access packages**| **Access packages**| N/A|
 | Office 365 Group|N/A | Access to site(s) and group content| Access to teams and group content|N/A|
 | Sensitivity labels|N/A| **Manually and automatically classify and restrict access**| **Manually and automatically classify and restrict access**| **Manually and automatically classify and restrict access** |
-| Azure AD security groups| **Conditional Access policies for access not included in access packages**|N/A|N/A|N/A|
+| Microsoft Entra security groups| **Conditional Access policies for access not included in access packages**|N/A|N/A|N/A|
 
 ### Entitlement management 
 
@@ -178,7 +180,9 @@ Use entitlement management to provision and deprovision access to groups and tea
 
 Learn more: [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 
-## Manage access with Azure AD P1, Microsoft 365, Office 365 E3
+<a name='manage-access-with-azure-ad-p1-microsoft-365-office-365-e3'></a>
+
+## Manage access with Microsoft Entra ID P1, Microsoft 365, Office 365 E3
 
 ### Provision, sign-in, review access, and deprovision access
 
@@ -186,7 +190,7 @@ Items in bold are recommended actions.
 
 |Feature | Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
 | - |-|-|-|-|
-| Azure AD B2B collaboration| **Invite by email, OTP, self-service**| Direct B2B federation| **Periodic partner review**| Remove account<br>Restrict sign-in |
+| Microsoft Entra B2B collaboration| **Invite by email, OTP, self-service**| Direct B2B federation| **Periodic partner review**| Remove account<br>Restrict sign-in |
 | Microsoft 365 or Office 365 groups|N/A|N/A|N/A|Group expiration or deletion<br>Removal from group |
 | Security groups|N/A| **Add external users to security groups (org, team, project, etc.)**|N/A| N/A|
 | Conditional Access policies|N/A| **Sign-in Conditional Access policies for external users**|N/A|N/A|
@@ -204,22 +208,22 @@ Items in bold are recommended actions.
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md) (You're here)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md)
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md)
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

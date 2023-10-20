@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Application Proxy: Version release history'
-description: This article lists all releases of Azure Active Directory Application Proxy and describes new features and fixed issues.
+title: 'Microsoft Entra application proxy: Version release history'
+description: This article lists all releases of Microsoft Entra application proxy and describes new features and fixed issues.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -13,8 +13,8 @@ ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Azure AD Application Proxy: Version release history
-This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are [updated automatically when a new major version is released](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-). 
+# Microsoft Entra application proxy: Version release history
+This article lists the versions and features of Microsoft Entra application proxy that have been released. The Microsoft Entra ID team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are [updated automatically when a new major version is released](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-). 
 
 We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft Support might ask you to install the latest connector version to resolve a problem.
 
@@ -23,8 +23,8 @@ Here is a list of related resources:
 | Resource                                         | Details                                                      |
 | ------------------------------------------------ | ------------------------------------------------------------ |
 | How to enable Application Proxy                  | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md). |
-| Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
-| Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
+| Understand Microsoft Entra application proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
+| Microsoft Entra application proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
 ## 1.5.3437.0
 
@@ -38,9 +38,16 @@ June 20, 2023: Released for download. This version is only available for install
 - Updated “Third-Party Notices”.
 
 ### Fixed issues
-- Silent registration of connector with credentials. See [Create an unattended installation script for the Azure Active Directory Application Proxy connector](application-proxy-register-connector-powershell.md) for more details.
+- Silent registration of connector with credentials. See [Create an unattended installation script for the Microsoft Entra application proxy connector](application-proxy-register-connector-powershell.md) for more details.
 - Fixed dropping of “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
 - Fixed services crash when back-end server of an application sets "Set-Cookie" header with empty value.
+
+> [!IMPORTANT]
+> **.NET Framework**
+>
+> You must have .NET version 4.7.1 or higher to install, or upgrade, Application Proxy version 1.5.3437.0 or later. Windows Server 2012 R2 and Windows Server 2016 may not have this by default.
+>
+> See [How to: Determine which .NET Framework versions are installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) for more information.
 
 ## 1.5.2846.0
 
@@ -67,9 +74,9 @@ This version is only available for install via the download page.
 
 ### New features and improvements
 -	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/connect/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
-- Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
+- Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Microsoft Entra application proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
 - Improved websocket extension negotiations. 
-- Support for optimized routing between connector groups and Application Proxy cloud services based on region. See [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md) for more details. 
+- Support for optimized routing between connector groups and Application Proxy cloud services based on region. See [Optimize traffic flow with Microsoft Entra application proxy](application-proxy-network-topology.md) for more details. 
 
 ### Fixed issues
 - Fixed a websocket issue that forced lowercase strings.
@@ -158,5 +165,5 @@ April 15, 2017: Released for download
 If you're using an Application Proxy connector version earlier than 1.5.36.0, update to the latest version to ensure you have the latest fully supported features.
 
 ## Next steps
-- Learn more about [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
+- Learn more about [Remote access to on-premises applications through Microsoft Entra application proxy](application-proxy.md).
 - To start using Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md).

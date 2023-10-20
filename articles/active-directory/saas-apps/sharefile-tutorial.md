@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Citrix ShareFile'
-description: Learn how to configure single sign-on between Azure Active Directory and Citrix ShareFile.
+title: 'Tutorial: Microsoft Entra SSO integration with Citrix ShareFile'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Citrix ShareFile.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,33 +12,33 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Citrix ShareFile
+# Tutorial: Microsoft Entra SSO integration with Citrix ShareFile
 
-In this tutorial, you'll learn how to integrate Citrix ShareFile with Azure Active Directory (Azure AD). When you integrate Citrix ShareFile with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Citrix ShareFile with Microsoft Entra ID. When you integrate Citrix ShareFile with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Citrix ShareFile.
-* Enable your users to be automatically signed-in to Citrix ShareFile with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Citrix ShareFile.
+* Enable your users to be automatically signed-in to Citrix ShareFile with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Citrix ShareFile single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Citrix ShareFile supports **SP** initiated SSO.
 
 ## Add Citrix ShareFile from the gallery
 
-To configure the integration of Citrix ShareFile into Azure AD, you need to add Citrix ShareFile from the gallery to your list of managed SaaS apps.
+To configure the integration of Citrix ShareFile into Microsoft Entra ID, you need to add Citrix ShareFile from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,24 +47,28 @@ To configure the integration of Citrix ShareFile into Azure AD, you need to add 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Citrix ShareFile
+<a name='configure-and-test-azure-ad-sso-for-citrix-sharefile'></a>
 
-In this section, you configure and test Azure AD single sign-on with Citrix ShareFile based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Citrix ShareFile needs to be established.
+## Configure and test Microsoft Entra SSO for Citrix ShareFile
 
-To configure and test Azure AD single sign-on with Citrix ShareFile, perform the following steps:
+In this section, you configure and test Microsoft Entra single sign-on with Citrix ShareFile based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between a Microsoft Entra user and the related user in Citrix ShareFile needs to be established.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+To configure and test Microsoft Entra single sign-on with Citrix ShareFile, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 	
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 2. **[Configure Citrix ShareFile SSO](#configure-citrix-sharefile-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - to have a counterpart of Britta Simon in Citrix ShareFile that is linked to the Azure AD representation of user.
+	1. **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - to have a counterpart of Britta Simon in Citrix ShareFile that is linked to the Microsoft Entra representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ShareFile** > **Single sign-on**.
@@ -97,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenant-name>.sharefile.com/saml/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -107,9 +111,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user 
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -121,9 +127,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix ShareFile.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Citrix ShareFile.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ShareFile**.
@@ -154,15 +162,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
 	a. Select **YES** in the **Enable SAML**.
 
-	b. Copy the **ShareFile Issuer/ Entity ID** value and paste it into the **Identifier URL** box in the **Basic SAML Configuration** dialog box in the Azure portal.
+	b. Copy the **ShareFile Issuer/ Entity ID** value and paste it into the **Identifier URL** box in the **Basic SAML Configuration** dialog box.
 	
-	c. In **Your IDP Issuer/ Entity ID** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
+	c. In **Your IDP Issuer/ Entity ID** textbox, paste the value of **Microsoft Entra Identifier**..
 
-	d. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded from the Azure portal.
+	d. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded.
 	
-	e. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+	e. In **Login URL** textbox, paste the value of **Login URL**..
 	
-	f. In **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	f. In **Logout URL** textbox, paste the value of **Logout URL**..
 
 	g. In the **Optional Settings**, choose **SP-Initiated Auth Context** as **User Name and Password** and **Exact**.
 
@@ -189,17 +197,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 4. Click **Add User**.
   
 	>[!NOTE]
-	>The Azure AD account holder will receive an email and follow a link to confirm their account before it becomes active.You can use any other Citrix ShareFile user account creation tools or APIs provided by Citrix ShareFile to provision Azure AD user accounts.
+	>The Microsoft Entra account holder will receive an email and follow a link to confirm their account before it becomes active.You can use any other Citrix ShareFile user account creation tools or APIs provided by Citrix ShareFile to provision Microsoft Entra user accounts.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow.
 
 * Go to Citrix ShareFile Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Citrix ShareFile tile in the My Apps, this will redirect to Citrix ShareFile Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the Citrix ShareFile tile in the My Apps, this will redirect to Citrix ShareFile Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

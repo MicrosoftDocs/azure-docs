@@ -1,14 +1,14 @@
 ---
-title: Guidance on patching for SQL Server on Azure VMs using Azure Update Manager.
-description: An overview on patching guidance for SQL Server on Azure VMs using Azure Update Manager  
+title: Guidance on patching for SQL Server on Azure VMs (preview) using Azure Update Manager.
+description: An overview on patching guidance for SQL Server on Azure VMs (preview) using Azure Update Manager  
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/27/2023
 ms.author: sudhirsneha
 ---
 
-# Guidance on patching for SQL Server on Azure VMs using Azure Update Manager
+# Guidance on patching for SQL Server on Azure VMs (preview) using Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 

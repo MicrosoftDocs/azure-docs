@@ -14,6 +14,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Use blob index tags to manage and find data with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## Prerequisites

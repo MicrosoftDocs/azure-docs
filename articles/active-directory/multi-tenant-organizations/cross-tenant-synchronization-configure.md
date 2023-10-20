@@ -1,6 +1,6 @@
 ---
 title: Configure cross-tenant synchronization
-description: Learn how to configure cross-tenant synchronization in Azure Active Directory using the Microsoft Entra admin center.
+description: Learn how to configure cross-tenant synchronization in Microsoft Entra ID using the Microsoft Entra admin center.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Configure cross-tenant synchronization
 
-This article describes the steps to configure cross-tenant synchronization using the Microsoft Entra admin center. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This article describes the steps to configure cross-tenant synchronization using the Microsoft Entra admin center. When configured, Microsoft Entra ID automatically provisions and de-provisions B2B users in your target tenant. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 :::image type="content" source="./media/common/configure-diagram.png" alt-text="Diagram that shows cross-tenant synchronization between source tenant and target tenant." lightbox="./media/common/configure-diagram.png":::
 
@@ -33,14 +33,14 @@ By the end of this article, you'll be able to:
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 - [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization.
 - [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration.
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 
 ## Step 1: Plan your provisioning deployment
@@ -169,7 +169,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-The Azure AD provisioning service allows you to define who will be provisioned in one or both of the following ways:
+The Microsoft Entra provisioning service allows you to define who will be provisioned in one or both of the following ways:
 
 - Based on assignment to the configuration
 - Based on attributes of the user
@@ -215,7 +215,7 @@ Regardless of the value you selected for **Scope** in the previous step, you can
 
 1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
-1. Select **Provision Azure Active Directory Users**.
+1. Select **Provision Microsoft Entra users**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-mappings.png" alt-text="Screenshot that shows the Provisioning page with the Mappings section expanded." lightbox="./media/cross-tenant-synchronization-configure/provisioning-mappings.png":::
 
@@ -241,23 +241,23 @@ Regardless of the value you selected for **Scope** in the previous step, you can
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-Attribute mappings allow you to define how data should flow between the source tenant and target tenant. For information on how to customize the default attribute mappings, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Attribute mappings allow you to define how data should flow between the source tenant and target tenant. For information on how to customize the default attribute mappings, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Microsoft Entra ID](../app-provisioning/customize-application-attributes.md).
 
 1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
-1. Select **Provision Azure Active Directory Users**.
+1. Select **Provision Microsoft Entra users**.
 
 1. On the **Attribute Mapping** page, scroll down to review the user attributes that are synchronized between tenants in the **Attribute Mappings** section.
 
     The first attribute, alternativeSecurityIdentifier, is an internal attribute used to uniquely identify the user across tenants, match users in the source tenant with existing users in the target tenant, and ensure that each user only has one account. The matching attribute cannot be changed. Attempting to change the matching attribute or adding additional matching attributes will result in a `schemaInvalid` error. 
 
-    :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png" alt-text="Screenshot of the Attribute Mapping page that shows the list of Azure Active Directory attributes." lightbox="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png":::
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png" alt-text="Screenshot of the Attribute Mapping page that shows the list of Microsoft Entra attributes." lightbox="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping.png":::
 
 1. Select the **Member (userType)** attribute.
 
 1. Review the **Constant Value** setting for the **userType** attribute.
 
-    This setting defines the type of user that will be created in the target tenant and can be one of the values in the following table. By default, users will be created as external member (B2B collaboration users). For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
+    This setting defines the type of user that will be created in the target tenant and can be one of the values in the following table. By default, users will be created as external member (B2B collaboration users). For more information, see [Properties of a Microsoft Entra B2B collaboration user](../external-identities/user-properties.md).
 
     | Constant Value | Description |
     | --- | --- |
@@ -290,7 +290,7 @@ Attribute mappings allow you to define how data should flow between the source t
     - Flip the first name and last name and add a comma in between.
     - Add the domain name in parentheses at the end of the display name.
 
-    For examples, see [Reference for writing expressions for attribute mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json#examples).
+    For examples, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](../app-provisioning/functions-for-customizing-application-data.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json#examples).
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping-displayname-expression.png" alt-text="Screenshot of the Edit Attribute page that shows the displayName attribute with the Expression box." lightbox="./media/cross-tenant-synchronization-configure/provisioning-attribute-mapping-displayname-expression.png":::
 
@@ -310,7 +310,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 1. To prevent accidental deletion, select **Prevent accidental deletion** and specify a threshold value.
 
-    For more information, see [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization).
+    For more information, see [Enable accidental deletions prevention in the Microsoft Entra provisioning service](../app-provisioning/accidental-deletions.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization).
 
 1. Select **Save** to save any changes.
 
@@ -350,13 +350,13 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 1. If all is working as expected, assign additional users to the configuration.
 
-    For more information, see [On-demand provisioning in Azure Active Directory](../app-provisioning/provision-on-demand.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization).
+    For more information, see [On-demand provisioning in Microsoft Entra ID](../app-provisioning/provision-on-demand.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization).
 
 ## Step 12: Start the provisioning job
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-The provisioning job starts the initial synchronization cycle of all users defined in **Scope** of the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
+The provisioning job starts the initial synchronization cycle of all users defined in **Scope** of the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running.
 
 1. In the source tenant, browse to **Identity** > **External Identities** > **Cross-tenant synchronization**.
 
@@ -380,11 +380,11 @@ Once you've started a provisioning job, you can monitor the status.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-job-start.png" alt-text="Screenshot of the Configurations Overview page that shows the status of the provisioning cycle." lightbox="./media/cross-tenant-synchronization-configure/provisioning-job-start.png":::
 
-1. Select **Provisioning logs** to determine which users have been provisioned successfully or unsuccessfully. By default, the logs are filtered by the service principal ID of the configuration. For more information, see [Provisioning logs in Azure Active Directory](../reports-monitoring/concept-provisioning-logs.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json).
+1. Select **Provisioning logs** to determine which users have been provisioned successfully or unsuccessfully. By default, the logs are filtered by the service principal ID of the configuration. For more information, see [Provisioning logs in Microsoft Entra ID](../reports-monitoring/concept-provisioning-logs.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json).
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-logs.png" alt-text="Screenshot of the Provisioning logs page that lists the log entries and their status." lightbox="./media/cross-tenant-synchronization-configure/provisioning-logs.png":::
 
-1. Select **Audit logs** to view all logged events in Azure AD. For more information, see [Audit logs in Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
+1. Select **Audit logs** to view all logged events in Microsoft Entra ID. For more information, see [Audit logs in Microsoft Entra ID](../reports-monitoring/concept-audit-logs.md).
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/audit-logs-source.png" alt-text="Screenshot of the Audit logs page that lists the log entries and their status." lightbox="./media/cross-tenant-synchronization-configure/audit-logs-source.png":::
 
@@ -448,11 +448,11 @@ When configuring cross-tenant synchronization, the **Automatic redemption** chec
 
 **Cause**
 
-Your tenant doesn't have an Azure AD Premium P1 or P2 license.
+Your tenant doesn't have a Microsoft Entra ID P1 or P2 license.
 
 **Solution**
 
-You must have Azure AD Premium P1 or P2 to configure trust settings.
+You must have Microsoft Entra ID P1 or P2 to configure trust settings.
 
 #### Symptom - Recently deleted user in the target tenant is not restored
 
@@ -464,7 +464,7 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 **Solution**
 
-Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/users-restore.md).
+Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Microsoft Entra ID](../fundamentals/users-restore.md).
 
 #### Symptom - Users are skipped because SMS sign-in is enabled on the user
 Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"
@@ -535,4 +535,4 @@ Change the Guest invite settings in the target tenant to a less restrictive sett
 
 - [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 - [Managing user account provisioning for enterprise apps in the Azure portal](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-- [What is single sign-on in Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is single sign-on in Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)

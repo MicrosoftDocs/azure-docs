@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 09/18/2023
 ms.author: sudhirsneha
 ---
 
@@ -46,7 +46,7 @@ Deploy software updates (install patches) | Provides three modes of deploying up
 
 ## Manage software updates using Azure Update Manager
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for **Azure Update Manager**.
 
    :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
 

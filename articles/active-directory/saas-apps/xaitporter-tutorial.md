@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with XaitPorter'
-description: Learn how to configure single sign-on between Azure Active Directory and XaitPorter.
+title: 'Tutorial: Microsoft Entra integration with XaitPorter'
+description: Learn how to configure single sign-on between Microsoft Entra ID and XaitPorter.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with XaitPorter
+# Tutorial: Microsoft Entra integration with XaitPorter
 
-In this tutorial, you'll learn how to integrate XaitPorter with Azure Active Directory (Azure AD). When you integrate XaitPorter with Azure AD, you can:
+In this tutorial, you'll learn how to integrate XaitPorter with Microsoft Entra ID. When you integrate XaitPorter with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to XaitPorter.
-* Enable your users to be automatically signed-in to XaitPorter with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to XaitPorter.
+* Enable your users to be automatically signed-in to XaitPorter with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with XaitPorter, you need the following items:
+To configure Microsoft Entra integration with XaitPorter, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * XaitPorter single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * XaitPorter supports **SP** initiated SSO.
 
 ## Add XaitPorter from the gallery
 
-To configure the integration of XaitPorter into Azure AD, you need to add XaitPorter from the gallery to your list of managed SaaS apps.
+To configure the integration of XaitPorter into Microsoft Entra ID, you need to add XaitPorter from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of XaitPorter into Azure AD, you need to add XaitPo
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for XaitPorter
+<a name='configure-and-test-azure-ad-sso-for-xaitporter'></a>
 
-Configure and test Azure AD SSO with XaitPorter using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in XaitPorter.
+## Configure and test Microsoft Entra SSO for XaitPorter
 
-To configure and test Azure AD SSO with XaitPorter, perform the following steps:
+Configure and test Microsoft Entra SSO with XaitPorter using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in XaitPorter.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with XaitPorter, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure XaitPorter SSO](#configure-xaitporter-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create XaitPorter test user](#create-xaitporter-test-user)** - to have a counterpart of B.Simon in XaitPorter that is linked to the Azure AD representation of user.
+    1. **[Create XaitPorter test user](#create-xaitporter-test-user)** - to have a counterpart of B.Simon in XaitPorter that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **XaitPorter** > **Single sign-on**.
@@ -77,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.xaitporter.com/saml/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual identifier and Sign on URL. Contact [XaitPorter Client support team](https://www.xait.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual identifier and Sign on URL. Contact [XaitPorter Client support team](https://www.xait.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -85,9 +89,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring approved list at their side. 
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user 
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -99,9 +105,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to XaitPorter.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to XaitPorter.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **XaitPorter**.
@@ -132,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Select **Enable Single Sign-On Authentication**.
 
-	b. In **Identity Provider Settings** textbox, paste **App Federation Metadata Url** which you have copied from the Azure portal and click **Fetch**.
+	b. In **Identity Provider Settings** textbox, paste **App Federation Metadata Url** which you have copied and click **Fetch**.
 
 	c. Select **Enable Autocreation of Users**.
 
@@ -144,9 +152,9 @@ In this section, you create a user called Britta Simon in XaitPorter. Work with 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to XaitPorter Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to XaitPorter Sign-on URL where you can initiate the login flow. 
 
 * Go to XaitPorter Sign-on URL directly and initiate the login flow from there.
 

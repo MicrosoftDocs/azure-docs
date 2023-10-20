@@ -34,7 +34,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Review status](#review-status)
   - [Next steps](#next-steps)
 
-Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
+Use these [Azure AD PowerShell module](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 
@@ -45,7 +45,7 @@ Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
  Set-MsolDirSyncEnabled -EnableDirSync $true
 ```
 
-The first of those two commands, require Azure Active Directory credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
+The first of those two commands, require Microsoft Entra credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create service principals
 
@@ -65,7 +65,7 @@ Content-type: application/json
 
 The output of the above command returns the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.
 
-Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
+Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronization-post-jobs?tabs=http&preserve-view=true&view=graph-rest-beta).
 
 If you didn't record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
 
@@ -164,7 +164,7 @@ Request body –
 The expected response is … 
 HTTP 204/No content
 
-Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.
+Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Microsoft Entra ID.
 
 ## Enable Sync password hashes on configuration blade
 
@@ -243,7 +243,7 @@ Enabling Exchange hybrid writeback programmatically requires two steps.
 ### Schema verification
 Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  
 
-You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
+You can use the [directoryDefinition:discover](/graph/api/synchronization-directorydefinition-discover?tabs=http&preserve-view=true&view=graph-rest-beta) to initiate schema discovery. 
 
 ```
 POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/[AD2AADProvisioningJobId]/schema/directories/[ADDirectoryID]/discover
@@ -355,7 +355,7 @@ The jobs can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/`
 
-Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true).
+Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronization-list-jobs?tabs=http&preserve-view=true&view=graph-rest-beta).
 
 To start the jobs, issue this request, using the objectId of the service principal created in the first step, and the job identifiers returned from the request that created the job.
 
@@ -393,6 +393,6 @@ Look under the 'status' section of the return object for relevant details
 
 ## Next steps
 
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
+- [Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

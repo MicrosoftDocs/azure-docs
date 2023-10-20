@@ -15,9 +15,9 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Application registration permissions for custom roles in Azure Active Directory
+# Application registration permissions for custom roles in Microsoft Entra ID
 
-This article contains the currently available app registration permissions for custom role definitions in Azure Active Directory (Azure AD).
+This article contains the currently available app registration permissions for custom role definitions in Microsoft Entra ID.
 
 ## License requirements
 
@@ -25,7 +25,7 @@ This article contains the currently available app registration permissions for c
 
 ## Permissions for managing single-tenant applications
 
-When choosing the permissions for your custom role, you have the option to grant access to manage only single-tenant applications. single-tenant applications are available only to users in the Azure AD organization where the application is registered. single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg."
+When choosing the permissions for your custom role, you have the option to grant access to manage only single-tenant applications. single-tenant applications are available only to users in the Microsoft Entra organization where the application is registered. single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg."
 
 To grant access to manage only single-tenant applications, use the permissions below with the subtype **applications.myOrganization**. For example, microsoft.directory/applications.myOrganization/basic/update.
 
@@ -164,5 +164,5 @@ Grants the same permissions as microsoft.directory/applications/permissions/upda
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
 - [List role assignments](view-assignments.md)

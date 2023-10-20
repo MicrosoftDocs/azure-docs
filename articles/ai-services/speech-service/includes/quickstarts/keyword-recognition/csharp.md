@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/03/2022
 ms.author: eur
@@ -30,6 +30,8 @@ var keywordModel = KeywordRecognitionModel.FromFile("your/path/to/Activate_devic
 using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
 using var keywordRecognizer = new KeywordRecognizer(audioConfig);
 ```
+> [!IMPORTANT]
+> If you prefer testing a keyword model directly with audio samples via the `AudioConfig.fromStreamInput()` method, make sure you use samples that have at least 1.5 seconds of silence before the first keyword. This is to provide an adequate time for the Keyword recognition engine to initialize and to get to the listening state prior to detecting the first keyword.
 
 Next, running keyword recognition is done with one call to `RecognizeOnceAsync()` by passing your model object. This starts a keyword recognition session that lasts until the keyword is recognized. Thus, you generally use this design pattern in multi-threaded applications, or in use cases where you may be waiting for a wake-word indefinitely.
 

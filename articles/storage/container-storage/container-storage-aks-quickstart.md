@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/13/2023
+ms.date: 09/20/2023
 ms.author: kendownie
 ---
 
@@ -16,6 +16,9 @@ ms.author: kendownie
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 - You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
+
+> [!IMPORTANT]
+> If you created your AKS cluster using the Azure portal, it will likely have two node pools: a user node pool and a system/agent node pool. Before you can install Azure Container Storage, you must label the user node pool. In this article, this is done automatically by passing the user node pool name to the script as a parameter. However, if your cluster consists of only a system node pool, which is often the case with test/dev clusters, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) before running the script. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` gets added to the agent/system nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI. 
 
 ## Install Azure Container Storage
 

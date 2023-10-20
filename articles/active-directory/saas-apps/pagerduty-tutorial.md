@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PagerDuty'
-description: Learn how to configure single sign-on between Azure Active Directory and PagerDuty.
+title: 'Tutorial: Microsoft Entra integration with PagerDuty'
+description: Learn how to configure single sign-on between Microsoft Entra ID and PagerDuty.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,33 +13,33 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with PagerDuty
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with PagerDuty
 
-In this tutorial, you'll learn how to integrate PagerDuty with Azure Active Directory (Azure AD). When you integrate PagerDuty with Azure AD, you can:
+In this tutorial, you'll learn how to integrate PagerDuty with Microsoft Entra ID. When you integrate PagerDuty with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to PagerDuty.
-* Enable your users to be automatically signed-in to PagerDuty with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to PagerDuty.
+* Enable your users to be automatically signed-in to PagerDuty with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * PagerDuty single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> If you are using MFA or Passwordless authentication with Azure AD then switch off the AuthnContext value in the SAML Request. Otherwise Azure AD will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
+> If you are using MFA or Passwordless authentication with Microsoft Entra ID then switch off the AuthnContext value in the SAML Request. Otherwise Microsoft Entra ID will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * PagerDuty supports **SP** initiated SSO
 
 ## Add PagerDuty from the gallery
 
-To configure the integration of PagerDuty into Azure AD, you need to add PagerDuty from the gallery to your list of managed SaaS apps.
+To configure the integration of PagerDuty into Microsoft Entra ID, you need to add PagerDuty from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of PagerDuty into Azure AD, you need to add PagerDu
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD single sign-on for PagerDuty
+<a name='configure-and-test-azure-ad-single-sign-on-for-pagerduty'></a>
 
-Configure and test Azure AD SSO with PagerDuty using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in PagerDuty.
+## Configure and test Microsoft Entra single sign-on for PagerDuty
 
-To configure and test Azure AD SSO with PagerDuty, complete the following building blocks:
+Configure and test Microsoft Entra SSO with PagerDuty using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in PagerDuty.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with PagerDuty, complete the following building blocks:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure PagerDuty SSO](#configure-pagerduty-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create PagerDuty test user](#create-pagerduty-test-user)** - to have a counterpart of B.Simon in PagerDuty that is linked to the Azure AD representation of user.
+    1. **[Create PagerDuty test user](#create-pagerduty-test-user)** - to have a counterpart of B.Simon in PagerDuty that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **PagerDuty** > **Single sign-on**.
@@ -84,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenant-name>.pagerduty.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -94,9 +98,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,9 +114,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to PagerDuty.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to PagerDuty.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **PagerDuty**.
@@ -138,9 +146,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
   
-    b. In the **Login URL** textbox, paste **Login URL** which you have copied from Azure portal.
+    b. In the **Login URL** textbox, paste **Login URL**..
   
-    c. In the **Logout URL** textbox, paste **Logout URL** which you have copied from Azure portal.
+    c. In the **Logout URL** textbox, paste **Logout URL**..
 
     d. Select **Allow username/password login**.
 
@@ -150,10 +158,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create PagerDuty test user
 
-To enable Azure AD users to sign into PagerDuty, they must be provisioned into PagerDuty. In the case of PagerDuty, provisioning is a manual task.
+To enable Microsoft Entra users to sign into PagerDuty, they must be provisioned into PagerDuty. In the case of PagerDuty, provisioning is a manual task.
 
 > [!NOTE]
-> You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision Azure Active Directory user accounts.
+> You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision Microsoft Entra user accounts.
 
 **To provision a user account, perform the following steps:**
 
@@ -180,9 +188,9 @@ To enable Azure AD users to sign into PagerDuty, they must be provisioned into P
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to PagerDuty Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to PagerDuty Sign-on URL where you can initiate the login flow. 
 
 * Go to PagerDuty Sign-on URL directly and initiate the login flow from there.
 

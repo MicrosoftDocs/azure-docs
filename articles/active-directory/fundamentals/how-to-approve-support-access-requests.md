@@ -1,6 +1,6 @@
 ---
 title: Approve Microsoft Support access requests (preview)
-description: How to approve Microsoft Support access requests to Azure Active Directory identity data
+description: How to approve Microsoft Support access requests to Microsoft Entra identity data
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -22,7 +22,7 @@ This article describes how the process works and how to approve Microsoft Suppor
 
 ## Prerequisites
 
-Only authorized users in your tenant can view and manage Microsoft Support access requests. To view, approve, and reject Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which roles have this permission, search the [Azure AD built-in roles](../roles/permissions-reference.md) for the required permission.
+Only authorized users in your tenant can view and manage Microsoft Support access requests. To view, approve, and reject Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which roles have this permission, search the [Microsoft Entra built-in roles](../roles/permissions-reference.md) for the required permission.
 
 ## Scenarios and workflow
 

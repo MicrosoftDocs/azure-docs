@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Sign in users in a Node.js CLI application- Prepare app"
-description: Learn how to build a Node.js CLI application that signs in users in an Azure AD for customers tenant
+description: Learn how to build a Node.js CLI application that signs in users in a Microsoft Entra ID for customers tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 08/04/2023
 ms.custom: developer, devx-track-js
 
-#Customer intent: As a dev, devops, I want to learn how to build a Node.js CLI application that signs in users in an Azure AD for customers tenant.
+#Customer intent: As a dev, devops, I want to learn how to build a Node.js CLI application that signs in users in a Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Prepare a Node.js CLI application for authentication

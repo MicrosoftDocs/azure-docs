@@ -4,12 +4,12 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/11/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
 # How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
 
@@ -73,7 +73,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 | Property | Type | Description |
 |----------|------|-------------|
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
-| id | String | Object ID of an Azure AD user or group. |
+| id | String | Object ID of a Microsoft Entra user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
 
 #### MicrosoftAuthenticator featureSettings properties
@@ -94,7 +94,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group for each feature.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 #### Feature target properties
 
@@ -434,9 +434,16 @@ To enable application name or geographic location in the Microsoft Entra admin c
 
 ## Known issues
 
-Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+- Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+- Users can modify the location reported by iOS and Android devices. As a result, Microsoft Authenticator is updating its security baseline for Location Based Access Control (LBAC) Conditional Access policies. Authenticator will deny authentications where the user may be using a different location than the actual GPS location of the mobile device where Authenticator installed.  
+
+  In the November 2023 release of Authenticator, users who modify the location of their device will see a denial message in Authenticator when doing an LBAC authentication. Beginning January 2024, any users that run older Authenticator versions will be blocked from LBAC authentication with a modified location:
+  
+  - Authenticator version 6.2309.6329 or earlier on Android
+  - Authenticator version 6.7.16 or earlier on iOS
+  
+  To find which users run older versions of Authenticator, use [Microsft Graph APIs](/graph/api/resources/microsoftauthenticatorauthenticationmethod#properties). 
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-
+[Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](concept-authentication-authenticator-app.md)

@@ -130,7 +130,7 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/data-sources/configure-Azure-Monitor.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
-Authentication and authorization are made through the provided managed identity. Using managed identity, lets you assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
+Authentication and authorization are made through the provided managed identity. Using managed identity, lets you assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -177,7 +177,7 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 
 ### Azure Data Explorer configuration
 
-Azure Managed Grafana can also access data sources using a service principal set up in Azure Active Directory (Azure AD).
+Azure Managed Grafana can also access data sources using a service principal set up in Microsoft Entra ID.
 
 ### [Portal](#tab/azure-portal)
 
@@ -190,9 +190,9 @@ Azure Managed Grafana can also access data sources using a service principal set
 
    :::image type="content" source="media/data-sources/data-explorer-connection-settings.jpg" alt-text="Screenshot of the Connection details section for Data Explorer in data sources.":::
 
-   To complete this process, you need to have an Azure AD service principal and connect Azure AD with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
+   To complete this process, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
 
-1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Azure AD.
+1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Microsoft Entra ID.
 
 ### [Azure CLI](#tab/azure-cli)
 

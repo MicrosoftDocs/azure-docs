@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Torii'
-description: Learn how to configure single sign-on between Azure Active Directory and Torii.
+title: 'Tutorial: Microsoft Entra SSO integration with Torii'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Torii.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,33 +13,33 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Torii
+# Tutorial: Microsoft Entra SSO integration with Torii
 
-In this tutorial, you'll learn how to integrate Torii with Azure Active Directory (Azure AD). When you integrate Torii with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Torii with Microsoft Entra ID. When you integrate Torii with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Torii.
-* Enable your users to be automatically signed-in to Torii with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Torii.
+* Enable your users to be automatically signed-in to Torii with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Torii single sign-on (SSO) enabled subscription.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Torii supports **SP and IDP** initiated SSO.
 * Torii supports **Just In Time** user provisioning.
 
 ## Add Torii from the gallery
 
-To configure the integration of Torii into Azure AD, you need to add Torii from the gallery to your list of managed SaaS apps.
+To configure the integration of Torii into Microsoft Entra ID, you need to add Torii from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of Torii into Azure AD, you need to add Torii from 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Torii
+<a name='configure-and-test-azure-ad-sso-for-torii'></a>
 
-Configure and test Azure AD SSO with Torii using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Torii.
+## Configure and test Microsoft Entra SSO for Torii
 
-To configure and test Azure AD SSO with Torii, perform the following steps:
+Configure and test Microsoft Entra SSO with Torii using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Torii.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Torii, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Torii SSO](#configure-torii-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Torii test user](#create-torii-test-user)** - to have a counterpart of B.Simon in Torii that is linked to the Azure AD representation of user.
+    1. **[Create Torii test user](#create-torii-test-user)** - to have a counterpart of B.Simon in Torii that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Torii** > **Single sign-on**.
@@ -86,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://api.toriihq.com/api/saml/<idOrg>/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Torii Client support team](mailto:support@toriihq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Torii Client support team](mailto:support@toriihq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -96,9 +100,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,9 +116,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Torii.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Torii.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Torii**.
@@ -124,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Torii SSO
 
-To configure single sign-on on **Torii** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Torii support team](mailto:support@toriihq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Torii** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from the application configuration to [Torii support team](mailto:support@toriihq.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Torii test user
 
@@ -132,19 +140,19 @@ In this section, a user called Britta Simon is created in Torii. Torii supports 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Torii Sign-On URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Torii Sign-On URL where you can initiate the login flow.  
 
 * Go to Torii Sign-On URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Torii for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Torii for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Torii tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Torii for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Torii tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Torii for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

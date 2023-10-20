@@ -1,6 +1,6 @@
 ---
 title: Certificate-based authentication with federation on iOS
-description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication for Azure Active Directory in solutions with iOS devices
+description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication for Microsoft Entra ID in solutions with iOS devices
 
 services: active-directory
 ms.service: active-directory
@@ -15,9 +15,9 @@ manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory certificate-based authentication with federation on iOS
+# Microsoft Entra certificate-based authentication with federation on iOS
 
-To improve security, iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to the following applications or services:
+To improve security, iOS devices can use certificate-based authentication (CBA) to authenticate to Microsoft Entra ID using a client certificate on their device when connecting to the following applications or services:
 
 * Office mobile applications such as Microsoft Outlook and Microsoft Word
 * Exchange ActiveSync (EAS) clients
@@ -56,7 +56,7 @@ The following Active Directory Federation Services (AD FS) requirements and cons
 
 ## Configure AD FS
 
-For Azure AD to revoke a client certificate, the AD FS token must have the following claims. Azure AD adds these claims to the refresh token if they're available in the AD FS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation:
+For Microsoft Entra ID to revoke a client certificate, the AD FS token must have the following claims. Microsoft Entra ID adds these claims to the refresh token if they're available in the AD FS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation:
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` - add the serial number of your client certificate
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` - add the string for the issuer of your client certificate
@@ -70,7 +70,7 @@ For more information, see [Customizing the AD FS sign in page](/previous-version
 
 ## Use modern authentication with Office apps
 
-Some Office apps with modern authentication enabled send `prompt=login` to Azure AD in their request. By default, Azure AD translates `prompt=login` in the request to AD FS as `wauth=usernamepassworduri` (asks AD FS to do U/P Auth) and `wfresh=0` (asks AD FS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Azure AD behavior.
+Some Office apps with modern authentication enabled send `prompt=login` to Microsoft Entra ID in their request. By default, Microsoft Entra ID translates `prompt=login` in the request to AD FS as `wauth=usernamepassworduri` (asks AD FS to do U/P Auth) and `wfresh=0` (asks AD FS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Microsoft Entra behavior.
 
 To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet to perform this task, as shown in the following example:
 

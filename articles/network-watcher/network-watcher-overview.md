@@ -6,7 +6,8 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
 ms.date: 09/15/2023
-# Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+
+# CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
 # What is Azure Network Watcher?
@@ -37,7 +38,7 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Connection monitor
 
-**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](connection-monitor.md).
+**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](monitor-vm-communication.md).
 
 ## Network diagnostic tools
 
@@ -53,7 +54,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### IP flow verify
 
-**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](network-watcher-ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### NSG diagnostics
 

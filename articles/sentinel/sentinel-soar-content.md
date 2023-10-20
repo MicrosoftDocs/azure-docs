@@ -165,8 +165,8 @@ You can find SOAR integrations and their components in the following places:
 | --- | --- | --- | --- |
 | **Azure DevOps** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
 | **Azure Firewall**<br>(Available as solution) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Block IPs |
-| **Azure AD Identity Protection** | [Managed Logic Apps connector](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
-| **Azure AD** | [Managed Logic Apps connector](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| **Microsoft Entra ID Protection** | [Managed Logic Apps connector](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| **Microsoft Entra ID** | [Managed Logic Apps connector](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
 | **Azure Data Explorer** | [Managed Logic Apps connector](/connectors/kusto/) | Microsoft | Query and investigate |
 | **Azure Log Analytics Data Collector** | [Managed Logic Apps connector](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>Community | Query and investigate |
 | **Microsoft Defender for Endpoint** | [Managed Logic Apps connector](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>Community | Endpoints enrichment, <br>isolate endpoints |

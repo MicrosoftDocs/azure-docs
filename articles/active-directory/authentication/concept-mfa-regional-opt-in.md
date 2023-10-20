@@ -1,6 +1,6 @@
 ---
-title: Regions that need to opt in for Azure AD Multi-Factor Authentication (MFA) telephony verification | Azure Active Directory
-description: To protect customers, some regions require a support ticket to request to opt in to receive MFA telephony verification Azure Active Directory
+title: Regions that need to opt in for Microsoft Entra multifactor authentication telephony verification | Microsoft Entra ID
+description: To protect customers, some regions require a support ticket to request to opt in to receive MFA telephony verification Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -200,4 +200,4 @@ For voice verification, the following region codes require an opt-in.
 ## Next steps
 
 * [Understanding telephony fraud](concept-mfa-telephony-fraud.md)
-* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)

@@ -46,7 +46,7 @@ catch(MsalUiRequiredException)
 
 On both desktop and mobile applications, it's important to specify the parent by using `.WithParentActivityOrWindow`. In many cases, it's a requirement and MSAL will throw exceptions.
 
-For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles).
+For desktop applications, see [Parent window handles](./scenario-desktop-acquire-token-wam.md#parent-window-handles).
 
 For mobile applications, provide `Activity` (Android) or `UIViewController` (iOS).
 
@@ -103,7 +103,7 @@ The structure defines the following constants:
 
 #### WithUseEmbeddedWebView
 
-This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](msal-net-web-browsers.md).
+This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](/entra/msal/dotnet/acquiring-tokens/using-web-browsers).
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopes)
@@ -130,7 +130,7 @@ MSAL provides web UI implementations for most platforms, but you might want to h
 - You want to UI test your application and use an automated browser that can be used with Selenium.
 - The browser and the app that run MSAL are in separate processes.
 
-To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser so that users can enter items such as their username. After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code that Azure AD provides. The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
+To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser so that users can enter items such as their username. After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code that Microsoft Entra ID provides. The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
 
 - Monitor browser redirects until `redirect Url` is hit.
 - Have the browser redirect to a URL that you monitor.

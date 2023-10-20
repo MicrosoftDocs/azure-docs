@@ -19,20 +19,20 @@ ms.collection: M365-identity-device-management
 
 # Use access reviews to manage users excluded from Conditional Access policies
 
-In an ideal world, all users follow the access policies to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article goes over some examples of situations where exclusions may be necessary. You, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
+In an ideal world, all users follow the access policies to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article goes over some examples of situations where exclusions may be necessary. You, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Microsoft Entra access reviews.
 
 >[!NOTE]
-> A valid Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance, Enterprise Mobility + Security E5 paid, or trial license is required to use Azure AD access reviews. For more information, see [Azure Active Directory editions](../fundamentals/whatis.md).
+> A valid Microsoft Entra ID P2 or Microsoft Entra ID Governance, Enterprise Mobility + Security E5 paid, or trial license is required to use Microsoft Entra access reviews. For more information, see [Microsoft Entra editions](../fundamentals/whatis.md).
 
 ## Why would you exclude users from policies?
 
-Let's say that as the administrator, you decide to use [Azure AD Conditional Access](../conditional-access/concept-conditional-access-policy-common.md) to require multi-factor authentication (MFA) and limit authentication requests to specific networks or devices. During deployment planning, you realize that not all users can meet these requirements. For example, you may have users who work from remote offices, not part of your internal network. You may also have to accommodate users connecting using unsupported devices while waiting for those devices to be replaced. In short, the business needs these users to sign in and do their job so you exclude them from Conditional Access policies.
+Let's say that as the administrator, you decide to use [Microsoft Entra Conditional Access](../conditional-access/concept-conditional-access-policy-common.md) to require multi-factor authentication (MFA) and limit authentication requests to specific networks or devices. During deployment planning, you realize that not all users can meet these requirements. For example, you may have users who work from remote offices, not part of your internal network. You may also have to accommodate users connecting using unsupported devices while waiting for those devices to be replaced. In short, the business needs these users to sign in and do their job so you exclude them from Conditional Access policies.
 
 As another example, you may be using [named locations](../conditional-access/location-condition.md) in Conditional Access to specify a set of countries and regions from which you don't want to allow users to access their tenant.
 
 ![Named locations in Conditional Access](./media/conditional-access-exclusion/named-locations.png)
 
-Unfortunately, some users may still have a valid reason to sign in from these blocked countries/regions. For example, users could be traveling for work and need to access corporate resources. In this case, the Conditional Access policy to block these countries/regions could use a cloud security group for the excluded users from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../enterprise-users/groups-self-service-management.md).
+Unfortunately, some users may still have a valid reason to sign in from these blocked countries/regions. For example, users could be traveling for work and need to access corporate resources. In this case, the Conditional Access policy to block these countries/regions could use a cloud security group for the excluded users from the policy. Users who need access while traveling, can add themselves to the group using [Microsoft Entra self-service Group management](../enterprise-users/groups-self-service-management.md).
 
 Another example might be that you have a Conditional Access policy [blocking legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). However, if you have some users that need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that blocks legacy authentication methods.
 
@@ -41,7 +41,7 @@ Another example might be that you have a Conditional Access policy [blocking leg
 
 ## Why are exclusions challenging?
 
-In Azure AD, you can scope a Conditional Access policy to a set of users. You can also configure exclusions by selecting Azure AD roles, individual users, or guests. You should keep in mind that when exclusions are configured, the policy intent can't be enforced on excluded users. If exclusions are configured using a list of users or using legacy on-premises security groups, you'll have limited visibility into the exclusions. As a result:
+In Microsoft Entra ID, you can scope a Conditional Access policy to a set of users. You can also configure exclusions by selecting Microsoft Entra roles, individual users, or guests. You should keep in mind that when exclusions are configured, the policy intent can't be enforced on excluded users. If exclusions are configured using a list of users or using legacy on-premises security groups, you'll have limited visibility into the exclusions. As a result:
 
 - Users may not know that they're excluded.
 
@@ -49,11 +49,11 @@ In Azure AD, you can scope a Conditional Access policy to a set of users. You ca
 
 - Excluded users may have qualified for the exclusion before but may no longer qualify for it.
 
-Frequently, when you first configure an exclusion, there's a shortlist of users who bypass the policy. Over time, more users get added to the exclusion, and the list grows. At some point, you need to review the list and confirm that each of these users is still eligible for exclusion. Managing the exclusion list, from a technical point of view, can be relatively easy, but who makes the business decisions, and how do you make sure it's all auditable? However, if you configure the exclusion using an Azure AD group, you can use access reviews as a compensating control, to drive visibility, and reduce the number of excluded users.
+Frequently, when you first configure an exclusion, there's a shortlist of users who bypass the policy. Over time, more users get added to the exclusion, and the list grows. At some point, you need to review the list and confirm that each of these users is still eligible for exclusion. Managing the exclusion list, from a technical point of view, can be relatively easy, but who makes the business decisions, and how do you make sure it's all auditable? However, if you configure the exclusion using a Microsoft Entra group, you can use access reviews as a compensating control, to drive visibility, and reduce the number of excluded users.
 
 ## How to create an exclusion group in a Conditional Access policy
 
-Follow these steps to create a new Azure AD group and a Conditional Access policy that doesn't apply to that group.
+Follow these steps to create a new Microsoft Entra group and a Conditional Access policy that doesn't apply to that group.
 
 ### Create an exclusion group
 
@@ -69,7 +69,7 @@ Follow these steps to create a new Azure AD group and a Conditional Access polic
 
 1. Select the users that should be part of this exclusion group and then select **Create**.
 
-![New group pane in Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
+![New group pane in Microsoft Entra ID](./media/conditional-access-exclusion/new-group.png)
 
 ### Create a Conditional Access policy that excludes the group
 
@@ -167,4 +167,4 @@ As an IT administrator, you know that managing exclusion groups to your policies
 ## Next steps
 
 - [Create an access review of groups or applications](create-access-review.md)
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

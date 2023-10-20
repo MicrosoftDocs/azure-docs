@@ -1,7 +1,7 @@
 ---
 
 title: Add B2B collaboration users as an information worker
-description: B2B collaboration allows information workers and app owners to add guest users to Azure AD for access
+description: B2B collaboration allows information workers and app owners to add guest users to Microsoft Entra ID for access
 
 services: active-directory
 ms.service: active-directory
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # How users in your organization can invite guest users to an app
 
-After a guest user has been added to the directory in Azure AD, an application owner can send the guest user a direct link to the app they want to share. Azure AD admins can also set up self-service management for gallery or SAML-based apps in their Azure AD tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. 
+After a guest user has been added to the directory in Microsoft Entra ID, an application owner can send the guest user a direct link to the app they want to share. Microsoft Entra admins can also set up self-service management for gallery or SAML-based apps in their Microsoft Entra tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. 
 
 Self-service app management for gallery and SAML-based apps requires some initial setup by an admin. Follow the summary of the setup steps (for more detailed instructions, see [Prerequisites](#prerequisites) later on this page):
 
@@ -29,12 +29,12 @@ Self-service app management for gallery and SAML-based apps requires some initia
  - Configure the app for self-service and assign the group to the app
 
 > [!NOTE]
-> * This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Azure AD tenant. You can also [set up self-service Microsoft 365 groups](../enterprise-users/groups-self-service-management.md) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Microsoft Entra tenant. You can also [set up self-service Microsoft 365 groups](../enterprise-users/groups-self-service-management.md) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 > * Users are only able to invite guests if they have the **Guest inviter** role.
 
 ## Invite a guest user to an app from the Access Panel
 
-After an app is configured for self-service, application owners can use their own Access Panel to invite a guest user to the app they want to share. The guest user doesn't necessarily need to be added to Azure AD in advance. 
+After an app is configured for self-service, application owners can use their own Access Panel to invite a guest user to the app they want to share. The guest user doesn't necessarily need to be added to Microsoft Entra ID in advance. 
 
 1. Open your Access Panel by going to `https://myapps.microsoft.com`.
 2. Point to the app, select the ellipses (**...**), and then select **Manage your application**.
@@ -76,7 +76,7 @@ After an app is configured for self-service, application owners can invite guest
 
 ## Prerequisites
 
-Self-service app management requires some initial setup by a Global Administrator and an Azure AD administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](../enterprise-users/groups-self-service-management.md).) 
+Self-service app management requires some initial setup by a Global Administrator and a Microsoft Entra administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](../enterprise-users/groups-self-service-management.md).) 
 
 > [!NOTE]
 > You cannot add guest users to a dynamic group or to a group that is synced with on-premises Active Directory.
@@ -118,9 +118,9 @@ Self-service app management requires some initial setup by a Global Administrato
 
 ## Next steps
 
-See the following articles on Azure AD B2B collaboration:
+See the following articles on Microsoft Entra B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- [How do Azure Active Directory admins add B2B collaboration users?](add-users-administrator.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
+- [How do Microsoft Entra admins add B2B collaboration users?](add-users-administrator.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
 - [External Identities pricing](external-identities-pricing.md)

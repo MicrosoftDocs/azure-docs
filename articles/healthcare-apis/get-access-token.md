@@ -2,11 +2,11 @@
 title: Get an access token to use the FHIR service or the DICOM service
 description: Learn how to get an access token for the FHIR service or the DICOM service.
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: how-to
 ms.date: 09/06/2023
-ms.author: mikaelw
+ms.author: chrupa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

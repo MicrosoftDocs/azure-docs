@@ -294,4 +294,5 @@ To change the number of containers available in the emulator, run the following 
 
 ## Next steps
 
-- [Get started with Azure Cosmos DB](../index.yml)
+- [Learn more about the Azure Cosmos DB emulator](emulator.md)
+- [Review the emulator's release notes](emulator-release-notes.md)

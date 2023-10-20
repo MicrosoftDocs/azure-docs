@@ -26,7 +26,7 @@
     displayName: Resource Manager
     href: quick-create-template.md
   - name: Create Application Gateway - Terraform
-    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
+    href: quick-create-terraform.md
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -105,7 +105,9 @@
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostic logs and backend health
+    - name: Backend health
+      href: application-gateway-backend-health.md      
+    - name: Diagnostic logs
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md

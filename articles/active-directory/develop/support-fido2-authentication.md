@@ -17,13 +17,13 @@ ms.custom: aaddev
 
 # Support passwordless authentication with FIDO2 keys in apps you develop
 
-These configurations and best practices will help you avoid common scenarios that block [FIDO2 passwordless authentication](../../active-directory/authentication/concept-authentication-passwordless.md) from being available to users of your applications.
+These configurations and best practices will help you avoid common scenarios that block [FIDO2 passwordless authentication](../authentication/concept-authentication-passwordless.md) from being available to users of your applications.
 
 ## General best practices
 
 ### Domain hints
 
-Don't use a domain hint to bypass [home-realm discovery](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
+Don't use a domain hint to bypass [home-realm discovery](../manage-apps/configure-authentication-for-federated-users-portal.md). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
 
 ### Requiring specific credentials
 
@@ -61,4 +61,4 @@ The availability of FIDO2 passwordless authentication for applications that run 
 
 ## Next steps
 
-[Passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
+[Passwordless authentication options for Microsoft Entra ID](../authentication/concept-authentication-passwordless.md)

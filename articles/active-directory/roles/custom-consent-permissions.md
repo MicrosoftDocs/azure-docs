@@ -1,6 +1,6 @@
 ---
-title: App consent permissions for custom roles in Azure Active Directory
-description: Preview app consent permissions for custom Azure AD roles in the Microsoft Entra admin center, PowerShell, or Graph API.
+title: App consent permissions for custom roles in Microsoft Entra ID
+description: Preview app consent permissions for custom Microsoft Entra roles in the Microsoft Entra admin center, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer: psignoret
 ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
-# App consent permissions for custom roles in Azure Active Directory
+# App consent permissions for custom roles in Microsoft Entra ID
 
-This article contains the currently available app consent permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find the permissions required for some common scenarios related to app consent and permissions.
+This article contains the currently available app consent permissions for custom role definitions in Microsoft Entra ID. In this article, you'll find the permissions required for some common scenarios related to app consent and permissions.
 
 ## License requirements
 
@@ -72,5 +72,5 @@ To delegate the creation, update and deletion of [app consent policies](../manag
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
 - [View the assignments for a custom role](../roles/view-assignments.md)

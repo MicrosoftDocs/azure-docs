@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with IBM Kenexa Survey Enterprise'
-description: Learn how to configure single sign-on between Azure Active Directory and IBM Kenexa Survey Enterprise.
+title: 'Tutorial: Microsoft Entra SSO integration with IBM Kenexa Survey Enterprise'
+description: Learn how to configure single sign-on between Microsoft Entra ID and IBM Kenexa Survey Enterprise.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with IBM Kenexa Survey Enterprise
+# Tutorial: Microsoft Entra SSO integration with IBM Kenexa Survey Enterprise
 
-In this tutorial, you'll learn how to integrate IBM Kenexa Survey Enterprise with Azure Active Directory (Azure AD). When you integrate IBM Kenexa Survey Enterprise with Azure AD, you can:
+In this tutorial, you'll learn how to integrate IBM Kenexa Survey Enterprise with Microsoft Entra ID. When you integrate IBM Kenexa Survey Enterprise with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to IBM Kenexa Survey Enterprise.
-* Enable your users to be automatically signed-in to IBM Kenexa Survey Enterprise with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to IBM Kenexa Survey Enterprise.
+* Enable your users to be automatically signed-in to IBM Kenexa Survey Enterprise with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * IBM Kenexa Survey Enterprise single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * IBM Kenexa Survey Enterprise supports **IDP** initiated SSO.
 
 ## Add IBM Kenexa Survey Enterprise from the gallery
 
-To configure the integration of IBM Kenexa Survey Enterprise into Azure AD, you need to add IBM Kenexa Survey Enterprise from the gallery to your list of managed SaaS apps.
+To configure the integration of IBM Kenexa Survey Enterprise into Microsoft Entra ID, you need to add IBM Kenexa Survey Enterprise from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of IBM Kenexa Survey Enterprise into Azure AD, you 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for IBM Kenexa Survey Enterprise
+<a name='configure-and-test-azure-ad-sso-for-ibm-kenexa-survey-enterprise'></a>
 
-Configure and test Azure AD SSO with IBM Kenexa Survey Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in IBM Kenexa Survey Enterprise.
+## Configure and test Microsoft Entra SSO for IBM Kenexa Survey Enterprise
 
-To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, perform the following steps:
+Configure and test Microsoft Entra SSO with IBM Kenexa Survey Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in IBM Kenexa Survey Enterprise.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with IBM Kenexa Survey Enterprise, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure IBM Kenexa Survey Enterprise SSO](#configure-ibm-kenexa-survey-enterprise-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create IBM Kenexa Survey Enterprise test user](#create-ibm-kenexa-survey-enterprise-test-user)** - to have a counterpart of B.Simon in IBM Kenexa Survey Enterprise that is linked to the Azure AD representation of user.
+    1. **[Create IBM Kenexa Survey Enterprise test user](#create-ibm-kenexa-survey-enterprise-test-user)** - to have a counterpart of B.Simon in IBM Kenexa Survey Enterprise that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **IBM Kenexa Survey Enterprise** > **Single sign-on**.
@@ -77,11 +81,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IBM Kenexa Survey Enterprise Client support team](https://www.ibm.com/support/home/?lnk=fcw) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IBM Kenexa Survey Enterprise Client support team](https://www.ibm.com/support/home/?lnk=fcw) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 5. The IBM Kenexa Survey Enterprise application expects to receive the Security Assertions Markup Language (SAML) assertions in a specific format, which requires you to add custom attribute mappings to the configuration of your SAML token attributes. The value of the user-identifier claim in the response must match the SSO ID that's configured in the Kenexa system. To map the appropriate user identifier in your organization as SSO Internet Datagram Protocol (IDP), work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
 
-	By default, Azure AD sets the user identifier as the user principal name (UPN) value. You can change this value on the **User Attributes** tab, as shown in the following screenshot. The integration works only after you've completed the mapping correctly.
+	By default, Microsoft Entra ID sets the user identifier as the user principal name (UPN) value. You can change this value on the **User Attributes** tab, as shown in the following screenshot. The integration works only after you've completed the mapping correctly.
 
 	![image](common/edit-attribute.png)
 
@@ -93,9 +97,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -107,9 +113,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to IBM Kenexa Survey Enterprise.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to IBM Kenexa Survey Enterprise.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **IBM Kenexa Survey Enterprise**.
@@ -121,21 +129,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure IBM Kenexa Survey Enterprise SSO
 
-To configure single sign-on on **IBM Kenexa Survey Enterprise** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **IBM Kenexa Survey Enterprise** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create IBM Kenexa Survey Enterprise test user
 
 In this section, you create a user called Britta Simon in IBM Kenexa Survey Enterprise.
 
-To create users in the IBM Kenexa Survey Enterprise system and map the SSO ID for them, you can work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). This SSO ID value should also be mapped to the user identifier value from Azure AD. You can change this default setting on the **Attribute** tab.
+To create users in the IBM Kenexa Survey Enterprise system and map the SSO ID for them, you can work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). This SSO ID value should also be mapped to the user identifier value from Microsoft Entra ID. You can change this default setting on the **Attribute** tab.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the IBM Kenexa Survey Enterprise for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the IBM Kenexa Survey Enterprise for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the IBM Kenexa Survey Enterprise tile in the My Apps, you should be automatically signed in to the IBM Kenexa Survey Enterprise for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the IBM Kenexa Survey Enterprise tile in the My Apps, you should be automatically signed in to the IBM Kenexa Survey Enterprise for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 ---
 # View activity logs for Microsoft Support access requests (preview)
 
-All activities related to Microsoft Support access requests are included in the Microsoft Entra ID audit logs. Activities can include requests from users in your tenant or an automated service. This article describes how to view the different types of activity logs.
+All activities related to Microsoft Support access requests are included in the Microsoft Entra audit logs. Activities can include requests from users in your tenant or an automated service. This article describes how to view the different types of activity logs.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ You can access a filtered view of audit logs for your tenant from the Microsoft 
 
 1. Select **Audit logs** from the side menu.
 
-You can also access these logs from the Microsoft Entra ID Audit logs. Select **Core Directory** as the service and `MicrosoftSupportAccessManagement` as the category.
+You can also access these logs from the Microsoft Entra audit logs. Select **Core Directory** as the service and `MicrosoftSupportAccessManagement` as the category.
 
 ## Types of requests
 
@@ -64,4 +64,4 @@ There are three activities that can be associated with an automated or system-in
 ## Next steps
 
 - [Manage Microsoft Support access requests](how-to-manage-support-access-requests.md)
-- [Learn about audit logs](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Learn about audit logs](../reports-monitoring/concept-audit-logs.md)

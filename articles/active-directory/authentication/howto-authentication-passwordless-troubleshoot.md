@@ -1,6 +1,6 @@
 ---
 title: Known issues and troubleshooting for hybrid FIDO2 security keys
-description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Azure Active Directory 
+description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Microsoft Entra ID 
 
 services: active-directory
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting for hybrid deployments of FIDO2 security keys in Azure AD 
+# Troubleshooting for hybrid deployments of FIDO2 security keys in Microsoft Entra ID 
 
-This article covers frequently asked questions for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
+This article covers frequently asked questions for Microsoft Entra hybrid joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Microsoft Entra authentication on Windows 10 devices for Microsoft Entra hybrid joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
 The following scenarios for users in a hybrid environment are supported:
 
-* Sign in to hybrid Azure AD joined devices using FIDO2 security keys and get SSO access to on-prem resources.
-* Sign in to Azure AD joined devices using FIDO2 security keys and get SSO access to on-prem resources.
+* Sign in to Microsoft Entra hybrid joined devices using FIDO2 security keys and get SSO access to on-prem resources.
+* Sign in to Microsoft Entra joined devices using FIDO2 security keys and get SSO access to on-prem resources.
 
 To get started with FIDO2 security keys and hybrid access to on-premises resources, see the following articles:
 
@@ -33,7 +33,7 @@ To get started with FIDO2 security keys and hybrid access to on-premises resourc
 ## Known issues
 
 * [Users are unable to sign in using FIDO2 security keys as Windows Hello Face is too quick and is the default sign-in mechanism](#users-are-unable-to-sign-in-using-fido2-security-keys-as-windows-hello-face-is-too-quick-and-is-the-default-sign-in-mechanism)
-* [Users aren't able to use FIDO2 security keys immediately after they create a hybrid Azure AD joined machine](#users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine)
+* [Users aren't able to use FIDO2 security keys immediately after they create a Microsoft Entra hybrid joined machine](#users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine)
 * [Users are unable to get SSO to my NTLM network resource after signing in with a FIDO2 security key and receiving a credential prompt](#users-are-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-a-fido2-security-key-and-receiving-a-credential-prompt)
 
 ### Users are unable to sign in using FIDO2 security keys as Windows Hello Face is too quick and is the default sign-in mechanism
@@ -42,9 +42,11 @@ Windows Hello Face is the intended best experience for a device where a user is 
 
 If Windows Hello Face prevents the users from trying the FIDO2 security key sign-in scenario, users can turn off Hello Face sign in by removing Face Enrollment in **Settings > Sign-In Options**.
 
-### Users aren't able to use FIDO2 security keys immediately after they create a hybrid Azure AD joined machine
+<a name='users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine'></a>
 
-After the domain-join and restart process on a clean install of a hybrid Azure AD joined machine, you must sign in with a password and wait for policy to synchronize before you can use to use a FIDO2 security key to sign in.
+### Users aren't able to use FIDO2 security keys immediately after they create a Microsoft Entra hybrid joined machine
+
+After the domain-join and restart process on a clean install of a Microsoft Entra hybrid joined machine, you must sign in with a password and wait for policy to synchronize before you can use to use a FIDO2 security key to sign in.
 
 This behavior is a known limitation for domain-joined devices, and isn't specific to FIDO2 security keys.
 
@@ -98,21 +100,23 @@ The following events logs and registry key info is collected:
 
 ### Deployment Issues
 
-To troubleshoot issues with deploying the Azure AD Kerberos Server, use the logs for the new [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) PowerShell module.
+To troubleshoot issues with deploying the Microsoft Entra Kerberos server, use the logs for the new [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) PowerShell module.
 
 #### Viewing the logs
 
-The Azure AD Kerberos Server PowerShell cmdlets in the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module use the same logging as the standard Azure AD Connect Wizard. To view information or error details from the cmdlets, complete the following steps:
+The Microsoft Entra Kerberos server PowerShell cmdlets in the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module use the same logging as the standard Microsoft Entra Connect Wizard. To view information or error details from the cmdlets, complete the following steps:
 
 1. On the machine where the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module was used, browse to `C:\ProgramData\AADConnect\`. This folder is hidden by default.
 1. Open and view the most recent `trace-*.log` file located in the directory.
 
-#### Viewing the Azure AD Kerberos Server Objects
+<a name='viewing-the-azure-ad-kerberos-server-objects'></a>
 
-To view the Azure AD Kerberos Server Objects and verify they are in good order, complete the following steps:
+#### Viewing the Microsoft Entra Kerberos server Objects
 
-1. On the Azure AD Connect Server or any other machine where the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module is installed, open PowerShell and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
-1. Run the following PowerShell commands to view the Azure AD Kerberos Server from both Azure AD and on-premises AD DS.
+To view the Microsoft Entra Kerberos server Objects and verify they are in good order, complete the following steps:
+
+1. On the Microsoft Entra Connect Server or any other machine where the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module is installed, open PowerShell and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. Run the following PowerShell commands to view the Microsoft Entra Kerberos server from both Microsoft Entra ID and on-premises AD DS.
 
     Replace *corp.contoso.com* with the name of your on-premises AD DS domain.
 
@@ -133,23 +137,23 @@ To view the Azure AD Kerberos Server Objects and verify they are in good order, 
     $domainCred
     ```
 
-The command outputs the properties of the Azure AD Kerberos Server from both Azure AD and on-premises AD DS. Review the properties to verify that everything is in good order. Use the table below to verify the properties.
+The command outputs the properties of the Microsoft Entra Kerberos server from both Microsoft Entra ID and on-premises AD DS. Review the properties to verify that everything is in good order. Use the table below to verify the properties.
 
-The first set of properties is from the objects in the on-premises AD DS environment. The second half (the properties that begin with *Cloud**) are from the Kerberos Server object in Azure AD:
+The first set of properties is from the objects in the on-premises AD DS environment. The second half (the properties that begin with *Cloud**) are from the Kerberos Server object in Microsoft Entra ID:
 
 | Property           | Description  |
 |--------------------|--------------|
 | Id                 | The unique *Id* of the AD DS domain controller object. |
 | DomainDnsName      | The DNS domain name of the AD DS domain. |
-| ComputerAccount    | The computer account object of the Azure AD Kerberos Server object (the DC). |
-| UserAccount        | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* |
-| KeyVersion         | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and will likely be greater than one.<br /><br /> For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*.<br /><br /> The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
-| KeyUpdatedOn       | The date and time that the Azure AD Kerberos Server TGT encryption key was updated or created. |
-| KeyUpdatedFrom     | The DC where the Azure AD Kerberos Server TGT encryption key was last updated. |
-| CloudId            | The *Id* from the Azure AD Object. Must match the *Id* above. |
-| CloudDomainDnsName | The *DomainDnsName* from the Azure AD Object. Must match the *DomainDnsName* above. |
-| CloudKeyVersion    | The *KeyVersion* from the Azure AD Object. Must match the *KeyVersion* above. |
-| CloudKeyUpdatedOn  | The *KeyUpdatedOn* from the Azure AD Object. Must match the *KeyUpdatedOn* above. |
+| ComputerAccount    | The computer account object of the Microsoft Entra Kerberos server object (the DC). |
+| UserAccount        | The disabled user account object that holds the Microsoft Entra Kerberos server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* |
+| KeyVersion         | The key version of the Microsoft Entra Kerberos server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and will likely be greater than one.<br /><br /> For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*.<br /><br /> The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
+| KeyUpdatedOn       | The date and time that the Microsoft Entra Kerberos server TGT encryption key was updated or created. |
+| KeyUpdatedFrom     | The DC where the Microsoft Entra Kerberos server TGT encryption key was last updated. |
+| CloudId            | The *Id* from the Microsoft Entra Object. Must match the *Id* above. |
+| CloudDomainDnsName | The *DomainDnsName* from the Microsoft Entra Object. Must match the *DomainDnsName* above. |
+| CloudKeyVersion    | The *KeyVersion* from the Microsoft Entra Object. Must match the *KeyVersion* above. |
+| CloudKeyUpdatedOn  | The *KeyUpdatedOn* from the Microsoft Entra Object. Must match the *KeyUpdatedOn* above. |
 
 ## Next steps
 

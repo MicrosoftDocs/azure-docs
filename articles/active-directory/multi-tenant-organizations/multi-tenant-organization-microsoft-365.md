@@ -21,7 +21,7 @@ ms.custom: it-pro
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The multi-tenant organization capability is designed for organizations that own multiple Azure Active Directory (Azure AD) tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365. It's built on the premise of reciprocal provisioning of B2B member users across multi-tenant organization tenants.
+The multi-tenant organization capability is designed for organizations that own multiple Microsoft Entra tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365. It's built on the premise of reciprocal provisioning of B2B member users across multi-tenant organization tenants.
 
 ## Microsoft 365 people search
 
@@ -29,7 +29,7 @@ The multi-tenant organization capability is designed for organizations that own 
 
 ## New Microsoft Teams
 
-The [new Microsoft Teams](/microsoftteams/new-teams-desktop-admin) experience improves upon Microsoft 365 people search and Teams external access for a unified seamless collaboration experience. For this improved experience to light up, the multi-tenant organization representation in Azure AD is required and collaborating users shall be provisioned as B2B members. For more information, see [Announcing more seamless collaboration in Microsoft Teams for multi-tenant organizations](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/announcing-more-seamless-collaboration-in-microsoft-teams-for/ba-p/3901092).
+The [new Microsoft Teams](/microsoftteams/new-teams-desktop-admin) experience improves upon Microsoft 365 people search and Teams external access for a unified seamless collaboration experience. For this improved experience to light up, the multi-tenant organization representation in Microsoft Entra ID is required and collaborating users shall be provisioned as B2B members. For more information, see [Announcing more seamless collaboration in Microsoft Teams for multi-tenant organizations](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/announcing-more-seamless-collaboration-in-microsoft-teams-for/ba-p/3901092).
 
 ## Collaborating user set
 
@@ -66,7 +66,7 @@ To ensure a seamless collaboration experience across the multi-tenant organizati
 | User synchronization method | Default userType property |
 | --- | --- |
 | [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
-| [Cross-tenant synchronization in Azure AD](./cross-tenant-synchronization-overview.md) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
+| [Cross-tenant synchronization in Microsoft Entra ID](./cross-tenant-synchronization-overview.md) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
 
 From a security perspective, you should review the default permissions granted to B2B member users. For more information, see [Compare member and guest default permissions](../fundamentals/users-default-permissions.md#compare-member-and-guest-default-permissions).
 
@@ -74,7 +74,7 @@ To change the userType from **Guest** to **Member** (or vice versa), a source te
 
 ## Unsharing your users
 
-To unshare users, you deprovision users by using the user deprovisioning capabilities available in Azure AD cross-tenant synchronization. By default, when provisioning scope is reduced while a synchronization job is running, users fall out of scope and are soft deleted, unless Target Object Actions for Delete is disabled. For more information, see [Deprovisioning](cross-tenant-synchronization-overview.md#deprovisioning) and [Define who is in scope for provisioning](cross-tenant-synchronization-configure.md#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
+To unshare users, you deprovision users by using the user deprovisioning capabilities available in Microsoft Entra cross-tenant synchronization. By default, when provisioning scope is reduced while a synchronization job is running, users fall out of scope and are soft deleted, unless Target Object Actions for Delete is disabled. For more information, see [Deprovisioning](cross-tenant-synchronization-overview.md#deprovisioning) and [Define who is in scope for provisioning](cross-tenant-synchronization-configure.md#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
 
 ## Next steps
 

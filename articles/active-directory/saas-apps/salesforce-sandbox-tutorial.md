@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Salesforce Sandbox'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce Sandbox.
+title: 'Tutorial: Microsoft Entra integration with Salesforce Sandbox'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Salesforce Sandbox.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Salesforce Sandbox
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Salesforce Sandbox
 
-In this tutorial, you'll learn how to integrate Salesforce Sandbox with Azure Active Directory (Azure AD). When you integrate Salesforce Sandbox with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Salesforce Sandbox with Microsoft Entra ID. When you integrate Salesforce Sandbox with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Salesforce Sandbox.
-* Enable your users to be automatically signed-in to Salesforce Sandbox with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Salesforce Sandbox.
+* Enable your users to be automatically signed-in to Salesforce Sandbox with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Salesforce Sandbox single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Salesforce Sandbox supports **SP and IDP** initiated SSO
 * Salesforce Sandbox supports **Just In Time** user provisioning
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Adding Salesforce Sandbox from the gallery
 
-To configure the integration of Salesforce Sandbox into Azure AD, you need to add Salesforce Sandbox from the gallery to your list of managed SaaS apps.
+To configure the integration of Salesforce Sandbox into Microsoft Entra ID, you need to add Salesforce Sandbox from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,22 +48,26 @@ To configure the integration of Salesforce Sandbox into Azure AD, you need to ad
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for Salesforce Sandbox
+<a name='configure-and-test-azure-ad-sso-for-salesforce-sandbox'></a>
 
-Configure and test Azure AD SSO with Salesforce Sandbox using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Salesforce Sandbox.
+## Configure and test Microsoft Entra SSO for Salesforce Sandbox
 
-To configure and test Azure AD SSO with Salesforce Sandbox, perform the following steps:
+Configure and test Microsoft Entra SSO with Salesforce Sandbox using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Salesforce Sandbox.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Salesforce Sandbox, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Salesforce Sandbox SSO](#configure-salesforce-sandbox-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Salesforce Sandbox test user](#create-salesforce-sandbox-test-user)** - to have a counterpart of B.Simon in Salesforce Sandbox that is linked to the Azure AD representation of user.
+    1. **[Create Salesforce Sandbox test user](#create-salesforce-sandbox-test-user)** - to have a counterpart of B.Simon in Salesforce Sandbox that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Salesforce Sandbox** > **Single sign-on**.
@@ -100,9 +104,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -114,9 +120,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Salesforce Sandbox.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Salesforce Sandbox.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Salesforce Sandbox**.
@@ -150,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "Single Sign-On Settings" page with the "New from Metadata File" button selected.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-7. Click **Choose File** to upload the metadata XML file which you have downloaded from the Azure portal and click **Create**.
+7. Click **Choose File** to upload the metadata XML file which you have downloaded and click **Create**.
 
     ![Screenshot that shows the "Single Sign-On Settings" page with the "Choose File" and "Create" buttons selected.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
@@ -234,17 +242,17 @@ In this section, a user called Britta Simon is created in Salesforce Sandbox. Sa
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Salesforce Sandbox Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Salesforce Sandbox Sign on URL where you can initiate the login flow.  
 
 * Go to Salesforce Sandbox Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Salesforce Sandbox for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the Salesforce Sandbox for which you set up the SSO 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Salesforce Sandbox tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Salesforce Sandbox for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

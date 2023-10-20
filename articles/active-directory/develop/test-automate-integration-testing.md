@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Run automated integration tests
 
-As a developer, you want to run automated integration tests on the apps you develop. Calling your API protected by Microsoft identity platform (or other protected APIs such as [Microsoft Graph](/graph/)) in automated integration tests is a challenge.  Azure AD often requires an interactive user sign-in prompt, which is difficult to automate. This article describes how you can use a non-interactive flow, called [Resource Owner Password Credential Grant (ROPC)](v2-oauth-ropc.md), to automatically sign in users for testing.
+As a developer, you want to run automated integration tests on the apps you develop. Calling your API protected by Microsoft identity platform (or other protected APIs such as [Microsoft Graph](/graph/)) in automated integration tests is a challenge.  Microsoft Entra ID often requires an interactive user sign-in prompt, which is difficult to automate. This article describes how you can use a non-interactive flow, called [Resource Owner Password Credential Grant (ROPC)](v2-oauth-ropc.md), to automatically sign in users for testing.
 
 To prepare for your automated integration tests, create some test users, create and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps require admin privileges.  Also, Microsoft recommends that you _do not_ use the ROPC flow in a production environment.  [Create a separate test tenant](test-setup-environment.md) that you are an administrator of so you can safely and effectively run your automated integration tests.
 
@@ -27,11 +27,11 @@ To prepare for your automated integration tests, create some test users, create 
 
 > [!IMPORTANT]
 >
-> * The Microsoft identity platform only supports ROPC within Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
-> * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
+> * The Microsoft identity platform only supports ROPC within Microsoft Entra tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
+> * Personal accounts that are invited to a Microsoft Entra tenant can't use ROPC.
 > * Accounts that don't have passwords can't sign in with ROPC, which means features like SMS sign-in, FIDO, and the Authenticator app won't work with that flow.
 > * If users need to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to log in to the application, they will be blocked instead.
-> * ROPC is not supported in [hybrid identity federation](../hybrid/connect/whatis-fed.md) scenarios (for example, Azure AD and Active Directory Federation Services (AD FS) used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity provider, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md) is supported with ROPC, however.
+> * ROPC is not supported in [hybrid identity federation](../hybrid/connect/whatis-fed.md) scenarios (for example, Microsoft Entra ID and Active Directory Federation Services (AD FS) used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity provider, Microsoft Entra ID is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md) is supported with ROPC, however.
 > * An exception to a hybrid identity federation scenario would be the following: Home Realm Discovery policy with *AllowCloudPasswordValidation* set to TRUE will enable ROPC flow to work for federated users when on-premises password is synced to cloud. For more information, see [Enable direct ROPC authentication of federated users for legacy applications](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
 ## Create a separate test tenant
@@ -40,22 +40,22 @@ Using the ROPC authentication flow is risky in a production environment, so [cre
 
 ## Create and configure a key vault
 
-We recommend you securely store the test usernames and passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is an Azure AD user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource.  The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](../../key-vault/general/authentication.md).
+We recommend you securely store the test usernames and passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is a Microsoft Entra user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource. The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](/azure/key-vault/general/authentication).
 
-1. [Create a new key vault](../../key-vault/general/quick-create-portal.md) if you don't have one already.
+1. [Create a new key vault](/azure/key-vault/general/quick-create-portal) if you don't have one already.
 1. Take note of the **Vault URI** property value (similar to `https://<your-unique-keyvault-name>.vault.azure.net/`) which is used in the example test later in this article.
-1. [Assign an access policy](../../key-vault/general/assign-access-policy.md) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
+1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
 
 ## Create test users
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
+Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** and create one or more test user accounts in your directory.
-1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
+1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](/azure/key-vault/secrets/quick-create-portal) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
 ## Create and configure an app registration
 Register an application that acts as your client app when calling APIs during testing.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -74,7 +74,7 @@ ROPC is a public client flow, so you need to enable your app for public client f
 
 Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  Pre-consent to the permissions to avoid errors when acquiring tokens.
 
-Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.
+Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Microsoft Entra ID.
 
 From your app registration in the [Microsoft Entra admin center](https://entra.microsoft.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
 
@@ -283,11 +283,11 @@ export const keyVaultConfig = {
 
 ### Initialize MSAL.js and fetch the user credentials from Key Vault
 
-Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](/javascript/api/@azure/msal-node/publicclientapplication) with a [Configuration](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-constructor) object. The minimum required configuration property is the `clientID` of the application.
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](/javascript/api/%40azure/msal-node/publicclientapplication) with a [Configuration](/javascript/api/%40azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-constructor) object. The minimum required configuration property is the `clientID` of the application.
 
-Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
+Use [SecretClient()](/javascript/api/%40azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
 
-[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/@azure/identity/defaultazurecredential) content.
+[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/%40azure/identity/defaultazurecredential) content.
 
 Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
 

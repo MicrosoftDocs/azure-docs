@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with InstaVR Viewer'
-description: Learn how to configure single sign-on between Azure Active Directory and InstaVR Viewer.
+title: 'Tutorial: Microsoft Entra integration with InstaVR Viewer'
+description: Learn how to configure single sign-on between Microsoft Entra ID and InstaVR Viewer.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,35 +12,35 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with InstaVR Viewer
+# Tutorial: Microsoft Entra integration with InstaVR Viewer
 
-In this tutorial, you learn how to integrate InstaVR Viewer with Azure Active Directory (Azure AD).
-Integrating InstaVR Viewer with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate InstaVR Viewer with Microsoft Entra ID.
+Integrating InstaVR Viewer with Microsoft Entra ID provides you with the following benefits:
 
-* You can control in Azure AD who has access to InstaVR Viewer.
-* You can enable your users to be automatically signed-in to InstaVR Viewer (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can control in Microsoft Entra ID who has access to InstaVR Viewer.
+* You can enable your users to be automatically signed-in to InstaVR Viewer (Single Sign-On) with their Microsoft Entra accounts.
+* You can manage your accounts in one central location.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with InstaVR Viewer, you need the following items:
+To configure Microsoft Entra integration with InstaVR Viewer, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * InstaVR Viewer single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * InstaVR Viewer supports **SP** initiated SSO
 * InstaVR Viewer supports **Just In Time** user provisioning
 
 ## Adding InstaVR Viewer from the gallery
 
-To configure the integration of InstaVR Viewer into Azure AD, you need to add InstaVR Viewer from the gallery to your list of managed SaaS apps.
+To configure the integration of InstaVR Viewer into Microsoft Entra ID, you need to add InstaVR Viewer from the gallery to your list of managed SaaS apps.
 
 **To add InstaVR Viewer from the gallery, perform the following steps:**
 
@@ -50,25 +50,29 @@ To configure the integration of InstaVR Viewer into Azure AD, you need to add In
 
 	 ![InstaVR Viewer in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you configure and test Azure AD single sign-on with InstaVR Viewer based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in InstaVR Viewer needs to be established.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD single sign-on with InstaVR Viewer, you need to complete the following building blocks:
+In this section, you configure and test Microsoft Entra single sign-on with InstaVR Viewer based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between a Microsoft Entra user and the related user in InstaVR Viewer needs to be established.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+To configure and test Microsoft Entra single sign-on with InstaVR Viewer, you need to complete the following building blocks:
+
+1. **[Configure Microsoft Entra Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure InstaVR Viewer Single Sign-On](#configure-instavr-viewer-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create InstaVR Viewer test user](#create-instavr-viewer-test-user)** - to have a counterpart of Britta Simon in InstaVR Viewer that is linked to the Azure AD representation of user.
+3. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+4. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
+5. **[Create InstaVR Viewer test user](#create-instavr-viewer-test-user)** - to have a counterpart of Britta Simon in InstaVR Viewer that is linked to the Microsoft Entra representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+<a name='configure-azure-ad-single-sign-on'></a>
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+### Configure Microsoft Entra single sign-on
 
-To configure Azure AD single sign-on with InstaVR Viewer, perform the following steps:
+In this section, you enable Microsoft Entra single sign-on.
+
+To configure Microsoft Entra single sign-on with InstaVR Viewer, perform the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **InstaVR Viewer** application integration page, select **Single sign-on**.
@@ -109,7 +113,7 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Microsoft Entra Identifier
 
 	c. Logout URL
 
@@ -125,44 +129,37 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 
 	![Screenshot shows the SAML Auth page where you can enter the values described in this step.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
-	a. In the **SSO URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+	a. In the **SSO URL** textbox, paste the **Login URL** value, which you copied previously.
 
-	b. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
+	b. In the **Logout URL** textbox, paste the **Logout URL** value, which you copied previously.
 
-	c. In the **Entity ID** textbox, paste the **Azure Ad Identifier** value, which you have copied from the Azure portal.
+	c. In the **Entity ID** textbox, paste the **Microsoft Entra Identifier** value, which you copied previously.
 
 	d. To upload your downloaded Certificate file, click **Update**.
 
 	e. To upload your downloaded Federation Metadata file, click **Update**.
 
-	f. Copy the **Entity ID** value and paste into the **Identifier (Entity ID)** text box on the **Basic SAML Configuration** section in the Azure portal.
+	f. Copy the **Entity ID** value and paste into the **Identifier (Entity ID)** text box on the **Basic SAML Configuration** section.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create a Microsoft Entra test user
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+The objective of this section is to create a test user called Britta Simon.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-2. Select **New user** at the top of the screen.
+<a name='assign-the-azure-ad-test-user'></a>
 
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
+### Assign the Microsoft Entra test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to InstaVR Viewer.
 
@@ -197,16 +194,16 @@ In this section, a user called Britta Simon is created in InstaVR Viewer. InstaV
 
 	![Screenshot shows the Download icon selected.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
-4. Select **Open Hosted Page** after that it will be redirected to Azure AD for login.
+4. Select **Open Hosted Page** after that it will be redirected to Microsoft Entra ID for login.
 
 	![Screenshot shows Open Hosted Page selected.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
-5. Enter your Azure AD credentials to successfully login to the Azure AD via SSO.
+5. Enter your Microsoft Entra credentials to successfully login to the Microsoft Entra ID via SSO.
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

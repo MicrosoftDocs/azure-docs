@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to get started generating images with Azure OpenAI Service by using the Python SDK, the REST APIs, or Azure OpenAI Studio.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js
 ms.topic: quickstart
 author: PatrickFarley

@@ -100,6 +100,7 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     interrupt_prompt=True, 
     dtmf_stop_tones=[ DtmfTone.Pound ]) 
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` python
@@ -124,7 +125,9 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     interrupt_prompt=True, 
     initial_silence_timeout=30, 
     play_prompt=play_source, 
-    operation_context="AppointmentReminderMenu") 
+    operation_context="AppointmentReminderMenu",
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId")  
 ```
 
 ### Speech-to-Text (Public Preview)
@@ -137,7 +140,9 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     target_participant=target_participant, 
     end_silence_timeout=1, 
     play_prompt=play_source, 
-    operation_context="OpenQuestionSpeech") 
+    operation_context="OpenQuestionSpeech",
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId") 
 ```
 
 ### Speech-to-Text or DTMF (Public Preview)
@@ -154,7 +159,9 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     play_prompt=play_source, 
     initial_silence_timeout=30, 
     interrupt_prompt=True, 
-    operation_context="OpenQuestionSpeechOrDtmf") 
+    operation_context="OpenQuestionSpeechOrDtmf",
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId")  
 app.logger.info("Start recognizing") 
 ```
 > [!Note]

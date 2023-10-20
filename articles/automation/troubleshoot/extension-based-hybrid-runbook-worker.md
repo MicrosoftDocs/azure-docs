@@ -2,7 +2,7 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 04/26/2023
+ms.date: 09/06/2023
 ms.topic: troubleshooting 
 ms.custom:
 ---
@@ -39,6 +39,27 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
   - For Windows: Run the log collector tool in </br>`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1` </br>
   Logs are in `C:\HybridWorkerExtensionLogs`.
   - For Linux: Logs are in folders </br>`/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux` and `/home/hweautomation`.
+
+
+### Unable to update Az modules while using the Hybrid Worker
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
+
+#### Resolution
+
+As a workaround, you can follow these steps:
+
+1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+</dependentAssembly>
+```
 
 ### Scenario: Job failed to start as the Hybrid Worker was not available when the scheduled job started
 
@@ -240,7 +261,7 @@ A runbook running on a Hybrid Runbook Worker fails with the following error mess
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a Run As account in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
