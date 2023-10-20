@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/index.yml",
+      "redirect_url": "/entra/identity/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/app-provisioning/accidental-deletions.md",
       "redirect_url": "/entra/identity/app-provisioning/accidental-deletions",
       "redirect_document_id": false
