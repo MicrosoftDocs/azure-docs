@@ -40,7 +40,7 @@ To Arc-enable a System Center VMM management server, deploy [Azure Arc resource 
 
 The following image shows the architecture for the Arc-enabled SCVMM:
 
-:::image type="content" source="media/architecture/arc-scvmm-architecture.png" alt-text="Screenshot of Arc enabled SCVMM - architecture.":::
+:::image type="content" source="media/architecture/arc-scvmm-architecture-inline.png" alt-text="Screenshot of Arc enabled SCVMM - architecture." lightbox="media/architecture/arc-scvmm-architecture-expanded.png":::
 
 ## How is Arc-enabled SCVMM different from Arc-enabled Servers
 
