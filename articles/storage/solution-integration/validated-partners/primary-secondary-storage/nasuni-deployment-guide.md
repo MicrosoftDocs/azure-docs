@@ -1,5 +1,5 @@
 ---
-title: Nasuni Configuration Guide for Microsoft Azure
+title: Nasuni configuration guide for Microsoft Azure
 titleSuffix: Azure Storage
 description: Deployment guide for Nasuni and Azure Blob Storage
 author: timkresler
@@ -47,7 +47,7 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 1. Sign in to the [Azure portal](https://portal.azure.com). The Microsoft Azure dashboard page appears.
 2. On the top left of the page, select “Create a resource." The “Create a resource” dialog appears.
 
-:::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-resource-93.png" alt-text="Screenshot of Azure Create Resource panel" lightbox="./media/nasuni-deployment-guide/win-azure-create-resource-93.png":::
+:::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-resource-93.png" alt-text="Screenshot of Azure Create Resource panel." lightbox="./media/nasuni-deployment-guide/win-azure-create-resource-93.png":::
 
 3. In the Search box, enter “storage account" then select Storage account from the list of results. The Storage account pane appears.
 
@@ -82,26 +82,26 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 14. Configure other features according to your needs
 15. Select “Next: Data protection.” The Data protection pane appears.
 
-**Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days.** 
-- Select “Enable soft delete for blobs." 
-- Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
-- Nasuni recommends specifying at least 30 days.
+    **Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days.** 
+16. Select “Enable soft delete for blobs." 
+17. Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
+    - Nasuni recommends specifying at least 30 days.
 
-**Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.**
-- After configuring your storage account, select “Enable soft delete for containers.”
-- Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
-- Nasuni recommends specifying at least 30 days.
-- For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
+    **Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.**
+18. After configuring your storage account, select “Enable soft delete for containers.”
+19. Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
+    - Nasuni recommends specifying at least 30 days.
+    - For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
 
 :::image type="content" source="./media/nasuni-deployment-guide/win-data-protection-90.png" alt-text="Screenshot of Azure Create Storage Account Data Protection pane." lightbox="./media/nasuni-deployment-guide/win-data-protection-90.png":::
 
-16. Configure other features according to your needs
-17. Select “Next: Tags >." The Tags pane appears.
-18. Define any Tags based on your internal policies.
-19. Select “Next: Review + create >”
-20. Select Create.
-    The storage account starts being created. When the storage account is created, select Storage Accounts in the left-hand list. The new storage account appears in the list of storage accounts.
-21. Select the name of your storage account. The pane for your storage account settings appears.
+20. Configure other features according to your needs
+21. Select “Next: Tags >." The Tags pane appears.
+22. Define any Tags based on your internal policies.
+23. Select “Next: Review + create >”
+24. Select Create.
+    - The storage account starts being created. When the storage account is created, select Storage Accounts in the left-hand list. The new storage account appears in the list of storage accounts.
+25. Select the name of your storage account. The pane for your storage account settings appears.
 
 > [!TIP]
 > It is possible to recover a deleted storage account. For details, see [Recovering a deleted storage account](/azure/storage/blobs/soft-delete-container-overview).
