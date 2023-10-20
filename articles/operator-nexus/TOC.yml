@@ -90,7 +90,7 @@
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
         - name: Upgrade Nexus Kubernetes cluster
-          href: howto-upgrade-nexus-kubernetes-cluster.md
+          href: howto-kubernetes-cluster-upgrade.md
         - name: Configure huge-pages for cluster virtual machines
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
