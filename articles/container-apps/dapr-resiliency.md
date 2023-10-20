@@ -196,8 +196,6 @@ properties: {
 | `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
 
 
-## Related content
-
 ## Resiliency observability
 
 ### Resiliency creation via system logs
