@@ -40,7 +40,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
    - Example:
 
 > [!NOTE]
-> For instructions on creating an L3 network, please refer to the [prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md)
+> If the output only contains an IPv4 address, please consult the [prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md) to establish a dual-stack network.
 
    - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
