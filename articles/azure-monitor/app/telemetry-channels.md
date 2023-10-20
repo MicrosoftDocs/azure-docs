@@ -170,7 +170,7 @@ For systems other than Windows, no local storage is created automatically by the
 > [!NOTE]
 > With the release 2.15.0-beta3 and greater, local storage is now automatically created for Linux, Mac, and Windows.
 
- You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured. Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
+ You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured. Read more about [data protection and privacy](/previous-versions/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
 Like every SDK for Application Insights, channels are open source. Read and contribute to the code or report problems at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
