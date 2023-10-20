@@ -226,7 +226,7 @@ For general CoreDNS troubleshooting steps, such as checking the endpoints or res
            log
    ```
 
-2. Apply the configuration changes and force CoreDNS to reload the ConfigMap using the following commands:
+2. Apply the configuration changes, and restart CoreDNS without downtime by performing a `Daemonset` rollout.:
 
      ```console
      # Apply configuration changes
