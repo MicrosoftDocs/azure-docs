@@ -70,7 +70,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## Reusing a popup with multiple points
 
-There are cases in which the best approach is to create one popup and reuse it. For example, you may have a large number of points and want to show only one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced, which can provide better performance. The following sample creates 3-point features. If you select on any of them, a popup is displayed with the content for that point feature.
+There are cases in which the best approach is to create one popup and reuse it. For example, you might have a large number of points and want to show only one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced, which can provide better performance. The following sample creates 3-point features. If you select on any of them, a popup is displayed with the content for that point feature.
 
 For a fully functional sample that shows how to create one popup and reuse it rather than creating a popup for each point feature, see [Reusing Popup with Multiple Pins] in the [Azure Maps Samples]. For the source code for this sample, see [Reusing Popup with Multiple Pins source code].
 
@@ -198,7 +198,7 @@ var popup = new atlas.Popup({
 
 ### Multiple content templates
 
-A feature may also display content using a combination of the String template and the PropertyInfo template. In this case, the String template renders placeholders values on a white background.  And, the PropertyInfo template renders a full width image inside a table. The properties in this sample are similar to the properties we explained in the previous samples.
+A feature might also display content using a combination of the String template and the PropertyInfo template. In this case, the String template renders placeholders values on a white background.  And, the PropertyInfo template renders a full width image inside a table. The properties in this sample are similar to the properties we explained in the previous samples.
 
 ```javascript
 var templateOptions = {
