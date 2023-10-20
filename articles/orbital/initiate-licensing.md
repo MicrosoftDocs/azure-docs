@@ -38,7 +38,7 @@ Satellite operators are responsible for complying with their satellite licenses.
 
 When you're ready to use Azure Orbital Ground Station, you should [create a spacecraft resource](register-spacecraft.md). Here, you're required to provide your authorizations on a per-link and per-site level.
 
-The platform denies scheduling or execution of contacts if the [spacecraft resource](spacecraft-objects.md) links aren't authorized. The platform denies a contact if a [contact profile resource](concepts-contact-profile.md) contains links that aren't included in the spacecraft object authorized links.
+The platform denies scheduling or execution of contacts if the [spacecraft resource](spacecraft-object.md) links aren't authorized. The platform denies a contact if a [contact profile resource](concepts-contact-profile.md) contains links that aren't included in the spacecraft object authorized links.
 
 ## Next steps
 
