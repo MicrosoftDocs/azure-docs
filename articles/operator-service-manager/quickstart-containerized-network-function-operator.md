@@ -64,10 +64,26 @@ az aks create -g ${resourceGroup} -n ${clusterName} --node-count 1 --generate-ss
 Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in 
 [Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
-
+## Retrieve the config file for AKS cluster
 ```azurecli
 az aks get-credentials --resource-group ${resourceGroup} --name ${clusterName}
 ``````
+
+## Create a connected cluster
+
+Create the cluster:
+
+```azurecli
+az connectedk8s connect --name ${clusterName} --resource-group ${resourceGroup}
+``````
+
+## Register your subscription
+Register your subscription to the Microsoft.ExtendedLocation resource provider:
+
+```azurecli
+az provider register --namespace Microsoft.ExtendedLocation
+``````
+
 
 ### Enable custom locations
 
@@ -98,6 +114,8 @@ az k8s-extension create -g ${resourceGroup} --cluster-name ${clusterName} --clus
 Create a custom location:
 
 ```azurecli
+export ConnectedClusterResourceId=$(az connectedk8s show --resource-group ${resourceGroup} --name ${clusterName} --query id -o tsv)
+export ClusterExtensionResourceId=$(az k8s-extension show -c $clusterName -n $extensionId -t connectedClusters -g ${resourceGroup} --query id -o tsv)
 az customlocation create -g ${resourceGroup} -n ${customlocationId} --namespace "azurehybridnetwork" --host-resource-id $ConnectedClusterResourceId --cluster-extension-ids $ClusterExtensionResourceId
 ``````
 
