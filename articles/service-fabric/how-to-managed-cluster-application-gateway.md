@@ -12,7 +12,7 @@ ms.date: 09/05/2023
 
 # Use Azure Application Gateway in a Service Fabric managed cluster
 
-[Azure Application Gateway](../application-gateway/overview.md) is a web traffic load balancer that enables you to manage traffic to your web applications. There are [several benefits to using Application Gateway](https://azure.microsoft.com/en-us/products/application-gateway/#overview). Service Fabric managed cluster supports Azure Application Gateway and allows you to connect your node types to an Application Gateway. You can [create an Azure Application Gateway](../application-gateway/quick-create-portal.md) and pass the resource id to the service fabric managed cluster ARM template. 
+[Azure Application Gateway](../application-gateway/overview.md) is a web traffic load balancer that enables you to manage traffic to your web applications. There are [several benefits to using Application Gateway](https://azure.microsoft.com/products/application-gateway/#overview). Service Fabric managed cluster supports Azure Application Gateway and allows you to connect your node types to an Application Gateway. You can [create an Azure Application Gateway](../application-gateway/quick-create-portal.md) and pass the resource id to the service fabric managed cluster ARM template. 
 
 
 ## How to use Application Gateway in a Service Fabric managed cluster
