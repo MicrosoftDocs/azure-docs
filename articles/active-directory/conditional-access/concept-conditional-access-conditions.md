@@ -142,8 +142,10 @@ For Chrome support in **Windows 10 Creators Update (version 1703)** or later, in
 
 To automatically enable the CloudAPAuthEnabled policy in Chrome, create the following registry key:
 
-- Path HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\CloudAPAuthEnabled
-- Type REG_DWORD (Integer)
+- Path HKLM:\Software\Policies\Google\Chrome
+- Name CloudAPAuthEnabled 
+- Value 0x00000001
+- PropertyType DWORD
 
 To automatically deploy the Windows Account extension to Chrome browsers, create the following registry key:
 
