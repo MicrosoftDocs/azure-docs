@@ -1,3 +1,14 @@
+---
+title: "Azure Operator Nexus: Configure the network packet broker"
+description: Learn commands to create, view network packet broker's TAPRule.
+author: jdasari
+ms.author: jdasari
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 10/20/2023
+ms.custom: template-how-to, devx-track-azurecli
+---
+
 # Network Packet Broker
 Network Packet Broker allows operators to efficiently capture, aggregate, filter, and monitor traffic in an Azure Operator Nexus instance. 
 The solution helps operators to monitor large complex networks and provide network-level visibility to aid with service planning and troubleshooting of service problems. 
