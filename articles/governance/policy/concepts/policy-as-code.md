@@ -27,7 +27,7 @@ before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policy definitions and initiative definitions:
+Before getting into the details of Azure Policy as Code workflow, it's important to understand some fundamental concepts, like how to author policy definitions and initiative definitions, and how to leverage exemptions on assignments of those definitions:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
