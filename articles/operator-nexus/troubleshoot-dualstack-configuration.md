@@ -57,10 +57,18 @@ Verify
 
    - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
-   In the `networkConfiguration` section of the Nexus Kubernetes cluster configuration, ensure you've set dual-stack cluster network assignments for `podCidrs` and `serviceCidrs`. Each of these values should be an array consisting of one IPv4 prefix and one IPv6 prefix. Examine the cluster configuration settings to ensure CIDR assignments are correct. Confirm that the assigned pod CIDR and service CIDR ranges are accurately configured for both IPv4 and IPv6 addresses.
+  To ensure proper configuration for dual-stack networking in your Nexus Kubernetes cluster, follow these steps:
+  
+  1. Execute the command `az network cloud kubernetes-cluster show` to retrieve information about your cluster.
+  2. Examine the `networkConfiguration` section in the Nexus Kubernetes cluster configuration.
+  3. Confirm that `podCidrs` and `serviceCidrs` are set as arrays, each containing one IPv4 prefix and one IPv6 prefix.
+  4. Thoroughly review the cluster configuration settings to validate CIDR assignments.
+  5. Ensure that the assigned `podCidr` and `serviceCidr` ranges are accurately configured for both IPv4 and IPv6 addresses.
+  
+  By following these steps, you can guarantee the correct setup of dual-stack networking in your Nexus Kubernetes cluster.
 
    - Example:
-
+     
      ```json
      "podCidrs": [
          "10.XXX.X.X/16",
