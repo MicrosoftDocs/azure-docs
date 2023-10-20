@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 This article describes how to install the Azure Backup extension in an AKS cluster and get it ready to configure backup.
 
-The AKS cluster extensions provides an Azure Resource Manager-based process for installing and managing services throughout their lifecycle. Azure Backup enables backup and restore operations to be carried out within an AKS cluster using this extension. The Backup vault communicates with this extension to perform and manage backups.
+The AKS cluster extension provides an Azure Resource Manager-based process for installing and managing services throughout their lifecycle. Azure Backup enables backup and restore operations to be carried out within an AKS cluster using this extension. The Backup vault communicates with this extension to perform and manage backups.
 
 Learn more about [Backup extension](./azure-kubernetes-service-cluster-backup-concept.md#backup-extension)    
 
@@ -21,11 +21,11 @@ Learn more about [Backup extension](./azure-kubernetes-service-cluster-backup-co
 Before you start:
 
 1. Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](./azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
-2. In case you have the cluster within a private virtual network and firewall, whitelist the `*.blob.core.windows.net` container.
-    Backup extension use these container images and if they are not accessible, the extension won't be installed.
+2. In case you have the cluster within a private virtual network and firewall, allowlist the `*.blob.core.windows.net` container.
+    Backup extension uses these container images and if they are not accessible, the extension won't be installed.
 3. Backup extension requires a storage account and a blob container in input. In case the AKS cluster is inside a private virtual network, enable private endpoint between the storage account and the AKS cluster by following these steps.
 4.	Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
-5.	In case you have AAD pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](https://learn.microsoft.com/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
+5.	In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](https://learn.microsoft.com/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
 6.	Specific FQDN application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extension).
 
 
