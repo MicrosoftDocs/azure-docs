@@ -20,7 +20,7 @@ This article describes reliability and availability zones support in [Azure Chao
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Chaos Studio supports zone redundancy as the default configuration within a region.  Chaos Studio resources are automatically duplicated or distributed across different zones. Services designed to be zone redundant replicate data across multiple zones to safeguard the high availability of data in the face of zone-specific failures.
+Azure Chaos Studio supports zone redundancy as the default configuration within a region.  Chaos Studio resources are automatically duplicated or distributed across different zones. 
 
 ### Prerequisites
 
