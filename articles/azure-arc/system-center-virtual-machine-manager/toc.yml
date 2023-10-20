@@ -17,12 +17,12 @@
   items:
   - name: Deploy
     items:
-    - name: Use VM lifecycle and self-serve capabilities
+    - name: Enable SCVMM inventory resources in Azure
+      href: enable-scvmm-inventory-resources.md
+  - name: Use VM lifecycle and self-serve capabilities
     items:
     - name: Set up and manage self-service access to SCVMM resources
       href: set-up-and-manage-self-service-access-scvmm.md
-    - name: Enable SCVMM inventory resources in Azure
-      href: enable-scvmm-inventory-resources.md
   - name: Use Azure Management services for SCVMM VMs
     items:
     - name: Install Arc agent at scale for SCVMM VMs
