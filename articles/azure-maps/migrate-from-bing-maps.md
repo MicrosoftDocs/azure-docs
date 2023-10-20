@@ -129,7 +129,7 @@ The following list contains common Bing Maps terms and their corresponding Azure
 | Bing Maps Term                    | Azure Maps Term                                                |
 |-----------------------------------|----------------------------------------------------------------|
 | Aerial                            | Satellite or Aerial                                            |
-| Directions                        | May also be referred to as Routing                             |
+| Directions                        | Might also be referred to as Routing                             |
 | Entities                          | Geometries or Features                                         |
 | `EntityCollection`                | Data source or Layer                                           |
 | `Geopoint`                        | Position                                                       |
