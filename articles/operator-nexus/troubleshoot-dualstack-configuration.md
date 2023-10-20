@@ -25,7 +25,6 @@ This guide provides detailed steps for troubleshooting issues related to setting
 * Necessary permissions to make changes to the cluster configuration.
 
 
- [How to Sign-in to your Azure account](./howto-configure-isolation-domain.md#prerequisites)
 
 ## Dual-Stack Configuration 
 
