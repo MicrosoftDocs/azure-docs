@@ -86,7 +86,7 @@ To import a zone file for the zone **contoso.com**.
 
 1. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `az network dns zone import`.
 
-    This command loads the zone file and parses it. The command executes a series of operations on the Azure DNS service to create the zone and all the record sets in the zone. The command reports the progress in the console window along with any errors or warnings. Since record sets are created in series, it may take a few minutes to import a large zone file.
+    This command loads the zone file and parses it. The command executes a series of operations on the Azure DNS service to create the zone and all the record sets in the zone. The command reports the progress in the console window along with any errors or warnings. Since record sets are created in series, it could take a few minutes to import a large zone file.
 
     ```azurecli-interactive
     az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
