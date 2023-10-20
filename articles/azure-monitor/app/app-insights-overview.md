@@ -203,11 +203,11 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 #### Collection
 
-Application Insights collects telemetry about your app, including web server telemetry, web page telemetry, and performance counters. This data can be used to monitor your app's performance, health, and usage. You can select the location when you create a new [Application Insights resource](./create-workspace-resource.md).
+Application Insights collects telemetry about your app, including web server telemetry, web page telemetry, and performance counters. This data can be used to monitor your app's performance, health, and usage. You can select the location when you [create a new Application Insights resource](./create-workspace-resource.md).
 
 #### Retention and Storage
 
-Data is sent to an [Application Insights Log Analytics workspace](../logs/log-analytics-workspace-overview.md). You can choose the retention period for raw data, from 30 to 730 days. Aggregated data is retained for 90 days, and debug snapshots are retained for 15 days.
+Data is sent to an Application Insights [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). You can choose the retention period for raw data, from 30 to 730 days. Aggregated data is retained for 90 days, and debug snapshots are retained for 15 days.
 
 #### Privacy
 
