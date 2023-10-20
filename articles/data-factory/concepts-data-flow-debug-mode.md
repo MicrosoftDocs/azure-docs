@@ -86,7 +86,7 @@ When unit testing Joins, Exists, or Lookup transformations, make sure that you u
 
 ### Quick actions
 
-Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Select on the column header and then select one of the options from the data preview toolbar.
+Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Select the column header and then select one of the options from the data preview toolbar.
 
 :::image type="content" source="media/data-flow/quick-actions1.png" alt-text="Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove.":::
 
