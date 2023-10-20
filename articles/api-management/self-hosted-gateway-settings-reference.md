@@ -52,6 +52,17 @@ This guidance helps you provide the required information to define how to authen
 | neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 | v2.0+ |
 | policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 | v2.0+ |
 
+##  Kubernetes Integration
+
+### Kubernetes Ingress
+
+> [!IMPORTANT]
+> Support for Kubernetes Ingress is currently experimental and not covered through Azure Support. Learn more on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway-ingress).
+
+| Name                           | Description              | Required | Default           | Availability |
+|----|------|----------|-------------------| ----|
+| neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, it can be achieved by using a headless Service. | No | N/A | v2.0+ |
+
 ##  Metrics
 
 | Name                           | Description              | Required | Default           | Availability |
