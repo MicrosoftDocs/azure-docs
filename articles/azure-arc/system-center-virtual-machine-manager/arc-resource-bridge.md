@@ -3,7 +3,11 @@ title: Azure Arc resource bridge
 description: Learn about Azure Arc resource bridge. 
 ms.topic: Concepts
 ms.date: 10/20/2023
-ms.service: azure-arc
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
+ms.services: azure-arc
+ms.subservice: azure-arc-scvmm
 
 #Customer intent: As an IT infrastructure admin, I want to know about the the Azure Arc resource bridge that facilitates the Arc connection between SCVMM server and Azure
 ---
