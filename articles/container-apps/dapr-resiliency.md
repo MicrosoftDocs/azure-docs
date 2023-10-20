@@ -1,5 +1,5 @@
 ---
-title: Dapr component policies
+title: Dapr component resiliency
 titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Dapr component policies
+# Dapr component resiliency
 
 If your container app uses a Dapr component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
 
@@ -28,13 +28,118 @@ You can configure resiliecy policies for the following outbound and inbound oper
    - Subscriptions when delivering a message
    - Input bindings delivering an event
 
-## Spec metadata
+## Creating resiliency policies
 
-For pub/sub, service invocation, and input/output bindings, define timeouts and retries using the following metadata.
+Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
+
+# [Bicep](#tab/bicep)
+
+You can create your resiliency policies in Bicep. The following resiliency example demonstrates all of the available configurations. 
+
+```bicep
+resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
+  name: 'myResiliencyPolicy'
+  parent: '${appName}'
+  properties: {
+    outbound: {
+      timeoutPolicy: {
+          responseTimeoutInSeconds: 15
+      }
+      httpRetryPolicy: {
+          maxRetries: 5
+          retryBackOff: {
+            initialDelayInMilliseconds: 1000
+            maxIntervalInMilliseconds: 10000
+          }
+      } 
+    }, 
+    inbound: {
+      timeoutPolicy: {
+        responseTimeoutInSeconds: 15
+      }
+      httpRetryPolicy: {
+        maxRetries: 5
+        retryBackOff: {
+          initialDelayInMilliseconds: 1000
+          maxIntervalInMilliseconds: 10000
+        }
+      } 
+    }
+  }
+}
+```
+
+# [CLI](#tab/cli)
+
+Before you begin, make sure you're logged into the Azure CLI:
+
+```azurecli
+az login
+```
+
+To create a resiliency policy with recommended settings for timeouts and retries, run the following command:
+
+```azurecli
+az containerapp resiliency-policy create -g MyResourceGroup -n MyContainerApp –default​
+```
+
+To create resiliency policies for your container app from a resiliency YAML you've created, run the following command:
+
+```azurecli
+az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
+```
+
+This command passes a YAML file similar to the following:
+
+```yaml
+spec:
+  policies:
+    timeoutPolicy:
+      responseTimeoutInSeconds: 30
+      connectionTimeoutInSeconds: 5
+    httpRetryPolicy:
+      maxRetries: 5
+      retryBackOff:
+        initialDelayInMilliseconds: 1000
+        maxIntervalInMilliseconds: 10000
+      matches:
+        errors:
+          - 5xx
+          - connect-failure
+          - reset
+    tcpRetryPolicy:
+      maxConnectAttempts: 3
+```
+
+To show your existing resiliency policies in your resource group, run:
+
+```azurecli
+az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
+```
+
+To update a resiliency policy, run the following command:
+
+```azurecli
+todo
+```
+
+To delete a resiliency policy, run:
+
+```azurecli
+az containerapp resiliency-policies remove -g MyResourceGroup –name MyContainerApp​
+```
+
+# [Azure portal](#tab/portal)
+
+Need
+
+---
+
+## Policy descriptions
 
 ### Timeouts
 
-Timeouts are used to early-terminate long-running operations. The timeout policy includes the following metadata.
+Timeouts are used to early-terminate long-running operations. The timeout policy includes the following properties.
 
 ```bicep
 properties: {
@@ -90,107 +195,17 @@ properties: {
 | `retryBackOff.initialDelayInMilliseconds` | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
 
-## Define your resiliency policies
-
-Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
-
-# [Bicep](#tab/bicep)
-
-You can create your resiliency resource in Bicep. The following resiliency example demonstrates all of the available configurations. 
-
-```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
-  name: 'myResiliencyPolicy'
-  parent: '${appName}'
-  properties: {
-    outbound: {
-      timeoutPolicy: {
-          responseTimeoutInSeconds: 15
-      }
-      httpRetryPolicy: {
-          maxRetries: 5
-          retryBackOff: {
-            initialDelayInMilliseconds: 1000
-            maxIntervalInMilliseconds: 10000
-          }
-      } 
-    }, 
-    inbound: {
-      timeoutPolicy: {
-        responseTimeoutInSeconds: 15
-      }
-      httpRetryPolicy: {
-        maxRetries: 5
-        retryBackOff: {
-          initialDelayInMilliseconds: 1000
-          maxIntervalInMilliseconds: 10000
-        }
-      } 
-    }
-  }
-}
-```
-
-# [CLI](#tab/cli)
-
-Before you begin, make sure you're logged into the Azure CLI:
-
-```azurecli
-az login
-```
-
-To create a default resiliency resource with basic timeout and retry values, run the following command:
-
-```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup -n MyContainerApp –default​
-```
-
-To create a resiliency YAML that you can customize for your Dapr component or container app, run the following command instead:
-
-```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
-```
-This command produces a YAML file that you can edit and save.
-
-```yaml
-spec:
-  policies:
-    timeoutPolicy:
-      responseTimeoutInSeconds: 30
-      connectionTimeoutInSeconds: 5
-    httpRetryPolicy:
-      maxRetries: 5
-      retryBackOff:
-        initialDelayInMilliseconds: 1000
-        maxIntervalInMilliseconds: 10000
-      matches:
-        errors:
-          - 5xx
-          - connect-failure
-          - reset
-    tcpRetryPolicy:
-      maxConnectAttempts: 3
-```
-
-To show your existing resiliency resources in your resource group, run:
-
-```azurecli
-az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
-```
-
-To delete a resiliency resource, run:
-
-```azurecli
-az containerapp resiliency-policies remove -g MyResourceGroup –name MyContainerApp​
-```
-
-# [Azure portal](#tab/portal)
-
-Need
-
----
 
 ## Related content
 
-[See how resiliency works for Dapr components in Azure Container Apps](./container-app-resiliency.md)
+## Resiliency observability
 
+### Resiliency creation via system logs
+
+### Resiliency metrics
+
+## Related content
+
+See how resiliency works for:
+- [Container apps using the application's FQDN](./container-app-fqdn-resiliency.md)
+- [Container apps using Dapr Service Invocation API](./dapr-invoke-resiliency.md)

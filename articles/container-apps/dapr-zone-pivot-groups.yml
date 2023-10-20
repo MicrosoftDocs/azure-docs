@@ -11,11 +11,3 @@ groups:
     title: Python
   - id: csharp
     title: .NET
-- id: resiliency-options
-  title: Resiliency options
-  prompt: Choose your service-to-service communication style
-  pivots:
-  - id: non-dapr
-    title: Container app FQDN
-  - id: dapr
-    title: Dapr service invocation API

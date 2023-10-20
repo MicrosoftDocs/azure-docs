@@ -179,9 +179,13 @@
           href: managed-identity-image-pull.md
 - name: Resiliency
   items:
-    - name: Container app to container app
-      href: container-app-resiliency.md
-    - name: Dapr component
+    - name: Container app resiliency
+      items:
+      - name: Container app FQDN
+        href: container-app-resiliency.md
+      - name: Dapr service invocation API
+        href: dapr-invoke-resiliency.md
+    - name: Dapr component resiliency
       href: dapr-resiliency.md
 - name: Dedicated hardware
   items:
