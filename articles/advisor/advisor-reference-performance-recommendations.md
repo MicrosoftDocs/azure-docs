@@ -412,13 +412,13 @@ Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlCpuUp
 
 ### Improve performance by optimizing MySQL temporary-table sizing.
 
-Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. Unnecessary I/O overhead might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlTmpTable (Improve performance by optimizing MySQL temporary-table sizing.)](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html#internal-temporary-tables-engines).
 
 ### Move your MySQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high memory usage for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our internal telemetry shows that there is high memory usage for this server that can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlMemoryUpsell (Move your MySQL server to Memory Optimized SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
 
@@ -449,7 +449,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the sto
 
 ### Scale the PostgreSQL server to higher SKU
 
-Our internal telemetry shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU. This might result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our internal telemetry shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests adversely affecting performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConcurrentConnection (Scale the PostgreSQL server to higher SKU)](https://aka.ms/postgresqlconnectionlimits).
 
@@ -461,7 +461,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlMemoryCache (Move your Post
 
 ### Add a PostgreSQL Read Replica server
 
-Our internal telemetry shows that you might have a read intensive workload running, which results in resource contention for this server. This might lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
+Our internal telemetry shows that you might have a read intensive workload running, which results in resource contention for this server. Resource contention can lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlReadReplica (Add a PostgreSQL Read Replica server)](https://aka.ms/postgresqlreadreplica).
 
@@ -473,13 +473,13 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlCpuOverload (Increase the P
 
 ### Improve PostgreSQL connection management
 
-Our internal telemetry shows that your PostgreSQL server might not be managing connections efficiently. This might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. This can be done by configuring a server side connection-pooler, such as PgBouncer.
+Our internal telemetry shows that your PostgreSQL server might not be managing connections efficiently, which can result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections by configuring a server side connection-pooler, such as PgBouncer.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConnectionPooling (Improve PostgreSQL connection management)](https://aka.ms/azure_postgresql_connection_pooling).
 
 ### Improve PostgreSQL log performance
 
-Our internal telemetry shows that your PostgreSQL server has been configured to output VERBOSE error logs. This can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
+Our internal telemetry shows that your PostgreSQL server has been configured to output VERBOSE error logs. This setting can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogErrorVerbosity (Improve PostgreSQL log performance)](https://aka.ms/azure_postgresql_log_settings).
 
