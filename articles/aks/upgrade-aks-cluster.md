@@ -23,7 +23,7 @@ When you perform an upgrade from an *unsupported version* that skips two or more
 * Performing upgrade operations requires the `Microsoft.ContainerService/managedClusters/agentPools/write` RBAC role. For more on Azure RBAC roles, see the [Azure resource provider operations][azure-rp-operations].
 
 > [!WARNING]
-> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail. For more information, see [increase quotas](../azure-portal/supportability/regional-quota-requests.md).
+> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade might fail. For more information, see [increase quotas](../azure-portal/supportability/regional-quota-requests.md).
 
 ## Check for available AKS cluster upgrades
 
@@ -94,7 +94,7 @@ The Azure portal highlights all the deprecated APIs between your current version
 
 ---
 
-### Troubleshoot AKS cluster upgrade error messages
+## Troubleshoot AKS cluster upgrade error messages
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -207,7 +207,7 @@ You can set an auto-upgrade channel on your cluster. For more information, see [
 >
 > * Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has five node pools, each with a count of four nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
 >
-> * The max surge setting on a node pool is persistent. Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
+> * The max surge setting on a node pool is persistent. Subsequent Kubernetes upgrades or node version upgrades will use this setting. You can change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
 >
 > * If you're using Azure CNI, validate there are available IPs in the subnet to [satisfy IP requirements of Azure CNI](configure-azure-cni.md).
 

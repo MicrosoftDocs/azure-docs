@@ -24,7 +24,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * Clusters using Kubernetes version 1.23 or above.
 
 > [!NOTE]
-> It may take up to a week to enable your clusters with the increased node limit.
+> It can take up to one week to enable your clusters with the increased node limit.
 
 ## Networking considerations and best practices
 
@@ -48,7 +48,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 ## Cluster upgrade considerations and best practices
 
 * The hard limit of 5000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This limit prevents these upgrades from performing because there's no more capacity to perform rolling updates with the max surge property. If you have a cluster at this limit, we recommend scaling the cluster down below 3000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
-* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When you upgrade clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. The completion process can take so long because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the the max surge settings, the upgrade process completes faster, but you may experience disruptions during the upgrade process.
+* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When you upgrade clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. The completion process can take so long because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process.
 * We don't recommend upgrading a cluster with greater than 500 nodes with the default max surge configuration of one node. Instead, we recommend increasing the max surge settings to somewhere between 10 to 20 percent, with up to a maximum max surge of 500 nodes. Base these settings on your workload disruption tolerance. For more information, see [Customize node surge upgrade][max surge].
 * For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 

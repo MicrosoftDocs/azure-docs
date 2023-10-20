@@ -9,7 +9,7 @@ ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 
 # Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-As part of the application and cluster lifecycle, you may want to upgrade to the latest available version of Kubernetes. You can upgrade your Azure Kubernetes Service (AKS) cluster using the Azure CLI, Azure PowerShell, or the Azure portal.
+As part of the application and cluster lifecycle, you might want to upgrade to the latest available version of Kubernetes. You can upgrade your Azure Kubernetes Service (AKS) cluster using the Azure CLI, Azure PowerShell, or the Azure portal.
 
 In this tutorial, part seven of seven, you learn how to:
 
@@ -197,7 +197,7 @@ It takes a few minutes to upgrade the cluster, depending on how many nodes you h
 ## View the upgrade events
 
 > [!NOTE]
-> When you upgrade your cluster, the following Kubernetes events may occur on the nodes:
+> When you upgrade your cluster, the following Kubernetes events might occur on the nodes:
 >
 > * **Surge**: Create a surge node.
 > * **Drain**: Evict pods from the node. Each pod has a *five minute timeout* to complete the eviction.
@@ -268,7 +268,7 @@ Confirm the upgrade was successful using the following steps:
 
 ## Delete the cluster
 
-As this tutorial is the last part of the series, you may want to delete your AKS cluster. The Kubernetes nodes run on Azure virtual machines and continue incurring charges even if you don't use the cluster.
+As this tutorial is the last part of the series, you might want to delete your AKS cluster. The Kubernetes nodes run on Azure virtual machines and continue incurring charges even if you don't use the cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
