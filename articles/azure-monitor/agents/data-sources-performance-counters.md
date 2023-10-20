@@ -4,7 +4,7 @@ description: Learn how to configure collection of performance counters for Windo
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/28/2022
+ms.date: 10/19/2023
 
 ---
 

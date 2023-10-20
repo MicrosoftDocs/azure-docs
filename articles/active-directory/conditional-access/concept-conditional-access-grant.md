@@ -32,7 +32,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 
 - [Require multifactor authentication (Microsoft Entra multifactor authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require authentication strength](#require-authentication-strength)
-- [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
+- [Require device to be marked as compliant (Microsoft Intune)](/mem/intune/protect/device-compliance-get-started)
 - [Require Microsoft Entra hybrid joined device](../devices/concept-hybrid-join.md)
 - [Require approved client app](./howto-policy-approved-app-or-app-protection.md)
 - [Require app protection policy](./howto-policy-approved-app-or-app-protection.md)
@@ -87,7 +87,7 @@ The **Require Microsoft Entra hybrid joined device** control:
 
 ### Require approved client app
 
-Organizations can require that an approved client app is used  to access selected cloud apps. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile device management solution.
+Organizations can require that an approved client app is used  to access selected cloud apps. These approved client apps support [Intune app protection policies](/mem/intune/apps/app-protection-policy) independent of any mobile device management solution.
 
 To apply this grant control, the device must be registered in Microsoft Entra ID, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 

@@ -24,7 +24,7 @@ Microsoft Entra Connect is an on-premises Microsoft application that's designed 
 
 
  >[!IMPORTANT]
- >Microsoft Entra Connect V1 has been retired as of August 31, 2022 and is no longer supported. Microsoft Entra Connect V1 installations may **stop working unexpectedly**. If you are still using a Microsoft Entra Connect V1 you need to upgrade to Microsoft Entra Connect V2 immediately.
+ >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Microsoft Entra Connect V2 immediately.
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 
@@ -51,8 +51,8 @@ For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.
 ![What is Microsoft Entra Connect](../media/whatis-hybrid-identity/arch.png)
 
 > [!IMPORTANT]
-> Microsoft Entra Connect Health for Sync requires Microsoft Entra Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
-> AADConnect V1 is retired on August 31, 2022. Microsoft Entra Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
+> Microsoft Entra Connect Health for Sync requires Microsoft Entra Connect Sync V2. If you are still using Azure AD Connect V1 you must upgrade to the latest version. 
+> Azure AD Connect V1 is retired on August 31, 2022. Microsoft Entra Connect Health for Sync will no longer work with Azure AD Connect V1 in December 2022.
 
 
 
