@@ -534,5 +534,7 @@ after you fill out your name click start call and the call should begin. The wid
 If you haven't had the chance, check out our documentation on Teams auto attendants and Teams call queues.
 
 > [!div class="nextstepaction"] 
+
 > [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
+
 > [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md)
