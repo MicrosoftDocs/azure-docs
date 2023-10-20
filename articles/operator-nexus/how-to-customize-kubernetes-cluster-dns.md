@@ -180,7 +180,7 @@ CoreDNS can also be used to configure stub domains.
      kubectl apply -f customdns.yaml
      ```
 
-3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
+3. Restart CoreDNS without downtime by performing a `Daemonset` rollout.
 
      ```console
      kubectl rollout restart -n kube-system daemonset/node-local-dns
