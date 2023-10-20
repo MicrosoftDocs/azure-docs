@@ -16,10 +16,10 @@ The NPB has been designed and modeled as a separate top level Azure Resource Man
 
 ## Steps to Enable Network Packet Broker
 **Prequisties**
-1. NPB devices are correctly racked, stacked, and provisioned..
+1. NPB devices are correctly racked, stacked, and provisioned. For Procedure on how to provision the network fabric, see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
 2. Respective vProbes should be set up with dedicated IPs
-3. For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition to it, the extension flag should be set to NPB (in internal networks).
-4. For the Network to Network Inter-connect (NNI) use case, NNI should be created as type `NPB`. Appropriate layer 2 and layer 3 properties should be defined during the creation of NNI.
+3. For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition to it, the extension flag should be set to NPB (in internal networks). For Procedure on how to create internal and external networks on an Isolation Domain and set extension flag for NPB, see [Isolation Domains](./howto-configure-isolation-domain.md).
+4. For the Network to Network Inter-connect (NNI) use case, NNI should be created as type `NPB`. Appropriate layer 2 and layer 3 properties should be defined during the creation of NNI. For Procedure on how to create the network to network interconnect (NNI), see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
 
 **Steps**
 1. Create a Network TAP rule providing the match configuration (only inline input method is supported)
