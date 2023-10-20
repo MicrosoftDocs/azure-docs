@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.date: 07/19/2021
+ms.date: 10/20/2023
 ms.author: victorh
 
 ---
@@ -23,7 +23,6 @@ For more information, see [Azure Firewall Premium features](premium-features.md#
 |---------|---------|
 |Alcohol + tobacco    |Sites that are contain, promote, or sell alcohol- or tobacco-related products or services.|
 |Child abuse images   |Sites that present or discuss children in abusive or sexual acts.|
-|Child inappropriate    |Sites that are unsuitable for children, which may contain R-rated or tasteless content, profanity, or adult material.|
 |Criminal activity|Sites that promote or advise on how to commit illegal or criminal activity, or to avoid detection for such activity. Criminal activity includes murder, building bombs, illegal manipulation of electronic devices, hacking, fraud, and illegal distribution of software.|
 |Dating + personals    |Sites that promote networking for relationships such as dating and marriage, such as matchmaking, online dating, and spousal introduction.|
 |Gambling    |Sites that offer or related to online gambling, lottery, betting agencies involving chance, and casinos.|
@@ -35,7 +34,6 @@ For more information, see [Azure Firewall Premium features](premium-features.md#
 |Marijuana   |Sites that contain information, discussions, or sale of marijuana and associated products or services, including legalizing marijuana and/or using marijuana for medicinal purposes.|
 |Nudity    | Sites that contain full or partial nudity that are not necessarily overtly sexual in intent.|
 |Pornography/sexually explicit    |Sites that contain explicit sexual content. Includes adult products such as sex toys, CD-ROMs, and videos, adult services such as videoconferencing, escort services, and strip clubs, erotic stories, and textual descriptions of sexual acts.  |
-|School cheating    | Sites that promote unethical practices such as cheating or plagiarism by providing test answers, written essays, research papers, or term papers.        |
 |Self-harm      |Sites that promote actions that are relating to harming oneself, such as suicide, anorexia, bulimia, etc.          |
 |Sex education     |  Sites relating to sex education, including subjects such as respect for partner, abortion, contraceptives, sexually transmitted diseases, and pregnancy.       |
 |Tasteless     |Sites with offensive or tasteless content, including profanity.          |
@@ -99,7 +97,6 @@ For more information, see [Azure Firewall Premium features](premium-features.md#
 |Arts     | Sites with artistic content or relating to artistic institutions such as theaters, museums, galleries, dance companies, photography, and digital graphic resources.   |
 |Fashion + Beauty    | Sites concerning fashion, jewelry, glamour, beauty, modeling, cosmetics, or related products or services. Includes product reviews, comparisons, and general consumer information.   |
 |General    | Sites that do not clearly fall into other categories, for example, blank web pages.   |
-|Greeting cards    |Sites that allow people to send and receive greeting cards and postcards.    |
 |Leisure + recreation     | Sites relating to recreational activities and hobbies including zoos, public recreation centers, pools, amusement parks, and hobbies such as gardening, literature, arts & crafts, home improvement, home décor, family, etc. |
 |Nature + conservation     | Sites with information related to environmental issues, sustainable living, ecology, nature, and the environment.        |
 |Politics     | Sites that promote political parties or political advocacy, or provide information about political parties, interest groups, elections, legislation, or lobbying. Also includes sites that offer legal information and advice.       |
