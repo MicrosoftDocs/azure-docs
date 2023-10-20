@@ -1,0 +1,34 @@
+### YamlMime:Hub
+
+title: Microsoft Copilot for Azure (preview) documentation
+summary: Manage operations from cloud to edge with an AI assistant.
+brand: azure
+
+metadata:
+  title: Microsoft Copilot for Azure (preview)
+  description: Manage operations from cloud to edge with an AI assistant. Join the preview today!
+  ms.service: azure
+  ms.topic: hub-page
+  ms.date: 11/15/2023
+
+# additionalContent section (Optional; Remove if not applicable.)
+# Card with summary style
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Get started with Microsoft Copilot for Azure (preview) # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: What is Microsoft Copilot for Azure (preview)?
+          summary: Learn how Microsoft Copilot for Azure works. 
+          url: overview.md
+        - title: Responsible AI FAQ for Microsoft Copilot for Azure (preview)
+          summary: Learn how Microsoft Copilot for Azure (preview) uses data and how it stores and protects that data. 
+          url: responsible-ai-faq.md
+    - title: Learn about Microsoft Copilot for Azure (preview) # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Capabilities
+          summary: Learn about the kinds of things Microsoft Copilot for Azure can help with.
+          url: capabilities.md
+
