@@ -42,13 +42,3 @@ Use the following steps to create a Service Bus instance:
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png" alt-text="Screenshot of the Azure portal that shows the Notifications pane of the Deployment Overview page." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png":::
 
 1. Select **Go to resource** to go to the **Service Bus Namespace** page.
-
-1. Select **Shared access policies** on the navigation menu, then select **RootManageSharedAccessKey**.
-
-1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String** value, which is used to set up connections from the Spring app.
-
-1. Select **Queues** on the navigation menu, then select **Queue**.
-
-1. On the **Create Queue** page, enter *lower-case* for **Name**, then select **Create**.
-
-1. Repeat the previous step, enter *upper-case* for **Name**, then select **Create**.

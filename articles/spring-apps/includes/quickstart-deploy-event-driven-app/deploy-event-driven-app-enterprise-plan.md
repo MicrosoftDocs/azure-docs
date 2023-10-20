@@ -54,6 +54,12 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 [!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
+1. Select **Queues** on the navigation menu, then select **Queue**.
+
+1. On the **Create Queue** page, enter *lower-case* for **Name**, then select **Create**.
+
+1. Repeat the previous step, enter *upper-case* for **Name**, then select **Create**.
+
 ### 3.3. Create an Azure Spring Apps instance
 
 [!INCLUDE [provision-enterprise-spring-apps](provision-enterprise-azure-spring-apps.md)]
