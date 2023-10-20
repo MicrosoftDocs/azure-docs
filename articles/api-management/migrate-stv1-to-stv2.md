@@ -51,7 +51,7 @@ You can choose whether the virtual IP address of API Management will change, or 
 1. In the left menu, under **Settings**, select **Platform migration**.
 1. On the **Platform migration** page, select one of the two migration options:
 
-    * **New virtual IP address (recommended)**. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets and to use the new VIP address.
+    * **New virtual IP address (recommended)**. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
     * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
 
