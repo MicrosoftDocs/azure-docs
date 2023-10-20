@@ -199,4 +199,4 @@ sections:
 
       - question: Can I do in-place upgrades for the session host operating system?
         answer: |
-          Yes, provided your deployment is running either the single-session or Enterprise multi-session editions. For more information, see [In-place upgrade for supported VMs running Windows in Azure](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/in-place-system-upgrade).                   
+          Yes, provided your deployment is running either the single-session or Enterprise multi-session editions. For more information, see [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md) and [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade).                   
