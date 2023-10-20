@@ -3,11 +3,11 @@ title: Connect to IMS programs on IBM mainframes
 description: Integrate with IMS programs with Azure by using Azure Logic Apps and IBM IMS connector
 services: logic-apps
 ms.suite: integration
-author: mijacobs
-ms.author: mijacobs
+author: haroldcampos
+ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 10/20/2023
 tags: connectors
 ---
 
