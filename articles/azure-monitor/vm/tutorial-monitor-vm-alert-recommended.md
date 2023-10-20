@@ -31,7 +31,7 @@ To complete the steps in this article you need the following:
 
 
 ## Create recommended alert rules
-From the menu for the VM, select **Alerts** in the **Monitoring** secion. Select **View + enable**.
+From the menu for the VM, select **Alerts** in the **Monitoring** section. Select **View + enable**.
 
 :::image type="content" source="media/tutorial-monitor-vm/enable-recommended-alerts.png" alt-text="Screenshot of option to enable recommended alerts for a virtual machine." lightbox="media/tutorial-monitor-vm/enable-recommended-alerts.png":::
 
@@ -41,7 +41,7 @@ A list of recommended alert rules is displayed. You can select which ones to cre
 
 :::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure.png":::
 
-Expand each of the alert rules to inspect its details. By default, the severity for each is **Informational**. You may want to change to another severity such as **Error**.
+Expand each of the alert rules to inspect its details. By default, the severity for each is **Informational**. You might want to change to another severity such as **Error**.
 
 :::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png":::
 
