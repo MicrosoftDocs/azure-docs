@@ -8,7 +8,7 @@ ms.date: 10/19/2023
 ms.author: rogarana
 ---
 
-# Elastic SAN Preview best practices
+# Best practices when deploying an Elastic SAN Preview
 
 This article provides some general guidance on getting optimal performance with an environment that uses an Azure Elastic SAN.
 
