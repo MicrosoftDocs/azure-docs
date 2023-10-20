@@ -54,16 +54,16 @@ To configure backup of an AKS cluster, follow these steps:
 1. You can use the Backup configuration for item level backups and run custom hooks. For example, you can use it to achieve application consistent backup of databases. Follow these steps:
  
     1. Provide a **Backup Instance name** in input and assign it to the Backup instance configured for the application in the AKS Cluster.
-        :::image type="content" source="./media/tutorial-configure-backup-aks/resources-to-backup.png" alt-text="Screenshot showing Select Resources to Backup blade." lightbox="./media/tutorial-configure-backup-aks/resources-to-backup.png":::
+        :::image type="content" source="./media/tutorial-configure-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to the Backup pane." lightbox="./media/tutorial-configure-backup-aks/resources-to-backup.png":::
 
-    1. For **Select Namespaces to backup**, you can either select **All**, to backup all the namespaces in the cluster along with any new namespace created in future, or you can select **Choose from list** to select specific namespaces to backup.
-        :::image type="content" source="./media/tutorial-configure-backup-aks/backup-instance-name.png" alt-text="Screenshot showing Select Resources to Backup input blade." lightbox="./media/tutorial-configure-backup-aks/backup-instance-name.png":::
+    1. For **Select Namespaces to backup**, you can either select **All** to back up all the namespaces in the cluster along with any new namespace created in future, or you can select **Choose from list** to select specific namespaces for backup.
+        :::image type="content" source="./media/tutorial-configure-backup-aks/backup-instance-name.png" alt-text="Screenshot shows how to select resources to the 'Backup input' pane." lightbox="./media/tutorial-configure-backup-aks/backup-instance-name.png":::
 
-    1. Expand **Additional Resource Settings** to see specific filters to pick and choose resource within the cluster to backup. You can choose to backup resources based on following categories:
+    1. Expand **Additional Resource Settings** to see specific filters to pick and choose resource within the cluster for backup. You can choose to back up resources based on following categories:
         1. **Labels**: You can filter Kubernetes resources by [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) assigned to them. The labels are entered in the form of *key-value* pair where multiple labels can be combined with an `AND` logic. 
              For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the key *"env"* having the value *"prod"* and a label with the key *"tier"* for which the value that isn't *"web"*. These resources will be backed up.
         
-        1. **API Groups**: You can also pick up resources by providing the Kubernetes API group and Kind. Thus, you can choose to backup Kubernetes resources such as *Deployments*.
+        1. **API Groups**: You can also pick up resources by providing the Kubernetes API group and Kind. Thus, you can choose for backup Kubernetes resources such as *Deployments*.
         
         1. **Other options**: You can select the checkbox and enable or disable backup for Cluster scoped resources, Persistent Volumes and Secrets.
     

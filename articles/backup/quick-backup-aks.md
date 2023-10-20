@@ -47,7 +47,7 @@ To configure backup of an AKS cluster, follow these steps:
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot showing the Add/Edit option for configure backup." lightbox="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png":::
 
 1. In the context pane, define the cluster resources you want to back up. Learn about [backup configurations](./azure-kubernetes-service-cluster-backup-concept.md).
-    :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot showing Select Resources to Backup blade." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
+    :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to the Backup pane." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
 
 1. Select **Snapshot resource group** where the Persistent volumes (Azure Disk) snapshots will be stored. Then select **Validate**.  
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot showing **Snapshot resource group** blade." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
