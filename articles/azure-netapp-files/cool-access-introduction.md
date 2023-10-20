@@ -19,7 +19,7 @@ ms.custom: references_regions
 
 # Standard storage with cool access in Azure NetApp Files 
 
-Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that have not been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
+Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that haven't been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
@@ -100,7 +100,7 @@ The following chart shows a test that ran over 2.5 days on the 10-TB working dat
 
 #### Methodology
 
-Sequentially read blocks are not rewarmed to the hot tier. However, small dataset sizes might see performance improvements because of caching (no performance change guarantees). 
+Sequentially read blocks aren't rewarmed to the hot tier. However, small dataset sizes might see performance improvements because of caching (no performance change guarantees). 
  
 This test provides the following data points: 
 * 100% hot tier dataset 
