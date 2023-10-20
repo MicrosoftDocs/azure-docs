@@ -1606,6 +1606,8 @@ items:
     items:
     - name: Analyze usage and cost
       href: cost-usage.md
+    - name: Billing meters
+      href: cost-meters.md
     - name: Estimate cost
       href: cost-estimate.md
     - name: Azure Monitor Pricing page
