@@ -16,7 +16,7 @@ Event Grid namespaces provides durable delivery. It tries to deliver each messag
 
 ## Retry schedule
 
-If an Event Grid namespace receives an error when delivering, even though you may have configured maximum delivery count and retention, events will be retried, dropped or dead-lettered depending on the following errors.
+When Event Grid namespace receives an error when delivering, events can be retried, dropped or dead-lettered depending on the type of error. Even though you may have configured retention and maximum delivery count. Event Grid  will drop or dead-letter events depending on the following errors:
 
 - ArgumentException
 - TimeoutException
@@ -30,7 +30,7 @@ If an Event Grid namespace receives an error when delivering, even though you ma
     - BadRequest
     - RequestUriTooLong
 
-For other errors, Event Grid namespace will do a best effort retry with an expontential backoff retry of 0 sec, 10 sec, 30 sec, 1 min, and 5 min. After reaching 5 minutes Event Grid will continue retrying every 5 min until it’s delivered or event retention is expired.
+For other errors, Event Grid namespace does a best effort retry with an expontential backoff retry of 0 sec, 10 sec, 30 sec, 1 min, and 5 min. After reaching 5 minutes Event Grid continues retrying every 5 min until it’s delivered or event retention is expired.
 
 ## Retry policy
 
