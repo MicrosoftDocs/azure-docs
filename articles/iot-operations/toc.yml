@@ -46,8 +46,8 @@ items:
             href: manage-devices-assets/howto-connect-an-opcua-server.md
           - name: Define OPC UA assets
             href: manage-devices-assets/howto-define-opcua-assets.md
-          - name: Auto-detect OPC UA assets
-            href: manage-devices-assets/howto-auto-detect-opcua-assets.md
+          - name: Autodetect OPC UA assets
+            href: manage-devices-assets/howto-autodetect-opcua-assets.md
           - name: Process telemetry using OPC UA Broker
             href: manage-devices-assets/howto-process-telemetry-using-opcua-broker.md
           - name: Use OPC UA Broker actions

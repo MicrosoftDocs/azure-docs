@@ -1,6 +1,6 @@
 ---
-title: Auto-detect OPC UA assets
-description: How to auto-detect OPC UA assets using Azure IoT OPC UA Broker
+title: Autodetect OPC UA assets
+description: How to autodetect OPC UA assets using Azure IoT OPC UA Broker
 author: timlt
 ms.author: timlt
 ms.topic: how-to 
@@ -33,7 +33,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# Auto-detect OPC UA assets using OPC UA Broker
+# Autodetect OPC UA assets using OPC UA Broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
