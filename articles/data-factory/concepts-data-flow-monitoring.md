@@ -19,7 +19,7 @@ After you have completed building and debugging your data flow, you want to sche
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
-When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Select on the monitor icon in the left-hand UI panel. You can see a screen similar to the one that follows. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
+When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Select the monitor icon in the left-hand UI panel. You can see a screen similar to the one that follows. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 
 :::image type="content" source="media/data-flow/monitor-new-001.png" alt-text="Screenshot shows icons to select for pipelines for more information.":::
 
