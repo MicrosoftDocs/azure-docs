@@ -29,21 +29,29 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 | File format | Description |
 | ----------- | ----------- |
 | `asf`         | ASF (Advanced / Active Streaming Format)       |
+| `avi` | AVI (Audio Video Interleaved) |
+| `flac` | raw FLAC|
 | `flv`         | FLV (Flash Video)        |
 | `matroskamm`, `webm`          | Matroska / WebM       |
-| `mov`, `mp4`, `m4a`, `3gp`, `3g2`, `mj2`   | QuickTime / MOV        |
+| `mov`, `mp4`, `3gp`, `3g2`, `mj2`   | QuickTime / MOV        |
 | `mpegts`                    | MPEG-TS (MPEG-2 Transport Stream)       |
+| `ogg` | Ogg|
 | `rawvideo`                  | raw video        |
 | `rm`                        | RealMedia        |
 | `rtsp`                      | RTSP input       |
 
-### Supported codecs
+### Supported audio codecs
 | Codec       | Format |
 | ----------- | ----------- |
+| `aac` | AAC (Advanced Audio Coding) |
+| `mp3`| MP3 (MPEG audio layer 3) |
+| `pcm` | PCM |
 | `h264`        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
-| `rawvideo`    | raw video        |
-| `h265`        | HEVC
+| `h265`        | HEVC |
 | `libvpx-vp9`  | libvpx VP9 (codec vp9)        |
+| `rawvideo`    | raw video        |
+| `vorbis` | Vorbis |
+| `wmav2`| Windows Media Audio 2 |
 
 ## Call the Video Retrieval APIs
 
