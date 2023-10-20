@@ -17,7 +17,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use public certificates in Azure Spring Apps for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
+This article shows you how to use public certificates in Azure Spring Apps for your application. Your app might act as a client and access an external service that requires certificate authentication, or it might need to perform cryptographic tasks.  
 
 When you let Azure Spring Apps manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Apps instance.
 
