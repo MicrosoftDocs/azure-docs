@@ -11,7 +11,7 @@ ms.author: hrshelar
 
 # Prepare the network for Azure Orbital Ground Station integration
 
-The Azure Orbital Ground Station platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Azure Orbital Ground Station objects are configured correctly.
+Azure Orbital Ground Station interfaces with your Azure resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Azure Orbital Ground Station objects are configured correctly.
 
 Ensure the objects comply with the recommendations in this article. Note that these steps do not have to be followed in order.
 

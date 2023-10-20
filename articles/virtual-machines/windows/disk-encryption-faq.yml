@@ -81,7 +81,7 @@ sections:
           To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
           
           >[!WARNING]
-          > - If you've previously used [Azure Disk Encryption with Azure AD app](disk-encryption-windows-aad.md) by specifying Azure AD credentials to encrypt this VM, you must continue to use this option. Using Azure Disk Encryption without Azure AD on a VM that's been encrypted using Azure Disk Encryption with Azure AD isn't yet a supported scenario.
+          > - If you've previously used [Azure Disk Encryption with Microsoft Entra app](disk-encryption-windows-aad.md) by specifying Microsoft Entra credentials to encrypt this VM, you must continue to use this option. Using Azure Disk Encryption without Microsoft Entra ID on a VM that's been encrypted using Azure Disk Encryption with Microsoft Entra ID isn't yet a supported scenario.
           
       - question: |
           How do I add or remove a key encryption key (KEK) if I didn't originally use one?
@@ -116,18 +116,18 @@ sections:
           There are prerequisites for Azure Disk Encryption. See the [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md) article to create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
           
       - question: |
-          What are the prerequisites to configure Azure Disk Encryption with an Azure AD app (previous release)?
+          What are the prerequisites to configure Azure Disk Encryption with a Microsoft Entra app (previous release)?
         answer: |
-          There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption with Azure AD](disk-encryption-windows-aad.md) content to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Creating and configuring a key vault for Azure Disk Encryption with Azure AD](disk-encryption-key-vault-aad.md).
+          There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption with Microsoft Entra ID](disk-encryption-windows-aad.md) content to create an Microsoft Entra application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID](disk-encryption-key-vault-aad.md).
           
       - question: |
-          Is Azure Disk Encryption using an Azure AD app (previous release) still supported?
+          Is Azure Disk Encryption using a Microsoft Entra app (previous release) still supported?
         answer: |
-          Yes. Disk encryption using an Azure AD app is still supported. However, when encrypting new VMs it's recommended that you use the new method rather than encrypting with an Azure AD app. 
+          Yes. Disk encryption using a Microsoft Entra app is still supported. However, when encrypting new VMs it's recommended that you use the new method rather than encrypting with a Microsoft Entra app. 
 
       - question: |
-          Can I migrate VMs that were encrypted with an Azure AD app to encryption without an Azure AD app?
-        answer:   Currently, there isn't a direct migration path for machines that were encrypted with an Azure AD app to encryption without an Azure AD app. Additionally, there isn't a direct path from encryption without an Azure AD app to encryption with an AD app. 
+          Can I migrate VMs that were encrypted with a Microsoft Entra app to encryption without a Microsoft Entra app?
+        answer:   Currently, there isn't a direct migration path for machines that were encrypted with a Microsoft Entra app to encryption without a Microsoft Entra app. Additionally, there isn't a direct path from encryption without a Microsoft Entra app to encryption with an AD app. 
 
       - question: |
           What version of Azure PowerShell does Azure Disk Encryption support?

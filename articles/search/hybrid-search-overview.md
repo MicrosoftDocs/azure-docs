@@ -17,9 +17,9 @@ ms.date: 09/27/2023
 
 Hybrid search is a combination of full text and vector queries that execute against a search index that contains both searchable plain text content and generated embeddings. For query purposes, hybrid search is:
 
-+ A single query request that includes `search` and `vectors` parameters, multiple vector queries, or one vector query targeting multiple fields
-+ Parallel query execution
-+ Merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
++ A single query request that includes both `search` and `vectors` query parameters
++ Executing in parallel
++ With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
 This article explains the concepts, benefits, and limitations of hybrid search.
 
@@ -27,11 +27,11 @@ This article explains the concepts, benefits, and limitations of hybrid search.
 
 In Azure Cognitive Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
 
-Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and cosine similarity. To present these results in a single ranked list, a method of merging the ranked result lists is needed.
+Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query response provides just one result set, using RRF to determine which matches are included.
 
 ## Structure of a hybrid query
 
-Hybrid search is predicated on having a search index that contains fields of various types, including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text or image, audio, and video. You can use almost all query capabilities in Cognitive Search with a vector query, except for client-side interactions such as  autocomplete and suggestions.
+Hybrid search is predicated on having a search index that contains fields of various [data types](/rest/api/searchservice/supported-data-types), including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text or image, audio, and video. You can use almost all query capabilities in Cognitive Search with a vector query, except for client-side interactions such as autocomplete and suggestions.
 
 A representative hybrid query might be as follows (notice the vector is trimmed for brevity):
 
@@ -123,7 +123,7 @@ A response from the above query might look like this:
 
 ## Benefits
 
-Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios, such as product codes, highly specialized jargon, dates, etc. can perform better with keyword search because it can identify exact matches.
+Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
 
 Benchmark testing on real-world and benchmark datasets indicates that hybrid retrieval with semantic ranking offers significant benefits in search relevance.
 

@@ -32,7 +32,7 @@ Data sent to the ingestion API can be sent to the following tables:
 | Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 > [!NOTE]
-> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Configuration
 
@@ -54,7 +54,7 @@ The Logs Ingestion API requires the following components to be created before yo
 
 Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described above.
 
-When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+When developing a custom client to obtain an access token from Microsoft Entra ID for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
 
 | Azure cloud version | Token audience value |
 | --- | --- |

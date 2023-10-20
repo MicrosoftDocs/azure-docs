@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Key Vault makes it possible for your client application to use a secret to access resources not secured by Microsoft Entra ID. Managed identities are automatically managed by Azure. They enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
+This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](/azure/key-vault/general/overview). Key Vault makes it possible for your client application to use a secret to access resources not secured by Microsoft Entra ID. Managed identities are automatically managed by Azure. They enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -33,7 +33,7 @@ You learn how to:
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
@@ -135,11 +135,11 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 
 When you want to clean up the resources, sign in to the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
 
-Alternatively you may also clean up resources via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
+Alternatively you may also clean up resources via [PowerShell or the CLI](/azure/azure-resource-manager/management/delete-resource-group)
 
 ## Next steps
 
 In this tutorial, you learned how to use a Windows VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault, see:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](../../key-vault/general/overview.md)
+>[Azure Key Vault](/azure/key-vault/general/overview)

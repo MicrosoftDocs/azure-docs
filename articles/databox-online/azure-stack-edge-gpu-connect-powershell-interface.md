@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 10/01/2023
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -100,21 +100,25 @@ After virtual switches are created, you can enable the switches for Kubernetes c
 
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsApplianceInfo` cmdlet to get current `KubernetesPlatform` and `KubernetesWorkloadProfile` settings for your device.
+3. Use the `Get-HcsKubernetesWorkloadProfiles` cmdlet to identify the profiles available on your Azure Stack Edge device.
 
-    The following example shows the usage of this cmdlet:
-
-    ```powershell
-    Get-HcsApplianceInfo    
-    ```
-
-3. Use the `Set-HcsKubernetesWorkloadProfile` cmdlet to set the workload profile for AP5GC an Azure Private MEC solution.
+   ```powershell
+   [Device-IP]: PS>Get-HcsKubernetesWorkloadProfiles 
+   Type  Description    
+   ----  -----------   
+   AP5GC an Azure Private MEC solution   
+   SAP   a SAP Digital Manufacturing for Edge Computing or another Microsoft partner solution   
+   NONE  other workloads
+   [Device-IP]: PS>
+   ```
+    
+4. Use the `Set-HcsKubernetesWorkloadProfile` cmdlet to set the workload profile for AP5GC, an Azure Private MEC solution.
 
     The following example shows the usage of this cmdlet:
 
     ```powershell
     Set-HcsKubernetesWorkloadProfile -Type "AP5GC"
     ```
-
     Here is sample output for this cmdlet:
 
     ```powershell

@@ -127,6 +127,6 @@ If you decided not to configure diagnostics packet collection or use a user assi
 
 ## Next steps
 
-If you decided to set up Azure AD for local monitoring access, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you decided to set up Microsoft Entra ID for local monitoring access, follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
 If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

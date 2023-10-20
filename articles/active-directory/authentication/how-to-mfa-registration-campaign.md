@@ -77,7 +77,7 @@ To enable a registration campaign in the Microsoft Entra admin center, complete 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign** and click **Edit**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaing will change to **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaign will change to **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
 
    :::image type="content" border="true" source="media/how-to-mfa-registration-campaign/admin-experience.png" alt-text="Screenshot of enabling a registration campaign.":::
 
@@ -325,12 +325,17 @@ A nudge won't appear if a user is in scope for a Conditional Access policy that 
 
 **Do users see a nudge when there is a terms of use (ToU) screen presented to the user during sign-in?**
 
-A nudge won't appear if a user is presented with the [terms of use (ToU)](/azure/active-directory/conditional-access/terms-of-use) screen during sign-in.
+A nudge won't appear if a user is presented with the [terms of use (ToU)](../conditional-access/terms-of-use.md) screen during sign-in.
 
 **Do users see a nudge when Conditional Access custom controls are applicable to the sign-in?**
 
-A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](/azure/active-directory/conditional-access/controls) settings.
+A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](../conditional-access/controls.md) settings.
+
+**Are there any plans to discontinue SMS and Voice as methods usable for MFA?**
+
+No, there are no such plans.
 
 ## Next steps
 
 [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)
+

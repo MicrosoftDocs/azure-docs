@@ -139,6 +139,8 @@ Different environment types have different subnet requirements:
 
 - Your subnet must be delegated to `Microsoft.App/environments`.
 
+- When using an external environment with external ingress, inbound traffic routes through the infrastructure’s public IP rather than through your subnet.
+
 - Container Apps automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in a workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
 
   - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) for your container app, each node has one IP address assigned.
