@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor cost estimates
+title: Estimate Azure Monitor costs
 description: Guidance on using the Azure Monitor pricing calculator to estimate Azure Monitor billable usage.
 services: azure-monitor
 ms.topic: conceptual

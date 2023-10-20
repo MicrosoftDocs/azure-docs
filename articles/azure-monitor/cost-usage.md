@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to analyze billable
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 09/20/2023
+ms.date: 10/20/2023
 ---
 # Azure Monitor cost and usage
 This article describes the different ways that Azure Monitor charges for usage and how to evaluate charges on your Azure bill.
@@ -28,18 +28,18 @@ Several other features don't have a direct cost, but you instead pay for the ing
 
 
 ### Data transfer charges 
-Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. Data transfer charges are typically very small compared to the costs for data ingestion and retention. Controlling costs for Log Analytics should focus on your ingested data volume.
+Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. Data transfer charges for Azure Monitor though are typically very small compared to the costs for data ingestion and retention. You should focus more on your ingested data volume to control your costs.
 
 > [!NOTE]
 > Data sent to a different region using [Diagnostic Settings](essentials/diagnostic-settings.md) does not incur data transfer charges
 
 ## View Azure Monitor usage and charges
-There are two primary tools to view and analyze your Azure Monitor billing and estimated charges.
+There are two primary tools to view and analyze your Azure Monitor billing and estimated charges. Each are described in detail in the following sections.
 
 | Tool | Description |
 |:---|:---|
 | [Azure Cost Management + Billing](#azure-cost-management--billing) | The primary tool that you use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time. |
-| [Usage and Estimated Costs](#usage-and-estimated-costs) | Provides a listing of monthly charges for different Azure Monitor features. This is particularly useful for Log Analytics workspaces where it helps you to select your pricing tier by showing how your cost would be different at different tiers. |
+| [Usage and Estimated Costs](#usage-and-estimated-costs) | Provides a listing of monthly charges for different Azure Monitor features. This is particularly useful for Log Analytics workspaces where it helps you to select your pricing tier by showing how your cost would change at different pricing tiers. |
 
 
 ## Azure Cost Management + Billing
@@ -48,41 +48,38 @@ To get started analyzing your Azure Monitor charges, open [Cost Management + Bil
 >[!NOTE]
 >You might need additional access to use Cost Management data. See [Assign access to Cost Management data](../cost-management-billing/costs/assign-access-acm-data.md).
 
-To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**.
+![Screenshot that shows Azure Cost Management with cost information.](./media/usage-estimated-costs/010.png)
 
-| Service name | Charges |
-|:---|:---|
-| Azure Monitor | Basic Logs<br>Commitment Tiers<br>Data Archive<br>Data Export<br>Search<br>Search Jobs |
-| Log Analytics | Data Retention<br>Pay-as-you-go data ingestion<br>Classic Application insights data ingestion and retention |
-| Insight and Analytics | Legacy Per Node pricing tier | 
-| Application Insights | Application Insights resources using legacy classic-mode Application Insights pricing tiers<br>Multi-step web tests |
+
+To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different charges that are included in each service.
+
+- Azure Monitor
+- Log Analytics
+- Insight and Analytics
+- Application Insights
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you may want to add them to your filter. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
-
-![Screenshot that shows Azure Cost Management with cost information.](./media/usage-estimated-costs/010.png)
 
 >[!NOTE]
 >Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
 
-### Get daily cost analysis emails
+### Automated mails and alerts
+Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 
-Once you have configured your Cost Analysis view, it is strongly recommended to subscribe to get regular email updates from Cost Analysis. The "Subscribe" option is located in the list of options just above the main chart. 
-
-### Create cost alerts
-
-To be notified if there are significant increases in your spending, you can set up [cost alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) (specifically a budget alert) for a single workspace or group of workspaces. 
+  - **Daily cost analysis emails.** Once you've configured your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
+  - **Budget alerts.** To be notified if there are significant increases in your spending, create a [budget alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) for a single workspace or group of workspaces. 
 
 ### Export usage details
 
-To gain more understanding of your usage and costs, create exports using Cost Analysis in Azure Cost Management + Billing. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
+To gain deeper understanding of your usage and costs, create exports using **Cost Analysis**. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
-These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
+These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter, and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
 
-The usage export has both the cost for your usage, and the number of units of usage. Consequently, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). 
+The usage export has both the number of units of usage and their cost. Consequently, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). 
 
-For instance, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
+For example, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
 1. **Log Analytics** (for Pay-as-you-go data ingestion and interactive Data Retention), 
 2. **Insight and Analytics** (used by some of the legacy pricing tiers), and 
@@ -90,15 +87,9 @@ For instance, usage from Log Analytics can be found by first filtering on the **
 
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
-### Azure Monitor billing meter names
+> [!NOTE]
+> See [Azure Monitor billing meter names](cost-meters.md) for a reference of the billing meter names used by Azure Monitor in Azure Cost Management + Billing. 
 
-See [Azure Monitor billing meter names](cost-meters.md) for a reference of the billing meter names used by Azure Monitor in Azure Cost Management + Billing. 
-
-### Legacy Application Insights meters
-
-Most Application Insights usage for both classic and workspace-based resources is reported on meters with **Log Analytics** for **Meter Category** because there's a single log back-end for all Azure Monitor components. Only Application Insights resources on legacy pricing tiers and multiple-step web tests are reported with **Application Insights** for **Meter Category**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column. For more information, see [Understand your Microsoft Azure bill](../cost-management-billing/understand/review-individual-bill.md).
-
-To separate costs from your Log Analytics and classic Application Insights usage, [create a filter](../cost-management-billing/costs/group-filter.md) on **Resource type**. To see all Application Insights costs, filter **Resource type** to **microsoft.insights/components**. For Log Analytics costs, filter **Resource type** to **microsoft.operationalinsights/workspaces**. (Workspace-based Application Insights is all billed to the Log Analytics workspace resourced.)
 
 ## Usage and estimated costs
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
@@ -132,7 +123,7 @@ To investigate your Application Insights usage more deeply, open the **Metrics**
 
 ## View data allocation benefits
 
-To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to export your usage details. 
+To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to [export your usage details](#export-usage-details). 
 
 1. Open the exported usage spreadsheet and filter the *Instance ID* column to your workspace. To select all of your workspaces in the spreadsheet, filter the *Instance ID* column to "contains /workspaces/". 
 2. Filter the *ResourceRate* column to show only rows where this is equal to zero. Now you will see the data allocations from these various sources. 
