@@ -69,17 +69,14 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure object size limits
 
-[!INCLUDE [data-box-object-size-limits](../../includes/data-box-object-size-limits.md)]
-
-<!--Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
+Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
 
 | Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
-| Block Blob        | ~ 4.75 TiB                                                 |
-| Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned, else the upload fails. <br> Both the VHD and VHDX are 512 bytes aligned.) |
-|Azure Files        | 1 TiB <br> Max. size of share is 5 TiB     |
-| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets for managed disks](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|-->
-
+| Block blob        | 7 TiB                                                  |
+| Page blob         | 4 TiB <br> Every file uploaded in page blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> VHD and VHDX are 512 bytes aligned. |
+| Azure Files        | 1 TiB                                                      |
+| Managed disks     | 4 TiB <br> For more information on size and limits, see: <li>[Scalability targets of Standard SSDs](../articles/virtual-machines/disks-types.md#standard-ssds)</li><li>[Scalability targets of Premium SSDs](../articles/virtual-machines/disks-types.md#standard-hdds)</li><li>[Scalability targets of Standard HDDs](../articles/virtual-machines/disks-types.md#premium-ssds)</li><li>[Pricing and billing of managed disks](../articles/virtual-machines/disks-types.md#billing)</li>  
 
 ## Azure block blob, page blob, and file naming conventions
 
