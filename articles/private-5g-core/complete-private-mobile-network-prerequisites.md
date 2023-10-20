@@ -181,7 +181,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
-| All IP traffic       | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or NG/SGi for combined 4G and 5G). </br> Only required on port 3 if data networks are configured on that port. |
+| All IP traffic       | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G). </br> Only required on port 3 if data networks are configured on that port. |
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -199,7 +199,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
-| All IP traffic       | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or NG/SGi for combined 4G and 5G)). </br> Only required on port 5 if data networks are configured on that port.  |
+| All IP traffic       | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G)). </br> Only required on port 5 if data networks are configured on that port.  |
 :::zone-end
 
 #### Port requirements for Azure Stack Edge
