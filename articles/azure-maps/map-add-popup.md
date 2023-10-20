@@ -186,7 +186,7 @@ var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 2 - PropertyInfo',
     createDate: new Date(),
     dateNumber: 1569880860542,
-    url: 'https://aka.ms/AzureMapsSamples',
+    url: 'https://samples.azuremaps.com/',
     email: 'info@microsoft.com'
 }),
 
@@ -271,7 +271,7 @@ function InitMap()
         title: 'No template - property table',
         message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
         randomValue: 10,
-        url: 'https://aka.ms/AzureMapsSamples',
+        url: 'https://samples.azuremaps.com/',
         imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
         email: 'info@microsoft.com'
       }),
@@ -280,7 +280,7 @@ function InitMap()
         title: 'No template - hyperlink detection disabled',
         message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
         randomValue: 10,
-        url: 'https://aka.ms/AzureMapsSamples',
+        url: 'https://samples.azuremaps.com/',
         email: 'info@microsoft.com',
         popupTemplate: {
           detectHyperlinks: false
@@ -306,7 +306,7 @@ function InitMap()
         title: 'Template 2 - PropertyInfo',
         createDate: new Date(),
         dateNumber: 1569880860542,
-        url: 'https://aka.ms/AzureMapsSamples',
+        url: 'https://samples.azuremaps.com/',
         email: 'info@microsoft.com',
         popupTemplate: {
           content: [{
