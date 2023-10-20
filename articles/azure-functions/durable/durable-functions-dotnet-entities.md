@@ -103,7 +103,7 @@ public class Counter
 
     // Delete is implicitly defined when defining an entity this way
 
-    [FunctionName(nameof(Counter))]
+    [Function(nameof(Counter))]
     public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
         => dispatcher.DispatchAsync<Counter>();
 }
@@ -138,11 +138,14 @@ public class Counter : TaskEntity<int>
 
     // Delete is implicitly defined when defining an entity this way
 
-    [FunctionName(nameof(Counter))]
+    [Function(nameof(Counter))]
     public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
         => dispatcher.DispatchAsync<Counter>();
 }
 ```
+> [!WARNING]
+> When writing entities that derive from `ITaskEntity` or `TaskEntity<TState>`, it is important to **not** name your entity trigger method `RunAsync`. This will cause runtime errors when invoking the entity as there is an ambiguous match with the method name "RunAsync" due to `ITaskEntity` already defining an instance-level "RunAsync".
+
 ### Deleting entities in the isolated model
 
 Depending on how an entity is implemented, delete is sometimes implicitly defined. 
@@ -184,14 +187,14 @@ For example, we can modify the counter entity so it starts an orchestration when
 
 # [C# (In-Proc)](#tab/in-process)
 ```csharp
-    public void Add(int amount) 
+public void Add(int amount) 
+{
+    if (this.Value < 100 && this.Value + amount >= 100)
     {
-        if (this.Value < 100 && this.Value + amount >= 100)
-        {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
-        }
-        this.Value += amount;      
+        Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
     }
+    this.Value += amount;      
+}
 ```
 # [C# (Isolated)](#tab/isolated-process)
 ```csharp
@@ -233,7 +236,7 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName("DeleteCounter")]
+[Function("DeleteCounter")]
 public static async Task<HttpResponseData> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestData req,
     [DurableClient] DurableTaskClient client, string entityKey)
@@ -268,7 +271,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName("GetCounter")]
+[Function("GetCounter")]
 public static async Task<HttpResponseData> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestData req,
     [DurableClient] DurableTaskClient client, string entityKey)
@@ -308,7 +311,7 @@ public static async Task<int> Run(
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName("IncrementThenGet")]
+[Function("IncrementThenGet")]
 public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     var entityId = new EntityInstanceId("Counter", "myCounter");
@@ -621,17 +624,22 @@ namespace MyNamespace
 ```
 # [C# (Isolated)](#tab/isolated-process)
 
-```csharp
-[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+The following demonstrates how to configure an `HttpClient` in the `program.cs` file to be imported later in the entity class. 
 
-namespace MyNamespace
+```csharp
+public class Program
 {
-    public class Startup : FunctionsStartup
+    public static void Main()
     {
-        public override void Configure(IFunctionsHostBuilder builder)
-        {
-            builder.Services.AddHttpClient();
-        }
+        IHost host = new HostBuilder()
+            .ConfigureFunctionsWorkerDefaults((IFunctionsWorkerApplicationBuilder workerApplication) =>
+            {
+                workerApplication.Services.AddHttpClient<HttpEntity>()
+                    .ConfigureHttpClient(client => {/* configure http client here */});
+             })
+            .Build();
+
+        host.Run();
     }
 }
 ```
@@ -669,22 +677,19 @@ public class HttpEntity
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-public class HttpEntity : TaskEntity<TState>
+public class HttpEntity : TaskEntity<object?>
 {
-    [JsonIgnore]
     private readonly HttpClient client;
 
-    public HttpEntity(IHttpClientFactory factory)
+     public HttpEntity(HttpClient client)
     {
-        this.client = factory.CreateClient();
+        this.client = client;
     }
 
-    public Task<int> GetAsync(string url)
+    public async Task<int> GetAsync(string url)
     {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
-        }
+        using var response = await this.client.GetAsync(url);
+        return (int)response.StatusCode;
     }
 
     [Function(nameof(HttpEntity))]
@@ -760,7 +765,7 @@ Finally, the following members are used to signal other entities, or start new o
 # [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[Function(nameof(Counter))]
 public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
 {
     return dispatcher.DispatchAsync(operation =>
