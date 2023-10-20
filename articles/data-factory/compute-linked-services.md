@@ -586,14 +586,23 @@ You create an Azure Synapse Analytics (Artifacts) linked service and use it with
 ```json
 {
     "name": "AzureSynapseArtifacts",
+    "type": "Microsoft.DataFactory/factories/linkedservice",
     "properties": {
-        "description": "AzureSynapseArtifactsDescription",
+      "properties": {
+        "a":{
+          "type": "String"
+        }
+      },
         "annotations": [],
         "type": "AzureSynapseArtifacts",
         "typeProperties": {
-            "endpoint": "https://<workspacename>.dev.azuresynapse.net",
+            "endpoint": "@{linkedService().a}",
             "authentication": "MSI",
-            "workspaceResourceId": "<workspace Resource Id>"
+            "workspaceResourceId": ""
+        },
+        "ConnectVia":{
+          "referenceName": "integrationRuntime1",
+          "type": "IntergrationRuntimeReference"
         }
     }
 }
@@ -610,6 +619,7 @@ You create an Azure Synapse Analytics (Artifacts) linked service and use it with
 | endpoint | The Azure Synapse Analytics URL	 | Yes |
 | authentication | The default setting is System Assigned Managed Identity | Yes |
 | workspaceResourceId | workspace Resource Id	 | Yes |
+| connectVia | The integration runtime to be used to connect to the data store. You can use Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. The self-hosted integration runtime is not currently supported. | Yes |
 
 ## Azure Function linked service
 
