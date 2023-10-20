@@ -15,7 +15,7 @@ This article describes reliability support in Azure Deployment Environments, a
 
 ## Availability zone support 
 
-[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
 
 Availability zone support for all resources in Azure Deployment Environments is enabled automatically. There's no action for you to take. 
@@ -40,7 +40,7 @@ For more detailed information on availability zones in Azure, see [Regions and
 
 ## Cross-region disaster recovery and business continuity
 
-[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+[!INCLUDE [introduction to disaster recovery](../reliability/includes/reliability-disaster-recovery-description-include.md)]
 
 You can replicate the following Deployment Environments resources in an alternate region to prevent data loss if a cross-region failover occurs:
  
