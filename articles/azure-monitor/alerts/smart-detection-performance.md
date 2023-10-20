@@ -57,7 +57,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 ## Frequently asked questions
 
 * *So, Microsoft staff look at my data?*
-  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
+  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 * *Do you analyze all the data collected by Application Insights?*
   * Currently, we analyze request response time, dependency response time, and page load time. Analysis of other metrics is on our backlog looking forward.
 
