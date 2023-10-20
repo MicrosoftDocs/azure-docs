@@ -21,9 +21,6 @@ This article shows you how to use public certificates in Azure Spring Apps for y
 
 When you let Azure Spring Apps manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Apps instance.
 
-> [!NOTE]
-> Azure CLI and Terraform support and samples is coming soon to this article.
-
 ## Prerequisites
 
 - An application deployed to Azure Spring Apps. See [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md), or use an existing app.
@@ -60,7 +57,7 @@ After you grant access to your key vault, you can import your certificate using 
 
 1. Select your key vault in the **Key vaults** section, select your certificate in the **Certificate** section, and then select **Select**.
 
-1. Enter your certificate name in the **Certificate name** section, select the **Enable auto sync** checkbox if needed, and then select **Apply**. For more information, see the [[Auto sync certificate]](./how-to-custom-domain.md#auto-sync-certificate) section of [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md).
+1. Provide a value for **Certificate name**, select **Enable auto sync** if needed, and then select **Apply**. For more information, see the [Auto sync certificate](./how-to-custom-domain.md#auto-sync-certificate) section of [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md).
 
 After you've successfully imported your certificate, you see it in the list of Public Key Certificates.
 
