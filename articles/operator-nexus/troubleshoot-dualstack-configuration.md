@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting Dual Stack Configuration Issues for Nexus Kubernetes Cluster
-description: Troubleshooting the configuration of a dual stack IP.
+title: Troubleshooting dual-stack Nexus Kubernetes Cluster configuration issues
+description: Troubleshooting the configuration of a dual-stack IP.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 10/19/2023
 ms.author: v-yamohammed
-author: v-yamohammed
+author: yasat93
 ---
-# Troubleshooting dual stack Nexus Kubernetes cluster configuration issues
+# Troubleshooting dual-stack Nexus Kubernetes Cluster configuration issues
 
 This guide provides detailed steps for troubleshooting issues related to setting up a dual stack Nexus Kubernetes cluster. If you've created a dual stack cluster but are experiencing issues, this guide will help you identify and resolve potential configuration problems.
    
@@ -26,17 +26,17 @@ This guide provides detailed steps for troubleshooting issues related to setting
 
 
 
-## Dual-Stack Configuration 
+## Dual-stack configuration 
 
 Dual-stack configuration involves running both IPv4 and IPv6 protocols on your network. This allows devices that support both protocols to communicate over either IPv4 or IPv6.
 
-## Common Issues
+## Common issues
 
    - A dual stack Nexus Kubernetes cluster has been established, yet we're unable to observe the dual stack features, as they remain unseen or inaccessible.
 
-## Configuration Steps
+## Configuration steps
 
-   - **Step 1: Verifying Dual Stack L3 Network**
+   - **Step 1: Verifying dual-stack L3 network**
 
      Confirm that your network infrastructure fully supports dual stack configurations. Ensure your L3 network is properly configured to handle both IPv4 and IPv6 traffic by using following command to create an L3 network with the specified configurations:
 
@@ -53,7 +53,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
          --vlan <YourNetworkVlan>
      ```
 
-   - **Step 2: Validating Nexus Kubernetes Cluster Configuration:**
+   - **Step 2: Validating Nexus Kubernetes Cluster configuration:**
 
    In the `networkConfiguration` section of the Nexus Kubernetes cluster configuration, ensure you've set dual-stack cluster network assignments for `podCidrs` and `serviceCidrs`. Each of these values should be an array consisting of one IPv4 prefix and one IPv6 prefix. Examine the cluster configuration settings to ensure CIDR assignments are correct. Confirm that the assigned pod CIDR and service CIDR ranges are accurately configured for both IPv4 and IPv6 addresses.
 
@@ -78,7 +78,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
 
    Action: Review and update peering configurations as necessary to accommodate dual stack traffic.
 
-## Sample Output
+## Sample output
 
    - Output without IPv6 configuration:
 
@@ -102,7 +102,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
        ...
      ```
 
-##  Additional Recommendations:
+##  Additional recommendations:
 
 Check for any conflicting configurations or policies that might be affecting dual stack functionality.
 Scrutinize logs and error messages for indicators of configuration issues.
