@@ -457,3 +457,4 @@ az networkfabric tap create --resource-group "example-rg" --location "westus3" \
 --polling-type "Pull"\
 --destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
 isolationDomainProperties:{encapsulation:None,neighborGroupIds:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup']},\
+```
