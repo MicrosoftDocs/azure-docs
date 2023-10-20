@@ -73,7 +73,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your n
 
    - **Note:** The prefix length for IPv6 `serviceCidrs` must be >= 108 (for example, /64 won't work).
    
-   - **Step 3: Ensuring Proper Peering Configuration:**
+   - **Step 3: Ensuring proper peering configuration:**
 
    Verify that any peering connections or routes between your cluster and external networks are correctly established for both IPv4 and IPv6 traffic.
 
