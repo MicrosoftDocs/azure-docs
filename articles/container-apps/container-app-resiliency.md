@@ -16,16 +16,17 @@ zone_pivot_groups: resiliency-options
 
 # Container app to container app policies
 
-Azure Container Apps resiliency provides developers with the capability to proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
+With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-Resiliency policies are configured as a sub-resource to a container app. When a container app is requested and that request fails, the resiliency behavior is determined by the policies associated to the container app being called (callee). This ensures that retries, timeouts, and other resiliency policies are enforced as appropriate and are tailored to the specific requirement of the requested application.  
+Resiliency policies are configured as a sub-resource to a container app. When a container app request request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). Thus retries, timeouts, and other resiliency policies are appropriately enforced and tailored to the specific requirement of the requested application. 
 
-In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: 
-
-- **Container App FQDN:** When initiating requests from one container app to another using the application’s Fully Qualified Domain Name (FQDN), Azure Container Apps resiliency policies can be configured and applied. 
-- **Dapr Service Invocation API:** When leveraging Dapr’s Service Invocation API for container app-to-container app communication, Dapr’s resiliency policies can be configured and applied. 
+In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: Container App FQDN or Dapr Service Invocation.
 
 ::: zone pivot="non-dapr"
+
+## Configuring resiliency when using Container App FQDN
+
+When initiating requests from one container app to another using the application’s fully qualified domain name (FQDN), you can configure and apply Azure Container Apps resiliency policies.
 
 :::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps without Dapr enabled.":::
 
@@ -39,6 +40,10 @@ The supported resiliency policies include:
 ::: zone-end
 
 ::: zone pivot="dapr"
+
+## Configuring resiliency when using Dapr Service Invocation API
+
+When leveraging Dapr’s Service Invocation API for container app-to-container app communication, you can configure and apply Dapr’s resiliency policies. 
 
 :::image type="content" source="media/container-app-resiliency/sidecar-to-sidecar-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps with Dapr enabled.":::
 
