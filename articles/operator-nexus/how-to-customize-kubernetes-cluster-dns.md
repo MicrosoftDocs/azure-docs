@@ -90,7 +90,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
 
 ## Custom forward server
 
-If you need to specify a forward server for your network traffic, you can create a ConfigMap to customize DNS.
+If you need to specify a forward server for your network traffic, you can create a `ConfigMap` to customize DNS.
 
 1. Create a file named `customdns.yaml` and paste the following example configuration. Make sure to replace the `forward` name and the address with the values for your own environment.  The "bind 169.254.20.10" line is required. 
 
