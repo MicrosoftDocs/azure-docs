@@ -1,10 +1,8 @@
 ---
 title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template (ARM template) to simplify the syntax.
-author: mumian
-ms.date: 06/17/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-arm-template
 ---
 

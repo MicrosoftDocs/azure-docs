@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal'
-description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using the Azure portal.
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal'
+description: Learn to a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 08/24/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using the Azure portal
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal
 
 Get started with Azure Virtual Network Manager by using the Azure portal to manage connectivity for all your virtual networks.
 

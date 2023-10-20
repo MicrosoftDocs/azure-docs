@@ -5,12 +5,11 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/17/2023
+ms.date: 09/18/2023
 author: ericd-mst-github
 ms.author: nikhilpatel
 ms.reviewer: erd
-ms.custom: 
-
+ms.custom: devx-track-linux
 ---
 
 # VM Applications overview
@@ -31,7 +30,9 @@ Application packages provide benefits over other deployment and packaging method
 
 - Support for virtual machines, and both flexible and uniform scale sets
 
-- If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+- If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+
+- Support for Block Blobs: This feature allows the handling of large files efficiently by breaking them into smaller, manageable blocks. Ideal for uploading large amounts of data, streaming, and background uploading. 
 
 ## What are VM app packages?
 
@@ -47,7 +48,7 @@ The VM application packages use multiple resource types:
 
 - **No more than 3 replicas per region**: When you're creating a VM Application version, the maximum number of replicas per region is three.
 
-- **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
+- **Storage with public access or SAS URI with read privilege:** The storage account needs to has public level access or use an SAS URI with read privilege, as other restriction levels fail deployments.
 
 - **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back.
 

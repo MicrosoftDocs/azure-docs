@@ -4,11 +4,10 @@ titleSuffix: Azure OpenAI Service
 description: Learn about the changes you need to make to your code to swap back and forth between OpenAI and Azure OpenAI endpoints.
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/20/2023
 manager: nitinme
 ---
 
@@ -57,7 +56,9 @@ openai.api_version = "2023-05-15"  # subject to change
 </tr>
 </table>
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 <table>
 <tr>
@@ -89,7 +90,7 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 token = credential.get_token("https://cognitiveservices.azure.com/.default")
 
-openai.api_type = "azuread"
+openai.api_type = "azure_ad"
 openai.api_key = token.token
 openai.api_base = "https://example-endpoint.openai.azure.com"
 openai.api_version = "2023-05-15"  # subject to change
@@ -101,7 +102,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`. `deployment_id` corresponds to the custom name you chose for your model during model deployment. By convention in our docs, we often show `deployment_id`'s which match the underlying model name, but if you chose a different deployment name that doesn't match the model name you need to use that name when working with models in Azure OpenAI.
 
 For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
 
@@ -139,20 +140,20 @@ embedding = openai.Embedding.create(
 ```python
 completion = openai.Completion.create(
     prompt="<prompt>",
-    deployment_id="text-davinci-003"
+    deployment_id="text-davinci-003" # This must match the custom deployment name you chose for your model.
     #engine="text-davinci-003" 
 )
   
 chat_completion = openai.ChatCompletion.create(
     messages="<messages>",
-    deployment_id="gpt-4"
+    deployment_id="gpt-4" # This must match the custom deployment name you chose for your model.
     #engine="gpt-4"
 
 )
 
 embedding = openai.Embedding.create(
   input="<input>",
-  deployment_id="text-embedding-ada-002"
+  deployment_id="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
   #engine="text-embedding-ada-002"
 )
 ```
@@ -161,9 +162,9 @@ embedding = openai.Embedding.create(
 </tr>
 </table>
 
-## Azure OpenAI embeddings doesn't support multiple inputs
+## Azure OpenAI embeddings multiple input support
 
-Many examples show passing multiple inputs into the embeddings API. For Azure OpenAI, currently we must pass a single text input per call.
+OpenAI currently allows a larger number of array inputs with text-embedding-ada-002. Azure OpenAI currently supports input arrays up to 16 for text-embedding-ada-002 Version 2. Both require the max input token limit per API request to remain under 8191 for this model.
 
 <table>
 <tr>
@@ -173,7 +174,7 @@ Many examples show passing multiple inputs into the embeddings API. For Azure Op
 <td>
 
 ```python
-inputs = ["A", "B", "C"]
+inputs = ["A", "B", "C"] 
 
 embedding = openai.Embedding.create(
   input=inputs,
@@ -187,14 +188,13 @@ embedding = openai.Embedding.create(
 <td>
 
 ```python
-inputs = ["A", "B", "C"]
+inputs = ["A", "B", "C"] #max array size=16
 
-for text in inputs:
-    embedding = openai.Embedding.create(
-        input=text,
-        deployment_id="text-embedding-ada-002"
-        #engine="text-embedding-ada-002"
-    )
+embedding = openai.Embedding.create(
+  input=inputs,
+  deployment_id="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
+  #engine="text-embedding-ada-002"
+)
 ```
 
 </td>

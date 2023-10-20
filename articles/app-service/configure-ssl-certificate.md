@@ -7,6 +7,8 @@ ms.topic: tutorial
 ms.date: 07/28/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Add and manage TLS/SSL certificates in Azure App Service
@@ -205,7 +207,7 @@ If your certificate authority gives you multiple certificates in the certificate
 Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request using OpenSSL, then you created a private key file.
 
 > [!NOTE]
-> OpenSSL v3 changed default cipher from 3DES to AES256, but this can be overridden on the command line -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -machalg SHA1.
+> OpenSSL v3 changed default cipher from 3DES to AES256, but this can be overridden on the command line -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1.
 > OpenSSL v1 uses 3DES as default, so the PFX files generated are supported without any special modifications.
 
 1. To export your certificate to a PFX file, run the following command, but replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.

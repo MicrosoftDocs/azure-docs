@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 10/19/2022
 ---
@@ -22,7 +22,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
 
-+ A **Contributor** role assignment in the Search service.
++ A **Contributor** role assignment in the search service.
 
 + An Azure Storage account, used to save session state.
 
@@ -40,9 +40,11 @@ A Debug Session works with all generally available [indexer data sources](search
 
 + For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
 
++ Debug sessions doesn't currently support connections using a managed identity or private endpoints to custom skills.
+
 ## Create a debug session
 
-1. [Sign in to Azure portal](https://portal.azure.com) and find your search service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
 1. In the **Overview** page of your search service, select the **Debug Sessions** tab.
 

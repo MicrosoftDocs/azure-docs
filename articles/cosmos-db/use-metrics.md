@@ -21,7 +21,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 ## View insights from Azure portal
 
-1. Sign into [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
 

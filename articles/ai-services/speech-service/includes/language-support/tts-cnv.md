@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
@@ -10,9 +9,12 @@ ms.author: eur
 | Locale (BCP-47) | Language | Custom Neural Voice feature |
 | ----- | ----- | ----- |
 | `ar-EG` | Arabic (Egypt) | Custom Neural Voice Pro |
+| `ar-OM` | Arabic (Oman)| Custom Neural Voice Pro |
 | `ar-SA` | Arabic (Saudi Arabia) | Custom Neural Voice Pro |
+| `ar-SY` | Arabic (Syria) | Custom Neural Voice Pro |
+| `ar-TN` |  Arabic (Tunisia)| Custom Neural Voice Pro |
 | `bg-BG` | Bulgarian (Bulgaria) | Custom Neural Voice Pro |
-| `ca-ES` | Catalan (Spain) | Custom Neural Voice Pro |
+| `ca-ES` | Catalan | Custom Neural Voice Pro |
 | `cs-CZ` | Czech (Czechia) | Custom Neural Voice Pro |
 | `da-DK` | Danish (Denmark) | Custom Neural Voice Pro |
 | `de-AT` | German (Austria) | Custom Neural Voice Pro |
@@ -24,7 +26,15 @@ ms.author: eur
 | `en-GB` | English (United Kingdom) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
 | `en-IE` | English (Ireland) | Custom Neural Voice Pro |
 | `en-IN` | English (India) | Custom Neural Voice Pro |
-| `en-US` | English (United States) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice|
+| `en-KE` | English (Kenya)  | Custom Neural Voice Pro |
+| `en-NG` |English (Nigeria)  | Custom Neural Voice Pro |
+| `en-PH` | English (Philippines) | Custom Neural Voice Pro |
+| `en-SG` | English (Singapore) | Custom Neural Voice Pro |
+| `en-TZ` |  English (Tanzania) | Custom Neural Voice Pro |
+| `en-US` | English (United States) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice |
+| `en-ZA` |English (South Africa) | Custom Neural Voice Pro |
+| `es-AR` |Spanish (Argentina)| Custom Neural Voice Pro |
+| `es-CO` |Spanish (Colombia)| Custom Neural Voice Pro |
 | `es-ES` | Spanish (Spain) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
 | `es-MX` | Spanish (Mexico) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
 | `fi-FI` | Finnish (Finland) | Custom Neural Voice Pro |
@@ -38,7 +48,7 @@ ms.author: eur
 | `hu-HU` | Hungarian (Hungary) | Custom Neural Voice Pro |
 | `id-ID` | Indonesian (Indonesia) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `it-IT` | Italian (Italy) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
-| `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice<sup>1</sup> |
+| `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice (Preview) |
 | `ko-KR` | Korean (Korea) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
 | `ms-MY` | Malay (Malaysia) | Custom Neural Voice Pro |
 | `nb-NO` | Norwegian Bokmål (Norway) | Custom Neural Voice Pro |
@@ -55,10 +65,9 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Custom Neural Voice Pro |
 | `te-IN` | Telugu (India) | Custom Neural Voice Pro |
 | `th-TH` | Thai (Thailand) | Custom Neural Voice Pro |
-| `tr-TR` | Turkish (Turkey) | Custom Neural Voice Pro |
+| `tr-TR` | Turkish (Türkiye) | Custom Neural Voice Pro |
 | `vi-VN` | Vietnamese (Vietnam) | Custom Neural Voice Pro |
-| `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice<sup>1</sup> |
+| `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice (Preview) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Custom Neural Voice Pro |
+| `zh-SG` |  Chinese (Simplified, Singapore) | Custom Neural Voice Pro |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Custom Neural Voice Pro |
-
-<sup>1</sup> `ja-JP` and `zh-CN`are currently in public preview for multi-style voice.

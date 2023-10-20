@@ -54,7 +54,7 @@ Connecting to on-premises data sources from an Azure Analysis Services server re
 |IBM Informix  |Yes | No |  |
 |JSON document      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Lines from binary      | Yes | No | <sup>[6](#tab1400b)</sup> |
-|MySQL Database     | Yes | No |  |
+|MySQL Database     | Yes | No | <sup>[13](#mysql)</sup> |
 |OData Feed      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |ODBC query     | Yes | No |  |
 |OLE DB     |   Yes | No |  |
@@ -79,8 +79,9 @@ Connecting to on-premises data sources from an Azure Analysis Services server re
 <a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
 <a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
-<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.  
-<a name="tds">12</a> - Azure Analysis Services does not support direct connections to the Dynamics 365 [Dataverse TDS endpoint](/power-apps/developer/data-platform/dataverse-sql-query). When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway, and refresh the tokens manually.
+<a name="filesSP">11</a> - Files in on-premises SharePoint aren't supported.  
+<a name="tds">12</a> - Azure Analysis Services doesn't support direct connections to the Dynamics 365 [Dataverse TDS endpoint](/power-apps/developer/data-platform/dataverse-sql-query). When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway and refresh the tokens manually.  
+<a name="mysql">13</a> - Azure Analysis Services doesn't support direct connections to MySQL databases. When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway and refresh the tokens manually.
 
 ## Understanding providers
 

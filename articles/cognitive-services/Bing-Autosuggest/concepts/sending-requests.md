@@ -1,6 +1,6 @@
 ---
 title: "Sending requests to the Bing Autosuggest API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. Learn more about sending requests.
 services: cognitive-services
 
@@ -37,7 +37,7 @@ The **Bing** APIs support search actions that return results according to their 
 All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Autosuggest API, see [Autosuggest Quickstarts](/azure/cognitive-services/bing-autosuggest).
+For examples of basic requests using the Autosuggest API, see [Autosuggest Quickstarts](/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms).
 
 ## Bing Autosuggest API requests
 

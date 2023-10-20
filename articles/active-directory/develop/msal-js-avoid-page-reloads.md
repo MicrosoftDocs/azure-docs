@@ -17,17 +17,17 @@ ms.custom: aaddev, devx-track-js
 ---
 
 # Avoid page reloads when acquiring and renewing tokens silently using MSAL.js
-The Microsoft Authentication Library for JavaScript (MSAL.js) uses hidden `iframe` elements to acquire and renew tokens silently in the background. Azure AD returns the token back to the registered redirect_uri specified in the token request(by default this is the app's root page). Since the response is a 302, it results in the HTML corresponding to the `redirect_uri` getting loaded in the `iframe`. Usually the app's `redirect_uri` is the root page and this causes it to reload.
+The Microsoft Authentication Library for JavaScript (MSAL.js) uses hidden `iframe` elements to acquire and renew tokens silently in the background. Microsoft Entra ID returns the token back to the registered `redirect_uri` specified in the token request(by default this is the app's root page). Since the response is a 302, it results in the HTML corresponding to the `redirect_uri` getting loaded in the `iframe`. Usually the app's `redirect_uri` is the root page and this causes it to reload.
 
 In other cases, if navigating to the app's root page requires authentication, it might lead to nested `iframe` elements or `X-Frame-Options: deny` error.
 
-Since MSAL.js cannot dismiss the 302 issued by Azure AD and is required to process the returned token, it cannot prevent the `redirect_uri` from getting loaded in the `iframe`.
+Since MSAL.js cannot dismiss the 302 issued by Microsoft Entra ID and is required to process the returned token, it cannot prevent the `redirect_uri` from getting loaded in the `iframe`.
 
 To avoid the entire app reloading again or other errors caused due to this, please follow these workarounds.
 
 ## Specify different HTML for the iframe
 
-Set the `redirect_uri` property on config to a simple page, that does not require authentication. You have to make sure that it matches with the `redirect_uri` registered in Azure portal. This will not affect user's login experience as MSAL saves the start page when user begins the login process and redirects back to the exact location after login is completed.
+Set the `redirect_uri` property on config to a simple page, that does not require authentication. You have to make sure that it matches with the `redirect_uri` registered in Microsoft Entra admin center. This will not affect user's login experience as MSAL saves the start page when user begins the login process and redirects back to the exact location after login is completed.
 
 ## Initialization in your main app file
 

@@ -46,7 +46,7 @@ Authentication is the process of challenging a person, software component, or ha
 
 Multi-factor authentication (MFA) is a security measure that requires users to provide more than one piece of evidence to verify their identities, such as:
 - Something they know, for example a password.
-- Something they have, like a badge or [security token](/azure/active-directory/develop/security-tokens).
+- Something they have, like a badge or [security token](../develop/security-tokens.md).
 - Something they are, like a biometric (fingerprint or face).
 
 Single sign-on (SSO) allows users to authenticate their identity once and then later silently authenticate when accessing various resources that rely on the same identity. Once authenticated, the IAM system acts as the source of identity truth for the other resources available to the user. It removes the need for signing on to multiple, separate target systems.
@@ -58,8 +58,8 @@ Authorization validates that the user, machine, or software component has been g
 ## Authentication vs. authorization
 
 The terms authentication and authorization are sometimes used interchangeably, because they often seem like a single experience to users. They're actually two separate processes: 
-- Authentication proves the identity of a user, machine, or software component 
-- Authorization grants or denies the user, machine, or software component access to certain resources  
+- Authentication proves the identity of a user, machine, or software component. 
+- Authorization grants or denies the user, machine, or software component access to certain resources.  
 
 :::image type="content" source="./media/identity-fundamentals/authentication-vs-authorization.svg" alt-text="Diagram that shows authentication and authorization side by side." :::
 
@@ -74,7 +74,7 @@ Here's a quick overview of authentication and authorization:
 | Information is transferred in an ID token. | Information is transferred in an access token. |
 | Often uses the OpenID Connect (OIDC) (which is built on the OAuth 2.0 protocol) or SAML protocols. | Often uses the OAuth 2.0 protocol. |
 
-For more detailed information, read [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
+For more detailed information, read [Authentication vs. authorization](../develop/authentication-vs-authorization.md).
 
 ### Example
 
@@ -84,7 +84,9 @@ If you're staying at the hotel, you first go to reception to start the "authenti
 
 :::image type="content" source="./media/identity-fundamentals/hotel-authentication.png" alt-text="Diagram that shows a person showing identification to get a hotel keycard." :::
 
-The doors to the hotel rooms and other areas have keycard sensors.  Swiping the keycard in front of a sensor is the "authorization process". The keycard only lets you open the doors to rooms you're permitted to access, such as your hotel room and the hotel exercise room. If you swipe your keycard to enter any other hotel guest room, your access is denied.  Individual [permissions](/azure/active-directory/fundamentals/users-default-permissions?context=/azure/active-directory/roles/context/ugr-context), such as accessing the exercise room and a specific guest room, are collected into [roles](/azure/active-directory/roles/concept-understand-roles) which can be granted to individual users.  When you're staying at the hotel, you're granted the Hotel Patron role.  Hotel room service staff would be granted the Hotel Room Service role.  This role permits access to all hotel guest rooms (but only between 11am and 4pm), the laundry room, and the supply closets on each floor.
+The doors to the hotel rooms and other areas have keycard sensors.  Swiping the keycard in front of a sensor is the "authorization process". The keycard only lets you open the doors to rooms you're permitted to access, such as your hotel room and the hotel exercise room. If you swipe your keycard to enter any other hotel guest room, your access is denied.  
+
+Individual [permissions](./users-default-permissions.md?context=/active-directory/roles/context/ugr-context), such as accessing the exercise room and a specific guest room, are collected into [roles](../roles/concept-understand-roles.md) which can be granted to individual users.  When you're staying at the hotel, you're granted the Hotel Patron role.  Hotel room service staff would be granted the Hotel Room Service role.  This role permits access to all hotel guest rooms (but only between 11am and 4pm), the laundry room, and the supply closets on each floor.
 
 :::image type="content" source="./media/identity-fundamentals/hotel-authorization.png" alt-text="Diagram that shows a user getting access to a room with a keycard." :::
 
@@ -98,10 +100,10 @@ With modern authentication, all services, including all authentication services,
 
 With a central identity provider, organizations can establish authentication and authorization policies, monitor user behavior, identify suspicious activities, and reduce malicious attacks.  
 
-[Microsoft Azure Active Directory](/azure/active-directory/) is an example of a cloud-based identity provider. Other examples include Twitter, Google, Amazon, LinkedIn, and GitHub.
+[Microsoft Entra ID](../index.yml) is an example of a cloud-based identity provider. Other examples include Twitter, Google, Amazon, LinkedIn, and GitHub.
 
 ## Next steps
 
 - Read [Introduction to identity and access management](introduction-identity-access-management.md) to learn more.
-- Learn about [Single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on).
-- Learn about [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks).
+- Learn about [Single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md).
+- Learn about [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md).

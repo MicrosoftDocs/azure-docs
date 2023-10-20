@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for images using the Bing Image Search REST API and PHP"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using PHP, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
@@ -26,7 +26,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 * [PHP 5.6.x or later](https://php.net/downloads.php)
 
-For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
@@ -134,5 +134,5 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 * [What is the Bing Image Search API?](../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [Azure Cognitive Services documentation](../../index.yml)
+* [Azure AI services documentation](../../../ai-services/index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

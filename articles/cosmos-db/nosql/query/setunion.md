@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -39,82 +39,24 @@ Returns an array of expressions.
 
 This first example uses the function with static arrays to demonstrate the union functionality.
 
-```sql
-SELECT VALUE {
-    simpleUnion: SetUnion([1, 2, 3, 4], [3, 4, 5, 6]),
-    emptyUnion: SetUnion([1, 2, 3, 4], []),
-    duplicatesUnion: SetUnion([1, 2, 3, 4], [1, 1, 1, 1]),
-    unorderedUnion: SetUnion([1, 2, "A", "B"], ["A", 1])
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setunion/query.novalidate.sql" highlight="2-5":::
 
-```json
-[
-  {
-    "simpleUnion": [1, 2, 3, 4, 5, 6],
-    "emptyUnion": [1, 2, 3, 4],
-    "duplicatesUnion": [1, 2, 3, 4],
-    "unorderedUnion": [1, 2, "A", "B"]
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setunion/result.novalidate.json":::
 
-This last example uses two items in a container that share values within an array property.
+This last example uses an item that share values within multiple array properties.
 
-```json
-[
-  {
-    "name": "Yarbeck Men's Coat",
-    "colors": [
-      {
-        "season": "Winter",
-        "values": [
-          "Cutty Sark",
-          "Horizon",
-          "Russet",
-          "Fuscous"
-        ]
-      },
-      {
-        "season": "Summer",
-        "values": [
-          "Fuscous",
-          "Horizon",
-          "Tacha"
-        ]
-      }
-    ]
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/seed.novalidate.json" range="1-2,4-26" highlight="5-23":::
 
-```sql
-SELECT
-    p.name,    
-    SetUnion(p.colors[0].values, p.colors[1].values) AS allColors
-FROM
-    products p
-```
+The query returns the union of the two arrays as a new property.
 
-```json
-[
-  {
-    "name": "Yarbeck Men's Coat",
-    "allColors": [
-      "Cutty Sark",
-      "Horizon",
-      "Russet",
-      "Fuscous",
-      "Tacha"
-    ]
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/query.novalidate.sql" highlight="3":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/result.novalidate.json":::
 
 ## Remarks
 
 - This function doesn't return duplicates.
-- This function doesn't utilize the index.
+- This function doesn't use the index.
 
 ## See also
 

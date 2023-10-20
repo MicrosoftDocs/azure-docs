@@ -2,8 +2,7 @@
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 06/02/2022
@@ -12,7 +11,7 @@ ms.author: aahi
 
 ### Create a new resource from the Azure portal
 
-1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure AI Language resource. 
+1. Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure AI Language resource. 
 
 1. In the window that appears, select **Custom text classification & custom named entity recognition** from the custom features. Select **Continue to create your resource** at the bottom of the screen. 
 

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Troubleshoot Azure AD roles assigned to groups
-  description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
+  title: Troubleshoot Microsoft Entra roles assigned to groups
+  description: Learn some common questions and troubleshooting tips for assigning roles to groups in Microsoft Entra ID.
   services: active-directory
   author: rolyon
   manager: amycolannino
@@ -12,22 +12,22 @@ metadata:
   ms.date: 11/05/2020
   ms.author: rolyon
   ms.reviewer: vincesm
-  ms.custom: it-pro
+  ms.custom: it-pro, has-azure-ad-ps-ref
   
   ms.collection: M365-identity-device-management
-title: Troubleshoot Azure AD roles assigned to groups
-summary: Here are some common questions and troubleshooting tips for assigning Azure Active Directory (Azure AD) roles to Azure AD groups.
+title: Troubleshoot Microsoft Entra roles assigned to groups
+summary: Here are some common questions and troubleshooting tips for assigning Microsoft Entra roles to Microsoft Entra groups.
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          I'm a Groups Administrator but I can't see the 'Azure AD roles can be assigned to the group' switch.
+          I'm a Groups Administrator but I can't see the 'Microsoft Entra roles can be assigned to the group' switch.
         answer: |
           Only Privileged Role Administrators or Global Administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
 
       - question: |
-          Who can modify the membership of groups that are assigned to Azure AD roles?
+          Who can modify the membership of groups that are assigned to Microsoft Entra roles?
         answer: |
           By default, only Privileged Role Administrator and Global Administrator manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
 
@@ -45,16 +45,16 @@ sections:
           - [List ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
           
       - question: |
-          Can I create an access review on groups that can be assigned to Azure AD roles (specifically, groups with isAssignableToRole property set to true)?  
+          Can I create an access review on groups that can be assigned to Microsoft Entra roles (specifically, groups with isAssignableToRole property set to true)?  
         answer: |
           Yes, you can. Global Administrators and Privileged Role Administrators can create access reviews on role-assignable groups.
           
       - question: |
-          Can I create an access package and put groups that can be assigned to Azure AD roles in it?
+          Can I create an access package and put groups that can be assigned to Microsoft Entra roles in it?
         answer: |
           Yes, you can. Global Administrator and User Administrator have the power to put any group in an access package. Nothing changes for Global Administrator, but there's a slight change in User Administrator role permissions. To put a role-assignable group into an access package, you must be a User Administrator and also owner of the role-assignable group. Here's the full table showing who can create access package in Enterprise License Management:
           
-          Azure AD directory role | Entitlement management role | Can add security group\* | Can add Microsoft 365 group\* | Can add app | Can add SharePoint Online site
+          Microsoft Entra directory role | Entitlement management role | Can add security group\* | Can add Microsoft 365 group\* | Can add app | Can add SharePoint Online site
           ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
           Global Administrator | n/a | ✔️ | ✔️ | ✔️  | ✔️
           User Administrator  | n/a  | ✔️  | ✔️  | ✔️
@@ -71,20 +71,24 @@ sections:
       - question: |
           I can't find "Remove assignment" option in "Assigned Roles". How do I delete role assignment to a user?
         answer: |
-          This answer is applicable only to Azure AD Premium P1 organizations.
+          This answer is applicable only to Microsoft Entra ID P1 organizations.
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select users and open a user profile.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
+          1. Browse to **Identity** > **Users** > **All users**.
+          1. Select a user.
           1. Select **Assigned roles**.
-          1. Select the gear icon. A pane opens that can give this information. There's a "Remove" button beside direct assignments. To remove indirect role assignment, remove the user from the group that has been assigned the role.
+          1. Select a role assignment you want to remove.
+          1. Select **Remove assignments** to remove direct role assignments.
+            
+            To remove indirect role assignments, remove the user from the group that has been assigned the role.
           
       - question: |
           How do I see all groups that are role-assignable?
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select **Groups** > **All groups**.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+          1. Browse to **Identity** > **Groups** > **All groups**.
           1. Select **Add filters**.
           1. Filter to **Role assignable**.
           
@@ -93,12 +97,12 @@ sections:
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select users and open a user profile.
-          1. Select **Assigned roles**, and then:
-          
-              - In Azure AD Premium P1 licensed organizations: Select the gear icon. A pane opens that can give this information.
-              - In Azure AD Premium P2 licensed organizations: You'll find direct and inherited license information in the **Membership** column.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+          1. Browse to **Identity** > **Users** > **All users**.
+          1. Select a user.
+          1. Select **Assigned roles**.
+          1. If you are have a Microsoft Entra ID P1 license, view the **Assignment Path** column.
+          1. If you are have a Microsoft Entra ID P2 license, view the **Membership** column.
           
       - question: |
           Why do we enforce creating a new group for assigning it to role?  
@@ -110,5 +114,5 @@ additionalContent: |
 
   ## Next steps
   
-  - [Use Azure AD groups to manage role assignments](groups-concept.md)
+  - [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
   - [Create a role-assignable group](groups-create-eligible.md)

@@ -54,7 +54,7 @@ You can install the Extension using the following [Azure Functions Core Tools CL
 func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
-For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
 ## Configure local.settings.json for local development
 

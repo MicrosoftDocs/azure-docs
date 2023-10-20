@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 09/29/2021
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, UpdateFrequency2
 ---
 
 # Encrypt disks using customer-managed keys in Azure DevTest Labs

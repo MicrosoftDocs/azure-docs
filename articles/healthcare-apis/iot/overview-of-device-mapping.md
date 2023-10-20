@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/12/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 
 ## Device mapping basics
 
-The device mapping contains collections of expression templates used to extract device message data into an internal, normalized format for further evaluation. Each device message received is evaluated against **all** expression templates in the collection. This evaluation means that a single device message can be separated into multiple outbound messages that can be mapped to multiple FHIR Observations in the FHIR service.
+The device mapping contains collections of expression templates used to extract device message data into an internal, normalized format for further evaluation. Each received device message is evaluated against **all** expression templates in the collection. This evaluation means that a single device message can be separated into multiple outbound messages that can be mapped to multiple FHIR Observations in the FHIR service.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence in the FHIR service, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
@@ -69,7 +69,7 @@ You can use these template types within CollectionContent depending on your use 
 
 and/or
 
-- [IotJsonPathContent](how-to-use-iotjsonpathcontent-mappings.md) for device messages being routed from an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent supports [JSONPath](https://goessner.net/articles/JsonPath/). 
+- [IotJsonPathContent](how-to-use-iotjsonpathcontent-mappings.md) for device messages being routed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent supports [JSONPath](https://goessner.net/articles/JsonPath/). 
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
@@ -157,9 +157,14 @@ To learn how to use custom functions with the MedTech service device mapping, se
 > [!div class="nextstepaction"] 
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-To get an overview of the MedTech service FHIR destination mapping, see
+For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"] 
 > [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

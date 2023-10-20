@@ -48,26 +48,29 @@ In addition to policies for users to request access, you can also have policies 
 | I want some users to request access and other users to be assigned access by an administrator | Two |
 | I want some users in my organization to receive access automatically, other users in my organization to be able to request, and other users to be assigned access by an administrator | Three |
 
-For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
-).
+For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies).
 
 ## Open an existing access package and add a new policy with different request settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package:
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then **Add policy**.
+1. On the **Access packages** page open the access package you want to edit.
+
+1. Select **Policies** and then **Add policy**.
 
 1. You will start on the **Basics** tab. Type a name and a description for the policy.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Click **Next** to open the **Requests** tab.
+1. Select **Next** to open the **Requests** tab.
 
 1. Change the **Users who can request access** setting. Use the steps in the following sections to change the setting to one of the following options: 
     - [For users in your directory](#for-users-in-your-directory) 
@@ -92,7 +95,7 @@ Follow these steps if you want to allow users in your directory to be able to re
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
+    Guest users refer to external users that have been invited into your directory with [Microsoft Entra B2B](../external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, click **Add users and groups**.
 
@@ -108,10 +111,10 @@ Follow these steps if you want to allow users in your directory to be able to re
  
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
+ **Users not in your directory** refers to users who are in another Microsoft Entra directory or domain. These users may not have yet been invited into your directory. Microsoft Entra directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of a Microsoft Entra B2B collaboration user](../external-identities/user-properties.md).
 
 Follow these steps if you want to allow users not in your directory to request this access package:
 
@@ -121,15 +124,14 @@ Follow these steps if you want to allow users not in your directory to request t
 
     ![Access package - Requests - For users not in your directory](./media/entitlement-management-access-package-request-policy/for-users-not-in-your-directory.png)
 
-1. Select one of the following options:
+1. Select whether the users who can request access are required to be affiliated with an existing connected organization, or can be anyone on the Internet.  A connected organization is one that you have a pre-existing relationship with, which might have an external Microsoft Entra directory or another identity provider.  Select one of the following options:
 
     |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
-    | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages that are shown to users from all configured organizations. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State properties of connected organizations](entitlement-management-organization.md#state-properties-of-connected-organizations). |
+    | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages, so if a user is not from a Microsoft Entra tenant, domain or identity provider associated with an existing connected organization, they will not be able to request. |
+    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don't belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
 
-    A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
 1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
 
@@ -142,9 +144,9 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations can request this access package. For a connected organization that has an Azure AD directory, users from all verified domains associated with the Azure AD directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations can request this access package. For a connected organization that has a Microsoft Entra directory, users from all verified domains associated with the Microsoft Entra directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
-1. If you want to require approval, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
+1. Next, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings to specify who should approve requests from users not in your organization.
  
 1. Go to the [Enable requests](#enable-requests) section.
 
@@ -152,7 +154,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/entitlement-management-access-package-request-policy/none-admin-direct-assignments-only.png)
 
@@ -168,23 +170,25 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 To change the request and approval settings for an access package, you need to open the corresponding policy with those settings. Follow these steps to open and edit the request settings for an access package assignment policy:
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then click the policy you want to edit.
+1. On the **Access packages** page open the access package whose policy request settings you want to edit.
+
+1. Select **Policies** and then click the policy you want to edit.
 
     The Policy details pane opens at the bottom of the page.
 
     ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
 
-1. Click **Edit** to edit the policy.
+1. Select **Edit** to edit the policy.
 
     ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click the **Requests** tab to open the request settings.
+1. Select the **Requests** tab to open the request settings.
 
 1. Use the steps in the previous sections to change the request settings as needed.
 
@@ -200,14 +204,14 @@ To change the request and approval settings for an access package, you need to o
 
     ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Click **Next**.
+1. Select **Next**.
 
 1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
  to configure requestor information.
 
 1. Configure lifecycle settings.
 
-1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+1. If you are editing a policy select **Update**. If you are adding a new policy, select **Create**.
 
 ## Create an access package assignment policy programmatically
 
@@ -219,37 +223,49 @@ You can create a policy using Microsoft Graph. A user in an appropriate role wit
 
 ### Create an access package assignment policy through PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.
 
-This script below illustrates using the `beta` profile, to create a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
+This script below illustrates creating a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no approvals or access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-v1.0&preserve-view=true) for more examples.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
 
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
-$pparams = @{
-	AccessPackageId = $apid
-	DisplayName = "direct"
-	Description = "direct assignments by administrator"
-	AccessReviewSettings = $null
-	RequestorSettings = @{
-		ScopeType = "NoSubjects"
-		AcceptRequests = $true
-		AllowedRequestors = @(
-		)
-	}
-	RequestApprovalSettings = @{
-		IsApprovalRequired = $false
-		IsApprovalRequiredForExtension = $false
-		IsRequestorJustificationRequired = $false
-		ApprovalMode = "NoApproval"
-		ApprovalStages = @(
-		)
-	}
+$params = @{
+    displayName = "New Policy"
+    description = "policy for assignment"
+    allowedTargetScope = "notSpecified"
+    specificAllowedTargets = @(
+    )
+    expiration = @{
+        endDateTime = $null
+        duration = $null
+        type = "noExpiration"
+    }
+    requestorSettings = @{
+        enableTargetsToSelfAddAccess = $false
+        enableTargetsToSelfUpdateAccess = $false
+        enableTargetsToSelfRemoveAccess = $false
+        allowCustomAssignmentSchedule = $true
+        enableOnBehalfRequestorsToAddAccess = $false
+        enableOnBehalfRequestorsToUpdateAccess = $false
+        enableOnBehalfRequestorsToRemoveAccess = $false
+        onBehalfRequestors = @(
+        )
+    }
+    requestApprovalSettings = @{
+        isApprovalRequiredForAdd = $false
+        isApprovalRequiredForUpdate = $false
+        stages = @(
+        )
+    }
+    accessPackage = @{
+        id = $apid
+    }
 }
-New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
+
+New-MgEntitlementManagementAssignmentPolicy -BodyParameter $params
 ```
 
 ## Prevent requests from users with incompatible access

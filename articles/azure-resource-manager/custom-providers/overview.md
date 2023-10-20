@@ -15,7 +15,7 @@ Azure Custom Resource Providers is an extensibility platform to Azure. It allows
 - How to utilize Azure Custom Resource Providers to extend existing workflows.
 - Where to find guides and code samples to get started.
 
-:::image type="content" source="./media/overview/overview.png" alt-text="Screenshot of custom resource provider overview.":::
+:::image type="content" source="./media/overview/overview.png" alt-text="Diagram of Azure Custom Resource Providers, displaying the relationship between Azure Resource Manager, custom resource providers, and resources.":::
 
 > [!IMPORTANT]
 > Custom Resource Providers is currently in public preview.

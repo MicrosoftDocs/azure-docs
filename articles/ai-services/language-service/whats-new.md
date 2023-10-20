@@ -5,8 +5,7 @@ description: Find out about new releases and features for the Azure AI Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: whats-new
 ms.date: 04/14/2023
 ms.author: aahi
@@ -16,6 +15,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## July 2023
+
+* [Custom sentiment analysis](./sentiment-opinion-mining/overview.md) is now available in preview.
 
 ## May 2023
 

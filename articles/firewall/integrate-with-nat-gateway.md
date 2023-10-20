@@ -67,5 +67,6 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 ## Next steps
 
+- For more information, see [Scale Azure Firewall SNAT ports with NAT Gateway for large workloads](https://azure.microsoft.com/blog/scale-azure-firewall-snat-ports-with-nat-gateway-for-large-workloads/).
 - [Design virtual networks with NAT gateway](../virtual-network/nat-gateway/nat-gateway-resource.md)
 - [Integrate NAT gateway with Azure Firewall in a hub and spoke network](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md)

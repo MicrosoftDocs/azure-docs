@@ -1,12 +1,13 @@
 ---
-title: PowerShell sample - Export app registrations with expiring secrets and certificates in Azure Active Directory tenant.
-description: PowerShell example that exports all app registrations with expiring secrets and certificates for the specified apps in your Azure Active Directory tenant.
+title: PowerShell sample - Export app registrations with expiring secrets and certificates in Microsoft Entra tenant.
+description: PowerShell example that exports all app registrations with expiring secrets and certificates for the specified apps in your Microsoft Entra tenant.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
+ms.custom:
 ms.topic: sample
 ms.date: 07/11/2023
 ms.author: jomondi

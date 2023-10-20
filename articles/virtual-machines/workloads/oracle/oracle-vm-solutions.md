@@ -4,11 +4,11 @@ description: Learn about supported configurations and limitations of Oracle virt
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/11/2023
 ms.author: jacobjaygbay
-
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 

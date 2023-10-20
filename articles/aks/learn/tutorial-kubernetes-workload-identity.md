@@ -2,7 +2,7 @@
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 05/24/2023
 ---
 
@@ -12,14 +12,14 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect (OIDC) Issuer and managed identity.
 * Create an Azure Key Vault and secret.
-* Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account.
+* Create a Microsoft Entra Workload ID and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Deploy the workload and verify authentication with the workload identity.
 
 ## Before you begin
 
 * This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
-* If you aren't familiar with Azure AD workload identity, see the [Azure AD workload identity overview][workload-identity-overview].
+* If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][workload-identity-overview].
 * When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups]
 
 ## Prerequisites
@@ -89,6 +89,14 @@ To help simplify steps to configure the identities required, the steps below def
     ```azurecli-interactive
     export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
+
+    The variable should contain the Issuer URL similar to the following example:
+
+    ```output
+    https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+    ```
+
+    By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com`, where the value for `{region}` matches the location the AKS cluster is deployed in.
 
 ## Create an Azure Key Vault and secret
 
@@ -256,7 +264,7 @@ You may wish to leave these resources in place. If you no longer need these reso
 
 ## Next steps
 
-In this tutorial, you deployed a Kubernetes cluster and deployed a simple container application to test working with an Azure AD workload identity.
+In this tutorial, you deployed a Kubernetes cluster and deployed a simple container application to test working with a Microsoft Entra Workload ID.
 
 This tutorial is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 

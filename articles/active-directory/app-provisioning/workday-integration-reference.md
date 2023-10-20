@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory and Workday integration reference
-description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
+title: Microsoft Entra ID and Workday integration reference
+description: Technical deep dive into Workday-HR driven provisioning in Microsoft Entra ID
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,38 +8,40 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/01/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
 
-# How Azure Active Directory provisioning integrates with Workday
+# How Microsoft Entra provisioning integrates with Workday
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
+[Microsoft Entra user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Microsoft Entra ID offers three prebuilt integrations: 
 
 * [Workday to on-premises Active Directory user provisioning](../saas-apps/workday-inbound-tutorial.md)
-* [Workday to Azure Active Directory user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md)
+* [Workday to Microsoft Entra user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md)
 * [Workday Writeback](../saas-apps/workday-writeback-tutorial.md)
 
 This article explains how the integration works and how you can customize the provisioning behavior for different HR scenarios. 
 
 ## Establishing connectivity 
 
-### Restricting Workday API access to Azure AD endpoints
-Azure AD provisioning service uses basic authentication to connect to Workday Web Services API endpoints.  
+<a name='restricting-workday-api-access-to-azure-ad-endpoints'></a>
 
-To further secure the connectivity between Azure AD provisioning service and Workday, you can restrict access so that the designated integration system user only accesses the Workday APIs from allowed Azure AD IP ranges. Engage your Workday administrator to complete the following configuration in your Workday tenant. 
+### Restricting Workday API access to Microsoft Entra endpoints
+Microsoft Entra provisioning service uses basic authentication to connect to Workday Web Services API endpoints.  
+
+To further secure the connectivity between Microsoft Entra provisioning service and Workday, you can restrict access so that the designated integration system user only accesses the Workday APIs from allowed Microsoft Entra IP ranges. Engage your Workday administrator to complete the following configuration in your Workday tenant. 
 
 1. Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud. 
-1. Open the file and search for tag **AzureActiveDirectory** 
+1. Open the file and search for tag **Microsoft Entra ID** 
 
    >[!div class="mx-imgBorder"] 
-   >![Azure AD IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)
+   >![Microsoft Entra IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)
 
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address list.
 1. Sign in to Workday admin portal. 
 1. Access the **Maintain IP Ranges** task to create a new IP range for Azure data centers. Specify the IP ranges (using CIDR notation) as a comma-separated list.  
-1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allowlist to specify the Azure AD IP range and the security group that is allowed access from this IP range. Save the changes. 
+1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allowlist to specify the Microsoft Entra IP range and the security group that is allowed access from this IP range. Save the changes. 
 1. Access the **Activate All Pending Authentication Policy Changes** task to confirm changes.
 
 ### Limiting access to worker data in Workday using constrained security groups
@@ -49,12 +51,12 @@ The default steps to [configure the Workday integration system user](../saas-app
 You can limit access by working with your Workday admin and configuring constrained integration system security groups. For more information about Workday, see [Workday community](https://community.workday.com/forums/customer-questions/620393) (*Workday Community access required for this article*).
 
 This strategy of limiting access using constrained ISSG (Integration System Security Groups) is useful in the following scenarios: 
-* **Phased rollout scenario**: You have a large Workday tenant and plan to perform a phased rollout of Workday to Azure AD automated provisioning. In this scenario, rather than excluding users who aren't in scope of the current phase with Azure AD scoping filters, we recommend configuring constrained ISSG so that only in-scope workers are visible to Azure AD.
-* **Multiple provisioning jobs scenario**: You have a large Workday tenant and multiple AD domains each supporting a different business unit/division/company. To support this topology, you would like to run multiple Workday to Azure AD provisioning jobs with each job provisioning a specific set of workers. In this scenario, rather than using Azure AD scoping filters to exclude worker data, we recommend configuring constrained ISSG so that only the relevant worker data is visible to Azure AD. 
+* **Phased rollout scenario**: You have a large Workday tenant and plan to perform a phased rollout of Workday to Microsoft Entra ID automated provisioning. In this scenario, rather than excluding users who aren't in scope of the current phase with Microsoft Entra ID scoping filters, we recommend configuring constrained ISSG so that only in-scope workers are visible to Microsoft Entra ID.
+* **Multiple provisioning jobs scenario**: You have a large Workday tenant and multiple AD domains each supporting a different business unit/division/company. To support this topology, you would like to run multiple Workday to Microsoft Entra provisioning jobs with each job provisioning a specific set of workers. In this scenario, rather than using Microsoft Entra ID scoping filters to exclude worker data, we recommend configuring constrained ISSG so that only the relevant worker data is visible to Microsoft Entra ID. 
 
 ### Workday test connection query
 
-To test connectivity to Workday, Azure AD sends the following *Get_Workers* Workday Web Services request. 
+To test connectivity to Workday, Microsoft Entra ID sends the following *Get_Workers* Workday Web Services request. 
 
 ```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
@@ -87,9 +89,9 @@ To test connectivity to Workday, Azure AD sends the following *Get_Workers* Work
 
 ## How full sync works
 
-**Full sync** in the context of Workday-driven provisioning refers to the process of fetching all identities from Workday and determining what provisioning rules to apply to each worker object. Full sync happens when you turn on provisioning for the first time and also when you *restart provisioning* either from the Azure portal or using Graph APIs. 
+**Full sync** in the context of Workday-driven provisioning refers to the process of fetching all identities from Workday and determining what provisioning rules to apply to each worker object. Full sync happens when you turn on provisioning for the first time and also when you *restart provisioning* either from the Microsoft Entra admin center or using Graph APIs. 
 
-Azure AD sends the following *Get_Workers* Workday Web Services request to retrieve worker data. The query looks up the Workday transaction log for all effective dated worker entries as of the time corresponding to the full sync run. 
+Microsoft Entra ID sends the following *Get_Workers* Workday Web Services request to retrieve worker data. The query looks up the Workday transaction log for all effective dated worker entries as of the time corresponding to the full sync run. 
 
 ```xml
 <!-- Workday full sync query -->
@@ -147,7 +149,7 @@ Azure AD sends the following *Get_Workers* Workday Web Services request to retri
 ```
 The *Response_Group* node is used to specify which worker attributes to fetch from Workday. For a description of each flag in the *Response_Group* node, refer to the Workday [Get_Workers API documentation](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v35.2/Get_Workers.html#Worker_Response_GroupType). 
 
-Certain flag values specified in the *Response_Group* node are calculated based on the attributes configured in the Workday Azure AD provisioning application. Refer to the section on *Supported entities* for the criteria used to set the flag values. 
+Certain flag values specified in the *Response_Group* node are calculated based on the attributes configured in the Workday Microsoft Entra provisioning application. Refer to the section on *Supported entities* for the criteria used to set the flag values. 
 
 The *Get_Workers* response from Workday for the above query includes the number of worker records and page count.
 
@@ -169,17 +171,17 @@ To retrieve the next page of the result set, the next *Get_Workers* query specif
     <p1:Count>30</p1:Count>
   </p1:Response_Filter>
 ```
-Azure AD provisioning service processes each page and iterates through the all effective workers during full sync. 
+Microsoft Entra provisioning service processes each page and iterates through the all effective workers during full sync. 
 For each worker entry imported from Workday:
 * The [XPATH expression](workday-attribute-reference.md) is applied to retrieve attribute values from Workday.
 * The attribute mapping and matching rules are applied and 
-* The service determines what operation to perform in the target (Azure AD/AD). 
+* The service determines what operation to perform in the target (Microsoft Entra ID / Active Directory). 
 
 Once the processing is complete, it saves the timestamp associated with the start of full sync as a watermark. This watermark serves as the starting point for the incremental sync cycle. 
 
 ## How incremental sync works
 
-After full sync, Azure AD provisioning service maintains `LastExecutionTimestamp` and uses it to create delta queries to retrieve incremental changes. During incremental sync, Azure AD sends the following types of queries to Workday: 
+After full sync, Microsoft Entra provisioning service maintains `LastExecutionTimestamp` and uses it to create delta queries to retrieve incremental changes. During incremental sync, Microsoft Entra ID sends the following types of queries to Workday: 
 
 * [Query for manual updates](#query-for-manual-updates)
 * [Query for effective-dated updates and terminations](#query-for-effective-dated-updates-and-terminations)
@@ -299,7 +301,7 @@ The following *Get_Workers* request queries for effective-dated updates that hap
 If any of the above queries returns a future-dated hire, then the following *Get_Workers* request is used to fetch information about a future-dated new hire. The *WID* attribute of the new hire is used to perform the lookup and the effective date is set to the date and time of hire. 
 
 >[!NOTE]
->Future-dated hires in Workday have the Active field set to "0" and it changes to "1" on the hire date. The connector by design queries for future-hire information effective on the date of hire and that is why it always gets future hire Worker profile with Active field set to "1". This allows you to setup the Azure AD profile for future hires in advance with the all the right information pre-populated. If you'd like to delay the enabling of the Azure AD account for future hires, use the transformation function [DateDiff](functions-for-customizing-application-data.md#datediff). 
+>Future-dated hires in Workday have the Active field set to "0" and it changes to "1" on the hire date. The connector by design queries for future-hire information effective on the date of hire and that is why it always gets future hire Worker profile with Active field set to "1". This allows you to setup the Microsoft Entra profile for future hires in advance with the all the right information pre-populated. If you'd like to delay the enabling of the Microsoft Entra account for future hires, use the transformation function [DateDiff](functions-for-customizing-application-data.md#datediff). 
 
 
 ```xml
@@ -351,7 +353,7 @@ If any of the above queries returns a future-dated hire, then the following *Get
 
 ## Retrieving worker data attributes
 
-The *Get_Workers* API can return different data sets associated with a worker. Depending on the [XPATH API expressions](workday-attribute-reference.md) configured in the provisioning schema, Azure AD provisioning service determines which data sets to retrieve from Workday. Accordingly, the *Response_Group* flags are set in the *Get_Workers* request. 
+The *Get_Workers* API can return different data sets associated with a worker. Depending on the [XPATH API expressions](workday-attribute-reference.md) configured in the provisioning schema, Microsoft Entra provisioning service determines which data sets to retrieve from Workday. Accordingly, the *Response_Group* flags are set in the *Get_Workers* request. 
 
 The table provides guidance on mapping configuration to use to retrieve a specific data set. 
 
@@ -419,9 +421,13 @@ Let's say you want to retrieve the following data sets from Workday and use them
 
 The above data sets aren't included by default. 
 To retrieve these data sets:
-1. Sign in to the Azure portal and open your Workday to AD/Azure AD user provisioning app. 
-1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
-1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Azure AD. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your Workday to Active Directory / Microsoft Entra user provisioning application.
+1. Select **Provisioning**.
+1. Edit the mappings and open the Workday attribute list from the advanced section. 
+1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in Active Directory or Microsoft Entra ID. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |
@@ -461,7 +467,7 @@ This section covers how you can customize the provisioning app for the following
 
 ### Support for worker conversions
 
-This section describes the Azure AD provisioning service support for scenarios when a worker converts from full-time employee (FTE) to contingent worker (CW) or vice versa. Depending on how worker conversions are processed in Workday, there may be different implementation aspects to consider. 
+This section describes the Microsoft Entra provisioning service support for scenarios when a worker converts from full-time employee (FTE) to contingent worker (CW) or vice versa. Depending on how worker conversions are processed in Workday, there may be different implementation aspects to consider. 
 
 * [Scenario 1: Backdated conversion from FTE to CW or vice versa](#scenario-1-backdated-conversion-from-fte-to-cw-or-vice-versa) 
 * [Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today](#scenario-2-worker-employed-as-cwfte-today-changes-to-ftecw-today)
@@ -473,11 +479,11 @@ Your HR team may backdate a worker conversion transaction in Workday for valid b
 
 * It's January 15, 2023 and Jane Doe is employed as a contingent worker. HR offers Jane a full-time position. 
 * The terms of Jane's contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday on January 15, 2023 with effective date as January 1, 2023. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
-* The Azure AD provisioning service detects this change in the Workday transaction log on January 15, 2023. The service automatically provision attributes of the new FTE profile in the next sync cycle. 
+* The Microsoft Entra provisioning service detects this change in the Workday transaction log on January 15, 2023. The service automatically provision attributes of the new FTE profile in the next sync cycle. 
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today
-This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service detects this change in the Workday transaction log. In the next sync cycle, the service automatically provisions any associated attributes with an active FTE profile. No changes are required in the provisioning app configuration to handle this scenario.  
+This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Microsoft Entra provisioning service detects this change in the Workday transaction log. In the next sync cycle, the service automatically provisions any associated attributes with an active FTE profile. No changes are required in the provisioning app configuration to handle this scenario.  
 
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
 It's common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here's an example to illustrate how provisioning is handled for this scenario.
@@ -485,7 +491,7 @@ It's common for workers to start work at a company as a contingent worker, leave
 * It's January 1, 2023 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * John's contract ends on January 31, 2023. In the provisioning cycle that runs after end of day January 31, John's AD account is disabled. 
 * John applies for another position and decides to rejoin the company as full-time employee effective May 1, 2023. HR enters John's information as a prehire employee on April 15, 2023. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
-* On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it unlinks the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
+* On April 15, during incremental cycle, the Microsoft Entra provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it unlinks the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 4: Future-dated conversion, when worker is an active CW/FTE
@@ -493,14 +499,14 @@ Sometimes, a worker may already be an active contingent worker, when HR initiate
 
 * It's January 1, 2023 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * On January 15, HR initiates a transaction to convert John from contingent worker to full-time employee effective February 1, 2023.
-* Since Azure AD provisioning service automatically processes future-dated hires, it processes John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he's still a contingent worker. 
+* Since Microsoft Entra provisioning service automatically processes future-dated hires, it processes John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he's still a contingent worker. 
 * To avoid this behavior and ensure that John's FTE details get provisioned on February 1, 2023, perform the following configuration changes. 
 
    **Configuration changes**
    1. Engage your Workday admin to create a provisioning group called "Future-dated conversions". 
    1. Implement logic in Workday to add employee/contingent worker records with future dated conversions to this provisioning group. 
-   1. Update the Azure AD provisioning app to read this provisioning group. Refer to instructions here on how to [retrieve the provisioning group](#example-3-retrieving-provisioning-group-assignments)  
-   1. Create a [scoping filter](define-conditional-rules-for-provisioning-user-accounts.md) in Azure AD to exclude worker profiles that are part of this provisioning group. 
+   1. Update the Microsoft Entra provisioning app to read this provisioning group. Refer to instructions here on how to [retrieve the provisioning group](#example-3-retrieving-provisioning-group-assignments)  
+   1. Create a [scoping filter](define-conditional-rules-for-provisioning-user-accounts.md) in Microsoft Entra ID to exclude worker profiles that are part of this provisioning group. 
    1. In Workday, implement logic so that when the date of conversion is effective, Workday removes the relevant employee/contingent worker record from the provisioning group in Workday. 
    1. With this configuration, the existing employee/contingent worker record continues to be effective and the provisioning changes happen only on the day of conversion.
 
@@ -526,4 +532,3 @@ Use the steps to retrieve attributes associated with international job assignmen
 * [Learn how to configure Workday to Active Directory provisioning](../saas-apps/workday-inbound-tutorial.md)
 * [Learn how to configure write back to Workday](../saas-apps/workday-writeback-tutorial.md)
 * [Learn more about supported Workday Attributes for inbound provisioning](workday-attribute-reference.md)
-

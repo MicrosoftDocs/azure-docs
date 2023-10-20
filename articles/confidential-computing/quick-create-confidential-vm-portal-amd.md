@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 3/27/2022
 ms.author: RunCai
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-linux, has-azure-ad-ps-ref
 ---
 
 # Quickstart: Create confidential VM on AMD in the Azure portal
@@ -112,17 +112,19 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     1. For the key type, select **RSA-HSM**
 
     1. Select your key size
+  
+    n. Under Confidential Key Options select **Exportable** and set the Confidential operation policy as **CVM confidential operation policy**.
 
-    1. Select **Create** to finish creating the key.
+    o. Select **Create** to finish creating the key.
 
-    1. Select **Review + create** to create new disk encryption set. Wait for the resource creation to complete successfully.
+    p. Select **Review + create** to create new disk encryption set. Wait for the resource creation to complete successfully.
  
-    1. Go to the disk encryption set resource in the Azure portal.
+    q. Go to the disk encryption set resource in the Azure portal.
 
-    1. Select the pink banner to grant permissions to Azure Key Vault. 
-
-        > [!IMPORTANT]
-        > You must perform this step to successfully create the confidential VM.
+    r. Select the pink banner to grant permissions to Azure Key Vault.
+   
+   > [!IMPORTANT]
+   > You must perform this step to successfully create the confidential VM.
 
 1. As needed, make changes to settings under the tabs **Networking**, **Management**, **Guest Config**, and **Tags**.
 

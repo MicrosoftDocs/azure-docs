@@ -24,9 +24,10 @@ By default, the Microsoft identity platform issues a SAML token to an applicatio
 
 ## View or edit claims
 
-To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **Attributes & Claims** section.
-
-:::image type="content" source="./media/saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+To view or edit the claims issued in the SAML token to the application:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application, select **Single sign-on** in the left-hand menu, and then select **Edit** in the **Attributes & Claims** section.
 
 You might need to edit the claims issued in the SAML token for the following reasons:
 
@@ -40,13 +41,11 @@ To edit the name identifier value claim:
 1. Open the **Name identifier value** page.
 1. Select the attribute or transformation that you want to apply to the attribute. Optionally, you can specify the format that you want the `nameID` claim to have.
 
-    :::image type="content" source="./media/saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the nameID (name identifier) value in the Azure portal.":::
-
 ### NameID format
 
 If the SAML request contains the element `NameIDPolicy` with a specific format, then the Microsoft identity platform honors the format in the request.
 
-If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the `nameID`.
+If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Microsoft Entra ID sends a persistent pairwise identifier in the `nameID`.
 
 From the **Choose name identifier format** dropdown, select one of the options in the following table.
 
@@ -62,45 +61,34 @@ Transient `nameID` is also supported, but isn't available in the dropdown and ca
 
 ### Attributes
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can select from the options in the following table.
 
 | Name | Description |
 |------|-------------|
 | `Email` | The email address of the user. |
 | `userprincipalName` | The user principal name (UPN) of the user. |
-| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
-| `objectid` | The object ID of the user in Azure AD. |
+| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Microsoft Entra ID. |
+| `objectid` | The object ID of the user in Microsoft Entra ID. |
 | `employeeid` | The employee ID of the user. |
-| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md). |
-| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). |
+| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Microsoft Entra schema. |
 | `pairwiseid` | The persistent form of user identifier. |
 
 For more information about identifier values, see the table that lists the valid ID values per source later in this page.
 
 Any constant (static) value can be assigned to any claim. Use the following steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
-1. Select the required claim that you want to modify.
-1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
-
-    :::image type="content" source="./media/saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
-
-1. The constant value is displayed as shown in the following image.
-
-    :::image type="content" source="./media/saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
+1. On the **Attributes & Claims** blade, select the required claim that you want to modify.
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**. The constant value is displayed.
 
 ### Directory Schema extensions (Preview)
 
 You can also configure directory schema extension attributes as non-conditional/conditional attributes. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1.  In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
-1. Select **Add new claim** or edit an existing claim.
-
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
-
+1. On the **Attributes & Claims** blade, select **Add new claim** or edit an existing claim.
 1. Select source application from application picker where extension property is defined. 
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
-
 1. Select **Add** to add the selection to the claims.
 1. Click **Save** to commit the changes. 
 
@@ -118,7 +106,7 @@ You can use the following special claims transformations functions.
 
 To add application-specific claims:
 
-1. In **User Attributes & Claims**, select **Add new claim** to open the **Manage user claims** page.
+1. On the **Attributes & Claims** blade, select **Add new claim** to open the **Manage user claims** page.
 1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
@@ -129,13 +117,8 @@ To apply a transformation to a user attribute:
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
 1. Select the function from the transformation dropdown. Depending on the function selected, provide parameters and a constant value to evaluate in the transformation.
 1. Select the source of the attribute by clicking on the appropriate radio button. Directory schema extension source is in preview currently.
-
-    :::image type="content" source="./media/saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
-
 1. Select the attribute name from the dropdown.
-
 1. **Treat source as multivalued** is a checkbox indicating whether the transform should be applied to all values or just the first. By default, transformations are only applied to the first element in a multi-value claim, by checking this box it ensures it's applied to all. This checkbox is only be enabled for multi-valued attributes, for example `user.proxyaddresses`.
-
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
 
@@ -227,9 +210,13 @@ When the following conditions occur after **Add** or **Run test** is selected, a
 
 ## Add the UPN claim to SAML tokens
 
-The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
+The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md#saml-restricted-claim-set). If you have custom signing key configured, you can add it in the **Attributes & Claims** section.  
 
+In case there is no custom signing key configured, please refer to [SAML Restricted claim set](reference-claims-mapping-policy-type.md#saml-restricted-claim-set). You can add it as an [optional claim](./optional-claims.md) through **App registrations** in the Azure portal.
+ 
 Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
+
+Customization done in the **Attributes & Claims** section can overwrite the optional claims in the **App Registration**.
 
 ## Emit claims based on conditions
 
@@ -239,9 +226,9 @@ The user type can be:
 
 * **Any** - All users are allowed to access the application.
 * **Members**: Native member of the tenant
-* **All guests**: User is brought over from an external organization with or without Azure AD.
-* **AAD guests**: Guest user belongs to another organization using Azure AD.
-* **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
+* **All guests**: User is brought over from an external organization with or without Microsoft Entra ID.
+* **Microsoft Entra guests**: Guest user belongs to another organization using Microsoft Entra ID.
+* **External guests**: Guest user belongs to an external organization that doesn't have Microsoft Entra ID.
 
 One scenario where the user type is helpful is when the source of a claim is different for a guest and an employee accessing an application. You can specify that if the user is an employee, the NameID is sourced from user.email. If the user is a guest, then the NameID is sourced from user.extensionattribute1.
 
@@ -252,17 +239,13 @@ To add a claim condition:
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
 1. Select the **Source** where the claim is going to retrieve its value. You can either select a user attribute from the dropdown for the source attribute or apply a transformation to the user attribute. You can also select a directory schema extension (preview) before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
+The order in which you add the conditions are important. Microsoft Entra first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
-For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
+For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Microsoft Entra ID. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
-First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
+First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **Microsoft Entra guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
-
-As another example, consider when Britta Simon tries to sign in and the following configuration is used. All conditions are first evaluated with the source of `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, the transformations are evaluated. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
-
-:::image type="content" source="./media/saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
+As another example, consider when Britta Simon tries to sign in and the following configuration is used. All conditions are first evaluated with the source of `Attribute`. Because Britta's user type is **Microsoft Entra guests**, `user.mail` is assigned as the source for the claim. Next, the transformations are evaluated. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **Microsoft Entra guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
@@ -278,8 +261,8 @@ The following table lists other advanced options that can be configured for an a
 |--------|-------------|
 | Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |
 | Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
-| Include attribute name format | If selected, Azure Active Directory adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
+| Include attribute name format | If selected, Microsoft Entra ID adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
 
 ## Next steps
 
-* [Configure single sign-on for applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Configure single sign-on for applications that aren't in the Microsoft Entra application gallery](./single-sign-on-saml-protocol.md)

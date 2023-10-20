@@ -29,7 +29,7 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://www.mailjet.com/), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
 ## Create a SendGrid account
 
@@ -38,13 +38,13 @@ If you don't already have one, start by setting up a SendGrid account. For setup
 Be sure to complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
 
 > [!IMPORTANT]
-> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
+> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://docs.sendgrid.com/ui/account-and-settings/dedicated-ip-addresses). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://docs.sendgrid.com/ui/sending-email/warming-up-an-ip-address).
 
 ## Create Azure AD B2C policy key
 
 Next, store the SendGrid API key in an Azure AD B2C policy key for your policies to reference.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
@@ -58,7 +58,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 ## Create SendGrid template
 
-With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
 
 1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create a Dynamic Template**.
 1. Enter a unique template name like `Verification email` and then select **Create**.

@@ -1,6 +1,6 @@
 ---
 title: Autosuggest search terms - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Pair the Bing Web Search API with the Bing Autosuggest API to provide users with an enhanced search experience.
 services: cognitive-services
 author: aahill

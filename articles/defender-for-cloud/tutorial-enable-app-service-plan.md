@@ -1,5 +1,5 @@
 ---
-title: Protect your applications with the App Service plan - Microsoft Defender for Cloud
+title: Protect your applications with the App Service plan
 
 description: Learn how to enable the App Service plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy

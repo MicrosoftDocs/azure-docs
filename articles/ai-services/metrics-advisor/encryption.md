@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Metrics Advisor service encryption of data at rest.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
 ms.date: 07/02/2021
@@ -14,6 +13,8 @@ ms.author: mbullwin
 ---
 
 # Metrics Advisor service encryption of data at rest
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Metrics Advisor service automatically encrypts your data when it is persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
 
@@ -57,7 +58,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 - Get Application ID of Managed Identity
 
-    Go to Azure Active Directory, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
+    Go to Microsoft Entra ID, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
 
 ### Step3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
 
@@ -68,7 +69,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     1. Set 'Allow access to Azure services' as 'Yes'. 
     2. Add your clientIP address to log in to Azure Database for PostgreSQL.
 
-- Get the access-token for your account with resource type 'https://ossrdbms-aad.database.windows.net'. The access token is the password you need to log in to the Azure Database for PostgreSQL by your account. An example using `az` client:
+- Get the access-token for your account with resource type 'https://ossrdbms-aad.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
 
    ```
    az login

@@ -29,7 +29,7 @@ Labs meet the following requirements for conducting training in any virtual envi
 
 Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to Azure Lab Services. For more information, see the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). Using Azure RBAC lets you clearly separate roles and responsibilities for creating and managing labs across different teams and people in your organization.
 
-Depending on your organizational structure, responsibilities, and skill level, there might be different options to map these permissions to your organizational roles or personas, such as administrators, or educators. The scenarios and diagrams also include students to show where they fit in the process, although they don't require Azure AD permissions.
+Depending on your organizational structure, responsibilities, and skill level, there might be different options to map these permissions to your organizational roles or personas, such as administrators, or educators. The scenarios and diagrams also include students to show where they fit in the process, although they don't require Microsoft Entra permissions.
 
 The following sections give different examples of assigning permissions across an organization. Azure Lab Services enables you to flexibly assign permissions beyond these typical scenarios to match your organizational setup.
 
@@ -45,17 +45,15 @@ Get started as an educator with the [Tutorial: set up a lab for classroom traini
 
 :::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario1.png" alt-text="Diagram that shows lab creation steps where admins create the lab plan and educators create the lab.":::
 
-The following table shows the corresponding mapping of organization roles to Azure AD roles:
+The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 
-| Org. role | Azure AD role | Description |
+| Org. role | Microsoft Entra role | Description |
 | --- | --- | --- |
 | Administrator | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. |
-|               | Lab Operator | Optionally, assign to other administrator to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
 | Educator      | Lab Creator | Create and manage the labs they created. |
 |               | Lab Contributor | Optionally, assign to an educator to create and manage all labs (when assigned at the resource group level). |
-|               | Lab Operator | Optionally, assign to other educators to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
-|               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reset/start/stop/connect lab VMs. |
-| Student       |  | Students don't need an Azure AD role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
+|               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reimage/start/stop/connect lab VMs. |
+| Student       |  | Students don't need a Microsoft Entra role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 
 ### Scenario 2: The IT department owns the entire lab creation process
@@ -70,15 +68,13 @@ Get started as an educator and [add students to a lab](./how-to-manage-lab-users
 
 :::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario2.png" alt-text="Diagram that shows lab creation steps where admins own the entire process.":::
 
-The following table shows the corresponding mapping of organization roles to Azure AD roles:
+The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 
-| Org. role | Azure AD role | Description |
+| Org. role | Microsoft Entra role | Description |
 | --- | --- | --- |
 | Administrator | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. |
-|               | Lab Operator | Optionally, assign to other administrator to manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
-| Educator      | Lab Operator | Manage lab users & schedules, publish labs, and reset/start/stop/connect lab VMs. |
-|               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reset/start/stop/connect lab VMs. |
-| Student       |  | Students don't need an Azure AD role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
+| Educator      | - Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reimage/start/stop/connect lab VMs. |
+| Student       |  | Students don't need a Microsoft Entra role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 
 ### Scenario 3: The educator owns the entire lab creation process
@@ -89,13 +85,13 @@ Get started as an administrator with the [Quickstart: create and connect to a la
 
 :::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario3.png" alt-text="Diagram that shows lab creation steps where educators own the entire process.":::
 
-The following table shows the corresponding mapping of organization roles to Azure AD roles:
+The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 
-| Org. role | Azure AD role | Description |
+| Org. role | Microsoft Entra role | Description |
 | --- | --- | --- |
 | Educator      | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. As an Owner, you can also fully manage all labs.  |
-|               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reset/start/stop/connect lab VMs. |
-| Student       |  | Students don't need an Azure AD role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
+|               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reimage/start/stop/connect lab VMs. |
+| Student       |  | Students don't need a Microsoft Entra role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 
 ## Next steps

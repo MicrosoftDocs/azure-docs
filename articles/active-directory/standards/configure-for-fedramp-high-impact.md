@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory to meet FedRAMP High Impact level
-description: Overview of how you can meet a FedRAMP High Impact level for your organization by using Azure Active Directory.
+title: Configure Microsoft Entra ID to meet FedRAMP High Impact level
+description: Overview of how you can meet a FedRAMP High Impact level for your organization by using Microsoft Entra ID.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Configure Azure Active Directory to meet FedRAMP High Impact level
+# Configure Microsoft Entra ID to meet FedRAMP High Impact level
 
 The [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) is an assessment and authorization process for cloud service providers (CSPs). Specifically, the process is for CSPs that create cloud solution offerings (CSOs) for use with federal agencies. Azure and Azure Government have earned a [Provisional Authority to Operate (P-ATO) at the High Impact level](/compliance/regulatory/offering-fedramp) from the Joint Authorization Board, the highest bar for FedRAMP accreditation.
 
@@ -24,7 +24,7 @@ Azure provides the capability to fulfill all control requirements to achieve a F
 
 ## Microsoft and FedRAMP 
 
-Microsoft Azure supports more services at [FedRAMP High Impact](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) levels than any other CSP. And while this level in the Azure public cloud meets the needs of many US government customers, agencies with more stringent requirements might rely on the Azure Government cloud. Azure Government provides additional safeguards, such as the heightened screening of personnel. 
+Microsoft Azure supports more services at [FedRAMP High Impact](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) levels than any other CSP. And while this level in the Azure public cloud meets the needs of many US government customers, agencies with more stringent requirements might rely on the Azure Government cloud. Azure Government provides additional safeguards, such as the heightened screening of personnel. 
 
 Microsoft is required to recertify its cloud services each year to maintain its authorizations. To do so, Microsoft continuously monitors and assesses its security controls, and demonstrates that the security of its services remains in compliance. For more information, see [Microsoft cloud services FedRAMP authorizations](https://marketplace.fedramp.gov/), and [Microsoft FedRAMP Audit Reports](https://aka.ms/MicrosoftFedRAMPAuditDocuments). To receive other FedRAMP reports, send email to [Azure Federal Documentation](mailto:AzFedDoc@microsoft.com).
 
@@ -32,9 +32,9 @@ There are multiple paths towards FedRAMP authorization. You can reuse the existi
 
 ## Scope of guidance
 
-The FedRAMP high baseline is made up of 421 controls and control enhancements from [NIST 800-53 Security Controls Catalog Revision 4](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final). Where applicable, we included clarifying information from the [800-53 Revision 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). This article set covers a subset of these controls that are related to identity, and which you must configure. 
+The FedRAMP high baseline is made up of 421 controls and control enhancements from [NIST 800-53 Security Controls Catalog Revision 4](https://csrc.nist.gov/pubs/itlb/2015/01/release-of-nist-special-publication-80053a-revisio/final). Where applicable, we included clarifying information from the [800-53 Revision 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). This article set covers a subset of these controls that are related to identity, and which you must configure. 
 
-We provide prescriptive guidance to help you achieve compliance with controls you're responsible for configuring in Azure Active Directory (Azure AD). To fully address some identity control requirements, you might need to use other systems. Other systems might include a security information and event management tool, such as Microsoft Sentinel. If you're using Azure services outside of Azure Active Directory, there will be other controls you need to consider, and you can use the capabilities Azure already has in place to meet the controls.
+We provide prescriptive guidance to help you achieve compliance with controls you're responsible for configuring in Microsoft Entra ID. To fully address some identity control requirements, you might need to use other systems. Other systems might include a security information and event management tool, such as Microsoft Sentinel. If you're using Azure services outside of Microsoft Entra ID, there will be other controls you need to consider, and you can use the capabilities Azure already has in place to meet the controls.
 
 The following is a list of FedRAMP resources:
 
@@ -50,11 +50,11 @@ The following is a list of FedRAMP resources:
 
 * [Azure Compliance Offerings](https://aka.ms/azurecompliance)
 
-* [FedRAMP High Azure Policy built-in initiative definition](../../governance/policy/samples/fedramp-high.md)
+* [FedRAMP High Azure Policy built-in initiative definition](/azure/governance/policy/samples/fedramp-high)
 
-* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center)
+* [Microsoft Purview compliance portal](/purview/microsoft-365-compliance-center)
 
-* [Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager)
+* [Microsoft Purview Compliance Manager](/purview/compliance-manager)
 
 ## Next steps
 

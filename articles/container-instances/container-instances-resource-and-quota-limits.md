@@ -50,15 +50,14 @@ The following limits are default limits that can’t be increased through a quot
 | Resource | Actual Limit | 
 | --- | :--- | 
 | Standard sku container groups per region per subscription | 100 | 
-| Standard sku cores (CPUs) per region per subscription | 100 | 
-| Standard sku cores (CPUs) for K80 GPU per region per subscription | 0 | 
+| Standard sku cores (CPUs) per region per subscription | 100 |  
 | Standard sku cores (CPUs) for V100 GPU per region per subscription | 0 | 
 | Container group creates per hour |300<sup>1</sup> | 
 | Container group creates per 5 minutes | 100<sup>1</sup> | 
 | Container group deletes per hour | 300<sup>1</sup> | 
 | Container group deletes per 5 minutes | 100<sup>1</sup> | 
 
-## Standard Core Resources 
+## Standard Container Resources 
 
 ### Linux Container Groups 
 
@@ -91,7 +90,29 @@ The following resources are available in all Azure Regions supported by Azure Co
 | :----: | :-----: | :-------: | 
 | 4 | 16 | 20 | Y | 
 
-## GPU Resources (Preview) 
+## Spot Container Resources (Preview)
+
+The following maximum resources are available to a container group deployed using [Spot Containers](container-instances-spot-containers-overview.md) (preview). 
+
+> [!NOTE]
+> Spot Containers are only available in the following regions at this time: East US 2, West Europe, and West US.
+
+| Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
+| :---: | :---: | :----: | :-----: | :-------: |
+| 4 | 16 | N/A | N/A | 50 | 
+
+## Confidential Container Resources (Preview)
+
+The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview).
+
+> [!NOTE]
+> Confidential Containers are only available in the following regions at this time: East US, North Europe, West Europe, and West US.
+
+| Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
+| :---: | :---: | :----: | :-----: | :-------: |
+| 4 | 16 | 4 | 16 | 50 | 
+
+## GPU Container Resources (Preview) 
 > [!IMPORTANT]
 > K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
 
@@ -107,14 +128,6 @@ The following maximum resources are available to a container group deployed with
 | V100 | 1 | 6 | 112 | 50 | 
 | V100 | 2 | 12 | 224 | 50 | 
 | V100 | 4 | 24 | 448 | 50 | 
-<!---
-| K80 | 1 | 6 | 56 | 50 | 
-| K80 | 2 | 12 | 112 | 50 | 
-| K80 | 4 | 24 | 224 | 50 | 
-| P100, V100 | 1 | 6 | 112 | 50 | 
-| P100, V100 | 2 | 12 | 224 | 50 | 
-| P100, V100 | 4 | 24 | 448 | 50 | 
---->
 
 ## Next steps 
 

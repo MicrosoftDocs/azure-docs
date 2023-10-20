@@ -1,6 +1,6 @@
 ---
 title: Admin consent for LinkedIn account connections
-description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
+description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Microsoft Entra ID
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 10/10/2023
 ms.author: barclayn
 ms.reviewer: beengen
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate LinkedIn account connections in Azure Active Directory
+# Integrate LinkedIn account connections in Microsoft Entra ID
 
-You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization with Azure Active Directory (Azure AD), part of Microsoft Entra.
+You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization with Microsoft Entra ID, part of Microsoft Entra.
 
 > [!IMPORTANT]
-> The LinkedIn account connections setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
+> The LinkedIn account connections setting is currently being rolled out to Microsoft Entra organizations. When it is rolled out to your organization, it is enabled by default.
 >
 > Exceptions:
 >
 > * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Microsoft 365 operated by 21Vianet in China.
-> * The setting is off by default for Azure AD organizations provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
+> * The setting is off by default for Microsoft Entra organizations provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
 > * The setting is off by default for organizations provisioned in France.
 >
 > Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user's access to an application](../manage-apps/methods-for-removing-user-access.md).
@@ -34,9 +34,10 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's a Global Administrator for the Azure AD organization.
-1. Browse to **Azure Active Directory** > **Users**.
-1. On the **Users** page, select **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Users** > **All users**.
+1. Select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
     * Select **Yes** to enable the service for all users in your organization
@@ -48,7 +49,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 1. When you're done, select **Save** to save your settings.
 
 > [!Important]
-> LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
+> While LinkedIn integration is not fully enabled until your users consent to connect their accounts, access to public LinkedIn profile information is available without requiring individual consent. Full integration (two-way consent and additional fields) is not enabled without each user's consent. Your users can see the available LinkedIn profile of anyone that matches the name searched, regardless of whether that match is in the same enabled group or not.
 
 ### Assign selected users with a group
 
@@ -66,7 +67,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
 1. Create a CSV file of the users who are selected for LinkedIn account connections.
 1. Sign into Microsoft 365 with your administrator account.
 1. Launch PowerShell.
-1. Install the Azure AD module by running `Install-Module AzureAD`
+1. Install the Azure AD PowerShell module by running `Install-Module AzureAD`
 1. Run the following script:
 
   ``` PowerShell

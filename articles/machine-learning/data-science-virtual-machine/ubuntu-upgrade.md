@@ -5,6 +5,7 @@ description: Learn how to upgrade from CentOS and Ubuntu 18.04 to the latest Ubu
 keywords: deep learning, AI, data science tools, data science virtual machine, team data science process
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
@@ -76,7 +77,7 @@ You should now be able to connect with SSH. If you're still having trouble, in t
 
 If you're migrating from CentOS or want a clean OS install, you can do a side-by-side migration. This type of migration has more steps, but gives you control over exactly which files are carried over.
 
-Migrations from other systems based on the same set of upstream source packages should be relatively straightforward, for example [FAQ/CentOS3](https://wiki.centos.org/FAQ/CentOS3).
+Migrations from other systems based on the same set of upstream source packages should be relatively straightforward, for example [FAQ/CentOS3](https://wiki.centos.org/FAQ(2f)CentOS3.html).
 
 You may choose to upgrade the operating system parts of the filesystem and leave user directories, such as `/home` in place. If you do leave the old user home directories in place expect some problems with the GNOME/KDE menus and other desktop items. It may be easiest to create new user accounts and mount the old directories somewhere else in the filesystem for reference, copying, or linking users' material after the migration.
 

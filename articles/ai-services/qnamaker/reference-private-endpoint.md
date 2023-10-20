@@ -1,11 +1,11 @@
 ---
 title: How to set up a Private Endpoint - QnA Maker
 description: Understand Private Endpoint creation available in QnA Maker managed.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
 ---
@@ -19,7 +19,7 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 ## Prerequisites
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) (with Custom question answering feature) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) (with Custom question answering feature) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
 ## Steps to enable private endpoint
 1. Assign *Contributer* role to Text Analytics service in the Azure Search Service instance. This operation requires *Owner* access to the subscription. Go to Identity tab in the service resource to get the identity.

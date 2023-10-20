@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
@@ -72,7 +72,7 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 
 **Cause**
 
-You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) for details.
+You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) for details.
 
 **Resolution**
  

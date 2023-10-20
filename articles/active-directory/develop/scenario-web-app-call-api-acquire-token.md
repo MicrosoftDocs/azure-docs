@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2022
+ms.date: 08/11/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -61,7 +61,7 @@ public async Task<IActionResult> Profile()
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
- client.DefaultRequestHeaders.Add("Authorization", authorizationHeader);
+ client.DefaultRequestHeaders.Add("Authorization", accessToken);
  string json = await client.GetStringAsync(url);
 }
 ```
@@ -73,7 +73,7 @@ The `AuthorizeForScopes` attribute on top of the controller action (or of the Ra
 There are other complex variations, such as:
 
 - Calling several APIs.
-- Processing incremental consent and conditional access.
+- Processing incremental consent and Conditional Access.
 
 These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) tutorial.
 
@@ -81,18 +81,14 @@ These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https
 
 The code for ASP.NET is similar to the code shown for ASP.NET Core:
 
-- A controller action, protected by an [Authorize] attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller. (ASP.NET uses `HttpContext.User`.)
-*Microsoft.Identity.Web* adds extension methods to the Controller that provide convenience services to call Microsoft Graph or a downstream web API, or to get an authorization header, or even a token. The methods used to call an API directly are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
+- A controller action, protected by an `[Authorize]` attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`). This ensures that only authenticated users can use the app. 
+**Microsoft.Identity.Web** adds extension methods to the Controller that provide convenience services to call Microsoft Graph or a downstream web API, or to get an authorization header, or even a token. The methods used to call an API directly are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
 
-If, however, you do want to manually acquire a token or build an authorization header, the following code shows how to use *Microsoft.Identity.Web* to do so in a controller. It calls an API (Microsoft Graph) using the REST API instead of the Microsoft Graph SDK. 
+If, however, you do want to manually acquire a token or build an authorization header, the following code shows how to use Microsoft.Identity.Web to do so in a controller. It calls an API (Microsoft Graph) using the REST API instead of the Microsoft Graph SDK. 
 
 To get an authorization header, you get an `IAuthorizationHeaderProvider` service from the controller using an extension method `GetAuthorizationHeaderProvider`. To get an authorization header to call an API on behalf of the user, use `CreateAuthorizationHeaderForUserAsync`. To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use `CreateAuthorizationHeaderForAppAsync`.
 
-The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
-
-
 The following snippet shows the action of the `HomeController`, which gets an authorization header to call Microsoft Graph as a REST API:
-
 
 ```csharp
 [Authorize]
@@ -139,7 +135,7 @@ public class HomeController : Controller
 
 # [Java](#tab/java)
 
-In the Java sample, the code that calls an API is in the getUsersFromGraph method in [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+In the Java sample, the code that calls an API is in the `getUsersFromGraph` method in [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
 The method attempts to call `getAuthResultBySilentFlow`. If the user needs to consent to more scopes, the code processes the `MsalInteractionRequiredException` object to challenge the user.
 
@@ -201,7 +197,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # [Node.js](#tab/nodejs)
 
-In the Node.js sample, the code that acquires a token is in the *acquireToken* method of the **AuthProvider** class.
+In the Node.js sample, the code that acquires a token is in the `acquireToken` method of the `AuthProvider` class.
 
 :::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="79-121":::
 
@@ -211,7 +207,7 @@ This access token is then used to handle requests to the `/profile` endpoint:
 
 # [Python](#tab/python)
 
-In the Python sample, the code that calls the API is in `app.py`.
+In the Python sample, the code that calls the API is in *app.py*.
 
 The code attempts to get a token from the token cache. If it can't get a token, it redirects the user to the sign-in route. Otherwise, it can proceed to call the API.
 

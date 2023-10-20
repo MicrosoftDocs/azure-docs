@@ -23,6 +23,12 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Chrome M115 - regression 
+
+Chrome version 115 for Android introduced a regression when making video calls - the result of this bug is a user making a call on ACS with this version of Chrome will have no outgoing video in Group and ACS-MS Teams calls.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1469318)
+- As a short term mitigation please instruct users to use Microsoft Edge or Firefox on Android, or avoid using Google Chrome 115/116 on Android
+
 ### Firefox Known Issues
 Firefox desktop browser support is now available in public preview. Known issues are:
 - Enumerating speakers is not available: If you're using Firefox, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. 

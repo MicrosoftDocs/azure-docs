@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/28/2023
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
@@ -23,7 +23,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="./media/multi-service-web-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Azure Active Directory (Azure AD).
+You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Microsoft Entra ID.
 
 In this tutorial, you learn how to:
 
@@ -40,9 +40,9 @@ In this tutorial, you learn how to:
 
 ## Grant front-end access to call Microsoft Graph
 
-Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by an Azure AD application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Azure AD application the permissions to access the Microsoft Graph Azure AD application for the user.)
+Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by a Microsoft Entra application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Microsoft Entra application the permissions to access the Microsoft Graph Microsoft Entra application for the user.)
 
-In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select **Azure Active Directory** from any page.
+In the [Microsoft Entra admin center](https://entra.microsoft.com) menu, select **Applications**.
 
 Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your web app name, and then select **API permissions**.
 
@@ -58,7 +58,8 @@ The web app now has the required permissions to access Microsoft Graph as the si
 > If you don't configure App Service to return a usable access token, you receive a ```CompactToken parsing failed with error code: 80049217``` error when you call Microsoft Graph APIs in your code.
 
 # [Azure Resource Explorer](#tab/azure-resource-explorer)
-Go to [Azure Resource Explorer](https://resources.azure.com/) and using the resource tree, locate your web app. The resource URL should be similar to `https://resources.azure.com/subscriptions/subscriptionId/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
+Go to [Azure Resource Explorer](https://resources.azure.com/) and using the resource tree, locate your web app. The resource URL should be similar to `https://resources.azure.com/subscriptions/subscriptionId/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
+[//]: # (BROKEN LINK HttpLinkUnauthorized ABOVE: https://resources.azure.com/)
 
 The Azure Resource Explorer is now opened with your web app selected in the resource tree. At the top of the page, select **Read/Write** to enable editing of your Azure resources.
 
@@ -131,7 +132,7 @@ Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
-> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](../../app-service/tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
+> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](/azure/app-service/tutorial-auth-aad#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
 > 
 > However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios (handling custom claims, for example), you need the Microsoft.Identity.Web library or [Microsoft Authentication Library](msal-overview.md). There's a little more setup and configuration work in the beginning, but the Microsoft.Identity.Web library can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and Microsoft.Identity.Web will already be a part of your app.
 
@@ -208,7 +209,7 @@ public class Startup
 
 ### appsettings.json
 
-*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Azure AD overview page for your tenant.
+*Microsoft Entra ID* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Microsoft Entra overview page for your tenant.
 
 *Graph* specifies the Microsoft Graph endpoint and the initial scopes needed by the app.
 
@@ -217,9 +218,9 @@ public class Startup
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
-    "TenantId": "[Enter 'common', or 'organizations' or the Tenant Id (Obtained from the Azure portal. Select 'Endpoints' from the 'App registrations' blade and use the GUID in any of the URLs), e.g. da41245a5-11b3-996c-00a8-4d99re19f292]",
-    "ClientId": "[Enter the Client Id (Application ID obtained from the Azure portal), e.g. ba74781c2-53c2-442a-97c2-3d60re42f403]",
-    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+    "TenantId": "[Enter 'common', or 'organizations' or the Tenant Id (Obtained from the Entra admin center. Select 'Endpoints' from the 'App registrations' blade and use the GUID in any of the URLs), e.g. da41245a5-11b3-996c-00a8-4d99re19f292]",
+    "ClientId": "[Enter the Client Id (Application ID obtained from the Microsoft Entra admin center), e.g. ba74781c2-53c2-442a-97c2-3d60re42f403]",
+    "ClientSecret": "[Copy the client secret added to the app from the Microsoft Entra admin center]",
     "ClientCertificates": [
     ],
     // the following is required to handle Continuous Access Evaluation challenges

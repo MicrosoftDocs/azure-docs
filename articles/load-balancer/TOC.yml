@@ -70,6 +70,8 @@
       href: tutorial-gateway-powershell.md
     - name: Create gateway load balancer - Azure CLI
       href: tutorial-gateway-cli.md
+    - name: Deploy a dual-stack gateway load balancer
+      href: gateway-deploy-dual-stack-load-balancer.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer
@@ -194,14 +196,8 @@
     items:
     - name: Upgrade options and guidance
       href: load-balancer-basic-upgrade-guidance.md
-    - name: Upgrade a basic public load balancer
-      href: upgrade-basic-standard.md
-    - name: Upgrade an internal load balancer - Outbound connections not required
-      href: upgrade-basicinternal-standard.md
-    - name: Upgrade an internal load balancer - Outbound connections required
-      href: upgrade-internalbasic-to-publicstandard.md
-    - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
-      href: upgrade-basic-standard-virtual-machine-scale-sets.md
+    - name: Upgrade from Basic to Standard with PowerShell
+      href: upgrade-basic-standard-with-powershell.md
   - name: Using multiple IP configurations
     items:
     - name: Azure portal
@@ -277,7 +273,7 @@
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python
-    href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
+    href: /python/api/azure-mgmt-network/azure.mgmt.network.operations.loadbalancersoperations
   - name: REST
     href: /rest/api/load-balancer/loadbalancers
   - name: Resource Manager template

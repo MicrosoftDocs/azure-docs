@@ -1,11 +1,10 @@
 ---
-title: How to deploy the Document Intelligence Sample Labeling tool
+title: Deploy the Document Intelligence (formerly Form Recognizer) Sample Labeling tool
 titleSuffix: Azure AI services
 description: Learn the different ways you can deploy the Document Intelligence Sample Labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -21,7 +20,7 @@ monikerRange: 'doc-intel-2.1.0'
 >
 > * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
-> * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+> * You can refer to the [API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
 > [!NOTE]
@@ -101,7 +100,7 @@ After you've created your web app, you can enable the continuous deployment opti
 * From the left pane, choose **Container settings**.
 * In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
 
-:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
+:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot of enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
 
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.
@@ -140,9 +139,11 @@ az container create \
 
 ```
 
-### Connect to Azure AD for authorization
+<a name='connect-to-azure-ad-for-authorization'></a>
 
-It's recommended that you connect your web app to Azure Active Directory (Azure AD). This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Azure Active Directory.
+### Connect to Microsoft Entra ID for authorization
+
+It's recommended that you connect your web app to Microsoft Entra ID. This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Microsoft Entra ID.
 
 ## Open source on GitHub
 

@@ -5,10 +5,9 @@ description: Learn how to integrate AI into your applications that can extract i
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -205,7 +204,7 @@ This section will help you decide which Language service feature you should use 
 | Extract categories of information without creating a custom model.     | Unstructured text         | The [preconfigured NER feature](./named-entity-recognition/overview.md) |       |
 | Extract categories of information using a model specific to your data. | Unstructured text | [Custom NER](./custom-named-entity-recognition/overview.md) | ✓ |
 |Extract main topics and important phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
-| Determine the sentiment and opinions expressed in text. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | |
+| Determine the sentiment and opinions expressed in text. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | ✓ |
 | Summarize long chunks of text or conversations. | Unstructured text, <br> transcribed conversations. | [Summarization](./summarization/overview.md) | | 
 | Disambiguate entities and get links to Wikipedia. | Unstructured text | [Entity linking](./entity-linking/overview.md) | | 
 | Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
@@ -246,9 +245,10 @@ Use Language service containers to deploy API features on-premises. These Docker
 
 * [Sentiment analysis](sentiment-opinion-mining/how-to/use-containers.md)
 * [Language detection](language-detection/how-to/use-containers.md)
-* [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md) 
+* [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md)
+* [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/use-containers.md)
 * [Text Analytics for health](text-analytics-for-health/how-to/use-containers.md)
-
+* [Summarization](summarization/how-to/use-containers.md)
 
 ## Responsible AI 
 

@@ -126,11 +126,12 @@ const job = await routerClient.createJob("job-1", {
 Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```javascript
-const worker = await routerClient.createWorker("worker-1", {
+let worker = await routerClient.createWorker("worker-1", {
     totalCapacity: 1,
     queueAssignments: { [queue.id]: {} },
     labels: { "Some-Skill": 11 },
-    channelConfigurations: { "voice": { capacityCostPerJob: 1 } }
+    channelConfigurations: { "voice": { capacityCostPerJob: 1 } },
+    availableForOffers: true
 });
 ```
 
@@ -140,7 +141,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```javascript
-await new Promise(r => setTimeout(r, 3000));
+await new Promise(r => setTimeout(r, 10000));
 worker = await routerClient.getWorker(worker.id);
 for (const offer of worker.offers) {
     console.log(`Worker ${worker.id} has an active offer for job ${offer.jobId}`);
@@ -161,7 +162,7 @@ console.log(`Worker ${worker.id} is assigned job ${accept.jobId}`);
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```javascript
-await routerClient.completeJob("job-1", accept.assignmentId);
+await routerClient.completeJob(accept.jobId, accept.assignmentId);
 console.log(`Worker ${worker.id} has completed job ${accept.jobId}`);
 ```
 
@@ -170,8 +171,17 @@ console.log(`Worker ${worker.id} has completed job ${accept.jobId}`);
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```javascript
-await routerClient.closeJob("job-1", accept.assignmentId, { dispositionCode: "Resolved" });
+await routerClient.closeJob(accept.jobId, accept.assignmentId, { dispositionCode: "Resolved" });
 console.log(`Worker ${worker.id} has closed job ${accept.jobId}`);
+```
+
+## Delete the job
+
+Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
+```javascript
+await routerClient.deleteJob(accept.jobId);
+console.log(`Deleting job ${accept.jobId}`);
 ```
 
 ## Run the code
@@ -181,10 +191,12 @@ To run the code, make sure you are on the directory where your `index.js` file i
 ```console
 node index.js
 
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Azure Communication Services - Job Router Quickstart
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
@@ -192,7 +204,7 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-jobrouter?view=azure-node-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

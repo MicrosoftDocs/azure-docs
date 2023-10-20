@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 11/29/2022
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Quickstart: Create an AMD-based confidential VM with the Azure CLI

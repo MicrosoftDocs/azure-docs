@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, devx-track-linux
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
@@ -19,7 +19,7 @@ This tutorial walks you through the process of building, configuring, deploying,
 What you will learn:
 
 > [!div class="checklist"]
-> * Configure a Quarkus app to authenticate using Azure Active Directory (Azure AD) with a PostgreSQL Database.
+> * Configure a Quarkus app to authenticate using Microsoft Entra ID with a PostgreSQL Database.
 > * Create an Azure container registry and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.

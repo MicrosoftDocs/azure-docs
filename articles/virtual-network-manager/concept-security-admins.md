@@ -35,6 +35,10 @@ Here are some scenarios where security admin rules can be used:
 | **Enforcing application-level security** | Security admin rules can be used to enforce application-level security by blocking traffic to or from specific applications or services. |
 
 With Azure Virtual Network Manager, you have a centralized location to manage security admin rules. Centralization allows you to define security policies at scale and apply them to multiple virtual networks at once.
+
+> [!NOTE]
+> Currently, security admin rules do not apply to private endpoints that fall under the scope of a managed virtual network.
+
 ## How do security admin rules work?
 
 Security admin rules allow or deny traffic on specific ports, protocols, and source/destination IP prefixes in a specified direction. When you define a security admin rule, you specify the following conditions:
@@ -45,6 +49,7 @@ Security admin rules allow or deny traffic on specific ports, protocols, and sou
 - The protocol to be used
 
 To enforce security policies across multiple virtual networks, you [create and deploy a security admin configuration](how-to-block-network-traffic-portal.md). This configuration contains a set of rule collections, and each rule collection contains one or more security admin rules. Once created, you associate the rule collection with the network groups requiring security admin rules. The rules are then applied to all virtual networks contained in the network groups when the configuration is deployed. A single configuration provides a centralized and scalable enforcement of security policies across multiple virtual networks.
+
 ### Evaluation of security admin rules and network security groups (NSGs)
 
 Security admin rules and network security groups (NSGs) can be used to enforce network security policies in Azure. However, they have different scopes and priorities.
@@ -117,7 +122,7 @@ When you define a security admin rule, there are required and optional fields.
 
 #### Priority
 
-The priority of a security admin rule is an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
+The priority of a security admin rule is an integer between 1 and 4096. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
 
 #### <a name = "action"></a>Action
 

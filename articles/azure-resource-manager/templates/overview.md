@@ -31,7 +31,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the template through one command, rather than through multiple imperative commands.
 
-   ![Template deployment comparison](./media/overview/template-processing.png)
+   :::image type="content" source="./media/overview/template-processing.png" alt-text="Diagram that shows the difference between imperative and declarative deployment.":::
 
 * **Modular files**: You can break your templates into smaller, reusable components and link them together at deployment time. You can also nest one template inside another template.
 
@@ -47,7 +47,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
 * **Tracked deployments**: In the Azure portal, you can review the deployment history and get information about the template deployment. You can see the template that was deployed, the parameter values passed in, and any output values. Other infrastructure as code services aren't tracked through the portal.
 
-   ![Deployment history](./media/overview/deployment-history.png)
+   :::image type="content" source="./media/overview/deployment-history.png" alt-text="Screenshot of the Azure portal showing deployment history.":::
 
 * **Policy as code**: [Azure Policy](../../governance/policy/overview.md) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
 
@@ -98,10 +98,10 @@ It converts the definition to the following REST API operation, which is sent to
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2022-09-01
 REQUEST BODY
 {
-  "location": "westus",
+  "location": "centralus",
   "sku": {
     "name": "Standard_LRS"
   },
@@ -125,15 +125,15 @@ To deploy a template, use any of the following options:
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
 
-![three tier template](./media/overview/3-tier-template.png)
+:::image type="content" source="./media/overview/3-tier-template.png" alt-text="Diagram that shows a three-tier application deployment using a single template.":::
 
 But, you don't have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a main template that links all the required templates. The following image shows how to deploy a three tier solution through a parent template that includes three nested templates.
 
-![nested tier template](./media/overview/nested-tiers-template.png)
+:::image type="content" source="./media/overview/nested-tiers-template.png" alt-text="Diagram that shows a three-tier application deployment using nested templates.":::
 
 If you envision your tiers having separate lifecycles, you can deploy your three tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
 
-![tier template](./media/overview/tier-templates.png)
+:::image type="content" source="./media/overview/tier-templates.png" alt-text="Diagram that shows a three-tier application deployment with separate resource groups.":::
 
 For information about nested templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 

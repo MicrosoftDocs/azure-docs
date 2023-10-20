@@ -1,6 +1,6 @@
 ---
 title: Share your custom search - Bing Custom Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Easily allow collaborative editing and testing of your instance by sharing it with members of your team.
 services: cognitive-services
 author: aahill

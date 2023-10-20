@@ -47,8 +47,6 @@ If you do not know your offer ID, you can obtain it through the Azure portal.
 - On the *Subscriptions* window:
   ![Offer ID details from the Azure portal](./media/client-images/offer-id-azure-portal.png) 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window. 
-- You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
-  ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps
 You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

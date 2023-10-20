@@ -29,6 +29,8 @@ landingContent:
             url: event-hubs-about.md
           - text: Event Hubs for Apache Kafka
             url: azure-event-hubs-kafka-overview.md
+          - text: Schema Registry
+            url: schema-registry-overview.md
           - text: Event Hubs Capture
             url: event-hubs-capture-overview.md            
           - text: Event Hubs Premium            

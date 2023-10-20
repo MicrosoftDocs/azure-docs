@@ -3,6 +3,7 @@ title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs. 
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 04/11/2023
 ms.reviewer: cynthn, mattmcinnes

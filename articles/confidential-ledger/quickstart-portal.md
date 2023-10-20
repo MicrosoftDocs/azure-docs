@@ -19,7 +19,7 @@ In this quickstart, you create a confidential ledger with the [Azure portal](htt
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a confidential ledger
 
@@ -36,9 +36,9 @@ Sign in to the Azure portal at https://portal.azure.com.
    
 1. Select the **Security** tab.
 
-1. You must now add an Azure AD-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add an Azure AD-based user. Select **+ Add AAD-Based User**.
+1. You must now add a Microsoft Entra ID-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add a Microsoft Entra ID-based user. Select **+ Add Microsoft Entra ID-Based User**.
 
-1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane. Your user profile may already be in the Azure AD-based user section, in which case you cannot add yourself again.
+1. You must add a Microsoft Entra ID-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane. Your user profile may already be in the Microsoft Entra ID-based user section, in which case you cannot add yourself again.
 
 1. In the **Ledger Role** drop-down field, select **Administrator**.
 

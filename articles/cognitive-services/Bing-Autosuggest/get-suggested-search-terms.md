@@ -1,6 +1,6 @@
 ---
 title: What is Bing Autosuggest?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box.
 services: cognitive-services
 
@@ -28,7 +28,7 @@ If your application sends queries to any of the Bing Search APIs, you can use th
 
 The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON.
 
-1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to this API each time a user types a new character in your application's search box.
 3. Process the API response by parsing the returned JSON message.
 

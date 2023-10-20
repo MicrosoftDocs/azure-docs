@@ -1,94 +1,24 @@
 ---
-title: Backend health and diagnostic logs
+title: Diagnostic logs
 titleSuffix: Azure Application Gateway
-description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
+description: Learn how to enable and manage logs for Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/19/2023
+ms.date: 09/19/2023
 ms.author: greglin 
 ---
 
-# Backend health and diagnostic logs for Application Gateway
+# Diagnostic logs for Application Gateway
 
-You can monitor Azure Application Gateway resources in the following ways:
+Application Gateway logs provide detailed information for events related to a resource and its operations. These logs are available for events such as Access, Activity, Firewall, and Performance (only for V1). The granular information in logs is helpful when troubleshooting a problem or building an analytics dashboard by consuming this raw data.
 
-* [Backend health](#backend-health): Application Gateway provides the capability to monitor the health of the servers in the backend pools through the Azure portal and through PowerShell. You can also find the health of the backend pools through the performance diagnostic logs.
+Logs are available for all resources of Application Gateway; however, to consume them, you must enable their collection in a storage location of your choice. Logging in Azure Application Gateway is enabled by the Azure Monitor service. We recommend using the Log Analytics workspace as you can readily use its predefined queries and set alerts based on specific log conditions.
 
-* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
+## <a name="diagnostic-logging"></a>Types of Diagnostic logs
 
-* [Metrics](application-gateway-metrics.md): Application Gateway has several metrics that help you verify your system is performing as expected.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## Backend health
-
-Application Gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of backend pools through the performance diagnostic logs.
-
-The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the back end can receive traffic, it's considered healthy. Otherwise, it's considered unhealthy.
-
-> [!IMPORTANT]
-> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 for v1 SKUs, and 65200-65535 for v2 SKUs on the Application Gateway subnet for inbound traffic. This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, won't be able to initiate any changes on those endpoints.
-
-
-### View backend health through the portal
-
-In the portal, backend health is provided automatically. In an existing application gateway, select **Monitoring** > **Backend health**.
-
-Each member in the backend pool is listed on this page (whether it's a NIC, IP, or FQDN). Backend pool name, port, backend HTTP settings name, and health status are shown. Valid values for health status are **Healthy**, **Unhealthy**, and **Unknown**.
-
-> [!NOTE]
-> If you see a backend health status of **Unknown**, ensure that access to the back end is not blocked by an NSG rule, a user-defined route (UDR), or a custom DNS in the virtual network.
-
-![Backend health][10]
-
-### View backend health through PowerShell
-
-The following PowerShell code shows how to view backend health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
-
-```powershell
-Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
-```
-
-### View backend health through Azure CLI
-
-```azurecli
-az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
-```
-
-### Results
-
-The following snippet shows an example of the response:
-
-```json
-{
-"BackendAddressPool": {
-    "Id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/appGatewayBackendPool"
-},
-"BackendHttpSettingsCollection": [
-    {
-    "BackendHttpSettings": {
-        "Id": "/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
-    },
-    "Servers": [
-        {
-        "Address": "hostname.westus.cloudapp.azure.com",
-        "Health": "Healthy"
-        },
-        {
-        "Address": "hostname.westus.cloudapp.azure.com",
-        "Health": "Healthy"
-        }
-    ]
-    }
-]
-}
-```
-
-## <a name="diagnostic-logging"></a>Diagnostic logs
-
-You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. You can learn more about these types below:
 
 * **Activity log**: You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
@@ -98,11 +28,16 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 > [!NOTE]
 > Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) article.
 
-You have three options for storing your logs:
+## Storage locations
 
-* **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
-* **Azure Monitor logs**: Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
+You have the following options to store the logs in your preferred location.
+
+1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations and set alerts based on specific log conditions.
+1. **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
+1. **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
+1. **Azure Monitor partner integrations**
+
+[Learn more](../azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) about the Azure Monitor's Diagnostic settings destinations.
 
 ### Enable logging through PowerShell
 

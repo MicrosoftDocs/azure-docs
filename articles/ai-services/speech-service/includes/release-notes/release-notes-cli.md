@@ -1,10 +1,13 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### Speech CLI 1.31.0: August 2023 release
+
+Updated to use Speech SDK 1.31.0
 
 ### Speech CLI 1.30.0: July 2023 release
 

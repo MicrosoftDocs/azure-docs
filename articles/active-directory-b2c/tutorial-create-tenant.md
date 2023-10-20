@@ -46,14 +46,14 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 >[!NOTE]
 >If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your *Global Administrator* to assign you a **Tenant Creator** role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 
-1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your subscription: 
+1. Make sure you're using the Microsoft Entra tenant that contains your subscription: 
 
     1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
     
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory that contains your subscription in the **Directory name** list, and then select **Switch** button next to it.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory that contains your subscription in the **Directory name** list, and then select **Switch** button next to it.
         
         ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
@@ -77,14 +77,14 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
    - For **Organization name**, enter a name for your Azure AD B2C tenant.
    - For **Initial domain name**, enter a domain name for your Azure AD B2C tenant.
-   - For **Location**, select your country/region from the list. If the country/region you select has a [Go-Local add-on](data-residency.md#go-local-add-on) option, such as Japan or Australia, and you want to store your data exclusively within that country/region, select the **Store Azure AD Core Store data and Azure AD components and service data in the location selected above** checkbox. Go-Local add-on is a paid add-on whose charge is added to your Azure AD B2C Premium P1 or P2 licenses charges, see [Billing model](billing.md#about-go-local-add-on). You can't change the data residency region after you create your Azure AD B2C tenant. 
+   - For **Location**, select your country/region from the list. If the country/region you select has a [Go-Local add-on](data-residency.md#go-local-add-on) option, such as Japan or Australia, and you want to store your data exclusively within that country/region, select the **Store Microsoft Entra Core Store data and Microsoft Entra components and service data in the location selected above** checkbox. Go-Local add-on is a paid add-on whose charge is added to your Azure AD B2C Premium P1 or P2 licenses charges, see [Billing model](billing.md#about-go-local-add-on). You can't change the data residency region after you create your Azure AD B2C tenant. 
    - For **Subscription**, select your subscription from the list.
    - For **Resource group**, select or search for the resource group that will contain the tenant.
 
     :::image type="content" source="media/tutorial-create-tenant/review-and-create-tenant.png" alt-text="Screenshot of create tenant form in with example values in Azure portal.":::
 
 1. Select **Review + create**.
-1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
+1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/troubleshooting/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -95,7 +95,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
 
@@ -109,7 +109,7 @@ Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as lon
 
     :::image type="content" source="media/tutorial-create-tenant/opt-in-go-local-add-on.png" alt-text="Screenshot of opt in to Azure AD B2C Go-Local add-on in Azure portal."::: 
 
-1. On the **Data residency** pane that appears, select the **Store my directory and Azure AD data in \<Country\>** checkbox, then select **Save** button.
+1. On the **Data residency** pane that appears, select the **Store my directory and Microsoft Entra data in \<Country\>** checkbox, then select **Save** button.
 
 1. Close the **Data residency** pane. 
 
@@ -135,7 +135,7 @@ You only need to perform this operation once. Before performing these steps, mak
 1. In the **All services** search box, search for **Azure AD B2C**, hover over the search result, and then select the star icon in the tooltip. **Azure AD B2C** now appears in the Azure portal under **Favorites**.
 1. If you want to change the position of your new favorite, go to the Azure portal menu, select **Azure AD B2C**, and then drag it up or down to the desired position.
 
-    ![Azure AD B2C, Favorites menu, Microsoft Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
+    ![Azure AD B2C, Favorites menu, Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## Next steps
 

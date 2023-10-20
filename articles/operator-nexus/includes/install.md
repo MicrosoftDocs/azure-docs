@@ -1,4 +1,6 @@
-
+---
+ms.custom: devx-track-azurecli
+---
 ```bash
 
 #!/bin/bash
@@ -139,7 +141,7 @@ spec:
                   if proxy_url is not None:
                       os.environ["HTTP_PROXY"] = proxy_url
                       os.environ["HTTPS_PROXY"] = proxy_url
-                  run_cmd(logger, "/usr/bin/az extension add --name connectedmachine --yes")
+                  run_cmd(logger, "/usr/bin/az extension add --name connectedmachine --version 0.6.0 --yes")
 
 
               def get_cm_properties(logger, config):
@@ -155,8 +157,8 @@ spec:
                   try:
                       raw_property = run_cmd(logger, property_cmd)
                       cm_json = json.loads(raw_property.stdout)
-                      provisioning_state = cm_json["properties"]["provisioningState"]
-                      status = cm_json["properties"]["status"]
+                      provisioning_state = cm_json["provisioningState"]
+                      status = cm_json["status"]
                   except:
                       logger.warning("Connectedmachine not yet present")
                       provisioning_state = "NOT_PROVISIONED"
@@ -184,7 +186,7 @@ spec:
                   try:
                       raw_state = run_cmd(logger, state_cmd)
                       cme_json = json.loads(raw_state.stdout)
-                      provisioning_state = cme_json["properties"]["provisioningState"]
+                      provisioning_state = cme_json["provisioningState"]
                   except:
                       logger.warning("Connectedmachine extension not yet present")
                       provisioning_state = "NOT_PROVISIONED"
@@ -525,7 +527,7 @@ spec:
               #!/bin/bash
               set -e
 
-              echo "{\"SUBSCRIPTION_ID\": \"\${SUBSCRIPTION_ID}\", \"SERVICE_PRINCIPAL_ID\": \"\${SERVICE_PRINCIPAL_ID}\", \"SERVICE_PRINCIPAL_SECRET\": \"\${SERVICE_PRINCIPAL_SECRET}\", \"RESOURCE_GROUP\": \"\${RESOURCE_GROUP}\", \"TENANT_ID\": \"\${TENANT_ID}\", \"LOCATION\": \"\${LOCATION}\", \"PROXY_URL\": \"\${PROXY_URL}\"}" > "\${WORKDIR}"/telemetry/arc-connect.json
+              echo "{\"SUBSCRIPTION_ID\": \"\${SUBSCRIPTION_ID}\", \"SERVICE_PRINCIPAL_ID\": \"\${SERVICE_PRINCIPAL_ID}\", \"SERVICE_PRINCIPAL_SECRET\": \"\${SERVICE_PRINCIPAL_SECRET}\", \"RESOURCE_GROUP\": \"\${RESOURCE_GROUP}\", \"TENANT_ID\": \"\${TENANT_ID}\", \"LOCATION\": \"\${LOCATION}\", \"PROXY_URL\": \"\${PROXY_URL}\", \"CONNECTEDMACHINE_AZCLI_VERSION\": \"0.6.0\"}" > "\${WORKDIR}"/telemetry/arc-connect.json
 
               echo "Connecting machine to Azure Arc..."
               /usr/bin/python3 "\${WORKDIR}"/telemetry/setup_arc_for_servers.py > "\${WORKDIR}"/setup_arc_for_servers.out

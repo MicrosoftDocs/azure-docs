@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure
 description: Learn how to create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
 ms.date: 05/04/2023
-ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to create an AKS cluster and deploy an application so I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -43,6 +43,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 > [!NOTE]
 > If you plan to run the commands locally instead of in Azure Cloud Shell, make sure you run the commands with administrative privileges.
+
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
 ## Create a resource group
 
@@ -316,3 +319,4 @@ This quickstart is for introductory purposes. For guidance on creating full solu
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+[intro-azure-linux]: ../../azure-linux/intro-azure-linux.md

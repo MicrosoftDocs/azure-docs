@@ -1,74 +1,53 @@
 ---
-title: LOG in Azure Cosmos DB query language
-description: Learn about the LOG SQL system function in Azure Cosmos DB to return the natural logarithm of the specified numeric expression
-author: ginamr
+title: LOG
+description: An Azure Cosmos DB for NoSQL system function that returns the natural logarithm of the specified numeric expression
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# LOG (Azure Cosmos DB)
+
+# LOG (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the natural logarithm of the specified numeric expression.  
-  
+Returns the natural logarithm of the specified numeric expression.  
+
 ## Syntax
-  
+
 ```sql
-LOG (<numeric_expr> [, <base>])  
+LOG(<numeric_expr> [, <numeric_base>])  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
-*base*  
-   Optional numeric argument that sets the base for the logarithm.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+| **`numeric_base` *(Optional)*** | An optional numeric value that sets the base for the logarithm. If not set, the default value is the natural logarithm approximately equal to `2.718281828``. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
-## Remarks
-  
-  By default, `LOG()` returns the natural logarithm. You can change the base of the logarithm to another value by using the optional base parameter.  
-  
-  The natural logarithm is the logarithm to the base **e**, where **e** is an irrational constant approximately equal to *2.718281828*.  
-  
-  The natural logarithm of the exponential of a number is the number itself: `LOG( EXP( n ) ) = n`. And the exponential of the natural logarithm of a number is the number itself: `EXP( LOG( n ) ) = n`.
 
-  This system function won't utilize the index.
-  
+Returns a numeric expression.
+
 ## Examples
-  
-  The following example declares a variable and returns the logarithm value of the specified variable (10).  
-  
-```sql
-SELECT LOG(10) AS log  
-```  
-  
- Here's the result set.  
-  
-```json
-[{log: 2.3025850929940459}]  
-```  
-  
- The following example calculates the `LOG` for the exponent of a number.  
-  
-```sql
-SELECT EXP(LOG(10)) AS expLog  
-```  
-  
- Here's the result set.  
-  
-```json
-[{expLog: 10.000000000000002}]  
-```  
 
-## Next steps
+The following example returns the logarithm value of various values.
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log-base/query.sql" highlight="2-3":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/log-base/result.json":::
+
+## Remarks
+
+- This function doesn't use the index.
+- The natural logarithm of the exponential of a number is the number itself: `LOG( EXP( n ) ) = n`. And the exponential of the natural logarithm of a number is the number itself: `EXP( LOG( n ) ) = n`.
+
+## Related content
+
+- [System functions](system-functions.yml)
+- [`LOG10`](log10.md)

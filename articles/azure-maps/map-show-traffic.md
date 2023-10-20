@@ -2,8 +2,8 @@
 title: Show traffic on a map
 titleSuffix: Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/15/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -38,7 +38,7 @@ The [Traffic Overlay] sample demonstrates how to display the traffic overlay on 
 :::image type="content" source="./media/map-show-traffic/traffic-overlay.png"alt-text="A screenshot of map with the traffic overlay, showing current traffic.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------->
 
 ## Traffic overlay options
@@ -48,9 +48,7 @@ The [Traffic Overlay Options] tool lets you switch between the different traffic
 :::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png"alt-text="A screenshot of map showing the traffic overlay options.":::
 
 <!--------------------------------------------------
-<iframe height="700" scrolling="no" title="Traffic overlay options" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Traffic overlay options</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result]
 -------------------------------------------------->
 
 ## Add traffic controls
@@ -72,9 +70,7 @@ The [Traffic controls] sample is a fully functional map that shows how to displa
 :::image type="content" source="./media/map-show-traffic/add-traffic-controls.png"alt-text="A screenshot of map with the traffic display button, showing current traffic.":::
 
 <!--------------------------------------------------
-<iframe height="500" scrolling="no" title="Traffic controls" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>Traffic controls</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------->
 
 ## Next steps

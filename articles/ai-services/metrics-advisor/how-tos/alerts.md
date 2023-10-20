@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to configure your Metrics Advisor alerts using hooks for email, web and Azure DevOps.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
 ms.date: 09/14/2020
@@ -13,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # How-to: Configure alerts and get notifications using a hook
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 
@@ -23,7 +24,7 @@ Metrics Advisor supports four different types of hooks: email, Teams, webhook, a
 ### Email hook
 
 > [!Note]
-> Metrics Advisor resource administrators need to configure the Email settings, and input **SMTP related information** into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Azure AI Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. [Learn more about e-mail settings configuration](../faq.yml#how-to-set-up-email-settings-and-enable-alerting-by-email-). 
+> Metrics Advisor resource administrators need to configure the Email settings, and input **SMTP related information** into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. [Learn more about e-mail settings configuration](../faq.yml#how-to-set-up-email-settings-and-enable-alerting-by-email-). 
 
 
 An email hook is the channel for anomaly alerts to be sent to email addresses specified in the **Email to** section. Two types of alert emails will be sent: **Data feed not available** alerts, and **Incident reports**, which contain one or multiple anomalies. 
@@ -58,7 +59,7 @@ A web hook is another notification channel by using an endpoint that is provided
 
 **Step1.** 	Enable Managed Identity in your Metrics Advisor resource
 
-A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Azure AD, so you don’t have to store any credentials in code. 
+A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code. 
 
 Go to Metrics Advisor resource in Azure portal, and select "Identity", turn it to "on" then Managed Identity is enabled. 
 

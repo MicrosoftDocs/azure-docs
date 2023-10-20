@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -33,36 +33,18 @@ IntMul(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    multiply: IntMul(5, 2),
-    negativeResult: IntMul(5, -2),
-    positiveResult: IntMul(-5, -2),
-    square: IntMul(5, 5),
-    cube: IntMul(5, IntMul(5, 5)),
-    multiplyZero: IntMul(5, 0),
-    multiplyDecimal: IntMul(5, 0.5)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intmul/query.sql" highlight="2-8":::
 
-```json
-[
-  {
-    "multiply": 10,
-    "negativeResult": -10,
-    "positiveResult": 10,
-    "square": 25,
-    "cube": 125,
-    "multiplyZero": 0
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intmul/result.json":::
 
 ## Remarks
 

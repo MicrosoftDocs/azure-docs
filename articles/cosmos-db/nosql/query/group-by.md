@@ -1,22 +1,22 @@
 ---
-title: GROUP BY clause in Azure Cosmos DB
-description: Learn about the GROUP BY clause for Azure Cosmos DB.
-author: seesharprun
+title: GROUP BY
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL clause that splits the results according to specified properties.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 05/12/2022
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# GROUP BY clause in Azure Cosmos DB
+
+# GROUP BY (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The GROUP BY clause divides the query's results according to the values of one or more specified properties.
-
-> [!NOTE]
-> The GROUP BY clause is not supported in the Azure Cosmos DB Python SDK.
+The ``GROUP BY`` clause divides the query's results according to the values of one or more specified properties.
 
 ## Syntax
 
@@ -30,166 +30,47 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Arguments
 
-- `<scalar_expression_list>`
-
-   Specifies the expressions that will be used to divide query results.
-
-- `<scalar_expression>`
-  
-   Any scalar expression is allowed except for scalar subqueries and scalar aggregates. Each scalar expression must contain at least one property reference. There is no limit to the number of individual expressions or the cardinality of each expression.
-
-## Remarks
-  
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is aggregate functions, which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
-
-  The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You cannot use GROUP BY with an ORDER BY clause.
-  
-  The GROUP BY clause does not allow any of the following:
-  
-- Aliasing properties or aliasing system functions (aliasing is still allowed within the SELECT clause)
-- Subqueries
-- Aggregate system functions (these are only allowed in the SELECT clause)
-
-Queries with an aggregate system function and a subquery with `GROUP BY` are not supported. For example, the following query is not supported:
-
-```sql
-SELECT COUNT(UniqueLastNames)
-FROM (
-SELECT AVG(f.age)
-FROM f
-GROUP BY f.lastName
-) AS UniqueLastNames
-```
-
-Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 aggregate system functions.
+| | Description |
+| --- | --- |
+| **``<scalar_expression_list>``** | Specifies the expressions that are used to group (or divide) query results. |
+| **``<scalar_expression>``** | Any scalar expression is allowed except for scalar subqueries and scalar aggregates. Each scalar expression must contain at least one property reference. There's no limit to the number of individual expressions or the cardinality of each expression. |
 
 ## Examples
 
-These examples use a sample [nutrition data set](https://github.com/AzureCosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+For the examples in this section, this reference set of items is used. Each item includes a ``capabilities`` object that may include ``softwareDevelopment`` and ``mediaTrained`` properties.
 
-Here's a query which returns the total count of items in each foodGroup:
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by/seed.json" range="1-2,4-11,13-20,22-29,31-38,40-46,48-55,57-64" highlight="4-7,12-15,20-23,28-31,36-38,43-46,51-54":::
 
-```sql
-SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
-FROM Food f
-GROUP BY f.foodGroup
-```
+In this first example, the ``GROUP BY`` clause is used to create groups of items using the value of a specified property.
 
-Some results are (TOP keyword is used to limit results):
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by/query.sql" range="1-4,7-8" highlight="5-6":::
 
-```json
-[
-    {
-        "foodGroupCount": 183,
-        "foodGroup": "Cereal Grains and Pasta"
-    },
-    {
-        "foodGroupCount": 133,
-        "foodGroup": "Nut and Seed Products"
-    },
-    {
-        "foodGroupCount": 113,
-        "foodGroup": "Meals, Entrees, and Side Dishes"
-    },
-    {
-        "foodGroupCount": 64,
-        "foodGroup": "Spices and Herbs"
-    }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by/result.json":::
 
-This query has two expressions used to divide results:
+In this next example, an aggregate system function ([``COUNT``](count.md)) is used with the groupings to provide a total number of items per group.
 
-```sql
-SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
-FROM Food f
-GROUP BY f.foodGroup, f.version
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-aggregate/query.sql" range="1-5,8-9" highlight="6-7":::
 
-Some results are:
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by-aggregate/result.json":::
 
-```json
-[
-    {
-        "foodGroupCount": 183,
-        "foodGroup": "Cereal Grains and Pasta",
-        "version": 1
-    },
-    {
-        "foodGroupCount": 133,
-        "foodGroup": "Nut and Seed Products",
-        "version": 1
-    },
-    {
-        "foodGroupCount": 113,
-        "foodGroup": "Meals, Entrees, and Side Dishes",
-        "version": 1
-    },
-    {
-        "foodGroupCount": 64,
-        "foodGroup": "Spices and Herbs",
-        "version": 1
-    }
-]
-```
+In this final example, the items are grouped using multiple properties.
 
-This query has a system function in the GROUP BY clause:
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-multiple/query.sql" range="1-6,9-11" highlight="7-9":::
 
-```sql
-SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
-FROM Food f
-GROUP BY UPPER(f.foodGroup)
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by-multiple/result.json":::
 
-Some results are:
+## Remarks
 
-```json
-[
-    {
-        "foodGroupCount": 183,
-        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
-    },
-    {
-        "foodGroupCount": 133,
-        "upperFoodGroup": "NUT AND SEED PRODUCTS"
-    },
-    {
-        "foodGroupCount": 113,
-        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-    },
-    {
-        "foodGroupCount": 64,
-        "upperFoodGroup": "SPICES AND HERBS"
-    }
-]
-```
+- When a query uses a ``GROUP BY`` clause, the ``SELECT`` clause can only contain the subset of properties and system functions included in the ``GROUP BY`` clause. One exception is aggregate functions, which can appear in the ``SELECT`` clause without being included in the ``GROUP BY`` clause. You can also always include literal values in the ``SELECT`` clause.
+- The ``GROUP BY`` clause must be after the ``SELECT``, ``FROM``, and ``WHERE`` clause and before the ``OFFSET LIMIT`` clause. You can't use ``GROUP BY`` with an ``ORDER BY`` clause.
+- The ``GROUP BY`` clause doesn't allow any of the following features, properties, or functions:
+  - Aliasing properties or aliasing system functions (aliasing is still allowed within the ``SELECT`` clause)
+  - Subqueries
+  - Aggregate system functions (these functions are only allowed in the ``SELECT`` clause)
+- Queries with an aggregate system function and a subquery with ``GROUP BY`` aren't supported.
+- Cross-partition ``GROUP BY`` queries can have a maximum of **21** aggregate system functions.
 
-This query uses both keywords and system functions in the item property expression:
+## Related content
 
-```sql
-SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
-FROM Food f
-GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
-```
-
-The results are:
-
-```json
-[
-    {
-        "foodGroupCount": 10,
-        "containsOrangeTag": true,
-        "correctVersion": true
-    },
-    {
-        "foodGroupCount": 8608,
-        "containsOrangeTag": false,
-        "correctVersion": true
-    }
-]
-```
-
-## Next steps
-
-- [Getting started](getting-started.md)
-- [SELECT clause](select.md)
+- [``ORDER BY`` clause](order-by.md)
+- [``OFFSET LIMIT`` clause](offset-limit.md)

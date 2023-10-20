@@ -29,7 +29,7 @@ If you're an ISV creating a daemon application that can run in several tenants, 
 - Provisions a service principal for the application.
 - Grants consent to the application.
 
-You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](./permissions-consent-overview.md#requesting-consent-for-an-entire-tenant).
 
 [!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-production.md)]
 
@@ -39,7 +39,7 @@ You'll need to explain to your customers how to perform these operations. For mo
 
 - Reference documentation for:
   - Instantiating [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?view=azure-dotnet&preserve-view=true).
+  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?preserve-view=true&view=msal-dotnet-latest&viewFallbackFrom=azure-dotnet).
 - Other samples/tutorials:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a small .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
 

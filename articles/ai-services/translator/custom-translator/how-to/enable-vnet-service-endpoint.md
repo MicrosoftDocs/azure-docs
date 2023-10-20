@@ -5,9 +5,8 @@ description: This article describes how to use Custom Translator service with an
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
-ms.date: 07/05/2023
+ms.service: azure-ai-translator
+ms.date: 08/08/2023
 ms.author: moelghaz
 ms.topic: how-to
 ---
@@ -91,14 +90,14 @@ The following table describes Custom Translator project accessibility per Transl
 
    :::image type="content" source="../media/how-to/allow-network-access.png" alt-text="Screenshot of allowed network access section in the Azure portal.":::
 
-> [!IMPORTANT]
- > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal and your Translator resource. However, you can still use the Translator resource outside of the Custom Translator portal.
+ > [!IMPORTANT]
+ > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal to create workspaces to train and publish models. However, you can still use the Translator resource with [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
-| All networks | No restrictions |
-| Selected Networks and Private Endpoints | Accessible from allowed VNET IP addresses |
-| Disabled | Not accessible |
+| All networks | &bullet; No restrictions |
+| Selected Networks and Private Endpoints | &bullet; Not accessible. Use [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models. |
+| Disabled | &bullet; Not accessible |
 
 To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround:
 
@@ -107,6 +106,46 @@ To use Custom Translator without relaxing network access restrictions on your pr
 * Prepare your custom model in the Custom Translator portal on the development resource.
 
 * Copy the model on your development resource to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
+
+## Billing region codes
+
+Use a billing region code, listed in the following table, with the 'Create a workspace' API for each supported billing region:
+
+##### Create a workspace POST request
+
+   ```bash
+   curl -X POST "https://<resource-name>.cognitiveservices.azure.com/translator/customtranslator/api/texttranslator/v1.0/workspaces" --header "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:<resource-key>" --data "{'Name': '<workspace-name>', 'Subscription': {'SubscriptionKey': '<resource-key>', 'BillingRegionCode': '<billing-region-code>' }}"
+   ```
+
+##### Supported billing code regions and codes
+
+|Billing Region Name|Billing Region Code|
+|:----|:----|
+|East Asia|AE|
+|Southeast Asia|ASE|
+|Australia East|AUE|
+|Brazil South|BRS|
+|Canada Central|CAC|
+|France Central|FC|
+|Global|GBL|
+|Central India|INC|
+|Japan East|JPE|
+|Japan West|JPW|
+|Korea Central|KC|
+|North Europe|NEU|
+|South Africa North|SAN|
+|Sweden Central|SWC|
+|UAE North|UAEN|
+|UK South|UKS|
+|Central US|USC|
+|East US|USE|
+|East US 2|USE2|
+|North Central US|USNC|
+|South Central US|USSC|
+|West US|USW|
+|West US 2|USW2|
+|West Central US|USWC|
+|West Europe|WEU|
 
 Congratulations! You learned how to use Azure VNet service endpoints with Custom Translator.
 

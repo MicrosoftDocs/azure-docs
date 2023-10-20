@@ -52,7 +52,7 @@ To enable WAF, configure a WAF policy and associate it with the AFD for protecti
 
 Create a WAF policy with Azure-managed default rule set (DRS). See, [Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource**.
 3. Search for Azure WAF. 
 4. Select **Azure Web Application Firewall (WAF)**.

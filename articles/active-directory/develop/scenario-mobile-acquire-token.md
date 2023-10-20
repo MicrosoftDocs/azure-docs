@@ -148,14 +148,14 @@ UIViewController *viewController = ...; // Pass a reference to the view controll
 MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)
-	{
-		// You'll want to get the account identifier to retrieve and reuse the account
-		// for later acquireToken calls
-		NSString *accountIdentifier = result.account.identifier;
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
 
-		NSString *accessToken = result.accessToken;
-	}
+        NSString *accessToken = result.accessToken;
+    }
 }];
 ```
 
@@ -165,13 +165,13 @@ let webviewParameters = MSALWebviewParameters(authPresentationViewController: vi
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
 
-	guard let authResult = result, error == nil else {
-		print(error!.localizedDescription)
-		return
-	}
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
 
-	// Get access token from result
-	let accessToken = authResult.accessToken
+    // Get access token from result
+    let accessToken = authResult.accessToken
 })
 ```
 
@@ -230,7 +230,7 @@ The class defines the following constants:
 - `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed.
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
-- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](./msal-net-web-browsers.md).
+- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](/entra/msal/dotnet/acquiring-tokens/using-web-browsers).
 
     If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider.
@@ -255,7 +255,7 @@ To learn about the other optional parameters for `AcquireTokenInteractive`, see 
 
 ### Acquire tokens via the protocol
 
-We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and conditional access.
+We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and Conditional Access.
 
 When you use the protocol to get tokens for mobile apps, make two requests:
 

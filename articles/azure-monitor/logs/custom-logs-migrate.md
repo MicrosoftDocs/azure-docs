@@ -29,7 +29,7 @@ The migration procedure described in this article assumes you have:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
-- [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
+- [A Microsoft Entra application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 
 ## Create new resources required for the Log ingestion API
 
@@ -65,8 +65,8 @@ This call is idempotent, so it has no effect if the table has already been conve
 The API call enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) won't continue to be populated. Another way to migrate an existing table to using data collection rules, but not necessarily the Log Ingestion API is applying a [workspace transformation](../logs/tutorial-workspace-transformations-portal.md) to the table.
 
 > [!IMPORTANT]
-> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
-> - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). 
+> -  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names.
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
 

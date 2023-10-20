@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/26/2022
+ms.date: 09/13/2023
 ms.custom: devx-track-python
 ---
 
@@ -62,7 +62,7 @@ If possible, create both in the same region and resource group for proximity and
 
 ### Start with Azure Storage
 
-1. [Sign in to the Azure portal](https://portal.azure.com/) and select **+ Create Resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **+ Create Resource**.
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
@@ -120,7 +120,7 @@ You can use the Free tier to complete this tutorial.
 
 To send requests to your Azure Cognitive Search service, you'll need the service URL and an access key.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL is `https://mydemo.search.windows.net`, your service name would be `mydemo`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL is `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 

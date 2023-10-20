@@ -1,8 +1,7 @@
 ---
 title: Limits and boundaries - question answering
 description: Question answering has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
@@ -52,6 +51,7 @@ File names may not include the following characters:
 
 > [!NOTE]
 > Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 text records per second for both management APIs and prediction APIs.
+> When using the F0 tier, upload is limited to 3 files.
 
 ### Maximum number of deep-links from URL
 

@@ -1,6 +1,6 @@
 ---
 title: Upgrade Bing Spell Check API v5 to v7
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Identifies the parts of your Bing Spell Check application that you need to update to use version 7.
 services: cognitive-services
 

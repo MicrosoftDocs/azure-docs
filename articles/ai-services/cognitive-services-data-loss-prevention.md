@@ -1,9 +1,9 @@
 ---
-title: Data Loss Prevention
-description: Azure AI services Data Loss Prevention capabilities allow customers to configure the list of outbound URLs their Azure AI services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
+title: Data loss prevention
+description: Azure AI services data loss prevention capabilities allow customers to configure the list of outbound URLs their Azure AI services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
 author: gclarkmt
 ms.author: gregc
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.custom: template-concept

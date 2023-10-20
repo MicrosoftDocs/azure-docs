@@ -24,7 +24,7 @@ In this article, you learn how to monitor Azure Virtual Network Manager for virt
 Depending on how you consume event logs, you need to set up a Log Analytics workspace or a storage account for storing your log events. These are as storage targets when configuring diagnostic settings for Azure Virtual Network Manager. Once you have configured your diagnostic settings, you can view the event logs in the Log Analytics workspace or storage account.
 
 > [!NOTE]
-> At least one virtual network must be added or removed from a network group in order to generate logs. A log will generate for this event a couple minutes after network group membership change occurs. 
+> At least one virtual network must be added or removed from a network group in order to generate logs for the Network Group Membership Change schema. A log will generate for this event a couple minutes after network group membership change occurs. 
 ### Configure event logs with Log Analytics
 
 Log analytics is one option for storing event logs. In this task, you configure your Azure Virtual Network Manager Instance to use a Log Analytics workspace. This task assumes you have already deployed a Log Analytics workspace. If you haven't, see [Create a Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace).
@@ -32,7 +32,7 @@ Log analytics is one option for storing event logs. In this task, you configure 
 1. Navigate to the network manager you want to obtain the logs of.
 1. Under the **Monitoring** in the left pane, select the **Diagnostic settings**.
 1. Select **+ Add diagnostic setting** and enter a diagnostic setting name.
-1. Under **Logs**, select **Network Group Membership Change**.
+1. Under **Logs**, select **Network Group Membership Change** or **Rule Collection Change**.
 1. Under **Destination details**, select **Send to Log Analytics** and choose your subscription and Log Analytics workspace from the dropdown menus.
     
     :::image type="content" source="media/how-to-configure-event-logging/log-analytics-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings page for setting up Log Analytics workspace.":::
@@ -47,7 +47,7 @@ A storage account is another option for storing event logs. In this task, you co
 1. Under the **Monitoring** in the left pane, select the **Diagnostic settings**.
 1. Select **+ Add diagnostic setting** and enter a diagnostic setting name.
 1. Under **Destination details**, select **Send to storage account** and choose your subscription and storage account from the dropdown menus.
-1. Under **Logs**, select **Network Group Membership Change** and enter a retention period.
+1. Under **Logs**, select **Network Group Membership Change** or **Rule Collection Change** and enter a retention period.
 
     :::image type="content" source="media/how-to-configure-event-logging/storage-account-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings for storage account.":::
 
@@ -58,7 +58,7 @@ A storage account is another option for storing event logs. In this task, you co
 In this task, you access the event logs for your Azure Virtual Network Manager instance.
 
 1. Under the **Monitoring** in the left pane, select the **Logs**.
-1. In the **Diagnostics** window, select **Run** or **Load to editor** under **Get recent Network Group Membership Changes**.
+1. In the **Diagnostics** window, select **Run** or **Load to editor** under **Get recent Network Group Membership Changes** or any other preloaded query available from your selected schema(s).
 
     :::image type="content" source="media/how-to-configure-event-logging/run-query.png" alt-text="Screenshot of Run and Load to editor buttons in the diagnostics window.":::
 

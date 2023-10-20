@@ -14,6 +14,8 @@ ms.date: 02/07/2023
 ---
 # Autoscale an online endpoint
 
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
 Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).

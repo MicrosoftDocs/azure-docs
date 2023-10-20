@@ -4,7 +4,7 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 author: chugugrace
 ms.author: chugu 
 ---

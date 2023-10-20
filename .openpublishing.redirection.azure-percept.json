@@ -10,10 +10,10 @@
             "redirect_url": "/previous-versions/azure/azure-percept/index",
             "redirect_document_id": false
         },
-        { 
+        {
             "source_path_from_root": "/articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
             "redirect_url": "/previous-versions/azure/azure-percept/index",
-            "redirect_document_id": false   
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-percept/studio/azure-percept-studio-overview.md",
@@ -315,7 +315,5 @@
             "redirect_url": "/previous-versions/azure/azure-percept/index",
             "redirect_document_id": false
         }
-
     ]
 }
-

@@ -34,7 +34,7 @@ You can use an Azure Database for PostgreSQL [cross-region read replica](concept
 
 To prepare the source server for replication using the Azure portal, use the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the existing Azure Database for PostgreSQL server that you want to use as the source server. This action opens the **Overview** page.
 1. From the server's menu, select **Replication**. If Azure replication support is set to at least **Replica**, you can create read replicas. 
 1. If Azure replication support is not set to at least **Replica**, set it. Select **Save**.

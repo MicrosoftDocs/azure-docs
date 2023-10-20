@@ -1,6 +1,6 @@
 ---
-title: 'Plan application migration to Azure Active Directory'
-description: This article discusses the advantages of Azure Active Directory and provides a four-phase guide for planning and executing a migration strategy with detailed planning and exit criteria.
+title: 'Plan application migration to Microsoft Entra ID'
+description: This article discusses the advantages of Microsoft Entra ID and provides a four-phase guide for planning and executing a migration strategy with detailed planning and exit criteria.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -14,11 +14,11 @@ ms.reviewer: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Plan application migration to Azure Active Directory
+# Plan application migration to Microsoft Entra ID
 
-In this article, you'll learn about the benefits of Azure Active Directory (Azure AD) and how to plan for migrating your application authentication. This article gives an overview of the planning and exit criteria to help you plan your migration strategy and understand how Azure AD authentication can support your organizational goals.
+In this article, you'll learn about the benefits of Microsoft Entra ID and how to plan for migrating your application authentication. This article gives an overview of the planning and exit criteria to help you plan your migration strategy and understand how Microsoft Entra authentication can support your organizational goals.
 
-The process is broken into four phases, each with detailed planning and exit criteria, and designed to help you plan your migration strategy and understand how Azure AD authentication supports your organizational goals.
+The process is broken into four phases, each with detailed planning and exit criteria, and designed to help you plan your migration strategy and understand how Microsoft Entra authentication supports your organizational goals.
 
 > [!VIDEO https://www.youtube.com/embed/8WmquuuuaLk]
 
@@ -41,11 +41,11 @@ Your applications are likely using the following types of authentication:
 
 To ensure that the users can easily and securely access applications, your goal is to have a single set of access controls and policies across your on-premises and cloud environments.
 
-[Azure AD](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your employees, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
+[Microsoft Entra ID](../fundamentals/whatis.md) offers a universal identity platform that provides your employees, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
-:::image type="content" source="media/migrate-adfs-apps-phases-overview/connectivity.png" alt-text="Diagram showing Azure AD connectivity.":::
+:::image type="content" source="media/migrate-adfs-apps-phases-overview/connectivity.png" alt-text="Diagram showing Microsoft Entra connectivity.":::
 
-Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD gets you the benefits that these capabilities provide.
+Microsoft Entra ID has a [full suite of identity management capabilities](../fundamentals/whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Microsoft Entra ID gets you the benefits that these capabilities provide.
 
 You can find more migration resources at [https://aka.ms/migrateapps](./migration-resources.md)
 
@@ -70,11 +70,11 @@ The following table includes the key roles and their contributions:
 | Role          | Contributions                                              |
 | ------------- | ---------------------------------------------------------- |
 | **Project Manager** | Project coach accountable for guiding the project, including:<br /> - gain executive support<br /> - bring in stakeholders<br /> - manage schedules, documentation, and communications |
-| **Identity Architect / Azure AD App Administrator** | Responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the preproduction and production environments |
-| **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Azure AD |
+| **Identity Architect / Microsoft Entra App Administrator** | Responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the preproduction and production environments |
+| **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Microsoft Entra ID |
 | **IT Support Manager** | A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. |
 | **Security Owner**  | A representative from the security team that can ensure that the plan meets the security requirements of your organization. |
-| **Application technical owners** | Includes technical owners of the apps and services that integrate with Azure AD. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
+| **Application technical owners** | Includes technical owners of the apps and services that integrate with Microsoft Entra ID. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
 | **Application business Owners** | Representative colleagues who can provide input on the user experience and usefulness of this change from a user’s perspective and owns the overall business aspect of the application, which may include managing access. |
 | **Pilot group of users** | Users who test as a part of their daily work, the pilot experience, and provide feedback to guide the rest of the deployments. |
 
@@ -128,10 +128,10 @@ The migration states you might consider using are as follows:
 | ---------------------- | --------------------------------------------- |
 | **Initial Request** | Find the app and contact the owner for more information |
 | **Assessment Complete** | App owner evaluates the app requirements and returns the app questionnaire</td>
-| **Configuration in Progress** | Develop the changes necessary to manage authentication against Azure AD |
-| **Test Configuration Successful** | Evaluate the changes and authenticate the app against the test Azure AD tenant in the test environment |
+| **Configuration in Progress** | Develop the changes necessary to manage authentication against Microsoft Entra ID |
+| **Test Configuration Successful** | Evaluate the changes and authenticate the app against the test Microsoft Entra tenant in the test environment |
 | **Production Configuration Successful** | Change the configurations to work against the production AD tenant and assess the app authentication in the test environment |
-| **Complete / Sign Off** | Deploy the changes for the app to the production environment and execute against the production Azure AD tenant |
+| **Complete / Sign Off** | Deploy the changes for the app to the production environment and execute against the production Microsoft Entra tenant |
 
 This ensures app owners know what the app migration and testing schedule are when their apps are up for migration, and what the results are from other apps that have already been migrated. You might also consider providing links to your bug tracker database for owners to be able to file and view issues for apps that are being migrated.
 
@@ -139,9 +139,9 @@ This ensures app owners know what the app migration and testing schedule are whe
 
 The following articles are about our customer and partner’s success stories, and suggested best practices:
 
-- [Five tips to improve the migration process to Azure Active Directory](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Five-tips-to-improve-the-migration-process-to-Azure-Active/ba-p/445364) by Patriot Consulting, a member of our partner network that focuses on helping customers deploy Microsoft cloud solutions securely.
+- [Five tips to improve the migration process to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Five-tips-to-improve-the-migration-process-to-Azure-Active/ba-p/445364) by Patriot Consulting, a member of our partner network that focuses on helping customers deploy Microsoft cloud solutions securely.
 
-- [Develop a risk management strategy for your Azure AD application migration](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Develop-a-risk-management-strategy-for-your-Azure-AD-application/ba-p/566488) by Edgile, a partner that focuses on IAM and risk management solutions.
+- [Develop a risk management strategy for your Microsoft Entra application migration](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Develop-a-risk-management-strategy-for-your-Azure-AD-application/ba-p/566488) by Edgile, a partner that focuses on IAM and risk management solutions.
 
 ## Next steps
 

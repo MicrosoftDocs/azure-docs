@@ -4,8 +4,7 @@ description: In this quickstart, get started with the Image Analysis client libr
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
@@ -111,7 +110,7 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
 ## Output
 
 ```console
-Azure AI services Azure AI Vision - Java Quickstart Sample
+Azure AI Vision - Java Quickstart Sample
 
 Analyzing an image from a URL ...
 

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Active Directory Connect Health FAQ - Azure
-  description: This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
+  title: Microsoft Entra Connect Health FAQ - Azure
+  description: This FAQ answers questions about Microsoft Entra Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
   services: active-directory
   documentationcenter: ''
   author: billmath
@@ -11,31 +11,32 @@ metadata:
   ms.subservice: hybrid
   ms.workload: identity
   ms.tgt_pltfrm: na
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/08/2023
   ms.author: billmath
   ms.collection: M365-identity-device-management
-title: Azure AD Connect Health frequently asked questions
-summary: This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
+title: Microsoft Entra Connect Health frequently asked questions
+summary: This article includes answers to frequently asked questions (FAQs) about Microsoft Entra Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
 
 sections:
   - name: General questions
     questions:
       - question: |
-          I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?
+          I manage multiple Microsoft Entra directories. How do I switch to the one that has Microsoft Entra ID P1 or P2?
         answer: |
-          To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account isn't listed here, select **Sign out.** Next, use the Global Administrator credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
+          To switch between different Microsoft Entra tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account isn't listed here, select **Sign out.** Next, use the Global Administrator credentials of the directory that has Microsoft Entra ID P1 or P2 (P1 or P2) enabled to sign in.
 
       - question: |
-          What version of identity roles are supported by Azure AD Connect Health?
+          What version of identity roles are supported by Microsoft Entra Connect Health?
         answer: |
           The following table lists the roles and supported operating system versions.
           
           |Role| Operating system / Version|
           |--|--|
           |Active Directory Federation Services (AD FS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
-          |Azure AD Connect | Version 1.0.9125 or higher|
+          |Microsoft Entra Connect | Version 1.0.9125 or higher|
           |Active Directory Domain Services (AD DS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
           
           Windows Server Core installations aren't supported.
@@ -45,22 +46,22 @@ sections:
       - question: |
           How many licenses do I need to monitor my infrastructure?
         answer: |
-          * The first Connect Health Agent requires at least one Azure AD Premium (P1 or P2) license.
-          * Each additional registered agent requires 25 more Azure AD Premium (P1 or P2) licenses.
-          * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
-          * Azure AD Connect Health licensing doesn't require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
+          * The first Connect Health Agent requires at least one Microsoft Entra P1 or P2 license.
+          * Each additional registered agent requires 25 more Microsoft Entra P1 or P2 licenses.
+          * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Microsoft Entra Connect, and/or AD DS).
+          * Microsoft Entra Connect Health licensing doesn't require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
           
-          Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
+          Licensing information is also found on the [Microsoft Entra pricing page](https://aka.ms/aadpricing).
           
           Example:
           
           | Registered agents | Licenses needed | Example monitoring configuration |
           | ------ | --------------- | --- |
-          | 1 | 1 | 1 Azure AD Connect server |
-          | 2 | 26| 1 Azure AD Connect server and 1 domain controller |
+          | 1 | 1 | 1 Microsoft Entra Connect server |
+          | 2 | 26| 1 Microsoft Entra Connect server and 1 domain controller |
           | 3 | 51 | 1 Active Directory Federation Services (AD FS) server, 1 AD FS proxy, and 1 domain controller |
           | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
-          | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
+          | 5 | 101 | 1 Microsoft Entra Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
                    
   - name: Installation questions
     questions:
@@ -75,9 +76,9 @@ sections:
            No, automatic upgrade is mandatory. If you don't want the agent to be upgraded when a new version is released, you should uninstall the agent.
        
       - question: |
-          What is the impact of installing the Azure AD Connect Health Agent on individual servers?
+          What is the impact of installing the Microsoft Entra Connect Health Agent on individual servers?
         answer: |
-          The impact of installing the Microsoft Azure AD Connect Health Agent, AD FS, web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
+          The impact of installing the Microsoft Entra Connect Health Agent, AD FS, web application proxy servers, Microsoft Entra Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
           
           The following numbers are an approximation:
           
@@ -89,18 +90,18 @@ sections:
           >
           >
           
-          * Local buffer storage for Azure AD Connect Health Agents: ~20 MB.
-          * For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
+          * Local buffer storage for Microsoft Entra Connect Health Agents: ~20 MB.
+          * For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Microsoft Entra Connect Health Agents to process all the audit data before it is overwritten.
           
       - question: |
-          Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?
+          Will I have to reboot my servers during the installation of the Microsoft Entra Connect Health Agents?
         answer: |
           No. The installation of the agents will not require you to reboot the server. However, installation of some prerequisite steps might require a reboot of the server.
           
           For example, installation of .NET 4.6.2 Framework may require a server reboot.
           
       - question: |
-          Does Azure AD Connect Health work through a pass-through HTTP proxy?
+          Does Microsoft Entra Connect Health work through a pass-through HTTP proxy?
         answer: |
           Yes. For ongoing operations, you can configure the Health Agent to use an HTTP proxy to forward outbound HTTP requests.
            Read more about [configuring HTTP Proxy for Health Agents](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
@@ -112,26 +113,26 @@ sections:
           3. Select **Advanced** if you have different proxy ports for HTTP and HTTPS/Secure.
           
       - question: |
-          Does Azure AD Connect Health support Basic authentication when connecting to HTTP proxies?
+          Does Microsoft Entra Connect Health support Basic authentication when connecting to HTTP proxies?
         answer: |
           No. A mechanism to specify an arbitrary user name and password for Basic authentication isn't currently supported.
 
       - question: |
-          What firewall ports do I need to open for the Azure AD Connect Health Agent to work?
+          What firewall ports do I need to open for the Microsoft Entra Connect Health Agent to work?
         answer: |
           See the [requirements section](how-to-connect-health-agent-install.md#requirements) for the list of firewall ports and other connectivity requirements.
           
       - question: |
-          Why do I see two servers with the same name in the Azure AD Connect Health portal?
+          Why do I see two servers with the same name in the Microsoft Entra Connect Health portal?
         answer: |
-          When you remove an agent from a server, the server isn't automatically removed from the Azure AD Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal.
+          When you remove an agent from a server, the server isn't automatically removed from the Microsoft Entra Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Microsoft Entra Connect Health portal.
           
-          You might reimage a server or create a new server with the same details (such as machine name). If you did not remove the already registered server from the Azure AD Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
+          You might reimage a server or create a new server with the same details (such as machine name). If you did not remove the already registered server from the Microsoft Entra Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
           
           In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
           
       - question: |
-          Can I install the Azure AD Connect health agent on Windows Server Core?
+          Can I install the Microsoft Entra Connect Health agent on Windows Server Core?
         answer: |
           No.  Installation on Server Core isn't supported.
 
@@ -149,7 +150,7 @@ sections:
       - question: |
           I am getting alerted that "Health Service data isn't up to date." How do I troubleshoot the issue?
         answer: |
-          Azure AD Connect Health generates the alert when it doesn't receive all the data points from the server in the last two hours. [Read more](how-to-connect-health-data-freshness.md).
+          Microsoft Entra Connect Health generates the alert when it doesn't receive all the data points from the server in the last two hours. [Read more](how-to-connect-health-data-freshness.md).
           
   - name: Operations questions
     questions:
@@ -159,21 +160,21 @@ sections:
           No, auditing doesn't need to be enabled on the web application proxy servers.
 
       - question: |
-          How do Azure AD Connect Health Alerts get resolved?
+          How do Microsoft Entra Connect Health Alerts get resolved?
         answer: |
-          Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition isn't observed within 72 hours from alert generation, the alert is automatically resolved.
+          Microsoft Entra Connect Health alerts get resolved on a success condition. Microsoft Entra Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition isn't observed within 72 hours from alert generation, the alert is automatically resolved.
 
       - question: |
           I am getting alerted that "Test Authentication Request (Synthetic Transaction) failed to obtain a token." How do I troubleshoot the issue?
         answer: |
-          Azure AD Connect Health for AD FS generates this alert when the Health Agent installed on an AD FS server fails to obtain a token as part of a synthetic transaction initiated by the Health Agent. The Health agent uses the local system context and attempts to get a token for a self relying party. This behavior is a catch-all test to ensure that AD FS is in a state of issuing tokens.
+          Microsoft Entra Connect Health for AD FS generates this alert when the Health Agent installed on an AD FS server fails to obtain a token as part of a synthetic transaction initiated by the Health Agent. The Health agent uses the local system context and attempts to get a token for a self relying party. This behavior is a catch-all test to ensure that AD FS is in a state of issuing tokens.
           
           Most often this test fails because the Health Agent is unable to resolve the AD FS farm name. This state can happen if the AD FS servers are behind a network load balancers and the request gets initiated from a node that's behind the load balancer (as opposed to a regular client that is in front of the load balancer). This issue can be fixed by updating the "hosts" file located under "C:\Windows\System32\drivers\etc" to include the IP address of the AD FS server or a loopback IP address (127.0.0.1) for the AD FS farm name (such as sts.contoso.com). Adding the host file will short-circuit the network call, thus allowing the Health Agent to get the token.
           
       - question: |
           I got an email indicating my machines are NOT patched for the recent ransomware attacks. Why did I receive this email?
         answer: |
-          Azure AD Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
+          Microsoft Entra Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
           1. Find all the hotfixes installed on the machine.
           2. Check if at least one of the HotFixes from the defined list is present.
           3. If Yes, the machine is protected. If Not, the machine is at risk for the attack.
@@ -204,7 +205,7 @@ sections:
       - question: |
           Why does the PowerShell cmdlet 'Get-MsolDirSyncProvisioningError' show fewer sync errors in the result?
         answer: |
-          <i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. The Connect Health portal also shows other sync error types such as export errors. Read more about [Azure AD Connect Sync errors](./tshoot-connect-sync-errors.md).
+          <i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. The Connect Health portal also shows other sync error types such as export errors. Read more about [Microsoft Entra Connect Sync errors](./tshoot-connect-sync-errors.md).
           
       - question: |
           Why are my AD FS audits not being generated?
@@ -219,10 +220,10 @@ sections:
 additionalContent: |
 
   ## Related links
-  * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-  * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
-  * [Azure AD Connect Health operations](how-to-connect-health-operations.md)
-  * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
-  * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)
-  * [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-  * [Azure AD Connect Health version history](reference-connect-health-version-history.md)
+  * [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+  * [Microsoft Entra Connect Health Agent installation](how-to-connect-health-agent-install.md)
+  * [Microsoft Entra Connect Health operations](how-to-connect-health-operations.md)
+  * [Using Microsoft Entra Connect Health with AD FS](how-to-connect-health-adfs.md)
+  * [Using Microsoft Entra Connect Health for sync](how-to-connect-health-sync.md)
+  * [Using Microsoft Entra Connect Health with AD DS](how-to-connect-health-adds.md)
+  * [Microsoft Entra Connect Health version history](reference-connect-health-version-history.md)

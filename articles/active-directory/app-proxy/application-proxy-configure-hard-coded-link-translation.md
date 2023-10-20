@@ -1,6 +1,6 @@
 ---
-title: Translate links and URLs Azure Active Directory Application Proxy
-description: Learn how to redirect hard-coded links for apps published with Azure Active Directory Application Proxy.
+title: Translate links and URLs Microsoft Entra application proxy
+description: Learn how to redirect hard-coded links for apps published with Microsoft Entra application proxy.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Redirect hard-coded links for apps published with Azure Active Directory Application Proxy
+# Redirect hard-coded links for apps published with Microsoft Entra application proxy
 
-Azure AD Application Proxy makes your on-premises apps available to users who are remote or on their own devices. Some apps, however, were developed with local links embedded in the HTML. These links don't work correctly when the app is used remotely. When you have several on-premises applications point to each other, your users expect the links to keep working when they're not at the office. 
+Microsoft Entra application proxy makes your on-premises apps available to users who are remote or on their own devices. Some apps, however, were developed with local links embedded in the HTML. These links don't work correctly when the app is used remotely. When you have several on-premises applications point to each other, your users expect the links to keep working when they're not at the office. 
 
 The best way to make sure that links work the same both inside and outside of your corporate network is to configure the external URLs of your apps to be the same as their internal URLs. Use [custom domains](application-proxy-configure-custom-domain.md) to configure your external URLs to have your corporate domain name instead of the default application proxy domain.
 
@@ -35,7 +35,7 @@ These three features keep your links working no matter where your users are. Whe
 
  
 > [!NOTE]
-> The last option is only for tenants that, for whatever reason, can't use custom domains to have the same  internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md) can work for you. 
+> The last option is only for tenants that, for whatever reason, can't use custom domains to have the same  internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Microsoft Entra application proxy](application-proxy-configure-custom-domain.md) can work for you. 
 > 
 > Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) for another approach to mapping links. 
 
@@ -127,11 +127,13 @@ If you need to support one of these two scenarios, use the same internal and ext
 
 ## Enable link translation
 
-Getting started with link translation is as easy as clicking a button:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications** > select the app you want to manage > **Application proxy**.
-3. Turn **Translate URLs in application body** to **Yes**.
+Getting started with link translation is as easy as clicking a button:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app you want to manage.
+1. Turn **Translate URLs in application body** to **Yes**.
 
    ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Select **Save** to apply your changes.
@@ -139,6 +141,6 @@ Getting started with link translation is as easy as clicking a button:
 Now, when your users access this application, the proxy will automatically scan for internal URLs that have been published through Application Proxy on your tenant.
 
 ## Next steps
-[Use custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL
+[Use custom domains with Microsoft Entra application proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL
 
 [Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

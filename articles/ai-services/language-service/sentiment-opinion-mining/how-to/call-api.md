@@ -5,10 +5,9 @@ description: This article will show you how to detect sentiment, and mine for op
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---

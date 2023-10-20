@@ -29,7 +29,7 @@ In this section, you learn how to use the Azure portal to configure autoscaling 
 ## Autoscale setting page
 First, follow these steps to navigate to the **Autoscale settings** page for your Service Bus namespace.
 
-1. Sign into [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type **Service Bus**, select **Service Bus** from the drop-down list, and press **ENTER**. 
 1. Select your **premium namespace** from the list of namespaces. 
 1. Switch to the **Scale** page. 
@@ -406,4 +406,3 @@ We recommend that you create rules such that messaging units are increased or de
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)
-

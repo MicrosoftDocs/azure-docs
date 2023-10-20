@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 5/31/2023
-ms.custom: references_region
+ms.custom: references_region, devx-track-linux
 ms.reviewer: shseth
 ---
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
@@ -19,8 +19,8 @@ Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC st
 - Azure Monitor Agent ingests Syslog events via the previously mentioned socket and filters them based on facility or severity combination from data collection rule (DCR) configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` or `severity` not present in the DCR is dropped.
 - Azure Monitor Agent attempts to parse events in accordance with **RFC3164** and **RFC5424**. It also knows how to parse the message formats listed on [this website](./azure-monitor-agent-overview.md#data-sources-and-destinations).
 - Azure Monitor Agent identifies the destination endpoint for Syslog events from the DCR configuration and attempts to upload the events.
-	> [!NOTE]
-	> Azure Monitor Agent uses local persistency by default. All events received from `rsyslog` or `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
+  > [!NOTE]
+  > Azure Monitor Agent uses local persistency by default. All events received from `rsyslog` or `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
 
 ## Issues
 
@@ -92,15 +92,15 @@ If you're sending a high log volume through rsyslog and your system is set up to
 
 1. For example, to remove `local4` events from being logged at `/var/log/syslog` or `/var/log/messages`, change this line in `/etc/rsyslog.d/50-default.conf` from this snippet:
 
-	```config
-	*.*;auth,authpriv.none          -/var/log/syslog
-	```
+    ```config
+    *.*;auth,authpriv.none          -/var/log/syslog
+    ```
 
-	To this snippet (add `local4.none;`):
+    To this snippet (add `local4.none;`):
 
-	```config
-	*.*;local4.none;auth,authpriv.none          -/var/log/syslog
-	```
+    ```config
+    *.*;local4.none;auth,authpriv.none          -/var/log/syslog
+    ```
 
 1. `sudo systemctl restart rsyslog`
 

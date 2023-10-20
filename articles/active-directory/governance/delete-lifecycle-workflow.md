@@ -25,15 +25,13 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 
-## Delete a workflow by using the Azure portal
+## Delete a workflow by using the Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. On the search bar near the top of the page, enter **Identity Governance**. Then select **Identity Governance** in the results.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. On the left menu, select **Lifecycle Workflows**.
-
-1. Select **Workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. On the **Workflows** page, select the workflow that you want to delete. Then select **Delete**.
 
@@ -43,7 +41,7 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 
     :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="Screenshot of confirming the deletion of a workflow.":::
 
-## View deleted workflows in the Azure portal
+## View deleted workflows in the Microsoft Entra admin center
 
 After you delete workflows, you can view them on the **Deleted workflows** page.
 

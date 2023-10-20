@@ -4,13 +4,14 @@ titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 01/29/2021
 ms.service: dms
 ms.topic: quickstart
 ms.custom:
   - seo-lt-2019
   - mode-ui
+  - sql-migration-content
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
@@ -21,7 +22,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal. The default view is your service dashboard.
+From a web browser, sign in to the [Azure portal](https://portal.azure.com). The default view is your service dashboard.
 
 > [!NOTE]
 > You can create up to 10 instances of DMS per subscription per region. If you require a greater number of instances, please create a support ticket.

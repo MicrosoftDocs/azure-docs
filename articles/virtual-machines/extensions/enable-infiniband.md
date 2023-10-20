@@ -3,6 +3,7 @@ title: Enable InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable InfiniBand on Azure HPC VMs. 
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 04/12/2023
 ms.reviewer: cynthn

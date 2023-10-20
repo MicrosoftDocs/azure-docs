@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or container for Azure Cosmos DB for NoSQL

@@ -7,9 +7,8 @@ ms.author: marcma
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 06/01/2022
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to accept/decline job offers when they come in.
 ---
 
@@ -27,13 +26,13 @@ This guide lays out the steps you need to take to observe a Job Router offer. It
 
 ## Accept job offers
 
-After you create a job, observe the [worker offer-issued event](subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID.  The worker can accept job offers by using the SDK.  Once the offer is accepted, the job will be assigned to the worker.
+After you create a job, observe the [worker offer-issued event](subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID.  The worker can accept job offers by using the SDK.  Once the offer is accepted, the job is assigned to the worker, and the job's status is updated to `assigned`.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
 // Event handler logic omitted
-await client.AcceptJobOfferAsync(offerIssuedEvent.Data.WorkerId, offerIssuedEvent.Data.OfferId);
+var accept = await client.AcceptJobOfferAsync(offerIssuedEvent.Data.WorkerId, offerIssuedEvent.Data.OfferId);
 ```
 
 ::: zone-end
@@ -42,7 +41,7 @@ await client.AcceptJobOfferAsync(offerIssuedEvent.Data.WorkerId, offerIssuedEven
 
 ```typescript
 // Event handler logic omitted
-await client.acceptJobOffer(offerIssuedEvent.data.workerId, offerIssuedEvent.data.offerId);
+const accept = await client.acceptJobOffer(offerIssuedEvent.data.workerId, offerIssuedEvent.data.offerId);
 ```
 
 ::: zone-end
@@ -51,7 +50,7 @@ await client.acceptJobOffer(offerIssuedEvent.data.workerId, offerIssuedEvent.dat
 
 ```python
 # Event handler logic omitted
-client.accept_job_offer(offerIssuedEvent.data.worker_id, offerIssuedEvent.data.offer_id)
+accept = client.accept_job_offer(offerIssuedEvent.data.worker_id, offerIssuedEvent.data.offer_id)
 ```
 
 ::: zone-end
@@ -60,14 +59,14 @@ client.accept_job_offer(offerIssuedEvent.data.worker_id, offerIssuedEvent.data.o
 
 ```java
 // Event handler logic omitted
-client.acceptJobOffer(offerIssuedEvent.getData().getWorkerId(), offerIssuedEvent.getData().getOfferId());
+AcceptJobOfferResult accept = client.acceptJobOffer(offerIssuedEvent.getData().getWorkerId(), offerIssuedEvent.getData().getOfferId());
 ```
 
 ::: zone-end
 
 ## Decline job offers
 
-The worker can decline job offers by using the SDK. Once the offer is declined, the job will be offered to the next available worker.  The same job will not be offered to the worker that declined the job unless the worker is deregistered and registered again.
+The worker can decline job offers by using the SDK. Once the offer is declined, the job is offered to the next available worker.  The job is not offered to the same worker that declined the job until the worker is deregistered and registered again.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -110,7 +109,7 @@ client.declineJobOffer(
 
 ### Retry offer after some time
 
-In some scenarios, a worker may want to automatically retry an offer after some time.  For example, a worker may want to retry an offer after 5 minutes.  To do this, the worker can use the SDK to decline the offer and specify the `retryOfferAfterUtc` property.
+In some scenarios, a worker may want to automatically retry an offer after some time.  For example, a worker may want to retry an offer after 5 minutes.  To achieve this flow, the worker can use the SDK to decline the offer and specify the `retryOfferAfter` property.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -156,6 +155,81 @@ client.decline_job_offer(
 client.declineJobOffer(
     new DeclineJobOfferOptions(offerIssuedEvent.getData().getWorkerId(), offerIssuedEvent.getData().getOfferId())
         .setRetryOfferAt(OffsetDateTime.now().plusMinutes(5)));
+```
+
+::: zone-end
+
+## Complete the job
+
+Once the worker has completed the work associated with the job (for example, completed the call), we complete the job, which updates the status to `completed`.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+await routerClient.CompleteJobAsync(new CompleteJobOptions(accept.Value.JobId, accept.Value.AssignmentId));
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```typescript
+await routerClient.completeJob(accept.jobId, accept.assignmentId);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+router_client.complete_job(job_id = job.id, assignment_id = accept.assignment_id)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+routerClient.completeJob(new CompleteJobOptions(accept.getJobId(), accept.getAssignmentId()));
+```
+
+::: zone-end
+
+## Close the job
+
+Once the worker is ready to take on new jobs, the worker should close the job, which updates the status to `closed`.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+await routerClient.CloseJobAsync(new CloseJobOptions(accept.Value.JobId, accept.Value.AssignmentId) {
+    DispositionCode = "Resolved"
+});
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```typescript
+await routerClient.closeJob(accept.jobId, accept.assignmentId, { dispositionCode: "Resolved" });
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, disposition_code = "Resolved")
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+routerClient.closeJob(new CloseJobOptions(accept.getJobId(), accept.getAssignmentId())
+    .setDispositionCode("Resolved"));
 ```
 
 ::: zone-end

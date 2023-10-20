@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Integrate with Azure Maps
 titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
@@ -8,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/27/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contentperf-fy23q1
+ms.custom: contentperf-fy23q1, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 04/06/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
@@ -84,7 +84,7 @@ Create a VM with [az vm create](/cli/azure/vm). The following example creates a 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \

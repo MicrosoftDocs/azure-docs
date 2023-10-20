@@ -27,7 +27,7 @@ To get an access token, your app must be registered with the Microsoft identity 
 
 ### Get an access token
 
-Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token by using the Microsoft identity platform. Use a trusted library for this purpose. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL simplifies adding authentication and authorization to an app that can call a secure web API.
+Use the [OAuth 2.0 client credentials grant flow](../develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token by using the Microsoft identity platform. Use a trusted library for this purpose. In this tutorial, we use the Microsoft Authentication Library [MSAL](../develop/msal-overview.md). MSAL simplifies adding authentication and authorization to an app that can call a secure web API.
 
 # [HTTP](#tab/http)
 
@@ -132,7 +132,7 @@ In the preceding code, provide the following parameters:
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md).) |
+| Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](/azure/active-directory-b2c/tenant-management-read-tenant-name).) |
 | Client ID | Required | The application ID that's assigned to your app. You can find this information in the Azure portal, where you registered your app. |
 | Client secret | Required | The client secret that you generated for your app.|
 | Scopes | Required | Must be set to `3db474b9-6a0c-4840-96ac-1fceb342124f/.default`. This will produce an access token with a **roles** claim of `VerifiableCredential.Create.All`. |

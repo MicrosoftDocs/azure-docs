@@ -146,12 +146,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/faq.md",
       "redirect_url": "/azure/ai-services/document-intelligence/faq",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/index.md",
       "redirect_url": "/azure/ai-services/document-intelligence/index",
       "redirect_document_id": true
     },
@@ -227,7 +227,7 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/v3-migration-guide.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/v3-migration-guide",
+      "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
       "redirect_document_id": true
     },
     {
@@ -281,7 +281,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/index.md",
       "redirect_url": "/azure/ai-services/immersive-reader/index",
       "redirect_document_id": true
     },
@@ -331,7 +331,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/faq.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/faq",
       "redirect_document_id": true
     },
@@ -341,7 +341,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/index.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/index",
       "redirect_document_id": true
     },
@@ -506,12 +506,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/faq.md",
       "redirect_url": "/azure/ai-services/what-are-ai-services",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/index.md",
       "redirect_url": "/azure/ai-services/what-are-ai-services",
       "redirect_document_id": false
     },
@@ -526,19 +526,70 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/context/context.yml",
-      "redirect_url": "/azure/ai-services/metrics-advisor/context/context",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/context/context.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/?context=/azure/ai-services/document-intelligence/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/context/context.yml",
-      "redirect_url": "/azure/ai-services/document-intelligence/context/context",
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/context/context.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/?context=/azure/ai-services/metrics-advisor/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.yml",
-      "redirect_url": "/azure/ai-services/immersive-reader/context/context",
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/?context=/azure/ai-services/immersive-reader/context/context",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/v3-migration-guide.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/sdk-overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-overview-v3-0",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/sdk-preview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-overview-v3-1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/get-started/csharp.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/v2-1/csharp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/get-started/java.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/v2-1/java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/get-started/javascript.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/v2-1/javascript",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/get-started/python.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/v2-1/python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/get-started/rest-api.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/v2-1/rest-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/concept-insurance-card.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-health-insurance-card",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/concept-w2.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-tax-document",
+      "redirect_document_id": true
     }
   ]
 }

@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 12/21/2022
 ---
@@ -39,7 +39,7 @@ You can review the [REST APIs](/rest/api/searchservice/) to understand the full 
 At a minimum, all inbound requests must be authenticated:
 
 + Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
-+ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations. 
++ Alternatively, you can use Microsoft Entra ID and role-based access control for data plane operations. 
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
@@ -54,7 +54,7 @@ The following list is a full enumeration of the outbound requests that can be ma
 + If you're using custom skills, custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + If you're using customer-managed keys, the service connects to an external Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
+Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or a Microsoft Entra login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Microsoft Entra ID. 
 
 If your Azure resource is behind a firewall, you'll need to [create rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). For resources protected by Azure Private Link, you can [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
@@ -68,7 +68,7 @@ Internal requests are secured and managed by Microsoft. You can't configure or c
 
 Internal traffic consists of:
 
-+ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
 + Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 + Requests made to the machine learning models that support [semantic search](semantic-search-overview.md#availability-and-pricing).
 
@@ -102,7 +102,7 @@ While this solution is the most secure, using more services is an added cost so 
 
 Once a request is admitted to the search service, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
 
-+ [Azure AD authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
++ [Microsoft Entra authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
@@ -127,7 +127,7 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 Content management refers to the objects created and hosted on a search service.
 
-+ For Azure AD authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to your search service.
++ For Microsoft Entra authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to your search service.
 
 + For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the type of key (admin or query) authorize access to content and operations.
 
@@ -148,7 +148,7 @@ If you require permissioned access over content in search results, there's a tec
 | Approach | Description |
 |----------|-------------|
 |[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
-|[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (Azure AD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
+|[Security trimming based on Microsoft Entra identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Microsoft Entra ID, one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
 
 ## Data residency
 

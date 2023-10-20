@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -19,7 +19,7 @@ The Node.js client library can automatically monitor incoming and outgoing HTTP 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
 > [!NOTE]
-> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
+> An [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
@@ -34,8 +34,8 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 
 ### <a name="resource"></a> Set up an Application Insights resource
 
-1. Sign in to the [Azure portal][portal].
-1. Create an [Application Insights resource](create-new-resource.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Create an [Application Insights resource](create-workspace-resource.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -76,7 +76,7 @@ Include the SDK in your app so that it can gather data.
 
 The SDK automatically gathers telemetry about the Node.js runtime and some common third-party modules. Use your application to generate some of this data.
 
-Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
+Then, in the [Azure portal](https://portal.azure.com) go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
 
 To view the topology that's discovered for your app, you can use [Application Map](app-map.md).
 
@@ -87,7 +87,7 @@ Because the SDK batches data for submission, there might be a delay before items
 * Continue to use the application. Take more actions to generate more telemetry.
 * Select **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
 * Verify that [required outgoing ports](./ip-addresses.md) are open.
-* Use [Search](./diagnostic-search.md) to look for specific events.
+* Use [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search) to look for specific events.
 * Check the [FAQ][FAQ].
 
 ## Basic usage
@@ -369,7 +369,7 @@ server.on("listening", () => {
 
 By default, telemetry is buffered for 15 seconds before it's sent to the ingestion server. If your application has a short lifespan, such as a CLI tool, it might be necessary to manually flush your buffered telemetry when the application terminates by using `appInsights.defaultClient.flush()`.
 
-If the SDK detects that your application is crashing, it calls flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK saves all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and lets your application terminate. When your application starts again, it tries to send any telemetry that was saved to persistent storage.
+If the SDK detects that your application is crashing, it calls flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK saves all buffered telemetry to [persistent storage](/previous-versions/azure/azure-monitor/app/data-retention-privacy#nodejs) and lets your application terminate. When your application starts again, it tries to send any telemetry that was saved to persistent storage.
 
 ### Preprocess data with telemetry processors
 
@@ -486,5 +486,4 @@ process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 <!--references-->
 
-[portal]: https://portal.azure.com/
-[FAQ]: ../faq.yml
+[FAQ]: ./app-insights-overview.md#frequently-asked-questions

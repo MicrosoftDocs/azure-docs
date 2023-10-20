@@ -1,60 +1,52 @@
 ---
-title: ST_ISVALIDDETAILED in Azure Cosmos DB query language
-description: Learn about SQL system function ST_ISVALIDDETAILED in Azure Cosmos DB.
-author: ginamr
+title: ST_ISVALIDDETAILED
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns if a GeoJSON object is valid along with the reason.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/21/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# ST_ISVALIDDETAILED (Azure Cosmos DB)
+
+# ST_ISVALIDDETAILED (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.  
-  
+Returns a JSON value containing a Boolean value if the specified GeoJSON **Point**, **Polygon**, or **LineString** expression is valid, and if invalid, the reason.
+
 ## Syntax
-  
+
 ```sql
 ST_ISVALIDDETAILED(<spatial_expr>)  
-```  
-  
+```
+
 ## Arguments
-  
-*spatial_expr*  
-   Is a GeoJSON point or polygon expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`spatial_expr`** | Any valid GeoJSON **Point**, **Polygon**, or **LineString** expression. |
+
 ## Return types
-  
-  Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.  
-  
+
+Returns a JSON object containing a boolean value indicating if the specified GeoJSON point or polygon expression is valid. If invalid, the object additionally contains the reason as a string value.
+
 ## Examples
-  
-  The following example how to check validity (with details) using `ST_ISVALIDDETAILED`.  
-  
-```sql
-SELECT ST_ISVALIDDETAILED({   
-  "type": "Polygon",   
-  "coordinates": [[ [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] ]]  
-}) AS b 
-```  
-  
- Here is the result set.  
-  
-```json
-[{  
-  "b": {
-    "valid": false,
-    "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points."   
-  }  
-}]  
-```  
 
-> [!NOTE]
-> The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+The following example how to check validity of multiple objects.
 
-## Next steps
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-isvaliddetailed/query.sql" highlight="2-9":::
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-isvaliddetailed/result.json":::
+
+## Remarks
+
+- The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+
+## Related content
+
+- [System functions](system-functions.yml)
+- [`ST_ISVALID`](st-isvalid.md)

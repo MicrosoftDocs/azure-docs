@@ -7,7 +7,7 @@ ms.date: 06/19/2023
 ---
 
 # Use log compaction
-This article shows you how to use log compaction feature in Event Hubs. To understand the details of log compaction, see [Log Compaction](log-compaction.md). 
+This article shows you how to use log compaction feature in Event Hubs. To understand the details of log compaction, see [Log Compaction](log-compaction.md).
 
 In this article you'll, follow these key steps:
 - Create a compacted event hub/Kafka topic.
@@ -17,14 +17,11 @@ In this article you'll, follow these key steps:
 > [!NOTE] 
 > Log compaction feature isn't supported in the **Basic** tier.
 
-> [!WARNING]
-> Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
-
 ## Create a compacted event hub/Kafka topic
-This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template. 
+This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template.
 
 ### [Azure portal](#tab/portal)
-You can create a compacted event hub using the Azure portal by following these steps. 
+You can create a compacted event hub using the Azure portal by following these steps.
 
 1. Navigate to your Event Hubs namespace.
 1. On the Event Hubs Namespace page, select Event Hubs in the left menu.
@@ -35,7 +32,7 @@ You can create a compacted event hub using the Azure portal by following these s
 1. Select *create* and create the compacted event hub. 
 
 ### [ARM template](#tab/arm)
-The following example shows how to create a compacted event hub/Kafka topic using an ARM template. 
+The following example shows how to create a compacted event hub/Kafka topic using an ARM template.
 
 ```json
 "resources": [
@@ -57,14 +54,13 @@ The following example shows how to create a compacted event hub/Kafka topic usin
 ]
 ```
 
-
 ---
 
 ## Triggering compaction 
 Event Hubs service determines when the compaction job of a given compacted event hub should be executed. Compacted event hub reaches the compaction threshold when there are considerable number of events or the total size of a given event log grows significantly. 
 
 ## Publish event to a compacted topic
-Publishing events to a compacted event hub is the same as publishing events to a regular event hub. As the client application you only need to determine the compaction key, which you set using partition key. 
+Publishing events to a compacted event hub is the same as publishing events to a regular event hub. As the client application you only need to determine the compaction key, which you set using partition key.
 
 ### Using Event Hubs SDK(AMQP)
 With Event Hubs SDK, you can set partition key and publish events as shown below:

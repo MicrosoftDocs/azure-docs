@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Azure Application Gateway for Containers documentation
+summary: Learn how to create Application Gateway for Containers. This documentation helps you plan, deploy, and manage web traffic to your container workloads.
+
+metadata:
+  title: Azure Application Gateway for Containers documentation
+  description: Learn about Azure Application Gateway for Containers, an application load balancer that enables you to manage traffic to your container workloads.
+  services: application-gateway
+  ms.service: application-gateway
+  ms.subservice: appgw-for-containers
+  ms.topic: landing-page
+  author: greglin
+  ms.author: greglin
+  ms.date: 07/24/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Application Gateway for Containers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Application Gateway for Containers?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Components
+            url: application-gateway-for-containers-components.md
+          - text: TLS policy
+            url: tls-policy.md
+          - text: Backend health and metrics
+            url: alb-controller-backend-health-metrics.md
+          - text: Frequently asked questions
+            url: faq.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers
+            
+  # Card
+  - title: Deploy Application Gateway for Containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Provision ALB Controller into AKS cluster
+            url: quickstart-deploy-application-gateway-for-containers-alb-controller.md
+          - text: Create Application Gateway for Containers - bring your own deployment
+            url: quickstart-create-application-gateway-for-containers-byo-deployment.md
+          - text: Create Application Gateway for Containers - managed by ALB controller
+            url: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
+
+  # Card
+  - title: Deploy with SSL termination
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: SSL Offloading
+            url: how-to-ssl-offloading-gateway-api.md
+          - text: Backend Mutual Authentication (mTLS)
+            url: how-to-backend-mtls-gateway-api.md
+
+# Card
+  - title: Application Gateway for Containers Kubernetes Reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: API Specification
+            url: api-specification-kubernetes.md
+
+# Card
+  - title: Troubleshoot Application Gateway for Containers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Troubleshoot Application Gateway for Containers
+            url: troubleshooting-guide.md
+          - text: Diagnostic Logs
+            url: diagnostics.md
+
+  # Card
+  - title: Gateway API
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Multiple site hosting
+            url: how-to-multiple-site-hosting-gateway-api.md
+          - text: Path, header, and query string routing
+            url: how-to-path-header-query-string-routing-gateway-api.md
+          - text: Traffic splitting
+            url: how-to-traffic-splitting-gateway-api.md

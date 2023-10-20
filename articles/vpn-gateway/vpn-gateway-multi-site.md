@@ -4,16 +4,16 @@ description: Learn how to connect multiple on-premises sites to a classic virtua
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 08/21/2023
 ms.author: cherylmc
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
 
 This article walks you through using PowerShell to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection using the classic (legacy) deployment model. This type of connection is sometimes referred to as a "multi-site" configuration. These steps don't apply to ExpressRoute/Site-to-Site coexisting connection configurations.
 
-The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)**.
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
