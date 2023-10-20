@@ -28,7 +28,7 @@ This guide provides detailed steps for troubleshooting issues related to setting
 
 ## Dual-stack configuration 
 
-Dual-stack configuration involves running both IPv4 and IPv6 protocols on your network. This allows devices that support both protocols to communicate over either IPv4 or IPv6.
+Dual-stack configuration involves running both IPv4 and IPv6 protocols on your CNI network. This allows Kubernetes services that support both protocols to communicate over either IPv4 or IPv6.
 
 ## Common issues
 
