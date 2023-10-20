@@ -139,4 +139,4 @@ The following table is intended to highlight the key actions for the following l
 ## Next steps
 
 - For detailed deployment guidance for individual features of Microsoft Entra ID, review the [Microsoft Entra ID project deployment plans](../architecture/deployment-plans.md).
-- Organizations can use [identity secure score](identity-secure-score.md) to track their progress against other Microsoft recommendations.
+- Organizations can use [identity secure score](../reports-monitoring/concept-identity-secure-score.md) to track their progress against other Microsoft recommendations.

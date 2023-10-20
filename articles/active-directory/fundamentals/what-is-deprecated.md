@@ -46,7 +46,7 @@ Use the following table to learn about changes including deprecations, retiremen
 |---|---|---:|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Jun 30, 2023|
 |[My Apps improvements](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jun 30, 2023|
-|[Microsoft Authenticator Lite for Outlook mobile](../../active-directory/authentication/how-to-mfa-authenticator-lite.md)|Feature change|Jun 9, 2023|
+|[Microsoft Authenticator Lite for Outlook mobile](../authentication/how-to-mfa-authenticator-lite.md)|Feature change|Jun 9, 2023|
 |[My Groups experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
 |[My Apps browser extension](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
 |Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|May 8, 2023|
@@ -76,7 +76,7 @@ Use the definitions in this section help clarify the state, availability, and su
 * **End-of-life** - engineering investments have ended, and the feature is unavailable to any customer
 
 ## Next steps
-[What's new in Microsoft Entra ID?](../../active-directory/fundamentals/whats-new.md)
+[What's new in Microsoft Entra ID?](../fundamentals/whats-new.md)
 
 ## Resources
 * [Microsoft Entra change announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)

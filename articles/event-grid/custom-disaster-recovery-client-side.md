@@ -26,7 +26,7 @@ The following table illustrates the client-side failover and geo disaster recove
 | Namespaces          | Supported                                 | Not supported                         |
 
 
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
+
 
 ## Client-side failover considerations
 

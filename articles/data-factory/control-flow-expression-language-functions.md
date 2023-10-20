@@ -14,9 +14,6 @@ ms.date: 10/25/2022
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-functions-variables.md)
-> * [Current version/Synapse version](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides details about expressions and functions supported by Azure Data Factory and Azure Synapse Analytics. 

@@ -14,7 +14,7 @@ ms.reviewer: arvinh
 
 # Microsoft Entra on-premises application provisioning to SCIM-enabled apps
 
-The Microsoft Entra provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Microsoft Entra provisioning service to provision users into an on-premises application that's SCIM enabled. If you want to provision users into non-SCIM on-premises applications that use SQL as a data store, see the [Microsoft Entra ECMA Connector Host Generic SQL Connector tutorial](tutorial-ecma-sql-connector.md). If you want to provision users into cloud apps such as DropBox and Atlassian, review the app-specific [tutorials](../../active-directory/saas-apps/tutorial-list.md).
+The Microsoft Entra provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Microsoft Entra provisioning service to provision users into an on-premises application that's SCIM enabled. If you want to provision users into non-SCIM on-premises applications that use SQL as a data store, see the [Microsoft Entra ECMA Connector Host Generic SQL Connector tutorial](tutorial-ecma-sql-connector.md). If you want to provision users into cloud apps such as DropBox and Atlassian, review the app-specific [tutorials](../saas-apps/tutorial-list.md).
 
 ![Diagram that shows SCIM architecture.](./media/on-premises-scim-provisioning/scim-4.png)
 
@@ -51,7 +51,7 @@ Once the agent is installed, no further configuration is necessary on-premises, 
  
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
-1. Add the **On-premises SCIM app** from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
+1. Add the **On-premises SCIM app** from the [gallery](../manage-apps/add-application-portal.md).
 1. From the left hand menu navigate to the **Provisioning** option and select **Get started**.
 1. Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
 1. Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
@@ -66,11 +66,11 @@ Once the agent is installed, no further configuration is necessary on-premises, 
    > If the test connection fails, you will see the request made. Please note that while the URL in the test connection error message is truncated, the actual request sent to the application contains the entire URL provided above. 
 
 1. Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
-1. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
+1. Add users to scope by [assigning users and groups](../manage-apps/add-application-portal-assign-users.md) to the application.
 1. Test provisioning a few users [on demand](provision-on-demand.md).
 1. Add more users into scope by assigning them to your application.
 1. Go to the **Provisioning** pane, and select **Start provisioning**.
-1. Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs.md).
+1. Monitor using the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md).
 
 The following video provides an overview of on-premises provisioning.
 

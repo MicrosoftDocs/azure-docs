@@ -1091,17 +1091,13 @@ app.get("raiseEventToOrchestration", async function (request, context) {
 # [Python](#tab/v1-model)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
-myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# An HTTP-Triggered Function with a Durable Functions Client binding
-@myApp.route(route="orchestrators/{functionName}")
-@myApp.durable_client_input(client_name="client")
-async def main(client):
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
     is_approved = True
-    await client.raise_event(instance_id, "ApprovalEvent", is_approved)
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 

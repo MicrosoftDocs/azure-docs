@@ -55,7 +55,7 @@ When creating an event subscription, follow these steps:
 1. Select the **Topic Type** to **Key Vault**.
 1. For **Source Resource**, select the Key Vault resource.
 1. Enter a name for the Event Grid system topic to be created.
-1. For **Filter to Event Types**, select the event types that you are interested in.
+1. For **Filter to Event Types**, select the event types that you're interested in.
 1. For **Endpoint Type**, select **Azure Monitor Alert** as a destination.
 1. Select **Configure an endpoint** link.
 1. On the **Select Monitor Alert Configuration** page, follow these steps.

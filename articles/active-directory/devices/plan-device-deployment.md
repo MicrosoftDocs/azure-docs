@@ -124,7 +124,7 @@ Conditional Access <br>(Require Microsoft Entra hybrid joined devices) | | | ![C
 
 ## Microsoft Entra Registration 
 
-Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
+Registered devices are often managed with [Microsoft Intune](/mem/intune/fundamentals/deployment-guide-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
 Microsoft Entra registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Microsoft Entra [Conditional Access policies](../conditional-access/concept-conditional-access-grant.md) applied to the device and the user.
 
@@ -237,7 +237,7 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools | Microsoft Entra registered | Microsoft Entra joined | Microsoft Entra hybrid joined |
 | --- | :---: | :---: | :---: |
-| [Mobile Device Management (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Mobile Device Management (MDM)](/windows/client-management/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Co-management with Microsoft Intune and Microsoft Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 

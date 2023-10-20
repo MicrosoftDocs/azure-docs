@@ -12,7 +12,7 @@ ms.author: veyaddan
 
 Key terms relevant for Event Grid namespace and MQTT resources are explained.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 [!INCLUDE [common-namespace-concepts](./includes/common-namespace-concepts.md)]
 

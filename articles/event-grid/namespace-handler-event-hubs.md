@@ -1,11 +1,11 @@
 ---
 title: Event hubs as an event handler for Azure Event Grid namespaces
-description: Describes how you can use event hubs as event handler for Azure Event Grid namespaces.
+description: Describes how you can use an Azure event hub as an event handler for Azure Event Grid namespaces.
 ms.topic: conceptual
 ms.date: 10/10/2023
 ---
 
-# Event hubs as a handler destination in Azure Event Grid namespaces push subscriptions
+# Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics
 
 An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Event Hubs** is one of them.
 

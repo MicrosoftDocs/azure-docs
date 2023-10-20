@@ -7,14 +7,14 @@ description: Learn about Event Grid's http pull delivery and the resources that 
 ms.topic: conceptual
 ---
 
-# Pull delivery with HTTP (Preview)
+# Pull delivery with HTTP
 
 This article builds on the [What is Azure Event Grid?](overview.md) article to provide essential information before you start using Event Grid’s pull delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!NOTE]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
 
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 
 ## Core concepts
 
@@ -83,7 +83,7 @@ In some other occasions, your consumer application might want to release or reje
 - Your consumer application **releases** a received event to signal Event Grid that it isn't ready to process the event and to make it available for redelivery.
 - You might want to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
 
-[!INCLUDE [pull-preview-note](./includes/differences-between-consumption-modes.md)]
+[!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
 ## Next steps
 
