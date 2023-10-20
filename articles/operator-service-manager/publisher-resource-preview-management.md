@@ -25,10 +25,23 @@ The Publisher Resource Preview Management feature in Azure Network Function Mana
 Do my publisher and Site Network Service (SNS) resources need to be in the same tenant, subscription or region?
 
 - Publisher Network Service Design Version (**NSDV**) and Network Function Definition Version (**NFDV**) resources must be in the same Azure tenant as Site Network Services (**SNS**) resources.
+
 - Network Service Design Version (**NSDV**) and  Network Function Definition Version (**NFDV**) versionState are key for cross-subscription. 
   - Preview = Site Network Service (**SNS**) is deployable in the same subscription as the  Network Function Definition Version/Network Function Definition Version (**NSDV/NFDV**).
   - Active = Site Network Service (**SNS**) is deployable in any *subscription*.
 - Publisher resources can be in different Azure Core or Nexus Regions to Site Network Service (**SNS**) resources. 
+
+- Publisher names must be unique within a region.
+
+- Site Network Service (**SNS**) can reference Configuration Group Values (**CGVs**) from any region, but can only reference Site resources from the same region.
+
+- Configuration Group Values (**CGVs**) can reference a Configuration Group Schema (**CGS**) in any region.
+
+- Network Functions:
+  * Can reference NFDVersion from any region.
+  * Must reference Azure Stack Edge from the same region, if hosted on Azure Stack Edge.
+  * The ARM template within a Virtual Network Function must deploy resources to the same region as the Network Function.
+  * CNFs can reference customLocation from any region.
 
 ## Network Function Definition and Network Service Design version states
 

@@ -64,7 +64,8 @@ The custom role permissions limit access to the list of the permissions shown he
 
 3. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing the access control screen.":::
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page.":::
+
 
 4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*. 
 
