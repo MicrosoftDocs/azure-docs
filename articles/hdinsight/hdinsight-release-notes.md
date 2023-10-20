@@ -60,7 +60,7 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 
 You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight).
 
-> [!IMPORTANT]
+> [!NOTE]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on October 26, 2023. The action is to update to the latest image **2310140056**. Customers are advised to plan accordingly. 
 
 |CVE | Severity| CVE Title| Remark |
