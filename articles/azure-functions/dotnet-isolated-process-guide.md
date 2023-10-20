@@ -349,7 +349,7 @@ You can change your application to 64-bit with the following command, using the 
 az functionapp config set -g <group_name> -n <app_name> --use-32bit-worker-process false`
 ```
 
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following examples shows a configuration for publishing to a Windows 64-bit function app.
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example shows a configuration for publishing to a Windows 64-bit function app.
 
 ```xml
 <PropertyGroup>
