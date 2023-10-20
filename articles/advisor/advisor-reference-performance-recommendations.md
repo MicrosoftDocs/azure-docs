@@ -3,7 +3,9 @@ title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 02/03/2022
+author: mabrahms
+ms.author: v-mabrahms
+ms.date: 10/15/2023
 ---
 
 # Performance recommendations
@@ -104,18 +106,21 @@ Learn more about [Data explorer resource - PerformanceEnableOptimizedAutoscaleAz
 
 ### Reads happen on most recent data
 
-More than 75% of your read requests are landing on the memstore. That indicates that the reads are primarily on recent data, which suggests that even if a flush happens on the memstore, the recent file needs to be accessed and that file needs to be in the cache.
+More than 75% of your read requests are landing on the memstore indicating that the reads are primarily on recent data, which suggests that even if a flush happens on the memstore, the recent file needs to be accessed and put in the cache.
 
 Learn more about [HDInsight cluster - HBaseMemstoreReadPercentage (Reads happen on most recent data)](../hdinsight/hbase/apache-hbase-advisor.md).
 
 ### Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance.
 
-You are seeing this advisor recommendation because HDInsight team's system log shows that in the past 7 days, your cluster has encountered the following scenarios:
+You're seeing this advisor recommendation because HDInsight team's system log shows that in the past seven days, your cluster has encountered the following scenarios:
+
 	1. High WAL sync time latency
 	2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
 
-These conditions are indicators that your cluster is suffering from high write latencies, which can be due to heavy workload performed on your cluster.
-To improve the performance of your cluster, you might want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase.  The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications.
+These conditions are indicators that your cluster is suffering from high write latencies, which can be due to heavy workload on your cluster.
+
+To improve the performance of your cluster, consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase.  The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, it provides low write-latency and better resiliency for your applications.
+
 To read more on this feature,  visit link:
 
 Learn more about [HDInsight cluster - AccWriteCandidate (Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance.)](../hdinsight/hbase/apache-hbase-accelerated-writes.md).
@@ -174,7 +179,7 @@ Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the 
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
-We have determined that your VMs are located in a region different or far from where your users are connecting from using Azure Virtual Desktop. This might lead to prolonged connection response times and impact overall user experience on Azure Virtual Desktop.
+We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience.
 
 Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
@@ -198,13 +203,13 @@ Learn more about [Virtual machine - AccelNetConfiguration (Enable Accelerated Ne
 
 ### Use SSD Disks for your production workloads
 
-We noticed that you are using SSD disks while also using Standard HDD disks on the same VM. Standard HDD managed disks are recommended for dev-test and backup; we recommend you use Premium SSDs or Standard SSDs for production. Premium SSDs deliver high-performance and low-latency disk support for virtual machines with IO-intensive workloads. Standard SSDs provide consistent and lower latency. Upgrade your disk configuration today for improved latency, reliability, and availability. Upgrading requires a VM reboot, which takes three to five minutes.
+We noticed that you're using SSD disks while also using Standard HDD disks on the same VM. Standard HDD managed disks are recommended for dev-test and backup; we recommend you use Premium SSDs or Standard SSDs for production. Premium SSDs deliver high-performance and low-latency disk support for virtual machines with IO-intensive workloads. Standard SSDs provide consistent and lower latency. Upgrade your disk configuration today for improved latency, reliability, and availability. Upgrading requires a VM reboot, which takes three to five minutes.
 
 Learn more about [Virtual machine - MixedDiskTypeToSSDPublic (Use SSD Disks for your production workloads)](/azure/virtual-machines/windows/disks-types#disk-comparison).
 
 ### Match production Virtual Machines with Production Disk for consistent performance and better latency
 
-Production virtual machines need production disks if you want to get the best performance. We see that you are running a production level virtual machine, however, you are using a low performing disk with standard HDD. Upgrading disks that are attached to your production disks, either Standard SSD or Premium SSD, benefits you with a more consistent experience and improvements in latency.
+Production virtual machines need production disks if you want to get the best performance. We see that you're running a production level virtual machine, however, you're using a low performing disk with standard HDD. Upgrading disks that are attached to your production disks, either Standard SSD or Premium SSD, benefits you with a more consistent experience and improvements in latency.
 
 Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtual Machines with Production Disk for consistent performance and better latency)](/azure/virtual-machines/windows/disks-types#disk-comparison).
 
@@ -222,7 +227,7 @@ Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of U
 
 ### Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance
 
-We analyzed data for the past 7 days and identified virtual machines (VMs) with high utilization across different metrics (that is, CPU, Memory, and VM IO). Those VMs might experience performance issues since they are nearing or at their SKU's limits. Consider upgrading their SKU to improve performance.
+We analyzed data for the past seven days and identified virtual machines (VMs) with high utilization across different metrics (that is, CPU, Memory, and VM IO). Those VMs might experience performance issues since they are nearing or at their SKU's limits. Consider upgrading their SKU to improve performance.
 
 Learn more about [Virtual machine - UpgradeSizeHighVMUtilV0 (Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance)](https://aka.ms/aa_resizehighusagevmrec_learnmore).
 
@@ -262,7 +267,7 @@ Learn more about [Kubernetes fleet manager | PREVIEW - UpdateToLatestFleetApi (U
 
 ### Configure your Azure Cosmos DB query page size (MaxItemCount) to -1
 
-You are using the query page size of 100 for queries for your Azure Cosmos DB container. We recommend using a page size of -1 for faster scans.
+You're using the query page size of 100 for queries for your Azure Cosmos DB container. We recommend using a page size of -1 for faster scans.
 
 Learn more about [Azure Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
 
@@ -305,13 +310,13 @@ Learn more about [Cosmos DB account - ScaleUpvCoreRecommendation (PerformanceBoo
 
 ### Scale the storage limit for MariaDB server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values, which might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or the server moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [MariaDB server - OrcasMariaDbStorageLimit (Scale the storage limit for MariaDB server)](https://aka.ms/mariadbstoragelimits).
 
 ### Increase the MariaDB server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [MariaDB server - OrcasMariaDbCpuOverload (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
 
@@ -329,13 +334,13 @@ Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB se
 
 ### Increase the reliability of audit logs
 
-Our internal telemetry shows that the server's audit logs might have been lost over the past day. Lost audit logs can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short period of time. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
+Our internal telemetry shows that the server's audit logs might have been lost over the past day. Lost audit logs can occur when your server is experiencing a CPU-heavy workload, or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
 Learn more about [MariaDB server - OrcasMariaDBAuditLog (Increase the reliability of audit logs)](https://aka.ms/mariadb-audit-logs).
 
 ### Scale the storage limit for MySQL server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values, which might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [MySQL server - OrcasMySQLStorageLimit (Scale the storage limit for MySQL server)](https://aka.ms/mysqlstoragelimits).
 
@@ -347,7 +352,7 @@ Learn more about [MySQL server - OrcasMySQLConcurrentConnection (Scale the MySQL
 
 ### Increase the MySQL server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [MySQL server - OrcasMySQLCpuOverload (Increase the MySQL server vCores)](https://aka.ms/mysqlpricing).
 
@@ -365,49 +370,49 @@ Learn more about [MySQL server - OrcasMySQLReadReplica (Add a MySQL Read Replica
 
 ### Improve MySQL connection management
 
-Our internal telemetry indicates that your application connecting to MySQL server might not be managing connections efficiently, which might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can do this by configuring a server side connection-pooler, such as ProxySQL.
+Our internal telemetry shows that your application connecting to MySQL server might be managing connections poorly, which might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can do this by configuring a server side connection-pooler, such as ProxySQL.
 
 Learn more about [MySQL server - OrcasMySQLConnectionPooling (Improve MySQL connection management)](https://aka.ms/azure_mysql_connection_pooling).
 
 ### Increase the reliability of audit logs
 
-Our internal telemetry shows that the server's audit logs might have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short period of time. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
+Our internal telemetry shows that the server's audit logs might have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
 Learn more about [MySQL server - OrcasMySQLAuditLog (Increase the reliability of audit logs)](https://aka.ms/mysql-audit-logs).
 
 ### Improve performance by optimizing MySQL temporary-table sizing
 
-Our internal telemetry indicates that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [MySQL server - OrcasMySqlTmpTables (Improve performance by optimizing MySQL temporary-table sizing)](https://aka.ms/azure_mysql_tmp_table).
 
 ### Improve MySQL connection latency
 
-Our internal telemetry indicates that your application connecting to MySQL server might not be managing connections efficiently. This might result in higher application latency. To improve connection latency, we recommend that you enable connection redirection. This can be done by enabling the connection redirection feature of the PHP driver.
+Our internal telemetry shows that your application connecting to MySQL server might be managing connections poorly. This might result in higher application latency. To improve connection latency, we recommend that you enable connection redirection. This can be done by enabling the connection redirection feature of the PHP driver.
 
 Learn more about [MySQL server - OrcasMySQLConnectionRedirection (Improve MySQL connection latency)](https://aka.ms/azure_mysql_connection_redirection).
 
 ### Increase the storage limit for MySQL Flexible Server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
+Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlStorageUpsell (Increase the storage limit for MySQL Flexible Server)](https://aka.ms/azure_mysql_flexible_server_storage).
 
 ### Scale the MySQL Flexible Server to a higher SKU
 
-Our telemetry indicates that your Flexible Server is exceeding the connection limits associated with your current SKU. A large number of failed connection requests might adversely affect server performance. To improve performance, we recommend increasing the number of vCores or switching to a higher SKU.
+Our telemetry shows that your Flexible Server is exceeding the connection limits associated with your current SKU. A large number of failed connection requests might adversely affect server performance. To improve performance, we recommend increasing the number of vCores or switching to a higher SKU.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlConnectionUpsell (Scale the MySQL Flexible Server to a higher SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
 
 ### Increase the MySQL Flexible Server vCores.
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlCpuUpcell (Increase the MySQL Flexible Server vCores.)](https://aka.ms/azure_mysql_flexible_server_pricing).
 
 ### Improve performance by optimizing MySQL temporary-table sizing.
 
-Our internal telemetry indicates that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlTmpTable (Improve performance by optimizing MySQL temporary-table sizing.)](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html#internal-temporary-tables-engines).
 
@@ -431,14 +436,14 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlWorkMem (Increase the work_
 
 ### Boost your workload performance by 30% with the new Ev5 compute hardware
 
-With the new Ev5 compute hardware, you can boost workload performance by 30% with higher concurrency and better throughput. Navigate to the Compute+Storage blade on the Azure Portal and switch to Ev5 compute at no additional cost. Ev5 compute provides best performance among other VM series in terms of QPS and latency.
+With the new Ev5 compute hardware, you can boost workload performance by 30% with higher concurrency and better throughput. Navigate to the Compute+Storage blade on the Azure Portal and switch to Ev5 compute at no extra cost. Ev5 compute provides best performance among other VM series in terms of QPS and latency.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlComputeSeriesUpgradeEv5 (Boost your workload performance by 30% with the new Ev5 compute hardware)](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
 
 ### Scale the storage limit for PostgreSQL server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the storage limit for PostgreSQL server)](https://aka.ms/postgresqlstoragelimits).
 
@@ -462,37 +467,37 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlReadReplica (Add a PostgreS
 
 ### Increase the PostgreSQL server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCpuOverload (Increase the PostgreSQL server vCores)](https://aka.ms/postgresqlpricing).
 
 ### Improve PostgreSQL connection management
 
-Our internal telemetry indicates that your PostgreSQL server might not be managing connections efficiently. This might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. This can be done by configuring a server side connection-pooler, such as PgBouncer.
+Our internal telemetry shows that your PostgreSQL server might not be managing connections efficiently. This might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. This can be done by configuring a server side connection-pooler, such as PgBouncer.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConnectionPooling (Improve PostgreSQL connection management)](https://aka.ms/azure_postgresql_connection_pooling).
 
 ### Improve PostgreSQL log performance
 
-Our internal telemetry indicates that your PostgreSQL server has been configured to output VERBOSE error logs. This can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
+Our internal telemetry shows that your PostgreSQL server has been configured to output VERBOSE error logs. This can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogErrorVerbosity (Improve PostgreSQL log performance)](https://aka.ms/azure_postgresql_log_settings).
 
 ### Optimize query statistics collection on an Azure Database for PostgreSQL
 
-Our internal telemetry indicates that your PostgreSQL server has been configured to track query statistics using the pg_stat_statements module. While useful for troubleshooting, it can also result in reduced server performance. To improve performance, we recommend that you change the pg_stat_statements.track parameter to NONE.
+Our internal telemetry shows that your PostgreSQL server has been configured to track query statistics using the pg_stat_statements module. While useful for troubleshooting, it can also result in reduced server performance. To improve performance, we recommend that you change the pg_stat_statements.track parameter to NONE.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlStatStatementsTrack (Optimize query statistics collection on an Azure Database for PostgreSQL)](https://aka.ms/azure_postgresql_optimize_query_stats).
 
 ### Optimize query store on an Azure Database for PostgreSQL when not troubleshooting
 
-Our internal telemetry indicates that your PostgreSQL database has been configured to track query performance using the pg_qs.query_capture_mode parameter. While troubleshooting, we suggest setting the pg_qs.query_capture_mode parameter to TOP or ALL. When not troubleshooting, we recommend that you set the pg_qs.query_capture_mode parameter to NONE.
+Our internal telemetry shows that your PostgreSQL database has been configured to track query performance using the pg_qs.query_capture_mode parameter. While troubleshooting, we suggest setting the pg_qs.query_capture_mode parameter to TOP or ALL. When not troubleshooting, we recommend that you set the pg_qs.query_capture_mode parameter to NONE.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlQueryCaptureMode (Optimize query store on an Azure Database for PostgreSQL when not troubleshooting)](https://aka.ms/azure_postgresql_query_store).
 
 ### Increase the storage limit for PostgreSQL Flexible Server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
+Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit (Increase the storage limit for PostgreSQL Flexible Server)](https://aka.ms/azure_postgresql_flexible_server_limits).
 
@@ -534,13 +539,13 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlCitusStorageLimitHyperscale
 
 ### Optimize log_statement settings for PostgreSQL on Azure Database
 
-Our internal telemetry indicates that you have log_statement enabled, for better performance, set it to NONE
+Our internal telemetry shows that you have log_statement enabled, for better performance set it to NONE
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogStatement (Optimize log_statement settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
+Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server, resulting in disk spilling and degraded query performance. We recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
@@ -552,31 +557,31 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruIntel
 
 ### Optimize log_duration settings for PostgreSQL on Azure Database
 
-Our internal telemetry indicates that you have log_duration enabled, for better performance, set it to OFF
+Our internal telemetry shows that you have log_duration enabled, for better performance, set it to OFF
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogDuration (Optimize log_duration settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize log_min_duration settings for PostgreSQL on Azure Database
 
-Our internal telemetry indicates that you have log_min_duration enabled, for better performance, set it to -1
+Our internal telemetry shows that you have log_min_duration enabled, for better performance, set it to -1
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogMinDuration (Optimize log_min_duration settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize pg_qs.query_capture_mode settings for PostgreSQL on Azure Database
 
-Our internal telemetry indicates that you have pg_qs.query_capture_mode enabled, for better performance, set it to NONE
+Our internal telemetry shows that you have pg_qs.query_capture_mode enabled, for better performance, set it to NONE
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruQueryCaptureMode (Optimize pg_qs.query_capture_mode settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-query-store-best-practices.md).
 
 ### Optimize PostgreSQL performance by enabling PGBouncer
 
-Our Internal telemetry indicates that you can improve PostgreSQL performance by enabling PGBouncer
+Our Internal telemetry shows that you can improve PostgreSQL performance by enabling PGBouncer
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruOrcasPostgreSQLConnectionPooling (Optimize PostgreSQL performance by enabling PGBouncer)](../postgresql/flexible-server/concepts-pgbouncer.md).
 
 ### Optimize log_error_verbosity settings for PostgreSQL on Azure Database
 
-Our internal telemetry indicates that you have log_error_verbosity enabled, for better performance, set it to DEFAULT
+Our internal telemetry shows that you have log_error_verbosity enabled, for better performance, set it to DEFAULT
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogErrorVerbosity (Optimize log_error_verbosity settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
@@ -588,61 +593,61 @@ Learn more about [Hyperscale (Citus) server group - MarlinStorageLimitRecommenda
 
 ### Migrate your database from SSPG to FSPG
 
-Consider our new offering Azure Database for PostgreSQL Flexible Server that provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience. Learn more.
+Consider our new offering, Azure Database for PostgreSQL Flexible Server, which provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience. 
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](../postgresql/how-to-upgrade-using-dump-and-restore.md).
 
 ### Move your PostgreSQL Flexible Server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed. If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our internal telemetry shows that there is high churn in the buffer pool for this server, resulting in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed. If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [PostgreSQL server - OrcasMeruMemoryUpsell (Move your PostgreSQL Flexible Server to Memory Optimized SKU)](https://aka.ms/azure_postgresql_flexible_server_pricing).
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
-Cache instances perform best when not running under high network bandwidth that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce network bandwidth or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce network bandwidth or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](https://aka.ms/redis/recommendations/bandwidth).
 
 ### Improve your Cache and application performance when running with many connected clients
 
-Cache instances perform best when not running under high server load that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
 
 ### Improve your Cache and application performance when running with many connected clients
 
-Cache instances perform best when not running under high server load that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheConnectedClientsHigh (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
 
 ### Improve your Cache and application performance when running with high server load
 
-Cache instances perform best when not running under high server load that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
 
 ### Improve your Cache and application performance when running with high server load
 
-Cache instances perform best when not running under high server load that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheServerLoadHigh (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
 
 ### Improve your Cache and application performance when running with high memory pressure
 
-Cache instances perform best when not running under high memory pressure that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
 
 ### Improve your Cache and application performance when memory rss usage is high.
 
-Cache instances perform best when not running under high memory pressure that might cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheUsedMemoryRSS (Improve your Cache and application performance when memory rss usage is high.)](https://aka.ms/redis/recommendations/memory).
 
 ### Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache
 
-Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache. If client host machine is running hot on memory, CPU or network bandwidth, the cache responses do not reach your application fast enough and could result in higher latency.
+Cache instances perform best when the host machines where the client application runs, is able to keep up with responses from the cache. If client host machine is running hot on memory, CPU, or network bandwidth, the cache responses don't reach your application fast enough and can result in higher latency.
 
 Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache.)](/azure/azure-cache-for-redis/cache-troubleshoot-client).
 
@@ -651,7 +656,7 @@ Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perfo
 
 ### Update to the latest AMS API Version
 
-We have identified calls to a AMS API version which is not recommended. We recommend switching to the latest AMS API version to ensure uninterrupted access to AMS, latest features, and performance improvements.
+We have identified calls to a AMS API version that is not recommended. We recommend switching to the latest AMS API version to ensure uninterrupted access to AMS, latest features, and performance improvements.
 
 Learn more about [Monitor - UpdateToLatestAMSApiVersion (Update to the latest AMS API Version)](https://aka.ms/AMSAdvisor).
 
@@ -798,13 +803,13 @@ Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increas
 
 ### Consider increasing the size of your VNet Gateway SKU to address high P2S use
 
-Each gateway SKU can only support a specified count of concurrent P2S connections. Your connection count is close to your gateway limit, so additional connection attempts might fail.
+Each gateway SKU can only support a specified count of concurrent P2S connections. Your connection count is close to your gateway limit, so more connection attempts might fail.
 
 Learn more about [Virtual network gateway - HighP2SConnectionsVNetGateway (Consider increasing the size of your VNet Gateway SKU to address high P2S use)](https://aka.ms/HighP2SConnectionsVNetGateway).
 
 ### Make sure you have enough instances in your Application Gateway to support your traffic
 
-Your Application Gateway has been running on high utilization recently and under heavy load, you might experience traffic loss or increase in latency. It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you are prepared for any traffic surges or spikes and minimizing the impact that it might have in your QoS. Application Gateway v1 SKU (Standard/WAF) supports manual scaling and v2 SKU (Standard_v2/WAF_v2) support manual and autoscaling. In case of manual scaling, increase your instance count and if autoscaling is enabled, make sure your maximum instance count is set to a higher value so Application Gateway can scale out as the traffic increases
+Your Application Gateway has been running on high utilization recently and under heavy load you might experience traffic loss or increase in latency. It is important that you scale your Application Gateway accordingly and add a buffer so that you're prepared for any traffic surges or spikes and minimize the impact that it might have in your QoS. Application Gateway v1 SKU (Standard/WAF) supports manual scaling and v2 SKU (Standard_v2/WAF_v2) supports manual and autoscaling. With manual scaling, increase your instance count. If autoscaling is enabled, make sure your maximum instance count is set to a higher value so Application Gateway can scale out as the traffic increases.
 
 Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](https://aka.ms/hotappgw).
 
@@ -817,103 +822,103 @@ Learn more about [Application gateway - HotAppGateway (Make sure you have enough
 
 ### To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the App VM OS in SAP workloads
 
-To avoid sporadic soft-lockup in Mellanox driver, the can_queue value needs to be reduced in the OS. This value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
+To avoid sporadic soft-lockup in Mellanox driver, reduce the can_queue value in the OS. The value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
 
 Learn more about [App Server Instance - AppSoftLockup (To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the App VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000020248).
 
 ### To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the ASCS VM OS in SAP workloads
 
-To avoid sporadic soft-lockup in Mellanox driver, the can_queue value needs to be reduced in the OS. This value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
+To avoid sporadic soft-lockup in Mellanox driver, reduce the can_queue value in the OS. The value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
 
 Learn more about [Central Server Instance - AscsoftLockup (To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the ASCS VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000020248).
 
 ### To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the DB VM OS in SAP workloads
 
-To avoid sporadic soft-lockup in Mellanox driver, the can_queue value needs to be reduced in the OS. This value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
+To avoid sporadic soft-lockup in Mellanox driver, reduce the can_queue value in the OS. The value cannot be set directly. Add the following kernel boot line options to achieve the same effect:'hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024'
 
 Learn more about [Database Instance - DBSoftLockup (To avoid soft-lockup in Mellanox driver, reduce the can_queue value in the DB VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000020248).
 
 ### For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter
 
-The parameter net.ipv4.tcp_wmem specifies minimum, default, and maximum send buffer sizes that are used for a TCP socket. Set the parameter as per SAP note: 302436 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.wmem_max parameter
+The parameter net.ipv4.tcp_wmem specifies minimum, default, and maximum send buffer sizes that are used for a TCP socket. Set the parameter as per SAP note: 302436 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.wmem_max parameter.
 
 Learn more about [Database Instance - WriteBuffersAllocated (For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, optimise tcp_rmem OS parameter
 
-The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.rmem_max parameter
+The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.rmem_max parameter.
 
 Learn more about [Database Instance - OptimiseReadTcp (For improved file system performance in HANA DB with ANF, optimise tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter
 
-In HANA DB with ANF storage type, the maximum write socket buffer, defined by the parameter, net.core.wmem_max must be set large enough to handle outgoing network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346
+In HANA DB with ANF storage type, the maximum write socket buffer, defined by the parameter net.core.wmem_max must be set large enough to handle outgoing network packets. The net.core.wmem_max configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
 
 Learn more about [Database Instance - MaxWriteBuffer (For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter
 
-The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.rmem_max parameter
+The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.rmem_max parameter.
 
 Learn more about [Database Instance - OptimizeReadTcp (For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter
 
-In HANA DB with ANF storage type, the maximum read socket buffer, defined by the parameter, net.core.rmem_max must be set large enough to handle incoming network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
+In HANA DB with ANF storage type, the maximum read socket buffer, defined by the parameter, net.core.rmem_max must be set large enough to handle incoming network packets. The net.core.rmem_max configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
 
 Learn more about [Database Instance - MaxReadBuffer (For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, set receiver backlog queue size to 300000
 
-The parameter net.core.netdev_max_backlog specifies the size of the receiver backlog queue, used if a Network interface receives packets faster than the kernel can process. Set the parameter as per SAP note: 3024346. This configuration certifies HANA DB to run with ANF and improves file system performance.
+The parameter net.core.netdev_max_backlog specifies the size of the receiver backlog queue, used if a network interface receives packets faster than the kernel can process. Set the parameter as per SAP note: 3024346. The net.core.netdev_max_backlog configuration certifies HANA DB to run with ANF and improves file system performance.
 
 Learn more about [Database Instance - BacklogQueueSize (For improved file system performance in HANA DB with ANF, set receiver backlog queue size to 300000)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### To improve file system performance in HANA DB with ANF, enable the TCP window scaling OS parameter
 
-Enable the TCP window scaling parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+Enable the TCP window scaling parameter as per SAP note: 302436. The TCP window scaling configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - EnableTCPWindowScaling (To improve file system performance in HANA DB with ANF, enable the TCP window scaling OS parameter )](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS
 
-Disable IPv6 as per recommendation for SAP on Azure for HANA DB with ANF to improve file system performance
+Disable IPv6 as per recommendation for SAP on Azure for HANA DB with ANF to improve file system performance.
 
 Learn more about [Database Instance - DisableIPv6Protocol (For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 ### To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle
 
-The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up incrementally the TCP window size for TCP connections which were idle for some time. By setting this parameter to zero as per SAP note: 302436, the maximum speed is used from beginning for previously idle TCP connections
+The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up incrementally the TCP window size for TCP connections that were idle for some time. By setting this parameter to zero as per SAP note: 302436, the maximum speed is used from beginning for previously idle TCP connections.
 
 Learn more about [Database Instance - ParameterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter
 
-To prevent the kernel from using SYN cookies in a situation where lots of connection requests are sent in a short timeframe and to prevent a warning about a potential SYN flooding attack in the system log, the size of the SYN backlog must be set to a reasonably high value. See SAP note 2382421
+To prevent the kernel from using SYN cookies in a situation where lots of connection requests are sent in a short timeframe and to prevent a warning about a potential SYN flooding attack in the system log, the size of the SYN backlog must be set to a reasonably high value. See SAP note 2382421.
 
 Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter
 
-Enable the tcp_sack parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+Enable the tcp_sack parameter as per SAP note: 302436. The tcp_sack configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - TCPSackParameter (For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
 
-Disable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in high-availability scenarios for HANA DB with ANF in SAP workloads
+Disable the tcp_timestamps parameter as per SAP note: 302436. The tcp_timestamps configuration certifies HANA DB to run with ANF and improves file system performance in high-availability scenarios for HANA DB with ANF in SAP workloads
 
 Learn more about [Database Instance - DisableTCPTimestamps (In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter
 
-Enable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+Enable the tcp_timestamps parameter as per SAP note: 302436. The tcp_timestamps configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - EnableTCPTimestamps (For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size
 
-The parameter net.ipv4.tcp_moderate_rcvbuf enables  TCP to perform receive buffer auto-tuning, to automatically size the buffer (no greater than tcp_rmem to match the size required by the path for full throughput. Enable this parameter as per SAP note: 302436 for improved file system performance
+The parameter net.ipv4.tcp_moderate_rcvbuf enables  TCP to perform receive buffer auto-tuning, to automatically size the buffer (no greater than tcp_rmem to match the size required by the path for full throughput. Enable this parameter as per SAP note: 302436 for improved file system performance.
 
 Learn more about [Database Instance - EnableAutoTuning (To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size)](https://launchpad.support.sap.com/#/notes/3024346).
 
@@ -925,67 +930,67 @@ Learn more about [Database Instance - IPV4LocalPortRange (For improved file syst
 
 ### To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries
 
-Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system performance in HANA DB with ANF in SAP workloads
+Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 ### All disks in LVM for /hana/data volume must be of the same type to ensure high performance in HANA DB
 
-If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
+If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure.
 
 Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume must be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 ### Stripe size for /hana/data must be 256 kb for improved performance of HANA DB in SAP workloads
 
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends using stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB
+If you're using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends using stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB.
 
 Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data must be 256 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 ### To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness
 
-Set the OS parameter vm.swappiness to 10 as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
+Set the OS parameter vm.swappiness to 10 as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 ### To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter
 
-Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
+Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - DisableIPV4Conf (To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 ### If using Ultradisk, the IOPS for /hana/data volume must be >=7000 for better HANA DB performance
 
-IOPS of at least 7000 in /hana/data volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/data volume as per this requirement to ensure high performance of the DB
+IOPS of at least 7000 in /hana/data volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/data volume as per this requirement to ensure high performance of the DB.
 
 Learn more about [Database Instance - HanaDataIOPS (If using Ultradisk, the IOPS for /hana/data volume must be >=7000 for better HANA DB performance)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana).
 
 ### To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries
 
-Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer performance in HANA DB with ANF in SAP workloads
+Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer performance in HANA DB with ANF in SAP workloads.
 
 Learn more about [Database Instance - OptimizeTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB
 
-Read activity of at least 400 MB/sec for /hana/data for 16 MB and 64 MB I/O sizes is recommended for SAP workloads on Azure. Select the disk type for /hana/data as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
+Read activity of at least 400 MB/sec for /hana/data for 16 MB and 64 MB I/O sizes is recommended for SAP workloads on Azure. Select the disk type for /hana/data as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA.
 
 Learn more about [Database Instance - HanaDataVolumePerformance (Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read%20activity%20of%20at%20least%20400%20MB/sec%20for%20/hana/data).
 
 ### Read/write performance of /hana/log volume must be >=250 MB/sec for better performance in HANA DB
 
-Read/Write activity of at least 250 MB/sec for /hana/log for 1 MB I/O size is recommended for SAP workloads on Azure. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
+Read/Write activity of at least 250 MB/sec for /hana/log for 1 MB I/O size is recommended for SAP workloads on Azure. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA.
 
 Learn more about [Database Instance - HanaLogReadWriteVolume (Read/write performance of /hana/log volume must be >=250 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read/write%20on%20/hana/log%20of%20250%20MB/sec%20with%201%20MB%20I/O%20sizes).
 
 ### If using Ultradisk, the IOPS for /hana/log volume must be >=2000 for better performance in HANA DB
 
-IOPS of at least 2000 in /hana/log volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB
+IOPS of at least 2000 in /hana/log volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB.
 
 Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS for /hana/log volume must be >=2000 for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
 
 ### All disks in LVM for /hana/log volume must be of the same type to ensure high performance in HANA DB
 
-If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
+If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure.
 
 Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume must be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
 
@@ -997,7 +1002,7 @@ Learn more about [Database Instance - WriteAcceleratorEnabled (Enable Write Acce
 
 ### Stripe size for /hana/log must be 64 kb for improved performance of HANA DB in SAP workloads
 
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends using stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB
+If you're using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends using stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB.
 
 Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/log must be 64 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
@@ -1009,13 +1014,13 @@ Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/l
 
 ### Update Attestation API Version
 
-We have identified API calls from outdated Attestation API for resources under this subscription. We recommend switching to the latest Attestation API versions. You need to update your existing code to use the latest API version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated an Attestation API for resources under this subscription. We recommend switching to the latest Attestation API versions. You need to update your existing code to use the latest API version. Using the latest API version ensures you receive the latest features and performance improvements.
 
 Learn more about [Attestation provider - UpgradeAttestationAPI (Update Attestation API Version)](/rest/api/attestation).
 
 ### Update Key Vault SDK Version
 
-New Key Vault Client Libraries are split to keys, secrets, and certificates SDKs, which are integrated with recommended Azure Identity library to provide seamless authentication to Key Vault across all languages and environments. It also contains several performance fixes to issues reported by customers and proactively identified through our QA process. If Key Vault is integrated with Azure Storage, Disk or other Azure services which can use old Key Vault SDK and when all your current custom applications are using .NET SDK 4.0 or above, dismiss the recommendation.
+New Key Vault Client Libraries are split to keys, secrets, and certificates SDKs, which are integrated with recommended Azure Identity library to provide seamless authentication to Key Vault across all languages and environments. It also contains several performance fixes to issues reported by customers and proactively identified through our QA process. If Key Vault is integrated with Azure Storage, Disk or other Azure services that can use old Key Vault SDK and when all your current custom applications are using .NET SDK 4.0 or above, dismiss the recommendation.
 
 Learn more about [Key vault - UpgradeKeyVaultSDK (Update Key Vault SDK Version)](../key-vault/general/client-libraries.md).
 
@@ -1047,31 +1052,31 @@ Learn more about [Storage Account - AzureStorageAdvisorAvoidThrottlingPremiumFil
 
 ### Create statistics on table columns
 
-We have detected that you are missing table statistics that might be impacting query performance. The query optimizer uses statistics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan.
+We have detected that you're missing table statistics that might be impacting query performance. The query optimizer uses statistics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan.
 
 Learn more about [SQL data warehouse - CreateTableStatisticsSqlDW (Create statistics on table columns)](https://aka.ms/learnmorestatistics).
 
 ### Remove data skew to increase query performance
 
-We have detected distribution data skew greater than 15%. This can cause costly performance bottlenecks.
+We have detected distribution data skew greater than 15%, which can cause costly performance bottlenecks.
 
 Learn more about [SQL data warehouse - DataSkewSqlDW (Remove data skew to increase query performance)](https://aka.ms/learnmoredataskew).
 
 ### Update statistics on table columns
 
-We have detected that you do not have up-to-date table statistics that might be impacting query performance. The query optimizer uses up-to-date statistics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan.
+We have detected that you don't have up-to-date table statistics, which might be impacting query performance. The query optimizer uses up-to-date statistics to estimate the cardinality or number of rows in the query result that enables the query optimizer to create a high quality query plan.
 
 Learn more about [SQL data warehouse - UpdateTableStatisticsSqlDW (Update statistics on table columns)](https://aka.ms/learnmorestatistics).
 
 ### Scale up to optimize cache utilization with SQL Data Warehouse
 
-We have detected that you had high cache used percentage with a low hit percentage. This indicates high cache eviction which can impact the performance of your workload.
+We have detected that you had high cache used percentage with low hit percentage, indicating a high cache eviction rate that can impact the performance of your workload.
 
 Learn more about [SQL data warehouse - SqlDwIncreaseCacheCapacity (Scale up to optimize cache utilization with SQL Data Warehouse)](https://aka.ms/learnmoreadaptivecache).
 
 ### Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse
 
-We have detected that you had high tempdb utilization which can impact the performance of your workload.
+We have detected that you had high tempdb utilization that can impact the performance of your workload.
 
 Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](https://aka.ms/learnmoretempdb).
 
@@ -1089,13 +1094,13 @@ Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files
 
 ### Increase batch size when loading to maximize load throughput, data compression, and query performance
 
-We have detected that you can increase load performance and throughput by increasing the batch size when loading into your database. Consider using the COPY statement. If you are unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows.
+We have detected that you can increase load performance and throughput by increasing the batch size when loading into your database. Consider using the COPY statement. If you're unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows.
 
 Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch size when loading to maximize load throughput, data compression, and query performance)](https://aka.ms/learnmoreincreasebatchsize).
 
 ### Co-locate the storage account within the same region to minimize latency when loading
 
-We have detected that you are loading from a region that is different from your SQL pool. Consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data.
+We have detected that you're loading from a region that is different from your SQL pool. Consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data.
 
 Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](https://aka.ms/learnmorestoragecolocation).
 
@@ -1113,7 +1118,7 @@ Learn more about [Storage Account - UpdateStorageDataMovementSDK (Upgrade your S
 
 ### Upgrade to Standard SSD Disks for consistent and improved performance
 
-Because you are running IaaS virtual machine workloads on Standard HDD managed disks, we wanted to let you know that a Standard SSD disk option is now available for all Azure VM types. Standard SSD disks are a cost-effective storage option optimized for enterprise workloads that need consistent performance. Upgrade your disk configuration today for improved latency, reliability, and availability. Upgrading requires a VM reboot, which takes three to five minutes.
+Because you're running IaaS virtual machine workloads on Standard HDD managed disks, be aware that a Standard SSD disk option is now available for all Azure VM types. Standard SSD disks are a cost-effective storage option optimized for enterprise workloads that need consistent performance. Upgrade your disk configuration today for improved latency, reliability, and availability. Upgrading requires a VM reboot, which takes three to five minutes.
 
 Learn more about [Storage Account - StandardSSDForNonPremVM (Upgrade to Standard SSD Disks for consistent and improved performance)](/azure/virtual-machines/windows/disks-types#standard-ssd).
 
@@ -1131,13 +1136,13 @@ Learn more about [Storage Account - UMDHDDtoPremiumForPerformance (Convert Unman
 
 ### Distribute data in server group to distribute workload among nodes
 
-It looks like the data has not been distributed in this server group but stays on the coordinator. For full Hyperscale (Citus) benefits distribute data on worker nodes in this server group.
+It looks like the data is not distributed in this server group but stays on the coordinator. For full Hyperscale (Citus) benefits, distribute data on worker nodes in the server group.
 
 Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusDistributeData (Distribute data in server group to distribute workload among nodes)](https://go.microsoft.com/fwlink/?linkid=2135201).
 
 ### Rebalance data in Hyperscale (Citus) server group to distribute workload among worker nodes more evenly
 
-It looks like the data is not well balanced between worker nodes in this Hyperscale (Citus) server group. In order to use each worker node of the Hyperscale (Citus) server group effectively rebalance data in this server group.
+It looks like the data is not well balanced between worker nodes in this Hyperscale (Citus) server group. In order to use each worker node of the Hyperscale (Citus) server group effectively rebalance data in the server group.
 
 Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusRebalanceData (Rebalance data in Hyperscale (Citus) server group to distribute workload among worker nodes more evenly)](https://go.microsoft.com/fwlink/?linkid=2148869).
 
@@ -1148,7 +1153,7 @@ Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusRebalanc
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location
 
-We have determined that your VMs are located in a region different or far from where your users are connecting from, using Azure Virtual Desktop. This might lead to prolonged connection response times and impact overall user experience on Azure Virtual Desktop. When creating VMs for your host pools, attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
+We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience. When creating VMs for your host pools, attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
 
 Learn more about [Host Pool - RegionProximityHostPools (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
