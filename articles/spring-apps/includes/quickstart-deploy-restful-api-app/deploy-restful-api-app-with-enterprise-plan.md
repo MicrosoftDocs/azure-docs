@@ -50,7 +50,43 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.4. Connect app instance to PostgreSQL instance
 
-[!INCLUDE [connect-app-instance-to-postgresql](connect-app-instance-to-postgresql.md)]
+Use the following steps to connect your service instances:
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation menu, open **Apps**, and then select **Create App**.
+
+1. On the **Create App** page, fill in the app name *simple-todo-api* and select **Java artifacts** as the deployment type.
+
+1. Select **Create** to finish the app creation and select the app to view the details.
+
+1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/restful-api-app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/restful-api-app-service-connector-enterprise.png":::
+
+1. Fill out the **Basics** tab with the following information:
+
+    - **Service type**: **DB for PostgreSQL flexible server**
+    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Subscription**: Select your subscription.
+    - **PostgreSQL flexible server**: *my-demo-pgsql*
+    - **PostgreSQL database**: Select the database you created.
+    - **Client type**: **SpringBoot**
+
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png":::
+
+1. Configure the **Next: Authentication** tab with the following information:
+
+    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+    - **Continue with...**: Select **Database credentials**
+    - **Username**: *myadmin*
+    - **Password**: Enter your password.
+
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication-enterprise.png":::
+
+1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+
+1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
 ### 3.5 Expose RESTful APIs
 

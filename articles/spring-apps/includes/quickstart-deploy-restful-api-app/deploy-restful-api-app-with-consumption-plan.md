@@ -126,7 +126,28 @@ Use the following steps to create a service instance:
 
 ### 3.4. Connect app instance to PostgreSQL instance
 
-[!INCLUDE [connect-app-instance-to-postgresql](connect-app-instance-to-postgresql.md)]
+Use the following steps to connect your service instances:
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation menu, open **Apps**, and then select **Create App**.
+
+1. On the **Create App** page, fill in the app name *simple-todo-api* and select **Java artifacts** as the deployment type.
+
+1. Select **Create** to finish the app creation and select the app to view the details.
+
+1. Go to the created app, expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
+
+1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values that you created previously.
+
+   | Environment variable         | Value                                                                                  |
+   |------------------------------|----------------------------------------------------------------------------------------|
+   | `SPRING_DATASOURCE_URL`      | `jdbc:postgresql://<your-PostgreSQL-server-name>:5432/<your-PostgreSQL-database-name>` |
+   | `SPRING_DATASOURCE_USERNAME` | `<your-PostgreSQL-admin-user>`                                                         |
+   | `SPRING_DATASOURCE_PASSWORD` | `<your-PostgreSQL-admin-password>`                                                     |
+
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab with all the values for the PostgreSQL connection." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png":::
+
 
 ### 3.5 Expose RESTful APIs
 
