@@ -131,6 +131,8 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view its details.
 
+1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
+
 1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
    - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-pgsql.postgres.database.azure.com:5432/todo?sslmode=require*

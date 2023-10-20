@@ -120,6 +120,8 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
+1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
+
 1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
