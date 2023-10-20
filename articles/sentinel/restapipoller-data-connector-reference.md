@@ -11,6 +11,11 @@ ms.author: austinmc
 
 # RestApiPoller data connector reference for the Codeless Connector Platform
 
+Still a work in progress
+
+From DataConnector API doc.
+
+
 ## Configure your connector's polling settings
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
