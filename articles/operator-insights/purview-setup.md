@@ -30,7 +30,7 @@ You can access your Purview account through the Azure portal by going to `https:
 
 To begin to catalog a data product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
 
-Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more details, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections#add-roles-and-restrict-access-through-collections.md).
+Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more details, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 [Using the Microsoft Purview portal](../purview/use-microsoft-purview-governance-portal.md) explains how to use the Purview user interface and navigate the service. Microsoft Purview includes options to scan in data sources, but this option is not required for integrating Azure Operator Insights Data Products with Purview. When you complete this procedure, all Azure services and assets are automatically populated to your Purview catalog.
 
