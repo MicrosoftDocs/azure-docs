@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/02/2023
+ms.date: 10/22/2023
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -19,16 +19,27 @@ It's common to use pipelines to build and deploy images on Azure Kubernetes Serv
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](azure-cli-install) (version 2.47.0 or greater).
+* Azure CLI version 2.49.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Limitations
 
-- Not supporting Windows node pools.
-- Not supporting AKS virtual nodes.
+Image Cleaner doesn't yet support Windows node pools or AKS virtual nodes.
 
 ## How Image Cleaner works
 
 After you enable Image Cleaner, there will be a controller manager pod named `eraser-controller-manager` deployed to your cluster.
+
+:::image type="content" source="./media/image-cleaner/Image-cleaner-1015.png" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+
+With Image Cleaner, you can choose between manual and automatic mode and the following configuration options:
+
+## Configuration options
+
+|Name|Description|Required|
+|----|-----------|--------|
+|`--enable-image-cleaner`|Enable the Image Cleaner feature for an AKS cluster|Yes, unless disable is specified|
+|`--disable-image-cleaner`|Disable the Image Cleaner feature for an AKS cluster|Yes, unless enable is specified|
+|`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner uses to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
 
 ### Automatic mode
 Once `eraser-controller-manager` is deployed,
@@ -46,16 +57,10 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
 
 :::image type="content" source="./media/image-cleaner/Image-cleaner-1015.png" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
-## Configuration options
 
-|Name|Description|Required|
-|----|-----------|--------|
-|`--enable-image-cleaner`|Enable the Image Cleaner feature for an AKS cluster|Yes, unless disable is specified|
-|`--disable-image-cleaner`|Disable the Image Cleaner feature for an AKS cluster|Yes, unless enable is specified|
-|`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner uses to run. <br>  default value: **7 * 24**<br>  minimum value: **24**<br>  maximum value: **3 * 30 * 24**|Not required for Azure CLI, required for ARM template or other clients|
 
 > [!NOTE]
-> After disabling Image Cleaner, the `--image-cleaner-interval-hours` value is kept and next time if you re-enable without specifying a new interval, the old one would be used.
+> After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
 
 ## Enable Image Cleaner on your AKS cluster
 
