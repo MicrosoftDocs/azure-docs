@@ -19,17 +19,34 @@ landingContent:
           - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
             url: overview.md
       
-  - title: Get started
+  - title: Connect machines to Azure
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Arc agent 
+            url: agent-overview-scvmm.md
       - linkListType: quickstart
         links:
           - text: Connect a System Center Virtual Machine Manager management server to Azure Arc 
             url: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
+      - linkListType: deploy
+        links:
+          - text: Enable SCVMM inventory resources in Azure
+            url: enable-scvmm-inventory-resources.md
+          - text: Install Arc agent at scale for SCVMM VMs
+            url: enable-guest-management-at-scale.md
 
-  - title: Enable SCVMM inventory in Azure
+  - title: Azure service integration
     linkLists:
       - linkListType: how-to-guide
         links:  
           - text: Enable SCVMM inventory in Azure
             url: enable-scvmm-inventory-resources.md
+          
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:  
+          - text: Azure CLI
+            url: /cli/azure/scvmm
   
