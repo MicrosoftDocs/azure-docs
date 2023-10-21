@@ -1,8 +1,8 @@
 ---
 title: Send Azure Blob storage events to web endpoint - Azure CLI
 description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
-author: stevenmatthew
-ms.author: shaas
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
