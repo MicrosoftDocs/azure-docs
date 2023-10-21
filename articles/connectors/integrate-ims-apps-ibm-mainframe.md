@@ -1,33 +1,41 @@
 ---
 title: Connect to IMS programs on IBM mainframes
-description: Integrate with IMS programs with Azure by using Azure Logic Apps and IBM IMS connector
+description: Integrate IMS programs with workflows in Azure Logic Apps using the IBM IMS Program Call connector
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/23/2023
 tags: connectors
 ---
 
-# Integrate IMS Programs on IBM mainframes with Azure by using Azure Logic Apps and the IBM IMS connector
+# Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS Program Call connector (preview)
 
-With Azure Logic Apps and the IBM IMS connector, you can access and run IBM mainframe apps running on Information Management System (IMS) systems. IMS provides a transaction program (TP) Monitor with an integrated Transaction Manager (TM) and hierarchical database. The connector communicates with IBM IMS transaction programs by using IMS Connect, an IMS TM network component that provides high performance communications for IMS systems between one or more TCP/IP clients and one or more IMS systems. The IMS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This article describes these aspects for using the IMS connector: 
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Why use the IBM IMS connector in Azure Logic Apps
+To access and run IBM mainframe apps on Information Management System (IMS) systems from Standard workflows in Azure Logic Apps, you can use the **IMS Program Call** built-in, service provider-based connector. IMS provides a Transaction Program (TP) Monitor with an integrated Transaction Manager (TM) and hierarchical database. The connector communicates with IBM IMS transaction programs by using IMS Connect, which is an IMS TM network component. This component provides high performance communications for IMS systems between one or more TCP/IP clients and one or more IMS systems. The IMS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
-* The prerequisites and setup for using the IMS connector
+This how-to guide describes the following aspects about the IMS connector:
 
-* The steps for adding IMS connector actions to your logic app
+* Why use the IMS connector in Azure Logic Apps
+
+* Prerequisites and setup for using the IMS connector
+
+* Steps for adding IMS connector actions to your Standard logic app workflow
 
 ## Why use this connector?
 
-IMS systems are one of the first Mission Critical systems in the world of Computing running on Mainframes. [Host Integration Server](/host-integration-server/what-is-his) provides connectivity to IMS systems following two models: IMS Connect and APPC LU6.2. Customers have been using our Host Integration Server Transaction Integrator feature to integrate their IMS systems with the windows on-premises world for many years. Our Azure Logic Apps connector uses the IMS Connect model, via TCP/IP to interact with IMS Transaction Programs. The following diagram illustrate the IMS Connector interacting with an IBM Mainframe system:
+IMS systems were one of the first mission-critical systems that run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IMS systems by following two models: IMS Connect and APPC LU6.2. Customers have used the HIS Transaction Integrator (TI) to integrate their IMS systems with Windows on premises for many years. The **IMS Program Call** connector uses the IMS Connect model to interact with IMS transaction programs through TCP/IP.
 
-:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/la-ims-connector1.png" alt-text="IMS Connector":::
+The following diagram shows how the IMS connector interacts with an IBM mainframe system:
+
+:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png" alt-text="Conceptual diagram showing how the IMS Program Call connector works with IBM mainframe system.":::
 
 To extend hybrid cloud scenarios, the IMS Connector in Azure Logic Apps works with the HIS Designer for Logic Apps, which is used to create a “Program Definition” or “Program Map” of the Mainframe Transaction Program.  The HIS Designer for Logic Apps converts that information into metadata that the IMS connector uses when calling an action that represents that task from your logic app.
 After you generate the metadata file from the HIS Designer for Logic Apps, you add that file to the logic app maps artifacts in Azure. That way, your logic app can access your app's metadata when you add a IMS connector action. The connector reads the metadata file from your logic app, and dynamically presents the parameters for the IMS connector. You can then provide parameters to the host application, and the connector returns the results to your logic app. That way, you can integrate your legacy apps with Azure, Microsoft, and other apps, services, and systems that Azure Logic Apps supports.

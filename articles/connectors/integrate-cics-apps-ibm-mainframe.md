@@ -1,17 +1,17 @@
 ---
 title: Connect to CICS programs on IBM mainframes
-description: Integrate CICS programs with workflows in Azure Logic Apps using the IBM **CICS Program Call** connector.
+description: Integrate CICS programs with workflows in Azure Logic Apps using the IBM CICS Program Call connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 10/23/2023
 tags: connectors
 ---
 
-# Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps with the CICS Program Call connector (preview)
+# Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the CICS Program Call connector (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -31,7 +31,9 @@ This how-to guide describes the following aspects about the CICS connector:
 
 ## Why use this connector?
 
-CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft Host Integration Server (HIS) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers use the HIS Transaction Integrator (TI) to integrate CICS systems with Windows operating systems for many years. The **CICS Program Call** connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs. The following diagram describes how the CICS connector interacts with an IBM mainframe system:
+CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers have used the HIS Transaction Integrator (TI) to integrate CICS systems with Windows on premises for many years. The **CICS Program Call** connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs.
+
+The following diagram shows how the CICS connector interacts with an IBM mainframe system:
 
 :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png" alt-text="Conceptual diagram showing how the CICS Program Call connector works with IBM mainframe system.":::
 
