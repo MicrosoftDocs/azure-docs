@@ -220,4 +220,4 @@ The agent requests the following metadata information from Azure:
 
 - [Connect your SCVMM server to Azure Arc](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc).
 - [Install Arc agent at scale for your SCVMM VMs](/azure/azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale).
-- [Install Arc agent using a script for SCVMM VMs](/azure/azure-arc/system-center-virtual-machine-manager/install-arc-agents-using%20-script).
+- [Install Arc agent using a script for SCVMM VMs](/azure/azure-arc/system-center-virtual-machine-manager/install-arc-agents-using-script).
