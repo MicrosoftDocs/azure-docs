@@ -72,7 +72,7 @@ There are two types of hooks:
 >[!Note]
 >Hooks aren't executed in a shell. on the containers.
 
-**Backup Hooks**:
+### Backup Hooks
 
 In a Backup Hook, you can configure the commands to run it before any custom action processing (`“pre”` hooks), or after all custom actions are complete and any additional items specified by custom actions are backed up (`“post”` hooks).
 
@@ -126,7 +126,7 @@ spec:
 
 ``` 
 
-**Restore Hooks**:
+### Restore Hooks
 
 In a Restore Hook, custom commands or scripts are written to be executed in containers of a restored Kubernetes pod.
 
