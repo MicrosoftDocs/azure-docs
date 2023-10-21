@@ -11,8 +11,6 @@ ms.author: sudhirsneha
 
 # Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version
 
-
-Migration from Log Analytics to Azure Monitoring Agent version
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Azure Arc-enabled servers.
 
 This article provides guidance to move from Change Tracking and Inventory using Log Analytics version to the Azure Monitoring Agent version.
@@ -96,28 +94,26 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 To obtain the Log Analytics Workspace resource ID, follow these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com)
-1. In **Log Analytics Worspace**, select the specific workspace and select **Json View**.
+1. In **Log Analytics Workspace**, select the specific workspace and select **Json View**.
 1. Copy the **Resource ID**.
-
-   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-inline.png" alt-text="Screenshot on how to obtain Log Analytics workspace resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-expanded.png":::
 
 
 ## Limitations
 
 ### [Using Azure portal - for single VM](#tab/limit-single-vm)
 
-1. 100 VMs per Automation Account can be migrated in one instance 
-1. Any VM with > 100 file/registry settings for migration via portal is not supported at present 
-1. Arc VM migration is not supported with portal, we recommend that you use PowerShell script migration.
+1. 100 VMs per Automation Account can be migrated in one instance.
+1. Any VM with > 100 file/registry settings for migration via portal isn't supported now. 
+1. Arc VM migration isn't supported with portal, we recommend that you use PowerShell script migration.
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 
 ### [Using Azure portal - for Automation account](#tab/limit-at-scale)
 
-1. 100 VMs per Automation Account can be migrated in one instance 
-1. Any VM with > 100 file/registry settings for migration via portal is not supported at present 
-1. Arc VM migration is not supported with portal, we recommend that you use PowerShell script migration.
+1. 100 VMs per Automation Account can be migrated in one instance.
+1. Any VM with > 100 file/registry settings for migration via portal isn't supported now. 
+1. Arc VM migration isn't supported with portal, we recommend that you use PowerShell script migration.
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
@@ -130,7 +126,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 
 ## Disable Change tracking using Log Analytics Agent
 
-After you enable management of your virtual machines using Change Tracking and Inventory using Azure Monitoring Agent, you may decide to stop using Change Tracking & Inventory with LA agent version and remove the configuration from the account.
+After you enable management of your virtual machines using Change Tracking and Inventory using Azure Monitoring Agent, you might decide to stop using Change Tracking & Inventory with LA agent version and remove the configuration from the account.
 
 The disable method incorporates the following:
 - Removes change tracking with LA agent for selected few VMs within Log Analytics Workspace.
