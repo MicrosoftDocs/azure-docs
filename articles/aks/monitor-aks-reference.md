@@ -61,7 +61,7 @@ The following table lists the resource log categories you can collect for AKS. I
 | kube-scheduler          | Logs from the scheduler. | AKSControlPlane |
 | cluster-autoscaler       | Understand why the AKS cluster is scaling up or down, which may not be expected. This information is also useful to correlate time intervals where something interesting may have happened in the cluster. | AKSControlPlane |
 | cloud-controller-manager | Logs from the cloud-node-manager component of the Kubernetes cloud controller manager.| AKSControlPlane |
-| guard                   | Managed Azure Active Directory and Azure RBAC audits. For managed Azure AD, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. | AKSControlPlane |
+| guard                   | Managed Microsoft Entra ID and Azure RBAC audits. For managed Microsoft Entra ID, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. | AKSControlPlane |
 | csi-azuredisk-controller | Logs from the Azure Disk CSI storage driver. | AKSControlPlane |
 | csi-azurefile-controller | Logs from the Azure Files CSI storage driver. | AKSControlPlane |
 | csi-snapshot-controller | Logs from the Azure CSI driver snapshot controller. | AKSControlPlane |

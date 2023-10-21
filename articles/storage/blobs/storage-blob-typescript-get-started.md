@@ -48,7 +48,7 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
     npm install typescript @azure/storage-blob
     ```
 
-1. If you want to use passwordless connections using Azure AD, install the Azure Identity client library for JavaScript:
+1. If you want to use passwordless connections using Microsoft Entra ID, install the Azure Identity client library for JavaScript:
 
     ```bash
     npm install @azure/identity
@@ -56,13 +56,13 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 ## Authorize access and connect to Blob Storage
 
-Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
+Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
 
 ### Set up identity access to the Azure cloud
 
 To connect to Azure without passwords, you need to set up an Azure identity or use an existing identity. Once the identity is set up, make sure to assign the appropriate roles to the identity.
 
-To authorize passwordless access with Azure AD, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
+To authorize passwordless access with Microsoft Entra ID, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
 
 |Environment|Method|
 |--|--|

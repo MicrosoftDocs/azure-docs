@@ -258,6 +258,8 @@ See the complete regional availability of Functions on the [Azure web site](http
 |East US 2| 100 | 100 |
 |France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
+|Israel Central| 100 | 20 |
+|Italy North | 100 | 20 |
 |Japan East| 100 | 20 |
 |Japan West| 100 | 20 |
 |Jio India West| 100 | 20 |

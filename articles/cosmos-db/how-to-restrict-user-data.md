@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, ignite-2022
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 
-- using your Azure Active Directory identity when interacting with the Azure portal,
+- using your Microsoft Entra identity when interacting with the Azure portal,
 - using Azure Cosmos DB [keys](database-security.md#primary-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
 
 Each authentication method gives access to different sets of operations, with some overlap:
@@ -25,7 +25,7 @@ Each authentication method gives access to different sets of operations, with so
 In some scenarios, you may want to restrict some users of your organization to perform data operations (that is CRUD requests and queries) only. This is typically the case for developers who don't need to create or delete resources, or change the provisioned throughput of the containers they are working on.
 
 You can restrict the access by applying the following steps:
-1. Creating a custom Azure Active Directory role for the users whom you want to restrict access. The custom Active Directory role should have fine-grained access level to operations using Azure Cosmos DB's [granular actions](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
+1. Creating a custom Microsoft Entra role for the users whom you want to restrict access. The custom Active Directory role should have fine-grained access level to operations using Azure Cosmos DB's [granular actions](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
 1. Disallowing the execution of non-data operations with keys. You can achieve this by restricting these operations to Azure Resource Manager calls only.
 
 The next sections of this article show how to perform these steps.
@@ -48,9 +48,11 @@ Login-AzAccount
 Select-AzSubscription $MySubscriptionId
 ```
 
-## Create the custom Azure Active Directory role
+<a name='create-the-custom-azure-active-directory-role'></a>
 
-The following script creates an Azure Active Directory role assignment with "Key Only" access for Azure Cosmos DB accounts. The role is based on [Azure custom roles](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
+## Create the custom Microsoft Entra role
+
+The following script creates a Microsoft Entra role assignment with "Key Only" access for Azure Cosmos DB accounts. The role is based on [Azure custom roles](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Microsoft Entra namespace.
 
 1. First, create a JSON document named `AzureCosmosKeyOnlyAccess.json` with the following content:
 

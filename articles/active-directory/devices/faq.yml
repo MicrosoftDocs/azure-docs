@@ -167,13 +167,13 @@ sections:
           
       - question: My users can't search printers from Microsoft Entra joined devices. How can I enable printing from those devices?
         answer: |
-          To deploy printers for Microsoft Entra joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+          Organizations can choose to [deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/universal-print/) or [Universal Print](/universal-print/fundamentals/universal-print-whatis) for their Microsoft Entra joined devices.
           
           
           
       - question: How do I connect to a remote Microsoft Entra joined device?
         answer: |
-          See [Connect to remote Microsoft Entra joined PC](/windows/client-management/connect-to-remote-aadj-pc).
+          See [Connect to remote Microsoft Entra joined PC](/windows/client-management/client-tools/connect-to-remote-aadj-pc).
           
           
           
@@ -199,9 +199,8 @@ sections:
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Microsoft Entra join my PC?
         answer: |
-          This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
+          This error happens when you set up Microsoft Entra auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Microsoft Entra join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/mem/intune/enrollment/windows-enroll).
           
-     
       - question: Why did my attempt to Microsoft Entra join a PC fail, although I didn't get any error information?
         answer: |
           A likely cause is that you signed in to the device by using the local built-in administrator account. 
@@ -287,7 +286,7 @@ sections:
         answer: |
           Take the following steps:
           
-          1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
+          1.    [Create a compliance policy](/mem/intune/protect/compliance-policy-create-mac-os)
           1.    [Define a Conditional Access policy for macOS devices](../conditional-access/overview.md) 
           
           **Remarks:**

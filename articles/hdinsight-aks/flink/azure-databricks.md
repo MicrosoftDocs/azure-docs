@@ -112,7 +112,7 @@ Further, you can insert Kafka table into ADLSgen2 table on Flink SQL.
 
 ### Authentication of Azure Storage and Azure Databricks notebook
 
-ADLS Gen2 provides OAuth 2.0 with your Azure AD application service principal for authentication from an Azure Databricks notebook and then mount into Azure Databricks DBFS.
+ADLS Gen2 provides OAuth 2.0 with your Microsoft Entra application service principal for authentication from an Azure Databricks notebook and then mount into Azure Databricks DBFS.
 
 **Let's get service principle appid, tenant id and secret key.**
 
