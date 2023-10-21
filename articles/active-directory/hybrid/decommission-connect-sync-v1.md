@@ -21,12 +21,10 @@ ms.custom: docutune-disable
 
 The one-year advanced notice of Azure AD Connect V1's retirement was announced in August 2021.  As of August 31, 2022, all V1 versions went out of support and were subject to stop working unexpectedly at any point.
 
-On **October 1, 2023**, Azure AD cloud services will stop accepting connections from Azure AD Connect V1 servers, and identities will no longer synchronize.
+On **October 1, 2023**, Microsoft Entra cloud services stopped accepting connections from Azure AD Connect V1 servers, and identities will no longer synchronize.
 
 If you are still using Azure AD Connect V1 you must take action immediately.
 
->[!IMPORTANT]
->Azure AD Connect V1 will stop working on October 1st 2023.  You need to migrate to Microsoft Entra Connect cloud sync or Microsoft Entra Connect Sync.
 
 ##  Migrate to cloud sync
 Before moving to Microsoft Entra Connect Sync, you should see if cloud sync is right for you instead. Cloud sync uses a light-weight provisioning agent and is fully configurable through the portal. To choose the best sync tool for your situation, use the [Wizard to evaluate sync options.](https://aka.ms/EvaluateSyncOptions)
@@ -49,6 +47,6 @@ If you aren't yet eligible to move to cloud sync, use this table for more inform
 
 ## Next steps
 
-- [What is Azure AD Connect V2?](./connect/whatis-azure-ad-connect-v2.md)
+- [What is Microsoft Entra Connect V2?](./connect/whatis-azure-ad-connect-v2.md)
 - [Azure AD cloud sync](./cloud-sync/what-is-cloud-sync.md)
-- [Azure AD Connect version history](./connect/reference-connect-version-history.md)
+- [Microsoft Entra Connect version history](./connect/reference-connect-version-history.md)
