@@ -16,7 +16,7 @@ Within ACS you can send and receive reactions when on a group call:
 - Love ![Love reaction](media/reaction-love.png)
 - Applause ![Applause reaction](media/reaction-applause.png)
 - Laugh ![Laugh reaction](media/reaction-laugh.png)
-- Surprise ![Like reaction](media/reaction-surprise.png)
+- Surprise ![Surprise reaction](media/reaction-surprise.png)
 
 To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message will be built with Type `ReactionMessage` that uses `Reaction` enums as an attribute. 
 
