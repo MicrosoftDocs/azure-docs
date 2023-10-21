@@ -3,7 +3,7 @@ title: Protect your Azure storage accounts using Microsoft Defender for Cloud
 titleSuffix: Azure Storage
 description: Configure Microsoft Defender for Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access the storage accounts in your subscription.
 services: storage
-author: normesta
+author: dcurwin
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
