@@ -115,8 +115,6 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
-      - name: Configure MQTT bridge
-        href: connect-to-cloud/howto-configure-mqtt-bridge.md
       - name: Connect to Event Grid
         href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
       - name: Connect to Messaging services
@@ -166,6 +164,8 @@ items:
           href: administer/howto-configure-aks-ee-layered-network-management.md
       - name: Manage Azure MQ
         items:
+        - name: Configure MQTT bridge
+          href: administer/howto-configure-mqtt-bridge.md
         - name: Configure automatic TLS
           href: administer/howto-configure-tls-auto.md
         - name: Configure manual TLS

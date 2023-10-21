@@ -1,13 +1,13 @@
 ---
 title: Configure MQTT bridge cloud connector
 # titleSuffix: Azure IoT MQ
-description: Set up TLS for secured communication between the MQTT broker and client.
+description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/21/2023
 
-#CustomerIntent: As an operator, I want to.
+#CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
 
 
