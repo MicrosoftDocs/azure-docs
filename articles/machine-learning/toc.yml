@@ -684,6 +684,8 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Source LLM tool
               href: ./prompt-flow/tools-reference/open-source-llm-tool.md
+            - name: More tools
+              href: ./prompt-flow/tools-reference/more-tools.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)

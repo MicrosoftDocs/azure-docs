@@ -14,14 +14,11 @@ ms.date: 10/16/2023
 ---
 
 # Open Source LLM (preview)
-
-## Introduction
-
 The Prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258) for natural language processing, in PromptFlow.
 
 Here's how it looks in action on the Visual Studio Code Prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
 
-![Screenshot of the Open Source Llm On vsCode PromptFlow extension](../media/tool-reference/open_source_llm_on_vscode_promptflow.png)
+:::image type="content" source="../media/tool-reference/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot of the Open Source Llm On vsCode PromptFlow extension." lightbox = "../media/tool-reference/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
 
 This Prompt flow supports two different LLM API types:
 
@@ -43,7 +40,7 @@ This Prompt flow supports two different LLM API types:
 ## Prerequisites: Model Deployment
 
 1. Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
-2. Use the "Deploy" button to deploy the model to a Azure Machine Learning Online Inference endpoint.
+2. Use the "Deploy" button to deploy the model to an Azure Machine Learning Online Inference endpoint.
 
 More detailed instructions can be found here [Deploying foundation models to endpoints for inferencing.](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing)
 
