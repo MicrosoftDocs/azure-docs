@@ -25,7 +25,7 @@ The following limits apply to namespace resources in Azure Event Grid.
 | Limit description                      | Limit |
 |----------------------------------------|-------|
 | Namespaces per Azure subscription      | 10    |
-| Maximum throughput units per namespace | 20    |
+| Maximum throughput units per namespace | 40    |
 
 See [throughput units (TUs)](../concepts-pull-delivery.md#throughput-units) for more information.
 
@@ -57,9 +57,6 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
 
-
-
-
 ## Events limits in namespace
 
 The following limits apply to events in Azure Event Grid namespace resource.
@@ -67,11 +64,11 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Limit description                                     | Limit                                                                              |
 |-------------------------------------------------------|------------------------------------------------------------------------------------|
 | Namespace topics                                      | 100 per TU                                                                         |
-| Event ingress                                         | Up to 1,000 events per second or 1 MB per second per TU (whichever comes first)    |
-| Event egress                                          | Up to 2,000 events per second or 2 MB per second per TU                            |
-| Event duration period in topic                        | 1 day                                                                              |
-| Subscriptions per topic                               | 100                                                                                |
-| Connected clients per namespace (queue subscriptions) | 1,000                                                                              |
+| Event ingress (publish APIs)                          | Up to 1,000 events per second or 1 MB per second per TU (whichever comes first)    |
+| Event egress  (receive APIs)                          | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event egress  (completion APIs)                       | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event retention period in topic                       | 7 days                                                                             |
+| Subscriptions per topic                               | 500                                                                                |
 | Maximum event size                                    | 1 MB                                                                               |
 | Batch size                                            | 1 MB                                                                               |
 | Events per request                                    | 1,000                                                                              |
