@@ -37,9 +37,9 @@ The following diagram shows how the CICS connector interacts with an IBM mainfra
 
 :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png" alt-text="Conceptual diagram showing how the CICS Program Call connector works with IBM mainframe system.":::
 
-To extend those scenarios, the CICS connector in a Standard workflow works with the HIS Designer for Azure Logic Apps, which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the mainframe and the workflow. The HIS Designer converts that information into metadata that the CICS connector uses when calling an action that represents that task from your workflow. The CICS connector provides data type conversion, tabular data definition, and code page translation.
+To extend these hybrid cloud scenarios, the CICS connector in a Standard workflow works with the HIS Designer for Azure Logic Apps, which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the mainframe and the workflow. The HIS Designer converts that information into metadata that the CICS connector uses when calling an action that represents that task from your workflow. The CICS connector provides data type conversion, tabular data definition, and code page translation.
 
-After you generate the metadata file from the HIS Designer, you add that file as a map artifact to the Standard logic app resource in Azure. That way, your logic app workflow can access your app's metadata when you add a CICS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters for the CICS connector. You can then provide parameters to the host application, and the connector returns the results to your workflow. That way, you can integrate your legacy apps with Azure, Microsoft, and other apps, services, and systems that Azure Logic Apps supports.
+After you generate the metadata file from the HIS Designer, you can add that file as a map artifact either to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add a CICS connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the parameters to the CICS connector. You can then provide parameters to the host application, and the connector returns the results to your workflow.  As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
 ## Connector technical reference
 
@@ -62,13 +62,15 @@ After you generate the metadata file from the HIS Designer, you add that file as
 
 * The Standard logic app workflow to use for integrating with the IBM CICS system
 
-  The IBM CICS connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the CICS connector actions. To get started, create a blank workflow in your Standard logic app resource.
+  The CICS connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the CICS connector actions. To get started, create a blank workflow in your Standard logic app resource.
 
 <a name="define-generate-app-metadata"></a>
 
 ## Define and generate metadata
 
 After you download and install the HIS Designer for Azure Logic Apps, follow [these steps to generate the HIDX file from the metadata artifact](/host-integration-server/core/application-integration-lahostapps).
+
+<a name="upload-hidx-file"></a>
 
 ## Upload the HIDX file
 
@@ -95,7 +97,7 @@ Later in this guide, when you add a **CICS Program Call** connector action to yo
 
 ## Add a CICS action
 
-After you finish all these steps, you can use the action that you added to your workflow to your IBM mainframe, enter data, return results, and so on. You can also continue adding other actions to your workflow for integrating with other apps, services, and systems.
+After you finish all the previous steps, you can use the action that you added to your workflow to your IBM mainframe, enter data, return results, and so on. You can also continue adding other actions to your workflow for integrating with other apps, services, and systems.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
@@ -112,7 +114,7 @@ After you finish all these steps, you can use the action that you added to your 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name for your connection |
-   | **Programming Model** | Yes | <*CICS-programming-model*> | The selected Programming model for CICS. For more information, see [Programming Models](/host-integration-server/core/programming-models2) and [Choosing the Appropriate Programming Model](/host-integration-server/core/programming-models2). |
+   | **Programming Model** | Yes | <*CICS-programming-model*> | The selected CICS programming model. For more information, see [Programming Models](/host-integration-server/core/programming-models2) and [Choosing the Appropriate Programming Model](/host-integration-server/core/programming-models2). |
    | **Code Page** | No | <*code-page*> | The code page number to use for converting text |
    | **Password** | No | <*password*> | The optional user password for connection authentication |
    | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication |
