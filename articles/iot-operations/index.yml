@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: Deploy Azure IoT Operations
             url: deploy/overview-deploy-iot-operations.md
-          - text: Manage devices and assets
+          - text: Manage assets
             url: manage-devices-assets/overview-manage-assets.md
           - text: Publish and subscribe with MQTT
             url: pub-sub-mqtt/overview-iot-mq.md

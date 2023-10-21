@@ -18,7 +18,7 @@ items:
       items:
       - name: Overview
         href: deploy/overview-deploy-iot-operations.md
-    - name: Manage devices and assets
+    - name: Manage assets
       items:
       - name: Overview
         href: manage-devices-assets/overview-manage-assets.md
@@ -36,6 +36,22 @@ items:
           href: manage-devices-assets/howto-add-assets.md
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
+        - name: Use OPC UA broker in standalone mode
+          items:
+          - name: Install OPC UA Broker using helm
+            href: manage-devices-assets/howto-install-opcua-broker-using-helm.md
+          - name: Uninstall OPC UA Broker using helm
+            href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md
+          - name: Connect an OPC UA server
+            href: manage-devices-assets/howto-connect-an-opcua-server.md
+          - name: Define OPC UA assets
+            href: manage-devices-assets/howto-define-opcua-assets.md
+          - name: Autodetect OPC UA assets
+            href: manage-devices-assets/howto-autodetect-opcua-assets.md
+          - name: Process telemetry using OPC UA Broker
+            href: manage-devices-assets/howto-process-telemetry-using-opcua-broker.md
+          - name: Use OPC UA Broker actions
+            href: manage-devices-assets/howto-use-opcua-broker-actions.md         
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
