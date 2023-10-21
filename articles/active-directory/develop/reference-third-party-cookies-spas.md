@@ -84,7 +84,7 @@ Not all users and applications will be uniformly affected by third-party cookies
 
 For *managed enterprise device* scenarios, certain browser and platform combinations have support for [device conditional access](azure/active-directory/conditional-access/concept-conditional-access-conditions#supported-browsers). Leveraging device identity will minimize the need for third-party cookies as the authentication state can come from the device instead of the browser.  
 
-For *Azure AD B2C application* scenarios, customers can set up a [custom login domain](azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow) to match the application's domain. Browsers would not block third-party cookies in this scenario as the cookies remain in the same domain (ex: login.contoso.com to app.contoso.com).
+For *Azure AD B2C application* scenarios, customers can set up a [custom login domain](/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow) to match the application's domain. Browsers would not block third-party cookies in this scenario as the cookies remain in the same domain (ex: login.contoso.com to app.contoso.com).
 
  -   
 
