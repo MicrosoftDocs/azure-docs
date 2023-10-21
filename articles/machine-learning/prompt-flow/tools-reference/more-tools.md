@@ -13,7 +13,7 @@ ms.date: 10/24/2023
 ---
 
 # More tools in Prompt flow (preview)
-The table below provides an index of more tools. If existing tools can't meet your requirements, you can follow [this guidance](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. 
+This table provides an index of more tools. If existing tools can't meet your requirements, you can follow [this guidance](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. 
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -21,10 +21,10 @@ The table below provides an index of more tools. If existing tools can't meet yo
 
 <table>
     <tr>
-        <th>Type</th>
-        <th>Tool name</th>
-        <th>Description</th>
-        <th>Package Name</th>
+        <th width="10%">Type</th>
+        <th width="25%">Tool name</th>
+        <th width="35%">Description</th>
+        <th width="30%">Package Name</th>
     </tr>
     <tr>
         <td rowspan="10">Curated</td>
@@ -49,7 +49,7 @@ The table below provides an index of more tools. If existing tools can't meet yo
     </tr>
     <tr>
         <td><a href="./open-source-llm-tool.md">Open Source LLM</a></td>
-        <td>Use an Open Source model from the Azure Model catalog, deployed to an AzureML Online Endpoint for LLM Chat or Completion API calls.</td>
+        <td>Use an Open Source model from the Azure Model catalog, deployed to an Azure Machine Learning Online Endpoint for LLM Chat or Completion API calls.</td>
         <td>--</td>
     </tr>
     <tr>
@@ -73,13 +73,11 @@ The table below provides an index of more tools. If existing tools can't meet yo
     </tr>
     <tr>
         <td><a href="./vector-index-lookup-tool.md">Vector Index Lookup</a></td>
-        <td>Search text or vector based query from AzureML Vector Index.</td>
+        <td>Search text or vector based query from Azure Machine Learning Vector Index.</td>
     </tr>
 </table>
 
-You can also explore [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html) to find more custom tools that created by the open source community.
+You can also visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html) to discover more custom tools that developed by the open source community.
 
-## Next step
-For curated tools, no additional actions are required to utilize them in your environments. But for custom tools, you need to install them first with the guidance below:
-- [How to install the custom tool package](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime)
+For curated tools, no extra actions are required to utilize them in your environments. But for custom tools, you need to install them first with the guidance [How to install the custom tool package](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime).
 
