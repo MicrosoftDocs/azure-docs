@@ -31,7 +31,7 @@ The solution outlined in this article works in all of these browsers, or anywher
 
 ## Overview of the solution
 
-To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0 and higher, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x. See the [migration guide](azure/active-directory/develop/migrate-spa-implicit-to-auth-code) for moving a SPA from implicit to auth code flow. 
+To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0 and higher, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x. See the [migration guide](/azure/active-directory/develop/migrate-spa-implicit-to-auth-code) for moving a SPA from implicit to auth code flow. 
 
 For the Microsoft identity platform, SPAs and native clients follow similar protocol guidance:
 
