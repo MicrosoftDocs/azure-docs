@@ -114,8 +114,9 @@ Learn more about [HDInsight cluster - HBaseMemstoreReadPercentage (Reads happen 
 
 You're seeing this advisor recommendation because HDInsight team's system log shows that in the past seven days, your cluster has encountered the following scenarios:
 
-	1. High WAL sync time latency
-	2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
+1. High WAL sync time latency
+
+2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
 
 These conditions are indicators that your cluster is suffering from high write latencies, which can be due to heavy workload on your cluster.
 
