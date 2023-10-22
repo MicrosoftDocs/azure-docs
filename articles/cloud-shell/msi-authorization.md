@@ -1,7 +1,7 @@
 ---
 description: How to acquire a token for the authenticated user in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 11/14/2022
+ms.date: 10/06/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: devx-track-linux
@@ -20,7 +20,7 @@ Azure portal. Use this endpoint to acquire access tokens to interact with Azure 
 
 The Azure Cloud Shell has its own endpoint that interacts with your browser to automatically log you
 in. When this endpoint receives a request, it sends the request back to your browser, which forwards
-it to the parent Portal frame. The Portal window makes a request to Azure Active Directory, and the
+it to the parent Portal frame. The Portal window makes a request to Microsoft Entra ID, and the
 resulting token is returned.
 
 If you want to authenticate with different credentials, you can do so using `az login` or
@@ -51,8 +51,7 @@ curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 ## Handling token expiration
 
 The local authentication endpoint caches tokens. You can call it as often as you like. Cloud Shell
-only calls Azure Active Directory only occurs when there's no token stored in the cache or the token
-has expired.
+only calls Microsoft Entra ID when there's no token stored in the cache or the token has expired.
 
 ## Limitations
 

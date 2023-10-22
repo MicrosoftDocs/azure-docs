@@ -30,11 +30,11 @@ This quickstart shows you how to configure single sign-on for applications runni
 
 ## Prepare single sign-on credentials
 
-To configure single sign-on for the application, you need to prepare credentials. The following sections describe steps for using an existing provider or provisioning an application registration with Azure Active Directory.
+To configure single sign-on for the application, you need to prepare credentials. The following sections describe steps for using an existing provider or provisioning an application registration with Microsoft Entra ID.
 
 ### Use an existing provider
 
-Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, skip ahead to the following section, [Create and configure an application registration with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
+Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning a Microsoft Entra App Registration, skip ahead to the following section, [Create and configure an application registration with Microsoft Entra ID](#create-and-configure-an-application-registration-with-azure-active-directory).
 
 1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you add to your single sign-on provider's configuration.
 
@@ -61,11 +61,13 @@ Follow these steps to configure single sign-on using an existing Identity Provid
 
 1. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. The Identity Service application uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server.
 
-### Create and configure an application registration with Azure Active Directory
+<a name='create-and-configure-an-application-registration-with-azure-active-directory'></a>
 
-To register the application with Azure Active Directory, follow these steps. If you're using an existing provider's credentials, skip ahead to the following section, [Deploy the Identity Service application](#deploy-the-identity-service-application).
+### Create and configure an application registration with Microsoft Entra ID
 
-1. Use the following command to create an application registration with Azure Active Directory and save the output:
+To register the application with Microsoft Entra ID, follow these steps. If you're using an existing provider's credentials, skip ahead to the following section, [Deploy the Identity Service application](#deploy-the-identity-service-application).
+
+1. Use the following command to create an application registration with Microsoft Entra ID and save the output:
 
    ```azurecli
    az ad app create --display-name <app-registration-name> > ad.json

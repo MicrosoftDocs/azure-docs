@@ -3,12 +3,10 @@ metadata:
   title: "Frequently asked questions - Azure AI Content Safety"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about Azure AI Content Safety.
-  services: cognitive-services
   author: PatrickFarley
   manager: nitinme
 
-  ms.service: cognitive-services
-  ms.subservice: content-safety
+  ms.service: azure-ai-content-safety
   ms.topic: faq
   ms.date: 07/03/2023
   ms.author: pafarley

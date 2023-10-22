@@ -16,9 +16,6 @@ ms.date: 10/25/2022
 ---
 # Copy activity performance and scalability guide
 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-copy-activity-performance.md)
-> * [Current version](copy-activity-performance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

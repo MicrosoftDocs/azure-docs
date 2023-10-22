@@ -82,7 +82,7 @@ Custom spending limits aren't available.
 
 ## A spending limit doesn't prevent all charges
 
-[Some external services published in the Azure Marketplace](../understand/understand-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you create a new external service, a warning is shown to let you know the services are billed separately:
+[Some external services published in the Azure Marketplace](../understand/understand-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Microsoft Entra ID P1 or P2, support plans, and most third-party branded services. When you create a new external service, a warning is shown to let you know the services are billed separately:
 
 ![Marketplace purchase warning](./media/spending-limit/marketplace-warning01.png)
 

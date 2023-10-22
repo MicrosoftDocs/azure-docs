@@ -25,10 +25,10 @@ For more information on how to change the default settings, see [configure datab
 
 ## Access control
 
-Azure API for FHIR will only allow authorized users to access the FHIR API. You can configure authorized users through two different mechanisms. The primary and recommended way to configure access control is using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml), which is accessible through the **Access control (IAM)** blade. Azure RBAC only works if you want to secure data plane access using the Azure Active Directory tenant associated with your subscription. If you wish to use a different tenant, the Azure API for FHIR offers a local FHIR data plane access control mechanism. The configuration options aren't as rich when using the local RBAC mechanism. For details, choose one of the following options:
+Azure API for FHIR will only allow authorized users to access the FHIR API. You can configure authorized users through two different mechanisms. The primary and recommended way to configure access control is using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml), which is accessible through the **Access control (IAM)** blade. Azure RBAC only works if you want to secure data plane access using the Microsoft Entra tenant associated with your subscription. If you wish to use a different tenant, the Azure API for FHIR offers a local FHIR data plane access control mechanism. The configuration options aren't as rich when using the local RBAC mechanism. For details, choose one of the following options:
 
-* [Azure RBAC for FHIR data plane](configure-azure-rbac.md). This is the preferred option when you're using the Azure Active Directory tenant associated with your subscription.
-* [Local FHIR data plane access control](configure-local-rbac.md). Use this option only when you need to use an external Azure Active Directory tenant for data plane access control. 
+* [Azure RBAC for FHIR data plane](configure-azure-rbac.md). This is the preferred option when you're using the Microsoft Entra tenant associated with your subscription.
+* [Local FHIR data plane access control](configure-local-rbac.md). Use this option only when you need to use an external Microsoft Entra tenant for data plane access control. 
 
 ## Enable diagnostic logging
 You may want to enable diagnostic logging as part of your setup to be able to monitor your service and have accurate reporting for compliance purposes. For details on how to set up diagnostic logging, see our [how-to-guide](enable-diagnostic-logging.md) on how to set up diagnostic logging, along with some sample queries. 

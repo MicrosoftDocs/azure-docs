@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/24/2022
+ms.date: 10/18/2023
 ms.author: jomondi
 ms.reviewer: saibandaru
 ms.custom: contperf-fy23q1, enterprise-apps
@@ -50,7 +50,7 @@ Properties that are defined for an application can affect how the user interacts
 - **Name** - The name of the application that users see on the My Apps portal. Administrators see the name when they manage access to the application.
 - **Homepage URL** -The URL that is launched when the application is selected in the My Apps portal.
 - **Logo** - The application logo that users see on the My Apps portal.
-- **Visible to users** - Makes the application visible in the My Apps portal. When this value is set to **Yes**, applications may still not appear in the My Apps portal if they don’t yet have users or groups assigned to it. Only assigned users are able to see the application in the My Apps portal.
+- **Visible to users** - Makes the application visible in the My Apps portal. When this value is set to **Yes**, applications still don't appear in the My Apps portal if they don’t yet have users or groups assigned to it. Only assigned users are able to see the application in the My Apps portal.
 
 For more information, see [Properties of an enterprise application](application-properties.md).
 
@@ -59,6 +59,9 @@ For more information, see [Properties of an enterprise application](application-
 When signed in to the [My Apps](https://myapps.microsoft.com) portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, set the appropriate properties in the [Microsoft Entra admin center](https://entra.microsoft.com). Also in the Microsoft Entra admin center, assign a user or group with the appropriate members.
 
 In the My Apps portal, to search for an application, enter an application name in the search box at the top of the page to find an application. The applications that are listed can be formatted in **List view** or a **Grid view**.
+
+> [!NOTE]
+> End users are no longer be able to add password SSO apps in My Apps. If you need to add a password SSO app for your end users, you can do so in the Microsoft Entra admin center. For more information, see [Add an application for password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
 :::image type="content" source="./media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
 
@@ -69,7 +72,7 @@ Applications can be hidden. For more information, see [Hide an Enterprise applic
 
 ## Assign company branding
 
-In the Microsoft Entra admin center, define the logo and name for the application to represent company branding in the My Apps portal. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
+In the Microsoft Entra admin center, define the logo and name for the application to represent company branding in the My Apps portal. The banner logo appears at the top of the page, such as the following Contoso demo logo.
 
 :::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
@@ -77,7 +80,7 @@ For more information, see [Add branding to your organization's sign-in page](../
 
 ## Manage access to applications
 
-Multiple factors affect how and whether an application can be accessed by users. Permissions that are assigned to the application can affect what can be done with it. Applications can be configured to allow self-service access, or access may be only granted by an administrator of the tenant.
+Multiple factors affect how and whether an application can be accessed by users. Permissions that are assigned to the application can affect what can be done with it. Applications can be configured to allow self-service access, or access can be only granted by an administrator of the tenant.
 
 ### My Apps Secure Sign-in Extension
 
@@ -88,7 +91,7 @@ To integrate these applications, define a mechanism to deploy the extension at s
 - User-driven download and configuration for Chrome, Microsoft Edge, or IE
 - Configuration Manager for Internet Explorer
 
-The extension allows users to launch any application from its search bar, finding access to recently used applications, and having a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Entra application proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Microsoft Entra Password SSO**.
+The extension allows users to launch any application from its search bar, find access to recently used applications, and have a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Entra application proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings > Privacy and Security > Microsoft Entra Password SSO**.
 
 To download and install the extension:
 

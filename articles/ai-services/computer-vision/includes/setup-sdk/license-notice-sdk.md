@@ -3,8 +3,7 @@ title: Vision SDK license terms
 titleSuffix: Azure AI services
 description: This page shows links to license terms and third-party notice.
 author: PatrickFarley
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 12/04/2021
 ms.author: pafarley

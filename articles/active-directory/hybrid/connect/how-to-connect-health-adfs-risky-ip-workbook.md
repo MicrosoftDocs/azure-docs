@@ -36,7 +36,7 @@ Additionally, it's possible for a single IP address to attempt multiple logins a
 1. Connect Health for AD FS installed and updated to the latest agent.
 2. A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
 3. Permissions to use the Microsoft Entra ID Monitor Workbooks. To use Workbooks, you need:
-- A Microsoft Entra tenant with a premium (P1 or P2) license.
+- A Microsoft Entra tenant with a Microsoft Entra ID P1 or P2 license.
 - Access to a Log Analytics Workspace and the following roles in Microsoft Entra ID (if accessing Log Analytics through [Microsoft Entra admin center](https://entra.microsoft.com)): Security administrator, Security reader, Reports reader, Global administrator
 
 

@@ -120,7 +120,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Make sure you have the latest version of the Azure AD  PowerShell module or AzureADPreview PowerShell module. 
+> Make sure you have the latest version of the Azure AD PowerShell module or AzureADPreview PowerShell module. 
 
 ## See also
 

@@ -35,14 +35,14 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 ### Which Azure RBAC permissions are required to use a managed identity on a resource?
 
-- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- Assigning user-assigned managed identities to resources: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. You'll also need `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` action over the user-assigned identity. This action is included in the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) built-in role.
-- Managing user-assigned identities: To create or delete user-assigned managed identities, you need the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
-- Managing role assignments for managed identities: You need the [Owner](../../role-based-access-control/built-in-roles.md#all) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#all) role assignment over the resource to which you're granting access. You'll need the [Reader](../../role-based-access-control/built-in-roles.md#all) role assignment to the resource with a system-assigned identity, or to the user-assigned identity that is being given the role assignment. If you don't have read access, you can search by "User, group, or service principal" to find the identity's backing service principal, instead of searching by managed identity while adding the role assignment. [Read more about assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. This action is included in resource specific built-in roles like [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Assigning user-assigned managed identities to resources: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. You'll also need `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` action over the user-assigned identity. This action is included in the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) built-in role.
+- Managing user-assigned identities: To create or delete user-assigned managed identities, you need the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- Managing role assignments for managed identities: You need the [Owner](/azure/role-based-access-control/built-in-roles#all) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#all) role assignment over the resource to which you're granting access. You'll need the [Reader](/azure/role-based-access-control/built-in-roles#all) role assignment to the resource with a system-assigned identity, or to the user-assigned identity that is being given the role assignment. If you don't have read access, you can search by "User, group, or service principal" to find the identity's backing service principal, instead of searching by managed identity while adding the role assignment. [Read more about assigning Azure roles](/azure/role-based-access-control/role-assignments-portal).
 
 ### How do I prevent the creation of user-assigned managed identities?
 
-You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
+You can keep your users from creating user-assigned managed identities using [Azure Policy](/azure/governance/policy/overview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Policy**.
 2. Choose **Definitions**
@@ -109,11 +109,11 @@ Managed identities use certificate-based authentication. Each managed identity�
 
 ### Can the same managed identity be used across multiple regions?
 
-In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Microsoft Entra ID is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Microsoft Entra ID. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
+In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Microsoft Entra ID is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Microsoft Entra ID. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
 
 ### Does managed identities for Azure resources work with Azure Cloud Services (Classic)?
 
-Managed identities for Azure resources don’t have support for [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) at this time. “
+Managed identities for Azure resources don’t have support for [Azure Cloud Services (classic)](/azure/cloud-services/cloud-services-choose-me) at this time. “
 
 
 ### What is the security boundary of managed identities for Azure resources?
@@ -135,8 +135,8 @@ No. Managed identities don't currently support cross-directory scenarios.
 
 Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits, and Microsoft Entra service limits.
 
-- **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
-- **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Service (Windows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
+- **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](/azure/azure-resource-manager/management/azure-subscription-service-limits#managed-identity-limits) around how they may be named.
+- **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Service (Windows)](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#managed-identity) article.
 - **Microsoft Entra service** Each managed identity counts towards the object quota limit in a Microsoft Entra tenant as described in [Microsoft Entra service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 

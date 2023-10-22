@@ -93,7 +93,7 @@ Follow these steps to enable Microsoft Entra SSO in the Azure portal:
 
 In this section, you'll create a test user named B.Simon.
 
-1. On the left pane in the Azure portal, select **Microsoft Entra ID**, select **Users**, and then select **All users**.
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter **B.Simon**.  
