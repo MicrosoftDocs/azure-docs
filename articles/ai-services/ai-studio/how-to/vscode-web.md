@@ -58,11 +58,9 @@ The `code` folder is where we recommend that you clone your git repositories, or
 
 To get started with the Azure AI SDK, try out an example notebook from the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository.
 
-As an alternative to VS Code (Web), you can run the copilot sample in Codespaces. However, your project files won't persist across sessions and won't be available in Azure AI Studio. To get started with Codespaces and leave VS Code (Web), select the following button:
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/aistudio-copilot-sample?quickstart=1)
-
 ### Get the copilot sample
+
+Follow these steps to clone the copilot sample repository into your project's `code` folder:
 
 1. Go to the `code` folder by running `cd ~/code` in the terminal:
 
@@ -109,6 +107,11 @@ Open and run the sample QnA notebook to create, evaluate, and deploy a chatbot b
     ```
 
 1. Open your project in [Azure AI Studio](https://aka.ms/AzureAIStudio) to view the generated indexes, evaluation runs, and endpoints.
+
+
+As an alternative to VS Code (Web), you can run the copilot sample in Codespaces. To get started with Codespaces and leave VS Code (Web), select the following button:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/aistudio-copilot-sample?quickstart=1)
 
 ## Remarks
 
