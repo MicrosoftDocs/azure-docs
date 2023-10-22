@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 11/20/2018
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Configure the partner software to connect to the client. To connect to the partner software, you would typically need the following information (may vary) you gathered from the **Connect and copy** page of the local web UI in the previous step:
@@ -23,3 +23,4 @@ If this is the first time you are using Storage Explorer, you need to perform th
 2. Restart the Storage Explorer for the changes to take effect.
 
     ![Screenshot shows the Restart Now button.](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+

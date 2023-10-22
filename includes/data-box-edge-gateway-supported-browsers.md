@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 02/05/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Here is a list of the browsers supported for the local web UI for the virtual device.

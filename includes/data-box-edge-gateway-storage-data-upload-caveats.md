@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 09/25/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Following caveats apply to data as it moves into Azure.
@@ -16,4 +16,5 @@ Following caveats apply to data as it moves into Azure.
 - After a file is created in the shares, renaming of the file isn't supported.
 - Deletion of a file from a share does not delete the entry in the storage account.
 - If using rsync to copy data, then `rsync -a` option is not supported.
+
 
