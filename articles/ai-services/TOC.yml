@@ -18,12 +18,22 @@
   items:
   - name: Generate product name ideas in the Azure AI Studio playground
     href: ai-studio/quickstarts/playground-completions.md
+  - name: Chat with your data via the Azure AI CLI
+    href: ai-studio/quickstarts/chat-ai-cli.md
 - name: Concepts
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
 - name: How-to
   items:
+  - name: Setup your development environment
+    items:
+    - name: Install the Azure AI SDK
+      href: ai-studio/how-to/sdk-install.md
+    - name: Install the Azure AI CLI
+      href: ai-studio/how-to/cli-install.md
+    - name: Work with Azure AI Studio projects in VS Code (Web)
+      href: ai-studio/how-to/vscode-web.md
   - name: Create multi-service resources
     items:
     - name: Create a multi-service resource
