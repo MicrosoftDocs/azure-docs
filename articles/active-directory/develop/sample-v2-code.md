@@ -285,7 +285,7 @@ The following samples show how to build applications for the Java language and p
 > | Web API | [Sign in users](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4-spring-web-app/3-Authorization-II/protect-web-api) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | On-Behalf-Of (OBO) |
 > | Desktop | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2-client-side/Integrated-Windows-Auth-Flow) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Integrated Windows authentication |
 > | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Authorization code with PKCE |
-> | Headless | [Sign in users and invoke protected API from text-only device](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2.%20Client-Side%20Scenarios/Device-Code-Flow) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Device code |
+> | Headless | Sign in users and invoke protected API from text-only device | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Device code |
 > | Service/</br>daemon | &#8226; [Call Microsoft Graph with Secret](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1-server-side/msal-client-credential-secret) <br/> &#8226; [Call Microsoft Graph with Certificate](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1-server-side/msal-client-credential-certificate)| [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Client credentials grant|
 
 #### Java Spring
@@ -326,7 +326,7 @@ The following samples show how to build applications for the Python language and
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
-> | Web application | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/1-Authentication/sign-in) <br/> &#8226; [Sign in users (B2C)](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/1-Authentication/sign-in-b2c) <br/> &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/2-Authorization-I/call-graph) <br/> &#8226; [Deploy to Azure App Service](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/3-Deployment/deploy-to-azure-app-service)| [MSAL Python](/entra/msal/python) | Authorization code |
+> | Web application | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/1-Authentication/sign-in) <br/> &#8226; [Sign in users (B2C)](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/1-Authentication/sign-in-b2c) <br/> &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/2-Authorization-I/call-graph) <br/> &#8226; [Deploy to Azure App Service](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/tree/main/3-Deployment/deploy-to-azure-app-service)| [MSAL Python](/entra/msal/python/) | Authorization code |
 
 
 ### Kotlin 
@@ -364,7 +364,7 @@ The following samples show how to build applications with Windows Presentation F
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
 > | Desktop | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
-> | Desktop | &#8226; [Sign in users and call ASP.NET Core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
+> | Desktop | &#8226; [Sign in users and call ASP.NET Core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [MSAL.NET](/entra/msal/dotnet/) | Authorization code with PKCE |
 
 ---
 

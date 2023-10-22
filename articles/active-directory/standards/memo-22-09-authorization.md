@@ -71,7 +71,7 @@ Learn more:
 
 Azure includes attribute-based access control (Azure ABAC) for storage. Assign metadata tags on data stored in an Azure Blob Storage account. Assign the metadata to users by using role assignments to grant access.  
 
-Learn more: [What is Azure attribute-based access control?](../../role-based-access-control/conditions-overview.md)
+Learn more: [What is Azure attribute-based access control?](/azure/role-based-access-control/conditions-overview)
 
 ## Privileged access management 
 

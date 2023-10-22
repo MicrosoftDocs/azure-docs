@@ -13,10 +13,6 @@ ms.author: jianleishen
 
 # Copy data from the HDFS server using Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
-> * [Version 1](v1/data-factory-hdfs-connector.md)
-> * [Current version](connector-hdfs.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data from the Hadoop Distributed File System (HDFS) server. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).

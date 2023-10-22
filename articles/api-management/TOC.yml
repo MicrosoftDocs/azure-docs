@@ -12,8 +12,6 @@
           href: api-management-features.md
         - name: v2 service tiers
           href: v2-service-tiers-overview.md
-        - name: API gateway
-          href: api-management-gateways-overview.md  
         - name: Terminology
           href: api-management-terminology.md  
         - name: Service limits
@@ -268,6 +266,8 @@
         href: configure-graphql-resolver.md
 - name: Manage APIs on-premises and in other clouds
   items:
+    - name: API Management gateway overview
+      href: api-management-gateways-overview.md  
     - name: Self-hosted gateway overview
       href: self-hosted-gateway-overview.md
     - name: Provision a self-hosted gateway

@@ -68,7 +68,7 @@ The following points outlined explain the purpose of each folder/file in the pac
 
 - **hello-world/tools/hello_world_tool.py**: Develop your tool within the def function. Use the `@tool` decorator to identify the function as a tool.
     > [!Note]
-    > There are two ways to write a tool. The default and recommended way is the function implemented way. You can also use the class implementation way, referring to [my_tool_2.py](https://github.com/Azure/promptflow/blob/main/tool-package-quickstart/my_tool_package/tools/my_tool_2.py) as an example.
+    > There are two ways to write a tool. The default and recommended way is the function implemented way. You can also use the class implementation way.
 
 - **hello-world/tools/utils.py**: This file implements the tool list method, which collects all the tools defined. It's required to have this tool list method, as it allows the User Interface (UI) to retrieve your tools and display them within the UI.
 
@@ -246,8 +246,8 @@ You can create runtime with CI (Compute Instance) or MIR (Managed Inference Runt
 ### Why is my custom tool not showing up in the UI?
 
 - Ensure that you've set the UI flight to `&flight=PFPackageTools`.
-- Confirm that the tool YAML files are included in your custom tool package. You can add the YAML files to [MANIFEST.in](https://github.com/Azure/promptflow/blob/main/tool-package-quickstart/MANIFEST.in) and include the package data in [setup.py](https://github.com/Azure/promptflow/blob/main/tool-package-quickstart/setup.py).
-Alternatively, you can test your tool package using the following script to ensure that you've packaged your tool YAML files and configured the package tool entry point correctly.
+
+You can test your tool package using the following script to ensure that you've packaged your tool YAML files and configured the package tool entry point correctly.
 
   1. Make sure to install the tool package in your conda environment before executing this script.
   2. Create a python file anywhere and copy the following content into it.

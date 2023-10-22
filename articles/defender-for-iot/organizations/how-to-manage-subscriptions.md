@@ -11,6 +11,8 @@ Your Microsoft Defender for IoT deployment for OT monitoring is managed through 
 
 If you're looking to manage support for enterprise IoT security, see [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md).
 
+This article is relevant for commercial Defender for IoT customers. If you're a government cusetomer, contact your Microsoft sales representative for more information.
+
 ## Prerequisites
 
 Before performing the procedures in this article, make sure that you have:
