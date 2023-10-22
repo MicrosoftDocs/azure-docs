@@ -6,7 +6,7 @@ ms.date: 03/25/2019
 ms.author: shaas
 ---
 
-Here is a list of the supported operating systems for clients or hosts connected to your device. These operating system versions were tested in-house.
+The following list contains supported operating systems for use by clients or hosts connected to your device. These operating system versions were tested in-house.
 
 | **Operating system/platform** | **Versions** |
 | --- | --- |
