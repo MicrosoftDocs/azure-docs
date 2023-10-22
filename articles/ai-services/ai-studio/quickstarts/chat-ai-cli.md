@@ -12,7 +12,7 @@ ms.author: eur
 
 # Quickstart: Chat with your data via the Azure AI CLI
 
-In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
+, you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
 
 
 ## Prerequisites
@@ -43,7 +43,7 @@ Follow the prompts to:
 
 ## AI chat
 
-Once you've initialized resources and have a deployment, you can chat interactively or non-interactively with the AI language model using the `ai chat` command.
+Once you have initialized resources and have a deployment, you can chat interactively or non-interactively with the AI language model using the `ai chat` command.
 
 # [Terminal](#tab/terminal)
 

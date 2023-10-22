@@ -17,7 +17,7 @@ To use the Azure AI SDK for generative AI applications, you can either:
 - [Install the SDK into an existing development environment](#install-the-sdk-into-an-existing-development-environment) or
 - [Use the Azure AI SDK without installing it](#use-the-azure-ai-sdk-without-installing-it)
 
-Start with a containerized development environment. The pre-built development environments are based on a docker container that has the generative AI SDK and CLI, and configured to run VS Code remotely inside of the container.
+Start with a containerized development environment. The prebuilt development environments are based on a docker container that has the generative AI SDK and CLI, and configured to run VS Code remotely inside of the container.
 
 ## Install the SDK into an existing development environment
 
@@ -26,11 +26,11 @@ Start with a containerized development environment. The pre-built development en
 
 ### Install Python
 
-First, you will need to install Python 3.10 or higher, create a virtual environment or conda environment, and install your packages into that virtual or conda environment. DO NOT install the Generative AI SDK into your global python installation. You should always use a virtual or conda environment when installing python packages, otherwise you can break your system install of Python.
+First, install Python 3.10 or higher, create a virtual environment or conda environment, and install your packages into that virtual or conda environment. DO NOT install the Generative AI SDK into your global python installation. You should always use a virtual or conda environment when installing python packages, otherwise you can break your system install of Python.
 
 #### Install Python via virtual environments
 
-We recommend following the instructions in the [VS Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter) for the easiest way of installing Python and creating a virtual environment on your operating system.
+Follow the instructions in the [VS Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter) for the easiest way of installing Python and creating a virtual environment on your operating system.
 
 If you already have Python 3.10 or higher installed, you can create a virtual environment using the following commands:
 
@@ -73,7 +73,7 @@ conda activate ai_env
 
 Currently to use the generative packages of the Azure AI SDK, you install a set of packages as described in this section. A single `azure-ai-generative` installation package will be available soon.
 
-Copy the following into a `requirements.txt` file. You can also copy the latest `requirements.txt` file from the [Azure/aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample/blob/main/requirements.txt) respository on GitHub.
+Copy the following text into a `requirements.txt` file. You can also copy the latest `requirements.txt` file from the [Azure/aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample/blob/main/requirements.txt) repository on GitHub.
 
 ```txt
 # other app dependencies
@@ -117,11 +117,11 @@ The Azure AI SDK should now be installed and ready to use!
 
 You can install the Azure AI SDK locally as described previously, or run it via an internet browser or Docker container. 
 
-Start with a containerized development environment. Our pre-built development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is defined in [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
+Start with a containerized development environment. Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is defined in [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
 
 ### OPTION 1: GitHub Codespaces
 
-During this public preview, we recommend using the Azure AI SDK through GitHub Codespaces. This will allow you to quickly get started without having to install anything locally.
+During this public preview, we recommend using the Azure AI SDK through GitHub Codespaces. This option helps you quickly get started without having to install anything locally.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/aistudio-copilot-sample?quickstart=1)
 
@@ -136,11 +136,11 @@ You can run the Azure AI SDK in a Docker container using VS Code Dev Containers:
     git clone https://github.com/azure/aistudio-copilot-sample
     code aistudio-copilot-sample
     ```
-1. Select the **Reopen in Dev Containers** button. If it does not appear, open the command pallete (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
+1. Select the **Reopen in Dev Containers** button. If it doesn't appear, open the command palette (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
 
 ### Option 3: Using VS Code (web) in Azure AI Studio
 
-VS Code (web) in Azure AI Studio creates and runs the development container on a Compute Instance, to get started with this approach follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
+VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
 
 
 ## Next steps

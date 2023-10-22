@@ -15,20 +15,20 @@ ms.author: eur
 
 The Azure AI command-line interface (CLI) is a cross-platform command-line tool to connect to Azure AI services and execute control-plane and data-plane operations without having to write any code. The Azure AI CLI allows the execution of commands through a terminal using interactive command-line prompts or via script. 
 
-You can easily use the Azure AI CLI to experiment with key Azure AI service features and see how they work with your use cases. Within minutes, you can setup all the required Azure resources needed, and build a customized Copilot using OpenAI's chat completions APIs and your own data. You can try it out interactively, or script larger processes to automate your own workflows and evaluations as part of your CI/CD system.
+You can easily use the Azure AI CLI to experiment with key Azure AI service features and see how they work with your use cases. Within minutes, you can set up all the required Azure resources needed, and build a customized Copilot using OpenAI's chat completions APIs and your own data. You can try it out interactively, or script larger processes to automate your own workflows and evaluations as part of your CI/CD system.
 
-In the future, you'll even be able to use the Azure AI CLI to dynamically create code in the programming language of your choice to integrate with your own applications.
+In the future, you can use the Azure AI CLI to dynamically create code in the programming language of your choice to integrate with your own applications.
 
-## Pre-requisites
+## Prerequisites
 
-To use the Azure AI CLI you'll need to install the pre-requisites: 
+To use the Azure AI CLI, you need to install the prerequisites: 
  * The Azure AI SDK, following the instructions [here](./sdk-install.md)
  * The Azure CLI (not the Azure `AI` CLI), following the instructions [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
  * The .NET SDK, following the instructions [here](https://learn.microsoft.com/en-us/dotnet/core/install/) for your operating system and distro
 
 ## Install the CLI
 
-For simplicity, the below are the set of commands that should work on a few popular operating systems.
+The following set of commands are provided for a few popular operating systems.
 
 # [Windows](#tab/windows)
 
@@ -52,7 +52,7 @@ curl -sL https://aka.ms/InstallAzureAICLIDeb | bash
 
 # [macOS](#tab/macos)
 
-On MacOS you can use homebrew and wget. For example, run the following commands in a terminal:
+On macOS, you can use *homebrew* and *wget*. For example, run the following commands in a terminal:
 
 ```bash
 brew install azure-cli
@@ -75,11 +75,11 @@ Now that you have the Azure AI CLI installed, you can try the following quicksta
 
 You can install the Azure AI CLI locally as described previously, or run it via an internet browser or Docker container. 
 
-Start with a containerized development environment. Our pre-built development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is defined in [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
+Start with a containerized development environment. Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is defined in [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
 
 ### OPTION 1: GitHub Codespaces
 
-During this public preview, we recommend using the Azure AI SDK through GitHub Codespaces. This will allow you to quickly get started without having to install anything locally.
+During this public preview, we recommend using the Azure AI SDK through GitHub Codespaces. This option helps you quickly get started without having to install anything locally.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/aistudio-copilot-sample?quickstart=1)
 
@@ -94,11 +94,11 @@ You can run the Azure AI CLI in a Docker container using VS Code Dev Containers:
     git clone https://github.com/azure/aistudio-copilot-sample
     code aistudio-copilot-sample
     ```
-1. Select the **Reopen in Dev Containers** button. If it does not appear, open the command pallete (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
+1. Select the **Reopen in Dev Containers** button. If it doesn't appear, open the command palette (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
 
 ### Option 3: Using VS Code (web) in Azure AI Studio
 
-VS Code (web) in Azure AI Studio creates and runs the development container on a Compute Instance, to get started with this approach follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
+VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
 
 
 ## Next steps
