@@ -35,36 +35,36 @@ You can install and configure the diagnostics extension on an individual virtual
 1. Select **Diagnostic settings** in the **Monitoring** section of the VM menu.
 
 1. Select **Enable guest-level monitoring** if the diagnostics extension hasn't already been enabled.
-
-   ![Screenshot that shows enabling monitoring.](media/diagnostics-extension-windows-install/enable-monitoring.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/enable-monitoring.png" lightbox="media/diagnostics-extension-windows-install/enable-monitoring.png" alt-text="Screenshot that shows enabling monitoring." border="false":::
 
 1. A new Azure Storage account will be created for the VM. The name will be based on the name of the resource group for the VM. A default set of guest performance counters and logs will be selected.
-
-   ![Screenshot that shows Diagnostic settings.](media/diagnostics-extension-windows-install/diagnostic-settings.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/diagnostic-settings.png" lightbox="media/diagnostics-extension-windows-install/diagnostic-settings.png" alt-text="Screenshot that shows Diagnostic settings." border="false":::
 
 1. On the **Performance counters** tab, select the guest metrics you want to collect from this virtual machine. Use the **Custom** setting for more advanced selection.
-
-   ![Screenshot that shows Performance counters.](media/diagnostics-extension-windows-install/performance-counters.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/performance-counters.png" lightbox="media/diagnostics-extension-windows-install/performance-counters.png" alt-text="Screenshot that shows Performance counters." border="false":::
 
 1. On the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](../agents/log-analytics-agent.md) to collect guest logs to Azure Monitor.
-
-   ![Screenshot that shows the Logs tab with different logs selected for a virtual machine.](media/diagnostics-extension-windows-install/logs.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/logs.png" lightbox="media/diagnostics-extension-windows-install/logs.png" alt-text="Screenshot that shows the Logs tab with different logs selected for a virtual machine." border="false":::
 
 1. On the **Crash dumps** tab, specify any processes to collect memory dumps after a crash. The data will be written to the storage account for the diagnostic setting. You can optionally specify a blob container.
-
-   ![Screenshot that shows the Crash dumps tab.](media/diagnostics-extension-windows-install/crash-dumps.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/crash-dumps.png" lightbox="media/diagnostics-extension-windows-install/crash-dumps.png" alt-text="Screenshot that shows the Crash dumps tab." border="false":::
 
 1. On the **Sinks** tab, specify whether to send the data to locations other than Azure storage. If you select **Azure Monitor**, guest performance data will be sent to Azure Monitor Metrics. You can't configure the event hubs sink by using the Azure portal.
-
-   ![Screenshot that shows the Sinks tab with the Send diagnostic data to Azure Monitor option enabled.](media/diagnostics-extension-windows-install/sinks.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/sinks.png" lightbox="media/diagnostics-extension-windows-install/sinks.png" alt-text="Screenshot that shows the Sinks tab with the Send diagnostic data to Azure Monitor option enabled." border="false":::
    
    If you haven't enabled a system-assigned identity configured for your virtual machine, you might see the following warning when you save a configuration with the Azure Monitor sink. Select the banner to enable the system-assigned identity.
-   
-   ![Screenshot that shows the managed identity warning.](media/diagnostics-extension-windows-install/managed-entity.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/managed-entity.png" lightbox="media/diagnostics-extension-windows-install/managed-entity.png" alt-text="Screenshot that shows the managed identity warning." border="false":::
 
 1. On the **Agent** tab, you can change the storage account, set the disk quota, and specify whether to collect diagnostic infrastructure logs.  
-
-   ![Screenshot that shows the Agent tab with the option to set the storage account.](media/diagnostics-extension-windows-install/agent.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/diagnostics-extension-windows-install/agent.png" lightbox="media/diagnostics-extension-windows-install/agent.png" alt-text="Screenshot that shows the Agent tab with the option to set the storage account." border="false":::
 
 1. Select **Save** to save the configuration.
 

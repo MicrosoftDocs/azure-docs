@@ -197,7 +197,7 @@ The Azure services that support each encryption model:
 | Microsoft Entra ID           | Yes                | -                  | -                  |
 | Microsoft Entra Domain Services | Yes          | Yes                | -                  |
 | **Integration**                  |                    |                    |                    |
-| Service Bus                      | Yes                | Yes                | Yes                |
+| Service Bus                      | Yes                | Yes                | -                |
 | Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
