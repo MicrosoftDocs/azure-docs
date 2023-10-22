@@ -57,8 +57,6 @@ Enterprise IoT is designed to help customers secure un-managed devices throughou
 
 While Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint, they can use enterprise IoT security to gain security value with extra alerts, recommendations and vulnerabilities for their discovered IoT devices.
 
-For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
-
 ### How can I start using Enterprise IoT?
 
 Microsoft E5 (ME5) and E5 Security customers already have devices supported for enterprise IoT security. If you only have a Defender for Endpoint P2 license, you can purchase standalone, per-device licenses for enterprise IoT monitoring, or use a trial.
@@ -68,7 +66,7 @@ For more information, see:
 - [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
 - [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md)
 
-### What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
+### What permissions do I need to use Enterprise IoT security with Defender for IoT?
 
 For information on required permissions, see [Prerequisites](eiot-defender-for-endpoint.md#prerequisites).
 
@@ -84,7 +82,7 @@ For more information, see [Calculate monitored devices for Enterprise IoT monito
 
 For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
 
-### What happens when the 90-day trial ends?
+### What happens when the trial ends?
 
 If you haven't added a standalone license by the time your trial ends, your trial is automatically canceled, and you’ll lose access to Enterprise IoT security features.
 

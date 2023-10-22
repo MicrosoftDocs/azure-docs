@@ -11,9 +11,9 @@ ms.custom: enterprise-iot
 
 As you plan your Microsoft Defender for IoT deployment, you typically want to understand the Defender for IoT pricing plans and billing models so you can optimize your costs.
 
-OT monitoring is billed using site-based licenses, where each license applies to an individual site, based on the site size. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, all which monitor devices detected in connected networks.
+**OT monitoring** is billed using site-based licenses, where each license applies to an individual site, based on the site size. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, all which monitor devices detected in connected networks.
 
-Enterprise IoT monitoring supports 5 devices per Microsoft 365 E5 (ME5) or E5 Security license, or is available as standalone, per-device licenses for Microsoft Defender for Endpoint P2 customers.
+**Enterprise IoT** monitoring supports 5 devices per Microsoft 365 E5 (ME5) or E5 Security license, or is available as standalone, per-device licenses for Microsoft Defender for Endpoint P2 customers.
 
 ## Free trial
 

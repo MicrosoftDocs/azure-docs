@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Enterprise IoT protection now included in Microsoft 365 E5 and E5 Security licenses
 
-Enterprise IoT (EIoT) security with Defender for IoT discovers un-managed IoT devices and also provides added security value, including continuous monitoring, vulnerability assessments and tailored recommendations specifically designed for Enterprise IoT devices. Seamlessly integrated with Microsoft 365 Defender, Microsoft Defender Vulnerability Management and Microsoft Defender for Endpoint on the M365 Defender portal, it ensures a holistic approach to safeguarding an organization's network.
+Enterprise IoT (EIoT) security with Defender for IoT discovers un-managed IoT devices and also provides added security value, including continuous monitoring, vulnerability assessments and tailored recommendations specifically designed for Enterprise IoT devices. Seamlessly integrated with Microsoft 365 Defender, Microsoft Defender Vulnerability Management, and Microsoft Defender for Endpoint on the M365 Defender portal, it ensures a holistic approach to safeguarding an organization's network.
 
 Defender for IoT EIoT monitoring is now automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, covering up to 5 devices per user license. For example, if your organization possesses 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 EIoT devices. This integration represents a significant leap toward fortifying your IoT ecosystem within the Microsoft 365 environment.
 

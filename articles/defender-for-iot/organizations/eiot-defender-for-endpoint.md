@@ -21,17 +21,20 @@ Before you start the procedures in this article, read through [Secure IoT device
 
 Make sure that you have:
 
+- IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
+
+- Access to the Microsoft 365 Defender portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
+
 - One of the following licenses:
 
     - A Microsoft 365 E5 (ME5) or E5 Security license
 
     - Microsoft Defender for Endpoint P2, with an additional, standalone **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, available for purchase from the Microsoft 365 admin center. 
 
-        If you have this license, you don't need to toggle on **Enterprise IoT Security** and can skip directly to [View added security value in Microsoft 365 Defender](#view-added-security-value-in-microsoft-365-defender).
+    > [!TIP]
+    > If you have this license, you don't need to toggle on **Enterprise IoT Security** and can skip directly to [View added security value in Microsoft 365 Defender](#view-added-security-value-in-microsoft-365-defender).
+    >
 
-- IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
-
-- Access to the Microsoft 365 Defender portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
 ## Turn on enterprise IoT monitoring
 
