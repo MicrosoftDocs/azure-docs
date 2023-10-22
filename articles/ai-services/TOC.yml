@@ -22,6 +22,12 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: Explore AI solutions
+    items:
+    - name: Model catalog
+      href: ai-studio/concepts/model-catalog.md
+    - name: Azure AI foundation models
+      href: ai-studio/concepts/models-foundation-azure-ai.md
 - name: How-to
   items:
   - name: Create multi-service resources
