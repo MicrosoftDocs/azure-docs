@@ -1,0 +1,18 @@
+items:
+- name: Astronomer – An Azure Native ISV Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Astronomer – An Azure Native ISV Service?
+    href: astronomer-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Astronomer deployment
+    href: astronomer-create.md
+- name: How to
+  items:
+  - name: Manage your Astronomer resource
+    href: astronomer-manage.md
+  - name: Troubleshoot Astronomer
+    href: astronomer-troubleshoot.md
