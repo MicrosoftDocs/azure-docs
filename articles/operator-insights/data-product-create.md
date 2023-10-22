@@ -11,7 +11,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Create an Azure Operator Insights Data Product
 
-In this article, you'll learn how to create an Azure Operator Insights Data Product instance.
+In this article, you learn how to create an Azure Operator Insights Data Product instance.
 
 > [!NOTE]
 > Access is currently only available by request. More information is included in the application form. We appreciate your patience as we work to enable broader access to Azure Operator Insights Data Product. Apply for access by [filling out this form](https://aka.ms/AAn1mi6).
@@ -20,11 +20,13 @@ In this article, you'll learn how to create an Azure Operator Insights Data Prod
 
 - An Azure subscription for which the user account must be assigned the Contributor role. If needed, create a [free subscription](https://azure.microsoft.com/free/) before you begin.
 - Access granted to Azure Operator Insights for the subscription. Apply for access by [completing this form](https://aka.ms/AAn1mi6).
-- If you are using Microsoft Purview, you must have an active Purview account. Make note of the Purview collection ID when you [set up Microsoft Purview with a Data Product](purview-setup.md).
+- If you're using Microsoft Purview, you must have an active Purview account. Make note of the Purview collection ID when you [set up Microsoft Purview with a Data Product](purview-setup.md).
 
-If you are using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+### For CMK-based data encryption or Microsoft Purview
 
-### Set up Azure Key Vault
+If you're using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+
+#### Set up Azure Key Vault
 
 You must be a subscription Owner to set up the Azure Key Vault resource.
 1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
@@ -34,9 +36,9 @@ You must be a subscription Owner to set up the Azure Key Vault resource.
 1. Select the newly created key and select the current version of the key.
 1. Copy the Key Identifier to your clipboard to use when creating the Data Product.
 
-### Set up user-assigned managed identity
+#### Set up user-assigned managed identity
 
-1. [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) using Microsoft Entra for CMK-based encryption. The Data Product also uses the UAMI to interact with the Microsoft Purview account.
+1. [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) using Microsoft Entra ID for CMK-based encryption. The Data Product also uses the UAMI to interact with the Microsoft Purview account.
 1. Assign the appropriate Azure roles (RBAC) on the Key Vault by navigating to the Azure Key Vault resource that you created and assign the UAMI resource the Key Vault Administrator role.
 
 ## Create an Azure Operator Insights Data Product resource in the Azure portal
@@ -58,16 +60,16 @@ You'll create the Azure Operator Insights Data Product resource.
         Select **Next**.
     1. Select your region.
 1. In the Advanced tab of the **Create a Data Product** page:
-    1. Enable Purview if you are integrating with Azure Purview.
+    1. Enable Purview if you're integrating with Microsoft Purview.
 
         Select the subscription for your Purview account, select your Purview account, and enter the Purview collection ID.
-    1. Enable Customer managed key if you are using CMK for data encryption.
+    1. Enable Customer managed key if you're using CMK for data encryption.
     1. Select the user-assigned managed identity that you set up as a prerequisite.
     1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
-    1. If you are integrating with Purview, owners are mandatory. Select **Add owner**, enter the email address, and select **Add owners**.
+    1. If you're integrating with Purview, owners are mandatory. Select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
 1. Select **Review + create**.
-1. Select **Create**. Your Data Product instance will be created in about 20-25 minutes.
+1. Select **Create**. Your Data Product instance is created in about 20-25 minutes.
 
 ## Copy sample data to the ingestion endpoint
 
