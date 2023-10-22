@@ -15,7 +15,7 @@ ms.author: mmitrik
 > [!NOTE]
 > API version 2 is the latest API version.  For a list of changes in v2 compared to v1, see [DICOM service API v2 changes](dicom-service-v2-api-changes.md)
 
-The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb™ Standard. Support includes:
+The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Standard. Support includes:
 
 * [Studies Service](#studies-service)
     * [Store (STOW-RS)](#store-stow-rs)
@@ -602,7 +602,7 @@ The query API returns one of the following status codes in the response:
 
 ### Delete
 
-This transaction isn't part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of Studies, Series, and Instances from the store.
+This transaction isn't part of the official DICOMweb Standard. It uses the DELETE method to remove representations of Studies, Series, and Instances from the store.
 
 | Method | Path                                                    | Description |
 | :----- | :------------------------------------------------------ | :---------- |
@@ -671,7 +671,7 @@ required to be present, required to not be present, required to be empty, or req
 found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
 > [!NOTE]
-> Although the reference table says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
+> Although the reference table says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb. SOP Instance UID should be present in the dataset if not in the URI.
 
 > [!NOTE]
 > All the conditional requirement codes including 1C and 2C are treated as optional.
