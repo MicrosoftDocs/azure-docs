@@ -96,12 +96,4 @@ For any billing or technical issues, open a support ticket for Microsoft 365 Def
 
 ## Next steps
 
-For more information on getting started with Enterprise IoT, see:
-
-- [Securing IoT devices in the enterprise](concept-enterprise.md)
-- [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md)
-- [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md)
-
-## Next steps
-
 Start securing your Enterprise IoT network resources with by [onboarding to Defender for IoT from Microsoft 365 Defender](eiot-defender-for-endpoint.md).

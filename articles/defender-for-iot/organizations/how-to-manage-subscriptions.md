@@ -162,7 +162,7 @@ If you have multiple legacy subscriptions and are migrating to a Microsoft 365 p
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
-1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan](#cancel-a-defender-for-iot-plan).
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan for OT networks](#cancel-a-defender-for-iot-plan-for-ot-networks).
 
 ### Edit a legacy plan on the Azure portal
 
