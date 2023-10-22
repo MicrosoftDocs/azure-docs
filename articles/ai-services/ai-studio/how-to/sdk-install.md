@@ -146,4 +146,4 @@ VS Code (web) in Azure AI Studio creates and runs the development container on a
 ## Next steps
 
 - [Quickstart: Chat with your data via the Azure AI CLI](../quickstarts/chat-ai-cli.md)
-
+- [Azure SDK for Python reference documentation](/python/api/overview/azure)
