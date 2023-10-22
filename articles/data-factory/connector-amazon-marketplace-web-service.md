@@ -70,7 +70,7 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AmazonMWS** | Yes |
-| endpoint | The endpoint of the Amazon MWS server, (that is, mws.amazonservices.com)  | Yes |
+| endpoint | The endpoint of the Amazon MWS Server (that is, mws.amazonservices.com)  | Yes |
 | marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (`,`). (that is, A2EUQ1WTGCTBG2)  | Yes |
 | sellerID | The Amazon seller ID.  | Yes |
 | mwsAuthToken | The Amazon MWS authentication token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
