@@ -68,7 +68,7 @@ For more information, see:
 - [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
 - [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md)
 
-## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
+### What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
 
 For information on required permissions, see [Prerequisites](eiot-defender-for-endpoint.md#prerequisites).
 
