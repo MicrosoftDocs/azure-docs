@@ -14,28 +14,32 @@ ms.custom: ignite-2023-metadata-update
 
 Once your Astro resource is created in the Azure portal, you might need to get information about it or change it. Here's how you can manage your Astro resource.
 
-- [Single Sign-On](#single-sign-on)
+- [Single sign-on](#single-sign-on)
 - [Delete an Astro deployment](#delete-an-astro-deployment)
 
-## Single Sign-On
+## Single sign-on
 
 To enable SSO, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the Overview for your instance of the Astro resource. Click on the SSO Url.
+1. Navigate to the Overview for your instance of the Astro resource. Select on the SSO Url.
 
-   :::image type="content" source="media/astronomer-manage/astronomer-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in Overview blade of the Astro resource.":::
+   :::image type="content" source="media/astronomer-manage/astronomer-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in the  Overview pane of the Astro resource.":::
 
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
-   <!-- :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: -->
+<!-- 
+this screenshot would not add much value and is hard to replicate
+
+:::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: 
+-->
 
     > [!NOTE]
     > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
     >
 
-1. Choose an Microsoft Entra account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
+1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Astro portal.
 
 ## Delete an Astro deployment
 
@@ -43,7 +47,7 @@ To delete an Astro resource:
 
 1. From the Resource menu, select the Astro deployment you would like to delete.
 
-1. In the **Overview** blade, select **Delete**.
+1. On the working pane of the **Overview**, select **Delete**.
 
     :::image type="content" source="media/astronomer-manage/astronomer-delete-deployment.png" alt-text="Screenshot showing how to delete an Astro resource.":::
 
