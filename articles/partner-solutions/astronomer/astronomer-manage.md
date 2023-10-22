@@ -29,15 +29,15 @@ To enable SSO, follow these steps:
 
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
-<!-- 
-this screenshot would not add much value and is hard to replicate
+    <!-- 
+    this screenshot would not add much value and is hard to replicate
+    
+    :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: 
+    -->
 
-:::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: 
--->
-
-    > [!NOTE]
-    > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
-    >
+   > [!NOTE]
+   > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/onfigure-user-consent).
+   >
 
 1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Astro portal.
 
