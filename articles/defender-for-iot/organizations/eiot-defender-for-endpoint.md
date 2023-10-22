@@ -4,7 +4,7 @@ description: Learn how to get added value for enterprise IoT devices in Microsof
 ms.topic: quickstart
 ms.date: 09/13/2023
 ms.custom: enterprise-iot
-#CustomerIntent: As a Microsoft 365 administrator, I want to understand how to turn on support for enterprise IoT monitoring in Microsoft 365 Defender and where I can find the added security value so that I can keep my eIoT devices safe.
+#CustomerIntent: As a Microsoft 365 administrator, I want to understand how to turn on support for enterprise IoT monitoring in Microsoft 365 Defender and where I can find the added security value so that I can keep my EIoT devices safe.
 ---
 
 # Get started with enterprise IoT monitoring in Microsoft 365 Defender
@@ -32,8 +32,6 @@ Make sure that you have:
 - IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
 
 - Access to the Microsoft 365 Defender portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
-
-- Access to Microsoft 365 Defender as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin).
 
 ## Turn on enterprise IoT monitoring
 

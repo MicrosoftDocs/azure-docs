@@ -1,10 +1,10 @@
 ---
-title: Manage eIoT monitoring support | Microsoft Defender for IoT
-description: Learn how to manage your eIoT monitoring support with Microsoft Defender for IoT.
+title: Manage EIoT monitoring support | Microsoft Defender for IoT
+description: Learn how to manage your EIoT monitoring support with Microsoft Defender for IoT.
 ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
-#CustomerIntent: As a Defender for IoT customer, I want to understand how to manage my eIoT monitoring support with Microsoft Defender for IoT so that I can best plan my deployment.
+#CustomerIntent: As a Defender for IoT customer, I want to understand how to manage my EIoT monitoring support with Microsoft Defender for IoT so that I can best plan my deployment.
 ---
 
 # Manage enterprise IoT monitoring support with Microsoft Defender for IoT

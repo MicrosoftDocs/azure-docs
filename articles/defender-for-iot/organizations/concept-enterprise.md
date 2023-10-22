@@ -92,7 +92,7 @@ For more information, see [Defender for IoT subscription billing](billing.md).
 
 ### How can I resolve billing issues associated with my Defender for IoT plan?
 
-For any billing or technical issues, create a support request in the Azure portal.
+For any billing or technical issues, open a support ticket for Microsoft 365 Defender.
 
 ## Next steps
 
