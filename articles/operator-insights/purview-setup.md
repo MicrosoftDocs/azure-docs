@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/22/2023
 ---
 
 # Use Microsoft Purview with an Azure Operator Insights Data Product
@@ -14,7 +14,7 @@ This article outlines how to set up Microsoft Purview to explore an Azure Operat
 
 Data governance is about managing data as a strategic asset, ensuring that there are controls in place around data, its content, structure, use, and safety. Microsoft Purview (formerly Azure Purview) is responsible for implementing data governance and allows you to monitor, organize, govern, and manage your entire data estate.
 
-When it comes to Azure Operator Insights, Microsoft Purview provides simple overviews and catalogs of all Data Product resources. To integrate Microsoft Purview into your Data Product solution, simply provide your Microsoft Purview account and chosen collection when creating a Azure Operator Insights Data Product in the Azure portal.
+When it comes to Azure Operator Insights, Microsoft Purview provides simple overviews and catalogs of all Data Product resources. To integrate Microsoft Purview into your Data Product solution, provide your Microsoft Purview account and chosen collection when creating an Azure Operator Insights Data Product in the Azure portal.
 
 The Microsoft Purview account and collection is populated with catalog details of your Data Product during the resource creation or resource upgrade process.
 
@@ -30,9 +30,9 @@ You can access your Purview account through the Azure portal by going to `https:
 
 To begin to catalog a data product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
 
-Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more details, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more information, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-[Using the Microsoft Purview portal](../purview/use-microsoft-purview-governance-portal.md) explains how to use the Purview user interface and navigate the service. Microsoft Purview includes options to scan in data sources, but this option is not required for integrating Azure Operator Insights Data Products with Purview. When you complete this procedure, all Azure services and assets are automatically populated to your Purview catalog.
+[Using the Microsoft Purview portal](../purview/use-microsoft-purview-governance-portal.md) explains how to use the user interface and navigate the service. Microsoft Purview includes options to scan in data sources, but this option isn't required for integrating Azure Operator Insights Data Products with Microsoft Purview. When you complete this procedure, all Azure services and assets are automatically populated to your Purview catalog.
 
 ## Connect Microsoft Purview to your Data Product
 
@@ -59,7 +59,7 @@ An overall representation of the AOI Data Product
 | Description           | Brief description of the Data Product         |
 | Owners                | A list of owners of this Data Product         |
 | Azure Region          | The region where the Data Product is deployed |
-| Docs                  | A link to documents which explain the data    |
+| Docs                  | A link to documents that explain the data     |
 
 #### AOI Data Lake
 
@@ -110,7 +110,7 @@ There are relationships between assets where necessary. For example, a Data Prod
 
 ## Explore your Data Product with Microsoft Purview
 
-When the Data Product creation process is complete, you can see the catalog details of your Data Product in the collection. Select Data map > Collections from the left pane and select your collection.
+When the Data Product creation process is complete, you can see the catalog details of your Data Product in the collection. Select **Data map > Collections** from the left pane and select your collection.
 
 :::image type="content" source="media/purview-setup/data-map-collections.png" alt-text="A screenshot of Data map collections in Purview":::
 
@@ -121,7 +121,7 @@ Select **Assets** to view the data product catalog and to list all assets of you
 
 :::image type="content" source="media/purview-setup/data-product-assets.png" alt-text="A screenshot of Data Product assets in Purview":::
 
-Select **Assets** to view the asset catalog of your data product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), as well as the related assets.
+Select **Assets** to view the asset catalog of your data product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), and the related assets.
 
 :::image type="content" source="media/purview-setup/data-product-assets-collection.png" alt-text="A screenshot of Data Product assets in Purview collection":::
 

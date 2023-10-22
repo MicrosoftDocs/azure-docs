@@ -4,7 +4,7 @@ description: In this article, learn how to create an Azure Operator Insights Dat
 author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
-ms.topic: quickstart #Required; leave this attribute/value as-is.
+ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
@@ -20,9 +20,9 @@ In this article, you'll learn how to create an Azure Operator Insights Data Prod
 
 - An Azure subscription for which the user account must be assigned the Contributor role. If needed, create a [free subscription](https://azure.microsoft.com/free/) before you begin.
 - Access granted to Azure Operator Insights for the subscription. Apply for access by [completing this form](https://aka.ms/AAn1mi6).
-- An active Azure Purview account. Make note of the Purview collection ID when you [create a Purview account](../purview/create-microsoft-purview-portal.md). To determine the Purview collection ID, select your collection and the collection ID is the five digits following `?collection=` in the URL.
+- If you are using Microsoft Purview, you must have an active Purview account. Make note of the Purview collection ID when you [set up Microsoft Purview with a Data Product](purview-setup.md).
 
-For CMK-based data encryption or Purview, you must set up Azure Key Vault and UAMI as prerequisites.
+If you are using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
 
 ### Set up Azure Key Vault
 
@@ -43,7 +43,7 @@ You must be a subscription Owner to set up the Azure Key Vault resource.
 
 You'll create the Azure Operator Insights Data Product resource.
 
-1. Sign in to the [Azure portal](https://azure.microsoft.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search bar, search for Operator Insights and select **Azure Operator Insights - Data Products**.
 1. On the Azure Operator Insights - Data Products page, select **Create**.
 1. In the Basics tab of the **Create a Data Product** page:

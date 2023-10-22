@@ -19,3 +19,8 @@
     href: managed-identity.md
   - name: Data quality and data monitoring
     href: concept-data-quality-monitoring.md
+- name: How-to
+  expanded: true
+  items:
+  - name: Use Microsoft Purview with a Data Product
+    href: purview-setup.md
