@@ -36,7 +36,7 @@ To enable SSO, follow these steps:
     -->
 
    > [!NOTE]
-   > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/onfigure-user-consent).
+   > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
    >
 
 1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Astro portal.
