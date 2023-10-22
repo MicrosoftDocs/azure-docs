@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: concept-article
-ms.date: 10/19/2023
+ms.date: 10/22/2023
 
 #CustomerIntent: As an MCC operator, I want to understand the capabilities of the MCC Data Product so that I can use it to provide insights to my network.
 ---
@@ -41,7 +41,7 @@ The following data types are provided as part of the MCC Data Product.
 
 - *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements.  EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
 - *pmstats* contains performance management data reported by the MCC management node, giving insight into the performance characteristics of the MCC network elements.
-- *edr_sanitized* contains data from the *edr* data type but with personally identifiable information (PII) information suppressed. This data can be used to support data analysis without giving access to PII.
+- *edr-sanitized* contains data from the *edr* data type but with personally identifiable information (PII) information suppressed. This data can be used to support data analysis without giving access to PII.
 
 ## Related content
 
