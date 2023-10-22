@@ -149,7 +149,24 @@ Once a password expiration policy has been set, you must also configure force pa
 
 ### Password expiry duration
 
-By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure AD PowerShell module. This command updates the tenant, so that all users' passwords expire after number of days you configure.
+By default, the password is set not to expire. However, the value is configurable by using the [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain) cmdlet from the Microsoft Graph PowerShell module. This command updates the tenant so that all users' passwords expire after a number of days you configure. For example:
+
+```powershell
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+Connect-MgGraph  -Scopes 'Domain.ReadWrite.All'
+
+$domainId = "contoso.com"
+$params = @{
+	passwordValidityPeriodInDays = 90
+	passwordNotificationWindowInDays = 15
+}
+
+Update-MgDomain -DomainId $domainId -BodyParameter $params
+```
+
+> [!NOTE] 
+> `passwordValidityPeriodInDays` indicates the length of time that a password remains valid before it must be changed. `passwordNotificationWindowInDays` indicates the number of days before the password expiration date that will trigger when users will receive their first notification that their password will soon expire.
 
 ## Next steps
 
