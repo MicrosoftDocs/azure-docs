@@ -26,7 +26,7 @@ Azure AI Studio provides the capability to easily integrate these pre-trained fo
 
 You can try the following capabilities of Azure AI Speech in AI Studio:
 - Real-time speech to text: Quickly test live transcription capabilities on your own audio without writing any code.
-- Custom voice: Use your own audio recordings to create a distinct, one-of-a-kind voice for your text-to-speech apps.
+- Custom voice: Use your own audio recordings to create a distinct, one-of-a-kind voice for your text to speech apps.
 
 :::image type="content" source="../media/explore/explore-speech.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-speech.png":::
 
