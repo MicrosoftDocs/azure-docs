@@ -23,8 +23,8 @@ In the future, you can use the Azure AI CLI to dynamically create code in the pr
 
 To use the Azure AI CLI, you need to install the prerequisites: 
  * The Azure AI SDK, following the instructions [here](./sdk-install.md)
- * The Azure CLI (not the Azure `AI` CLI), following the instructions [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
- * The .NET SDK, following the instructions [here](https://learn.microsoft.com/en-us/dotnet/core/install/) for your operating system and distro
+ * The Azure CLI (not the Azure `AI` CLI), following the instructions [here](/cli/azure/install-azure-cli)
+ * The .NET SDK, following the instructions [here](/dotnet/core/install/) for your operating system and distro
 
 ## Install the CLI
 
