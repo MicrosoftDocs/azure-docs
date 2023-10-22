@@ -67,4 +67,4 @@ You can switch to dashboard view from list view by following these quick steps:
 
 ## Next steps
 
-- [Explore Azure AI foundation models in Azure AI Studio](concepts/models-foundation-azure-ai.md)
+- [Explore Azure AI foundation models in Azure AI Studio](models-foundation-azure-ai.md)

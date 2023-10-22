@@ -14,11 +14,11 @@ ms.author: eur
 
 In Azure AI Studio, you can quickly try out Azure AI foundation model capabilities such as Speech and Vision.
 
-## Capabilities of foundation models in AI Studio
+## Azure AI foundation model capabilities
 
-Foundation models have been pre-trained on vast amounts of data, and that can be fine-tuned for specific tasks with a relatively small amount of domain-specific data. These models serve as a starting point for custom models and accelerate the model-building process for a variety of tasks, including natural language processing, computer vision, speech, and generative AI tasks. Azure AI Studio provides the capability to easily integrate these pre-trained foundation models into your applications.
+Foundation models have been pre-trained on vast amounts of data, and that can be fine-tuned for specific tasks with a relatively small amount of domain-specific data. These models serve as a starting point for custom models and accelerate the model-building process for a variety of tasks, including natural language processing, computer vision, speech, and generative AI tasks. 
 
-See the following sections for more information about the capabilities of Azure AI foundation models in AI Studio.
+Azure AI Studio provides the capability to easily integrate these pre-trained foundation models into your applications. See the following sections for more information about the capabilities of Azure AI foundation models in AI Studio.
 
 ## Speech
 
@@ -34,11 +34,11 @@ Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstu
 
 ## Vision
 
-[Azure AI Vision](/azure/ai-services/computer-vision-service/) gives your apps the ability to read text, analyze images, and detect faces with technology like optical character recognition (OCR) and machine learning. 
+[Azure AI Vision](/azure/ai-services/computer-vision/) gives your apps the ability to read text, analyze images, and detect faces with technology like optical character recognition (OCR) and machine learning. 
 
 :::image type="content" source="../media/explore/explore-vision.png" alt-text="Screenshot of vision capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-vision.png":::
 
-Explore more vision capabilities in the [Vision Studio](https://portal.vision.cognitive.azure.com/) and the [Azure AI Vision documentation](/azure/ai-services/speech-service/).
+Explore more vision capabilities in the [Vision Studio](https://portal.vision.cognitive.azure.com/) and the [Azure AI Vision documentation](/azure/ai-services/computer-vision/).
 
 ## Language
 
@@ -48,7 +48,7 @@ Use Natural Language Processing (NLP) features to analyze your textual data usin
 
 :::image type="content" source="../media/explore/explore-language.png" alt-text="Screenshot of language capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-language.png":::
 
-Explore more Language capabilities in the [Language Studio](https://aka.ms/speechstudio/), [Custom Translator Studio](https://aka.ms/speechstudio/), and the [Azure AI Language documentation](/azure/ai-services/language-service/).
+Explore more Language capabilities in the [Language Studio](https://language.cognitive.azure.com/), [Custom Translator Studio](https://portal.customtranslator.azure.ai/), and the [Azure AI Language documentation](/azure/ai-services/language-service/).
 
 ## Try more Azure AI services
 
