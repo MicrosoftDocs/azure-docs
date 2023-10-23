@@ -37,7 +37,7 @@ Now that you have access to your data, confirm you can run a query.
 
 1. In the [Azure Data Explorer web UI](https://dataexplorer.azure.com/), expand the drop-down for the Data Product Consumption URL for which you added a connection.
 1. Double-click on the database you want to run your queries against. This database is set as the context in the banner above the query editor.
-1. In the query editor, run one of the simple queries below to check access to the data.
+1. In the query editor, run one of the following simple queries to check access to the data.
 
 ```kql
 // Lists all available tables in the database.

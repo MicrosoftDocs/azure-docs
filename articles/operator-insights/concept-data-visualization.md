@@ -18,13 +18,13 @@ The Azure Operator Insights Data Product is an Azure service that handles proces
 
 Enriched and processed data is stored in the Data Product and is made available for querying with the Consumption URL, which you can connect to in the [Azure Data Explorer web UI](https://dataexplorer.azure.com/). Permissions are governed by role-based access control.
 
-The Data Product exposes a database, which contains a set of tables and materialized views. These can be queried in the Data Explorer GUI using [Kusto Query Language](../data-explorer/kusto/query.md).
+The Data Product exposes a database, which contains a set of tables and materialized views. You can query this data in the Data Explorer GUI using [Kusto Query Language](../data-explorer/kusto/query.md).
 
 ## Enrichment and aggregation
 
 The Data Product enriches the raw data by combining data from different tables together. This enriched data is then aggregated in materialized views that summarize the data over various dimensions.
 
-The data is enriched and aggregated after it has been ingested into the raw tables, meaning that there is a slight delay between the arrival of the raw data and the arrival of the enriched data.
+The data is enriched and aggregated after it has been ingested into the raw tables. As a result, there is a slight delay between the arrival of the raw data and the arrival of the enriched data.
 
 The Data Product has metrics that monitor the quality of the raw and enriched data. For more information, see [Data quality and data monitoring](concept-data-quality-monitoring.md).
 

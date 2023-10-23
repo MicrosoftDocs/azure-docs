@@ -34,7 +34,7 @@ Each dashboard is split into pages with a set of filters at the top of the page.
 1. Filter data by using the drop-down or free text fields at the top of the page.
     You can enter multiple values in the free text fields by separating the inputs with a comma and no spaces, for example: `London,Paris`.
 
-Note that some tiles will report `UNDETECTED` for any filters with an empty entry. You can't filter these undetected entries.
+Some tiles report `UNDETECTED` for any filters with an empty entry. You can't filter these undetected entries.
 
 ## Exploring the queries
 
