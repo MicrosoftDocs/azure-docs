@@ -1,5 +1,5 @@
 ---
-title: Model training on serverless compute (preview)
+title: Model training on serverless compute
 titleSuffix: Azure Machine Learning
 description: You no longer need to create your own compute cluster to train your model in a scalable way.  You can now use a compute cluster that Azure Machine Learning has made available for you.
 services: machine-learning
@@ -13,13 +13,11 @@ ms.reviewer: sgilley
 ms.date: 05/09/2023
 ---
 
-# Model training on serverless compute (preview)
+# Model training on serverless compute
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. Azure Machine Learning creates, scales, and manages the compute for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network isolation reducing the burden on you.
 
@@ -49,9 +47,6 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
   * Sweep jobs
 
 * For pipeline jobs through CLI use `default_compute: azureml:serverless` for pipeline level default compute.  For pipelines jobs through SDK use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
-* To use serverless job submission in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
-
-    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
 
 * When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as the compute type.
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
