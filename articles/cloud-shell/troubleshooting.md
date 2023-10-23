@@ -263,7 +263,7 @@ again.
    Bash:
 
    ```bash
-   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" -o tsv --query accessToken)
    curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 
