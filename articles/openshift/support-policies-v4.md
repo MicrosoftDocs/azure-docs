@@ -118,8 +118,9 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 
 \*Standard_M128ms' does not support encryption at host
 
+### Worker nodes
 
-### General purpose
+#### General purpose
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -153,7 +154,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv5|Standard_D96s_v5|96|384|
 
 
-### Memory optimized
+#### Memory optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -201,7 +202,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Eidsv5|Standard_E104ids_v5|104|672|
 
 
-### Compute optimized
+#### Compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -212,7 +213,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Fsv2|Standard_F72s_v2|72|144|
 
 
-### Memory and compute optimized
+#### Memory and compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -221,7 +222,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 \*Standard_M128ms' does not support encryption at host
 
 
-### Storage optimized
+#### Storage optimized
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |L4s|Standard_L4s|4|32|
@@ -240,7 +241,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L64s_v3|Standard_L64s_v3|64|512|
 
 
-### GPU workload
+#### GPU workload
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |NC4asT4v3|Standard_NC4as_T4_v3|4|28|
@@ -251,15 +252,3 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC24sV3|Standard_NC24s_v3|24|448|
 |NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
-
-<!--
-### Memory and storage optimized
-
-|Series|Size|vCPU|Memory: GiB|
-|-|-|-|-|
-|G*|Standard_G5|32|448|
-|G|Standard_GS5|32|448|
-
-
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
--->
