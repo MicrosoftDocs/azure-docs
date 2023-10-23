@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a service connection and store secrets into Key Vault
 description: Tutorial showing how to create a service connection and store secrets into Key Vault
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: tutorial

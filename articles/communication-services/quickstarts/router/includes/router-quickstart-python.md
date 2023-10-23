@@ -4,7 +4,6 @@ description: include file
 services: azure-communication-services
 author: williamzhao
 manager: bga
-
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/09/2023
@@ -219,7 +218,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme?view=azure-python-preview) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme?view=azure-python-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

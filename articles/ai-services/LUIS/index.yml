@@ -9,8 +9,8 @@ metadata:
   ms.author: aahi
   ms.manager: nitinme
   author: aahill
-  ms.service: cognitive-services
-  ms.subservice: language-understanding
+  ms.service: azure-ai-language
+  ms.subservice: azure-ai-luis
   services: cognitive-services
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure AI services

@@ -32,18 +32,18 @@ Custom security attributes are security sensitive and can only be managed by del
 
 | Role name | Description |
 | --- | --- |
-| Attribute assignment administrator | Assign custom security attribute keys and values to supported Azure AD objects. |
-| Attribute assignment reader | Read custom security attribute keys and values for supported Azure AD objects. |
+| Attribute assignment administrator | Assign custom security attribute keys and values to supported Microsoft Entra objects. |
+| Attribute assignment reader | Read custom security attribute keys and values for supported Microsoft Entra objects. |
 | Attribute definition administrator | Define and manage the definition of custom security attributes. |
 | Attribute definition reader | Read the definition of custom security attributes. |
 
 1. Assign the appropriate role to the users who will manage or report on these attributes at the directory scope.
 
-    For detailed steps, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
 
 ## Create custom security attributes
 
-Follow the instructions in the article, [Add or deactivate custom security attributes in Azure AD (Preview)](../fundamentals/custom-security-attributes-add.md) to add the following **Attribute set** and **New attributes**. 
+Follow the instructions in the article, [Add or deactivate custom security attributes in Microsoft Entra ID (Preview)](../fundamentals/custom-security-attributes-add.md) to add the following **Attribute set** and **New attributes**. 
 
 - Create an **Attribute set** named *ConditionalAccessTest*.
 - Create **New attributes** named *policyRequirement* that **Allow multiple values to be assigned** and **Only allow predefined values to be assigned**. We add the following predefined values:
@@ -54,7 +54,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    - requireHybridJoinedDevice
    - requireCompliantApp
 
-:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
+:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Microsoft Entra ID." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
 
 > [!NOTE] 
 > Conditional Access filters for devices only works with custom security attributes of type "string". Custom Security Attributes support creation of Boolean data type but Conditional Access Policy only supports "string".

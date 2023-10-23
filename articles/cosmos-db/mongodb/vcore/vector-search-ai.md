@@ -39,7 +39,7 @@ The technique gauges the disparity between your query vector and the data vector
 
 ## How does vector search work in Azure Cosmos DB for MongoDB vCore?
 
-You can truly harness the power of RAG through the native vector search capability in Azure Cosmos DB for MongoDB vCore. This native search fuses AI-focused applications with stored data in Azure Cosmos DB.
+You can truly harness the power of RAG through the native vector search capability in Azure Cosmos DB for MongoDB vCore. This feature combines AI-focused applications with stored data in Azure Cosmos DB.
 
 Vector search optimally stores, indexes, and searches high-dimensional vector data directly within Azure Cosmos DB for MongoDB vCore, alongside other application data. This capability eliminates the need to migrate data to costlier alternatives for vector search functionality.
 
@@ -51,5 +51,5 @@ Vector search optimally stores, indexes, and searches high-dimensional vector da
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Vector search](vector-search.md)
+- Learn more about [Azure OpenAI embeddings](../../../ai-services/openai/concepts/understand-embeddings.md)
+- Learn how to [generate embeddings using Azure OpenAI](../../../ai-services/openai/tutorials/embeddings.md)

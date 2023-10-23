@@ -67,13 +67,13 @@ Networks need to evolve from traditional defenses because networks might be vuln
 Best practices are:
 
 **Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+**Detail**: [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 **Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
-**Detail**: Use just-in-time access in Azure AD Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
+**Detail**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 
 Zero Trust is the next evolution in network security. The state of cyberattacks drives organizations to take the "assume breach" mindset, but this approach shouldn't be limiting. Zero Trust networks protect corporate data and resources while ensuring that organizations can build a modern workplace by using technologies that empower employees to be productive anytime, anywhere, in any way.
 
@@ -197,7 +197,7 @@ Azure Private Link provides the following benefits:
 - **Access from On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to configure ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
 - **Protection against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks.
 - **Global reach**: Connect privately to services running in other regions. The consumer's virtual network could be in region A and it can connect to services in region B.
-- **Simple to set up and manage**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through an IP firewall. There are no NAT or gateway devices required to set up the private endpoints. Private endpoints are configured through a simple workflow. On service side, you can also manage the connection requests on your Azure service resource with ease. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants too. 
+- **Simple to set up and manage**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through an IP firewall. There are no NAT or gateway devices required to set up the private endpoints. Private endpoints are configured through a simple workflow. On service side, you can also manage the connection requests on your Azure service resource with ease. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants too. 
 	
 To learn more about private endpoints and the Azure services and regions that private endpoints are available for, see [Azure Private Link](../../private-link/private-link-overview.md).
 

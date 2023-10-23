@@ -1,6 +1,6 @@
 ---
-title: Introduction to securing Azure Active Directory service accounts
-description: Explanation of the types of service accounts available in Azure Active Directory.
+title: Introduction to securing Microsoft Entra service accounts
+description: Explanation of the types of service accounts available in Microsoft Entra ID.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,11 +16,13 @@ ms.collection: M365-identity-device-management
 ---
 # Securing cloud-based service accounts
 
-There are three types of service accounts native to Azure Active Directory: Managed identities, service principals, and user-based service accounts. Service accounts are a special type of account that is intended to represent a non-human entity such as an application, API, or other service. These entities operate within the security context provided by the service account. 
+There are three types of service accounts native to Microsoft Entra ID: Managed identities, service principals, and user-based service accounts. Service accounts are a special type of account that is intended to represent a non-human entity such as an application, API, or other service. These entities operate within the security context provided by the service account. 
 
-## Types of Azure Active Directory service accounts
+<a name='types-of-azure-active-directory-service-accounts'></a>
 
-For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can't be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
+## Types of Microsoft Entra service accounts
+
+For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can't be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use a Microsoft Entra user account as a service account. See the following table for a summary.
 
 | Service hosting| Managed identity| Service principal| Azure user account |
 | - | - | - | - |
@@ -30,7 +32,7 @@ For services hosted in Azure, we recommend using a managed identity if possible,
 
 ## Managed identities
 
-Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](../managed-identities-azure-resources/overview.md#managed-identity-types): 
+Managed identities are secure Microsoft Entra identities created to provide identities for Azure resources. There are [two types of managed identities](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * System-assigned managed identities can be assigned directly to an instance of a service. 
 
@@ -42,7 +44,7 @@ For more information, see [Securing managed identities](service-accounts-managed
 
 If you can't use a managed identity to represent your application, use a service principal. Service principals can be used with both single tenant and multi-tenant applications. 
 
-A service principal is the local representation of an application object in a single Azure AD tenant. It functions as the identity of the application instance, defines who can access the application, and what resources the application can access. A service principal is created in (local to) each tenant where the application is used and references the globally unique application object. The tenant secures the service principal's sign-in and access to resources.
+A service principal is the local representation of an application object in a single Microsoft Entra tenant. It functions as the identity of the application instance, defines who can access the application, and what resources the application can access. A service principal is created in (local to) each tenant where the application is used and references the globally unique application object. The tenant secures the service principal's sign-in and access to resources.
 
 There are two mechanisms for authentication using service principals—client certificates and client secrets. Certificates are more secure: use client certificates if possible. Unlike client secrets, client certificates cannot accidentally be embedded in code.
 

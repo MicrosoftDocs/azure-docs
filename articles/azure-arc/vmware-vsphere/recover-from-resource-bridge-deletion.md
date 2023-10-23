@@ -4,6 +4,8 @@ description: Learn how to perform recovery operations for the Azure Arc resource
 ms.topic: how-to 
 ms.custom:
 ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # Recover from accidental deletion of resource bridge VM

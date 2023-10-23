@@ -68,7 +68,7 @@ This article documents the REST APIs for the Managed Airflow integrated runtime.
   |airflowRequirements | Array\<string\> | Python libraries you wish to use. Example: ["flask-bcrypy=0.7.1"]. Can be a comma delimited list. |
   |airflowEnvironmentVariables | Object (Key/Value pair) | Environment variables you wish to use. Example: { “SAMPLE_ENV_NAME”: “test” } | 
   |gitSyncProperties | gitSyncProperty | Git configuration properties |
-  |enableAADIntegration | boolean | Allows Azure AD to login to Airflow |
+  |enableAADIntegration | boolean | Allows Microsoft Entra ID to login to Airflow |
   |userName | string or null | Username for Basic Authentication |
   |password | string or null | Password for Basic Authentication |
 

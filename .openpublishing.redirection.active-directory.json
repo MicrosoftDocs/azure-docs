@@ -11,6 +11,501 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-domain-services/ad-auth-no-join-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/ad-auth-no-join-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/administration-concepts.md",
+      "redirect_url": "/entra/identity/domain-services/administration-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/alert-ldaps.md",
+      "redirect_url": "/entra/identity/domain-services/alert-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/alert-nsg.md",
+      "redirect_url": "/entra/identity/domain-services/alert-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/alert-service-principal.md",
+      "redirect_url": "/entra/identity/domain-services/alert-service-principal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/change-sku.md",
+      "redirect_url": "/entra/identity/domain-services/change-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/check-health.md",
+      "redirect_url": "/entra/identity/domain-services/check-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/compare-identity-solutions.md",
+      "redirect_url": "/entra/identity/domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-custom-attributes.md",
+      "redirect_url": "/entra/identity/domain-services/concepts-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-forest-trust.md",
+      "redirect_url": "/entra/identity/domain-services/concepts-forest-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-replica-sets.md",
+      "redirect_url": "/entra/identity/domain-services/concepts-replica-sets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-forest-trust-powershell.md",
+      "redirect_url": "/entra/identity/domain-services/create-forest-trust-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-gmsa.md",
+      "redirect_url": "/entra/identity/domain-services/create-gmsa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-ou.md",
+      "redirect_url": "/entra/identity/domain-services/create-ou",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/csp.md",
+      "redirect_url": "/entra/identity/domain-services/csp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/delete-aadds.md",
+      "redirect_url": "/entra/identity/domain-services/delete-aadds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/deploy-azure-app-proxy.md",
+      "redirect_url": "/entra/identity/domain-services/deploy-azure-app-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/deploy-kcd.md",
+      "redirect_url": "/entra/identity/domain-services/deploy-kcd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/deploy-sp-profile-sync.md",
+      "redirect_url": "/entra/identity/domain-services/deploy-sp-profile-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/faqs.yml",
+      "redirect_url": "/entra/identity/domain-services/faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/feature-availability.md",
+      "redirect_url": "/entra/identity/domain-services/feature-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/fleet-metrics.md",
+      "redirect_url": "/entra/identity/domain-services/fleet-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/how-to-data-retrieval.md",
+      "redirect_url": "/entra/identity/domain-services/how-to-data-retrieval",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/index.yml",
+      "redirect_url": "/entra/identity/domain-services/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-centos-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-centos-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-coreos-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-coreos-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-rhel-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-rhel-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-suse-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-suse-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-ubuntu-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-ubuntu-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-windows-vm-template.md",
+      "redirect_url": "/entra/identity/domain-services/join-windows-vm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/join-windows-vm.md",
+      "redirect_url": "/entra/identity/domain-services/join-windows-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/manage-dns.md",
+      "redirect_url": "/entra/identity/domain-services/manage-dns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/manage-group-policy.md",
+      "redirect_url": "/entra/identity/domain-services/manage-group-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/mismatched-tenant-error.md",
+      "redirect_url": "/entra/identity/domain-services/mismatched-tenant-error",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/network-considerations.md",
+      "redirect_url": "/entra/identity/domain-services/network-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/notifications.md",
+      "redirect_url": "/entra/identity/domain-services/notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/overview.md",
+      "redirect_url": "/entra/identity/domain-services/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/password-policy.md",
+      "redirect_url": "/entra/identity/domain-services/password-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/policy-reference.md",
+      "redirect_url": "/entra/identity/domain-services/policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/powershell-create-instance.md",
+      "redirect_url": "/entra/identity/domain-services/powershell-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/powershell-scoped-synchronization.md",
+      "redirect_url": "/entra/identity/domain-services/powershell-scoped-synchronization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/scenarios.md",
+      "redirect_url": "/entra/identity/domain-services/scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/scoped-synchronization.md",
+      "redirect_url": "/entra/identity/domain-services/scoped-synchronization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/secure-remote-vm-access.md",
+      "redirect_url": "/entra/identity/domain-services/secure-remote-vm-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/secure-your-domain.md",
+      "redirect_url": "/entra/identity/domain-services/secure-your-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/security-audit-events.md",
+      "redirect_url": "/entra/identity/domain-services/security-audit-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/suspension.md",
+      "redirect_url": "/entra/identity/domain-services/suspension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/synchronization.md",
+      "redirect_url": "/entra/identity/domain-services/synchronization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/template-create-instance.md",
+      "redirect_url": "/entra/identity/domain-services/template-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot-account-lockout.md",
+      "redirect_url": "/entra/identity/domain-services/troubleshoot-account-lockout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot-alerts.md",
+      "redirect_url": "/entra/identity/domain-services/troubleshoot-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot-domain-join.md",
+      "redirect_url": "/entra/identity/domain-services/troubleshoot-domain-join",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot-sign-in.md",
+      "redirect_url": "/entra/identity/domain-services/troubleshoot-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot.md",
+      "redirect_url": "/entra/identity/domain-services/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tshoot-ldaps.md",
+      "redirect_url": "/entra/identity/domain-services/tshoot-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-configure-ldaps.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-configure-networking.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-configure-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-configure-password-hash-sync.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-configure-password-hash-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-create-forest-trust.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-create-forest-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-create-instance-advanced.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-create-instance-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-create-instance.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-create-management-vm.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-create-management-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-create-replica-set.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-create-replica-set",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/tutorial-perform-disaster-recovery-drill.md",
+      "redirect_url": "/entra/identity/domain-services/tutorial-perform-disaster-recovery-drill",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/use-azure-monitor-workbooks.md",
+      "redirect_url": "/entra/identity/domain-services/use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-global-secure-access-logs-monitoring.md",
+      "redirect_url": "/entra/global-secure-access/concept-global-secure-access-logs-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-private-access.md",
+      "redirect_url": "/entra/global-secure-access/concept-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-remote-network-connectivity.md",
+      "redirect_url": "/entra/global-secure-access/concept-remote-network-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-traffic-dashboard.md",
+      "redirect_url": "/entra/global-secure-access/concept-traffic-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-traffic-forwarding.md",
+      "redirect_url": "/entra/global-secure-access/concept-traffic-forwarding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-universal-conditional-access.md",
+      "redirect_url": "/entra/global-secure-access/concept-universal-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-access-audit-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-access-audit-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-assign-traffic-profile-to-remote-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-assign-traffic-profile-to-remote-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-compliant-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-compliant-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-connectors.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-customer-premises-equipment.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-customer-premises-equipment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-per-app-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-per-app-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-quick-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-quick-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-create-remote-network-custom-ike-policy.md",
+      "redirect_url": "/entra/global-secure-access/how-to-create-remote-network-custom-ike-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-create-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-create-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-get-started-with-global-secure-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-get-started-with-global-secure-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-install-windows-client.md",
+      "redirect_url": "/entra/global-secure-access/how-to-install-windows-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-list-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-list-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-microsoft-365-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-microsoft-365-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-private-access-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-private-access-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-remote-network-device-links.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-remote-network-device-links",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-simulate-remote-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-simulate-remote-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-source-ip-restoration.md",
+      "redirect_url": "/entra/global-secure-access/how-to-source-ip-restoration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-target-resource-microsoft-365-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-target-resource-microsoft-365-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-target-resource-private-access-apps.md",
+      "redirect_url": "/entra/global-secure-access/how-to-target-resource-private-access-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-universal-tenant-restrictions.md",
+      "redirect_url": "/entra/global-secure-access/how-to-universal-tenant-restrictions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-view-enriched-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-view-enriched-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-view-traffic-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-view-traffic-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/index.yml",
+      "redirect_url": "/entra/global-secure-access/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/overview-what-is-global-secure-access.md",
+      "redirect_url": "/entra/global-secure-access/overview-what-is-global-secure-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/reference-points-of-presence.md",
+      "redirect_url": "/entra/global-secure-access/reference-points-of-presence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/reference-remote-network-configurations.md",
+      "redirect_url": "/entra/global-secure-access/reference-remote-network-configurations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
+      "redirect_url": "/entra/global-secure-access/resource-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-prepare-azure-ad-user-accounts.md",
       "redirect_url": "/azure/active-directory/governance/tutorial-prepare-user-accounts",
       "redirect_document_id": false
@@ -103,6 +598,16 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/gainsight-saml-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/gainsight-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/planview-id-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/planview-admin-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/postman-provisioning-tutorialy.md",
+      "redirect_url": "/azure/active-directory/saas-apps/postman-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
@@ -1173,6 +1678,11 @@
     {
       "source_path_from_root": "/articles/active-directory/role-based-access-control-access-change-history-report.md",
       "redirect_url": "/azure/role-based-access-control/change-history-report",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-mfa-get-started.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-mfa-licensing",
       "redirect_document_id": true
     },
     {
@@ -3056,6 +3566,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/policy-migration.md",
+      "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/best-practices.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
       "redirect_document_id": true
@@ -3073,7 +3588,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-migration-mfa.md",
       "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",
@@ -5271,9 +5786,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/identity-secure-score.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-identity-secure-score",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reference-sla-performance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/licensing-whatis-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-group-based-licensing",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-basic-info-sign-in-logs.md",
@@ -12172,7 +12707,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-playbook.md",
-      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
       "redirect_document_id": false
     },
     {

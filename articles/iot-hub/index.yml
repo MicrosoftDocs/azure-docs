@@ -38,18 +38,18 @@ landingContent:
      - text: Upload video, media, and large data files
        url: iot-hub-devguide-file-upload.md
 
- -   title: Process data with Azure services
-     linkLists:
-     -  linkListType: tutorial
-        links:
-        - text: Route telemetry
-          url: tutorial-routing.md
-        - text: Visualize data in Power BI
-          url: iot-hub-live-data-visualization-in-power-bi.md
-     -  linkListType: concept
-        links:
-        - text: Understand Azure IoT Hub message routing
-          url: iot-hub-devguide-messages-d2c.md
+ - title: Process data with Azure services
+   linkLists:
+   - linkListType: tutorial
+     links:
+     - text: Route telemetry
+       url: tutorial-routing.md
+     - text: Visualize data in Power BI
+       url: iot-hub-live-data-visualization-in-power-bi.md
+   - linkListType: concept
+     links:
+     - text: Understand Azure IoT Hub message routing
+       url: iot-hub-devguide-messages-d2c.md
 
  - title: Manage and monitor devices remotely
    linkLists:
@@ -91,4 +91,3 @@ landingContent:
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
      - text: Supported device protocols
        url: iot-hub-devguide-protocols.md
-

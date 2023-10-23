@@ -1,5 +1,5 @@
 ---
-title: Create a free Azure Active Directory developer tenant
+title: Create a free Microsoft Entra developer tenant
 description: This article shows you how to create a developer account.
 services: active-directory
 author: barclayn
@@ -9,7 +9,7 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.author: barclayn
-# Customer intent: As a developer, I want to learn how to create a developer Azure Active Directory account so I can participate in the preview with a P2 license. 
+# Customer intent: As a developer, I want to learn how to create a developer Microsoft Entra account so I can participate in the preview with a P2 license. 
 ---
 
 # Microsoft Entra Verified ID developer information
@@ -17,14 +17,16 @@ ms.author: barclayn
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!NOTE]
-> The requirement of an Azure Active Directory (Azure AD) P2 license was removed in early May 2001. The Azure AD Free tier is now supported. 
+> The requirement of a Microsoft Entra ID P2 license was removed in early May 2001. The Microsoft Entra ID Free tier is now supported. 
 
-## Create an Azure AD tenant for development
+<a name='create-an-azure-ad-tenant-for-development'></a>
 
- With a free Azure Active Directory account, you can onboard the verifiable credential service and test issuing and verifying verifiable credentials. Create a free account in either of two ways:
+## Create a Microsoft Entra tenant for development
 
-- [Join the free Microsoft 365 Developer Program](https://aka.ms/o365devprogram), and get a free sandbox, tools, and other resources (for example, an Azure AD account with P2 licenses, configured users, groups, and mailboxes).
-- [Create a new tenant](../develop/quickstart-create-new-tenant.md) and [activate a free trial of Azure AD Premium P1 or P2](https://azure.microsoft.com/trial/get-started-active-directory/) in your new tenant.
+ With a free Microsoft Entra account, you can onboard the verifiable credential service and test issuing and verifying verifiable credentials. Create a free account in either of two ways:
+
+- [Join the free Microsoft 365 Developer Program](https://aka.ms/o365devprogram), and get a free sandbox, tools, and other resources (for example, a Microsoft Entra account with P2 licenses, configured users, groups, and mailboxes).
+- [Create a new tenant](../develop/quickstart-create-new-tenant.md) and [activate a free trial of Microsoft Entra ID P1 or P2](https://azure.microsoft.com/trial/get-started-active-directory/) in your new tenant.
 
 If you decide to sign up for the free Microsoft 365 developer program, you need to follow a few easy steps:
 
@@ -41,7 +43,7 @@ If you decide to sign up for the free Microsoft 365 developer program, you need 
 1. Enter the security information needed to protect the administrator account of your new tenant. This sets up multifactor authentication for the account.
 
 
-At this point, you've created a tenant with 25 E5 user licenses. The E5 licenses include Azure AD P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the verifiable credential issuing service, they're not required.
+At this point, you've created a tenant with 25 E5 user licenses. The E5 licenses include Microsoft Entra ID P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the verifiable credential issuing service, they're not required.
 
 For your convenience, you could add your own work account as [guest](../external-identities/b2b-quickstart-add-guest-users-portal.md) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the verifiable credential service, you need to assign the *Global Administrator* role to that user.
 

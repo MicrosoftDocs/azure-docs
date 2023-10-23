@@ -1,5 +1,5 @@
 ---
-title: Control external access to resources in Azure Active Directory with sensitivity labels 
+title: Control external access to resources in Microsoft Entra ID with sensitivity labels 
 description: Use sensitivity labels as a part of your overall security plan for external access
 services: active-directory
 author: janicericketts
@@ -15,11 +15,11 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Control external access to resources in Azure Active Directory with sensitivity labels 
+# Control external access to resources in Microsoft Entra ID with sensitivity labels 
 
 Use sensitivity labels to help control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They protect content without hindering user collaboration. Use sensitivity labels to send organization-wide content across devices, apps, and services, while protecting data. Sensitivity labels help organizations meet compliance and security policies. 
  
-See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true)
+See, [Learn about sensitivity labels](/purview/sensitivity-labels?preserve-view=true&view=o365-worldwide)
 
 ## Before you begin
 
@@ -33,8 +33,8 @@ Enforce protection settings such as encryption, watermarks, and access restricti
 
 Learn more:
 
-* [Restrict access to content by using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+* [Restrict access to content by using sensitivity labels to apply encryption](/purview/encryption-sensitivity-labels?preserve-view=true&view=o365-worldwide)
+* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
 
 Sensitivity labels on containers can restrict access to the container, but content in the container doesn't inherit the label. For example, a user takes content from a protected site, downloads it, and then shares it without restrictions, unless the content had a sensitivity label.
 
@@ -47,7 +47,7 @@ Team members who need to create sensitivity labels require permissions to:
 
 * Microsoft 365 Defender portal,
 * Microsoft Purview compliance portal, or 
-* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
+* [Microsoft Purview compliance portal](/purview/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
 
 By default, tenant Global Administrators have access to admin centers and can provide access, without granting tenant Admin permissions. For this delegated limited admin access, add users to the following role groups: 
 
@@ -64,7 +64,7 @@ As you plan the governance of external access to your content, consider content,
 To define High, Medium, or Low Business Impact (HBI, MBI, LBI) for data, sites, and groups, consider the effect on your organization if the wrong content types are shared. 
 
 * Credit card, passport, national/regional ID numbers
-  * [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
+  * [Apply a sensitivity label to content automatically](/purview/apply-sensitivity-label-automatically?preserve-view=true&view=o365-worldwide)
 * Content created by corporate officers: compliance, finance, executive, etc.
 * Strategic or financial data in libraries or sites. 
 
@@ -74,7 +74,7 @@ Consider the content categories that external users can't have access to, such a
 
 Sensitivity labels can be applied automatically or manually to content. 
 
-See, [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
+See, [Apply a sensitivity label to content automatically](/purview/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
 
 #### Sensitivity labels on email and content
 
@@ -91,7 +91,7 @@ A sensitivity label in a document or email is customizable, clear text, and pers
 
 Determine the access criteria if Microsoft 365 Groups, Teams, or SharePoint sites are restricted with sensitivity labels. You can label content in containers or use automatic labeling for files in SharePoint, OneDrive, etc.
 
-Learn more: [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+Learn more: [Get started with sensitivity labels](/purview/get-started-with-sensitivity-labels?preserve-view=true&view=o365-worldwide)
 
 #### Sensitivity labels on containers
 
@@ -107,38 +107,38 @@ Sensitivity labels applied to a container, such as a SharePoint site, aren't app
 
 Learn more:
 
-* [Enable sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide&preserve-view=true).
-* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
-* [Assign sensitivity labels to Microsoft 365 groups in Azure AD](../enterprise-users/groups-assign-sensitivity-labels.md)
+* [Enable sensitivity labels for Office files in SharePoint and OneDrive](/purview/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide&preserve-view=true).
+* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
+* [Assign sensitivity labels to Microsoft 365 groups in Microsoft Entra ID](../enterprise-users/groups-assign-sensitivity-labels.md)
 
 ### Implement sensitivity labels
 
 After you determine use of sensitivity labels, see the following documentation for implementation.
 
-* [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Restrict access to content by using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Get started with sensitivity labels](/purview/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Create and publish sensitivity labels](/purview/create-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Restrict access to content by using sensitivity labels to apply encryption](/purview/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 
 ## Next steps
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md) 
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

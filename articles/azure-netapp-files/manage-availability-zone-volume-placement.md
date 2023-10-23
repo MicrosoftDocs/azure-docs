@@ -88,7 +88,8 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
     > [!IMPORTANT]
     > Availability zone information can only be populated as provided. You can't select an availability zone or move the volume to another availability zone by using this feature. If you want to move this volume to another availability zone, consider using [cross-zone replication](create-cross-zone-replication.md) (after populating the volume with the availability zone information). 
-    :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
+    >
+    > :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
     
 ## Next steps  
 

@@ -1,6 +1,6 @@
 ---
-title: Wildcard applications in Azure Active Directory Application Proxy
-description: Learn how to use Wildcard applications in Azure Active Directory Application Proxy.
+title: Wildcard applications in Microsoft Entra application proxy
+description: Learn how to use Wildcard applications in Microsoft Entra application proxy.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# Wildcard applications in the Azure Active Directory Application Proxy
+# Wildcard applications in the Microsoft Entra application proxy
 
-In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
+In Microsoft Entra ID, configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Microsoft Entra application proxy](application-proxy.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
 - Simplify your administrative overhead
 - Reduce the number of potential configuration errors
@@ -133,7 +133,7 @@ All three applications:
 - Use *Integrated Windows authentication*
 - Have the same properties
 
-You can publish the wildcard application using the steps outlined in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). This scenario assumes:
+You can publish the wildcard application using the steps outlined in [Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md). This scenario assumes:
 
 - A tenant with the following ID: `000aa000-11b1-2ccc-d333-4444eee4444e`
 - A verified domain called `adventure-works.com` has been configured.
@@ -161,7 +161,7 @@ The configuration implements the following structure:
 
 | Color | Description |
 | ---   | ---         |
-| Blue  | Applications explicitly published and visible in the Azure portal. |
+| Blue  | Applications explicitly published and visible in the Microsoft Entra admin center. |
 | Gray  | Applications you can accessible through the parent application. |
 
 ## Scenario 2: General wildcard application with exception
@@ -194,5 +194,5 @@ If you have multiple applications published for finance and you have `finance.ad
 
 ## Next steps
 
-- To learn more about **Custom domains**, see [Working with custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md).
-- To learn more about **Publishing applications**, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
+- To learn more about **Custom domains**, see [Working with custom domains in Microsoft Entra application proxy](./application-proxy-configure-custom-domain.md).
+- To learn more about **Publishing applications**, see [Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md)

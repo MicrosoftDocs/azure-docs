@@ -41,7 +41,7 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *Ubuntu2204*.
+The output includes the image URN. If you omit the `--all` option, you can see the *UrnAlias* for each image, if available. *UrnAlias* is a shortened version created for popular images like *Ubuntu2204*.
 The Linux image alias names and their details outputted by this command are:
 
 ```output

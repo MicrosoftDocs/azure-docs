@@ -5,8 +5,7 @@ description: Use the Read 3.2 OCR containers from Azure AI Vision to extract tex
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 08/29/2023
 ms.author: pafarley

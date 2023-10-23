@@ -3,6 +3,12 @@ title: Troubleshoot Guest Management Issues
 description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
 ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
+
 # Customer intent: As a VI admin, I want to understand the troubleshooting process for guest management issues.
 ---
 # Troubleshoot Guest Management for Linux VMs

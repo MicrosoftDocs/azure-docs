@@ -1,6 +1,6 @@
 ---
 title: Understand how users are assigned to apps
-description: Understand how users get assigned to an app that is using Azure Active Directory for identity management.
+description: Understand how users get assigned to an app that is using Microsoft Entra ID for identity management.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -18,7 +18,9 @@ ms.custom: enterprise-apps
 
 This article helps you to understand how users get assigned to an application in your tenant.
 
-## How do users get assigned an application in Azure AD?
+<a name='how-do-users-get-assigned-an-application-in-azure-ad'></a>
+
+## How do users get assigned an application in Microsoft Entra ID?
 
 There are several ways a user can be assigned an application. Assignment can be performed by an administrator, a business delegate, or sometimes, the user themselves. Below describes the ways users can get assigned to applications:
 
@@ -35,8 +37,8 @@ There are several ways a user can be assigned an application. Assignment can be 
 * An administrator enables [Self-service Group Management](../enterprise-users/groups-self-service-management.md) to allow a user to join a group that an application is assigned to **without business approval**
 * An administrator enables [Self-service Group Management](../enterprise-users/groups-self-service-management.md) to allow a user to join a group that an application is assigned to, but only **with prior approval from a selected set of business approvers**
 * One of the application's roles is included in an [entitlement management access package](../governance/entitlement-management-access-package-resources.md), and a user requests or is assigned to that access package
-* An administrator assigns a license to a user directly, for a Microsoft service such as [Microsoft 365](https://products.office.com/)
-* An administrator assigns a license to a group that the user is a member of, for a Microsoft service such as [Microsoft 365](https://products.office.com/)
+* An administrator assigns a license to a user directly, for a Microsoft service such as [Microsoft 365](https://www.microsoft.com/microsoft-365)
+* An administrator assigns a license to a group that the user is a member of, for a Microsoft service.
 * A user [consents to an application](./user-admin-consent-overview.md#user-consent) on behalf of themselves.
 
 ## Next steps

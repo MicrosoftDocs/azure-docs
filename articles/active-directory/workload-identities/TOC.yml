@@ -1,4 +1,4 @@
-- name: Microsoft Entra Workload Identities documentation
+- name: Microsoft Entra Workload ID documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -19,7 +19,7 @@
         href: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Conditional Access for workload identities
         href: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
-      - name: Conditional Access evaluation for workload identities
+      - name: Continuous access evaluation for workload identities
         href: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: App health recommendations
         href: ../reports-monitoring/howto-use-recommendations.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json

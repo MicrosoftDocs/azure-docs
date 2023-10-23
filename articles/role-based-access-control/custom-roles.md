@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/20/2023
+ms.date: 09/18/2023
 ms.author: rolyon
 ---
 
@@ -15,7 +15,7 @@ ms.author: rolyon
 
 If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 
-Custom roles can be shared between subscriptions that trust the same Azure AD tenant. There is a limit of **5,000** custom roles per tenant. (For Microsoft Azure operated by 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+Custom roles can be shared between subscriptions that trust the same Microsoft Entra tenant. There is a limit of **5,000** custom roles per tenant. (For Microsoft Azure operated by 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
 
 ## Steps to create a custom role
 
@@ -143,13 +143,13 @@ The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD tenant. This display name must be unique at the scope of the Azure AD tenant. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
+| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Microsoft Entra tenant. This display name must be unique at the scope of the Microsoft Entra tenant. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
 | `Id`</br>`name` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom`</br>`roleType` | Yes | String | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
 | `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role can't be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
+| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role can't be assigned at management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Maximum number of `AssignableScopes` is 2,000. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
@@ -210,6 +210,12 @@ The following list describes the limits for custom roles.
 - You can have only one wildcard in an action string.
 - Custom roles with `DataActions` can't be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's `AssignableScopes`.
+
+> [!IMPORTANT]
+> Custom roles with DataActions and management group AssignableScope is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+- You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription. This preview isn't available in Azure Government or Microsoft Azure operated by 21Vianet.
 
 For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 

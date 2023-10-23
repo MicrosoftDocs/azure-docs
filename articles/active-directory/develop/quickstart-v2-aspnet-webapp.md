@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
+description: Download and run a code sample that shows how an ASP.NET web app can sign in Microsoft Entra users.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -13,10 +13,10 @@ ROBOTS: NOINDEX
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
-#Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
+#Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Microsoft Entra users.
 ---
 
-# Quickstart: ASP.NET web app that signs in Azure AD users
+# Quickstart: ASP.NET web app that signs in Microsoft Entra users
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
@@ -26,7 +26,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
+> In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Microsoft Entra accounts.
 > 
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, enter **https://localhost:44368/** for **Redirect URI**.

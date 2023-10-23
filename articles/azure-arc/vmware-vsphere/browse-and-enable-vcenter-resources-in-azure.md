@@ -3,6 +3,8 @@ title: Enable your VMware vCenter resources in Azure
 description: Learn how to browse your vCenter inventory and represent a subset of your VMware vCenter resources in Azure to enable self-service.
 ms.topic: how-to
 ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a VI admin, I want to represent a subset of my vCenter resources in Azure to enable self-service.
 ---

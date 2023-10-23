@@ -36,6 +36,8 @@
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
           href: howto-segregate-machinesets.md
+        - name: Tag ARO resources using Azure Policy
+          href: howto-tag-resources.md
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
         - name: Use Admin Kubeconfig
@@ -66,9 +68,9 @@
           href: howto-secure-openshift-with-front-door.md
         - name: Create and use a service principal
           href: howto-create-service-principal.md
-        - name: Configure Azure Active Directory authentication (Portal)
+        - name: Configure Microsoft Entra authentication (Portal)
           href: configure-azure-ad-ui.md
-        - name: Configure Azure Active Directory authentication (CLI)
+        - name: Configure Microsoft Entra authentication (CLI)
           href: configure-azure-ad-cli.md
         - name: Update pull secret for an Azure Red Hat OpenShift cluster
           href: howto-add-update-pull-secret.md

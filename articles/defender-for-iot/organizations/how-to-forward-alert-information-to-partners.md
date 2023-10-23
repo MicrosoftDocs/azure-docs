@@ -239,11 +239,8 @@ In such cases, use the **Actions** described below to enter credentials and othe
 
 For more information, see:
 
-- [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)
 - [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)
 - [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)
-- [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
-- [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 
 ### Configure alert groups in partner services
 

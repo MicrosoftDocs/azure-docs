@@ -4,7 +4,7 @@ description: VM insights solution collects metrics and log data to and this arti
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 ---
 
 # How to query logs from VM insights
@@ -131,7 +131,7 @@ Every record in VMBoundPort is identified by the following fields:
 |Ip | Port IP address (can be wildcard IP, *0.0.0.0*) |
 |Port |The Port number |
 |Protocol | The protocol.  Example, *tcp* or *udp* (only *tcp* is currently supported).|
- 
+
 The identity a port is derived from the above five fields and is stored in the PortId  property. This property can be used to quickly find records for a specific port across time. 
 
 #### Metrics 
@@ -428,7 +428,8 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## Performance records
-Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records have the properties in the following table:
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records are collected at 60 second intervals and have the properties in the following table:
+
 
 
 | Property | Description |
@@ -468,8 +469,13 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 | LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
 
 
+
+
+
 ## Next steps
 
 * If you're new to writing log queries in Azure Monitor, review [how to use Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal to write log queries.
 
 * Learn about [writing search queries](../logs/get-started-queries.md).
+
+

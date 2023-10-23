@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
 title: Enterprise user management documentation
-summary: Azure AD provides user management services so that you can assign licenses, manage your groups and users, and add or manage domain names.
+summary: Microsoft Entra ID provides user management services so that you can assign licenses, manage your groups and users, and add or manage domain names.
 
 
 metadata:
-  title: Azure Active Directory users, groups, licenses, and domains documentation
-  description: Learn how to use groups, domain names, and licenses to manage user authentication in your Azure AD organization.
+  title: Microsoft Entra users, groups, licenses, and domains documentation
+  description: Learn how to use groups, domain names, and licenses to manage user authentication in your Microsoft Entra organization.
   services: active-directory
   ms.service: active-directory
   ms.subservice: enterprise-users
@@ -31,7 +31,7 @@ landingContent:
             url: ../roles/custom-overview.md?context=/azure/active-directory/enterprise-users/context/ugr-context
       - linkListType: concept
         links:
-          - text: Azure AD organizational independence
+          - text: Microsoft Entra organizational independence
             url: licensing-directory-independence.md
           - text: Manage access using groups
             url: ../fundamentals/concept-learn-about-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
@@ -49,7 +49,7 @@ landingContent:
             url: ../fundamentals/license-users-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
 
   # Card
-  - title: Manage Azure AD domain names
+  - title: Manage Microsoft Entra domain names
     linkLists:
       - linkListType: how-to-guide
         links:

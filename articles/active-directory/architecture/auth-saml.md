@@ -1,6 +1,6 @@
 ---
-title: SAML authentication with Azure Active Directory
-description: Architectural guidance on achieving SAML authentication with Azure Active Directory
+title: SAML authentication with Microsoft Entra ID
+description: Architectural guidance on achieving SAML authentication with Microsoft Entra ID
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# SAML authentication with Azure Active Directory
+# SAML authentication with Microsoft Entra ID
 
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider and a service provider. SAML is an XML-based markup language for security assertions, which are statements that service providers use to make access-control decisions. 
 
@@ -41,16 +41,18 @@ While one of most important use cases that SAML addresses is SSO, especially by 
 
 * **Web browser**: The component that the user interacts with.
 
-* **Web app**: Enterprise application that supports SAML and uses Azure AD as IdP.
+* **Web app**: Enterprise application that supports SAML and uses Microsoft Entra ID as IdP.
 
 * **Token**: A SAML assertion (also known as SAML tokens) that carries sets of claims made by the IdP about the principal (user). It contains authentication information, attributes, and authorization decision statements.
 
-* **Azure AD**: Enterprise cloud IdP that provides SSO and Multi-factor authentication for SAML apps. It synchronizes, maintains, and manages identity information for users while providing authentication services to relying applications. 
+* **Microsoft Entra ID**: Enterprise cloud IdP that provides SSO and Multi-factor authentication for SAML apps. It synchronizes, maintains, and manages identity information for users while providing authentication services to relying applications. 
 
-## Implement SAML authentication with Azure AD
+<a name='implement-saml-authentication-with-azure-ad'></a>
 
-* [Tutorials for integrating SaaS applications using Azure Active Directory](../saas-apps/tutorial-list.md) 
+## Implement SAML authentication with Microsoft Entra ID
+
+* [Tutorials for integrating SaaS applications using Microsoft Entra ID](../saas-apps/tutorial-list.md) 
 
 * [Configuring SAML based single sign-on for non-gallery applications](../manage-apps/add-application-portal.md) 
 
-* [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)
+* [How Microsoft Entra ID uses the SAML protocol](../develop/saml-protocol-reference.md)

@@ -11,19 +11,25 @@ metadata:
   ms.topic: hub-page # Required
   author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/15/2023 #Required; mm/dd/yyyy format.
+  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
-       -  title: What is Azure Health Data Services?
-          itemType: overview
-          url: ./healthcare-apis-overview.md
-       -  title: Get an access token
-          itemType: how-to-guide
-          url: ./get-access-token.md
-       -  title: Azure Health Data Services 
-          itemType: training
-          url: https://learn.microsoft.com/training/browse/?term=iot&terms=health%20data%20services
+       - title: What is Azure Health Data Services?
+         itemType: overview
+         url: ./healthcare-apis-overview.md
+       - title: Release notes
+         itemType: whats-new
+         url: ./release-notes.md          
+       - title: Get an access token
+         itemType: how-to-guide
+         url: ./get-access-token.md
+       - title: Migrate your data from Azure API for FHIR
+         itemType: how-to-guide
+         url: ./fhir/migration-strategies.md    
+       - title: Azure Health Data Services 
+         itemType: learn
+         url: /training/browse/?term=iot&terms=health%20data%20services
 
 conceptualContent:
   items: 
@@ -42,26 +48,26 @@ conceptualContent:
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Set up user access and permissions 
-            
             - url: ./authentication-authorization.md
               itemType: how-to-guide
-              text: Grant permissions to a managed identity
-         
+              text: Grant permissions to a managed identity  
+                   
         # Card
         - title: FHIR data
           links:
             - url: ./fhir/overview.md
               itemType: overview
-              text: What is the FHIR service?
+              text: FHIR service overview
             - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Deploy the FHIR service
-            - url: ./fhir/use-postman.md
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
               itemType: how-to-guide
               text: Configure settings
             - url: ./fhir/centers-for-medicare-tutorial-introduction.md
               itemType: how-to-guide
               text: CMS operability and patient access
+
         # Card
         - title: Imaging data
           links:
@@ -114,21 +120,8 @@ conceptualContent:
               text: Disable events 
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
-              text: Troubleshoot events  
-          
-        # Card
-        - title: Azure API for FHIR
-          links:
-            - url: ./azure-api-for-fhir/overview.md
-              itemType: overview
-              text: Azure API for FHIR overview
-            - url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
-              itemType: how-to-guide
-              text: Deploy Azure API for FHIR
-            - url: ./azure-api-for-fhir/configure-azure-rbac.md
-              itemType: how-to-guide
-              text: Configure settings   
-          
+              text: Troubleshoot events
+             
 additionalContent:
   sections:
     - title: Tools & resources 
@@ -145,3 +138,9 @@ additionalContent:
         - title: Healthcare & Life Sciences blog
           summary: Insights, best practices, and innovations
           url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
+    - title: Other services 
+      items:
+        # Card
+        - title: Azure API for FHIR
+          summary: This service is being retired as of September 30, 2026
+          url: ./azure-api-for-fhir/overview.md

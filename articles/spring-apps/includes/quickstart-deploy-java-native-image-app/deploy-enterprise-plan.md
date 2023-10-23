@@ -10,8 +10,7 @@ ms.date: 08/03/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps enterprise plan.
 
-[!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-java-native-image-app/deploy-enterprise-plan.md
-)]
+[!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-java-native-image-app/deploy-enterprise-plan.md)]
 
 -->
 
@@ -136,6 +135,7 @@ Azure Spring Apps is used to host the Spring Petclinic app. Use the following st
 
    ```azurecli
    az spring build-service builder create \
+       --service ${AZURE_SPRING_APPS_NAME} \
        --name ${NATIVE_BUILDER} \
        --builder-file builder-native.json
    ```

@@ -24,7 +24,7 @@ If you encounter an access control exception while running a recursive ACL proce
 
 #### Credentials 
 
-We recommend that you provision an Azure AD security principal that has been assigned the [Storage Blob Data Owner](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
+We recommend that you provision a Microsoft Entra security principal that has been assigned the [Storage Blob Data Owner](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
 
 #### Performance 
 

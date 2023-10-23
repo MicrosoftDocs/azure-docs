@@ -24,7 +24,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
+> In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Microsoft Entra organization can sign in to the application.
 > 
 >  For an overview, see the [diagram of how the sample works](#how-the-sample-works).
 > 
@@ -85,7 +85,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > To run the web application from an IDE, select run, and then go to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 > 
-> 1. On the front page, select the **Login** button to redirect users to Azure Active Directory and prompt them for credentials.
+> 1. On the front page, select the **Login** button to redirect users to Microsoft Entra ID and prompt them for credentials.
 > 
 > 1. After users are authenticated, they're redirected to `https://localhost:8443/msal4jsample/secure/aad`. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
 >     - **Sign Out**: Signs the current user out of the application and redirects that user to the home page.

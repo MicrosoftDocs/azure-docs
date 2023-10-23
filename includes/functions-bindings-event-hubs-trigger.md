@@ -12,6 +12,9 @@ Event Hubs scaling decisions for the Consumption and Premium plans are done via 
 
 For information about how Azure Functions responds to events sent to an event hub event stream using triggers, see [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](./functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -31,7 +34,13 @@ This article supports both programming models.
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
@@ -82,22 +91,43 @@ public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConn
     }
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
-
 ---
 
 ::: zone-end 
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an Event Hubs trigger [TypeScript function](../articles/azure-functions/functions-reference-node.md?tabs=typescript). The function reads [event metadata](#event-metadata) and logs the message.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger1.ts" :::
+
+To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger2.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an Event Hubs trigger [JavaScript function](../articles/azure-functions/functions-reference-node.md). The function reads [event metadata](#event-metadata) and logs the message.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger1.js" :::
+
+To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger2.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
 The following example shows an Event Hubs trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
-
-The following example shows an Event Hubs binding data in the *function.json* file, which is different for version 1.x of the Functions runtime compared to later versions. 
-
-# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -108,19 +138,6 @@ The following example shows an Event Hubs binding data in the *function.json* fi
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
-
-# [Functions 1.x](#tab/functionsv1)
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
----
 
 Here's the JavaScript code:
 
@@ -137,8 +154,6 @@ module.exports = function (context, myEventHubMessage) {
 
 To receive events in a batch, set `cardinality` to `many` in the *function.json* file, as shown in the following examples.
 
-# [Functions 2.x+](#tab/functionsv2)
-
 ```json
 {
   "type": "eventHubTrigger",
@@ -149,20 +164,6 @@ To receive events in a batch, set `cardinality` to `many` in the *function.json*
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
-
-# [Functions 1.x](#tab/functionsv1)
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "eventHubMessages",
-  "direction": "in",
-  "path": "MyEventHub",
-  "cardinality": "many",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
----
 
 Here's the JavaScript code:
 
@@ -180,6 +181,8 @@ module.exports = function (context, eventHubMessages) {
     context.done();
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
@@ -332,9 +335,9 @@ public class EventHubReceiver {
 
 Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
-In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute], which supports the following properties.
+Use the `EventHubTriggerAttribute` to define a trigger on an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
@@ -342,9 +345,9 @@ In [C# class libraries](../articles/azure-functions/functions-dotnet-class-libra
 |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. When omitted, the `$Default` consumer group is used. |
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-# [Isolated process](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
-Use the `EventHubTriggerAttribute` to define a trigger on an event hub, which supports the following properties.
+In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute], which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
@@ -385,7 +388,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 + [consumerGroup](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger.consumergroup)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 ::: zone-end
@@ -394,7 +397,37 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.eventHub()` method.
+
+| Property | Description |
+|---------|-----------------------|
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
+|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|-----------------------|
+|**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the event item in function code. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
+|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
 

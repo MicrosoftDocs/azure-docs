@@ -5,8 +5,7 @@ description: Learn how to use Sovereign Clouds
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 05/10/2022

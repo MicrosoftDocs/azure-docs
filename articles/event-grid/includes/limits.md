@@ -51,7 +51,7 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic filters per MQTT SUBSCRIBE packet      | 10                                                                                |
 | Maximum keep-alive interval                  | 1160                                                                              |
 | Registered client resources                  | 10,000 clients per TU                                                             |
-| CA certificates                              | 2                                                                                 |
+| CA certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |
 | Topic templates                              | 10 per topic space                                                                |

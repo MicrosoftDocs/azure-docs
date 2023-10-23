@@ -162,11 +162,11 @@ sections:
       - question: |
           Do I need to buy a separate anti-malware solution to protect my machines?
         answer: |
-          No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+          No. With Defender for Endpoint integration in Defender for Servers, you'll also get malware protection on your machines.
 
-          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+          - On Windows Server 2012 R2 with Defender for Endpoint unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-          - On Linux, Defender for Servers deploy MDE including the anti-malware component, and set the component in *passive mode*.
+          - On Linux, Defender for Servers deploy Defender for Endpoint including the anti-malware component, and set the component in *passive mode*.
                     
       - question: |
           If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?

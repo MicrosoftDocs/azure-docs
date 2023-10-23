@@ -86,7 +86,7 @@ To enable your custom/3rd party data flow components to access data on premises 
    
    1. Installs all assemblies referenced by your custom/3rd party data flow component assemblies in the global assembly cache (GAC).
 
-Here are examples from our partners, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who have adapted their data flow components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
+Here's an example from our partner, [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who has adapted their data flow components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
 
 
 ## ISV partners

@@ -87,10 +87,10 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires at least Application Administrator role permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires at least Application Administrator role permissions in Microsoft Entra ID. The registration only needs to be performed **once per Microsoft Entra tenant**.
 > * The application ID is assigned by Azure specifically for Azure Front Door (classic).
 > * Azure Front Door (classic) has a different *Application Id* than Azure Front Door Standard/Premium tier.
 > * The role assigned is only for the subscription selected unless you define a different scope.
