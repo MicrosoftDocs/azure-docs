@@ -34,11 +34,11 @@ This article describes reliability support in [Azure Storage Mover](/azure/stora
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Storage Mover supports a both zonal and zone-redundant deployment models.  
+Azure Storage Mover supports a zone-redundant deployment model.  
 
-- In a **zonal** model, when deploying an Azure Storage Mover resource, you must [select a particular region](/azure/storage-mover/deployment-planning#select-an-azure-region-for-your-deployment) in which the resource's instance metadata is stored. 
 
-- In a **zone-redundant** model, instance metadata is replicated across multiple availability zones in regions where availability zones (AZ) are available. 
+When you deploy  an Azure Storage Mover resource, you must [select a particular region](/azure/storage-mover/deployment-planning#select-an-azure-region-for-your-deployment) in which the resource's instance metadata is stored. 
+If the region supports availability zones, the instance metadata is replicated across multiple availability zones within that region. 
 
 >[!IMPORTANT]
 >Azure Storage Mover instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts that are used as migration targets have their own reliability support.  
