@@ -10,7 +10,7 @@ ms.custom:
 ---
 
 # Configure Planned Maintenance
-Routine maintenance is performed to keep the Azure Spring Apps platform up-to-date and secure. This maintenance can include performance improvements, bug fixes, new features, or security updates. Maintenance can be performed on Azure Spring Apps itself or the underlying operating system. A breaking change or deprecation of functionality is not a part of routine maintenance. Our service quality and uptime guarantees continue to apply during maintenance periods. Maintenance periods are mentioned to help customers get visibility into platform changes.
+Routine maintenance is performed to keep the Azure Spring Apps platform up-to-date and secure. This maintenance can include performance improvements, bug fixes, new features, or security updates. Maintenance can be performed on Azure Spring Apps itself or the underlying operating system. A breaking change or deprecation of functionality is not a part of routine maintenance. Our service quality and uptime guarantees continue to apply during maintenance periods. Maintenance periods are mentioned to help customers get visibility into platform changes. With Planned Mainteanance, it allowes you to specify a fixed day of the week and fixed time window for maintenance.
  
 ## Maintenance of Azure Spring Apps
 Using following steps to configure planned maintenance in Azure Spring Apps:
