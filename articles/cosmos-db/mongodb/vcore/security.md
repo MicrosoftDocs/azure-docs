@@ -78,7 +78,6 @@ Let's dig into each one in detail.
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
 :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Screenshot of activity logs for Azure Cosmos DB.":::
 
-
 <!-- # Security in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
