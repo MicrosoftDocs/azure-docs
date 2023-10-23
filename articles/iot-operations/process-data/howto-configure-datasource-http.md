@@ -31,7 +31,7 @@ In the source stage, you define:
 
 To configure the HTTP endpoint source:
 
-- Provide details of the HTTP endpoint. This configuration includes the the method, URL and request payload to use.
+- Provide details of the HTTP endpoint. This configuration includes the method, URL and request payload to use.
 - Specify the authentication method. Currently limited to username/password-based or header-based authentication.
 
 The following table describes the HTTP endpoint source configuration parameters:

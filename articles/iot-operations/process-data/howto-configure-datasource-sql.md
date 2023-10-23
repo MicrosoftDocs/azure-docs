@@ -29,9 +29,9 @@ In the source stage, you define:
 
 ## Configure the SQL Server source
 
-To configure the SQL SErver source:
+To configure the SQL Server source:
 
-- Provide details of the SQL Server database. This configuration includes the the server name and a query to retrieve the data.
+- Provide details of the SQL Server database. This configuration includes the server name and a query to retrieve the data.
 - Specify the authentication method. Currently limited to username/password-based or service principal-based authentication.
 
 The following table describes the SQL Server source configuration parameters:
@@ -49,7 +49,7 @@ The following table describes the SQL Server source configuration parameters:
 | Service principal > Client ID | String | The Client ID of the service principal. | Yes | NA | `<Client ID>` |
 | Service principal > Secret | String | Reference to the service principal client secret stored in Azure Key Vault. | Yes | NA | `AKV_SERVICE_PRINCIPAL` |
 | Database | String | The name of the SQL Server database to query.  | Required | NA | `erp_db` |
-| Data query | String | The query to run against the database. | REquired | NA | `SELECT * FROM your_table WHERE column_name = foo` |
+| Data query | String | The query to run against the database. | Required | NA | `SELECT * FROM your_table WHERE column_name = foo` |
 | Query interval | [Duration](concept-configuration-patterns.md#duration) | String representation of the time to wait before the next API call. | Required | `10s`| `24h` |
 | Data format | [Format](#select-data-format) | Data format of the incoming data | Required | NA | `{"type": "json"}` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
