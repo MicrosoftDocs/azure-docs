@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: franlanglois
 ms.date: 11/13/2023
 
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2023-metadata-update
 ---
 
 # QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service
@@ -89,4 +89,3 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)
-

@@ -5,9 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 11/13/2023
 
-ms.custom: ignite-2023
+ms.custom: ignite-2023-metadata-update
 ---
 
 # Troubleshooting Astro integration with Azure
@@ -65,9 +65,9 @@ For more information, see the [single sign-on guidance](astronomer-manage.md#sin
 
 - Learn about [managing your instance](astronomer-manage.md) of Astro.
 - Get started with Apache Airflow on Astro – An Azure Native ISV Service on
-<!-- fix when marketplace is fixed
-     > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview) -->
+    > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)

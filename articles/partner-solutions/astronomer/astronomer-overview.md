@@ -3,9 +3,9 @@ title: What is Apache Airflow on Astro - An Azure Native ISV Service?
 description: Learn about using the Apache Airflow on Astro - An Azure Native ISV Service in the Azure Marketplace.
 author: flang-msft
 
-ms.topic: conceptual
+ms.topic: overview
 ms.author: franlanglois
-ms.date: 10/19/2023
+ms.date: 11/13/2023
 
 ms.custom: ignite-2023-metadata-update
 ---
@@ -14,8 +14,7 @@ ms.custom: ignite-2023-metadata-update
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Astronomer.
 
-<!-- links won't work until marketplace is fixed -->
-<!-- You can find Apache Airflow on Astro – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview). -->
+You can find Apache Airflow on Astro – An Azure Native ISV Service in the [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview).
 
  The Apache Airflow on Astro - An Azure Native ISV Service offering in the Azure Marketplace allows you to manage your Astro resource as an integrated native service. You can configure your Airflow deployments on Astro and manage it seamlessly via Azure portal. You to easily run and manage as many Airflow instances as you need and get started directly on the Azure portal.
 
@@ -39,17 +38,19 @@ Here are the key capabilities provided by the Astro integration:
 2. Go to Marketplace and search for **"Apache Airflow on Astro - An Azure Native ISV Service"**.
 3. Subscribe to the corresponding service. You see a **Create an Astro organization** page open up.
 
-## Astronomer Resources
+<!-- ## Astronomer Resources
 
-<!-- Will get content from the partner and populate -->
+ Will get content from the partner and populate 
+
+-->
 
 ## Next steps
 
 - To create an instance of Apache Airflow on Astro – An Azure Native ISV Service, see [QuickStart: Get started with Astronomer](astronomer-create.md).
 - Get started with Apache Airflow on Astro – An Azure Native ISV Service on
-<!-- 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview) -->
+    > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)

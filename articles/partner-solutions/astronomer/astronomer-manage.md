@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 11/13/2023
 
 ms.custom: ignite-2023-metadata-update
 ---
@@ -28,12 +28,6 @@ To enable SSO, follow these steps:
    :::image type="content" source="media/astronomer-manage/astronomer-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in the  Overview pane of the Astro resource.":::
 
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
-
-    <!-- 
-    this screenshot would not add much value and is hard to replicate
-    
-    :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time."::: 
-    -->
 
    > [!NOTE]
    > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
@@ -65,10 +59,9 @@ After the account is deleted, all billing stops for that Astro resource through 
 
 - For help with troubleshooting, see [Troubleshooting Astro integration with Azure](astronomer-troubleshoot.md).
 - Get started with Apache Airflow on Astro – An Azure Native ISV Service on
-<!--  fix links when marketplace information exists
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview) 
--->
+    > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)
