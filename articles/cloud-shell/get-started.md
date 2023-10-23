@@ -1,12 +1,12 @@
 ---
 description: Learn how to start using Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 10/09/2023
+ms.date: 10/23/2023
 ms.topic: article
 tags: azure-resource-manager
-title: Quickstart for Azure Cloud Shell
+title: Get started with Azure Cloud Shell
 ---
-# Quickstart for Azure Cloud Shell
+# Get started with Azure Cloud Shell
 
 This document details how to get started using Azure Cloud Shell.
 
@@ -18,7 +18,7 @@ subscription. You only need to register the namespace once per subscription.
 
 To see all resource providers, and the registration status for your subscription:
 
-1. Sign in to the [Azure portal][03].
+1. Sign in to the [Azure portal][04].
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 1. Select the subscription you want to view.
 1. On the left menu, under **Settings**, select **Resource providers**.
@@ -26,18 +26,18 @@ To see all resource providers, and the registration status for your subscription
 1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
 1. Select **Register** to change the status from **unregistered** to **Registered**.
 
-   :::image type="content" source="./media/quickstart/resource-provider.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
+   ![Screenshot of selecting resource providers in the Azure portal.][07]
 
 ## Start Cloud Shell
 
 1. Launch **Cloud Shell** from the top navigation of the Azure portal.
 
-   ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][06]
+   ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][08]
 
    The first time you start Cloud Shell you're prompted to create an Azure Storage account for the
    Azure file share.
 
-   ![Screenshot showing the create storage prompt.][05]
+   ![Screenshot showing the create storage prompt.][06]
 
 1. Select the **Subscription** used to create the storage account and file share.
 1. Select **Create storage**.
@@ -46,7 +46,7 @@ To see all resource providers, and the registration status for your subscription
 
 Cloud Shell allows you to select either **Bash** or **PowerShell** for your command-line experience.
 
-![Screenshot showing the shell selector.][04]
+![Screenshot showing the shell selector.][05]
 
 ### Set your subscription
 
@@ -64,11 +64,9 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
-   <!-- markdownlint-enable MD023 MD024 MD051-->
 
 1. Set your preferred subscription:
 
-   <!-- markdownlint-disable MD023 MD024 MD051-->
    #### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
@@ -125,15 +123,18 @@ Get-AzCommand
 
 ## Next steps
 
-- [Learn about persisting files in Cloud Shell][07]
+- [Learn about Azure PowerShell][03]
 - [Learn about Azure CLI][02]
+- [Learn about persisting files in Cloud Shell][09]
 - [Learn about Azure Files storage][01]
 
 <!-- link references -->
 [01]: ../storage/files/storage-files-introduction.md
 [02]: /cli/azure/
-[03]: https://portal.azure.com/
-[04]: media/quickstart/choose-shell.png
-[05]: media/quickstart/create-storage.png
-[06]: media/quickstart/shell-icon.png
-[07]: persisting-shell-storage.md
+[03]: /powershell/azure/
+[04]: https://portal.azure.com/
+[05]: media/get-started/choose-shell.png
+[06]: media/get-started/create-storage.png
+[07]: media/get-started/resource-provider.png
+[08]: media/get-started/shell-icon.png
+[09]: persisting-shell-storage.md
