@@ -7871,27 +7871,27 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-app-registrations-secrets-and-certs",
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-app-registrations-secrets-and-certs.md",
       "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-all-app-registrations-secrets-and-certs",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-enterprise-apps-secrets-and-certs",
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md",
       "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-all-enterprise-apps-secrets-and-certs",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets",
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets.md",
       "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-apps-with-expiring-secrets",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-secrets-beyond-required",
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-secrets-beyond-required.md",
       "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-apps-with-secrets-beyond-required",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-enterprise-apps-with-expiring-secrets",
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-enterprise-apps-with-expiring-secrets.md",
       "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-enterprise-apps-with-expiring-secrets",
       "redirect_document_id": false
     },
