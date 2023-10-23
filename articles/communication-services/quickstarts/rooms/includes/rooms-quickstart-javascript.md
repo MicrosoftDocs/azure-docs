@@ -151,7 +151,7 @@ console.log("\nCreated a room with id: ", roomId);
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
 ### Enable PSTN Dial-Out Capability for a Room
-Each room has PSTN Dial-Out disabled by default. The PSTN Dial-Out can be enabled for a Room at creation, by defining the pstnDialOutEnabled parameter as true. This capability can also be modified for a Room by sending an update request on the pstnDialOutEnabled parameter
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a room at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a room by issuing an update request for the `pstnDialOutEnabled` parameter.
 
 ```javascript
 // Create a room with PSTN dial-out capability
