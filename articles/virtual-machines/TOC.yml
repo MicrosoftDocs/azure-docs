@@ -227,6 +227,8 @@
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
         href: dcasccv5-dcadsccv5-series.md
+      - name: DCesv5 and DCedsv5-series
+        href: dcesv5-dcedsv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
