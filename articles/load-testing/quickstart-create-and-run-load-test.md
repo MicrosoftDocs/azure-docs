@@ -161,11 +161,7 @@ You can further expand the load test to also monitor server-side metrics of the 
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
 
-## Next steps
-
-You now have an Azure Load Testing resource, which you used to load test an external website.
-
-You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
+## Next step
 
 > [!div class="nextstepaction"]
 > [Automate load tests with CI/CD](./quickstart-add-load-test-cicd.md)

@@ -48,9 +48,13 @@ To create a load test using an existing JMeter script in the Azure portal:
 
     :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
     
-1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox.
+1. On the **Basics** tab, enter the load test details:
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+    |Field  |Description  |
+    |-|-|
+    | **Test name**                | Enter a unique test name. |
+    | **Test description**         | (Optional) Enter a load test description. |
+    | **Run test after creation**  | Select this setting to automatically start the load test after saving it. |
 
 1. On the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
 
@@ -81,6 +85,8 @@ If you selected **Run test after creation**, your load test will start automatic
     > You can stop a load test at any time from the Azure portal.
 
 1. Notice the test run details, statistics, and client metrics in the Azure portal.
+
+    If you have multiple requests in your test script, the charts display all requests, and you can also filter for specific requests.
 
     :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the test run dashboard." :::
 
