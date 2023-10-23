@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 08/11/2023
+ms.date: 10/23/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -143,6 +143,69 @@ az aks update --name $clusterName \
 ```
 
 The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
+
+## Dual-stack Networking (Preview)
+
+You can deploy your AKS clusters in a dual-stack mode when using Overlay networking and a dual-stack Azure virtual network. In this configuration, nodes receive both an IPv4 and IPv6 address from the Azure virtual network subnet. Pods receive both an IPv4 and IPv6 address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address of the same family (IPv4 to IPv4 and IPv6 to IPv6).
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+### Limitations
+
+The following features aren't supported with dual-stack networking:
+  - Azure network policies
+  - Calico network policies
+  - NAT Gateway
+  - Virtual nodes add-on
+
+## Deploy a dual-stack AKS cluster
+
+### Install the `aks-preview` Azure CLI extension
+
+`aks-preview` version 0.5.113 is required.
+
+* Install and update the `aks-preview` extension.
+
+```azurecli
+# Install aks-preview extension
+az extension add --name aks-preview
+# Update aks-preview extension
+az extension update --name aks-preview
+```
+
+### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
+
+1. Register the `AKS-OutBoundTypeMigrationPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+1. Create an Azure resource group for the cluster using the [`az group create`][az-group-create] command.
+
+    ```azurecli-interactive
+    az group create -l <region> -n <resourceGroupName>
+    ```
+
+2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
+
+    ```azurecli-interactive
+    az aks create -l <region> -g <resourceGroupName> -n <clusterName> --ip-families ipv4,ipv6
+    ```
 
 ## Next steps
 
