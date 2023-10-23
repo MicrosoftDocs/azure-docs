@@ -79,7 +79,7 @@ The Azure training lifecycle consists of:
     > [!TIP]
     > [!INCLUDE [amlinclude-info](includes/machine-learning-amlignore-gitignore.md)]
 
-1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md) (preview))
+1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md)
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
         - The base image 
