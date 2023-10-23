@@ -82,7 +82,7 @@ sections:
       - question: |
           How do I access data collected by Azure Monitor?
         answer: |
-          Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data by using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data by using Log Analytics. Analyze metrics in the Azure portal with the metrics explorer. See [Analyze log data in Azure Monitor](logs/log-query-overview.md) and [Get started with Azure metrics explorer](essentials/metrics-getting-started.md).
+          Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data by using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data by using Log Analytics. Analyze metrics in the Azure portal with the metrics explorer. See [Analyze log data in Azure Monitor](logs/log-query-overview.md) and [Analyze metrics with Azure Monitor metrics explorer](essentials/analyze-metrics.md).
           
       - question: |
           Why am I seeing duplicate records in Azure Monitor Logs?

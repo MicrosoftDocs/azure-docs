@@ -311,6 +311,6 @@ SeverityLevel.Error);
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
 * Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* Get started with [metrics explorer](../essentials/metrics-getting-started.md).
+* Analyze metrics with [metrics explorer](../essentials/analyze-metrics.md).
 * Learn how to enable Application Insights for [ASP.NET Core applications](asp-net-core.md).
 * Learn how to enable Application Insights for [ASP.NET applications](asp-net.md).

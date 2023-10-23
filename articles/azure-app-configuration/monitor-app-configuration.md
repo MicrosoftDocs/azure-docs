@@ -95,7 +95,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ## Analyzing metrics
 
-You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For App Configuration, the following metrics are collected: 
+You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For App Configuration, the following metrics are collected: 
 
 * Http Incoming Request Count 
 * Http Incoming Request Duration 

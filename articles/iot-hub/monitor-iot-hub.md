@@ -75,7 +75,7 @@ When routing IoT Hub platform metrics to other locations:
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. For more information on this tool, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
+You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. For more information on this tool, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 To open metrics explorer, go to the Azure portal and open your IoT hub, then select **Metrics** under **Monitoring**. This explorer is scoped, by default, to the platform metrics emitted by your IoT hub.
 

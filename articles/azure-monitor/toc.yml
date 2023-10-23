@@ -1172,8 +1172,8 @@ items:
   items:
   - name: Metrics explorer
     items:
-      - name: Getting started with Metrics Explorer
-        href: essentials/metrics-getting-started.md
+      - name: Analyze metrics
+        href: essentials/analyze-metrics.md
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts
