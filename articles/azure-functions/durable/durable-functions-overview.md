@@ -17,7 +17,7 @@ zone_pivot_groups: df-languages
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
+Durable Functions is designed to work with all Azure Functions programming languages but might have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
 | Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
@@ -777,7 +777,7 @@ When a request is received, a new orchestration instance is created for that job
 
 Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
 
-An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (maybe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
+An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (mightbe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
 
 ![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
 
@@ -1147,7 +1147,7 @@ public void raiseEventToOrchestration(
 
 ### <a name="aggregator"></a>Pattern #6: Aggregator (stateful entities)
 
-The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
+The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
 
 ![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
 
@@ -1525,10 +1525,6 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
-
-For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
-
-> [!VIDEO https://learn.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

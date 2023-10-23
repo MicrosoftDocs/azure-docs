@@ -30,7 +30,7 @@ Using this model lets you get all the great benefits that come with the Azure Fu
 
 By adding the source generator package, you get access to two new features:
 
-- **Class-based activities and orchestrations**, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
+- **Class-based activities and orchestrations**, an alternative way to write Durable Functions. Instead of "function-based", you write strongly typed classes, which inherit types from the Durable SDK.
 - **Strongly typed extension methods** for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
 
 #### Function-based example

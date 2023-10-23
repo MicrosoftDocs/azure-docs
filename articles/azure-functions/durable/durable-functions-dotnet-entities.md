@@ -22,7 +22,7 @@ We currently offer two APIs for defining entities:
 
 - The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
 
-This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
+This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 > [!NOTE]
 > The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
@@ -71,7 +71,7 @@ public class Counter
 
 The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
-The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It may reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
+The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It can reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
 
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
@@ -79,7 +79,7 @@ The `EntityTrigger` Function, `Run` in this sample, does not need to reside with
 ### [Isolated worker process](#tab/isolated-process)
 There are two ways of defining an entity as a class in the C# isolated worker model. They produce entities with different state serialization structures. 
 
-With the following approach, the entire object is serialized when definining an entity.  
+With the following approach, the entire object is serialized when defining an entity.  
 ```csharp
 public class Counter
 {
@@ -267,7 +267,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 }
 ```
 > [!NOTE]
-> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it may be stale, and modifying this object has no effect on the actual entity. 
+> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it can be stale, and modifying this object has no effect on the actual entity. 
 
 #### [Isolated worker process](#tab/isolated-process)
 
@@ -351,7 +351,7 @@ public class Counter : ICounter
 
 Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
 
-Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
+Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity can implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface can be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 
 ### Example: client signals entity through interface
 
@@ -481,7 +481,7 @@ In the example above, we chose to include several attributes to make the underly
 - We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
 -  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
 
-However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
+However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one can use `[DataContract]` attributes, or no attributes at all:
 
 ```csharp
 [DataContract]
@@ -503,7 +503,7 @@ By default, the name of the class is *not* stored as part of the JSON representa
 
 ### Making changes to class definitions
 
-Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+Some care is required when making changes to a class definition after an application has been run, because the stored JSON object can no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
 
 For example, here are some examples of changes and their effect:
 
@@ -704,11 +704,11 @@ public class HttpEntity : TaskEntity<object?>
 > To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
 
 > [!NOTE]
-> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
+> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point can cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
 
 ## Function-based syntax
 
-So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
+So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
 
