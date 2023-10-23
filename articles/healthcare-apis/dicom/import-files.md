@@ -84,8 +84,10 @@ The user or account that adds DICOM images to the import container needs write a
 
 #### Upload DICOM images to the import container
 
-Data is uploaded to Azure storage containers in many ways:
+Data is uploaded to Azure Storage containers in many ways:
 
 - [Upload a blob with Azure Storage Explorer](../../storage/blobs/quickstart-storage-explorer.md#upload-blobs-to-the-container)
 - [Upload a blob with AzCopy](../../storage/common/storage-use-azcopy-blobs-upload.md)
 - [Upload a blob with the Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

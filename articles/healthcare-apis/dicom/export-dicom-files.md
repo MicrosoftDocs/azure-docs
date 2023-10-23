@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Export DICOM files
 
-The DICOM service provides the ability to easily export DICOM data in a file format. The service simplifies the process of using medical imaging in external workflows, such as AI and machine learning. You can use the export API to export DICOM studies, series, and instances in bulk to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md). DICOM data that's exported to a storage account is exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.
+The DICOM&reg; service provides the ability to easily export DICOM data in a file format. The service simplifies the process of using medical imaging in external workflows, such as AI and machine learning. You can use the export API to export DICOM studies, series, and instances in bulk to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md). DICOM data that's exported to a storage account is exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.
 
 There are three steps to exporting data from the DICOM service:
 
@@ -100,7 +100,7 @@ The only setting is the list of identifiers to export.
 
 ### Destination settings
 
-The connection to the Azure Blob Storage account is specified with `BlobContainerUri`.
+The connection to the Blob Storage account is specified with `BlobContainerUri`.
 
 | Property             | Required | Default | Description |
 | :------------------- | :------- | :------ | :---------- |
@@ -194,3 +194,5 @@ Each line of the error log is a JSON object with the following properties. A giv
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
