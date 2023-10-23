@@ -4,15 +4,41 @@
   href: business-continuity-center-overview.md
 - name: Tutorials
   items:
-  - name: 
+  - name: View protection summary
     href: 
+  - name: View protectable resources
+    href: tutorial-view-protectable-resources.md
+  - name: Configure protection for datasources
+    href: tutorial-configure-protection-datasource.md
+  - name: Recover item
+    href:
+  - name: View protected items and perform actions
+    href: 
+  - name: Review security posture
+    href: 
+  - name: Monitor and operate
+    href: tutorial-monitor-operate.md
+  - name: Monitoring protection summary
+    href: tutorial-monitor-protection-summary.md
+  - name: Govern and view compliance
+    href: tutorial-govern-monitor-compliance.md
 - name: Concepts
   items:
   - name: Support matrices
     href:
 - name: How-to guides
   items:
-  - name: 
-    href:
-  - name: 
+  - name: Vaults
+    items:
+    - name: Create 
+      href: backup-vaults.md
+    -  name: Manage
+       href: manage-vault.md
+  - name: Protection policy
+    items:
+    - name: Create
+      href: backup-protection-policy.md
+    - name: Manage  
+      href: manage-protection-policy.md
+  - name: Security levels
     href: 

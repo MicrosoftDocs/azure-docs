@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Create vaults to backup and replicate resources
+# Create a vaults to back up and replicate resources
 
 This article explains how to create Recovery Services vault (or Backup vault) that stores backups and replication data. Vault is required to configure protection with Azure Backup and Azure Site Recovery.
 
