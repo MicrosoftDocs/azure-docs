@@ -153,6 +153,7 @@ You can deploy your AKS clusters in a dual-stack mode when using Overlay network
 ### Limitations
 
 The following features aren't supported with dual-stack networking:
+  - Linux only
   - Azure network policies
   - Calico network policies
   - NAT Gateway
