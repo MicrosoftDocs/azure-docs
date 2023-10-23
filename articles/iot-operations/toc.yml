@@ -30,10 +30,6 @@ items:
           href: manage-devices-assets/concept-opcua-broker-overview.md
       - name: How to 
         items:
-        - name: Configure an assets endpoint
-          href: manage-devices-assets/howto-configure-assets-endpoint.md
-        - name: Create assets and tags
-          href: manage-devices-assets/howto-add-assets.md
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
         - name: Use OPC UA broker in standalone mode
