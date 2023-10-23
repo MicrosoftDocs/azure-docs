@@ -163,19 +163,21 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Go to the Azure portal and search for **Managed Identities**.
 1. Select *identity-for-ubuntu-vm-sns* from the list of **Managed Identities**.
 1. On the side menu, select **Access Control (IAM)**.
-1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
+1. Choose **Add Role Assignment**.
 
     :::image type="content" source="media/quickstart-virtual-network-function-operator-add-role-assignment-screen.png" alt-text="Screenshot showing the identity for ubuntu VM SNS add role assignment.":::
 
 
-1. Select the **Managed Identity Operator** role.
+1. Select the **Managed Identity Operator** role then proceed with **Next**.
 
     :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role.":::
 
 1. Select **Managed identity**.
-1. Select **+ Select members** and navigate to the user-assigned managed identity called *indentity-for-ubuntu-vm-sns* and proceed with the assignment.
+1. Select **+ Select members** and navigate to the user-assigned managed identity called *identity-for-ubuntu-vm-sns* and proceed with the assignment.
 
     :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
+
+1. Select **Review and assign**.
 
 Completion of all the tasks outlined in this article ensures that the Service Network Slice (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
