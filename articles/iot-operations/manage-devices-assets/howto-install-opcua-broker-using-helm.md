@@ -3,73 +3,79 @@ title: Install Azure IoT OPC UA Broker
 description: How to install Azure IoT OPC UA Broker using helm
 author: timlt
 ms.author: timlt
+# ms.subservice: opcua-broker
 ms.topic: how-to 
-ms.date: 09/22/2023
+ms.date: 10/23/2023
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to install OPC UA Broker
+# in standalone mode. This lets my OPC UA assets exchange data with my cluster and the cloud. 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Install OPC UA Broker using helm
+# Install Azure IoT OPC UA Broker (preview) by using helm
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+By using OPC UA Broker, you can manage the OPC UA assets that are part of your solution. This article shows you how to install OPC UA Broker in standalone mode. Running in standalone mode gives you the option to install other third party components and to manage assets without using the full Azure IoT Operations platform.
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental “why would I want to do this?” question. Keep it short.
-
-Readers should have a clear idea of what they will do in this article after reading the introduction.
-
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
-
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
-
--->
-
-TODO: Add your introductory paragraph
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
-
--->
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Required: Make Prerequisites the first H2 after the H1. 
-
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
--->
 
 ## Prerequisites
+
+- An installed Kubernetes environment. 
+- An [MQTT v5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) compliant broker as your  messaging infrastructure. To install an MQTT broker, we recommend the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). The deployment process sets up an MQTT broker on your cluster. 
+- A certificate manager for SSL certificate management.  The admission controller requires SSL communication.  If you previously followed the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md), a certificate manager is installed with Azure IoT Operations. 
+- Optionally, an installation of Akri if you want to autodetect OPC UA assets. If you previously followed the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md), the commercial version of Akri called Azure IoT Akri is installed with Azure IoT Operations. To install the open source Akri, follow the Akri [installation instructions](https://docs.akri.sh/user-guide/getting-started).
+
+## Features supported
+
+The following features are supported for installing OPC UA Broker: 
+
+| Feature                              | Supported | Symbol      |
+| ------------------------------------ | --------- | :---------: |
+| Anonymous authentication             | Supported | ``✅`` |
+| Server Account Token authentication  | Supported | ``✅`` |
+| AMD64 Support                        | Supported | ``✅`` |
+| ARM64 Support                        | Supported | ``✅`` |
+
+## Install OPC UA Broker
+
+ OPC UA Broker is packaged as a [helm](https://helm.sh) chart. You can use a helm command to deploy OPC UA Broker and related Custom Resource Definitions to a Kubernetes cluster.  Another option is to deploy  OPC UA Broker via the Azure CLI k8s-extension to an Arc enabled Kubernetes cluster.
+
+ OPC UA Broker uses a multi-architecture container, which contains AMD64 and ARM64 images that use the same tag.
+
+### Use OPC UA Broker with Azure IoT MQ
+
+If you installed Azure IoT Operations as shown in the prerequisites, the setup installed Azure IoT MQ, an MQTT broker.  The setup also included service account token access. 
+
+Use the following helm command to deploy OPC UA Broker to your Kubernetes cluster:
+
+#### [bash](#tab/bash)
+
+  ```bash
+  helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker \
+      --set image.registry={{% oub-registry %}} \
+      --version {{% oub-version %}} \
+      --namespace opcuabroker \
+      --create-namespace \
+      --set secrets.kind=k8s \
+      --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 \
+      --set opcPlcSimulation.deploy=true \
+      --wait
+  ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+  ```azurepowershell
+  helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker `
+      --set image.registry={{% oub-registry %}} `
+      --version {{% oub-version %}} `
+      --namespace opcuabroker `
+      --create-namespace `
+      --set secrets.kind=k8s `
+      --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 `
+      --set opcPlcSimulation.deploy=true `
+      --wait
+  ```
+
 
 TODO: List the prerequisites
 

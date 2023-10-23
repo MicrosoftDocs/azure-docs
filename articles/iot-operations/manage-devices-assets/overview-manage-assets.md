@@ -11,14 +11,14 @@ ms.date: 10/19/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
+In Azure IoT Operations, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
 
 ## Understand assets
 Assets are a core component of Azure IoT Operations.
 
 An *asset* in an industrial edge environment is a device, a machine, a process, or an entire system. These assets are the real assets that exist in manufacturing, retail, energy, healthcare, and other sectors. 
 
-An *asset* in Azure IoT Operations is a logical entity (an asset instance) that you create to represent a real asset. An Azure IoT Operations asset can have telemetry events, properties (writable data points), and commands (executable data points) that describes its behavior and characteristics. You use these asset instances in the software to manage the real assets in your industrial edge environment. 
+An *asset* in Azure IoT Operations is a logical entity (an asset instance) that you create to represent a real asset. An Azure IoT Operations asset can have telemetry events, properties (writable data points), and commands (executable data points) that describe its behavior and characteristics. You use these asset instances in the software to manage the real assets in your industrial edge environment. 
 
 ## Understand services for managing assets
 Azure IoT Operations includes several services that let you perform key tasks required to manage your assets. 
@@ -59,7 +59,7 @@ Device Registry provides several capabilities that help teams to manage assets:
 The following features are supported in Azure Device Registry: 
 
 |Feature  |Supported  |Symbol  |
-|---------|---------|---------|
+|---------|---------| :---------: |
 |Asset resource management via Azure API | Supported | ``✅`` |
 |Asset resource management via Digital Operations Experience| Supported | ``✅`` |
 |Asset synchronization to Kubernetes cluster running Alice Springs| Supported | ``✅`` |
@@ -83,6 +83,6 @@ An industrial environment that uses the OPC UA protocol, includes the following 
 Azure IoT OPC UA Broker is a service in Azure IoT Operations that enables OPC UA servers, your edge solution, and the cloud, to exchange data based on the OPC UA protocol. When you install Azure IoT Operations, OPC UA Broker is installed with a simulated thermostat asset, so you can start to test and use the service. 
 
 ## Next step
-In this overview, you learned what assets are, what Azure IoT Operations services you use to manage them, and some common use cases for managing assets.  Here's the suggested next step to start adding and assets and tags in your edge solution:
+In this overview, you learned what assets are, what Azure IoT Operations services you use to manage them, and some common use cases for managing assets.  Here's the suggested next step to start adding assets and tags in your edge solution:
 > [!div class="nextstepaction"]
 > [Manage assets remotely](howto-manage-assets-remotely.md)
