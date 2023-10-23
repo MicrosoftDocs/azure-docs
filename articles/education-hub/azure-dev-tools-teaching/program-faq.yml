@@ -33,7 +33,7 @@ sections:
           This offer is limited to one Azure for Student subscription per eligible customer. It's non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
               
       - question: |
-          What products are included in the Azure Dev Tools for Teaching subscription?
+          What products are included in the Azure for Students subscription?
         answer: |
           :::row:::
              :::column span="":::
