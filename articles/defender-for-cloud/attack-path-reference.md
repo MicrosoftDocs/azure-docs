@@ -137,6 +137,14 @@ Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
 |--|--|
 | Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
 
+### APIs
+
+Prerequisite: [Enable Defender for APIs](defender-for-apis.md).
+
+| Attack path display name | Attack path description |
+|--|--|
+| Internet exposed APIs that are unauthenticated carry sensitive data (Preview) | Azure API Management API is reachable from the internet, contains sensitive data and has no authentication enabled resulting in attackers exploiting APIs for data exfiltration. |
+
 ## Cloud security graph components list
 
 This section lists all of the cloud security graph components (connections and insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
