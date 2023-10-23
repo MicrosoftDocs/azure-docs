@@ -4486,6 +4486,311 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/add-users-administrator.md",
+      "redirect_url": "/entra/external-id/add-users-administrator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/add-users-information-worker.md",
+      "redirect_url": "/entra/external-id/add-users-information-worker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/allow-deny-list.md",
+      "redirect_url": "/entra/external-id/allow-deny-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/api-connectors-overview.md",
+      "redirect_url": "/entra/external-id/api-connectors-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/auditing-and-reporting.md",
+      "redirect_url": "/entra/external-id/auditing-and-reporting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/authentication-conditional-access.md",
+      "redirect_url": "/entra/external-id/authentication-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-direct-connect-overview.md",
+      "redirect_url": "/entra/external-id/b2b-direct-connect-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-fundamentals.md",
+      "redirect_url": "/entra/external-id/b2b-fundamentals",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-government-national-clouds.md",
+      "redirect_url": "/entra/external-id/b2b-government-national-clouds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md",
+      "redirect_url": "/entra/external-id/b2b-quickstart-add-guest-users-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-quickstart-invite-powershell.md",
+      "redirect_url": "/entra/external-id/b2b-quickstart-invite-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-sponsors.md",
+      "redirect_url": "/entra/external-id/b2b-sponsors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/b2b-tutorial-require-mfa.md",
+      "redirect_url": "/entra/external-id/b2b-tutorial-require-mfa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/bulk-invite-powershell.md",
+      "redirect_url": "/entra/external-id/bulk-invite-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/claims-mapping.md",
+      "redirect_url": "/entra/external-id/claims-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/code-samples-self-service-sign-up.md",
+      "redirect_url": "/entra/external-id/code-samples-self-service-sign-up",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/code-samples.md",
+      "redirect_url": "/entra/external-id/code-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/cross-cloud-settings.md",
+      "redirect_url": "/entra/external-id/cross-cloud-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/cross-tenant-access-overview.md",
+      "redirect_url": "/entra/external-id/cross-tenant-access-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration.md",
+      "redirect_url": "/entra/external-id/cross-tenant-access-settings-b2b-collaboration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/cross-tenant-access-settings-b2b-direct-connect.md",
+      "redirect_url": "/entra/external-id/cross-tenant-access-settings-b2b-direct-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/current-limitations.md",
+      "redirect_url": "/entra/external-id/current-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customize-invitation-api.md",
+      "redirect_url": "/entra/external-id/customize-invitation-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/default-account.md",
+      "redirect_url": "/entra/external-id/default-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/direct-federation-adfs.md",
+      "redirect_url": "/entra/external-id/direct-federation-adfs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/direct-federation.md",
+      "redirect_url": "/entra/external-id/direct-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/external-collaboration-settings-configure.md",
+      "redirect_url": "/entra/external-id/external-collaboration-settings-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/external-identities-overview.md",
+      "redirect_url": "/entra/external-id/external-identities-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/external-identities-pricing.md",
+      "redirect_url": "/entra/external-id/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/facebook-federation.md",
+      "redirect_url": "/entra/external-id/facebook-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/faq.yml",
+      "redirect_url": "/entra/external-id/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/google-federation.md",
+      "redirect_url": "/entra/external-id/google-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/hybrid-cloud-to-on-premises.md",
+      "redirect_url": "/entra/external-id/hybrid-cloud-to-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/hybrid-on-premises-to-cloud.md",
+      "redirect_url": "/entra/external-id/hybrid-on-premises-to-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/hybrid-organizations.md",
+      "redirect_url": "/entra/external-id/hybrid-organizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/identity-providers.md",
+      "redirect_url": "/entra/external-id/identity-providers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/index-b2b.yml",
+      "redirect_url": "/entra/external-id/index-b2b",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/index.yml",
+      "redirect_url": "/entra/external-id/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/invitation-email-elements.md",
+      "redirect_url": "/entra/external-id/invitation-email-elements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/invite-internal-users.md",
+      "redirect_url": "/entra/external-id/invite-internal-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/leave-the-organization.md",
+      "redirect_url": "/entra/external-id/leave-the-organization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/microsoft-account.md",
+      "redirect_url": "/entra/external-id/microsoft-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/one-time-passcode.md",
+      "redirect_url": "/entra/external-id/one-time-passcode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/redemption-experience.md",
+      "redirect_url": "/entra/external-id/redemption-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/reset-redemption-status.md",
+      "redirect_url": "/entra/external-id/reset-redemption-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-portal.md",
+      "redirect_url": "/entra/external-id/self-service-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-sign-up-add-api-connector.md",
+      "redirect_url": "/entra/external-id/self-service-sign-up-add-api-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-sign-up-add-approvals.md",
+      "redirect_url": "/entra/external-id/self-service-sign-up-add-approvals",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-sign-up-overview.md",
+      "redirect_url": "/entra/external-id/self-service-sign-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-sign-up-secure-api-connector.md",
+      "redirect_url": "/entra/external-id/self-service-sign-up-secure-api-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/self-service-sign-up-user-flow.md",
+      "redirect_url": "/entra/external-id/self-service-sign-up-user-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/tenant-restrictions-v2.md",
+      "redirect_url": "/entra/external-id/tenant-restrictions-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/troubleshoot.md",
+      "redirect_url": "/entra/external-id/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/tutorial-bulk-invite.md",
+      "redirect_url": "/entra/external-id/tutorial-bulk-invite",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/use-dynamic-groups.md",
+      "redirect_url": "/entra/external-id/use-dynamic-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/user-flow-add-custom-attributes.md",
+      "redirect_url": "/entra/external-id/user-flow-add-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/user-flow-customize-language.md",
+      "redirect_url": "/entra/external-id/user-flow-customize-language",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/user-properties.md",
+      "redirect_url": "/entra/external-id/user-properties",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/user-token.md",
+      "redirect_url": "/entra/external-id/user-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/what-is-b2b.md",
+      "redirect_url": "/entra/external-id/what-is-b2b",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/whats-new-docs.md",
+      "redirect_url": "/entra/external-id/whats-new-docs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/add-custom-domain.md",
       "redirect_url": "/entra/fundamentals/add-custom-domain",
       "redirect_document_id": false
