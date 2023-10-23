@@ -822,7 +822,8 @@ errorHandling: {
 - **onCustomizerError**: Specifies the action to take when an error occurs during the customizer phase of image creation.
 - **onValidationError**: Specifies the action to take when an error occurs during validation of the image template.
 
-Both `cleanup` and `abort` values are valid values for `onCustomizerError` and `onValidationError`. The distinction is that `onCustomizerError` handles errors during the customizer phase of image creation, while `onValidationError` handles errors during validation of the image template.
+- **cleanup:** Ensures that temporary resources created by Packer are cleaned up even if Packer or one of the customizations/validations encounters an error. This maintains backwards compatibility with existing behavior.
+- **abort:** In case Packer encounters an error, AIB skips the clean up of temporary resources. As the owner of the AIB template, you are responsible for cleaning up these resources from your subscription. These resources may contain useful information such as logs and files left behind in a temporary VM, which can aid in investigating the error encountered by Packer.
 
 ## Properties: distribute
 
