@@ -685,6 +685,9 @@ items:
     - name: Overview 
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings in Azure Monitor 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/create-diagnostic-settings.md      
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
