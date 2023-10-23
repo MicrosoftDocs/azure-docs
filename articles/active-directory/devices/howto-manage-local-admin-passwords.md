@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 10/23/2023
 
 ms.author: sandeo
 author: sandeo-MSFT
