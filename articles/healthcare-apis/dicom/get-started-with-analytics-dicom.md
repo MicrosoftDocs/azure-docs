@@ -66,7 +66,7 @@ The pipeline in this example reads data from a DICOM service and writes its outp
 
 1. When the connection test is successful, select **Create**.
 
-#### Create a linked service for Data Lake Storage Gen2
+#### Create a linked service for Azure Data Lake Storage Gen2
 
 1. In Data Factory Studio, select **Manage** from the menu on the left. Under **Connections**, select **Linked services** and then select **New**.
 
