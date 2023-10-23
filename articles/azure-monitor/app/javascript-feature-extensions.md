@@ -188,7 +188,7 @@ For examples showing which value is fetched as the `parentId` for different conf
 
 ### `customDataPrefix`
 
-The [`customDataPrefix` option in advanced configuration](#icustomdatatags) provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
+The [`customDataPrefix` option in advanced configuration](#icustomdatatags) provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix must always be lowercase and start with `data-`. For example:
 
 - `data-heart-` 
 - `data-team-name-`
