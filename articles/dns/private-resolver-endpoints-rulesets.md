@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/11/2023
+ms.date: 10/23/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -37,7 +37,7 @@ The IP address associated with an inbound endpoint is always part of the private
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provision the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.0.0.4 is the fifth IP address in the 10.0.0.0/28 subnet. If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address does not change unless the inbound endpoint is reprovisioned.
 
 ## Outbound endpoints
 
