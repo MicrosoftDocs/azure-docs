@@ -59,14 +59,21 @@ Data Processor pipelines can use the following stages:
 
 | Stage | Description |
 | ----- | ----------- |
-| [Source](howto-configure-datasource.md) | Retrieves data from an input source. For example, get data from a set of MQTT broker topics. |
-| [Destination](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to a destination of your choice. For example, write data to Microsoft Fabric OneLake. |
+| [Source - MQ](howto-configure-datasource-mq.md) | Retrieves data from an MQTT broker. |
+| [Source - HTTP endpoint](howto-configure-datasource-http.md) | Retrieves data from an HTTP endpoint. |
+| [Source - SQL](howto-configure-datasource-sql.md) | Retrieves data from a Microsoft SQL Server database. |
 | [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
 | [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
 | [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |
 | [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations data set. |
 | [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
 | [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
+| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to an MQTT topic. |
+| [Destination - Reference](howto-configure-destination-reference-store.md) | Writes your processed data to the built-in reference store. Other pipelines can use the reference store to enrich their messages. |
+| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean and contextualized data to a gRPC endpoint. |
+| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
+| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean and contextualized data to an Azure Data Explorer endpoint in the cloud. |
+
 
 ## Next step
 
