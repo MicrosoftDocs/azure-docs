@@ -1,3 +1,13 @@
+---
+title: "Azure Operator Nexus: Configure the ACLs at Network to Network Interconnect (NNI) Level"
+description: Learn commands to create, view, list, update the ACLs at NNI level.
+author: jdasari
+ms.author: jdasari
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 10/23/2023
+ms.custom: template-how-to, devx-track-azurecli
+---
 
 ## Access list at Network to Network Interconnect (NNI)
 Access Lists (Permit & Deny) at an NNI Level protect SSH access on Management VPN. The user should apply the Network Access control lists before provisioning the Network Fabric.
