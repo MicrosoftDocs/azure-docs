@@ -110,7 +110,7 @@ Your source resource now has a user-assigned identity that it can use to connect
 > [!NOTE]
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
-Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure Role Based Access Control (RBAC) system](../../role-based-access-control/overview.md).
+Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure Role Based Access Control (RBAC) system](/azure/role-based-access-control/overview).
 
 ### [Portal](#tab/portal)
 
@@ -151,11 +151,11 @@ az role assignment create --assignee "<Object/Principal ID of the managed identi
 --scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}"
 ```
 
-[Read more about adding role assignments using the Command Line Interface](../../role-based-access-control/role-assignments-cli.md).
+[Read more about adding role assignments using the Command Line Interface](/azure/role-based-access-control/role-assignments-cli).
 
 ---
 
-Your managed identity now has the correct permissions to access the Azure target resource. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
+Your managed identity now has the correct permissions to access the Azure target resource. [Read more about Azure Role Based Access Control](/azure/role-based-access-control/overview).
 
 ## Using the managed identity in your code
 
@@ -330,7 +330,7 @@ dr.Close();
 
 #### [Java](#tab/java)
 
-If you use [Azure Spring Apps](../../spring-apps/index.yml), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
+If you use [Azure Spring Apps](/azure/spring-apps/), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
 
 Open the `src/main/resources/application.properties` file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for `$AZ_DATABASE_NAME` variable.
 
@@ -338,7 +338,7 @@ Open the `src/main/resources/application.properties` file, and add `Authenticati
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
-Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](../../spring-apps/connect-managed-identity-to-azure-sql.md).
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](/azure/spring-apps/connect-managed-identity-to-azure-sql).
 
 ---
 
@@ -367,7 +367,7 @@ Tokens should be treated like credentials. Don't expose them to users or other s
 
 ## Next steps
 
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
-* [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
+* [How to use managed identities with Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
 * Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets

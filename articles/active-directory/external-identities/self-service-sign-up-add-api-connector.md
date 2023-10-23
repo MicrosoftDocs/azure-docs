@@ -21,7 +21,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 > [!IMPORTANT]
 >
 > - **Starting July 12, 2021**,  if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](/azure/active-directory-b2c/identity-provider-google) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Create an API connector
 
@@ -295,7 +295,7 @@ Content-type: application/json
 
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](/azure/azure-functions/functions-bindings-http-webhook-trigger), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -305,14 +305,14 @@ Ensure that:
 * Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
     * Microsoft Entra ID will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md#overview-of-plans)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](/azure/azure-functions/functions-scale#overview-of-plans)
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
-* Your endpoints must comply with the Microsoft Entra TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 
+* Your endpoints must comply with the Microsoft Entra TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](/azure/active-directory-b2c/https-cipher-tls-requirements). 
  
 ### Use logging
 
-In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
+In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](/azure/azure-functions/functions-monitoring), to monitor your API for unexpected error codes, exceptions, and poor performance.
 * Monitor for HTTP status codes that aren't HTTP 200 or 400.
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.

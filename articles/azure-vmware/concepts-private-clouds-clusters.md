@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/12/2023
+ms.date: 10/14/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,8 +31,8 @@ Each Azure VMware Solution architectural component has the following function:
 - Azure Subscription: Provides controlled access, budget, and quota management for the Azure VMware Solution.
 - Azure Region: Groups data centers into Availability Zones (AZs) and then groups AZs into regions.
 - Azure Resource Group: Places Azure services and resources into logical groups.
-- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts.
-- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts.
+- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
+- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
 - VMware HCX: Delivers mobility, migration, and network extension services.
 - VMware Site Recovery: Automates disaster recovery and storage replication services with VMware vSphere Replication. Third-party disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
 - Dedicated Microsoft Enterprise Edge (D-MSEE): Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
@@ -46,11 +46,14 @@ Each Azure VMware Solution architectural component has the following function:
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure Region Availability Zone (AZ) to SKU mapping
+## Azure Region Availability Zone (AZ) to SKU mapping table
 
-When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). This is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the table below.
+When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). 
 
-Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open an SR with Microsoft requesting a "special placement policy" for your Subscription, Azure region, Availability Zone, and SKU type. This policy will remain in place until you request it be removed or changed.
+>[!IMPORTANT]
+> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). 
+
+The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
 
 | Azure region | Availability Zone | SKU   | Multi-AZ SDDC |
 | :---         | :---:             | :---: | :---:         |
@@ -163,5 +166,9 @@ Now that you've covered Azure VMware Solution private cloud concepts, you might 
 
 <!-- LINKS - external-->
 [vCSA versions]: https://kb.vmware.com/s/article/2143838
+
 [ESXi versions]: https://kb.vmware.com/s/article/2143832
+
 [vSAN versions]: https://kb.vmware.com/s/article/2150753
+
+

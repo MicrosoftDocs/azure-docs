@@ -87,7 +87,7 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who was throttled from performing additional reset operations. The user can be an end user or an administrator.
 * **Activity target**: The user who was throttled from performing additional reset operations. The user can be an end user or an administrator.
 * **Activity status**:
-  * _Success_: Indicates that a user was throttled from performing any additional resets, attempting any additional authentication methods, or validating any additional phone numbers for the next 24 hours.
+  - *Success*: Indicates that a user was throttled from performing any additional resets, attempting any additional authentication methods, or validating any additional phone numbers for the next 24 hours.
 * **Activity status failure reason**: Not applicable.
 
 ### Activity type: Change password (self-service)
@@ -98,10 +98,10 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who changed their password. The user can be an end user or an administrator.
 * **Activity target**: The user who changed their password. The user can be an end user or an administrator.
 * **Activity statuses**:
-  * _Success_: Indicates that a user successfully changed their password.
-  * _Failure_: Indicates that a user failed to change their password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+  - *Success*: Indicates that a user successfully changed their password.
+  - *Failure*: Indicates that a user failed to change their password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status failure reason**:
-  * _FuzzyPolicyViolationInvalidPassword_: The user selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
+  - *FuzzyPolicyViolationInvalidPassword*: The user selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
 
 ### Activity type: Reset password (by admin)
 
@@ -111,12 +111,12 @@ The following list explains this activity in detail:
 * **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be a password administrator, user administrator, or helpdesk administrator.
 * **Activity target**: The user whose password was reset. The user can be an end user or a different administrator.
 * **Activity statuses**:
-  * _Success_: Indicates that an admin successfully reset a user's password.
-  * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
-- **Activity additional details OnPremisesAgent**:
-  - _None_: Indicates cloud-only reset.
-  - _AAD Connect_: Indicates password was reset on-premises via Microsoft Entra Connect writeback agent.
-  - _CloudSync_: Indicates password was reset on-premises via Microsoft Entra CloudSync writeback agent.
+  - *Success*: Indicates that an admin successfully reset a user's password.
+  - *Failure*: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+* **Activity additional details OnPremisesAgent**:
+  - *None*: Indicates cloud-only reset.
+  - *Microsoft Entra Connect*: Indicates password was reset on-premises via Microsoft Entra Connect writeback agent.
+  - *CloudSync*: Indicates password was reset on-premises via Microsoft Entra CloudSync writeback agent.
 
 ### Activity type: Reset password (self-service)
 
@@ -126,10 +126,10 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity target**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity statuses**:
-  * _Success_: Indicates that a user successfully reset their own password.
-  * _Failure_: Indicates that a user failed to reset their own password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+  - *Success*: Indicates that a user successfully reset their own password.
+  - *Failure*: Indicates that a user failed to reset their own password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status failure reason**:
-  * _FuzzyPolicyViolationInvalidPassword_: The admin selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
+  - *FuzzyPolicyViolationInvalidPassword*: The admin selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
 
 ### Activity type: Self serve password reset flow activity progress
 
@@ -139,8 +139,8 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who performed part of the password reset flow. The user can be an end user or an administrator.
 * **Activity target**: The user who performed part of the password reset flow. The user can be an end user or an administrator.
 * **Activity statuses**:
-  * _Success_: Indicates that a user successfully completed a specific step of the password reset flow.
-  * _Failure_: Indicates that a specific step of the password reset flow failed. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+  - *Success*: Indicates that a user successfully completed a specific step of the password reset flow.
+  - *Failure*: Indicates that a specific step of the password reset flow failed. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status reasons**:
     See the following table for [all the permissible reset activity status reasons](#description-of-the-report-columns).
 
@@ -152,8 +152,8 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Activity target**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Allowed activity statuses**:
-  * _Success_: Indicates that a user successfully unlocked their own account.
-  * _Failure_: Indicates that a user failed to unlock their account. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+  - *Success*: Indicates that a user successfully unlocked their own account.
+  - *Failure*: Indicates that a user failed to unlock their account. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 
 ### Activity type: User registered for self-service password reset
 
@@ -163,8 +163,8 @@ The following list explains this activity in detail:
 * **Activity actor**: The user who registered for password reset. The user can be an end user or an administrator.
 * **Activity target**: The user who registered for password reset. The user can be an end user or an administrator.
 * **Allowed activity statuses**:
-  * _Success_: Indicates that a user successfully registered for password reset in accordance with the current policy. 
-  * _Failure_: Indicates that a user failed to register for password reset. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+  - *Success*: Indicates that a user successfully registered for password reset in accordance with the current policy. 
+  - *Failure*: Indicates that a user failed to register for password reset. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 
      >[!NOTE]
      >Failure doesn't mean a user is unable to reset their own password. It means that they didn't finish the registration process. If there is unverified data on their account that's correct, such as a phone number that's not validated, even though they have not verified this phone number, they can still use it to reset their password.
