@@ -37,6 +37,7 @@ Azure Arc resource bridge (preview) can host other Azure services or solutions r
     - Azure Arc-enabled Azure Stack HCI
     - Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 - Custom locations: A deployment target where you can create Azure resources. It maps to different resources for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to an HCI cluster instance.
+
 Custom locations and cluster extension are both Azure resources, which are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create an on-premises VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter, Azure Stack HCI cluster, or SCVMM.
 
 
@@ -60,7 +61,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 Management from Azure is unavailable during that service outage.
 
 ### Supported versions
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the Arc resource bridge release notes on GitHub. To learn more about upgrade options, visit Upgrade Arc resource bridge.
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](https://learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade).
 
 ## Next steps
 Learn more about [Arc-enabled SCVMM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/overview)
