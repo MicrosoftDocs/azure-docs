@@ -158,6 +158,13 @@
   href: azure-operator-nexus-faq.md
 - name: Reference
   items:
+    - name: Nexus Kubernetes service
+      expanded: false
+      items:
+        - name: Supported VM sizes
+          href: reference-nexus-kubernetes-cluster-sku.md
+        - name: Supported Kubernetes versions
+          href: reference-nexus-kubernetes-cluster-supported-versions.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
@@ -168,7 +175,4 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
-    - name: Nexus Kubernetes service VM SKUs
-      href: reference-nexus-kubernetes-cluster-sku.md
-    - name: Supported Nexus Kubernetes Versions
-      href: reference-nexus-kubernetes-cluster-supported-versions.md
+
