@@ -82,11 +82,11 @@ Use the following steps to connect your service instances:
 
 1. Fill out the **Basics** tab with the following information:
 
-    - **Service type**: **Service Bus**
+    - **Service type**: Select **Service Bus**.
     - **Connection name**: An automatically generated name will be populated, which can also be modified.
     - **Subscription**: Select your subscription.
     - **Namespace**: Select the namespace you created.
-    - **Client type**: **SpringBoot**
+    - **Client type**: Select **SpringBoot**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png":::
 

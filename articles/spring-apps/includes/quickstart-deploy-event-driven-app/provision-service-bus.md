@@ -31,7 +31,7 @@ Use the following steps to create a Service Bus instance:
    | **Resource group** | *myresourcegroup*                   | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Namespace name** | *my-srvbus*                         | A unique name that identifies your Service Bus service.                                                                                                                     |
    | **Location**       | The location closest to your users. | The location that is closest to your users.                                                                                                                                 |
-   | **Plan**           | **Basic**                           | The pricing plan determines the resource and cost associated with your instance.                                                                                            |
+   | **Pricing tier**   | **Basic**                           | The pricing tier determines the resource and cost associated with your instance.                                                                                            |
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create namespace page for Service Bus creation." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 
