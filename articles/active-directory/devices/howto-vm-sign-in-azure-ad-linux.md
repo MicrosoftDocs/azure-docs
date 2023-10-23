@@ -177,7 +177,7 @@ The `provisioningState` value of `Succeeded` appears when the extension is succe
 
 ## Configure role assignments for the VM
 
-Now that you've created the VM, you need to configure an Azure RBAC policy to determine who can log in to the VM. Two Azure roles are used to authorize VM login:
+Now that you've created the VM, you need to assign any of the following Azure roles to determine who can log in to the VM. To assign these roles, you must have the [Virtual Machine Data Access Administrator](azure/role-based-access-control/built-in-roles#key-vault-data-access-administrator-preview) role, or any role that includes the `Microsoft.Authorization/roleAssignments/write` action.
 
 - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
