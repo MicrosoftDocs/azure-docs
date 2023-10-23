@@ -62,7 +62,7 @@ var blobServiceClient = new BlobServiceClient(
         <version>1.1.5</version>
     </dependency>
     ```
-1. Get the connection string from the environment variable, and add the plugin name to connect to the blob storage. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate via `azure-identity`. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
     ```java
     String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
