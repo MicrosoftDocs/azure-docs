@@ -411,6 +411,9 @@
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
+    - name: Integrate ServiceNow
+      displayName: ServiceNow
+      href: integration-servicenow.md
   - name: Manage the classic connectors
     displayName: classic, connector, AWS, GCP
     href: how-to-use-the-classic-connector.md
