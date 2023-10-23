@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## November 2023
+
+## Image Analysis 4.0 GA
+
+Image Analysis 4.0 API. just Analyze call, not customizatino, segmentation, vectorization.. TBD
+
 ## September 2023
 
 ### Deprecation of outdated Computer Vision API versions
