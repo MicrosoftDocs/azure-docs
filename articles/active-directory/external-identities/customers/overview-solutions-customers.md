@@ -31,7 +31,7 @@ One of the most common ways for users to sign up for an app is by creating an ac
 
 :::image type="content" source="media/overview-solutions-customers/use-case-common.png" alt-text="Screenshot of the common use case demo.":::
 
-When you enter an email address to create an account, your email is verified through a one-time passcode. Then you can create a new password and provide more details, such as your name, country or region, and other information. Once your account is create, your email becomes your sign-in ID.
+When you enter an email address to create an account, your email is verified through a one-time passcode. Then you can create a new password and provide more details, such as your name, country or region, and other information. Once your account is created, your email becomes your sign-in ID.
 
 ### Self-service password reset
 
@@ -63,7 +63,7 @@ When users authenticate to your application with Microsoft Entra ID, a security 
  
 In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the top bar select your name and check your profile. It contains information that return by the Microsoft Entra custom extension REST API.
 
-If you want to understand how custom extensions work, you can refer to the [Custom extension overview](/azure/active-directory/develop/custom-extension-overview) article. For information on custom claims providers, you can check out the [Custom claims provider](/azure/active-directory/develop/custom-claims-provider-overview) article.
+If you want to understand how custom extensions work, you can refer to the [Custom extension overview](../../develop/custom-extension-overview.md) article. For information on custom claims providers, you can check out the [Custom claims provider](../../develop/custom-claims-provider-overview.md) article.
 
 ### Edit your account
 

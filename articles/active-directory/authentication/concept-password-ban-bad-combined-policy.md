@@ -42,7 +42,7 @@ The following Microsoft Entra password policy requirements apply for all passwor
 
 ## Password expiration policies
 
-Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Azure AD module for PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
+Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Azure AD module for PowerShell](/powershell/module/azuread/) to set user passwords not to expire.
 
 > [!NOTE]
 > By default, only passwords for user accounts that aren't synchronized through Microsoft Entra Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Microsoft Entra ID](../hybrid/connect/how-to-connect-password-hash-synchronization.md#password-expiration-policy).

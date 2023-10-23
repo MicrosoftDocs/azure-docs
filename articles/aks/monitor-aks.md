@@ -52,7 +52,7 @@ The **Overview** page also includes links to [Managed Prometheus](#integrations)
 
 Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md) in Azure Monitor. Resource logs are not collected and stored until you create a diagnostic setting to route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where most of the data for Container insights is stored.
 
-See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
+See [Create diagnostic settings](../azure-monitor/essentials/create-diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > There can be substantial cost when collecting resource logs for AKS, particularly for *kube-audit* logs. Consider the following recommendations to reduce the amount of data collected:

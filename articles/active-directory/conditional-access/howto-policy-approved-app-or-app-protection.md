@@ -93,7 +93,7 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 ## Next steps
 
-[App protection policies overview](/intune/apps/app-protection-policy)
+[App protection policies overview](/mem/intune/apps/app-protection-policy)
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 

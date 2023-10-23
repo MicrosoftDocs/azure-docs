@@ -74,7 +74,7 @@ sections:
       - question: |
           Are administrative units supported in PowerShell and the Graph API?
         answer: |
-          Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
+          Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
           
           Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
 
