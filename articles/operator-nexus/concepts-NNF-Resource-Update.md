@@ -1,3 +1,14 @@
+---
+title: "Azure Operator Nexus: description: AONs Network Fabric Resource User Documentation."
+description: AONs Network Fabric Resource User Documentation.
+author: jdasari
+ms.author: jdasari
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+ms.date: 10/23/2023
+ms.custom: template-concept
+---
+
 # **NNF Resource Update & Commit Scenarios**
 ## Background
 
