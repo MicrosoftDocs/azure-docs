@@ -176,7 +176,7 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 ---
 
-##### Verify zone redundancy with the Azure CLI
+##### Verify zone redundancy enablement state with the Azure CLI
 
 > [!NOTE]
 > Currently, the Azure Portal does not show the zone redundancy enablement state.
