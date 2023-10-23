@@ -9,7 +9,7 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
