@@ -85,6 +85,9 @@ When you create Azure Bastion using default settings, the settings are configure
 
 ## <a name="connect"></a>Connect to a VM
 
+> [!NOTE]
+> Before connecting to a VM, verify that your NSG rules allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
+
 When the Bastion deployment is complete, the screen changes to the **Connect** page.
 
 1. Type your authentication credentials. Then, select **Connect**.
