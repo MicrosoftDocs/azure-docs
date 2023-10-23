@@ -13,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2023
+ms.date: 10/23/2023
 ms.author: terrylan
 
 ---
