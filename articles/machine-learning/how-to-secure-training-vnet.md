@@ -20,7 +20,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [managed network](includes/managed-vnet-note.md)]
 
-Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
+Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster or serverless compute with or without a public IP address. The general differences between the two are:
 
 * **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Microsoft Entra ID, Azure Resource Manager, etc.).
 * **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the Azure Machine Learning service over the public internet.
@@ -153,7 +153,7 @@ To create a compute cluster in an Azure Virtual Network in a different region th
     > [!WARNING]
     > When setting the region, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
-## Compute instance/cluster with no public IP
+## Compute instance/cluster or serverless compute with no public IP
 
 > [!WARNING]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
@@ -253,7 +253,38 @@ ml_client.begin_create_or_update(entity=compute)
 
 ---
 
-## Compute instance/cluster with public IP
+Use the following information to enable serverless compute with no public IP address:
+
+# [Azure CLI](#tab/cli)
+
+In the `az ml compute create` command, replace the following values:
+
+* `rg`: The resource group that the compute will be created in.
+* `ws`: The Azure Machine Learning workspace name.
+* `yourvnet`: The Azure Virtual Network.
+* `yoursubnet`: The subnet to use for the compute.
+* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
+
+```azurecli
+PUT CODE HERE
+```
+
+# [Python SDK](#tab/python)
+
+> [!IMPORTANT]
+> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+
+```python
+PUT CODE HERE
+```
+
+# [Studio](#tab/azure-studio)
+
+You can only enable serverless compute with no public IP address using Azure CLI or the Python SDK.
+
+---
+
+## Compute instance/cluster or serverless compute with public IP
 
 > [!IMPORTANT]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
@@ -353,6 +384,37 @@ ml_client.begin_create_or_update(entity=compute)
 1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
 
     :::image type="content" source="./media/how-to-secure-training-vnet/with-public-ip.png" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="./media/how-to-secure-training-vnet/with-public-ip.png":::
+
+---
+
+Use the following information to enable serverless compute with a public IP address in the VNet:
+
+# [Azure CLI](#tab/cli)
+
+In the `az ml compute create` command, replace the following values:
+
+* `rg`: The resource group that the compute will be created in.
+* `ws`: The Azure Machine Learning workspace name.
+* `yourvnet`: The Azure Virtual Network.
+* `yoursubnet`: The subnet to use for the compute.
+* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
+
+```azurecli
+PUT CODE HERE
+```
+
+# [Python SDK](#tab/python)
+
+> [!IMPORTANT]
+> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+
+```python
+PUT CODE HERE
+```
+
+# [Studio](#tab/azure-studio)
+
+You can only enable serverless compute with a public IP address in the VNet using Azure CLI or the Python SDK.
 
 ---
 
