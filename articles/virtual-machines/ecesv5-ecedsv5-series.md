@@ -1,0 +1,94 @@
+---
+title: Azure ECesv5 and ECedsv5-series confidential virtual machines
+description: Specifications for Azure Confidential Computing's ECesv5 and ECedsv5-series confidential virtual machines. 
+author: michamcr
+ms.author: mmcrey
+ms.reviewer: mimckitt
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 11/14/2023
+
+---
+
+# ECesv5 and ECedsv5-series confidential VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
+
+The ECesv5-series and ECedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) which can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
+
+Featuring [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html), these VMs are hardened from the cloud virtualized environment by denying the hypervisor, other host management code and administrators access to the VM memory and state. It helps to protect VMs against a broad range of sophisticated [hardware and software attacks](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html). 
+
+These machines are powered by Intel® 4th Generation Xeon® Scalable processors with All Core Frequency of 2.1 GHz, and use Intel® Turbo Boost Max Technology to reach 2.9 GHz.
+
+These VMs have native support for [confidential disk encryption](disk-encryption-overview.md) meaning organizations can encrypt their VM disks at boot with either a customer-managed key (CMK), or platform-managed key (PMK). This feature is fully integrated with [Azure KeyVault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md) with validation for FIPS 140-2 Level 3. For organizations wanting further separation of duties for flexibility over key management, attestation, and disk encryption, these VMs also provide this experience.
+
+## ECesv5-series
+
+The ECesv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM. If you require a local disk, please consider ECedsv5-series. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
+
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+
+> [!NOTE]
+> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
+
+### ECesv5 and ECedsv5-series feature support
+
+*Supported* features in ECesv5-series VMs:
+
+- [Premium Storage](premium-storage-performance.md)
+- [Premium Storage caching](premium-storage-performance.md)
+- [VM Generation 2](generation-2.md)
+
+*Unsupported* features in ECesv5-series VMs:
+
+- [Live Migration](maintenance-and-updates.md)
+- [Memory Preserving Updates](maintenance-and-updates.md)
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
+- [Ephemeral OS Disks](ephemeral-os-disks.md)
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
+
+### ECesv5-series products
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
+|---|---|---|---|---|---|---|
+| Standard_EC2es_v5  | 2  | 8   | Remote Storage Only | 4  | 3750/82    | 2 |
+| Standard_EC4es_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/144   | 2 |
+| Standard_EC8es_v5  | 8  | 32  | Remote Storage Only | 16 | 12800/200  | 4 |
+| Standard_EC16es_v5 | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 4 |
+| Standard_EC32es_v5 | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 |
+| Standard_EC48es_v5 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 |
+| Standard_EC64es_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 |
+| Standard_EC96es_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 |
+
+## ECedsv5-series
+
+The ECedsv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM, as well as up to 2.8 TB local disk storage. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
+
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator]
+
+> [!NOTE]
+> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
+
+### ECedsv5-series products
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
+|---|---|---|---|---|---|---|---|
+| Standard_EC2eds_v5  | 2  | 8   | 75   | 4  | 9000 / 125    | 3750/82    | 2 |
+| Standard_EC4eds_v5  | 4  | 16  | 150  | 8  | 19000 / 250   | 6400/144   | 2 |
+| Standard_EC8eds_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 4 |
+| Standard_EC16eds_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 4 |
+| Standard_EC32eds_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 8 |
+| Standard_EC48eds_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 8 |
+| Standard_EC64eds_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 8 |
+| Standard_EC96eds_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 8 |
+
+> [!NOTE]
+> To achieve these IOPs, use [Gen2 VMs](generation-2.md).
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
