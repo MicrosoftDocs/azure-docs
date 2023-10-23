@@ -132,8 +132,8 @@ When you run the variants with a few single pieces of data and check the results
 You can submit a batch run, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
 
 1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
-2. Select **Batch run** on the top right of the page.
-3. A wizard for **Submit batch run** occurs. The first step is to select a node to run all its variants.
+2. Select **Evaluate** on the top right of the page.
+3. A wizard for **Batch run & Evaluate** occurs. The first step is to select a node to run all its variants.
   
     To test how well different variants work for each node in a flow, you need to run a batch run for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
 

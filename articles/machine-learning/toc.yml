@@ -628,10 +628,8 @@
               href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
           items:
-            - name: Develop a standard flow
-              href: ./prompt-flow/how-to-develop-a-standard-flow.md
-            - name: Develop a chat flow
-              href: ./prompt-flow/how-to-develop-a-chat-flow.md
+            - name: Develop a flow
+              href: ./prompt-flow/how-to-develop-flow.md
             - name: Integrate Langchain in prompt flow
               href: ./prompt-flow/how-to-integrate-with-langchain.md
             - name: Tune prompts using variants
