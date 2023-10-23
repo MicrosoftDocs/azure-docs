@@ -8,11 +8,11 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/04/2023
+ms.date: 10/23/2023
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
-# Full backup and restore
+# Full backup and restore and selective key restore
 
 > [!NOTE]
 > This feature is only available for resource type managed HSM.
@@ -101,6 +101,14 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
+```
+
+## Selective Key Restore
+
+Selective key restore allows you to restore one individual key with all its key versions from a previous backup to an HSM.
+
+```
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860 -–key-name rsa-key2
 ```
 
 ## Next Steps
