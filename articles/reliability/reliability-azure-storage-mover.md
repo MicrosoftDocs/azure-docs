@@ -36,7 +36,6 @@ This article describes reliability support in [Azure Storage Mover](/azure/stora
 
 Azure Storage Mover supports a zone-redundant deployment model.  
 
-
 When you deploy  an Azure Storage Mover resource, you must [select a particular region](/azure/storage-mover/deployment-planning#select-an-azure-region-for-your-deployment) in which the resource's instance metadata is stored. 
 If the region supports availability zones, the instance metadata is replicated across multiple availability zones within that region. 
 
@@ -51,7 +50,6 @@ If the region supports availability zones, the instance metadata is replicated a
 - (Optional) If your target storage account doesn't support availability zones, and you would like to migrate the account to AZ support, see [Migrate Azure Storage accounts to availability zone support](migrate-storage.md).
 
 ### Create a resource with availability zones enabled
-
 
 ### Zone down experience
 
@@ -85,13 +83,7 @@ Before an outage occurs, you can choose to deploy a redundant Storage Mover.
 
 During a regional outage, you can choose to wait for Azure to recover the region. Or, you can minimize downtime [redeploying your resources to a different region](#deploy-resources-to-a-different-region). These strategies may require that further steps be taken prior to a disaster, so be sure to review and plan accordingly.
 
-In the unlikely event of a full region outage, you have the option of using one of the following strategies:
-
-- Wait for Azure to recover the region
-- [Redeploy your resources to a different region](#deploy-resources-to-a-different-region)
-- Deploy a redundant Storage Mover in advance
-
-The last two options are a matter of timing, since deployment will occur either before or after any future outage.
+In the unlikely event of a full region outage, you have the option of either waiting for Azure to recover the region or to [redeploy your resources to a different region](#deploy-resources-to-a-different-region) either before or during a regional outage.
 
 ### Customer enabled disaster recovery
 
