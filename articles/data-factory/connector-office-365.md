@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics

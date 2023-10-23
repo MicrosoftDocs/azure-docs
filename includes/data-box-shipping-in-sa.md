@@ -1,10 +1,10 @@
 ---
-author: v-dalc
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
 ms.date: 06/06/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in South Africa.
