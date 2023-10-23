@@ -186,7 +186,7 @@
       - name: Dapr service invocation API
         href: dapr-invoke-resiliency.md
     - name: Dapr component resiliency
-      href: dapr-resiliency.md
+      href: dapr-component-resiliency.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
@@ -208,7 +208,7 @@
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
     - name: Dapr component resiliency
-      href: dapr-resiliency.md
+      href: dapr-component-resiliency.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
     - name: Connect to Azure services via Dapr components

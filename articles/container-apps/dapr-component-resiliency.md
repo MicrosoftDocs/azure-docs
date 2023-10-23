@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2023
 
 If your container app uses a Dapr component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
 
-:::image type="content" source="media/container-app-resiliency/container-to-container-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps with or without Dapr enabled.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
 
 You can configure resiliecy policies for the following outbound and inbound operation directions via a Dapr component: 
 

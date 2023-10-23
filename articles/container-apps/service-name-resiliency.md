@@ -322,4 +322,4 @@ properties: {
 
 See how resiliency works for:
 - [Container apps using Dapr Service Invocation API](./dapr-invoke-resiliency.md)
-- [Dapr components in Azure Container Apps](./dapr-resiliency.md)
+- [Dapr components in Azure Container Apps](./dapr-component-resiliency.md)
