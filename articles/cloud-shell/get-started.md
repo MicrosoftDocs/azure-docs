@@ -4,9 +4,9 @@ ms.contributor: jahelmic
 ms.date: 10/23/2023
 ms.topic: article
 tags: azure-resource-manager
-title: Getting started with Azure Cloud Shell
+title: Get started with Azure Cloud Shell
 ---
-# Getting started with Azure Cloud Shell
+# Get started with Azure Cloud Shell
 
 This document details how to get started using Azure Cloud Shell.
 
@@ -133,8 +133,8 @@ Get-AzCommand
 [02]: /cli/azure/
 [03]: /powershell/azure/
 [04]: https://portal.azure.com/
-[05]: media/getting-started/choose-shell.png
-[06]: media/getting-started/create-storage.png
-[07]: media/getting-started/resource-provider.png
-[08]: media/getting-started/shell-icon.png
+[05]: media/get-started/choose-shell.png
+[06]: media/get-started/create-storage.png
+[07]: media/get-started/resource-provider.png
+[08]: media/get-started/shell-icon.png
 [09]: persisting-shell-storage.md

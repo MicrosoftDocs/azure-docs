@@ -5,8 +5,8 @@ items:
         href: overview.md
       - name: Features & tools
         href: features.md
-  - name: Getting started with Cloud Shell
-    href: getting-started.md
+  - name: Get started with Cloud Shell
+    href: get-started.md
   - name: How-to guides
     items:
       - name: Persist files in storage
