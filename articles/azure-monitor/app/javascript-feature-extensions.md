@@ -158,6 +158,10 @@ The `name` column of the `customEvent` is populated based on the following rules
   1. If the `data-id` or `data-*-id` attribute doesn't exist and if [`useDefaultContentNameOrId`](#icustomdatatags) is set to `true`, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
   1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`. We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
+#### `img` and `area` HTML elements
+
+If `data-id`, `data-*-id`, or `id` isn’t present within these HTML elements, the value of the `alt` attribute is used as the `customEvent` name when the element is clicked. 
+
 ### `parentId` key
 
 To populate the `parentId` key within `customDimensions` of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
