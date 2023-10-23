@@ -47,4 +47,4 @@ There will be some notificaions and messages sent before and during the maintena
 Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every 3 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
  
 ## Rules and Limitation of Maintenance
-Maintenance operations are optimized to start in given 8 hour maintenance window as statistically that is a better timing for any interruptions and restarts of workloads as there is less stress on the system (in customer applications and transitively also on the platform itself). Maintenance should start from Monday to Friday, and customers cannot pin the version.
+Maintenance operations are optimized to start in given 8 hour maintenance window as statistically that is a better timing for any interruptions and restarts of workloads as there is less stress on the system (in customer applications and transitively also on the platform itself). Maintenance should start from Monday to Sunday, and customers cannot pin the version.
