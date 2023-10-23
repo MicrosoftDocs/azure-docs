@@ -14,7 +14,7 @@ ms.date: 10/12/2023
 > Select a button at the top of this article to choose which product you're connecting to and see the relevant documentation.
 
 ::: zone pivot="azure-virtual-desktop"
-This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](../users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json) to connect to Azure Virtual Desktop.
+This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json) to connect to Azure Virtual Desktop.
 
 ## Basic troubleshooting
 
@@ -36,7 +36,7 @@ If your issue isn't listed here, ask your Azure Virtual Desktop administrator fo
 ::: zone-end
 
 ::: zone pivot="windows-365"
-This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](../users/connect-windows.md?context=%2Fwindows-365%2Fcontext%2Fpr-context) to connect to a Cloud PC in Windows 365.
+This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](users/connect-windows.md?context=%2Fwindows-365%2Fcontext%2Fpr-context) to connect to a Cloud PC in Windows 365.
 
 ## Basic troubleshooting
 
@@ -64,7 +64,7 @@ If your issue isn't listed here, ask your Windows 365 administrator for support,
 ::: zone-end
 
 ::: zone pivot="dev-box"
-This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](../users/connect-windows.md?toc=%2Fazure%2Fdev-box%2Ftoc.json) to connect to Dev Box.
+This article provides some simple troubleshooting steps to try first for issues you might encounter when using the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fdev-box%2Ftoc.json) to connect to Dev Box.
 
 ## Basic troubleshooting
 
