@@ -73,6 +73,6 @@ DICOMcast is currently available as an [open-source](https://github.com/microsof
 
 ## Next steps
 
-[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
+[Deploy the DICOM service by using the Azure portal](deploy-dicom-services-in-azure.md)
 
 [!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]

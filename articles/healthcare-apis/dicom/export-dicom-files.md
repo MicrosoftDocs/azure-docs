@@ -16,12 +16,12 @@ The DICOM service provides the ability to easily export DICOM data in a file for
 There are three steps to exporting data from the DICOM service:
 
 - Enable a system-assigned managed identity for the DICOM service.
-- Configure a new or existing storage account and give permission to the system-managed identity.
+- Configure a new or existing storage account and give permission to the system-assigned managed identity.
 - Use the export API to create a new export job to export the data.
 
 ## Enable managed identity for the DICOM service
 
-The first step to export data from the DICOM service is to enable a system-managed identity. This managed identity is used to authenticate the DICOM service and give permission to the storage account used as the destination for export. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+The first step to export data from the DICOM service is to enable a system-assigned managed identity. This managed identity is used to authenticate the DICOM service and give permission to the storage account used as the destination for export. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 1. In the Azure portal, browse to the DICOM service that you want to export from and select **Identity**.
 
@@ -35,17 +35,17 @@ The first step to export data from the DICOM service is to enable a system-manag
 
    :::image type="content" source="media/dicom-export-confirm-enable.png" alt-text="Screenshot that shows the dialog confirming enabling system identity." lightbox="media/dicom-export-confirm-enable.png":::
 
-It takes a few minutes to create the system-managed identity. After the system identity is enabled, an **Object (principal) ID** appears.
+It takes a few minutes to create the system-assigned managed identity. After the system identity is enabled, an **Object (principal) ID** appears.
 
-## Give storage account permissions to the system-managed identity
+## Give storage account permissions to the system-assigned managed identity
 
-The system-managed identity needs **Storage Blob Data Contributor** permission to write data to the destination storage account.
+The system-assigned managed identity needs **Storage Blob Data Contributor** permission to write data to the destination storage account.
 
 1. Under **Permissions**, select **Azure role assignments**.
 
    :::image type="content" source="media/dicom-export-azure-role-assignments.png" alt-text="Screenshot that shows the Azure role assignments button on the Identity view." lightbox="media/dicom-export-azure-role-assignments.png":::
 
-1. Select **Add role assignment**. On the **Add role assignment** panel, make the following selections:
+1. Select **Add role assignment**. On the **Add role assignment** pane, make the following selections:
 
     * Under **Scope**, select **Storage**.
     * Under **Resource**, select the destination storage account for the export operation.
@@ -53,7 +53,7 @@ The system-managed identity needs **Storage Blob Data Contributor** permission t
 
    :::image type="content" source="media/dicom-export-add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/dicom-export-add-role-assignment.png":::
 
-1. Select **Save** to add the permission to the system-managed identity.
+1. Select **Save** to add the permission to the system-assigned managed identity.
 
 ## Use the export API
 

@@ -20,7 +20,7 @@ Bulk import is a quick way to add data to the DICOM&reg; service. Importing DICO
 ## Prerequisites
 
 - **Deploy an instance of the DICOM service.** For more information, see [Deploy the DICOM service](deploy-dicom-services-in-azure.md).
-- **Deploy the events capability for the DICOM service.** For more information, see [Deploy events using the Azure portal](../events/events-deploy-portal.md).
+- **Deploy the events capability for the DICOM service.** For more information, see [Deploy events by using the Azure portal](../events/events-deploy-portal.md).
 
 ## Enable a system-assigned managed identity
 
@@ -69,7 +69,7 @@ Here's an example of how to configure bulk import in an ARM template:
 
 ## Import data
 
-After you enable bulk import, a resource group is provisioned in your Azure subscription. The name of the resource group begins with the prefix `AHDS_`, followed by the workspace and DICOM service name. For example, for the DICOM service named `mydicom` in the workspace `contoso`, the resource group would be named `AHDS_contoso-mydicom`.
+After you enable bulk import, a resource group is provisioned in your Azure subscription. The name of the resource group begins with the prefix `AHDS_`, followed by the workspace and DICOM service name. For example, for the DICOM service named `mydicom` in the workspace `contoso`, the resource group is named `AHDS_contoso-mydicom`.
 
 Within the new resource group, two resources are created:
 
