@@ -294,7 +294,7 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Face detection
+    - name: Face detection, landmarks, and attributes
       items:
       - name: Detect and analyze faces
         href: how-to/identity-detect-faces.md
