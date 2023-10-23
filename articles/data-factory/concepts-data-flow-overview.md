@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 
 # Mapping data flows in Azure Data Factory
