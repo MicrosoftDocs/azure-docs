@@ -107,7 +107,7 @@ To add an HTTP request to the load test you created previously:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
 
-1. In the left navigation, select **Tests*  to view all tests.
+1. In the left navigation, select **Tests**  to view all tests.
 
 1. Select your test from the list by selecting the corresponding checkbox, and then select **Edit**.
 
