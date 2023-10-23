@@ -21,9 +21,9 @@ By using OPC UA Broker, you can manage the OPC UA assets that are part of your s
 ## Prerequisites
 
 - An installed Kubernetes environment. 
-- An [MQTT v5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) compliant broker as your  messaging infrastructure. To install an MQTT broker, we recommend the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). The deployment process sets up an MQTT broker on your cluster. 
+- An [MQTT v5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) compliant broker as your  messaging infrastructure. To install an MQTT broker, we recommend the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). The deployment process sets up Azure IoT MQ (preview), an MQTT broker.  
 - A certificate manager for SSL certificate management.  The admission controller requires SSL communication.  If you previously followed the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md), a certificate manager is installed with Azure IoT Operations. 
-- Optionally, an installation of Akri if you want to autodetect OPC UA assets. If you previously followed the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md), the commercial version of Akri called Azure IoT Akri is installed with Azure IoT Operations. To install the open source Akri, follow the Akri [installation instructions](https://docs.akri.sh/user-guide/getting-started).
+- Optionally, an installation of Akri if you want to autodetect OPC UA assets. If you previously followed the steps described in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md), the commercial version of Akri called Azure IoT Akri (preview) is installed with Azure IoT Operations. To install the open source Akri, follow the Akri [installation instructions](https://docs.akri.sh/user-guide/getting-started).
 
 ## Features supported
 
@@ -44,7 +44,7 @@ The following features are supported for installing OPC UA Broker:
 
 ### Use OPC UA Broker with Azure IoT MQ
 
-If you installed Azure IoT Operations as shown in the prerequisites, the setup installed Azure IoT MQ, an MQTT broker.  The setup also included service account token access. 
+If you installed Azure IoT Operations as shown in the prerequisites, the setup installed Azure IoT MQ.  The setup also included Service Account Token (SAT) access. 
 
 Use the following helm command to deploy OPC UA Broker to your Kubernetes cluster:
 
@@ -75,9 +75,18 @@ Use the following helm command to deploy OPC UA Broker to your Kubernetes cluste
       --set opcPlcSimulation.deploy=true `
       --wait
   ```
+If you installed MQ into a different namespace than `default`, specify the corresponding address of MQTT broker by adding the following line to the previous statement.
 
+#### [bash](#tab/bash)
 
-TODO: List the prerequisites
+  `--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 \`
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+  ```--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 ```
+
+If MQ is configured with a specific audience for SAT-based authentication via `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource, then the same audience should be set for {{% oub-product-name %}} via `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md).
+The original deployment of OPC UA Broker from above can be modified to set SAT audience, here for `aio-mq` audience:
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
