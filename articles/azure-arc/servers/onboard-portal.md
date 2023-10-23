@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure using a deployment script
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
-ms.date: 10/12/2023
+ms.date: 10/23/2023
 ms.topic: conceptual
 ---
 
@@ -16,7 +16,7 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> Follow security best practices and use an Azure account with the least privileged access to onboard your server. See [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices) for more information.
+> Follow best security practices and avoid using an Azure account with Owner access to onboard servers. Instead, use an account that only has the Azure Connected Machine onboarding or Azure Connected Machine resource administrator role assignment. See [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices) for more information.
 > 
 ## Generate the installation script from the Azure portal
 
