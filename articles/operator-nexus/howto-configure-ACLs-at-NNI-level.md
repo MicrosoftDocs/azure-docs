@@ -1,55 +1,61 @@
 
-#Access list at Network to Network Interconnect
-Access Lists (Permit & Deny) at an NNI Level protect SSH access on Management VPN. Network Access control lists should be applied before provisioning the Network Fabric. This limitation is short term.
-The user must create an `Ingress` and `Egress` access lists before creating the NNI resources. When the Network to Network Interconnect (NNI) is created, the corresponding Ingress ACL and Egress ACL references should be defined on the NNI payload, so that `ingress ACL` and `egress ACL` would be created. This procedure should be followed before the network fabric is provisioned.
+## Access list at Network to Network Interconnect (NNI)
+Access Lists (Permit & Deny) at an NNI Level protect SSH access on Management VPN. The user should apply the Network Access control lists before provisioning the Network Fabric.
+The user must create an `Ingress` and `Egress` access lists before creating the NNI resources. The Conforming `Ingress` and or `Egress` access lists must be defined on the Network to Network Interconnect (NNI) payload while the user creates an NNI. This procedure should be carried out by the user before the Network Fabric is provisioned.
 ## Steps to Create an ACL on an NNI
-1. Create NNI ingress and egress ACLs
-1. Update Arm Resource Reference in Mgmt NNI
-1. Create NNI and provision the Network Fabric	
+1. Create Network to Network Interconnect (NNI) ingress and egress ACLs
+1. Update Azure Resource Manager (ARM) Resource Reference in Mgmt Network to Network Interconnect (NNI)
+1. Create Network to Network Interconnect (NNI) and use the ACL references to provision the Network Fabric	
+
 ### Ingress and Egress Access List Parameters
-The following Table provides guidance on how to use the parameters
-|Parameter| Description|Example or Range  |
+The following Table provides guidance on how to use the parameters,
+
+|Parameter| Description|Example/Range|
 |--|--|--|
-|defaultAction  | Defines default action to be taken, if no default action is defined traffic would be permitted |    "defaultAction": "Permit", |
+|defaultAction  | If the user doesn't define a default action, then the traffic is always permitted. Otherwise, the user should define the default action. |"defaultAction": "Permit", |
 | resource-group |Resource group of network fabric  |NFResourcegroup  |
 | resource-name |Name of ACL  | example-ingressACL |
 | vlanGroups |List of vlan groups  |  |
-|  vlans|List of vlans that needs to be matched  |  |
-|  match-configurations| name of match configuration  | example_acl (space and special character "&" isn't supported)  |
-| matchConditions | Conditions required to be matched |  |
+| vlans|List of the matched vlans |  |
+| match-configurations| name of the match configuration  | example_acl (space and special character "&" isn't supported)  |
+| matchConditions | Match the Conditions |  |
 | ttlValues | TTL [Time To Live] | 0-255 |
-| dscpMarking |DSCP Markings that needs to be matched  | 0-63 |
-| portCondition |Port condition that needs to be matched |  |
-| portType |Port type that needs to be matched | Example: SourcePort. Allowed values: DestinationPort, SourcePort |
-|protocolTypes  |Protocols that need to be matched|[tcp, udp, range[1-2, 1, 2]] <if protocol number it should be in range of 1 -255>  |
-| vlanMatchCondition |Vlan match condition that needs to be matched |  |
+| dscpMarking |Match the DSCP Markings | 0-63 |
+| portCondition |Match the Port condition |  |
+| portType |Match the Port type | Example: SourcePort. Allowed values: DestinationPort, SourcePort |
+|protocolTypes  |Match the Protocols type|[tcp, udp, range[1-2, 1, 2]] <if protocol number it should be in range of 1 -255>  |
+| vlanMatchCondition |Match the Vlan condition|  |
 | layer4Protocol |layer4Protocol |should be either of TCP or UDP  |
-| ipCondition |IP condition that needs to be matched |  |
-|actions |Action to be taken based on match condition  |Example: permit  |
+| ipCondition |Match the IP condition |  |
+|actions |Take actions based on the match condition  |Example: permit  |
 |configuration-type |configuration type can be inline or by using file as options, however AON supports only inline today  |Example: inline  |
-Note: 
-- inline ports and inline vlans are static way of defining the ports or vlans using azcli.
-- portGroupNames and vlanGroupNames are dynamic way of defining ports and vlans.
-- Inline ports and the portGroupNames together aren't allowed.
-- Inline vlans and the vlanGroupNames together aren't allowed
-- IpGroupNames and ipPrefixValues together aren't allowed.
-###Create ingress ACL	
--------------
-```
-az networkfabric acl create 
---resource-group "example-rg"
---location "eastus2euap" 
---resource-name "example-Ipv4ingressACL" 
+
+**Note:**
+
+- inline ports and inline vlans are a static way of defining the ports or vlans using azcli.
+- The ports and vlans can be dynamically defined as portGroupNames and vlanGroupNames.
+- There's no support available for Inline ports and the portGroupNames combination.
+- there's no support available for Inline vlans and the vlanGroupNames combination.
+- There's no support available for the IpGroupNames and ipPrefixValues combination.
+
+### Create ingress ACL	
+
+```AZURECLI
+
+az networkfabric acl create \
+--resource-group "example-resource-group"
+--location "eastus"
+--resource-name "example-Ipv4ingressACL"
 --configuration-type "Inline" 
---default-action "Permit" 
---dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['10.20.3.1/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]" 
---match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.20.20.20/12']}}],actions:[{type:Count,counterName:'example-counter'}]}]"
+--default-action "Permit"--dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup', ipAddressType:IPv4, ipPrefixes:['10.20.3.1/20']}], vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup', ports:['100-200']}]}]"--match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.20.20.20/12']}}], actions:[{type: Count,counterName:'example-counter'}]}]"
+
 ```
-###Expected Output
-```
+### Expected Output
+
+```AZURECLI
 {
   "properties": {
-    "lastSyncedTime": "2023-06-17T08:56:23.203Z",
+    "lastSyncedTime": "2023-XX-XXT08:56:23.203Z",
     "configurationState": "Succeeded",
     "provisioningState": "Accepted",
     "administrativeState": "Enabled",
@@ -135,29 +141,29 @@ az networkfabric acl create
   "systemData": {
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "createdAt": "2023-06-09T04:51:41.251Z",
+    "createdAt": "20XX-XX-XXT04:51:41.251Z",
     "lastModifiedBy": "UserId",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-09T04:51:41.251Z"
+    "lastModifiedAt": "20XX-XX-XXT04:51:41.251Z"
   }
 }
 ```
-###Create Egress ACL	
+### Create Egress ACL	
 ------------
 ```
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv4egressACL" 
---configuration-type "File" 
---acls-url "https://ACL-Storage-URL" --default-action "Permit" 
---dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['10.20.3.1/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
+az networkfabric acl create \
+--resource-group "example-resource-group"
+--location "eastus"
+--resource-name "example-Ipv4egressACL"
+--configuration-type "File"
+--acls-url "https://ACL-Storage-URL"--default-action "Permit"
+--dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup', ipAddressType:IPv4, ipPrefixes:['10.20.3.1/20']}], vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup', ports:['100-200']}]}]"
 ```
-Expected Output
+### Expected Output
 ```
 {
   "properties": {
-    "lastSyncedTime": "2023-06-17T08:56:23.203Z",
+    "lastSyncedTime": "20XX-XX-XXT08:56:23.203Z",
     "configurationState": "Succeeded",
     "provisioningState": "Accepted",
     "administrativeState": "Enabled",
@@ -204,50 +210,52 @@ Expected Output
   "systemData": {
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "createdAt": "2023-06-09T04:51:41.251Z",
+    "createdAt": "20XX-XX-XXT04:51:41.251Z",
     "lastModifiedBy": "UserId",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-09T04:51:41.251Z"
+    "lastModifiedAt": "20XX-XX-XXT04:51:41.251Z"
   }
 }
 ```
-###Update Azure Resource Manager (ARM) Reference 
-This step enables creation of ACLs (ingress and egress if reference is provided) during creation of NNI resource. Post creation of NNI and before fabric provisioning re-put can be done on NNI.
+### Update Azure Resource Manager (ARM) Reference:
+The user should reference the `ingress` and `egress` ACLs as part of Network to Network Interconnect (NNI) creation. Prior Provisioning the Network Fabric, the user can perform a re-put on the NNI resource to modify the `ingress` and `egress` ACLs.
 - ingressAclId: Reference ID for ingress ACL 
 - egressAclId: Reference id for egress ACL
-To get ARM resource ID navigate to resource group of subscription used
+To get Azure Resource Manager (ARM) resource ID navigate to resource group of subscription used on the portal.
+
 ```
-az networkfabric nni create 
---resource-group "example-rg" 
---fabric "example-fabric" 
---resource-name "example-nniwithACL" 
---nni-type "CE" --is-management-type "True" 
---use-option-b "True" 
---layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'10.18.0.124/30',secondaryIpv4Prefix:'10.18.0.128/30',primaryIpv6Prefix:'10:2:0:124::400/127',secondaryIpv6Prefix:'10:2:0:124::402/127'}" --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
+az networkfabric nni create \
+--resource-group "example-rg"
+--fabric "example-fabric"
+--resource-name "example-nniwithACL"
+--nni-type "CE"--is-management-type "True"
+--use-option-b "True"
+--layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}"--option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'10.18.0.124/30', secondaryIpv4Prefix:'10.18.0.128/30', primaryIpv6Prefix:'10:2:0:124::400/127', secondaryIpv6Prefix:'10:2:0:124::402/127'}"--ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"--egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
 ```
-###Show ACL
+### Show ACL
  ```
-az networkfabric acl show --resource-group "example-rg" --resource-name "example-acl"
+az networkfabric acl show --resource-group "example-rg"--resource-name "example-acl"
 ```
 ### List ACL
 ```
-az networkfabric acl list --resource-group "ResourceGroupName"
+az networkfabric acl list--resource-group "ResourceGroupName"
 ```
 ## Create ACL on Isolation Domain External Network
-Steps to performed to create an ACL on NNI
+Steps to be performed to create an ACL on NNI
 1. Create an isolation domain external network ingress and egress ACLs
 1. Update Arm Resource Reference for External Network
-###Create ISD External Network Egress ACL 
+   
+### Create ISD External Network Egress ACL 
 ```
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv4egressACL" 
---annotation "annotation" --configuration-type "Inline" 
---default-action "Deny" 
+az networkfabric acl create \
+--resource-group "example-rg"
+--location "eastus"
+--resource-name "example-Ipv4egressACL"
+--annotation "annotation"--configuration-type "Inline"
+--default-action "Deny"
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_EGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
-###Expected Output
+### Expected Output
 ```
 {
   "administrativeState": "Disabled",
@@ -293,34 +301,33 @@ az networkfabric acl create
       ],
       "matchConfigurationName": "L3ISD_EXT_OPTA_EGRESS_ACL_IPV4_CE_PE",
       "sequenceNumber": 1110
-    }
-  ],
+    }],
   "name": "example-Ipv4egressACL",
   "provisioningState": "Succeeded",
   "resourceGroup": "example-rg",
   "systemData": {
-    "createdAt": "2023-09-11T10:20:20.2617941Z",
+    "createdAt": "20XX-XX-XXT10:20:20.2617941Z",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-09-11T10:20:20.2617941Z",
+    "lastModifiedAt": "20XX-XX-XXT10:20:20.2617941Z",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
   "type": "microsoft.managednetworkfabric/accesscontrollists"
 }
 ```
-###Create ISD External Network Ingress ACL
+### Create ISD External Network Ingress ACL
 ```
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv4ingressACL" 
---annotation "annotation" 
---configuration-type "Inline" 
---default-action "Deny" 
+az networkfabric acl create \
+--resource-group "example-rg"
+--location "eastus"
+--resource-name "example-Ipv4ingressACL"
+--annotation "annotation"
+--configuration-type "Inline"
+--default-action "Deny"
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_INGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
-###Expected Output
+### Expected Output
 ```{
   "administrativeState": "Disabled",
   "annotation": "annotation",
@@ -328,7 +335,7 @@ az networkfabric acl create
   "configurationType": "Inline",
   "defaultAction": "Deny",
   "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-Ipv4ingressACL",
-  "location": "eastus2euap",
+  "location": "eastus",
   "matchConfigurations": [
     {
       "actions": [
@@ -365,78 +372,76 @@ az networkfabric acl create
       ],
       "matchConfigurationName": "L3ISD_EXT_OPTA_INGRESS_ACL_IPV4_CE_PE",
       "sequenceNumber": 1110
-    }
-  ],
+    }],
   "name": "example-Ipv4ingressACL",
   "provisioningState": "Succeeded",
   "resourceGroup": "example-rg",
   "systemData": {
-    "createdAt": "2023-09-11T10:20:20.2617941Z",
+    "createdAt": "20XX-XX-XXT10:20:20.2617941Z",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-09-11T10:27:27.2317467Z",
+    "lastModifiedAt": "20XX-XX-XXT10:27:27.2317467Z",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
   "type": "microsoft.managednetworkfabric/accesscontrollists"
 ```
-###Update Arm reference 
+### Update Azure Resource Manager (ARM) Reference 
 - ingressAclId: Reference id for ingress ACL
 - egressAclId: Reference id for egress ACL
 ```
 az networkfabric externalnetwork create 
---resource-group "example-rg" 
---l3domain "example-l3domain" 
---resource-name "example-externalNetwork" 
---peering-option "OptionA" 
---option-a-properties "{peerASN:65234,vlanId:501,mtu:1500,primaryIpv4Prefix:'172.23.1.0/31',secondaryIpv4Prefix:'172.23.1.2/31',bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},ingressAclId:"/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL",egressAclId:"/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"}" --import-route-policy "{importIpv4RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy',importIpv6RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy'}" --export-route-policy "{exportIpv4RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy',exportIpv6RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy'}"
+--resource-group "example-rg"
+--l3domain "example-l3domain"
+--resource-name "example-externalNetwork"
+--peering-option "OptionA"
+--option-a-properties "{peerASN:65234,vlanId:501,mtu:1500,primaryIpv4Prefix:'172.23.1.0/31', secondaryIpv4Prefix:'172.23.1.2/31',bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},ingressAclId:"/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL",egressAclId:"/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"}"--import-route-policy "{importIpv4RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy', importIpv6RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy'}"--export-route-policy "{exportIpv4RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy', exportIpv6RoutePolicyId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/microsoft.managednetworkfabric/routePolicies/example-routepolicy'}"
 ```
-###Create ACL with IPv6
-This section provides guidance on creating ACL's using IPv6 addressing. Please note that all examples shared in sections above support dual stack IP addressing as well. This section covers Ipv6 only examples
-###Create Isolation Domain Egress ACL with Ipv6
+### Create ACL with IPv6
+This section specifically covers the procedure to create ACLs using IPv6 stack,
+### Create Isolation Domain Egress ACL with Ipv6
 
-```az cli
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv6egressACL" 
---annotation "annotation" 
---configuration-type "Inline" 
---default-action "Deny" 
+```azureCLI
+az networkfabric acl create \
+--resource-group "example-rg"
+--location "eastus2euap"
+--resource-name "example-Ipv6egressACL"
+--annotation "annotation"
+--configuration-type "Inline"
+--default-action "Deny"
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_EGRESS_ACL_IPV6_BG_ICMP',sequenceNumber:1160,ipAddressType:IPv6,matchConditions:[{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['fda0:d59c:db00:1::5/128']}},{protocolTypes:['58']}],actions:[{type:Count}]}]"
 ```
-###Create Isolation Domain Ingress ACL with IPv6
+### Create Isolation Domain Ingress ACL with IPv6
 
-```az cli
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv6ingressACL" 
---annotation "annotation" 
---configuration-type "Inline" 
+```azureCLI
+az networkfabric acl create
+--resource-group "example-rg"
+--location "eastus2euap"
+--resource-name "example-Ipv6ingressACL"
+--annotation "annotation"
+--configuration-type "Inline"
 --default-action "Deny" --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_INGRESS_ACL_IPV6_BG_ICMP',sequenceNumber:1160,ipAddressType:IPv6,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['fda0:d59c:db00:1::5/128']}},{protocolTypes:['58']}],actions:[{type:Count}]}]"
 ```
-###Create NNI Ingress ACL using IPv6
+### Create NNI Ingress ACL using IPv6
 
-```az cli
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv6ingressACL" 
---configuration-type "Inline" 
---default-action "Permit" 
---dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv6,ipPrefixes:['fda0:d59c:da02:10::/62']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]" --match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv6,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['fda0:d59c:db02:20::/62']}}],actions:[{type:Count,counterName:'example-counter'}]}]"
+```azureCLI
+az networkfabric acl create \
+--resource-group "example-rg"
+--location "eastus2euap"
+--resource-name "example-Ipv6ingressACL"
+--configuration-type "Inline"
+--default-action "Permit"
+--dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup', ipAddressType:IPv6, ipPrefixes:['fda0:d59c:da02:10::/62']}], vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup', ports:['100-200']}]}]" --match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv6,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['fda0:d59c:db02:20::/62']}}], actions:[{type: Count,counterName:'example-counter'}]}]"
 ```
-###Create NNI Ingress ACL using Ipv6
+### Create NNI Ingress ACL using Ipv6
 
-```az cli
-az networkfabric acl create 
---resource-group "example-rg" 
---location "eastus2euap" 
---resource-name "example-Ipv6egressACL" 
---configuration-type "File" 
---acls-url "https://ACL-Storage-URL" 
---default-action "Permit" 
---dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv6,ipPrefixes:['fda0:c59c:da02:20::/62']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
+```azureCLI
+az networkfabric acl create \
+--resource-group "example-rg"
+--location "eastus2euap"
+--resource-name "example-Ipv6egressACL"
+--configuration-type "File"
+--acls-url "https://ACL-Storage-URL"
+--default-action "Permit"
+--dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup', ipAddressType:IPv6, ipPrefixes:['fda0:c59c:da02:20::/62']}], vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup', ports:['100-200']}]}]"
 ```
-###Note :Update ARM Reference in NNI and External Network step is required in similar way as it's done for Ipv4. To get Azure Resource Manager (ARM) resource ID navigate to resource group of subscription used
