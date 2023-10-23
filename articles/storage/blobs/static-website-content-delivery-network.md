@@ -2,11 +2,11 @@
 title: Integrate a static website with Azure CDN
 titleSuffix: Azure Storage
 description: Learn how to cache static website content from an Azure Storage account by using Azure Content Delivery Network (CDN).
-author: normesta
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.author: normesta
+ms.author: shaas
 ms.date: 04/07/2020
 ---
 
