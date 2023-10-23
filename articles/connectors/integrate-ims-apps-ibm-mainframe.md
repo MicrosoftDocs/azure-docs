@@ -7,16 +7,12 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 10/27/2023
 ---
 
-# Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS Program Call connector (preview)
+# Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS Program Call connector
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To access and run IBM mainframe apps on Information Management System (IMS) systems from Standard workflows in Azure Logic Apps, you can use the **IMS Program Call** built-in, service provider-based connector. IMS provides a Transaction Program (TP) Monitor with an integrated Transaction Manager (TM) and hierarchical database. The connector communicates with IBM IMS transaction programs by using IMS Connect, which is an IMS TM network component. This component provides high performance communications for IMS systems between one or more TCP/IP clients and one or more IMS systems. The IMS connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
