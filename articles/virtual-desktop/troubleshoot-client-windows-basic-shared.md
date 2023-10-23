@@ -46,6 +46,8 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](users/client-features-windows.md?context=%2Fwindows-365%2Fcontext%2Fpr-context#update-the-client).
 
+1. Make sure your Cloud PC is running. For more information, see [User actions](/windows-365/end-user-access-cloud-pc#user-actions).
+
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
    :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
@@ -71,6 +73,8 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 1. Make sure you're connected to the internet.
 
 1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](users/client-features-windows.md?toc=%2Fazure%2Fdev-box%2Ftoc.json#update-the-client).
+
+1. Make sure your dev box is running. For more information, see [Shutdown, restart or start a dev box](../dev-box/how-to-create-dev-boxes-developer-portal.md#shutdown-restart-or-start-a-dev-box).
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
