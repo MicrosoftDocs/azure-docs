@@ -25,7 +25,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze&api-version=2023-10-01`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
 
 
 ## Select the image to analyze
@@ -64,7 +64,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
 
 
 ### Set model name when using a custom model
@@ -74,7 +74,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, don't use the features query parameter. Instead, set the `model-name` parameter to the name of your model as shown here. Replace `MyCustomModelName` with your custom model name.
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&model-name=MyCustomModelName`
 
 
 ### Specify languages
@@ -96,7 +96,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&language=en`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=caption&language=en`
 
 
 ### Select gender neutral captions
@@ -110,7 +110,7 @@ Add the optional query string `gender-neutral-caption` with values `true` or `fa
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=caption&gender-neutral-caption=true`
 
 
 ### Select smart cropping aspect ratios
@@ -124,7 +124,7 @@ Add the optional query string `smartcrops-aspect-ratios`, with one or more aspec
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
 
 
 ## Get results from the service
@@ -153,7 +153,7 @@ The service returns a `200` HTTP response, and the body contains the returned da
             {"boundingBox":{"x":654,"y":0,"w":584,"h":473},"tags":[{"name":"person","confidence":0.855}]}
         ]
     },
-    "modelVersion": "2023-02-01-preview",
+    "modelVersion": "2023-10-01",
     "metadata":
     {
         "width": 1260,
