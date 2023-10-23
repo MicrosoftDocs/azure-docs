@@ -43,6 +43,16 @@ After you generate the metadata file from the HIS Designer, you can add that fil
 
 ## Connector technical reference
 
+The following table describes the operations for the CICS connector, which currently includes only the following action:
+
+### Call a CICS program
+
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **HIDX Name** | Yes | String | Select the CICS HIDX file that you want to use. |
+| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+
+This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
 
 ## Prerequisites
 
@@ -111,8 +121,8 @@ After you finish all the previous steps, you can use the action that you added t
 
 1. After the connection details pane appears, provide the following information, such as the host server name and CICS system configuration information:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name for your connection |
    | **Programming Model** | Yes | <*CICS-programming-model*> | The selected CICS programming model. For more information, see [Programming Models](/host-integration-server/core/programming-models2) and [Choosing the Appropriate Programming Model](/host-integration-server/core/programming-models2). |
    | **Code Page** | No | <*code-page*> | The code page number to use for converting text |
@@ -134,11 +144,11 @@ After you finish all the previous steps, you can use the action that you added t
 
 1. After the action details pane appears, in the **Parameters** section, provide the required information:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the CICS HIDX file that you want to use. |
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. |
-   | **Advanced parameters** | No |  | This list appears after you select a method so that you can add other parameters to use with the selected method. |
+   | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
    For example:
 
