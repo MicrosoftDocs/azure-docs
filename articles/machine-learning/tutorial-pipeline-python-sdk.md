@@ -118,7 +118,7 @@ print(ws.location,":", ws.resource_group)
 
 ## Access the registered data asset
 
-Start by getting the data that you previously registered in [Tutorial: Upload, access and explore your data](explore-data.ipynb).
+Start by getting the data that you previously registered in [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
 
 * Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline.
 

@@ -313,9 +313,10 @@ In this script, once the model is trained, the model file is saved and registere
 Now that you have a script that can perform the classification task, use the general purpose **command** that can run command line actions. This command line action can be directly calling system commands or by running a script. 
 
 Here, create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
+
 * Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
-* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](https://learn.microsoft.com/azure/machine-learning/how-to-use-serverless-compute?view=azureml-api-2&tabs=python) that is automatically created.
+* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](how-to-use-serverless-compute.md) that is automatically created.
 
 
 ```python

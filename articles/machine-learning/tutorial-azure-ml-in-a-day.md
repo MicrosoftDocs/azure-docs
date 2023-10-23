@@ -234,10 +234,11 @@ You might need to select **Refresh** to see the new folder and script in your **
 Now that you have a script that can perform the desired tasks, and a compute cluster to run the script, you'll use a general purpose **command** that can run command line actions. This command line action can directly call system commands or run a script. 
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
-* Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](train-model.ipynb) tutorial, you'll learn how to create a custom environment.
+
+* Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md), you'll learn how to create a custom environment.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
-* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](how-to-use-serverless-compute.md&tabs=python) that is automatically created.
+* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](how-to-use-serverless-compute.md) that is automatically created.
 
 
 ```python
