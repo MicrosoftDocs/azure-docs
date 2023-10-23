@@ -16,8 +16,8 @@ Event Grid standard tier enables pub-sub using MQTT broker functionality and pus
 Use this tier:
 
 - If you want to publish and consume MQTT messages.
-- If you want to build applications with flexible consumption patterns, e. g. pull delivery or push delivery to Event Hubs.
-- If you want to go beyond 5 MB/s in ingress and egress throughput for push or pull delivery, up to 40 MB/s (ingress) and 80 MB/s (egress).
+- If you want to build applications with flexible consumption patterns, e. g. pull delivery for multiple consumers or push delivery to Event Hubs.
+- If you want to go beyond 5 MB/s in ingress and egress throughput for pull delivery or push delivery, up to 40 MB/s (ingress) and 80 MB/s (egress).
 
 For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
 
@@ -35,7 +35,7 @@ For more information, see quotas and limits for [custom topics, system topics an
 
 ## Basic and standard tiers
 
-The standard tier of Event Grid is focused on providing support for higher ingress and egress rates, support for IoT solutions that require the use of bidirectional communication capabilities, and support pull delivery for multiple consumers. The basic tier is focused on providing push delivery support to trigger actions based on events. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).
+The standard tier of Event Grid is focused on providing support for higher ingress and egress rates, support for IoT solutions that require the use of bidirectional communication capabilities, support pull delivery for multiple consumers and push delivery to Event Hubs. The basic tier is focused on providing push delivery support to trigger actions based on events. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).
 
 | Feature                                                                                                                            | Standard                                           | Basic                                  |
 |------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------|
