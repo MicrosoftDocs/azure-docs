@@ -10,7 +10,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 
 # Use the Azure Key Vault provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster
 
-The Azure Key Vault (AKV) provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
+The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
 
 ## Features
 
