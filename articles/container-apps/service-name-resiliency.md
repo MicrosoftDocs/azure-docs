@@ -1,7 +1,7 @@
 ---
-title: Container app FQDN resiliency
+title: Service name resiliency
 titleSuffix: Azure Container Apps
-description: Learn how to apply container app to container app resiliency when using the application's FQDN in Azure Container Apps.
+description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
 ms.service: container-apps
@@ -14,11 +14,17 @@ zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Container app FQDN resiliency
+# Service name resiliency
 
-In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: your container app's fully qualified domain name (FQDN) or [Dapr service invocation](./dapr-invoke-resiliency.md). This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests from one container app to another using the application’s FQDN.
+In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: 
+- Any type of the container app's service name, such as:
+  - Container App name
+  - Container App fully qualified domain name (FQDN)
+- [Dapr service invocation](./dapr-invoke-resiliency.md). 
 
-:::image type="content" source="media/container-app-fqdn-resiliency/container-fqdn-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps using an application's fully qualified domain name.":::
+This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests from one container app to another using either application’s app name or FQDN.
+
+:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps using an application's app name or fully qualified domain name.":::
 
 ## How Azure Container Apps resiliency works
 
@@ -109,7 +115,7 @@ az login
 To create a resiliency policy with recommended settings for timeouts and retries, run the following command:
 
 ```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup -n MyContainerApp –default​
+az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
 ```
 
 To create resiliency policies for your container app from a resiliency YAML you've created, run the following command:

@@ -181,8 +181,8 @@
   items:
     - name: Container app resiliency
       items:
-      - name: Container app FQDN
-        href: container-app-fqdn-resiliency.md
+      - name: Service name
+        href: service-name-resiliency.md
       - name: Dapr service invocation API
         href: dapr-invoke-resiliency.md
     - name: Dapr component resiliency

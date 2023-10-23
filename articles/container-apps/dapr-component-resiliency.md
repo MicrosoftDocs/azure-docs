@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.date: 10/23/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -205,5 +205,5 @@ properties: {
 ## Related content
 
 See how resiliency works for:
-- [Container apps using the application's FQDN](./container-app-fqdn-resiliency.md)
+- [Container apps using the application's service name](./service-name-resiliency.md)
 - [Container apps using Dapr Service Invocation API](./dapr-invoke-resiliency.md)
