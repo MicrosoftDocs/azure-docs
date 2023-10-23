@@ -1,7 +1,7 @@
 items:
   - name: Overview
     items:
-      - nam: What is Azure Cloud Shell?
+      - name: What is Azure Cloud Shell?
         href: overview.md
       - name: Features & tools
         href: features.md
