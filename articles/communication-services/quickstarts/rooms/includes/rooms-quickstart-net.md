@@ -153,6 +153,35 @@ Console.WriteLine("\nCreated room with id: " + roomId);
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
+### Enable PSTN Dial-Out Capability for a Room
+Each room has PSTN Dial-Out disabled by default. The PSTN Dial-Out can be enabled for a Room at creation, by defining the pstnDialOutEnabled parameter as true. This capability may also be modified for a Room by issuing an update request for the pstnDialOutEnabled parameter
+
+```csharp
+// Create a room
+CancellationToken cancellationToken = new CancellationTokenSource().Token;
+
+// CreateRoom or CreateRoomAsync methods to create a room with PSTN dial-out capability
+bool pstnDialOutEnabled = true;
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+{
+    PstnDialOutEnabled = pstnDialOutEnabled,
+};
+
+CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(createRoomOptions, cancellationToken);
+Console.WriteLine("\nCreated a room with PSTN Dial-Out Enabled: " + createdRoom.PstnDialOutEnabled);
+
+// UpdateRoom or UpdateRoomAsync methods can take UpdateRoomOptions to enable or disable PSTN dial-out capability
+pstnDialOutEnabled = false;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+{
+    PstnDialOutEnabled = pstnDialOutEnabled,
+};
+
+CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updateRoomOptions, cancellationToken);
+Console.WriteLine("\nUpdated a room with PSTN Dial-Out Enabled: " + updatedRoom.PstnDialOutEnabled);
+
+```
+
 ## Get properties of an existing room
 
 Retrieve the details of an existing `room` by referencing the `roomId`:

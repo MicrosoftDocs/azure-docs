@@ -26,6 +26,7 @@ The table below lists the main properties of `room` objects:
 | `roomId`              | Unique `room` identifier.                  |
 | `validFrom`           | Earliest time a `room` can be used. |
 | `validUntil`          | Latest time a `room` can be used. |
+| `pstnDialOutEnabled`  | Enable or disable a dial out to a PSTN number in a room.|
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. |
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 
