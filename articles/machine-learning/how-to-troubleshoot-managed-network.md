@@ -31,7 +31,7 @@ To use an Azure Virtual Network when creating a workspace through the Azure port
 
 ## Does not have authorization to perform action 'Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read'
 
-When creating a managed virtual network, the operation may fail with an error similar to the following text:
+When you create a managed virtual network, the operation can fail with an error similar to the following text:
 
 "The client '<GUID>' with object id '<GUID>' does not have authorization to perform action 'Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read' over scope '/subscriptions/<GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>' or the scope is invalid."
 
