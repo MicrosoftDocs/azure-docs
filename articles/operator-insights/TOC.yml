@@ -19,3 +19,5 @@
     href: managed-identity.md
   - name: Data quality and data monitoring
     href: concept-data-quality-monitoring.md
+  - name: Data visualization in Data Products
+    href: concept-data-visualization.md
