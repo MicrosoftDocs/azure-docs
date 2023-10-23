@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/29/2023
+ms.date: 10/24/2023
 ms.custom: template-tutorial
 ---
 
@@ -110,7 +110,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
     > [!IMPORTANT]
     >Gateway load balancer doesn't currently support chaining with NAT Gateway. Outbound traffic originating from Azure virtual machines, served through NAT Gateway, goes directly to the Internet. And that NAT Gateway takes precedence over any instance-level public IPs or load balancers for outbound traffic.
     >
-    > NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the gateway load balncer to the Standard load balancer, while outbound traffic goes to the Internet directly.
+    > NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the gateway load balancer to the Standard load balancer, while outbound traffic goes to the Internet directly.
     >
     > If NVAs need to be inserted for outbound traffic, apply the methods described in this article. For example, chaining an instance-level public IP or outbound rules load balancer frontend to a gateway load balancer.
 
