@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create an internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: Learn to creat an internal Azure Load Balancer and test it with two virtual machines. Learn how to configure traffic rules and health probes to distribute traffic across multiple VMs.
+description: Learn to create an internal Azure Load Balancer and test it with two virtual machines. Learn how to configure traffic rules and health probes to distribute traffic across multiple VMs.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
