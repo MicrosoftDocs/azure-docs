@@ -1,5 +1,5 @@
 ---
-title: How to configure Planned Maintenance in 
+title: How to configure Planned Maintenance
 description: Describes how to start or stop an Azure Spring Apps service instance
 author: KarlErickson
 ms.author: haochuang
