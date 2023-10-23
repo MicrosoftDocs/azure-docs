@@ -14,6 +14,11 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## November 2023
+
+### DALL-E 3 public preview
+tbd
+
 ## September 2023
 
 ### GPT-4
