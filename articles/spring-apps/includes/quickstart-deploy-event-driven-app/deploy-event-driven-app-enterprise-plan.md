@@ -237,10 +237,10 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [deploy-event-driven-app-with-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
 
-   ```output
-   [INFO] Starting Spring App after deploying artifacts...
-   [INFO] Deployment Status: Running
-   ```
+      ```output
+      [INFO] Starting Spring App after deploying artifacts...
+      [INFO] Deployment Status: Running
+      ```
 
 ### [Azure CLI](#tab/Azure-CLI)
 
