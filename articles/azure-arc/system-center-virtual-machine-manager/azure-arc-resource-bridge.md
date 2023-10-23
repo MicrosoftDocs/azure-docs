@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge
 description: Learn about Azure Arc resource bridge. 
-ms.topic: Concepts
+ms.topic: conceptual
 ms.date: 10/20/2023
 ms.service: azure-arc
 author: PriskeyJeronika-MS
