@@ -651,6 +651,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-assign-group-to-app.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-assign-group-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-assign-user-to-app.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-assign-user-to-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-display-users-group-of-app.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-display-users-group-of-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-app-proxy-apps-basic.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-app-proxy-apps-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-app-proxy-apps-by-connector-group.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-app-proxy-apps-by-connector-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-app-proxy-apps-extended.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-app-proxy-apps-extended",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-app-proxy-apps-with-policy.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-app-proxy-apps-with-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-connectors.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-custom-domain-no-cert.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-custom-domain-no-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-custom-domains-and-certs.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-custom-domains-and-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-default-domain-apps.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-default-domain-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-all-wildcard-apps.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-all-wildcard-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-custom-domain-identical-cert.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-custom-domain-identical-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-get-custom-domain-replace-cert.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-get-custom-domain-replace-cert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/scripts/powershell-move-all-apps-to-connector-group.md",
+      "redirect_url": "/entra/identity/app-proxy/scripts/powershell-move-all-apps-to-connector-group",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/architecture/1-secure-access-posture.md",
       "redirect_url": "/entra/architecture/1-secure-access-posture",
       "redirect_document_id": false
@@ -4791,6 +4866,516 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/azure-rest-api-operations-tenant-management.md",
+      "redirect_url": "/entra/external-id/customers/azure-rest-api-operations-tenant-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-authentication-methods-customers.md",
+      "redirect_url": "/entra/external-id/customers/concept-authentication-methods-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-branding-customers.md",
+      "redirect_url": "/entra/external-id/customers/concept-branding-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-custom-extensions.md",
+      "redirect_url": "/entra/external-id/customers/concept-custom-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-planning-your-solution.md",
+      "redirect_url": "/entra/external-id/customers/concept-planning-your-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-security-customers.md",
+      "redirect_url": "/entra/external-id/customers/concept-security-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/concept-supported-features-customers.md",
+      "redirect_url": "/entra/external-id/customers/concept-supported-features-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/faq-customers.md",
+      "redirect_url": "/entra/external-id/customers/faq-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-add-attributes-to-token.md",
+      "redirect_url": "/entra/external-id/customers/how-to-add-attributes-to-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sign-in-overview.md",
+      "redirect_url": "/entra/external-id/customers/how-to-browserless-app-node-sign-in-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/how-to-browserless-app-node-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/how-to-browserless-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/how-to-browserless-app-node-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-create-customer-tenant-portal.md",
+      "redirect_url": "/entra/external-id/customers/how-to-create-customer-tenant-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-customize-branding-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-customize-branding-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-customize-languages-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-customize-languages-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-define-custom-attributes.md",
+      "redirect_url": "/entra/external-id/customers/how-to-define-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-desktop-app-electron-sample-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/how-to-desktop-app-electron-sample-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-desktop-app-maui-sample-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/how-to-desktop-app-maui-sample-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-enable-password-reset-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-enable-password-reset-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-facebook-federation-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-facebook-federation-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-google-federation-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-google-federation-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-identity-protection-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-identity-protection-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-manage-admin-accounts.md",
+      "redirect_url": "/entra/external-id/customers/how-to-manage-admin-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-manage-customer-accounts.md",
+      "redirect_url": "/entra/external-id/customers/how-to-manage-customer-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-mobile-app-maui-sample-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/how-to-mobile-app-maui-sample-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-multifactor-authentication-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-multifactor-authentication-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-register-ciam-app.md",
+      "redirect_url": "/entra/external-id/customers/how-to-register-ciam-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-use-app-roles-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-use-app-roles-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-user-flow-add-application.md",
+      "redirect_url": "/entra/external-id/customers/how-to-user-flow-add-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-user-flow-sign-up-sign-in-customers.md",
+      "redirect_url": "/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-call-api-call-api.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-sign-in-call-api-call-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-call-api-overview.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-sign-in-call-api-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-call-api-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-sign-in-call-api-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-call-api-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-sign-in-call-api-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-use-certificate.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-node-use-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-role-based-access-control.md",
+      "redirect_url": "/entra/external-id/customers/how-to-web-app-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/index.yml",
+      "redirect_url": "/entra/external-id/customers/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations.md",
+      "redirect_url": "/entra/external-id/customers/microsoft-graph-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/overview-customers-ciam.md",
+      "redirect_url": "/entra/external-id/customers/overview-customers-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/overview-solutions-customers.md",
+      "redirect_url": "/entra/external-id/customers/overview-solutions-customers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/quickstart-get-started-guide.md",
+      "redirect_url": "/entra/external-id/customers/quickstart-get-started-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/quickstart-tenant-setup.md",
+      "redirect_url": "/entra/external-id/customers/quickstart-tenant-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/quickstart-trial-setup.md",
+      "redirect_url": "/entra/external-id/customers/quickstart-trial-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/reference-group-app-roles-support.md",
+      "redirect_url": "/entra/external-id/customers/reference-group-app-roles-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/reference-user-permissions.md",
+      "redirect_url": "/entra/external-id/customers/reference-user-permissions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-browserless-app-dotnet-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-browserless-app-dotnet-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-browserless-app-node-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-browserless-app-node-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-cli-app-node-sign-in-users.md",
+      "redirect_url": "/entra/external-id/customers/sample-cli-app-node-sign-in-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-daemon-dotnet-call-api.md",
+      "redirect_url": "/entra/external-id/customers/sample-daemon-dotnet-call-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-daemon-node-call-api.md",
+      "redirect_url": "/entra/external-id/customers/sample-daemon-node-call-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-desktop-wpf-dotnet-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-desktop-wpf-dotnet-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-app-angular-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-single-page-app-angular-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-app-react-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-single-page-app-react-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-app-vanillajs-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-single-page-app-vanillajs-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-web-app-dotnet-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-web-app-dotnet-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-web-app-node-sign-in-call-api.md",
+      "redirect_url": "/entra/external-id/customers/sample-web-app-node-sign-in-call-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-web-app-node-sign-in.md",
+      "redirect_url": "/entra/external-id/customers/sample-web-app-node-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/samples-ciam-all.md",
+      "redirect_url": "/entra/external-id/customers/samples-ciam-all",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/spa-quickstart-portal-angular-ciam.md",
+      "redirect_url": "/entra/external-id/customers/spa-quickstart-portal-angular-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/spa-quickstart-portal-react-ciam.md",
+      "redirect_url": "/entra/external-id/customers/spa-quickstart-portal-react-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/spa-quickstart-portal-vanilla-js-ciam.md",
+      "redirect_url": "/entra/external-id/customers/spa-quickstart-portal-vanilla-js-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/troubleshooting-known-issues.md",
+      "redirect_url": "/entra/external-id/customers/troubleshooting-known-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-cli-app-node-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-cli-app-node-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-cli-app-node-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-cli-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-cli-app-node-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-cli-app-node-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-daemon-dotnet-call-api-build-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-daemon-dotnet-call-api-build-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-daemon-dotnet-call-api-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-daemon-dotnet-call-api-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-daemon-node-call-api-build-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-daemon-node-call-api-build-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-app-maui-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-app-maui-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-app-maui-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-app-maui-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-app-maui-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-app-maui-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-maui-role-based-access-control.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-maui-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-wpf-dotnet-sign-in-build-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-wpf-dotnet-sign-in-build-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-mobile-app-maui-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-mobile-app-maui-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-mobile-app-maui-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-mobile-app-maui-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-mobile-app-maui-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-mobile-app-maui-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-mobile-maui-role-based-access-control.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-mobile-maui-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-protect-web-api-dotnet-core-build-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-test-api.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-protect-web-api-dotnet-core-test-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-configure-authentication.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-react-sign-in-configure-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-react-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-react-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-react-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-configure-authentication.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-vanillajs-configure-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-vanillajs-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-vanillajs-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-dotnet-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-dotnet-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-app.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-node-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-sign-out.md",
+      "redirect_url": "/entra/external-id/customers/tutorial-web-app-node-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/web-app-quickstart-portal-dotnet-ciam.md",
+      "redirect_url": "/entra/external-id/customers/web-app-quickstart-portal-dotnet-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/web-app-quickstart-portal-node-js-ciam.md",
+      "redirect_url": "/entra/external-id/customers/web-app-quickstart-portal-node-js-ciam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/whats-new-docs.md",
+      "redirect_url": "/entra/external-id/customers/whats-new-docs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/add-custom-domain.md",
       "redirect_url": "/entra/fundamentals/add-custom-domain",
       "redirect_document_id": false
@@ -7283,6 +7868,31 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/whats-new-docs.md",
       "redirect_url": "/entra/identity/enterprise-apps/whats-new-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-app-registrations-secrets-and-certs",
+      "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-all-app-registrations-secrets-and-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-all-enterprise-apps-secrets-and-certs",
+      "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-all-enterprise-apps-secrets-and-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets",
+      "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-apps-with-expiring-secrets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-secrets-beyond-required",
+      "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-apps-with-secrets-beyond-required",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-enterprise-apps-with-expiring-secrets",
+      "redirect_url": "/entra/identity/enterprise-apps/scripts/powershell-export-enterprise-apps-with-expiring-secrets",
       "redirect_document_id": false
     },
     {
@@ -17478,6 +18088,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/zylo-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/zylo-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/media/fortigate-ssl-vpn-tutorial/fortigate-deployment-guide-converted.md",
+      "redirect_url": "/entra/identity/saas-apps/media/fortigate-ssl-vpn-tutorial/fortigate-deployment-guide-converted",
       "redirect_document_id": false
     },
     {
