@@ -7,70 +7,38 @@ ms.service: load-testing
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog
-ms.date: 10/02/2022
+ms.date: 10/23/2023
 adobe-target: true
 ---
 
-# Load test a website by using an existing JMeter script in Azure Load Testing
+# Load test a website by using a JMeter script in Azure Load Testing
 
 Learn how to use an Apache JMeter script to load test a web application with Azure Load Testing from the Azure portal. Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale. Learn more about which [JMeter functionality that Azure Load Testing supports](./resource-jmeter-support.md).
 
 Use cases for creating a load test with an existing JMeter script include:
 
 - You want to reuse existing JMeter scripts to test your application.
-- You want to test multiple endpoints in a single load test.
-- You have a data-driven load test. For example, you want to [read CSV data in a load test](./how-to-read-csv-data.md).
-- You want to test endpoints that are not HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
-
-If you want to create a load test without a JMeter script, learn how you can [create a URL-based load test in the Azure portal](./quickstart-create-and-run-load-test.md).
+- You want to test endpoints that aren't HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
+- A JMeter test script (JMX file). If you don't have a test script, get started with the sample script by [cloning or downloading the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint).
 
-- [Clone or download the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint)
+## Create an Azure Load Testing resource
 
-## Create an Apache JMeter script
+First, you create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
-If you already have a script, you can skip to [Create a load test](#create-a-load-test). In this section, you'll create a sample JMeter test script to load test a single web endpoint.
+If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
 
-You can also use the [Apache JMeter test script recorder](https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html) to record the requests while navigating the application in a browser. Alternatively, [import cURL commands](https://jmeter.apache.org/usermanual/curl.html) to generate the requests in the JMeter test script.
+To create a load testing resource:
 
-To get started with a sample JMeter script:
-
-1. [Clone or download the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint)
-
-1. Open the *SampleTest.jmx* file in a text editor.
-
-    This script simulates a load test of five virtual users that simultaneously access a web endpoint, and takes 2 minutes to complete.
-
-1. Set the value of the `HTTPSampler.domain` node to the host name of your endpoint.
-
-    For example, if you want to test the endpoint `https://www.contoso.com/app/products`, the host name is `www.contoso.com`.
-
-    > [!CAUTION]
-    > Don't include `https` or `http` in the endpoint URL.
-
-    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="5":::
-
-1. Set the value of the `HTTPSampler.path` node to the path of your endpoint.
-
-    For example, the path for the URL `https://www.contoso.com/app/products` would be `/app/products`.
-
-    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="9":::
-
-1. Save and close the file.
-
-    > [!IMPORTANT]
-    > Don't include any Personally Identifiable Information (PII) in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard.
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
 ## Create a load test
 
-When you create a load test in Azure Load Testing, you specify a JMeter script to define the [load test plan](./how-to-create-manage-test.md#test-plan). An Azure Load Testing resource can contain multiple load tests.
-
-When you [create a quick test by using a URL](./quickstart-create-and-run-load-test.md), Azure Load Testing automatically generates the corresponding JMeter script.
+Next, you create a load test by uploading an Apache JMeter test script (JMX file). The test script contains the application requests to simulate traffic to your application endpoints.
 
 To create a load test using an existing JMeter script in the Azure portal:
 
@@ -97,11 +65,11 @@ You can update the test configuration at any time, for example to upload a diffe
 
 ## Run the load test
 
-When Azure Load Testing starts your load test, it will first deploy the JMeter script, and any other files onto test engine instances, and then start the load test.
+When Azure Load Testing starts your load test, it first deploys the JMeter script, and any other files onto test engine instances, and then starts the load test.
 
 If you selected **Run test after creation**, your load test will start automatically. To manually start the load test you created earlier, perform the following steps:
 
-1. Go to your Load Testing resource, select **Tests** from the left pane, and then select the test that you created earlier.
+1. Go to your load testing resource, select **Tests** from the left pane, and then select the test that you created earlier.
 
     :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/tests.png" alt-text="Screenshot that shows the list of load tests." :::
 
@@ -118,10 +86,30 @@ If you selected **Run test after creation**, your load test will start automatic
 
     Use the run statistics and error information to identify performance and stability issues for your application under load.
 
-## Next steps
+## Convert a URL-based load test to a JMeter-based load test
 
-You've created a cloud-based load test based on an existing JMeter test script. For Azure-hosted applications, you can also [monitor server-side metrics](./how-to-monitor-server-side-metrics.md) for further application insights.
+If you created a URL-based load test, you can convert the test into a JMeter-based load test. Azure Load Testing automatically generates a JMeter script when you create a URL-based load test.
 
-- Learn how to [export test results](./how-to-export-test-results.md).
-- Learn how to [parameterize a load test with environment variables](./how-to-parameterize-load-tests.md).
+To convert a URL-based load test to a JMeter-based load test:
+
+1. Go to your load testing resource, and select **Tests** to view the list of tests.
+
+    Notice the **Test type** column that indicates whether the test is URL-based or JMeter-based.
+
+1. Select the **ellipsis (...)** for a URL-based load test, and then select **Convert to JMeter script**.
+
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-convert-to-jmeter-script.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the menu option to convert the test to a JMeter-based test." :::
+
+    Alternately, select the test, and then select **Convert to JMeter script** on the test details page.
+
+1. On the **Convert to JMeter script** page, select **Convert** to convert the test to a JMeter-based test.
+
+    Notice that the test type has changed to *JMX* in the test list.
+
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the test type has changed to JMX for the converted test." :::
+
+## Related content
+
 - Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
+- Learn how to [monitor server-side metrics for your application](./how-to-monitor-server-side-metrics.md).
+- Learn how to [parameterize a load test with environment variables](./how-to-parameterize-load-tests.md).
