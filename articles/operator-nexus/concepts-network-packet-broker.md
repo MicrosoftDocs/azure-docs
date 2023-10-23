@@ -57,31 +57,31 @@ For example,
 NetwrokTAPRule “NWTAPRule1” is defined as follows
 
 NWTAPRule1
--	NWTAPRule1_M1 IPv4
-            - EncapsulationType: None
-	    - Set of Vlans
-	    - Set of InnerVlans
-	    - ProtocolType: UDP, TCP
-	    - Set of Source IPConditions
-	    - Set of Destination IPConditions
-	    - Set of Source Port Condition
-	    - Set of Destination Port Condition
+-  NWTAPRule1_M1 IPv4
+  1. EncapsulationType: None
+  2. Set of Vlans
+  3. Set of InnerVlans
+  4. ProtocolType: UDP, TCP
+  5. Set of Source IPConditions
+  6. Set of Destination IPConditions
+  7. Set of Source Port Condition
+  8. Set of Destination Port Condition
 -	NWTAPRule1_M2 IPv4
-            - EncapsulationType: None
-            - Set of Vlans
-            - Set of InnerVlans
+  1. EncapsulationType: None
+  2. Set of Vlans
+  3. Set of InnerVlans
 -	NWTAPRule1_M3 IPv4
-             - EncapsulationType: None
-             - Set of Vlans
-             - ProtocolType: UDP, TCP
-             - Set of Source IPConditions
-             - Set of Source Port Condition
+  1. EncapsulationType: None
+  2. Set of Vlans
+  3. ProtocolType: UDP, TCP
+  4. Set of Source IPConditions
+  5. Set of Source Port Condition
 -	NWTAPRule1_M4 IPv4
-             - EncapsulationType: GTPv1
-             - Set of Vlans
-             - Set of InnerVlans
-             - Set of Source IPConditions
-             - Set of Destination IPConditions
+  1. EncapsulationType: GTPv1
+  2. Set of Vlans
+  3. Set of InnerVlans
+  4. Set of Source IPConditions
+  5. Set of Destination IPConditions
 
 As explained, each Network TAP Rule "match configuration" (NWTAPRule1_M1) shall distinguish the matching for either ipv4 or ipv6 address-family packet.  And also, each match configuration (NWTAPRule1_M1) shall have set of match conditions and all match conditions operate with “Logical AND” condition while matching the packet contents. In case if any match condition doesn't qualify under match configuration, then device will skip that match configuration and goes to next match configuration. 
 
