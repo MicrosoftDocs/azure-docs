@@ -386,7 +386,10 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 ## January 2019
 
 ### Face Snapshot feature
-* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). More details in [How to Migrate your face data to a different Face subscription](how-to/migrate-face-data.md).
+* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get).
+
+> [!IMPORTANT]
+> As of June 30, 2023, the Face Snapshot API is retired.
 
 ## October 2018
 

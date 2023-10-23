@@ -310,8 +310,6 @@ items:
         href: how-to/find-similar-faces.md
       - name: Mitigate latency when using the Face service
         href: how-to/mitigate-latency.md
-      - name: Migrate face data
-        href: how-to/migrate-face-data.md
       - name: Use limited access tokens
         href: how-to/identity-access-token.md
       - name: Use customer-managed keys
