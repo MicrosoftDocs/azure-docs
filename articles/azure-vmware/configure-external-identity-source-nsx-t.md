@@ -1,82 +1,118 @@
 ---
-title: Configure external identity source for NSX-T Data Center
-description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T Data Center.
+Title: Configure external identity source for NSX-T Data Center
+Description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T Data Center.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/17/2022
+ms.date: 10/23//2023
 
 ---
-# Configure external identity source for NSX-T Data Center
+# Configure an external identity source for NSX-T Data Center
 
-In this article, you'll learn how to configure an external identity source for NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured with external LDAP directory service to add remote directory users or groups. The users can be assigned an NSX-T Data Center Role-based access control (RBAC) role like you've on-premises. 
+In this article, you will learn how to configure an external identity source for the NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured to use aexternal LDAP directory service to authenticate users, enabling a user to login using their Active Directory account credentials, or those from a 3rd party LDAP server. The account can be then be assigned an NSX-T Data Center Role, like you have with on-premises environments, to provide RBAC for each NSX-T user.
+
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/b6ca2c27-849a-47f6-ba48-829db3c033c0)
+
 
 ## Prerequisites 
 
-- A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. 
-- If you require Active Directory authentication with LDAPS:
-    - You'll need access to the Active Directory Domain Controller(s) with Administrator permissions. 
+•	A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. </br>
+•	A network path from your Active Directory server to the management network of Azure VMware solution where NSX-T is deployed. </br>
+•	Best practice: Two domain controllers located in Azure in the same region as the Azure VMware Solution SDDC. </br>
+•	Active Directory Domain Controller(s) with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
 
-    - Your Active Directory Domain Controller(s) must have LDAPS enabled with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
-    >[!Note] 
-    > Self-sign certificates are not recommended for production environments.   
+
+
+>[!Note] 
+> Self-sign certificates are not recommended for production environments.
     
-- Ensure your Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. For more information, see [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) .    
+•	An account with Administrator permissions</br>
+•	The Azure VMware Solution DNS zones and DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
+
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/ef4ec016-de11-42cd-9ca2-17e9cf4302fc)
+
+
 >[!NOTE] 
 > For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
-## Add Active Directory as LDAPS identity source 
+</br>
 
-1. Sign-in to NSX-T Manager and Navigate to System > Users and Roles > LDAP. 
+## Configure NSX-T to use Active Directory as LDAPS identity source 
 
-1. Select on the Add Identity Source. 
+1. Sign-in to NSX-T Manager and navigate to System, User Management, LDAP and click on “ADD IDENTITY SOURCE”
+   
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/4e56db47-c285-4dc9-8030-1ff2c06d7bcb)
 
-1. Enter a name for the identity source. For example, avslab.local. 
 
-1. Enter a domain name. The name must correspond to the domain name of your Active Directory server, if using Active Directory. For example, `avslab.local`. 
+2. Enter the Name, Domain Name (FQDN), the Type and base DN.  Optionally add a description.
+The base DN is the container where you user accounts are kept, it is the starting point that an LDAP server uses when searching for users for an authentication request.  For example CN=users,dc=azfta,dc=com.
+>[!NOTE] 
+> You can use more than one directory as an LDAP provider, i.e. with multiple AD domains when using AVS as a way to consolidate workloads.
+</br>
 
-1. Select the type as Active Directory over LDAP, if using Active Directory. 
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/88b4e719-8256-41a7-a730-3f90a28e9994)
 
-1. Enter the Base DN. Base DN is the starting point that an LDAP server uses when searching for user authentication within an Active Directory domain. For example: DC=avslab,DC=local. 
-   >[!NOTE]
-   > All of the user and group entries you intend to use to control access to NSX-T Data Center must be contained within the LDAP directory tree rooted at the specified Base DN. If the Base DN is set to something too specific, such as an Organizational Unit deeper in your LDAP tree, NSX may not be able to find the entries it needs to locate users and determine group membership. Selecting a broad Base DN is a best practice if you are unsure. 
 
-1. After filling in the required fields, you can select Set to configure LDAP servers. One LDAP server is supported for each domain.  
+3. Next,  click Set (!) as shown on the screenshot above, then click on "ADD LDAP SERVER" and fill in the following fields
 
-   | **Field** | **Value** |
-   | ----- | ----- |
-   |Hostname/IP | The hostname or IP address of your LDAP server.  For example, `dc.avslab.local.`| 
-   | LDAP Protocol | Select **LDAPS** (LDAP is unsecured). |
-   | Port | The default port is populated based on the selected protocol 636 for LDAPS and 389 for LDAP. If your LDAP server is running on a non-standard port, you can edit this text box to give the port number. |
-   | Connection Status | After filling in the mandatory text boxes, including the LDAP server information, select **Connection Status** to test the connection. |
-   | Use StartTLS | If selected, the LDAPv3 StartTLS extension is used to upgrade the connection to use encryption. To determine if you should use this option, consult your LDAP server administrator. This option can only be used if LDAP protocol is selected. |
-   | Certificate  | If you're using LDAPS or LDAP + StartTLS, this text box should contain the PEM-encoded X.509 certificate of the server. If you leave this text box blank and select the **Check Status** link, NSX connects to the LDAP server. NSX will then retrieve the LDAP server's certificate, and prompt you if you want to trust that certificate. If you've verified that the certificate is correct, select **OK**, and the certificate text box will be populated with the retrieved certificate. |
-   |Bind Identity | The format is `user@domainName`, or you can specify the distinguished name. For Active Directory, you can use either the userPrincipalName (user@domainName) or the distinguished name. For OpenLDAP, you must supply a distinguished name. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator if you aren't sure.|
-   |Password |Enter a password for the LDAP server. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator.|
-1. Select **Add**. 
-       :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true" lightbox="./media/nsxt/set-ldap-server.png":::
- 
-      
-1. Select **Save** to complete the changes.
-       :::image type="content" source="./media/nsxt/user-roles-ldap-server.png" alt-text="Screenshot showing user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-server.png":::
+   
+| Field                | Explanation|
+|----------------------|------------|
+| Hostname/IP          | This is the LDAP server’s FQDN or IP address. For example either azfta-dc01.azfta.com or 10.5.4.4|
+| LDAP Protocol        | Select LDAPS|
+| Port	Choose 636     | This is the default secure LDAP port.|
+| Enabled	           | Leave as ‘Yes’|
+| Use StartTLS	       | Only required if non-secured LDAP is being used.|
+| Bind Identity	       | Use your account with domain administrator permissions. For example  admin@contoso.com |
+| Password	           | Enter the password for the LDAP server, this is the password for the example admin@contoso.com account.|
+| Certificate          | Leave empty (see step 6)|
+
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/43c426b0-8fc0-41fe-9a43-672a42d79c5a)
+
+
+4. The screen will update, click Click ADD, then APPLY
+   
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/85fdaab1-2d1b-4bb3-ae0c-f40f34bc1f5e)
+
+
+5. Backon the User Managment screen, click "SAVE" to complete the changes.
+   
+7. To add a second domain controller, or another external identity provider, go back to step 1.
+
+>[!NOTE] 
+> Best practice is to have two domain controllers to act as LDAP servers.  You can also put the two domain controllers behind a load balancer.
+>
+
+</br>
+
 
 ## Assign other NSX-T Data Center roles to Active Directory identities 
 
 After adding an external identity, you can assign NSX-T Data Center Roles to Active Directory security groups based on your organization's security controls. 
 
-1. Sign in to NSX-T Manager and navigate to **System** > **Users and Roles**.
-       
-1. Select **Add** > **Role Assignment for LDAP**.  
+1. Sign in to NSX-T Manager and navigate to System > Users Management > User Role Assignment and click Add
 
-     1. Select a domain. 
-     1. Enter the first few characters of the user's name, sign in ID, or a group name to search the LDAP directory, then select a user or group from the list that appears.
-     1. Select a role. 
-     1. Select **Save**.
-    :::image type="content" source="./media/nsxt/user-roles-ldap-review.png" alt-text="Screenshot showing how to review different roles on the LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-review.png":::
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/0c65e464-c00f-47fa-a6b1-89f5c3a82ce7)
 
-1. Verify the permission assignment is displayed under **Users and Roles**.
-:::image type="content" source="./media/nsxt/user-roles-ldap-verify.png" alt-text="Screenshot showing how to verify user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-verify.png":::
+2. Select **Add** > **Role Assignment for LDAP**.  
 
-1. Users should now be able to sign in to NSX-T Manager using their Active Directory credentials. 
+    a.	Select the external identity provider-this will be the Identity provider selected in Step 3 in the previous section.  “NSX-T External Identity Provider”
+
+    b.	Enter the first few characters of the user's name, sign in ID, or a group name to search the LDAP directory, then select a user or group from the list that appears.
+
+    c.	Select a role, in this case we are assigning FTAdmin the role of CloudAdmin
+
+    d.	Select Save.
+    
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/675df94a-c7f8-4172-bc69-da24eb6248b3)
+
+
+
+3. Verify the permission assignment is displayed under **User Role Assignment**.
+   
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/22599225/781eb1e2-61c4-4d6b-b47a-3ceb85670798)
+
+
+5. Users should now be able to sign in to NSX-T Manager using their Active Directory credentials. 
 
 ## Next steps
 Now that you've configured the external source, you can also learn about:
