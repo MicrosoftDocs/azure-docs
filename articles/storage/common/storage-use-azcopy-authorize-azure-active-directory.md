@@ -1,6 +1,6 @@
 ---
-title: Authorize access to blobs with AzCopy & Azure Active Directory
-description: You can provide authorization credentials for AzCopy operations by using Azure Active Directory (Azure AD).
+title: Authorize access to blobs with AzCopy & Microsoft Entra ID
+description: You can provide authorization credentials for AzCopy operations by using Microsoft Entra ID.
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
@@ -9,13 +9,13 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ---
 
-# Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)
+# Authorize access to blobs with AzCopy and Microsoft Entra ID
 
-You can provide AzCopy with authorization credentials by using Azure AD. That way, you won't have to append a shared access signature (SAS) token to each command.
+You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you won't have to append a shared access signature (SAS) token to each command.
 
 Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal.
 
-A user identity is any user that has an identity in Azure AD. It's the easiest security principal to authorize. Managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises.
+A user identity is any user that has an identity in Microsoft Entra ID. It's the easiest security principal to authorize. Managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises.
 
 To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
 
@@ -127,9 +127,9 @@ This is a great option if you plan to use AzCopy inside of a script that runs wi
 
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
-To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+To learn more about creating service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
+To learn more about service principals in general, see [Application and service principal objects in Microsoft Entra ID](../../active-directory/develop/app-objects-and-service-principals.md)
 
 #### Authorize a service principal by using a client secret
 
@@ -142,7 +142,7 @@ export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Microsoft Entra ID > Properties > Directory ID** in the Azure portal.
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history.
@@ -165,7 +165,7 @@ export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Microsoft Entra ID > Properties > Directory ID** in the Azure portal.
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history.
@@ -195,7 +195,7 @@ If you receive an error, try including the tenant ID of the organization to whic
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Microsoft Entra ID > Properties > Directory ID** in the Azure portal.
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
@@ -244,7 +244,7 @@ Before you run a script, you have to sign in interactively at least one time so 
 
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
-To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+To learn more about creating service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### Authorize a service principal by using a client secret (azcopy login command)
 
@@ -268,7 +268,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Microsoft Entra ID > Properties > Directory ID** in the Azure portal.
 
 #### Authorize a service principal by using a certificate  (azcopy login command)
 
@@ -293,7 +293,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal --application-id application-id --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Microsoft Entra ID > Properties > Directory ID** in the Azure portal.
 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.

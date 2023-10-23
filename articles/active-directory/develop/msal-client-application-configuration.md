@@ -45,8 +45,8 @@ The authority you specify in your code needs to be consistent with the **Support
 The authority can be:
 
 - A Microsoft Entra cloud authority.
-- An Azure AD B2C authority. See [B2C specifics](msal-net-b2c-considerations.md).
-- An Active Directory Federation Services (AD FS) authority. See [AD FS support](msal-net-adfs-support.md).
+- An Azure AD B2C authority. See [B2C specifics](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/social-identities).
+- An Active Directory Federation Services (AD FS) authority. See [AD FS support](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/adfs-support).
 
 Microsoft Entra cloud authorities have two parts:
 
@@ -148,7 +148,7 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
 
 :::row:::
     :::column:::
-        - [Logging in MSAL.NET](msal-logging-dotnet.md)
+        - [Logging in MSAL.NET](/entra/msal/dotnet/advanced/exceptions/msal-logging)
         - [Logging in MSAL for Android](msal-logging-android.md)
         - [Logging in MSAL.js](msal-logging-js.md)
     :::column-end:::
@@ -161,4 +161,4 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
 
 ## Next steps
 
-Learn about [instantiating client applications by using MSAL.NET](msal-net-initializing-client-applications.md) and [instantiating client applications by using MSAL.js](msal-js-initializing-client-applications.md).
+Learn about [instantiating client applications by using MSAL.NET](/entra/msal/dotnet/getting-started/initializing-client-applications) and [instantiating client applications by using MSAL.js](msal-js-initializing-client-applications.md).

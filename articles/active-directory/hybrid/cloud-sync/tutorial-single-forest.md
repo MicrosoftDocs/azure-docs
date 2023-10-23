@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Integrate a single forest with a single Microsoft Entra tenant
 
-This tutorial walks you through creating a hybrid identity environment using Microsoft Entra Connect cloud sync.
+This tutorial walks you through creating a hybrid identity environment using Microsoft Entra Cloud Sync.
 
-![Diagram that shows the Microsoft Entra Connect cloud sync flow.](media/tutorial-single-forest/diagram-2.png)
+![Diagram that shows the Microsoft Entra Cloud Sync flow.](media/tutorial-single-forest/diagram-2.png)
 
 You can use the environment you create in this tutorial for testing or for getting more familiar with cloud sync.
 
@@ -50,7 +50,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 <a name='install-the-azure-ad-connect-provisioning-agent'></a>
 
-## Install the Microsoft Entra Connect provisioning agent
+## Install the Microsoft Entra Provisioning Agent
 
 If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1. To install the agent, follow these steps: 
 
@@ -62,7 +62,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 <a name='configure-azure-ad-connect-cloud-sync'></a>
 
-## Configure Microsoft Entra Connect cloud sync
+## Configure Microsoft Entra Cloud Sync
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -90,7 +90,7 @@ You'll now verify that the users that you had in your on-premises directory have
 
    ![Screenshot that shows the my apps portal with a signed in users.](media/tutorial-single-forest/verify-1.png)
 
-You've now successfully configured a hybrid identity environment using Microsoft Entra Connect cloud sync.
+You've now successfully configured a hybrid identity environment using Microsoft Entra Cloud Sync.
 
 ## Next steps 
 

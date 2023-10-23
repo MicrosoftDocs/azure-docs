@@ -151,7 +151,7 @@ If you're unsure which resource logs to initially enable, use the following reco
 | kube-controller-manager | Enable | Log Analytics workspace |
 | kube-scheduler          | Disable | |
 | cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
-| guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
+| guard                   | Enable if Microsoft Entra ID is enabled | Log Analytics workspace |
 | AllMetrics              | Disable since metrics are collected in Managed Prometheus | Log Analytics workspace |
 
 
@@ -330,5 +330,3 @@ Following are common scenarios for monitoring your application.
 ## See also
 
 - See [Monitoring AKS](../../aks/monitor-aks.md) for guidance on monitoring specific to Azure Kubernetes Service (AKS).
-
-

@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/19/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -69,7 +69,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 # Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-# Login with an Azure AD credential that has either storage account owner or contributor Azure role 
+# Login to Azure using a credential that has either storage account owner or contributor Azure role 
 # assignment. If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) 
 # you will need to specify that.
 # See https://learn.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
@@ -174,7 +174,7 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
 
-Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represents the storage account doesn't need to be synced to Azure AD.
+Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represents the storage account doesn't need to be synced to Microsoft Entra ID.
 
 ### Enable the feature on your storage account
 

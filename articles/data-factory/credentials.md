@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: abnarain 
 ms.custom: synapse
 ---
@@ -21,7 +21,7 @@ Users must have the Managed Identity Operator (Azure RBAC) role or a custom role
 
 ## Using credentials
 
-We are introducing Credentials which can contain user-assigned managed identities, service principals, and also lists the system-assigned managed identity that you can use in the linked services that support Azure Active Directory (Azure AD) authentication. It helps you consolidate and manage all your Azure AD-based credentials.  
+We are introducing Credentials which can contain user-assigned managed identities, service principals, and also lists the system-assigned managed identity that you can use in the linked services that support Microsoft Entra authentication. It helps you consolidate and manage all your Microsoft Entra ID-based credentials.  
 
 Below are the generic steps for using a **user-assigned managed identity** in the linked services for authentication. 
 

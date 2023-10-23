@@ -24,7 +24,7 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
 
 :::row:::
     :::column:::
-        - [Logging in MSAL.NET](../../msal-logging-dotnet.md)
+        - [Logging in MSAL.NET](/entra/msal/dotnet/advanced/exceptions/msal-logging)
         - [Logging in MSAL for Android](../../msal-logging-android.md)
         - [Logging in MSAL.js](../../msal-logging-js.md)
     :::column-end:::

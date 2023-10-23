@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/15/2023
+ms.date: 10/11/2023
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -82,9 +82,9 @@ To give the account the required permissions to register Microsoft Entra apps:
 
 ## Prepare VMware
 
-On vCenter Server, check that your account has permissions to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these permissions when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
+On vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
-Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have permissions enabled in VMware for VM guest operations.
+Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) enabled in VMware for VM guest operations.
 
 ### Create an account to access vCenter Server
 
