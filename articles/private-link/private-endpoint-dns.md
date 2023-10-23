@@ -92,12 +92,12 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) | portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
-| Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.com | purview.azure.com |
-| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
-| Azure Digital Twins (Microsoft.DigitalTwins) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
+| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
+| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
+| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 | Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
-| Azure Arc (Microsoft.HybridCompute) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.dp.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> dp.kubernetesconfiguration.azure.com |
-| Azure Media Services (Microsoft.Media) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
+| Azure Arc (Microsoft.HybridCompute/privateLinkScopes) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.dp.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> dp.kubernetesconfiguration.azure.com |
+| Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
 | Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
