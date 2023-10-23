@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, refere
 
 # Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
-As a portable, event-driven runtime, [Dapr](https://dapr.io/) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With its sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps solve problems around services:
+[Dapr](./dapr-overview.md) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With Dapr's sidecar architecture, you can keep your code platform agnostic while tackling challenges around building microservices, like:
 - Calling other services reliably and securely
-- Building event-driven apps with pub-sub
+- Building event-driven apps with pub/sub
 - Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
 
 [Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
