@@ -336,7 +336,7 @@ items:
       items:
       - name: Best practices for enrolling users
         href: enrollment-overview.md
-      - name: Build a React app to enroll users
+      - name: Build a React Native app to enroll users
         href: Tutorials/build-enrollment-app.md
   - name: Reference
     items:

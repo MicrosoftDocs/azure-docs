@@ -1,5 +1,5 @@
 ---
-title: Build a React app to add users to a Face service
+title: Build a React Native app to add users to a Face service
 titleSuffix: Azure AI services
 description: Learn how to set up your development environment and deploy a Face app to get consent from customers.
 author: PatrickFarley
@@ -12,7 +12,7 @@ ms.date: 11/17/2020
 ms.author: pafarley
 ---
 
-# Build a React app to add users to a Face service
+# Build a React Native app to add users to a Face service
 
 This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identification, attendance tracking, or personalization kiosk, based on their face data.
 
