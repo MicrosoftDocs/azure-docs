@@ -96,7 +96,7 @@ ms.author: wchi
 
 ### [SpringBoot](#tab/spring)
 
-Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=passwordless%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Managed identity support for Cosmos DB is only available for Spring Cloud Azure version 4.0 and above. For more information, refer to [Spring Cloud Azure - Reference Documentation](https://microsoft.github.io/spring-cloud-azure/current/reference/html/index.html#authentication).
+Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=passwordless%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Managed identity support for Cosmos DB is only available for Spring Cloud Azure version 4.0 and above. For more information, refer to [Spring Cloud Azure - Reference Documentation](https://microsoft.github.io/spring-cloud-azure/current/reference/html/index.html#authentication).
  
 ### [Python](#tab/python)
 1. Install dependencies
