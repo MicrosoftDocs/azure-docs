@@ -495,7 +495,7 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
 
-    :::image type="content" source="media/storage-account-create/azure-developer-cli-azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-up.png" alt-text="A screenshot showing the output of the azd up command.":::
 
 1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
 
