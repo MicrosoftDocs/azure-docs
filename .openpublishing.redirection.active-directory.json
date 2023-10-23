@@ -6982,267 +6982,267 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md",
-      "redirect_url": "/entra/identity/managed-identities/how-manage-user-assigned-managed-identities",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/how-managed-identities-work-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-managed-identities-work-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-assign-app-role-managed-identity-cli",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-assign-app-role-managed-identity-powershell",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-assign-managed-identity-via-azure-policy",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-managed-identity-regional-move.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-managed-identity-regional-move",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-use-vm-sdk",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-use-vm-sdk",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-use-vm-sign-in",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-use-vm-sign-in",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-use-vm-token",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-use-vm-token",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-view-associated-resources-for-an-identity.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-view-associated-resources-for-an-identity",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-view-associated-resources-for-an-identity",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-activity.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-view-managed-identity-activity",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-cli.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-view-managed-identity-service-principal-cli",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-cli",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-view-managed-identity-service-principal-portal",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-powershell.md",
-      "redirect_url": "/entra/identity/managed-identities/how-to-view-managed-identity-service-principal-powershell",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-powershell",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/howto-assign-access-cli.md",
-      "redirect_url": "/entra/identity/managed-identities/howto-assign-access-cli",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/howto-assign-access-cli",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/howto-assign-access-portal.md",
-      "redirect_url": "/entra/identity/managed-identities/howto-assign-access-portal",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/howto-assign-access-portal",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md",
-      "redirect_url": "/entra/identity/managed-identities/howto-assign-access-powershell",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/howto-assign-access-powershell",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/index.yml",
-      "redirect_url": "/entra/identity/managed-identities/index",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/known-issues.md",
-      "redirect_url": "/entra/identity/managed-identities/known-issues",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/known-issues",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/managed-identities-faq.md",
-      "redirect_url": "/entra/identity/managed-identities/managed-identities-faq",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/managed-identities-faq",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/managed-identities-status.md",
-      "redirect_url": "/entra/identity/managed-identities/managed-identities-status",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/managed-identities-status",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md",
-      "redirect_url": "/entra/identity/managed-identities/managed-identity-best-practice-recommendations",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/msi-tutorial-linux-vm-access-arm.md",
-      "redirect_url": "/entra/identity/managed-identities/msi-tutorial-linux-vm-access-arm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/msi-tutorial-linux-vm-access-arm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/overview-for-developers.md",
-      "redirect_url": "/entra/identity/managed-identities/overview-for-developers",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/overview-for-developers",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/overview.md",
-      "redirect_url": "/entra/identity/managed-identities/overview",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-cli-windows-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-cli-windows-vmss",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vmss",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-portal-windows-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-portal-windows-vmss",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vmss",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-powershell-windows-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vmss.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-powershell-windows-vmss",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vmss",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-rest-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-rest-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-rest-vmss.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-rest-vmss",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-rest-vmss",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-sdk-windows-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-sdk-windows-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-template-windows-vm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md",
-      "redirect_url": "/entra/identity/managed-identities/qs-configure-template-windows-vmss",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vmss",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/services-id-authentication-support.md",
-      "redirect_url": "/entra/identity/managed-identities/services-id-authentication-support",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/services-id-authentication-support",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-arm.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-arm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-arm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-cosmos-db.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-cosmos-db",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-cosmos-db",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-datalake.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-datalake",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-datalake",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-nonaad",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-access-key.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-storage-access-key",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-storage-access-key",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-storage-sas",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-linux-vm-access-storage",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-linux-vm-access-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-vm-managed-identities-cosmos",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-vm-windows-access-storage",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-vm-windows-access-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-arm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-cosmos-db.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-cosmos-db",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-cosmos-db",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-datalake",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-datalake",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-nonaad",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-sql",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-sql",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage-sas.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-access-storage-sas",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-storage-sas",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-ua-arm.md",
-      "redirect_url": "/entra/identity/managed-identities/tutorial-windows-vm-ua-arm",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-ua-arm",
       "redirect_document_id": false
     },
     {
@@ -8132,7 +8132,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/active-directory-sso-for-doubleyou-tutorial.md",
-      "redirect_url": "/entra/identity/saas-apps/active-directory-sso-for-doubleyou-tutorial",
+      "redirect_url": "/entra/identity/saas-apps/entra-sso-for-doubleyou-tutorial",
       "redirect_document_id": false
     },
     {
@@ -17177,444 +17177,444 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-cmmc-level-1-controls.md",
-      "redirect_url": "/entra/identity/standards/configure-cmmc-level-1-controls",
+      "redirect_url": "/entra/standards/configure-cmmc-level-1-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-cmmc-level-2-access-control.md",
-      "redirect_url": "/entra/identity/standards/configure-cmmc-level-2-access-control",
+      "redirect_url": "/entra/standards/configure-cmmc-level-2-access-control",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-cmmc-level-2-additional-controls.md",
-      "redirect_url": "/entra/identity/standards/configure-cmmc-level-2-additional-controls",
+      "redirect_url": "/entra/standards/configure-cmmc-level-2-additional-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-cmmc-level-2-identification-and-authentication.md",
-      "redirect_url": "/entra/identity/standards/configure-cmmc-level-2-identification-and-authentication",
+      "redirect_url": "/entra/standards/configure-cmmc-level-2-identification-and-authentication",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-for-cmmc-compliance.md",
-      "redirect_url": "/entra/identity/standards/configure-for-cmmc-compliance",
+      "redirect_url": "/entra/standards/configure-for-cmmc-compliance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/configure-for-fedramp-high-impact.md",
-      "redirect_url": "/entra/identity/standards/configure-for-fedramp-high-impact",
+      "redirect_url": "/entra/standards/configure-for-fedramp-high-impact",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/fedramp-access-controls.md",
-      "redirect_url": "/entra/identity/standards/fedramp-access-controls",
+      "redirect_url": "/entra/standards/fedramp-access-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/fedramp-identification-and-authentication-controls.md",
-      "redirect_url": "/entra/identity/standards/fedramp-identification-and-authentication-controls",
+      "redirect_url": "/entra/standards/fedramp-identification-and-authentication-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/fedramp-other-controls.md",
-      "redirect_url": "/entra/identity/standards/fedramp-other-controls",
+      "redirect_url": "/entra/standards/fedramp-other-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/hipaa-access-controls.md",
-      "redirect_url": "/entra/identity/standards/hipaa-access-controls",
+      "redirect_url": "/entra/standards/hipaa-access-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/hipaa-audit-controls.md",
-      "redirect_url": "/entra/identity/standards/hipaa-audit-controls",
+      "redirect_url": "/entra/standards/hipaa-audit-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/hipaa-configure-for-compliance.md",
-      "redirect_url": "/entra/identity/standards/hipaa-configure-for-compliance",
+      "redirect_url": "/entra/standards/hipaa-configure-for-compliance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/hipaa-other-controls.md",
-      "redirect_url": "/entra/identity/standards/hipaa-other-controls",
+      "redirect_url": "/entra/standards/hipaa-other-controls",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/index.yml",
-      "redirect_url": "/entra/identity/standards/index",
+      "redirect_url": "/entra/standards/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/memo-22-09-authorization.md",
-      "redirect_url": "/entra/identity/standards/memo-22-09-authorization",
+      "redirect_url": "/entra/standards/memo-22-09-authorization",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/memo-22-09-enterprise-wide-identity-management-system.md",
-      "redirect_url": "/entra/identity/standards/memo-22-09-enterprise-wide-identity-management-system",
+      "redirect_url": "/entra/standards/memo-22-09-enterprise-wide-identity-management-system",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/memo-22-09-meet-identity-requirements.md",
-      "redirect_url": "/entra/identity/standards/memo-22-09-meet-identity-requirements",
+      "redirect_url": "/entra/standards/memo-22-09-meet-identity-requirements",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/memo-22-09-multi-factor-authentication.md",
-      "redirect_url": "/entra/identity/standards/memo-22-09-multi-factor-authentication",
+      "redirect_url": "/entra/standards/memo-22-09-multi-factor-authentication",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/memo-22-09-other-areas-zero-trust.md",
-      "redirect_url": "/entra/identity/standards/memo-22-09-other-areas-zero-trust",
+      "redirect_url": "/entra/standards/memo-22-09-other-areas-zero-trust",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-about-authenticator-assurance-levels.md",
-      "redirect_url": "/entra/identity/standards/nist-about-authenticator-assurance-levels",
+      "redirect_url": "/entra/standards/nist-about-authenticator-assurance-levels",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-authentication-basics.md",
-      "redirect_url": "/entra/identity/standards/nist-authentication-basics",
+      "redirect_url": "/entra/standards/nist-authentication-basics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-authenticator-assurance-level-1.md",
-      "redirect_url": "/entra/identity/standards/nist-authenticator-assurance-level-1",
+      "redirect_url": "/entra/standards/nist-authenticator-assurance-level-1",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-authenticator-assurance-level-2.md",
-      "redirect_url": "/entra/identity/standards/nist-authenticator-assurance-level-2",
+      "redirect_url": "/entra/standards/nist-authenticator-assurance-level-2",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-authenticator-assurance-level-3.md",
-      "redirect_url": "/entra/identity/standards/nist-authenticator-assurance-level-3",
+      "redirect_url": "/entra/standards/nist-authenticator-assurance-level-3",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-authenticator-types.md",
-      "redirect_url": "/entra/identity/standards/nist-authenticator-types",
+      "redirect_url": "/entra/standards/nist-authenticator-types",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/nist-overview.md",
-      "redirect_url": "/entra/identity/standards/nist-overview",
+      "redirect_url": "/entra/standards/nist-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-dss-guidance.md",
-      "redirect_url": "/entra/identity/standards/pci-dss-guidance",
+      "redirect_url": "/entra/standards/pci-dss-guidance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-dss-mfa.md",
-      "redirect_url": "/entra/identity/standards/pci-dss-mfa",
+      "redirect_url": "/entra/standards/pci-dss-mfa",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-1.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-1",
+      "redirect_url": "/entra/standards/pci-requirement-1",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-10.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-10",
+      "redirect_url": "/entra/standards/pci-requirement-10",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-11.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-11",
+      "redirect_url": "/entra/standards/pci-requirement-11",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-2.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-2",
+      "redirect_url": "/entra/standards/pci-requirement-2",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-5.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-5",
+      "redirect_url": "/entra/standards/pci-requirement-5",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-6.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-6",
+      "redirect_url": "/entra/standards/pci-requirement-6",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-7.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-7",
+      "redirect_url": "/entra/standards/pci-requirement-7",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/pci-requirement-8.md",
-      "redirect_url": "/entra/identity/standards/pci-requirement-8",
+      "redirect_url": "/entra/standards/pci-requirement-8",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/standards/standards-overview.md",
-      "redirect_url": "/entra/identity/standards/standards-overview",
+      "redirect_url": "/entra/standards/standards-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/admin-api.md",
-      "redirect_url": "/entra/identity/verified-id/admin-api",
+      "redirect_url": "/entra/verified-id/admin-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/credential-design.md",
-      "redirect_url": "/entra/identity/verified-id/credential-design",
+      "redirect_url": "/entra/verified-id/credential-design",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md",
-      "redirect_url": "/entra/identity/verified-id/decentralized-identifier-overview",
+      "redirect_url": "/entra/verified-id/decentralized-identifier-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/error-codes.md",
-      "redirect_url": "/entra/identity/verified-id/error-codes",
+      "redirect_url": "/entra/verified-id/error-codes",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/get-started-request-api.md",
-      "redirect_url": "/entra/identity/verified-id/get-started-request-api",
+      "redirect_url": "/entra/verified-id/get-started-request-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-create-a-free-developer-account.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-create-a-free-developer-account",
+      "redirect_url": "/entra/verified-id/how-to-create-a-free-developer-account",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-dnsbind.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-dnsbind",
+      "redirect_url": "/entra/verified-id/how-to-dnsbind",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-issuer-revoke.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-issuer-revoke",
+      "redirect_url": "/entra/verified-id/how-to-issuer-revoke",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-opt-out.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-opt-out",
+      "redirect_url": "/entra/verified-id/how-to-opt-out",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-register-didwebsite.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-register-didwebsite",
+      "redirect_url": "/entra/verified-id/how-to-register-didwebsite",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart-idtoken.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart-idtoken",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart-idtoken",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart-multiple.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart-multiple",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart-multiple",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart-presentation.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart-presentation",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart-presentation",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart-selfissued.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart-selfissued",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart-selfissued",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart-verifiedemployee.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart-verifiedemployee",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart-verifiedemployee",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-to-use-quickstart.md",
-      "redirect_url": "/entra/identity/verified-id/how-to-use-quickstart",
+      "redirect_url": "/entra/verified-id/how-to-use-quickstart",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/how-use-vcnetwork.md",
-      "redirect_url": "/entra/identity/verified-id/how-use-vcnetwork",
+      "redirect_url": "/entra/verified-id/how-use-vcnetwork",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/howto-verifiable-credentials-partner-au10tix.md",
-      "redirect_url": "/entra/identity/verified-id/howto-verifiable-credentials-partner-au10tix",
+      "redirect_url": "/entra/verified-id/howto-verifiable-credentials-partner-au10tix",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/howto-verifiable-credentials-partner-lexisnexis.md",
-      "redirect_url": "/entra/identity/verified-id/howto-verifiable-credentials-partner-lexisnexis",
+      "redirect_url": "/entra/verified-id/howto-verifiable-credentials-partner-lexisnexis",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/idemia.md",
-      "redirect_url": "/entra/identity/verified-id/idemia",
+      "redirect_url": "/entra/verified-id/idemia",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/index.yml",
-      "redirect_url": "/entra/identity/verified-id/index",
+      "redirect_url": "/entra/verified-id/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/introduction-to-verifiable-credentials-architecture.md",
-      "redirect_url": "/entra/identity/verified-id/introduction-to-verifiable-credentials-architecture",
+      "redirect_url": "/entra/verified-id/introduction-to-verifiable-credentials-architecture",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/issuance-request-api.md",
-      "redirect_url": "/entra/identity/verified-id/issuance-request-api",
+      "redirect_url": "/entra/verified-id/issuance-request-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/issuer-openid.md",
-      "redirect_url": "/entra/identity/verified-id/issuer-openid",
+      "redirect_url": "/entra/verified-id/issuer-openid",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/linkedin-employment-verification.md",
-      "redirect_url": "/entra/identity/verified-id/linkedin-employment-verification",
+      "redirect_url": "/entra/verified-id/linkedin-employment-verification",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/partner-gallery.md",
-      "redirect_url": "/entra/identity/verified-id/partner-gallery",
+      "redirect_url": "/entra/verified-id/partner-gallery",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/partner-vu.md",
-      "redirect_url": "/entra/identity/verified-id/partner-vu",
+      "redirect_url": "/entra/verified-id/partner-vu",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/plan-issuance-solution.md",
-      "redirect_url": "/entra/identity/verified-id/plan-issuance-solution",
+      "redirect_url": "/entra/verified-id/plan-issuance-solution",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/plan-verification-solution.md",
-      "redirect_url": "/entra/identity/verified-id/plan-verification-solution",
+      "redirect_url": "/entra/verified-id/plan-verification-solution",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/presentation-request-api.md",
-      "redirect_url": "/entra/identity/verified-id/presentation-request-api",
+      "redirect_url": "/entra/verified-id/presentation-request-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/remote-onboarding-new-employees-id-verification.md",
-      "redirect_url": "/entra/identity/verified-id/remote-onboarding-new-employees-id-verification",
+      "redirect_url": "/entra/verified-id/remote-onboarding-new-employees-id-verification",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/rules-and-display-definitions-model.md",
-      "redirect_url": "/entra/identity/verified-id/rules-and-display-definitions-model",
+      "redirect_url": "/entra/verified-id/rules-and-display-definitions-model",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/services-partners.md",
-      "redirect_url": "/entra/identity/verified-id/services-partners",
+      "redirect_url": "/entra/verified-id/services-partners",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/using-authenticator.md",
-      "redirect_url": "/entra/identity/verified-id/using-authenticator",
+      "redirect_url": "/entra/verified-id/using-authenticator",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/using-wallet-library.md",
-      "redirect_url": "/entra/identity/verified-id/using-wallet-library",
+      "redirect_url": "/entra/verified-id/using-wallet-library",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/vc-network-api.md",
-      "redirect_url": "/entra/identity/verified-id/vc-network-api",
+      "redirect_url": "/entra/verified-id/vc-network-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-issuer",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-configure-issuer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant-quick.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-tenant-quick",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-configure-tenant-quick",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-tenant",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-configure-tenant",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-configure-verifier.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-configure-verifier",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-configure-verifier",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-faq.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-faq",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-faq",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/verifiable-credentials-standards.md",
-      "redirect_url": "/entra/identity/verified-id/verifiable-credentials-standards",
+      "redirect_url": "/entra/verified-id/verifiable-credentials-standards",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/verifiable-credentials/whats-new.md",
-      "redirect_url": "/entra/identity/verified-id/whats-new",
+      "redirect_url": "/entra/verified-id/whats-new",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/index.yml",
-      "redirect_url": "/entra/identity/workload-id/index",
+      "redirect_url": "/entra/workload-id/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identities-faqs.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identities-faqs",
+      "redirect_url": "/entra/workload-id/workload-identities-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identities-overview.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identities-overview",
+      "redirect_url": "/entra/workload-id/workload-identities-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-block-using-azure-policy.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identity-federation-block-using-azure-policy",
+      "redirect_url": "/entra/workload-id/workload-identity-federation-block-using-azure-policy",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-considerations.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identity-federation-considerations",
+      "redirect_url": "/entra/workload-id/workload-identity-federation-considerations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity",
+      "redirect_url": "/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identity-federation-create-trust",
+      "redirect_url": "/entra/workload-id/workload-identity-federation-create-trust",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation.md",
-      "redirect_url": "/entra/identity/workload-id/workload-identity-federation",
+      "redirect_url": "/entra/workload-id/workload-identity-federation",
       "redirect_document_id": false
-    },
+    },  
     {
       "source_path_from_root": "/articles/active-directory-domain-services/administration-concepts.md",
       "redirect_url": "/entra/identity/domain-services/administration-concepts",
@@ -17706,7 +17706,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/faqs",
+      "source_path_from_root": "/articles/active-directory-domain-services/faqs.yml",
       "redirect_url": "/entra/identity/domain-services/faqs",
       "redirect_document_id": false
     },
@@ -17726,7 +17726,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/index",
+      "source_path_from_root": "/articles/active-directory-domain-services/index.yml",
       "redirect_url": "/entra/identity/domain-services/index",
       "redirect_document_id": false
     },
@@ -18081,7 +18081,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/index",
+      "source_path_from_root": "/articles/global-secure-access/index.yml",
       "redirect_url": "/entra/global-secure-access/index",
       "redirect_document_id": false
     },
@@ -18101,7 +18101,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/resource-faq",
+      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
       "redirect_url": "/entra/global-secure-access/resource-faq",
       "redirect_document_id": false
     },
@@ -18161,7 +18161,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq",
+      "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false
     },
@@ -18986,7 +18986,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/user-help/index",
+      "source_path": "articles/active-directory/user-help/index.yml",
       "redirect_url": "https://support.microsoft.com/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
       "redirect_document_id": false
     },
@@ -20416,7 +20416,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq",
+      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-faq",
       "redirect_document_id": true
     },
@@ -23076,7 +23076,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/b2b/index",
+      "source_path_from_root": "/articles/active-directory/b2b/index.yml",
       "redirect_url": "/azure/active-directory/external-identities/index",
       "redirect_document_id": true
     },
@@ -23731,7 +23731,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-provisioning/index",
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/index.yml",
       "redirect_url": "/azure/active-directory/cloud-sync/index",
       "redirect_document_id": false
     },
@@ -25116,7 +25116,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq",
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.yml",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
       "redirect_document_id": false
     },
@@ -30456,7 +30456,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-sync/index",
+      "source_path_from_root": "/articles/active-directory/cloud-sync/index.yml",
       "redirect_url": "/azure/active-directory/hybrid/cloud-sync/",
       "redirect_document_id": false
     },
@@ -30471,7 +30471,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq",
+      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq.yml",
       "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq",
       "redirect_document_id": false
     },
@@ -30851,7 +30851,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq",
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq.yml",
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq",
       "redirect_document_id": false
     },
@@ -30896,7 +30896,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq",
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq.yml",
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq",
       "redirect_document_id": false
     },
@@ -31191,7 +31191,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq",
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq.yml",
       "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq",
       "redirect_document_id": false
     },
@@ -31206,7 +31206,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq",
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq.yml",
       "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq",
       "redirect_document_id": false
     },
@@ -31571,7 +31571,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq",
+      "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/passwords-faq",
       "redirect_document_id": false
     },
@@ -31616,7 +31616,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq",
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq.yml",
       "redirect_url": "/azure/active-directory/fundamentals/faq",
       "redirect_document_id": false
     },
