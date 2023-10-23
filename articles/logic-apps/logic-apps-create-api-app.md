@@ -188,7 +188,7 @@ accepted the request payload (data input), and is now processing.
    * *Optional*: A `retry-after` header that specifies the number of seconds 
    that the engine should wait before checking the `location` URL for job status. 
 
-     By default, the engine will poll the `location` URL after one second. To specify a different interval, 
+     By default, the engine polls the `location` URL after one second. To specify a different interval, 
      include the `retry-after` header and the number of seconds until the next poll.
 
 2. After the specified time passes, the Azure Logic Apps engine polls 
