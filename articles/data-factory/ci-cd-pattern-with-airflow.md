@@ -60,9 +60,9 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 ### Prerequisites: 
 
-1. **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory in the region where the managed airflow preview is supported. 
+- **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory in the region where the managed airflow preview is supported. 
 
-2. **Access to GitHub Repository:** [https://github.com/join](https://github.com/join) 
+- **Access to GitHub Repository:** [https://github.com/join](https://github.com/join) 
 
 ### Advantages: 
 
@@ -94,9 +94,9 @@ Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DE
 
 ### Prerequisites: 
 
-1. GitHub Repository: [https://github.com/join](https://github.com/join) 
+- GitHub Repository: [https://github.com/join](https://github.com/join) 
 
-2. Ensure that at least a single branch of your code repository is synchronized with the Managed Airflow to see the code changes on the service. 
+- Ensure that at least a single branch of your code repository is synchronized with the Managed Airflow to see the code changes on the service. 
 
 ### Advantages: 
 
@@ -104,11 +104,11 @@ Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DE
 
 ### Workflow: 
 
-1. **Local Environment Setup** 
+- **Local Environment Setup** 
 
 Begin by setting up a local development environment for Apache Airflow on your development machine. In this environment, you can develop and test your Airflow code, including DAGs and tasks. This approach allows you to develop pipelines without relying on direct access to Azure resources.
 
-2. **Leverage Git-sync feature:** 
+- **Leverage Git-sync feature:** 
 
 Synchronize your GitHub repository’s branch with Azure Managed Airflow Service. 
 
@@ -254,7 +254,7 @@ def test_requires_approved_tag(dagbag):
 
 #### For information: 
 
-1. [https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html) 
+- [https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html) 
 
-2. https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html#unit-tests 
+- https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html#unit-tests 
 
