@@ -75,7 +75,7 @@ To connect to the cloud from Azure IoT Operations Preview, you have the followin
 
 The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
-* [Azure Event Grid](../connect-to-cloud/howto-use-mqtt-bridge-event-grid.md)
+* [Azure Event Grid](../connect-to-cloud/howto-configure-mqtt-bridge.md)
 * [Azure Messaging Services](../connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md)
 
 The Data Processor pipeline destinations let you connect to cloud services such as:

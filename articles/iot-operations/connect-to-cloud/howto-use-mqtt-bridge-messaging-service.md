@@ -17,7 +17,7 @@ ms.date: 10/18/2023
 
 ## Prerequisites
 
-- This exercise builds on the previous and assumes you've completed the steps from **[Deploy workloads](/docs/mqtt-broker/quickstart/deploy-workloads)**.
+- This exercise assumes you've completed the steps from *deploy workloads*.
 - You'll also need an Azure subscription to deploy cloud resources for testing.
 
 ## Deploy cloud resources
