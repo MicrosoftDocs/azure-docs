@@ -225,7 +225,7 @@ Get the path to the secret you created in the key vault.
     | **Folder path** | Select the folder that holds your IaC templates.|
     | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
-    :::image type="content" source="media/how-to-configure-catalog-personal/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-devops-catalog-pane.png":::
+    :::image type="content" source="media/how-to-configure-catalog/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-devops-catalog-pane.png":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
@@ -365,7 +365,7 @@ An ignored environment definition error occurs if you add two or more environmen
 
 An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](../configure-environment-definition.md#add-an-environment-definition).
+- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
