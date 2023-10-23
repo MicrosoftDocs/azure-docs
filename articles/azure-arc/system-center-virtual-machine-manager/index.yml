@@ -38,7 +38,7 @@ landingContent:
           - text: Create a VM on SCVMM using Azure Arc
             url: create-virtual-machine.md
 
-  - title: Use Azure Management services for SCVMM VMs
+  - title: Use Azure to manage SCVMM VMs
     linkLists:
       - linkListType: how-to-guide
         links:  
