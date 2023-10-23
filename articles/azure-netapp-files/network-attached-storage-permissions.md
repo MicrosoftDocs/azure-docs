@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 10/23/2023
 ms.author: anfdocs
 ---
 
@@ -206,3 +206,167 @@ With directories, setgid can be used as a way to inherit the owner group for fil
 >Capital “S” means that the executable bit was not set, such as if the permissions on the directory are “6” or “rw.”
 
 For example:
+
+```bash
+# chmod g+s testdir
+# ls -la | grep testdir
+drwxrwSrw-  2 user1 group1     4096 Oct 11 16:34 testdir
+# who
+root     ttyS0        2023-10-11 16:28
+# touch testdir/file
+# ls -la testdir
+total 8
+drwxrwSrw- 2 user1 group1 4096 Oct 11 17:09 .
+drwxrwxrwx 5 root  root   4096 Oct 11 16:37 ..
+-rw-r--r-- 1 root  group1    0 Oct 11 17:09 file
+```
+
+For files, setgid behaves similarly to setuid--executables will run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they are not in the group, they will not get access.For instance, if an administrator wants to limit which users could run the mkdir command on a client, they can use setgid.
+
+Normally, /bin/mkdir has 755 permissions with root ownership. This means anyone can run `mkdir` on a client. 
+
+```bash
+# ls -la /bin/mkdir 
+-rwxr-xr-x 1 root root 88408 Sep  5  2019 /bin/mkdir
+```
+
+To modify the behavior to limit which users can run the mkdir command, change the group that owns the mkdir application, change the permissions for /bin/mkdir to 750, and then add the setgid bit to `mkdir`.
+
+```bash
+# chgrp group1 /bin/mkdir
+# chmod g+s /bin/mkdir
+# chmod 750 /bin/mkdir
+# ls -la /bin/mkdir
+-rwxr-s--- 1 root group1 88408 Sep  5  2019 /bin/mkdir
+```
+As a result, the application would run with permissions for group1. If the user is not a member of group1, they would not get access to run mkdir.
+
+User1 is a member of group1, but user2 is not:
+
+```bash
+# id user1
+uid=1001(user1) gid=1001(group1) groups=1001(group1)
+# id user2
+uid=1002(user2) gid=2002(group2) groups=2002(group2)
+```
+After this change, user1 can run `mkdir`, but user2 cannot since user2 is not in group1.
+
+```bash
+# su user1
+$ mkdir test
+$ ls -la | grep test
+drwxr-xr-x  2 user1 group1     4096 Oct 11 18:48 test
+
+# su user2
+$ mkdir user2-test
+bash: /usr/bin/mkdir: Permission denied
+```
+#### Sticky bit 
+
+The sticky bit is used for directories only and, when used, controls which files can be modified in that directory regardless of their mode bit permissions. When a sticky bit is set, only file owners (and root) can modify files, even if file permissions are shown as “777.”
+
+In the following example, the directory “sticky” lives in an Azure NetApp Fils volume and has wide open permissions, but the sticky bit is set.
+
+```bash
+# mkdir sticky
+# chmod 777 sticky
+# chmod o+t sticky
+# ls -la | grep sticky
+drwxrwxrwt  2 root  root       4096 Oct 11 19:24 sticky
+```
+
+Inside the folder are files owned by different users. All have 777 permissions.
+
+```bash
+# ls -la
+total 8
+drwxrwxrwt 2 root     root   4096 Oct 11 19:29 .
+drwxrwxrwx 8 root     root   4096 Oct 11 19:24 ..
+-rwxr-xr-x 1 user2    group1    0 Oct 11 19:29 4913
+-rwxrwxrwx 1 UNIXuser group1   40 Oct 11 19:28 UNIX-file
+-rwxrwxrwx 1 user1    group1   33 Oct 11 19:27 user1-file
+-rwxrwxrwx 1 user2    group1   34 Oct 11 19:27 user2-file
+```
+
+Normally, anyone would be able to modify or delete these files. But because the parent folder has a sticky bit set, only the file owners can make changes to the files.
+
+For instance, user1 cannot modify nor delete `user2-file`:
+
+```bash
+# su user1
+$ vi user2-file
+Only user2 can modify this file.
+Hi
+~
+"user2-file"
+"user2-file" E212: Can't open file for writing
+$ rm user2-file 
+rm: cannot remove 'user2-file': Operation not permitted
+```
+
+Conversely, user2 cannot modify nor delete user1-file since they are not the file’s owner and the sticky bit is set on the parent directory.
+
+```bash
+# su user2
+$ vi user1-file
+Only user1 can modify this file.
+Hi
+~
+"user1-file"
+"user1-file" E212: Can't open file for writing
+$ rm user1-file 
+rm: cannot remove 'user1-file': Operation not permitted
+```
+
+Root, however, still can remove the files. 
+
+```bash
+# rm UNIX-file 
+```
+
+To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. See [“root squashing”](#root-squashing) for more information.
+
+#### Umask 
+
+In NFS operations, permissions can be controlled through mode bits, which leverage numerical attributes to determine file and folder access. These mode bits determine read, write, execute, and special attributes. Numerically, these are represented as:
+
+* Execute = 1
+* Read = 2
+* Write = 4
+
+Total permissions are determined by adding or subtracting a combination of the preceding. For example:
+
+* 4 + 2 + 1 = 7 (can do everything)
+* 4 + 2 = 6 (read/write)
+
+For more information about UNIX permissions, see [UNIX Permissions Help](http://www.zzee.com/solutions/unix-permissions.shtml).
+
+Umask is a functionality that allows an administrator to restrict the level of permissions allowed to a client. By default, the umask for most clients is set to 0022. 0022 means that files created from that client are assigned that umask. The umask is subtracted from the base permissions of the object. If a volume has 0777 permissions and is mounted using NFS to a client with a umask of 0022, objects written from the client to that volume have 0755 access (0777 – 0022).
+
+```bash
+# umask
+0022
+# umask -S
+u=rwx,g=rx,o=rx 
+```
+However, many operating systems do not allow files to be created with execute permissions, but they do allow folders to have the correct permissions. Thus, files created with a umask of 0022 might end up with permissions of 0644. The following is an example using RHEL 6.5:
+
+```bash
+# umask
+0022
+# cd /cdot
+# mkdir umask_dir
+# ls -la | grep umask_dir
+drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
+
+# touch umask_file
+# ls -la | grep umask_file
+-rw-r--r--.  1 root     root            0 Apr 23 14:39 umask_file
+```
+
+#### Auxiliary/supplemental group limitations with NFS
+
+NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16 and for AUTH_GSS (Kerberos) it is 32. This is a known protocol limitation of NFS. 
+
+Azure NetApp Files provides the ability to increase the maximum number of auxiliary groups to 1,024. This is performed by avoiding truncation of the group list in the NFS packet by prefetching the requesting user’s group from a name service, such as LDAP.
+
