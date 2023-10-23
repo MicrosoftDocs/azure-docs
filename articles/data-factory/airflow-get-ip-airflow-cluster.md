@@ -43,7 +43,8 @@ For more information, see the below screenshots.
     Refer to the documentation [Managed Airflow IP address - Get](/rest/api/datafactory/integration-runtimes/get?tabs=HTTP#code-try-0).
 
     You should retrieve the Airflow cluster's IP address from the response as shown in the screenshot:
-    Sample Response:
+    
+    #### Sample Response:
 
     :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png" alt-text="Screenshot showing how to retrieve cluster's IP using API." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png":::
 
