@@ -32,7 +32,7 @@ When developing applications using LLM, it's common to have a standardized appli
 
 For developers experienced in code development who seek a more efficient LLMOps iteration process, the following key features and benefits you can gain from prompt flow code experience:
 
-- **Flow versioning in code repository**. You can define your flow in YAML format, which can stay aligned with the referenced source files in a folder structure.
+- **Flow versioning in code repository**. You can define your flow in YAML format, which can stay aligned with the referenced source files in a folder structure. This is also a recommended practice for [**collaboration**](#collaborating-on-prompt-flow-in-repository) among team members.
 - **Integrate flow run with CI/CD pipeline**. You can trigger flow runs using the prompt flow CLI or SDK, which can be seamlessly integrated into your CI/CD pipeline and delivery process.
 - **Smooth transition from local to cloud**. You can easily export your flow folder to your local or code repository for version control, local development and sharing. Similarly, the flow folder can be effortlessly imported back to the cloud for further authoring, testing, deployment in cloud resources.
 
@@ -68,9 +68,9 @@ Alternatively, you can access all the flow folders directly within the Azure Mac
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/notebook-user-path.png" alt-text="Screenshot of notebooks in Azure Machine Learning in the prompt flow folder showing the files. " lightbox = "./media/how-to-integrate-with-llm-app-devops/notebook-user-path.png":::
 
-## Versioning prompt flow in repository
+## Versioning prompt flow in code repository
 
-To check in your flow into your code  repository, you can easily export the flow folder from the flow authoring page to your local system. This will download a package containing all the files from the explorer to your local machine, which you can then check into your code repository.
+To check in your flow into your code repository, you can easily export the flow folder from the flow authoring page to your local system. This will download a package containing all the files from the explorer to your local machine, which you can then check into your code repository.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-export.png" alt-text="Screenshot of showing the download button in the file explorer." lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-export.png":::
 
@@ -405,6 +405,29 @@ For a comprehensive guide on an end-to-end MLOps pipeline that executes a web cl
 The last step to go to production is to deploy your flow as an online endpoint in Azure Machine Learning. This allows you to integrate your flow into your application and make it available for use.
 
 For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](how-to-deploy-to-code.md).
+
+## Collaborating on prompt flow in repository
+
+When working on a LLM-based application development project with Prompt flow, team members often need to collaborate on the same flow authoring nad testing. They might be working on different aspects of the flow or making changes and improvements simultaneously in iterations.
+
+This requires a streamlined and efficient method of sharing code, tracking changes, managing versions, and integrating these changes into the final project.
+
+With the code definition and code experience of prompt flow, which introducing the Prompt flow SDK/CLI and the vscode extension we provided, you can easily collaborate on the flow in your code repository. You can use the **code repository** to track changes, manage versions, and integrate these changes into the final project.
+
+1. Code Repository and Visual Studio Code Extension - Develop your flow locally
+    ![Local development](media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png)
+    - The first step in this collaborative process is to use a code repository to store the Prompt Flow code. This centralized location allows for efficient organization, tracking of all code changes and collaboration among team members.
+    - Once the code is stored in the repository, team members can use the VSC extension for local development and testing of the flow. This standard integrated development environment allows multiple people to collaborate while developing different parts of the flow.
+1. The Prompt flow Azure CLI/SDK and Workspace Portal UI - Experiment your flow for batch testing and evaluation on cloud 
+    ![pfazure submit run](media/how-to-integrate-with-llm-app-devops/pfazure-run.png)
+    - After the local development and testing phase, the pfazure CLI and SDK come into play. These tools allow team members to submit runs based on the local flow files to the cloud. This action provides a way for results to be stored persistently and managed efficiently.
+      
+    ![pfazure run snapshot](media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png)
+    - Post submission, team members can go to the cloud portal UI to view the results and manage the experiments. This portal provides a comprehensive view of the run, aiding in analyzing the performance and making necessary adjustments.
+1. Iterative Development
+    - Following the analysis and management of experiments, team members can return to the local VSC extension for further development and tuning. This iterative process ensures continuous improvement and refinement of the Prompt Flow.
+
+By following this process, teams can create a seamless, efficient, and productive collaborative environment for Prompt Flow development.
 
 ## Next steps
 
