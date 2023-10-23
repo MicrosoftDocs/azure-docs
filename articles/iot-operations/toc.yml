@@ -176,20 +176,18 @@ items:
           href: administer/howto-configure-aks-ee-layered-network-management.md
       - name: Manage Azure MQ
         items:
-        - name: Configure MQTT bridge
-          href: administer/howto-configure-mqtt-bridge.md
         - name: Configure automatic TLS
-          href: administer/howto-configure-tls-auto.md
+          href: administer/mq/howto-configure-tls-auto.md
         - name: Configure manual TLS
-          href: administer/howto-configure-tls-manual.md
+          href: administer/mq/howto-configure-tls-manual.md
         - name: Configure authentication
-          href: administer/howto-configure-authentication.md
+          href: administer/mq/howto-configure-authentication.md
         - name: Configure authorization
-          href: administer/howto-configure-authorization.md
+          href: administer/mq/howto-configure-authorization.md
         - name: Configure availability and scale
-          href: administer/howto-configure-availability-scale.md
+          href: administer/mq/howto-configure-availability-scale.md
         - name: Configure disk buffer
-          href: administer/howto-configure-disk-buffer.md
+          href: administer/mq/howto-configure-disk-buffer.md
 
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
