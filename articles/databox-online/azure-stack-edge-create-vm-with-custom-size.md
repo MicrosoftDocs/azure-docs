@@ -1,23 +1,21 @@
 ---
-title: Create a VM image for Azure Stack Edge with custom number of cores, memory, and GPU count.
-description: Learn how to create a VM image of custom size for Azure Stack Edge.
+title: Create a VM for Azure Stack Edge with custom number of cores, memory, and GPU count.
+description: Learn how to create a VM of custom size for Azure Stack Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 10/23/2023
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to create VM images with custom number of cores, memory, and GPU count.
+# Customer intent: As an IT admin, I need to understand how to create VM with custom number of cores, memory, and GPU count.
 ---
-# Create a VM image with custom size
+# Create a VM with custom VM size
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create a VM image for Azure Stack edge with a custom number of cores, memory, and GPU count.
-
-If the standard VM sizes for Azure Stack Edge do not meet your needs, you can configure a standard VM size with custom number of cores, memory, and GPU count.
+This article describes how to modify VM size with a custom number of cores, memory, and GPU count, which can be used to create a VM image for Azure Stack Edge.
 
 ## Create a new VM
 
