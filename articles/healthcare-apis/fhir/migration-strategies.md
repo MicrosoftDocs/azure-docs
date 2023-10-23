@@ -35,25 +35,24 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 
 |Capabilities|Azure API for FHIR|Azure Health Data Services|
 |------------|------------------|--------------------------|
-|**Settings**|Supported: <br> • Local RBAC <br> • SMART on FHIR Proxy|Planned deprecation: <br> • Local RBAC (9/6/23) <br> • SMART on FHIR Proxy (9/21/26)|
+|**Settings**|Supported: <br> • Local RBAC <br> • SMART on FHIR Proxy <br> • Customer Managed Keys (CMK) |Retired feature: <br> • Local RBAC (as of 9/6/23) <br> Planned Retirement: <br>  • SMART on FHIR Proxy (9/21/26) - replaced with enhanced SMART on FHIR capability|
 |**Data storage Volume**|More than 4 TB|Current support is 4 TB (Open an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you need more than 4 TB)|
 |**Data ingress**|Tools available in OSS|$import operation|
 |**Autoscaling**|Supported on request and incurs charge|Enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Infrastructure**|Supported: <br> • Customer managed keys <br> • AZ support and PITR  <br> • Cross region DR|Supported: <br> • Data recovery <br> Upcoming: <br> • AZ support for customer managed keys|
+|**Business continuity**|Supported: <br> • Customer Managed Keys (CMK) <br> • Database backup and restore • Cross-region disaster recovery (DR) |Supported: <br> • Database backup and restore <br> Upcoming: <br> • Customer Managed Keys (CMK)<br> • Availability zone support|
 
 ### Things to consider that may affect your architecture
 
-- **Sync agent is being deprecated**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
-
+- **Sync agent is retired**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json).
 - **FHIR Proxy is being deprecated**. If you're using FHIR Proxy for events, refer to the built-in [eventing](../events/events-overview.md) feature. Alternatives can be customized and built using the [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
 
 - **SMART on FHIR proxy is being deprecated**. You need to use the new SMART on FHIR capability. More information: [SMART on FHIR](smart-on-fhir.md)
 
 - **Azure Health Data Services FHIR service does not support local RBAC and custom authority**. The token issuer authority needs to be the authentication endpoint for the tenant that the FHIR Service is running in.
 
-- **The IoT connector is only supported using an Azure API for FHIR service**. The IoT connector is succeeded by the MedTech service. You need to deploy a MedTech service and corresponding FHIR service within an existing or new Azure Health Data Services workspace and point your devices to the new Azure Events Hubs device event hub. Use the existing IoT connector device and destination mapping files with the MedTech service deployment.
+- **The IoT connector is only supported with Azure API for FHIR service**. The IoT connector is succeeded by the MedTech service. You need to deploy a MedTech service and corresponding FHIR service within an existing or new Azure Health Data Services workspace and point your devices to the new Azure Events Hubs device event hub. Use the existing IoT connector device and destination mapping files with the MedTech service deployment.
 
 If you want to migrate existing IoT connector device FHIR data from your Azure API for FHIR service to the Azure Health Data Services FHIR service, use the bulk export and import functionality in the migration tool. Another migration path would be to deploy a new MedTech service and replay the IoT device messages through the MedTech service.
 
@@ -105,3 +104,4 @@ Migrate applications that were pointing to the old FHIR server.
 ## Step 5: Cut over to Azure Health Data Services FHIR services
 
 After you’re confident that your Azure Health Data Services FHIR Service server is stable, you can begin using Azure Health Data Services FHIR service to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure API for FHIR, delete data from the intermediate storage account that was used in the migration tool if necessary, delete data from your Azure API for FHIR server, and decommission your Azure API for FHIR account.
+
