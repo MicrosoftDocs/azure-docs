@@ -29,7 +29,7 @@ Azure Arc resource bridge (preview) hosts other components such as [custom locat
 - The platform layer that includes the custom location and cluster extension. 
 - The solution layer for each service supported by Arc resource bridge (that is, the different type of VMs).
  
-:::image type="content" source="media/azure-arc-resource-bridge/architecture-overview.png" alt-text="Diagram of Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
+:::image type="content" source="media/azure-arc-resource-bridge/architecture.png" alt-text="Diagram of Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
 
 Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 - Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
