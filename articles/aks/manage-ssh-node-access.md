@@ -92,7 +92,7 @@ When you disable SSH at cluster creation time, it takes effect after the cluster
 |SSH parameter |Description |
 |-----|-----|
 |`disabled` |The SSH service is disabled. |
-|`Localuser` |The SSH service is enabled and users with SSH key can securely access the node. |
+|`localuser` |The SSH service is enabled and users with SSH key can securely access the node. |
 
 ### Disable SSH on a new cluster deployment
 
@@ -111,7 +111,7 @@ Use the [az aks update][az-aks-update] command to update an existing cluster, an
 az aks update -g myResourceGroup -n myManagedCluster --ssh-access disabled
 ```
 
-For the change to take effect, you need to reimage the node pool by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
+For the change to take effect, you need to reimage all node pools by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
 
 ```azurecli-interactive
 az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --node-image only
@@ -154,10 +154,10 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 
 ### Re-enable SSH on an existing cluster
 
-Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access Localuser` argument to re-enable SSH (preview) on all the node pools in the cluster.
+Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access localuser` argument to re-enable SSH (preview) on all the node pools in the cluster.
 
 ```azurecli-interactive
-z aks update -g myResourceGroup -n myManagedCluster –-ssh-access Localuser
+z aks update -g myResourceGroup -n myManagedCluster –-ssh-access localuser
 ```
 
 After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI returns the following message:  
@@ -173,7 +173,7 @@ If you select **Y**, all the nodes are reimaged. Otherwise, at any time you can 
 
 ### Re-enable SSH for a specific node pool
 
-Use the [az aks update][az-aks-update] command to update a specific node pool, and include the `--ssh-access Localuser` argument to re-enable SSH (preview) on that node pool in the cluster. In the following example, *nodepool1* is the target node pool.
+Use the [az aks update][az-aks-update] command to update a specific node pool, and include the `--ssh-access localuser` argument to re-enable SSH (preview) on that node pool in the cluster. In the following example, *nodepool1* is the target node pool.
 
 ```azurecli-interactive
 az aks nodepool update --cluster-name myManagedCluster --name nodepool1 --resource-group myResourceGroup –-ssh-access localuser 
