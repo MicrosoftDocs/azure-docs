@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises'
-description: Learn how to implement federated authentication between Azure Active Directory and SharePoint on-premises.
+title: 'Tutorial: Microsoft Entra integration with SharePoint on-premises'
+description: Learn how to implement federated authentication between Microsoft Entra ID and SharePoint on-premises.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -8,40 +8,42 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Implement federated authentication between Azure Active Directory and SharePoint on-premises
+# Tutorial: Implement federated authentication between Microsoft Entra ID and SharePoint on-premises
 
 ## Scenario description
 
-In this tutorial, you configure a federated authentication between Azure Active Directory and SharePoint on-premises. The goal is to allow users to sign in on Azure Active Directory and use their identity to access the SharePoint on-premises sites.
+In this tutorial, you configure a federated authentication between Microsoft Entra ID and SharePoint on-premises. The goal is to allow users to sign in on Microsoft Entra ID and use their identity to access the SharePoint on-premises sites.
 
 ## Prerequisites
 
 To perform the configuration, you need the following resources:
-* An Azure Active Directory tenant. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra tenant. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/).
 * A SharePoint 2013 farm or newer.
 
 This article uses the following values:
-- Enterprise application name (in Azure AD): `SharePoint corporate farm`
-- Trust identifier (in Azure AD) / realm (in SharePoint): `urn:sharepoint:federation`
-- loginUrl (to Azure AD): `https://login.microsoftonline.com/dc38a67a-f981-4e24-ba16-4443ada44484/wsfed`
+- Enterprise application name (in Microsoft Entra ID): `SharePoint corporate farm`
+- Trust identifier (in Microsoft Entra ID) / realm (in SharePoint): `urn:sharepoint:federation`
+- loginUrl (to Microsoft Entra ID): `https://login.microsoftonline.com/dc38a67a-f981-4e24-ba16-4443ada44484/wsfed`
 - SharePoint site URL: `https://spsites.contoso.local/`
 - SharePoint site reply URL: `https://spsites.contoso.local/_trust/`
 - SharePoint trust configuration name: `AzureADTrust`
-- UserPrincipalName of the Azure AD test user: `AzureUser1@demo1984.onmicrosoft.com`
+- UserPrincipalName of the Microsoft Entra test user: `AzureUser1@demo1984.onmicrosoft.com`
 
-## Configure an enterprise application in Azure Active Directory
+<a name='configure-an-enterprise-application-in-azure-active-directory'></a>
 
-To configure the federation in Azure AD, you need to create a dedicated Enterprise application. Its configuration is simplified using the pre-configured template `SharePoint on-premises` that can be found in the application gallery.
+## Configure an enterprise application in Microsoft Entra ID
+
+To configure the federation in Microsoft Entra ID, you need to create a dedicated Enterprise application. Its configuration is simplified using the pre-configured template `SharePoint on-premises` that can be found in the application gallery.
 
 ### Create the enterprise application
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**, and then select **All applications**.
-1. To add a new application, select **New application** at the top of the dialog box.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the search box, enter **SharePoint on-premises**. Select **SharePoint on-premises** from the result pane.
 1. Specify a name for your application (in this tutorial, it is `SharePoint corporate farm`), and click **Create** to add the application.
 1. In the new enterprise application, select **Properties**, and check the value for **User assignment required?**. For this scenario, set its value to **No** and click **Save**.
@@ -78,20 +80,22 @@ In this section, you configure the SAML authentication and define the claims tha
 
 1. Copy the information that you'll need later in SharePoint:
 
-	- In the **SAML Signing Certificate** section, **Download** the **Certificate (Base64)**. This is the public key of the signing certificate used by Azure AD to sign the SAML token. SharePoint will need it to verify the integrity of the incoming SAML tokens.
+	- In the **SAML Signing Certificate** section, **Download** the **Certificate (Base64)**. This is the public key of the signing certificate used by Microsoft Entra ID to sign the SAML token. SharePoint will need it to verify the integrity of the incoming SAML tokens.
 
 	- In the **Set up SharePoint corporate farm** section, copy the **Login URL** in a notepad and replace the trailing string **/saml2** with **/wsfed**.
 	 
 	> [!IMPORTANT]
-    > Make sure to replace **/saml2** with **/wsfed** to ensure that Azure AD issues a SAML 1.1 token, as required by SharePoint.
+    > Make sure to replace **/saml2** with **/wsfed** to ensure that Microsoft Entra ID issues a SAML 1.1 token, as required by SharePoint.
 
     - In the **Set up SharePoint corporate farm** section, copy the **Logout URL**
 
-## Configure SharePoint to trust Azure Active Directory
+<a name='configure-sharepoint-to-trust-azure-active-directory'></a>
+
+## Configure SharePoint to trust Microsoft Entra ID
 
 ### Create the trust in SharePoint
 
-In this step, you create a SPTrustedLoginProvider to store the configuration that SharePoint needs to trust Azure AD. For that, you need the information from Azure AD that you copied above. Start the SharePoint Management Shell and run the following script to create it:
+In this step, you create a SPTrustedLoginProvider to store the configuration that SharePoint needs to trust Microsoft Entra ID. For that, you need the information from Microsoft Entra ID that you copied above. Start the SharePoint Management Shell and run the following script to create it:
 
 ```powershell
 # Path to the public key of the Azure AD SAML signing certificate (self-signed), downloaded from the Enterprise application in the Azure portal
@@ -114,13 +118,13 @@ $trust = New-SPTrustedIdentityTokenIssuer -Name "AzureADTrust" -Description "Azu
 
 ### Configure the SharePoint web application
 
-In this step, you configure a web application in SharePoint to trust the Azure AD Enterprise application created above. There are important rules to have in mind:
+In this step, you configure a web application in SharePoint to trust the Microsoft Entra Enterprise application created above. There are important rules to have in mind:
 - The default zone of the SharePoint web application must have Windows authentication enabled. This is required for the Search crawler.
-- The SharePoint URL that will use Azure AD authentication must be set with HTTPS.
+- The SharePoint URL that will use Microsoft Entra authentication must be set with HTTPS.
 
 1. Create or extend the web application. This article describes two possible configurations:
 
-	- If you create a new web application that uses both Windows and Azure AD authentication in the Default zone:
+	- If you create a new web application that uses both Windows and Microsoft Entra authentication in the Default zone:
 
         1. Start the **SharePoint Management Shell** and run the following script:
             ```powershell
@@ -141,7 +145,7 @@ In this step, you configure a web application in SharePoint to trust the Azure A
     
            ![Alternate Access Mappings of web application](./media/sharepoint-on-premises-tutorial/sp-alternate-access-mappings-new-web-app.png)
 
-    - If you extend an existing web application to use Azure AD authentication on a new zone:
+    - If you extend an existing web application to use Microsoft Entra authentication on a new zone:
 
         1. Start the SharePoint Management Shell and run the following script:
 
@@ -182,40 +186,37 @@ Once the web application is created, you can create a root site collection and a
     
 1. Set the certificate in the IIS site
     1. Open the Internet Information Services Manager console.
-    1. Expand the server in the tree view, expand **Sites**, select the site **SharePoint - Azure AD**, and select **Bindings**.
+    1. Expand the server in the tree view, expand **Sites**, select the site **SharePoint - Microsoft Entra ID**, and select **Bindings**.
     1. Select **https binding** and then select **Edit**.
     1. In the TLS/SSL certificate field, choose the certificate to use (for example, **spsites.contoso.local** created above) and select **OK**.
     
     > [!NOTE]
     > If you have multiple Web Front End servers, you need to repeat this operation on each.
 
-The basic configuration of the trust between SharePoint and Azure AD is now finished. Let's see how to sign in to the SharePoint site as an Azure Active Directory user.
+The basic configuration of the trust between SharePoint and Microsoft Entra ID is now finished. Let's see how to sign in to the SharePoint site as a Microsoft Entra user.
 
 ## Sign in as a member user
 
-Azure Active Directory has [two type of users](../external-identities/user-properties.md): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
+Microsoft Entra ID has [two type of users](../external-identities/user-properties.md): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
 
-### Create a member user in Azure Active Directory
+<a name='create-a-member-user-in-azure-active-directory'></a>
 
-1. In the Azure portal, on the leftmost pane, select **Azure Active Directory**. In the **Manage** pane, select **Users**.
+### Create a member user in Microsoft Entra ID
 
-1. Select **All users** > **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+1. You can share the site with this user and permit access to it.
 
-1. Select **Create User**, and in the user properties, follow these steps.
+<a name='grant-permissions-to-the-azure-active-directory-user-in-sharepoint'></a>
 
-    1. In the **Name** box, enter the user name. We used **TestUser**.
-  
-    1. In the **User name** box, enter `AzureUser1@<yourcompanytenant>.onmicrosoft.com`. This example shows `AzureUser1@demo1984.onmicrosoft.com`:
-
-       ![The User dialog box](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-user.png)
-
-    1. Select the **Show password** check box, and then write down the value that appears in the **Password** box.
-
-    1. Select **Create**.
-
-    1. You can now share the site with `AzureUser1@demo1984.onmicrosoft.com` and permit this user to access it.
-
-### Grant permissions to the Azure Active Directory user in SharePoint
+### Grant permissions to the Microsoft Entra user in SharePoint
 
 Sign in to the SharePoint root site collection as your Windows account (site collection administrator) and click **Share**.  
 In the dialog, you need to type the exact value of the userprincipalname, for example `AzureUser1@demo1984.onmicrosoft.com`, and be careful to select the **name** claim result (move your mouse on a result to see its claim type)
@@ -226,7 +227,7 @@ In the dialog, you need to type the exact value of the userprincipalname, for ex
 ![People picker results without AzureCP](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-no-azurecp.png)
 
 This limitation is because SharePoint does not validate the input from the people picker, which can be confusing and lead to misspellings or users accidentally choosing the wrong claim type.  
-To fix this scenario, an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) can be used to connect SharePoint 2019 / 2016 / 2013 with Azure Active Directory and resolve the input against your Azure Active Directory tenant. For more information, see [AzureCP](https://yvand.github.io/AzureCP/).
+To fix this scenario, an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) can be used to connect SharePoint 2019 / 2016 / 2013 with Microsoft Entra ID and resolve the input against your Microsoft Entra tenant. For more information, see [AzureCP](https://yvand.github.io/AzureCP/).
 
 Below is the same search with AzureCP configured: SharePoint returns actual users based on the input:
 
@@ -235,7 +236,7 @@ Below is the same search with AzureCP configured: SharePoint returns actual user
 > [!IMPORTANT]
 > AzureCP isn't a Microsoft product and isn't supported by Microsoft Support. To download, install, and configure AzureCP on the on-premises SharePoint farm, see the [AzureCP](https://yvand.github.io/AzureCP/) website. 
 
-Azure Active Directory user `AzureUser1@demo1984.onmicrosoft.com` can now use his/her identity to sign in to the SharePoint site `https://spsites.contoso.local/`.
+Microsoft Entra user `AzureUser1@demo1984.onmicrosoft.com` can now use his/her identity to sign in to the SharePoint site `https://spsites.contoso.local/`.
 
 ## Grant permissions to a security group
 
@@ -251,37 +252,39 @@ Azure Active Directory user `AzureUser1@demo1984.onmicrosoft.com` can now use hi
 
     ![Claims for users and group](./media/sharepoint-on-premises-tutorial/azure-active-directory-claims-with-group.png)
 
-### Create a security group in Azure Active Directory
+<a name='create-a-security-group-in-azure-active-directory'></a>
 
-Let's create a security group in Azure Active Directory:
+### Create a security group in Microsoft Entra ID
 
-1. Select **Azure Active Directory** > **Groups**.
+Let's create a security group.
+
+1. Browse to **Identity** > **Groups**.
 
 1. Select **New group**.
 
 1. Fill in the **Group type** (Security), **Group name** (for example, `AzureGroup1`), and **Membership type**. Add the user you created above as a member and click select **Create**:
 
-    ![Create an Azure AD security group](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-group.png)
+    ![Create a Microsoft Entra security group](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-group.png)
   
 ### Grant permissions to the security group in SharePoint
 
-Azure AD security groups are identified with their attribute `Id`, which is a GUID (for example, `E89EF0A3-46CC-45BF-93A4-E078FCEBFC45`).  
+Microsoft Entra security groups are identified with their attribute `Id`, which is a GUID (for example, `E89EF0A3-46CC-45BF-93A4-E078FCEBFC45`).  
 Without a custom claims provider, users need to type the exact value (`Id`) of the group in the people picker, and select the corresponding claim type. This is not user-friendly nor reliable.  
 To avoid this, this article uses third-party claims provider [AzureCP](https://yvand.github.io/AzureCP/) to find the group in a friendly way in SharePoint:
 
-![People picker search Azure AD group](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-azure-active-directory-group.png)
+![People picker search Microsoft Entra group](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-azure-active-directory-group.png)
 
 ## Manage Guest users access
 
 There are two types of guest accounts:
 
-- B2B guest accounts: Those users are homed in an external Azure Active Directory tenant
+- B2B guest accounts: Those users are homed in an external Microsoft Entra tenant
 - MSA guest accounts: Those users are homed in a Microsoft identify provider (Hotmail, Outlook) or a social account provider (Google or similar)
 
-By default, Azure Active Directory sets both the "Unique User Identifier" and the claim "name" to the attribute `user.userprincipalname`.  
+By default, Microsoft Entra ID sets both the "Unique User Identifier" and the claim "name" to the attribute `user.userprincipalname`.  
 Unfortunately, this attribute is ambiguous for guest accounts, as the table below shows:
 
-| Source attribute set in Azure AD | Actual property used by Azure AD for B2B guests | Actual property used by Azure AD for MSA guests | Property that SharePoint can rely on to validate the identity |
+| Source attribute set in Microsoft Entra ID | Actual property used by Microsoft Entra ID for B2B guests | Actual property used by Microsoft Entra ID for MSA guests | Property that SharePoint can rely on to validate the identity |
 |--|--|--|--|
 | `user.userprincipalname` | `mail`, for example: `guest@PARTNERTENANT` | `userprincipalname`, for example: `guest_outlook.com#EXT#@TENANT.onmicrosoft.com` | ambiguous |
 | `user.localuserprincipalname` | `userprincipalname`, for example: `guest_PARTNERTENANT#EXT#@TENANT.onmicrosoft.com` | `userprincipalname`, for example: `guest_outlook.com#EXT#@TENANT.onmicrosoft.com` | `userprincipalname` |
@@ -323,7 +326,7 @@ You can now invite any guest user in the SharePoint sites.
 
 ## Configure the federation for multiple web applications
 
-The configuration works for a single web application, but additional configuration is needed if you intend to use the same trusted identity provider for multiple web applications. For example, assume you have a separate web application `https://otherwebapp.contoso.local/` and you now want to enable Azure Active Directory authentication on it. To do this, configure SharePoint to pass the SAML WReply parameter, and add the URLs in the enterprise application.
+The configuration works for a single web application, but additional configuration is needed if you intend to use the same trusted identity provider for multiple web applications. For example, assume you have a separate web application `https://otherwebapp.contoso.local/` and you now want to enable Microsoft Entra authentication on it. To do this, configure SharePoint to pass the SAML WReply parameter, and add the URLs in the enterprise application.
 
 ### Configure SharePoint to pass the SAML WReply parameter
 
@@ -337,17 +340,18 @@ $t.Update()
 
 ### Add the URLs in the enterprise application
 
-1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > Select the previously created enterprise application, and select **Single sign-on**.
 
 1. On the **Set up Single Sign-On with SAML** page, edit **Basic SAML Configuration**.
 
-1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web applications that need to sign in users with Azure Active Directory and click **Save**.
+1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web applications that need to sign in users with Microsoft Entra ID and click **Save**.
 
 ![Specify additional web applications](./media/sharepoint-on-premises-tutorial/azure-active-directory-app-reply-urls.png)
 
 ### Configure the lifetime of the security token
 
-By default, Azure AD creates a SAML token that is valid for 1 hour.  
+By default, Microsoft Entra ID creates a SAML token that is valid for 1 hour.  
 This lifetime cannot be customized in the Azure portal, or using a Conditional Access policy, but it can be done by creating a [custom token lifetime policy](../develop/configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
 To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
 

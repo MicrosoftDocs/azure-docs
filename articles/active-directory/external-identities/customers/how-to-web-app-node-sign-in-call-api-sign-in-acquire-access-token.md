@@ -125,7 +125,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
     
     - Initiates sign-in flow by triggering the first leg of auth code flow.  
     
-    - Initializes a [confidential client application](../../../active-directory/develop/msal-client-applications.md) instance by using `msalConfig` MSAL configuration object.
+    - Initializes a [confidential client application](../../develop/msal-client-applications.md) instance by using `msalConfig` MSAL configuration object.
         
         ```javascript
             const msalInstance = this.getMsalInstance(this.config.msalConfig);
@@ -182,7 +182,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
         }  
         ```
         
-        Notice how we use MSALs [getAuthCodeUrl](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
+        Notice how we use MSALs [getAuthCodeUrl](/javascript/api/%40azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
         
         ```javascript
                 //...
@@ -200,9 +200,9 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
 
 - The `handleRedirect` method handles `/redirect` route:
     
-    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in-call-api.md#register-the-web-app).
+    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](./sample-web-app-node-sign-in-call-api.md#register-the-web-app).
     
-    - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
+    - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/%40azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
     
         ```javascript
             //...

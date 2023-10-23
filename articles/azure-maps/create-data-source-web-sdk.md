@@ -1,8 +1,8 @@
 ---
 title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -80,10 +80,10 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 * [Road tiles]
 * [Traffic incidents]
 * [Traffic flow]
-* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
-> When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
+> When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Microsoft Entra authentication.
 
 To display data from a vector tile source on the map, connect the source to one of the data rendering layers. All layers that use a vector source must specify a `sourceLayer` value in the options. The following code loads the Azure Maps traffic flow vector tile service as a vector tile source, then displays it on a map using a line layer. This vector tile source has a single set of data in the source layer called "Traffic flow". The line data in this data set has a property called `traffic_level` that is used in this code to select the color and scale the size of lines.
 
@@ -131,10 +131,7 @@ For a complete working sample of how to display data from a vector tile source o
 <!---------------------------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Vector tile line layer</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true]
 --------------------------------------------------------------------------------------->
 
 
@@ -234,7 +231,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a popup](map-add-popup.md)
+> [Add a popup]
 
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions]
@@ -257,37 +254,32 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Code samples]
 
-<!---------   learn.microsoft.com links     --------------->
-[Bubble layer]: map-add-bubble-layer.md
-[Symbol layer]: map-add-pin.md
-[Heat map layer]: map-add-heat-map-layer.md
-[Line layer]: map-add-line-layer.md
-[Polygon layer]: map-add-shape.md
-[Tile layer]: map-add-tile-layer.md
-[Image layer]: map-add-image-layer.md
-
-[Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
+[Add a heat map]: map-add-heat-map-layer.md
 [Add a line layer]: map-add-line-layer.md
 [Add a polygon layer]: map-add-shape.md
-[Add a heat map]: map-add-heat-map-layer.md
-[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
-[Code samples]: /samples/browse/?products=azure-maps
-<!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
-[Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
-[Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
-<!---------   javascript API Links     --------------->
+[Add a popup]: map-add-popup.md
+[Add a symbol layer]: map-add-pin.md
 [atlas.data]: /javascript/api/azure-maps-control/atlas.data
-[SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
-[VectorTileSource]: /javascript/api/azure-maps-control/atlas.source.vectortilesource
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Bubble layer]: map-add-bubble-layer.md
+[Code samples]: /samples/browse/?products=azure-maps
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
 [DataSourceOptions]: /javascript/api/azure-maps-control/atlas.datasourceoptions
-[VectorTileSourceOptions]: /javascript/api/azure-maps-control/atlas.vectortilesourceoptions
-<!---------   External Links     --------------->
+[Heat map layer]: map-add-heat-map-layer.md
+[Image layer]: map-add-image-layer.md
+[Line layer]: map-add-line-layer.md
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
-
-[Vector tile line layer]: https://samples.azuremaps.com/vector-tiles/vector-tile-line-layer
+[Polygon layer]: map-add-shape.md
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
+[Symbol layer]: map-add-pin.md
+[Tile layer]: map-add-tile-layer.md
+[Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
+[Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
 [Vector tile line layer sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Vector%20tiles/Vector%20tile%20line%20layer/Vector%20tile%20line%20layer.html
-[Azure Maps Samples]: https://samples.azuremaps.com
+[Vector tile line layer]: https://samples.azuremaps.com/vector-tiles/vector-tile-line-layer
+[VectorTileSource]: /javascript/api/azure-maps-control/atlas.source.vectortilesource
+[VectorTileSourceOptions]: /javascript/api/azure-maps-control/atlas.vectortilesourceoptions

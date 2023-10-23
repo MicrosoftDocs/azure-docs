@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 08/07/2023
 ---
 
 <!-- 
@@ -128,7 +128,7 @@ After you've supplied these values, the agent will attempt registration. During 
 > [!IMPORTANT]
 > The Azure credentials you use for registration must have owner permissions to the specified resource group and storage mover resource.
 
- For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Azure Active Directory.
+ For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Microsoft Entra ID.
 
 The agent displays the device auth URL: [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a unique sign-in code. Navigate to the displayed URL on an internet connected machine, enter the code, and sign into Azure with your credentials.
 
@@ -136,10 +136,10 @@ The agent displays detailed progress. Once the registration is complete, you're 
 
 ## Authentication and Authorization
 
-To accomplish seamless authentication with Azure and authorization to various Azure resources, the agent is registered with two Azure services:
+To accomplish seamless authentication with Azure and authorization to various Azure resources, the agent is registered with the following Azure services:
 
-1. Azure Storage Mover (Microsoft.StorageMover)
-1. Azure ARC (Microsoft.HybridCompute)
+- Azure Storage Mover (Microsoft.StorageMover)
+- Azure Arc (Microsoft.HybridCompute)
 
 ### Azure Storage Mover service
 
@@ -147,21 +147,21 @@ Registration to the Azure Storage mover service is visible and manageable throug
 
 You can reference this Azure Resource Manager (ARM) resource when you want to assign migration jobs to the specific agent VM it symbolizes.
 
-### Azure ARC service
+### Azure Arc service
 
-The agent is also registered with the [Azure ARC service](../azure-arc/overview.md). ARC is used to assign and maintain an [Azure AD managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
+The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Microsoft Entra managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
 
 Azure Storage Mover uses a system-assigned managed identity. A managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is also automatically removed.
 
 The process of deletion is automatically initiated when you unregister the agent. However, there are other ways to remove this identity. Doing so incapacitates the registered agent and require the agent to be unregistered. Only the registration process can get an agent to obtain and maintain its Azure identity properly.
 
 > [!NOTE]
-> During public preview, there is a side effect of the registration with the Azure ARC service. A separate resource of the type *Server-Azure Arc* is also deployed in the same resource group as your storage mover resource. You won't be able to manage the agent through this resource.
+> During public preview, there is a side effect of the registration with the Azure Arc service. A separate resource of the type *Server-Azure Arc* is also deployed in the same resource group as your storage mover resource. You won't be able to manage the agent through this resource.
 
  It may appear that you're able to manage aspects of the storage mover agent through the *Server-Azure Arc* resource, but in most cases you can't. It's best to exclusively manage the agent through the *Registered agents* pane in your storage move resource or through the local administrative shell.
 
 > [!WARNING]
-> Do not delete the Azure ARC server resource that is created for a registered agent in the same resource group as the storage mover resource. The only safe time to delete this resource is when you previously unregistered the agent this resource corresponds to.
+> Do not delete the Azure Arc server resource that is created for a registered agent in the same resource group as the storage mover resource. The only safe time to delete this resource is when you previously unregistered the agent this resource corresponds to.
 
 ### Authorization
 
@@ -171,15 +171,15 @@ The agent is automatically authorized to converse with the Storage Mover service
 
 #### Just-in-time authorization
 
-Perhaps the most important resource the agent needs to be authorized for access is the Azure Storage that is the target for a migration job. Authorization takes place through [Role-based access control](../role-based-access-control/overview.md). For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role "Storage Blob Data Contributor" of the target container (not the whole storage account).
+For a migration job, access to the target endpoint is perhaps the most important resource for which an agent must be authorized. Authorization takes place through [Role-based access control](../role-based-access-control/overview.md). For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role `Storage Blob Data Contributor` of the target container (not the whole storage account). Similarly, when accessing an Azure file share target, the registered agent's managed identity is assigned to the built-in role `Storage File Data Privileged Contributor`.
 
-This assignment is made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent isn't authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
+These assignments are made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent isn't authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
 
 > [!WARNING]
-> Access is granted to a specific agent just-in-time for running a migration job. However, the agent's authorization to access the target is not automatically removed. You must either manually remove the agent's managed identity from a specific target or unregister the agent to destroy the service principal. This action removes all target storage authorization as well as the ability of the agent to communicate with the Storage Mover and Azure ARC services.
+> Access is granted to a specific agent just-in-time for running a migration job. However, the agent's authorization to access the target is not automatically removed. You must either manually remove the agent's managed identity from a specific target or unregister the agent to destroy the service principal. This action removes all target storage authorization as well as the ability of the agent to communicate with the Storage Mover and Azure Arc services.
 
 ## Next steps
 
-Create a project to collate the different source shares that need to be migrated together.
+Define your source and target endpoints in preparation for migrating your data.
 > [!div class="nextstepaction"]
-> [Create and manage a project](project-manage.md)
+> [Create and manage source and target endpoints](endpoint-manage.md)

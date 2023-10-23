@@ -18,9 +18,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Search groups and members in Azure Active Directory
+# Search groups and members in Microsoft Entra ID
 
-This article tells you how to search for members and owners of a group and how to use search filters in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra. Search functions for groups include:
+This article tells you how to search for members and owners of a group and how to use search filters in the portal for Microsoft Entra ID, part of Microsoft Entra. Search functions for groups include:
 
 - Groups search capabilities, such as substring search in group names
 - Filtering and sorting options on member and owner lists
@@ -62,13 +62,13 @@ The group **Overview** page provides member counts for groups. You can see the t
 
 ## Next steps
 
-These articles provide additional information on working with groups in Azure AD.
+These articles provide additional information on working with groups in Microsoft Entra ID.
 
-- [View your groups and members](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Manage group membership](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [View your groups and members](../fundamentals/groups-view-azure-portal.md)
+- [Manage group membership](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-create-rule.md)
-- [Edit your group settings](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage access to resources using groups](../fundamentals/active-directory-manage-groups.md)
+- [Edit your group settings](../fundamentals/how-to-manage-groups.md)
+- [Manage access to resources using groups](../fundamentals/concept-learn-about-groups.md)
 - [Manage access to SaaS apps using groups](groups-saasapps.md)
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
-- [Add an Azure subscription to Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Add an Azure subscription to Microsoft Entra ID](../fundamentals/how-subscriptions-associated-directory.md)

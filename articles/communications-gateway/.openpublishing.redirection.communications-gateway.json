@@ -1,0 +1,29 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/communications-gateway/rotate-secrets.md",
+        "redirect_URL": "/azure/communications-gateway/whats-new",
+        "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/interoperability.md",
+      "redirect_URL": "/azure/communications-gateway/interoperability-operator-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/prepare-for-live-traffic.md",
+      "redirect_URL": "/azure/communications-gateway/prepare-for-live-traffic-operator-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/emergency-calling.md",
+      "redirect_URL": "/azure/communications-gateway/emergency-calling-operator-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/manage-enterprise.md",
+      "redirect_URL": "/azure/communications-gateway/manage-enterprise-operator-connect",
+      "redirect_document_id": false
+    }
+  ]
+}

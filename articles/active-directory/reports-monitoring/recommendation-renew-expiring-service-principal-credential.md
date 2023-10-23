@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Renew expiring service principal credentials (preview)
+title: Microsoft Entra recommendation - Renew expiring service principal credentials (preview)
 description: Learn why you should renew expiring service principal credentials.
 services: active-directory
 author: shlipsey3
@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
-ms.collection: M365-identity-device-management
 ---
-# Azure AD recommendation: Renew expiring service principal credentials (preview)
+# Microsoft Entra recommendation: Renew expiring service principal credentials (preview)
 
-[Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
+[Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 This article covers the recommendation to renew expiring service principal credentials. This recommendation is called `servicePrincipalKeyExpiry` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
-An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application won't be able to authenticate with your tenant. 
+A Microsoft Entra service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application can't authenticate with your tenant. 
 
 This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
@@ -33,7 +32,7 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 1. Select the name of the application from the list of **Impacted resources** to go directly to the **Enterprise applications - Single sign-on** page for the selected application.
 
-    a. Alternatively, go to **Azure AD** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
+    a. Alternatively, browse to **Identity** > **Applications** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
     
     b. Use the search box at the top of the list to find the application that was listed in the recommendation.
       
@@ -45,14 +44,14 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 1. After adding the certificate, change its properties to make the certificate active, which makes the other certificate inactive.
 1. Once the certificate is successfully added and activated, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
-1. Use the Azure AD sign-in logs to validate that the Key ID of the certificate matches the one that was recently uploaded.
-    - Go to **Azure AD Sign-in logs** > **Service principal sign-ins**.
+1. Use the Microsoft Entra sign-in logs to validate that the Key ID of the certificate matches the one that was recently uploaded.
+    - Go to **Microsoft Entra sign-in logs** > **Service principal sign-ins**.
     - Open the details for a related sign-in and check that the **Client credential type** is "Client secret" and the **Credential key ID** matches your credential.
 1. After validating the new credential, navigate back to the **Single sign-on** area for the app and remove the old credential.
 
 ### Use Microsoft Graph to renew expiring service principal credentials
 
-You can use Microsoft Graph to renew expiring service credentials programmatically. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+You can use Microsoft Graph to renew expiring service credentials programmatically. To get started, see [How to use Microsoft Graph with Microsoft Entra recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
 
 When renewing service principal credentials using Microsoft Graph, you need to run a query to get the password credentials on a service principal, add a new password credential, then remove the old credentials. 
 
@@ -73,9 +72,9 @@ When renewing service principal credentials using Microsoft Graph, you need to r
 
 ## Known limitations
 
-- This recommendation identifies service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
+- This recommendation identifies service principal credentials that are about to expire. If they do expire, the recommendation doesn't distinguish between the credential expiring on its own or if you addressed it.
 
-- Service principal credentials that expire before the recommendation is completed will be marked complete by the system.
+- Service principal credentials that expire before the recommendation is completed are complete by the system.
 
 - The recommendation currently doesn't display the password secret credential in service principal when you select an **Impacted resource** from the list.
 
@@ -83,7 +82,7 @@ When renewing service principal credentials using Microsoft Graph, you need to r
 
 ## Next steps
 
-- [Review the Azure AD recommendations overview](overview-recommendations.md)
-- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Review the Microsoft Entra recommendations overview](overview-recommendations.md)
+- [Learn how to use Microsoft Entra recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
-- [Learn about securing service principals](../fundamentals/service-accounts-principal.md)
+- [Learn about securing service principals](../architecture/service-accounts-principal.md)

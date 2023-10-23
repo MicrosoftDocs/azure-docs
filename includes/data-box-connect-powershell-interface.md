@@ -1,11 +1,11 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: include
 ms.date: 11/15/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Depending on the software version, that your Data Box is running, you may need to take different steps to connect to the PowerShell interface of the device. The first step in all these cases would be to identify the software version running on your Data Box.
@@ -198,3 +198,4 @@ Follow these steps to skip certificate validation:
 
 
   
+

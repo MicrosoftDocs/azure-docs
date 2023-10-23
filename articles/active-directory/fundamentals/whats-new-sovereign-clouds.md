@@ -1,6 +1,6 @@
 ---
-title: What's new in Sovereign Clouds? Release notes
-description: Learn what is new with Azure Active Directory Sovereign Cloud.
+title: What's new in Azure Sovereign Clouds? Release notes
+description: Learn what is new with Azure Sovereign Clouds.
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -12,12 +12,11 @@ ms.custom: template-concept
 
 
 
-# What's new in Azure Active Directory Sovereign Clouds?
-
+# What's new in Azure Sovereign Clouds?
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-- [Azure Government](../../azure-government/documentation-government-welcome.md)
+- [Azure Government](/azure/azure-government/documentation-government-welcome)
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
 
@@ -156,7 +155,7 @@ Azure Active Directory Identity Protection "Leaked Credentials" detection is now
 
 You can now create trusts on both user and resource forests. On-premises Active Directory DS users can't authenticate to resources in the Azure Active Directory DS resource forest until you create an outbound trust to your on-premises Active Directory DS. An outbound trust requires network connectivity to your on-premises virtual network to which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises Active Directory forests that aren't synchronized to Azure Active Directory DS.
 
-For more information, see: [How trust relationships work for forests in Active Directory](/azure/active-directory-domain-services/concepts-forest-trust).
+For more information, see: [How trust relationships work for forests in Active Directory](/entra/identity/domain-services/concepts-forest-trust).
 
 ---
 
@@ -196,7 +195,7 @@ In the **All Devices** settings under the Registered column, you can now select 
 **Service category:** My Apps            
 **Product capability:** End User Experiences      
 
-We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings option. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization. This enabled feature reflects in the My Apps portal, and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
+We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Microsoft Entra admin centers. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings option. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization. This enabled feature reflects in the My Apps portal, and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
 
 
 ---
@@ -289,7 +288,7 @@ For more information, see: [Protect user accounts from attacks with Azure Active
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 ---
 
@@ -303,7 +302,7 @@ Azure AD now has the capability to filter the groups included in the token using
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
-- [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+- [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 
 
@@ -338,7 +337,7 @@ Post-authentication anomalous activity detection for workload identities. This d
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial and Microsoft Azure operated by 21Vianet
 
 For more information about Microsoft cloud settings for B2B collaboration, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
@@ -346,13 +345,13 @@ For more information about Microsoft cloud settings for B2B collaboration, see: 
 
 ### Public Preview - Support for Directory Extensions using Azure AD cloud sync
 
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Azure AD Connect Cloud Sync         
+**Type:** New feature
+**Service category:** Provisioning
+**Product capability:** Azure AD Connect cloud sync
 
-Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Connect cloud sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using the  attribute mapping experience of cloud sync.
 
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
+For more information on how to enable this feature, see [Directory extensions and custom attribute mapping in cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 ---
@@ -375,7 +374,7 @@ Azure AD supports provisioning users into applications hosted on-premises or in 
 **Service category:** Azure AD Domain Services             
 **Product capability:** Azure AD Domain Services        
 
-Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](../../active-directory-domain-services/fleet-metrics.md).
+Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](/entra/identity/domain-services/fleet-metrics).
 
 ---
 
@@ -415,7 +414,7 @@ You can now use administrative units to delegate management of specified devices
 **Service category:** Conditional Access          
 **Product capability:** Identity Security & Protection     
 
-Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
+Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
 
 ---
 

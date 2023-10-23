@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 # Quickstart: Create a tenant (preview)
 
-Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. You'll need to create a tenant with customer configurations in the Microsoft Entra admin center to get started. Once the tenant with customer configurations is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+Microsoft Entra External ID offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. You'll need to create a tenant with customer configurations in the Microsoft Entra admin center to get started. Once the tenant with customer configurations is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this quickstart, you'll learn how to create a tenant with customer configurations if you already have an Azure subscription. If you don't have an Azure subscription, you can create a customer tenant free trial. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
 
@@ -29,9 +29,8 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
 ## Create a new tenant with customer configurations 
 
-1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. Select **Manage tenants** at the top of the page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select **Create**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
@@ -70,13 +69,29 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-successfully-created.png" alt-text="Screenshot that shows the link to the new tenant.":::
 
+## Customize your tenant with a guide
+
+Our guide will walk you through the process of setting up a user and configuring a sample app in just a few minutes. This means that you can quickly and easily test out different sign-in and sign-up options and set up a sample app to see what works best for you. This guide is available in any customer tenant.
+
+> [!NOTE]
+> The guide won’t run automatically in customer tenants that you created with the steps above. If you want to run the guide, follow the steps below.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
+1. Browse to **Home** > **Go to Microsoft Entra ID** 
+1. On the Get started tab, select **Start the guide**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/guide-link.png" alt-text="Screenshot that shows how to start the guide.":::
+
+This link will take you to the [guide](quickstart-get-started-guide.md), where you can customize your tenant in three easy steps.
+
 ## Clean up resources
 
 If you're not going to continue to use this tenant, you can delete it using the following steps:
 
-1. Ensure that you're signed in to the directory that you want to delete through the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the Azure portal. Switch to the target directory if needed.
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. Select **Manage tenants** at the top of the page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select the tenant you want to delete, and then select **Delete**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/delete-tenant.png" alt-text="Screenshot that shows how to delete the tenant.":::
@@ -87,6 +102,5 @@ The tenant and its associated information are deleted.
 
 
 ## Next steps
-- [Customize the sign-in experience](how-to-customize-branding-customers.md) 
-- [Register an app](how-to-register-ciam-app.md)
-- [Create user flows](how-to-user-flow-sign-up-sign-in-customers.md)
+
+To learn more about the set-up guide and how to customize your tenant, see the [Get started guide](quickstart-get-started-guide.md) article.

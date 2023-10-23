@@ -20,15 +20,17 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
-    - name: GPT-3
+    - name: Completions
       href: quickstart.md
-    - name: GPT-35-Turbo & GPT-4 
+    - name: Chat
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
       href: use-your-data-quickstart.md
+    - name: Whisper (preview)
+      href: whisper-quickstart.md
 - name: Concepts
   items:
     - name: Abuse monitoring
@@ -41,6 +43,8 @@ items:
       href: ./concepts/red-teaming.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
@@ -72,11 +76,13 @@ items:
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
-      - name: Prepare dataset
-        href: ./how-to/prepare-dataset.md
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
-  - name: Networking & security
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
     items:
       - name: Use virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
@@ -96,12 +102,16 @@ items:
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
+      - name: Role-based access control (Azure RBAC)
+        href: ./how-to/role-based-access-control.md
       - name: Business continuity & disaster recovery (BCDR)
         href: ./how-to/business-continuity-disaster-recovery.md
 - name: Tutorials
   items:
     - name: Embeddings
       href: ./tutorials/embeddings.md
+    - name: Fine-tuning GPT-3.5-Turbo
+      href: ./tutorials/fine-tune.md
     - name: Speech to speech chat
       href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI
@@ -118,21 +128,25 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
-    - name: Bicep/Azure Resource Manager/Terraform
+    - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
-    - name: REST API (completions & embeddings)
-      href: reference.md
-    - name: REST API (fine-tuning)
-      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
-    - name: REST API (Resource creation & deployment)
-      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
-    - name: .NET 
-      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: Azure CLI
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest&preserve-view=true
+    - name: Go
+      href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
     - name: Java
       href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
     - name: JavaScript
       href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
+    - name: .NET 
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: REST API (completions & embeddings)
+      href: reference.md
+    - name: REST API (fine-tuning)
+      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+    - name: REST API (resource creation & deployment)
+      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
 - name: Resources
   items: 
     - name: Support and help options

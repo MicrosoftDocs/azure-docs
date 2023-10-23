@@ -41,7 +41,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 Managed identities for Azure resources provide a [service principal object](../develop/developer-glossary.md#service-principal-object) 
 , which is [created upon enabling managed identities for Azure resources](overview.md) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign-in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
-   - be registered and consented with Azure AD as a confidential/web client application
+   - be registered and consented with Microsoft Entra ID as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)
 
 With managed identities for Azure resources, your script client no longer needs to do either, as it can sign in under the managed identities for Azure resources service principal. 
@@ -50,7 +50,7 @@ With managed identities for Azure resources, your script client no longer needs 
 
 The following script demonstrates how to:
 
-1. Sign in to Azure AD under the VM's managed identity for Azure resources service principal  
+1. Sign in to Microsoft Entra ID under the VM's managed identity for Azure resources service principal  
 2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your virtual machine name for `<VM-NAME>`.  
 
    ```azurecli
@@ -64,7 +64,7 @@ The following script demonstrates how to:
 
 The following script demonstrates how to:
 
-1. Sign in to Azure AD under the VM's managed identity for Azure resources service principal  
+1. Sign in to Microsoft Entra ID under the VM's managed identity for Azure resources service principal  
 2. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token use for you automatically.  
 
    ```azurepowershell
@@ -78,7 +78,7 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
+See [Azure services that support Microsoft Entra authentication](./managed-identities-status.md) for a list of resources that support Microsoft Entra ID and have been tested with managed identities for Azure resources, and their respective resource IDs.
 
 ## Error handling guidance 
 

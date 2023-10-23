@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 11/04/2021
+ms.date: 06/09/2023
 ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
@@ -36,6 +36,11 @@ Azure confidential computing can help you:
 > [!VIDEO https://www.youtube.com/embed/ds48uwDaA-w]
 
 ## Azure offerings
+
+Confidential computing support is expanding from foundational virtual machine, GPU and container offerings up to data, virtual desktop and managed HSM services with many more being planned based on customer demand.
+
+:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services.":::
+
 Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings:
 
 - [Microsoft Azure Attestation](../attestation/overview.md), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.

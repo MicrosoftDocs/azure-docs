@@ -26,8 +26,8 @@ Protect user access on unmanaged devices by preventing browser sessions from rem
 
 ## Create a Conditional Access policy
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -35,7 +35,7 @@ Protect user access on unmanaged devices by preventing browser sessions from rem
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **Filter for devices**, set **Configure** to **Yes**. 
-   1. Under **Devices matching the rule:**, set to **Include filtered devices in policy**.
+   1. Under **Devices matching the rule:**, set to **Exclude filtered devices in policy**.
    1. Under **Rule syntax** select the **Edit** pencil and paste the following expressing in the box, then select **Apply**. 
       1. device.trustType -ne "ServerAD" -or device.isCompliant -ne True
    1. Select **Done**.

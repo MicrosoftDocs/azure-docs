@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ServiceNow.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/25/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with ServiceNow
 
-In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Directory (Azure AD). When you integrate ServiceNow with Azure AD, you can:
+In this tutorial, you'll learn how to integrate ServiceNow with Microsoft Entra ID. When you integrate ServiceNow with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to ServiceNow.
-* Enable your users to be automatically signed-in to ServiceNow with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to ServiceNow.
+* Enable your users to be automatically signed-in to ServiceNow with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Dir
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A ServiceNow single sign-on (SSO) enabled subscription.
 * For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando, Paris and San Diego versions or later.
 * For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
@@ -36,52 +36,55 @@ To get started, you need the following items:
 * To install the ServiceNow Agent (Mobile) application, go to the appropriate store, and search for the ServiceNow Agent application. Then download it.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. 
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 
 * ServiceNow supports **SP** initiated SSO.
 
 * ServiceNow supports [Automated user provisioning](servicenow-provisioning-tutorial.md).
 
-* You can configure the ServiceNow Agent (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* You can configure the ServiceNow Agent (Mobile) application with Microsoft Entra ID for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 ## Add ServiceNow from the gallery
 
-To configure the integration of ServiceNow into Azure AD, you need to add ServiceNow from the gallery to your list of managed SaaS apps.
+To configure the integration of ServiceNow into Microsoft Entra ID, you need to add ServiceNow from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or by using a personal Microsoft account.
-1. In the left pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **ServiceNow** in the search box.
 1. Select **ServiceNow** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for ServiceNow
+<a name='configure-and-test-azure-ad-sso-for-servicenow'></a>
 
-Configure and test Azure AD SSO with ServiceNow by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ServiceNow.
+## Configure and test Microsoft Entra SSO for ServiceNow
 
-To configure and test Azure AD SSO with ServiceNow, perform the following steps:
+Configure and test Microsoft Entra SSO with ServiceNow by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ServiceNow.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
-	1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
-	1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
-	1. [Configure Azure AD SSO for ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express) to enable your users to use this feature.
+To configure and test Microsoft Entra SSO with ServiceNow, perform the following steps:
+
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+	1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with B.Simon.
+	1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Microsoft Entra single sign-on.
+	1. [Configure Microsoft Entra SSO for ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express) to enable your users to use this feature.
 2. [Configure ServiceNow](#configure-servicenow) to configure the SSO settings on the application side.
-	1. [Create a ServiceNow test user](#create-servicenow-test-user) to have a counterpart of B.Simon in ServiceNow, linked to the Azure AD representation of the user.
+	1. [Create a ServiceNow test user](#create-servicenow-test-user) to have a counterpart of B.Simon in ServiceNow, linked to the Microsoft Entra representation of the user.
 	1. [Configure ServiceNow Express SSO](#configure-servicenow-express-sso) to configure the single sign-on settings on the application side.	
 3. [Test SSO](#test-sso) to verify whether the configuration works.
 4. [Test SSO for ServiceNow Agent (Mobile)](#test-sso-for-servicenow-agent-mobile) to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **ServiceNow** application integration page, find the **Manage** section. Select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ServiceNow** application integration page, find the **Manage** section. Select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -118,7 +121,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> If "/ " is added in the Identifier value, please remove that manually.
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. 
 
@@ -132,23 +135,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot of Set up ServiceNow section, with URLs highlighted](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user, called B.Simon, in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user, called B.Simon,.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. For **Name**, enter `B.Simon`.  
-   1. For **User name**, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's shown in the **Password** box.
-   1. Select **Create**.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ServiceNow.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to ServiceNow.
+
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **ServiceNow**.
 1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
 1. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
@@ -156,9 +165,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
-### Configure Azure AD SSO for ServiceNow Express
+<a name='configure-azure-ad-sso-for-servicenow-express'></a>
 
-1. In the [Azure portal](https://portal.azure.com/), on the **ServiceNow** application integration page, select **single sign-on**.
+### Configure Microsoft Entra SSO for ServiceNow Express
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ServiceNow** application integration page, select **single sign-on**.
 
     ![Screenshot of ServiceNow application integration page, with Single sign-on highlighted](common/select-sso.png)
 
@@ -198,17 +210,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> If "/ " is added in the Identifier value, please remove that manually.
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 5. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)** from the specified options, as per your requirement. Save it on your computer.
 
 	![Screenshot of SAML Signing Certificate section, with Download highlighted](common/certificatebase64.png)
 
-6. You can have Azure AD automatically configure ServiceNow for SAML-based authentication. To enable this service, go to the **Set up ServiceNow** section, and select **View step-by-step instructions** to open the **Configure sign-on** window.
+6. You can have Microsoft Entra ID automatically configure ServiceNow for SAML-based authentication. To enable this service, go to the **Set up ServiceNow** section, and select **View step-by-step instructions** to open the **Configure sign-on** window.
 
 	![Screenshot of Set up ServiceNow section, with View step-by-step instructions highlighted](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-7. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Logout URL, Azure AD Identifier, and Login URL** from the Quick Reference section.
+7. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Microsoft Entra ID as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Logout URL, Microsoft Entra Identifier, and Login URL** from the Quick Reference section.
 
 	![Screenshot of Configure sign-on form, with Configure Now highlighted](./media/servicenow-tutorial/configure.png "Configure app URL")
 
@@ -246,13 +258,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. You can configure ServiceNow automatically or manually. To configure ServiceNow automatically, follow these steps:
 
-	1. Return to the **ServiceNow** single sign-on page in the Azure portal.
+	1. Return to the **ServiceNow** single sign-on page.
 
 	1. One-click configure service is provided for ServiceNow. To enable this service, go to the **ServiceNow Configuration** section, and select **Configure ServiceNow** to open the **Configure sign-on** window.
 
 		![Screenshot of Set up ServiceNow, with View step-by-step instructions highlighted](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-	1. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security-admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the Quick Reference section.
+	1. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security-admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Microsoft Entra ID as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the Quick Reference section.
 
 		![Screenshot of Configure sign-on form, with Configure Now highlighted](./media/servicenow-tutorial/configure.png "Configure app URL")
 
@@ -276,12 +288,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 			   b. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
-		       c. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		       c. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section.
 
 			    > [!NOTE]
 			    > The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-		      d. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		      d. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section.
 
 		      e. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
 
@@ -330,7 +342,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		![Screenshot of Import Identity Provider Metadata, with URL and Import highlighted](./media/servicenow-tutorial/idp.png "Configure single sign-on")
 
-		1. Enter the **App Federation Metadata Url** that you've copied from the Azure portal.
+		1. Enter the **App Federation Metadata Url** that you've copied.
 
 		1. Select **Import**.
 
@@ -342,19 +354,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		
 		b.  For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
-		c. Copy the **ServiceNow Homepage** value. Paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		c. Copy the **ServiceNow Homepage** value. Paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section.
 
 		> [!NOTE]
 		> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-		d. Copy the **Entity ID / Issuer** value. Paste it in **Identifier** in **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		d. Copy the **Entity ID / Issuer** value. Paste it in **Identifier** in **ServiceNow Basic SAML Configuration** section.
 
 		e. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
 
 		f. Select **Advanced**. In **User Field**, enter **email**.
 
 		> [!NOTE]
-		> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
+		> You can configure Microsoft Entra ID to emit either the Microsoft Entra user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Microsoft Entra ID (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
 
 		g. Select **Test Connection** at the upper-right corner of the page.
 
@@ -422,11 +434,11 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	a. For **Name**, enter a name for your configuration (for example: **SAML 2.0**).
 
-	b. For **Identity Provider URL**, paste the value of the identity provider ID that you copied from the Azure portal.
+	b. For **Identity Provider URL**, paste the value of the identity provider ID that you copied.
 
-	c. For **Identity Provider's AuthnRequest**, paste the value of the authentication request URL that you copied from the Azure portal.
+	c. For **Identity Provider's AuthnRequest**, paste the value of the authentication request URL that you copied.
 
-	d. For **Identity Provider's SingleLogoutRequest**, paste the value of the logout URL that you copied from the Azure portal.
+	d. For **Identity Provider's SingleLogoutRequest**, paste the value of the logout URL that you copied.
 
 	e. For **Identity Provider Certificate**, select the certificate you created in the previous step.
 
@@ -460,7 +472,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 	e. For **User Field**, enter **email**.
 
 	> [!NOTE]
-	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
+	> You can configure Microsoft Entra ID to emit either the Microsoft Entra user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Microsoft Entra ID (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
 
 	f. Select **Save**.
 
@@ -482,7 +494,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 	*  Enter **Username**, like B.simon@contoso.com.
 
-	*  Select **Use external login**. You're redirected to the Azure AD page for sign-in.
+	*  Select **Use external login**. You're redirected to the Microsoft Entra ID page for sign-in.
 
 	*  Enter your credentials. If there is any third-party authentication, or any other security feature enabled, the user must respond accordingly. The application **Home page** appears.
 

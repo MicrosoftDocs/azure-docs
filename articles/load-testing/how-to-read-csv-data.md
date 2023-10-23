@@ -77,7 +77,7 @@ To add a CSV file to your load test by using the Azure portal:
 
   1. On the **Edit test** page, select the **Test plan** tab. 
 
-  1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
+  1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure. If the size of the CSV file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
   
       :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the Test plan tab on the Edit test pane.":::
   
@@ -90,7 +90,7 @@ If you run a load test within your CI/CD workflow, you can add a CSV file to the
 
 To add a CSV file to your load test:
 
-  1. Commit the CSV file to the source control repository that contains the JMX file and YAML test configuration file.
+  1. Commit the CSV file to the source control repository that contains the JMX file and YAML test configuration file. If the size of the CSV file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
 
   1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
 
@@ -159,6 +159,20 @@ To configure your load test to split input CSV files:
     The next time you run the test, Azure Load Testing splits and processes the CSV file evenly across the test engines.
 
 ---
+
+## Troubleshooting
+
+### Test status is failed and test log has `File {my-filename} must exist and be readable`
+
+When the load test completes with the Failed status, you can [download the test logs](./how-to-troubleshoot-failing-test.md#download-apache-jmeter-worker-logs).
+
+When you receive an error message `File {my-filename} must exist and be readable` in the test log, this means that the input CSV file couldn't be found when running the JMeter script.
+
+Azure Load Testing stores all input files alongside the JMeter script. When you reference the input CSV file in the JMeter script, make sure *not* to include the file path, but only use the filename.
+
+The following code snippet shows an extract of a JMeter file that uses a `CSVDataSet` element to read the input file. Notice that the `filename` doesn't include the file path.
+
+:::code language="xml" source="~/azure-load-testing-samples/jmeter-read-csv/read-from-csv.jmx" range="30-41" highlight="2":::
 
 ## Next steps
 

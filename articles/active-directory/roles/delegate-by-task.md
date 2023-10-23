@@ -1,6 +1,6 @@
 ---
 title: Least privileged roles by task
-description: Least privileged roles to delegate for tasks in Azure Active Directory
+description: Least privileged roles to delegate for tasks in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-#Customer intent: As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD organization more secure.
+#Customer intent: As a Microsoft Entra administrator, I want to know which role has the least privilege for a given task to make my Microsoft Entra organization more secure.
 ---
 
-# Least privileged roles by task in Azure Active Directory
+# Least privileged roles by task in Microsoft Entra ID
 
-In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
+In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Microsoft Entra ID. You will find tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
 
-You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role](custom-create.md).
+You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Microsoft Entra roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role in Microsoft Entra ID](custom-create.md).
 
 ## Application proxy
 
@@ -55,10 +55,10 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create, read, update, and delete users | [User Administrator](permissions-reference.md#user-administrator) |  |
 > | Configure B2B external collaboration settings | [Global Administrator](permissions-reference.md#global-administrator) |  |
 > | Read all configuration | [Global Reader](permissions-reference.md#global-reader) |  |
-> | [Read B2C audit logs](../../active-directory-b2c/faq.yml) | [Global Reader](permissions-reference.md#global-reader) |  |
+> | [Read B2C audit logs](/azure/active-directory-b2c/faq) | [Global Reader](permissions-reference.md#global-reader) |  |
 
 > [!NOTE]
-> Azure AD B2C Global Administrators do not have the same permissions as Azure AD Global Administrators. If you have Azure AD B2C Global Administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global Administrators do not have the same permissions as Microsoft Entra Global Administrators. If you have Azure AD B2C Global Administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory.
 
 ## Company branding
 
@@ -98,18 +98,18 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | [Add or delete services](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
-> | Apply fixes to sync error | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | Configure notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | [Configure settings](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
-> | Configure sync notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | Read ADFS security reports | [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner)
-> | Read all configuration | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | Read sync errors | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | Read sync services | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | View metrics and alerts | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | View metrics and alerts | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | View sync service metrics and alerts | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
+> | [Add or delete services](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](/azure/role-based-access-control/built-in-roles#owner) |  |
+> | Apply fixes to sync error | [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | [Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | Configure notifications | [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | [Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | [Configure settings](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](/azure/role-based-access-control/built-in-roles#owner) |  |
+> | Configure sync notifications | [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | [Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | Read ADFS security reports | [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner)
+> | Read all configuration | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | Read sync errors | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | Read sync services | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | View metrics and alerts | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | View metrics and alerts | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
+> | View sync service metrics and alerts | [Reader](/azure/role-based-access-control/built-in-roles#reader) | [Contributor](/azure/role-based-access-control/built-in-roles#contributor)<br/>[Owner](/azure/role-based-access-control/built-in-roles#owner) |
 
 ## Custom domain names
 
@@ -124,8 +124,8 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Create Azure AD Domain Services instance | [Application Administrator](permissions-reference.md#application-administrator)<br>[Groups Administrator](permissions-reference.md#groups-administrator)<br> [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor)|   |
-> | Perform all Azure AD Domain Services tasks | [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain) |  |
+> | Create Microsoft Entra Domain Services instance | [Application Administrator](permissions-reference.md#application-administrator)<br>[Groups Administrator](permissions-reference.md#groups-administrator)<br> [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor)|   |
+> | Perform all Microsoft Entra Domain Services tasks | [AAD DC Administrators group](/entra/identity/domain-services/tutorial-create-management-vm#administrative-tasks-you-can-perform-on-a-managed-domain) |  |
 > | Read all configuration | Reader on Azure subscription containing AD DS service |  |
 
 ## Devices
@@ -296,7 +296,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
 > | Manage role assignments | [Privileged Role Administrator](permissions-reference.md#privileged-role-administrator) |  |
-> | Read access review of an Azure AD role  | [Security Reader](permissions-reference.md#security-reader) | [Security Administrator](permissions-reference.md#security-administrator)<br/>[Privileged Role Administrator](permissions-reference.md#privileged-role-administrator) |
+> | Read access review of a Microsoft Entra role  | [Security Reader](permissions-reference.md#security-reader) | [Security Administrator](permissions-reference.md#security-administrator)<br/>[Privileged Role Administrator](permissions-reference.md#privileged-role-administrator) |
 > | Read all configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
 
 ## Security - Authentication methods
@@ -372,7 +372,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Create Azure AD or Azure AD B2C Tenant | [Tenant Creator](permissions-reference.md#tenant-creator) |  [Global Administrator](permissions-reference.md#global-administrator) |
+> | Create Microsoft Entra ID or Azure AD B2C Tenant | [Tenant Creator](permissions-reference.md#tenant-creator) |  [Global Administrator](permissions-reference.md#global-administrator) |
 
 ## Users
 
@@ -409,7 +409,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 
 ## Next steps
 
-- [Assign Azure AD roles to users](manage-roles-portal.md)
-- [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md)
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
-- [Azure AD built-in roles](permissions-reference.md)
+- [Assign Microsoft Entra roles to users](manage-roles-portal.md)
+- [Assign Microsoft Entra roles at different scopes](assign-roles-different-scopes.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
+- [Microsoft Entra built-in roles](permissions-reference.md)

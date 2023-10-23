@@ -11,6 +11,8 @@ Your Microsoft Defender for IoT deployment for OT monitoring is managed through 
 
 If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
+This article is relevant for commercial Defender for IoT customers. If you're a government cusetomer, contact your Microsoft sales representative for more information.
+
 ## Prerequisites
 
 Before performing the procedures in this article, make sure that you have:
@@ -49,7 +51,7 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 **To add an OT plan in Defender for IoT**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
 
 1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 

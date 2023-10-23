@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -15,9 +15,9 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# How it works: Azure AD self-service password reset
+# How it works: Microsoft Entra self-service password reset
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. We recommend this video on [how to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
+Microsoft Entra self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. We recommend this video on [how to enable and configure SSPR in Microsoft Entra ID](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how self-service password reset works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -39,7 +39,7 @@ When a user selects the **Can't access your account** link from an application o
 * If you want to link to the SSPR in a specific localized language, append `?mkt=` to the end of the password reset URL along with the required locale.
     * For example, to specify the Spanish *es-us* locale, use `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
-After the SSPR portal is displayed in the required language, the user is prompted to enter a user ID and pass a captcha. Azure AD now verifies that the user is able to use SSPR by doing the following checks:
+After the SSPR portal is displayed in the required language, the user is prompted to enter a user ID and pass a captcha. Microsoft Entra ID now verifies that the user is able to use SSPR by doing the following checks:
 
 * Checks that the user has SSPR enabled.
   * If the user isn't enabled for SSPR, the user is asked to contact their administrator to reset their password.
@@ -49,7 +49,7 @@ After the SSPR portal is displayed in the required language, the user is prompte
   * If the policy requires two methods, check that the user has the appropriate data defined for at least two of the authentication methods enabled by the administrator policy.
     * If the authentication methods aren't configured, the user is advised to contact their administrator to reset their password.
   * If an Azure administrator role is assigned to the user, then the strong two-gate password policy is enforced. For more information, see [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
-* Checks to see if the user's password is managed on-premises, such as if the Azure AD tenant is using federated, pass-through authentication, or password hash synchronization:
+* Checks to see if the user's password is managed on-premises, such as if the Microsoft Entra tenant is using federated, pass-through authentication, or password hash synchronization:
   * If SSPR writeback is configured and the user's password is managed on-premises, the user is allowed to proceed to authenticate and reset their password.
   * If SSPR writeback isn't deployed and the user's password is managed on-premises, the user is asked to contact their administrator to reset their password.
 
@@ -68,17 +68,17 @@ To get started with SSPR, complete the following tutorial:
 
 ## Require users to register when they sign in
 
-You can enable the option to require a user to complete the SSPR registration if they use modern authentication or web browser to sign in to any applications using Azure AD. This workflow includes the following applications:
+You can enable the option to require a user to complete the SSPR registration if they use modern authentication or web browser to sign in to any applications using Microsoft Entra ID. This workflow includes the following applications:
 
 * Microsoft 365
-* Azure portal
+* Microsoft Entra admin center
 * Access Panel
 * Federated applications
-* Custom applications using Azure AD
+* Custom applications using Microsoft Entra ID
 
 When you don't require registration, users aren't prompted during sign-in, but they can manually register. Users can either visit [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
-![Registration options for SSPR in the Azure portal][Registration]
+![Registration options for SSPR in the Microsoft Entra admin center][Registration]
 
 > [!NOTE]
 > Users can dismiss the SSPR registration portal by selecting **cancel** or by closing the window. However, they're prompted to register each time they sign in until they complete their registration.
@@ -109,7 +109,7 @@ Users can only reset their password if they have registered an authentication me
 > [!WARNING]
 > Accounts assigned Azure *administrator* roles are required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Authentication methods selection in the Azure portal][Authentication]
+![Authentication methods selection in the Microsoft Entra admin center][Authentication]
 
 ### Number of authentication methods required
 
@@ -161,11 +161,11 @@ To improve awareness of password events, SSPR lets you configure notifications f
 
 ### Notify users on password resets
 
-If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. If no primary or alternate email address is defined SSPR will attempt email notification via the users User Principal Name (UPN). No one else is notified of the reset event.
+If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Microsoft Entra ID. If no primary or alternate email address is defined SSPR will attempt email notification via the users User Principal Name (UPN). No one else is notified of the reset event.
 
 ### Notify all admins when other admins reset their passwords
 
-If this option is set to **Yes**, then all other Azure administrators receive an email to their primary email address stored in Azure AD. The email notifies them that another administrator has changed their password by using SSPR.
+If this option is set to **Yes**, then all other Azure administrators receive an email to their primary email address stored in Microsoft Entra ID. The email notifies them that another administrator has changed their password by using SSPR.
 
 Consider the following example scenario:
 
@@ -182,18 +182,18 @@ Consider the following example scenario:
 > If you observe issues in receiving notifications, please check your spam settings. 
 ## On-premises integration
 
-If you have a hybrid environment, you can configure Azure AD Connect to write password change events back from Azure AD to an on-premises directory.
+If you have a hybrid environment, you can configure Microsoft Entra Connect to write password change events back from Microsoft Entra ID to an on-premises directory.
 
 ![Validating password writeback is enabled and working][Writeback]
 
-Azure AD checks your current hybrid connectivity and provides one of the following messages in the Azure portal:
+Microsoft Entra ID checks your current hybrid connectivity and provides one of the following messages in the Microsoft Entra admin center:
 
 * Your on-premises writeback client is up and running.
-* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
-* Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
-* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
+* Microsoft Entra ID is online and is connected to your on-premises writeback client. However, it looks like the installed version of Microsoft Entra Connect is out-of-date. Consider [Upgrading Microsoft Entra Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
+* Unfortunately, we can't check your on-premises writeback client status because the installed version of Microsoft Entra Connect is out-of-date. [Upgrade Microsoft Entra Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to be able to check your connection status.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Microsoft Entra Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 * Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](./tutorial-enable-sspr-writeback.md) to restore the connection.
-* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Microsoft Entra Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 
 To get started with SSPR writeback, complete the following tutorial:
 
@@ -202,34 +202,34 @@ To get started with SSPR writeback, complete the following tutorial:
 
 ### Write back passwords to your on-premises directory
 
-You can enable password writeback using the Azure portal. You can also temporarily disable password writeback without having to reconfigure Azure AD Connect.
+You can enable password writeback using the Microsoft Entra admin center. You can also temporarily disable password writeback without having to reconfigure Microsoft Entra Connect.
 
 * If the option is set to **Yes**, then writeback is enabled. Federated, pass-through authentication, or password hash synchronized users are able to reset their passwords.
 * If the option is set to **No**, then writeback is disabled. Federated, pass-through authentication, or password hash synchronized users aren't able to reset their passwords.
 
 ### Allow users to unlock accounts without resetting their password
 
-By default, Azure AD unlocks accounts when it performs a password reset. To provide flexibility, you can choose to allow users to unlock their on-premises accounts without having to reset their password. Use this setting to separate those two operations.
+By default, Microsoft Entra ID unlocks accounts when it performs a password reset. To provide flexibility, you can choose to allow users to unlock their on-premises accounts without having to reset their password. Use this setting to separate those two operations.
 
 * If set to **Yes**, users are given the option to reset their password and unlock the account, or to unlock their account without having to reset the password.
 * If set to **No**, users are only be able to perform a combined password reset and account unlock operation.
 
 ### On-premises Active Directory password filters
 
-SSPR performs the equivalent of an admin-initiated password reset in Active Directory. If you use a third-party password filter to enforce custom password rules, and you require that this password filter is checked during Azure AD self-service password reset, ensure that the third-party password filter solution is configured to apply in the admin password reset scenario. [Azure AD password protection for Active Directory Domain Services](concept-password-ban-bad-on-premises.md) is supported by default.
+SSPR performs the equivalent of an admin-initiated password reset in Active Directory. If you use a third-party password filter to enforce custom password rules, and you require that this password filter is checked during Microsoft Entra self-service password reset, ensure that the third-party password filter solution is configured to apply in the admin password reset scenario. [Microsoft Entra password protection for Active Directory Domain Services](concept-password-ban-bad-on-premises.md) is supported by default.
 
 ## Password reset for B2B users
 
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
-* **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Microsoft 365 customers.
+* **Users from a partner organization with an existing Microsoft Entra tenant**: If the organization you partner with has an existing Microsoft Entra tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Microsoft Entra SSPR is enabled. There is no additional charge for Microsoft 365 customers.
 * **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../enterprise-users/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
-* **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
+* **B2B users**: Any new B2B users created by using the new [Microsoft Entra B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to https://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
 
 > [!NOTE]
-> Microsoft accounts that have been granted guest access to your Azure AD tenant, such as those from Hotmail.com, Outlook.com, or other personal email addresses, aren't able to use Azure AD SSPR. They need to reset their password by using the information found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+> Microsoft accounts that have been granted guest access to your Microsoft Entra tenant, such as those from Hotmail.com, Outlook.com, or other personal email addresses, aren't able to use Microsoft Entra SSPR. They need to reset their password by using the information found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
 ## Next steps
 

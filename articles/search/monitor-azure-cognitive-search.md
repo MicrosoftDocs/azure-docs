@@ -115,7 +115,7 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 
 1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one setting.
 
-1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
+1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "audit", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
    + See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
@@ -128,6 +128,8 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 1. Optionally, select [other destinations](../azure-monitor/essentials/diagnostic-settings.md#destinations).
 
 1. Select **Save**.
+
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
 
 Once the workspace contains data, you can run log queries:
 

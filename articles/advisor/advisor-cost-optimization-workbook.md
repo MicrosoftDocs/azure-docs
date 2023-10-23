@@ -7,7 +7,7 @@ ms.date: 07/17/2023
 ---
 
 # Understand and optimize your Azure costs using the Cost Optimization workbook
-The Azure Cost Optimization workbook is designed to an overview and help optimize costs for your Azure environment. It offers a set of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
+The Azure Cost Optimization workbook is designed to provide an overview and help you optimize costs of your Azure environment. It offers a set of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
 
 ## Overview
 The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.

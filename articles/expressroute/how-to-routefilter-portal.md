@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 08/31/2023
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
@@ -27,6 +27,8 @@ Connectivity to all Azure and Microsoft 365 services causes a large number of pr
 * Filter out unwanted prefixes by applying route filters on BGP communities. Route filtering is a standard networking practice and is used commonly within many networks.
 
 * Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
+
+:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

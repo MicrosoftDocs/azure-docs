@@ -1,9 +1,9 @@
 ---
-title: Approve or deny requests for Azure AD roles in PIM
-description: Learn how to approve or deny requests for Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Approve or deny requests for Microsoft Entra roles in PIM
+description: Learn how to approve or deny requests for Microsoft Entra roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,29 +11,29 @@ ms.subservice: pim
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Approve or deny requests for Azure AD roles in Privileged Identity Management
+# Approve or deny requests for Microsoft Entra roles in Privileged Identity Management
 
-With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+With Privileged Identity Management (PIM) in Microsoft Entra ID you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+
+
 
 ## View pending requests
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
+As a delegated approver, you receive an email notification when a Microsoft Entra role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Approve requests**.
 
-1. Select **Approve requests**.
-
-    ![Approve requests - page showing request to review Azure AD roles](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Approve requests - page showing request to review Microsoft Entra roles](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
@@ -98,17 +98,14 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentSche
 >[!NOTE]
 >Approvers are not able to approve their own role activation requests.
 
-1. Find and select the request that you want to approve. An approve or deny page appears.
-
-    ![Screenshot that shows the "Approve requests - Azure AD roles" page.](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
-
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Approve**. You will receive an Azure notification of your approval.
-
-    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+ 1. Find and select the request that you want to approve. An approve or deny page appears.
+ 2. In the **Justification** box, enter the business justification.
+ 3. Select **Submit**. You will receive an Azure notification of your approval.
 
 ## Approve pending requests using Microsoft Graph API
+
+>[!NOTE]
+> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
 
 ### Get IDs for the steps that require approval
 
@@ -150,8 +147,8 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 PATCH 
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
 { 
-    "reviewResult": "Approve", 
-    "justification": "abcdefg" 
+    "reviewResult": "Approve", // or "Deny"
+    "justification": "Trusted User" 
 } 
  ````
 
@@ -161,13 +158,9 @@ Successful PATCH calls generate an empty response.
 
 ## Deny requests
 
-1. Find and select the request that you want to deny. An approve or deny page appears.
-
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
-
-1. In the **Justification** box, enter the business justification.
-
-1. Select **Deny**. A notification appears with your denial.
+ 1. Find and select the request that you want to approve. An approve or deny page appears.
+ 2. In the **Justification** box, enter the business justification.
+ 3. Select **Deny**. A notification appears with your denial.
 
 ## Workflow notifications
 

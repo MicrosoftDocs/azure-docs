@@ -5,7 +5,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/30/2023
+ms.date: 08/09/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -55,6 +55,8 @@ Don't create the virtual hub yet. Continue on to the next section to configure a
 In this section, you configure site-to-site connectivity settings, and then proceed to create the virtual hub and site-to-site VPN gateway. A virtual hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
+
+[!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
 ## <a name="site"></a>Create a site
 

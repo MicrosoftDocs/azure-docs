@@ -158,13 +158,13 @@ In the code:
 
 - Prepare the `tokenRequest` and `apiConfig` object. The `tokenRequest` contains the scope for which you request an access token. The scope looks something like `api://Enter_the_Web_Api_Application_Id_Here/.default`. The `apiConfig` object contains the endpoint to your web API. Learn more about [OAuth 2.0 client credentials flow](../../develop/v2-oauth2-client-creds-grant-flow.md).
 
-- You create a confidential client instance by passing the `msalConfig` object to the [ConfidentialClientApplication](/javascript/api/@azure/msal-node/confidentialclientapplication#constructors) class' constructor.
+- You create a confidential client instance by passing the `msalConfig` object to the [ConfidentialClientApplication](/javascript/api/%40azure/msal-node/confidentialclientapplication#constructors) class' constructor.
 
     ```javascript
     const cca = new msal.ConfidentialClientApplication(msalConfig);
     ```
 
-- You then use the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
+- You then use the [acquireTokenByClientCredential](/javascript/api/%40azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
 
     ```javascript
     cca.acquireTokenByClientCredential(tokenRequest);
@@ -268,7 +268,7 @@ const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
 
 At this point, you're ready to test your client daemon app and web API:
 
-1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) tutorial to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the *authConfig.js* file to use the correct web API's port number. 
+1. Use the steps you learned in [Secure an ASP.NET web API](./tutorial-protect-web-api-dotnet-core-build-app.md) tutorial to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the *authConfig.js* file to use the correct web API's port number. 
 
 1. In your terminal, make sure you're in the project folder that contains your daemon Node.js app such as `ciam-call-api-node-daemon`, then run the following command: 
 

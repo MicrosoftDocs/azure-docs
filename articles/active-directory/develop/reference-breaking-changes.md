@@ -28,6 +28,22 @@ Check this article regularly to learn about:
 > [!TIP]
 > To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
+## October 2023
+
+### Updated RemoteConnect UX Prompt
+
+**Effective date**: October 2023
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: RemoteConnect
+
+RemoteConnect is a cross-device flow that is used for Microsoft Authentication Broker and Microsoft Intune related scenarios involving [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md). To help prevent phishing attacks, the RemoteConnect flow will be receiving updated UX language to call out that the remote device (the device which initiated the flow) will be able to access any applications used by your organization upon successful completion of the flow.
+
+The prompt that appears will look something like this: 
+
+:::image type="content" source="media/breaking-changes/remote-connect-prompt.png" alt-text="Screenshot of updated Remote Connect prompt that reads 'You will be signed in on a remote device or service, allowing you to access any apps used by your organization'.":::
+
 ## June 2023
 
 ### Omission of email claims with an unverified domain owner
@@ -122,7 +138,7 @@ You can review the current text of the 50105 error and more on the error lookup 
 **Change**
 
 For single tenant applications, adding or updating the AppId URI validates that the domain in the HTTPS scheme URI is listed in the verified domain list in the customer tenant or that the value uses the default scheme (`api://{appId}`) provided by Azure AD. This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or the value doesn't use the default scheme.
-To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
+To find more information on verified domains, refer to the [custom domains documentation](../fundamentals/add-custom-domain.md).
 
 The change doesn't affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URI or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after October 15, 2021. AppId URIs already in an application's identifierUris collection when the restriction takes effect on October 15, 2021 will continue to function even if you add new URIs to that collection.
 
@@ -141,7 +157,7 @@ If a request fails the validation check, the application API for create/update w
 
 **Endpoints impacted**: v2.0
 
-**Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
+**Protocol impacted**: All flows using [dynamic consent](./permissions-consent-overview.md#requesting-individual-user-consent)
 
 Applications using dynamic consent today are given all the permissions they have consent for, even if they weren't requested by name in the `scope` parameter. An app requesting only `user.read` but with consent to `files.read` can be forced to pass the Conditional Access requirement assigned for `files.read`, for example.
 

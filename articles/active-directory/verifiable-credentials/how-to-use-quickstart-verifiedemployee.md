@@ -17,7 +17,7 @@ ms.date: 06/22/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In this guide, you'll create a credential where the claims come from a user profile in the directory of the Azure AD tenant. With directory based claims you can create Verifiable Credentials of type VerifiedEmployee, if the users in the directory are employees.
+In this guide, you'll create a credential where the claims come from a user profile in the directory of the Microsoft Entra tenant. With directory based claims you can create Verifiable Credentials of type VerifiedEmployee, if the users in the directory are employees.
 
 In this article, you learn how to:
 
@@ -39,7 +39,7 @@ In this article, you learn how to:
 
 If you already have a test user, you can skip this section. If you want to create a test user, follow the steps below:
 
-1. As an **User Admin**, navigate to the Azure Active Directory in the [Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/UsersManagementMenuBlade/~/MsGraphUsers)
+1. As an **User Admin**, navigate to the Microsoft Entra ID in the [Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/UsersManagementMenuBlade/~/MsGraphUsers)
 1. Select **Users** and **+ New user**, then keep selection on [x] Create user
 1. Fill in **User name**, **Name**, **First name** and **Last name**. 
 1. Check **[x] Show Password** and copy the temporary password to somewhere, like Notepad, then select the Create button
@@ -55,7 +55,7 @@ Your test user needs to have Microsoft Authenticator setup for the account. To e
 
 1. On your mobile test device, open Microsoft Authenticator, go to the Authenticator tab at the bottom and tap **+**  sign to **Add account**. Select **Work or school account** 
 1. At the prompt, select **Sign in**. Don't select “Scan QR code”
-1. Sign in with the test user’s credentials in the Azure AD tenant
+1. Sign in with the test user’s credentials in the Microsoft Entra tenant
 1. Authenticator will launch [https://aka.ms/mfasetup](https://aka.ms/mfasetup) in the browser on your mobile device.   need to sign in again with your test users credentials.
 1. In the **Set up your account in the app**, select **Pair your account to the app by clicking this link**. The Microsoft Authenticator app and opens and you see your test user as an added account
 
@@ -73,7 +73,7 @@ In the next screen, you enter some of the Display definitions, like logo url, te
 
 ## Claims schema for Verified employee credential
 
-All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user) in Azure AD for the issuing tenant. You can't modify the set of claims. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get)
+All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user) in Microsoft Entra ID for the issuing tenant. You can't modify the set of claims. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get)
 
 | Claim | Directory attribute | Value  |
 |---------|---------|---------|
@@ -86,9 +86,9 @@ All of the claims in the Verified employee credential come from attributes in th
 | `mail` | `mail` | The user's email address. The `mail` value isn't the same as the UPN. It's also an attribute that doesn't have a value by default. 
 | `photo` | `photo` | The uploaded photo for the user. The image type should be JPEG and the maximum size is 2MB. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
 
-See full Azure AD user profile [properties reference](/graph/api/resources/user).
+See full Microsoft Entra user profile [properties reference](/graph/api/resources/user).
 
-If attribute values change in the user's Azure AD profile, the VC isn't automatically reissued. You must reissue it manually. Issuance would be the same as the issuance process when working with the samples.
+If attribute values change in the user's Microsoft Entra profile, the VC isn't automatically reissued. You must reissue it manually. Issuance would be the same as the issuance process when working with the samples.
 
 ## Configure the samples to issue and verify your VerifiedEmployee credential
 

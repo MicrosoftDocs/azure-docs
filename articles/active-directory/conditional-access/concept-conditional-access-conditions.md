@@ -1,6 +1,6 @@
 ---
 title: Conditions in Conditional Access policy
-description: What are conditions in an Azure AD Conditional Access policy
+description: What are conditions in a Microsoft Entra Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -58,11 +58,11 @@ We don't support selecting macOS or Linux device platforms when selecting **Requ
 
 ## Locations
 
-When administrators configure location as a condition, they can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, unknown areas that don't map to specific countries or regions, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md).
+When administrators configure location as a condition, they can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, unknown areas that don't map to specific countries or regions, and [Global Secure Access' compliant network](/entra/global-secure-access/how-to-compliant-network).
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When administrators select **any location**, they can choose to exclude **all trusted** or **selected locations**.
 
-Administrators can create policies that target specific locations along with other conditions. More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
+Administrators can create policies that target specific locations along with other conditions. More information about locations can be found in the article, [What is the location condition in Microsoft Entra Conditional Access](location-condition.md).
 
 ## Client apps
 
@@ -164,8 +164,8 @@ This setting has an effect on access attempts made from the following mobile app
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device-based policies aren’t supported.| Any My Apps app service | Android and iOS |
 | Microsoft Teams Services - this client app controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
-| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
-| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/sharepoint/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/sharepoint/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
 | Office 2019| SharePoint | Windows 10, macOS |
 | Office mobile apps | SharePoint | Android, iOS |
@@ -176,7 +176,7 @@ This setting has an effect on access attempts made from the following mobile app
 | Outlook mobile app | Exchange Online | Android, iOS |
 | Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
 | Skype for Business | Exchange Online| Android, iOS |
-| Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
+| Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) app | Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
 
 ### Exchange ActiveSync clients
 
@@ -184,12 +184,12 @@ This setting has an effect on access attempts made from the following mobile app
 - When administrators create a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Administrators can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
-If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multifactor Authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
+If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multifactor authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
 
 For more information, see the following articles:
 
 - [Block legacy authentication with Conditional Access](block-legacy-authentication.md)
-- [Requiring approved client apps with Conditional Access](app-based-conditional-access.md)
+- [Requiring approved client apps with Conditional Access](./howto-policy-approved-app-or-app-protection.md)
 
 ### Other clients
 

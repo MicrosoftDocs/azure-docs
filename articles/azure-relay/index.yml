@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/11/2022
+  ms.date: 08/10/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -79,7 +79,7 @@ landingContent:
             url: relay-authentication-and-authorization.md
           - text: Authenticate with managed identities (Preview)
             url: authenticate-managed-identity.md
-          - text: Authenticate an application using Azure Active Directory (preview)
+          - text: Authenticate an application using Microsoft Entra ID (preview)
             url: authenticate-application.md
           - text: Network security
             url: network-security.md

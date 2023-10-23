@@ -21,16 +21,16 @@ ms.collection: M365-identity-device-management
 
 # Connecting from your application to resources without handling credentials
 
-Azure resources with managed identities support always provide an option to specify a managed identity to connect to Azure resources that support Azure Active directory authentication. Managed identities support makes it unnecessary for developers to manage credentials in code. Managed identities are the recommended authentication option when working with Azure resources that support them. [Read an overview of managed identities](overview.md).
+Azure resources with managed identities support always provide an option to specify a managed identity to connect to Azure resources that support Microsoft Entra authentication. Managed identities support makes it unnecessary for developers to manage credentials in code. Managed identities are the recommended authentication option when working with Azure resources that support them. [Read an overview of managed identities](overview.md).
 
-This page demonstrates how to configure an App Service so it can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. The same principles can be used for any Azure resource that supports managed identities and that will connect to resources that support Azure Active Directory authentication. 
+This page demonstrates how to configure an App Service so it can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. The same principles can be used for any Azure resource that supports managed identities and that will connect to resources that support Microsoft Entra authentication. 
 
 The code samples use the Azure Identity client library, which is the recommended method as it automatically handles many of the steps for you, including acquiring an access token used in the connection.
 
 ### What resources can managed identities connect to?
-A managed identity can connect to any resource that supports Azure Active Directory authentication. In general, there's no special support required for the resource to allow managed identities to connect to it.
+A managed identity can connect to any resource that supports Microsoft Entra authentication. In general, there's no special support required for the resource to allow managed identities to connect to it.
 
-Some resources don't support Azure Active Directory authentication, or their client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
+Some resources don't support Microsoft Entra authentication, or their client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
 
 ## Creating a managed identity
 
@@ -110,7 +110,7 @@ Your source resource now has a user-assigned identity that it can use to connect
 > [!NOTE]
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
-Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure Role Based Access Control (RBAC) system](../../role-based-access-control/overview.md).
+Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure Role Based Access Control (RBAC) system](/azure/role-based-access-control/overview).
 
 ### [Portal](#tab/portal)
 
@@ -151,11 +151,11 @@ az role assignment create --assignee "<Object/Principal ID of the managed identi
 --scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}"
 ```
 
-[Read more about adding role assignments using the Command Line Interface](../../role-based-access-control/role-assignments-cli.md).
+[Read more about adding role assignments using the Command Line Interface](/azure/role-based-access-control/role-assignments-cli).
 
 ---
 
-Your managed identity now has the correct permissions to access the Azure target resource. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
+Your managed identity now has the correct permissions to access the Azure target resource. [Read more about Azure Role Based Access Control](/azure/role-based-access-control/overview).
 
 ## Using the managed identity in your code
 
@@ -330,7 +330,7 @@ dr.Close();
 
 #### [Java](#tab/java)
 
-If you use [Azure Spring Apps](../../spring-apps/index.yml), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
+If you use [Azure Spring Apps](/azure/spring-apps/), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
 
 Open the `src/main/resources/application.properties` file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for `$AZ_DATABASE_NAME` variable.
 
@@ -338,13 +338,15 @@ Open the `src/main/resources/application.properties` file, and add `Authenticati
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
-Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](../../spring-apps/connect-managed-identity-to-azure-sql.md).
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](/azure/spring-apps/connect-managed-identity-to-azure-sql).
 
 ---
 
-## Connecting to resources that don't support Azure Active Directory or token based authentication in libraries
+<a name='connecting-to-resources-that-dont-support-azure-active-directory-or-token-based-authentication-in-libraries'></a>
 
-Some Azure resources either don't yet support Azure Active Directory authentication, or their client libraries don't support authenticating with a token. Typically these resources are open-source technologies that expect a username and password or an access key in a connection string.
+## Connecting to resources that don't support Microsoft Entra ID or token based authentication in libraries
+
+Some Azure resources either don't yet support Microsoft Entra authentication, or their client libraries don't support authenticating with a token. Typically these resources are open-source technologies that expect a username and password or an access key in a connection string.
 
 To avoid storing credentials in your code or your application configuration, you can store the credentials as a secret in Azure Key Vault. Using the example displayed above, you can retrieve the secret from Azure KeyVault using a managed identity, and pass the credentials into your connection string. This approach means that no credentials need to be handled directly in your code or environment.
 
@@ -365,7 +367,7 @@ Tokens should be treated like credentials. Don't expose them to users or other s
 
 ## Next steps
 
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
-* [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
+* [How to use managed identities with Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
-* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets
+* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets

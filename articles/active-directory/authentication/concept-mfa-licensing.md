@@ -1,6 +1,6 @@
 ---
-title: Azure AD Multi-Factor Authentication versions and consumption plans
-description: Learn about the Azure AD Multi-Factor Authentication client and different methods and versions available. 
+title: Microsoft Entra multifactor authentication versions and consumption plans
+description: Learn about the Microsoft Entra multifactor authentication client and different methods and versions available. 
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -14,37 +14,39 @@ manager: amycolannino
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
-# Features and licenses for Azure AD Multi-Factor Authentication
+# Features and licenses for Microsoft Entra multifactor authentication
 
-To protect user accounts in your organization, multi-factor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multi-factor authentication features are available to Microsoft 365 and Azure Active Directory (Azure AD) users and global administrators for no extra cost. If you want to upgrade the features for your admins or extend multi-factor authentication to the rest of your users with more authentication methods and greater control, you can purchase Azure AD Multi-Factor Authentication in several ways.
+To protect user accounts in your organization, multifactor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multifactor authentication features are available to Microsoft 365 and Microsoft Entra users and global administrators for no extra cost. If you want to upgrade the features for your admins or extend multifactor authentication to the rest of your users with more authentication methods and greater control, you can purchase Microsoft Entra multifactor authentication in several ways.
 
 > [!IMPORTANT]
-> This article details the different ways that Azure AD Multi-Factor Authentication can be licensed and used. For specific details about pricing and billing, see the [Azure AD pricing page](https://www.microsoft.com/en-us/security/business/identity-access-management/azure-ad-pricing).
+> This article details the different ways that Microsoft Entra multifactor authentication can be licensed and used. For specific details about pricing and billing, see the [Microsoft Entra pricing page](https://www.microsoft.com/en-us/security/business/identity-access-management/azure-ad-pricing).
 
-## Available versions of Azure AD Multi-Factor Authentication
+<a name='available-versions-of-azure-ad-multi-factor-authentication'></a>
 
-Azure AD Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. All tenants are entitled to basic multifactor authentication features via Security Defaults. You may already be entitled to use advanced Azure AD Multi-Factor Authentication depending on the Azure AD, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Azure AD External Identities can use MFA and other Premium P1 or P2 features for free. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+## Available versions of Microsoft Entra multifactor authentication
 
-The following table details the different ways to get Azure AD Multi-Factor Authentication and some of the features and use cases for each.
+Microsoft Entra multifactor authentication can be used, and licensed, in a few different ways depending on your organization's needs. All tenants are entitled to basic multifactor authentication features via Security Defaults. You may already be entitled to use advanced Microsoft Entra multifactor authentication depending on the Microsoft Entra ID, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Microsoft Entra External ID can use MFA and other Premium P1 or P2 features for free. For more information, see [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+
+The following table details the different ways to get Microsoft Entra multifactor authentication and some of the features and use cases for each.
 
 | If you're a user of | Capabilities and use cases |
 | --- | --- |
-| [Microsoft 365 Business Premium](https://www.microsoft.com/microsoft-365/business) and [EMS](https://www.microsoft.com/security/business/enterprise-mobility-security) or [Microsoft 365 E3 and E5](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) | EMS E3, Microsoft 365 E3, and Microsoft 365 Business Premium includes Azure AD Premium P1. EMS E5 or Microsoft 365 E5 includes Azure AD Premium P2. You can use the same Conditional Access features noted in the following sections to provide multi-factor authentication to users. |
-| [Azure AD Premium P1](../fundamentals/active-directory-get-started-premium.md) | You can use [Azure AD Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements. |
-| [Azure AD Premium P2](../fundamentals/active-directory-get-started-premium.md) | Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Azure AD Premium P1 features that adapts to user's patterns and minimizes multi-factor authentication prompts. |
-| [All Microsoft 365 plans](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans) | Azure AD Multi-Factor Authentication can be enabled for all users using [security defaults](../fundamentals/concept-fundamentals-security-defaults.md). Management of Azure AD Multi-Factor Authentication is through the Microsoft 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Microsoft 365 resources with multi-factor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication).  |
-| [Office 365 free](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans)<br>[Azure AD free](../verifiable-credentials/how-to-create-a-free-developer-account.md) | You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to prompt users for multi-factor authentication as needed but you don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multi-factor authentication for everyone, users assigned the *Azure AD Global Administrator* role can be configured to use multi-factor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multi-factor authentication. |
+| [Microsoft 365 Business Premium](https://www.microsoft.com/microsoft-365/business) and [EMS](https://www.microsoft.com/security/business/enterprise-mobility-security) or [Microsoft 365 E3 and E5](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) | EMS E3, Microsoft 365 E3, and Microsoft 365 Business Premium includes Microsoft Entra ID P1. EMS E5 or Microsoft 365 E5 includes Microsoft Entra ID P2. You can use the same Conditional Access features noted in the following sections to provide multifactor authentication to users. |
+| [Microsoft Entra ID P1](../fundamentals/get-started-premium.md) | You can use [Microsoft Entra Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) to prompt users for multifactor authentication during certain scenarios or events to fit your business requirements. |
+| [Microsoft Entra ID P2](../fundamentals/get-started-premium.md) | Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Microsoft Entra ID P1 features that adapts to user's patterns and minimizes multifactor authentication prompts. |
+| [All Microsoft 365 plans](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans) | Microsoft Entra multifactor authentication can be enabled for all users using [security defaults](../fundamentals/security-defaults.md). Management of Microsoft Entra multifactor authentication is through the Microsoft 365 portal. For an improved user experience, upgrade to Microsoft Entra ID P1 or P2 and use Conditional Access. For more information, see [secure Microsoft 365 resources with multifactor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication).  |
+| [Office 365 free](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans)<br>[Microsoft Entra ID Free](../verifiable-credentials/how-to-create-a-free-developer-account.md) | You can use [security defaults](../fundamentals/security-defaults.md) to prompt users for multifactor authentication as needed but you don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multifactor authentication for everyone, users assigned the *Microsoft Entra Global Administrator* role can be configured to use multifactor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multifactor authentication. |
 
 ## Feature comparison based on licenses
 
-The following table provides a list of the features that are available in the various versions of Azure AD for Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, including SMS and phone calls. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
+The following table provides a list of the features that are available in the various versions of Microsoft Entra ID for multifactor authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Microsoft Entra ID Free provides security defaults that provide Microsoft Entra multifactor authentication where only the mobile authenticator app can be used for the authentication prompt. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Microsoft Entra ID Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
-| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 | 
+| Feature | Microsoft Entra ID Free - Security defaults (enabled for all users) | Microsoft Entra ID Free - Global Administrators only | Office 365 | Microsoft Entra ID P1 | Microsoft Entra ID P2 | 
 | --- |:---:|:---:|:---:|:---:|:---:|
-| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
+| Protect Microsoft Entra tenant admin accounts with MFA | ● | ● (*Microsoft Entra Global Administrator* accounts only) | ● | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● | ● |
-| Phone call as a second factor | ● | | ● | ● | ● |
-| SMS as a second factor | ● | ● | ● | ● | ● |
+| Phone call as a second factor | | | ● | ● | ● |
+| Text message as a second factor | | ● | ● | ● | ● |
 | Admin control over verification methods | | ● | ● | ● | ● |
 | Fraud alert | | | | ● | ● |
 | MFA Reports | | | | ● | ● |
@@ -53,10 +55,12 @@ The following table provides a list of the features that are available in the va
 | Trusted IPs | | | | ● | ● |
 | Remember MFA for trusted devices | | ● | ● | ● | ● |
 | MFA for on-premises applications | | | | ● | ● |
-| Conditional access | | | | ● | ● |
+| Conditional Access | | | | ● | ● |
 | Risk-based Conditional Access | | | | | ● |
 
-## Compare multi-factor authentication policies
+<a name='compare-multi-factor-authentication-policies'></a>
+
+## Compare multifactor authentication policies
 
 Our recommended approach to enforce MFA is using [Conditional Access](../conditional-access/overview.md). Review the following table to determine the what capabilities are included in your licenses.
 
@@ -70,7 +74,7 @@ Our recommended approach to enforce MFA is using [Conditional Access](../conditi
 | Configuration flexibility | | ● |  |
 | **Functionality** | 
 | Exempt users from the policy | | ● | ● |
-| Authenticate by phone call or SMS | ● | ● | ● |
+| Authenticate by phone call or text message | ● | ● | ● |
 | Authenticate by Microsoft Authenticator and Software tokens | ● | ● | ● |
 | Authenticate by FIDO2, Windows Hello for Business, and Hardware tokens | | ● | ● |
 | Blocks legacy authentication protocols | ● | ● | ● |
@@ -81,32 +85,35 @@ Our recommended approach to enforce MFA is using [Conditional Access](../conditi
 | Support for "report only" mode | | ● | |
 | Ability to completely block users/services | | ● | |
 
-## Purchase and enable Azure AD Multi-Factor Authentication
+<a name='purchase-and-enable-azure-ad-multi-factor-authentication'></a>
 
-To use Azure AD Multi-Factor Authentication, register for or purchase an eligible Azure AD tier. Azure AD comes in four editions—Free, Office 365, Premium P1, and Premium P2.
+## Purchase and enable Microsoft Entra multifactor authentication
 
-The Free edition is included with an Azure subscription. See the [section below](#azure-ad-free-tier) for information on how to use security defaults or protect accounts with the *Azure AD Global Administrator* role.
+To use Microsoft Entra multifactor authentication, register for or purchase an eligible Microsoft Entra tier. Microsoft Entra ID comes in four editions—Free, Office 365, Premium P1, and Premium P2.
 
-The Azure AD Premium editions are available through your Microsoft representative, the [Open Volume License Program](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Azure and Microsoft 365 subscribers can also buy Azure Active Directory Premium P1 and P2 online. [Sign in](https://portal.office.com/Commerce/Catalog.aspx) to purchase.
+The Free edition is included with an Azure subscription. See the [section below](#azure-ad-free-tier) for information on how to use security defaults or protect accounts with the *Microsoft Entra Global Administrator* role.
 
-After you have purchased the required Azure AD tier, [plan and deploy Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md).
+The Microsoft Entra ID P1 or P2 editions are available through your Microsoft representative, the [Open Volume License Program](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Azure and Microsoft 365 subscribers can also buy Microsoft Entra ID P1 and P2 online. [Sign in](https://portal.office.com/Commerce/Catalog.aspx) to purchase.
 
-### Azure AD Free tier
+After you have purchased the required Microsoft Entra tier, [plan and deploy Microsoft Entra multifactor authentication](howto-mfa-getstarted.md).
 
-All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app and SMS methods can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
+<a name='azure-ad-free-tier'></a>
 
-* [Learn more about Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Enable security defaults for users in Azure AD Free](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)
+### Microsoft Entra ID Free tier
 
-If you don't want to enable Azure AD Multi-Factor Authentication for all users, you can instead choose to only protect user accounts with the *Azure AD Global Administrator* role. This approach provides more authentication prompts for critical administrator accounts. You enable Azure AD Multi-Factor Authentication in one of the following ways, depending on the type of account you use:
+All users in a Microsoft Entra ID Free tenant can use Microsoft Entra multifactor authentication by using security defaults. The mobile authentication app can be used for Microsoft Entra multifactor authentication when using Microsoft Entra ID Free security defaults.
 
-* If you use a Microsoft Account, [register for multi-factor authentication](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
-* If you aren't using a Microsoft Account, [turn on multi-factor authentication for a user or group in Azure AD](howto-mfa-userstates.md).
+* [Learn more about Microsoft Entra security defaults](../fundamentals/security-defaults.md)
+* [Enable security defaults for users in Microsoft Entra ID Free](../fundamentals/security-defaults.md#enabling-security-defaults)
+
+If you don't want to enable Microsoft Entra multifactor authentication for all users, you can instead choose to only protect user accounts with the *Microsoft Entra Global Administrator* role. This approach provides more authentication prompts for critical administrator accounts. You enable Microsoft Entra multifactor authentication in one of the following ways, depending on the type of account you use:
+
+* If you use a Microsoft Account, [register for multifactor authentication](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+* If you aren't using a Microsoft Account, [turn on multifactor authentication for a user or group in Microsoft Entra ID](howto-mfa-userstates.md).
 
 ## Next steps
 
-* For more information on costs, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+* For more information on costs, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 * [What is Conditional Access](../conditional-access/overview.md)
 * [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 * MFA can also be [enabled on a per-user basis](howto-mfa-userstates.md)
-

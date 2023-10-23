@@ -3,12 +3,12 @@ title: Latency in Blob storage
 titleSuffix: Azure Storage
 description: Understand and measure latency for Blob storage operations, and learn how to design your Blob storage applications for low latency.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 09/05/2019
-ms.author: tamram
+ms.author: akashdubey
 ---
 
 # Latency in Blob storage

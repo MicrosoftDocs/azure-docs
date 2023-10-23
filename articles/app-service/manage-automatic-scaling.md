@@ -2,14 +2,15 @@
 title: How to enable automatic scaling
 description: Learn how to scale automatically in Azure App Service with zero configuration.
 ms.topic: article
-ms.date: 05/12/2023
+ms.custom: devx-track-azurecli
+ms.date: 08/02/2023
 ms.author: msangapu
-
+author: msangapu-msft
 ---
 # Automatic scaling in Azure App Service
 
 > [!NOTE]
-> Automatic scaling is in preview. It's available for Premium Pv2 and Pv3 pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
+> Automatic scaling is in preview. It's available for Premium V2 (P1V2, P2V2, P3V2) and Premium V3 (P1V3, P2V3, P3V3) pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
 >
 
 Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
@@ -18,7 +19,7 @@ A comparison of scale out and scale in options available on App Service:
 
 | | **Manual** | **Autoscale** | **Automatic scaling** |
 | --- | --- | --- | --- |
-| Available pricing tiers	| Basic and Up | Standard and Up | Premium v2 and Premium v3 |
+| Available pricing tiers	| Basic and Up | Standard and Up | Premium V2 (P1V2, P2V2, P3V2) and Premium V3 (P1V3, P2V3, P3V3)|
 |Rule-based scaling	|No	|Yes	|No, the platform manages the scale out and in based on HTTP traffic. |
 |Schedule-based scaling	|No	|Yes	|No|
 |Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |

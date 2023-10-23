@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Create and configure Route Server - Azure CLI'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure CLI.
-services: route-server
 author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
-ms.author: halkazwini
-ms.custom: mode-api, devx-track-azurecli, template-quickstart
+ms.date: 08/14/2023
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
 # Quickstart: Create and configure Route Server using Azure CLI 
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
+This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
 
@@ -21,30 +20,9 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 ##  Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install the latest Azure CLI](/cli/azure/install-azure-cli), or make sure you can use [Azure Cloud Shell](../cloud-shell/quickstart.md) in the portal. 
-* Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
-
-##  Sign in to your Azure account and select your subscription.
-
-To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
-
-```azurecli-interactive
-az login
-```
-
-Check the subscriptions for the account.
-
-```azurecli-interactive
-az account list
-```
-
-Select the subscription for which you want to create an ExpressRoute circuit.
-
-```azurecli-interactive
-az account set \
-    --subscription "<subscription ID>"
-```
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal. You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+- Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
 ## Create a resource group and a virtual network 
 
@@ -71,7 +49,7 @@ az network vnet create \
 
 ### Add a dedicated subnet 
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25), otherwise you may receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
 1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
@@ -132,7 +110,7 @@ az network routeserver peering create \
     --resource-group myRouteServerRG
 ``` 
 
-To set up peering with a different NVA or another instance of the same NVA for redundancy, use the same command as above with different *PeerName*, *PeerIp*, and *PeerAsn*.
+To set up peering with a different NVA or another instance of the same NVA for redundancy, use the previous command with different *PeerName*, *PeerIp*, and *PeerAsn*.
 
 ## Complete the configuration on the NVA 
 
@@ -169,7 +147,9 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
-1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
+
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \
@@ -178,7 +158,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
         --allow-b2b-traffic true 
     ``` 
 
-2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **false**:
+2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **false**:
 
     ```azurecli-interactive
     az network routeserver update \

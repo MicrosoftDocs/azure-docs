@@ -5,10 +5,9 @@ description: Use this article to tag your utterances in Conversational Language 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 08/25/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -40,6 +39,8 @@ As you add utterances and label them, keep in mind:
     * **Label precisely**: Label each intent and entity to its right type always. Only include what you want classified and extracted, avoid unnecessary data in your labels.
     * **Label consistently**:  The same entity should have the same label across all the utterances.
     * **Label completely**: Provide varied utterances for every intent. Label all the instances of the entity in all your utterances.
+
+[!INCLUDE [Label data best practices](../includes/label-data-best-practices.md)]
 
 * For [Multilingual projects](../language-support.md#multi-lingual-option), adding utterances in other languages increases the model's performance in these languages, but avoid duplicating your data across all the languages you would like to support. For example, to improve a calender bot's performance with users, a developer might add examples mostly in English, and a few in Spanish or French as well. They might add utterances such as:
 

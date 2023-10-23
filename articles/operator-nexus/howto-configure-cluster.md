@@ -28,7 +28,7 @@ The metrics generated from the logging data are available in [Azure Monitor metr
 
 ## Create a Cluster
 
-The Cluster resource represents an on-premises deployment of the platform
+The Infrastructure Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
@@ -150,7 +150,7 @@ az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
   --resource-group "$CLUSTER_RESOURCE_GROUP" \
   --subscription "$SUBSCRIPTION_ID" \
-  --no-wait --debug 
+  --no-wait --debug
 ```
 
 > [!TIP]
@@ -166,6 +166,19 @@ The hardware validation procedure runs various test and checks against the machi
 provided through the Cluster's rack definition. Based on the results of these checks
 and any user skipped machines, a determination is done on whether sufficient nodes
 passed and/or are available to meet the thresholds necessary for deployment to continue.
+
+> [!IMPORTANT]
+> The hardware validation process will write the results to the specified `analyticsWorkspaceId` at Cluster Creation.
+> Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
+> This capability is only visible during a new deployment (Green Field); existing cluster will not have the logs available retroactively.
+
+By default, the hardware validation process writes the results to the configured Cluster `analyticsWorkspaceId`.
+However, due to the nature of Log Analytics Workspace data collection and schema evaluation, there can be ingestion delay that can take several minutes or more.
+For this reason, the Cluster deployment proceeds even if there was a failure to write the results to the Log Analytics Workspace.
+To help address this possible event, the results, for redundancy, are also logged within the Cluster Manager.
+
+In the provided Cluster object's Log Analytics Workspace, a new custom table with the Cluster's name as prefix and the suffix `*_CL` should appear.
+In the _Logs_ section of the LAW resource, a query can be executed against the new `*_CL` Custom Log table.
 
 #### Cluster Deploy Action with skipping specific bare-metal-machine
 

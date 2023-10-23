@@ -118,8 +118,7 @@ reference and use those properties more easily in your logic app's workflow.
      }
      ```
 
-  3. In your request, make sure you include a `Content-Type` header 
-  and set the header's value to `application/json`.
+  3. In the HTTP request that your client app sends to Azure Logic Apps, make sure that you include a header named **Content-Type**, and set the header's value to **application/json**.
 
 * **Parse JSON action**
 

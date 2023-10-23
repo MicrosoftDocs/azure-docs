@@ -24,18 +24,18 @@ All metrics are emitted every minute, except for the bursting credit percentage 
 The following metrics are available to get insight on VM and Disk IO, throughput, and queue depth performance:
 
 - **OS Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the OS disk.
-- **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk.
-- **OS Disk Read Operations/Sec**: The number of input operations that are read in a second from the OS disk.
+- **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **OS Disk Read Operations/Sec**: The number of input operations that are read in a second from the OS disk. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
 - **OS Disk Write Bytes/Sec**: The number of bytes that are written in a second from the OS disk.
 - **OS Disk Write Operations/Sec**: The number of output operations that are written in a second from the OS disk.
 - **Data Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the data disk(s).
-- **Data Disk Read Bytes/Sec**: The number of bytes that are read in a second from the data disk(s).
-- **Data Disk Read Operations/Sec**: The number of input operations that are read in a second from data disk(s).
+- **Data Disk Read Bytes/Sec**: The number of bytes that are read in a second from the data disk(s). If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **Data Disk Read Operations/Sec**: The number of input operations that are read in a second from data disk(s). If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
 - **Data Disk Write Bytes/Sec**: The number of bytes that are written in a second from the data disk(s).
 - **Data Disk Write Operations/Sec**: The number of output operations that are written in a second from data disk(s).
-- **Disk Read Bytes/Sec**: The number of total bytes that are read in a second from all disks attached to a VM.
-- **Disk Read Operations/Sec**: The number of input operations that are read in a second from all disks attached to a VM.
-- **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
+- **Disk Read Bytes**: The number of total bytes that are read in a minute from all disks attached to a VM. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **Disk Read Operations/Sec**: The number of input operations that are read in a second from all disks attached to a VM. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
+- **Disk Write Bytes**: The number of bytes that are written in a minute from all disks attached to a VM.
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
 ## Bursting metrics
@@ -53,6 +53,7 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk. Emitted on a 5 minute interval.
 - **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s). Emitted on a 5 minute interval.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
+- **Disk On-demand Burst Operations**: The accumulated operations of burst transactions used for disks with on-demand bursting enabled. Emitted on an hour interval.
 
 ## VM Bursting metrics
 The following metrics provide insight on VM-level bursting:

@@ -1,12 +1,13 @@
 ---
-title: 'Azure AD Connect sync: Make a change to the default configuration'
-description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Make a change to the default configuration'
+description: Walks you through how to make a change to the configuration in Microsoft Entra Connect Sync.
 services: active-directory
 author: billmath
 manager: amycolannino
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.subservice: hybrid
@@ -14,16 +15,16 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Make a change to the default configuration
-The purpose of this article is to walk you through how to make changes to the default configuration in Azure Active Directory (Azure AD) Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
+# Microsoft Entra Connect Sync: Make a change to the default configuration
+The purpose of this article is to walk you through how to make changes to the default configuration in Microsoft Entra Connect Sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
 
 > [!WARNING]
-> If you make changes to the default out-of-box sync rules then these changes will be overwritten the next time Azure AD Connect is updated, resulting in unexpected and likely unwanted synchronization results.
+> If you make changes to the default out-of-box sync rules then these changes will be overwritten the next time Microsoft Entra Connect is updated, resulting in unexpected and likely unwanted synchronization results.
 >
-> The default out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
+> The default out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Microsoft Entra Connect. Only make changes the way it is described in this article.
 
 ## Synchronization Rules Editor
-The Synchronization Rules Editor is used to see and change the default configuration. You can find it on the **Start** menu under the **Azure AD Connect** group.  
+The Synchronization Rules Editor is used to see and change the default configuration. You can find it on the **Start** menu under the **Microsoft Entra Connect** group.  
 ![Start menu with Sync Rule Editor](./media/how-to-connect-sync-change-the-configuration/startmenu2.png)
 
 When you open the editor, you see the default out-of-box rules.
@@ -40,7 +41,7 @@ On the upper right is the **Add new rule** button. You use this button to create
 At the bottom are buttons for acting on a selected sync rule. **Edit** and **Delete** do what you expect them to. **Export** produces a PowerShell script for re-creating the sync rule. With this procedure, you can move a sync rule from one server to another.
 
 ## Create your first custom rule
-The most common changes are to the attribute flows. The data in your source directory might not be the same as in Azure AD. In the example in this section, make sure the given name of a user is always in *proper case*.
+The most common changes are to the attribute flows. The data in your source directory might not be the same as in Microsoft Entra ID. In the example in this section, make sure the given name of a user is always in *proper case*.
 
 ### Disable the scheduler
 The [scheduler](how-to-connect-sync-feature-scheduler.md) runs every 30 minutes by default. Make sure it is not starting while you are making changes and troubleshooting your new rules. To temporarily disable the scheduler, start PowerShell and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
@@ -108,7 +109,7 @@ If everything is as expected, you can enable the scheduler again. From PowerShel
 The previous section described how to make changes to an attribute flow. In this section, some additional examples are provided. The steps for how to create the sync rule is abbreviated, but you can find the full steps in the previous section.
 
 ### Use an attribute other than the default
-In this Fabrikam scenario, there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes can be found in the extension attributes. For building a global address list in Azure AD and Microsoft 365, the organization wants to use these attributes instead.
+In this Fabrikam scenario, there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes can be found in the extension attributes. For building a global address list in Microsoft Entra ID and Microsoft 365, the organization wants to use these attributes instead.
 
 With a default configuration, an object from the local forest looks like this:  
 ![Attribute flow 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -134,9 +135,9 @@ String attributes are indexable by default, and the maximum length is 448 charac
 `attributeName` <- `Left([attributeName],448)`.
 
 ### Changing the userPrincipalSuffix
-The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. With the Azure AD Connect sync installation wizard, you can choose a different attribute--for example, *mail*. But in some cases, the attribute must be calculated.
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. With the Microsoft Entra Connect sync installation wizard, you can choose a different attribute--for example, *mail*. But in some cases, the attribute must be calculated.
 
-For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID:  
+For example, the company Contoso has two Microsoft Entra directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID:  
 `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
 In this expression, take everything left of the first @-sign (Word) and concatenate with a fixed string.
@@ -150,11 +151,11 @@ In this expression, if the attribute has a value, take the first item (*Item*) i
 ### Do not flow an attribute
 For background on the scenario for this section, see [Control the attribute flow process](concept-azure-ad-connect-sync-declarative-provisioning.md#control-the-attribute-flow-process).
 
-There are two ways to not flow an attribute. The first is by using the installation wizard to [remove selected attributes](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, the sync engine stops managing the attribute and the existing values are left in Azure AD.
+There are two ways to not flow an attribute. The first is by using the installation wizard to [remove selected attributes](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, the sync engine stops managing the attribute and the existing values are left in Microsoft Entra ID.
 
 If you want to remove the value of an attribute and make sure it does not flow in the future, you need create a custom rule.
 
-In this Fabrikam scenario, we have realized that some of the attributes we synchronize to the cloud should not be there. We want to make sure these attributes are removed from Azure AD.  
+In this Fabrikam scenario, we have realized that some of the attributes we synchronize to the cloud should not be there. We want to make sure these attributes are removed from Microsoft Entra ID.  
 ![Bad extension attributes](./media/how-to-connect-sync-change-the-configuration/badextensionattribute.png)
 
 1. Create a new inbound synchronization rule and populate the description.
@@ -186,50 +187,50 @@ You can instruct the sync engine that you want additional rules inserted before 
 You can have many custom sync rules by using the same **PrecedenceBefore** value when needed.
 
 ## Enable synchronization of UserType
-Azure AD Connect supports synchronization of the **UserType** attribute for **User** objects in version 1.1.524.0 and later. More specifically, the following changes have been introduced:
+Microsoft Entra Connect supports synchronization of the **UserType** attribute for **User** objects in version 1.1.524.0 and later. More specifically, the following changes have been introduced:
 
-- The schema of the object type **User** in the Azure AD Connector is extended to include the UserType attribute, which is of the type string and is single-valued.
+- The schema of the object type **User** in the Microsoft Entra Connector is extended to include the UserType attribute, which is of the type string and is single-valued.
 - The schema of the object type **Person** in the metaverse is extended to include the UserType attribute, which is of the type string and is single-valued.
 
-By default, the UserType attribute is not enabled for synchronization because there is no corresponding UserType attribute in on-premises Active Directory. You must manually enable synchronization. Before doing this, you must take note of the following behavior enforced by Azure AD:
+By default, the UserType attribute is not enabled for synchronization because there is no corresponding UserType attribute in on-premises Active Directory. You must manually enable synchronization. Before doing this, you must take note of the following behavior enforced by Microsoft Entra ID:
 
-- Azure AD only accepts two values for the UserType attribute: **Member** and **Guest**.
-- If the UserType attribute is not enabled for synchronization in Azure AD Connect, Azure AD users created through directory synchronization would have the UserType attribute set to **Member**.
-- Prior to version 1.5.30.0, Azure AD did not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. In older versions, it could only be set during the creation of the Azure AD users and [changed via PowerShell](/powershell/module/azuread/set-azureaduser).
+- Microsoft Entra-only accepts two values for the UserType attribute: **Member** and **Guest**.
+- If the UserType attribute is not enabled for synchronization in Microsoft Entra Connect, Microsoft Entra users created through directory synchronization would have the UserType attribute set to **Member**.
+- Prior to version 1.5.30.0, Microsoft Entra ID did not permit the UserType attribute on existing Microsoft Entra users to be changed by Microsoft Entra Connect. In older versions, it could only be set during the creation of the Microsoft Entra users and [changed via PowerShell](/powershell/module/azuread/set-azureaduser).
 
 Before enabling synchronization of the UserType attribute, you must first decide how the attribute is derived from on-premises Active Directory. The following are the most common approaches:
 
 - Designate an unused on-premises AD attribute (such as extensionAttribute1) to be used as the source attribute. The designated on-premises AD attribute should be of the type **string**, be single-valued, and contain the value **Member** or **Guest**. 
 
-    If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
+    If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Microsoft Entra ID before enabling synchronization of the UserType attribute.
 
 - Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. 
 
-    As mentioned previously, older versions of Azure AD Connect do not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
+    As mentioned previously, older versions of Microsoft Entra Connect do not permit the UserType attribute on existing Microsoft Entra users to be changed by Microsoft Entra Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Microsoft Entra users in your tenant.
 
 The steps to enable synchronization of the UserType attribute can be summarized as:
 
 1. Disable the sync scheduler and verify there is no synchronization in progress.
 2. Add the source attribute to the on-premises AD Connector schema.
-3. Add the UserType to the Azure AD Connector schema.
+3. Add the UserType to the Microsoft Entra Connector schema.
 4. Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory.
-5. Create an outbound synchronization rule to flow the attribute value to Azure AD.
+5. Create an outbound synchronization rule to flow the attribute value to Microsoft Entra ID.
 6. Run a full synchronization cycle.
 7. Enable the sync scheduler.
 
 >[!NOTE]
-> The rest of this section covers these steps. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured, or have a staging server, you need to adjust the steps accordingly.
+> The rest of this section covers these steps. They are described in the context of a Microsoft Entra deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured, or have a staging server, you need to adjust the steps accordingly.
 
 ### Step 1: Disable the sync scheduler and verify there is no synchronization in progress
-To avoid exporting unintended changes to Azure AD, ensure that no synchronization takes place while you are in the middle of updating synchronization rules. To disable the built-in sync scheduler:
+To avoid exporting unintended changes to Microsoft Entra ID, ensure that no synchronization takes place while you are in the middle of updating synchronization rules. To disable the built-in sync scheduler:
 
- 1. Start a PowerShell session on the Azure AD Connect server.
+ 1. Start a PowerShell session on the Microsoft Entra Connect server.
  2. Disable scheduled synchronization by running the cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`.
  3. Open the Synchronization Service Manager by going to **Start** > **Synchronization Service**.
  4. Go to the **Operations** tab and confirm there is no operation with a status of *in progress*.
 
 ### Step 2: Add the source attribute to the on-premises AD Connector schema
-Not all Azure AD attributes are imported into the on-premises AD Connector Space. To add the source attribute to the list of the imported attributes:
+Not all Microsoft Entra attributes are imported into the on-premises AD Connector Space. To add the source attribute to the list of the imported attributes:
 
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
  2. Right-click the on-premises AD Connector and select **Properties**.
@@ -238,16 +239,18 @@ Not all Azure AD attributes are imported into the on-premises AD Connector Space
  5. Click **OK** to save.
 ![Add source attribute to on-premises AD Connector schema](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### Step 3: Add the UserType attribute to the Azure AD Connector schema
-By default, the UserType attribute is not imported into the Azure AD Connect Space. To add the UserType attribute to the list of imported attributes:
+<a name='step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema'></a>
+
+### Step 3: Add the UserType attribute to the Microsoft Entra Connector schema
+By default, the UserType attribute is not imported into the Microsoft Entra Connect Space. To add the UserType attribute to the list of imported attributes:
 
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
- 2. Right-click the **Azure AD Connector** and select **Properties**.
+ 2. Right-click the **Microsoft Entra Connector** and select **Properties**.
  3. In the pop-up dialog box, go to the **Select Attributes** tab.
  4. Make sure the UserType attribute is checked in the attribute list.
  5. Click **OK** to save.
 
-![Add source attribute to Azure AD Connector schema](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
+![Add source attribute to Microsoft Entra Connector schema](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
 ### Step 4: Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
 The inbound synchronization rule permits the attribute value to flow from the source attribute from on-premises Active Directory to the metaverse:
@@ -273,7 +276,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | User\_ |
 
-    The scoping filter determines to which on-premises AD objects this inbound synchronization rule is applied. In this example, we use the same scoping filter used in the *In from AD – User Common* out-of-box synchronization rule, which prevents the synchronization rule from being applied to User objects created through the Azure AD User writeback feature. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    The scoping filter determines to which on-premises AD objects this inbound synchronization rule is applied. In this example, we use the same scoping filter used in the *In from AD – User Common* out-of-box synchronization rule, which prevents the synchronization rule from being applied to User objects created through the Microsoft Entra user writeback feature. You might need to tweak the scoping filter according to your Microsoft Entra Connect deployment.
 
 6. Go to the **Transformation** tab and implement the desired transformation rule. For example, if you have designated an unused on-premises AD attribute (such as extensionAttribute1) as the source attribute for the UserType, you can implement a direct attribute flow:
 
@@ -291,8 +294,10 @@ The inbound synchronization rule permits the attribute value to flow from the so
 
 ![Create inbound synchronization rule](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### Step 5: Create an outbound synchronization rule to flow the attribute value to Azure AD
-The outbound synchronization rule permits the attribute value to flow from the metaverse to the UserType attribute in Azure AD:
+<a name='step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad'></a>
+
+### Step 5: Create an outbound synchronization rule to flow the attribute value to Microsoft Entra ID
+The outbound synchronization rule permits the attribute value to flow from the metaverse to the UserType attribute in Microsoft Entra ID:
 
 1. Go to the Synchronization Rules Editor.
 2. Set the search filter **Direction** to be **Outbound**.
@@ -301,9 +306,9 @@ The outbound synchronization rule permits the attribute value to flow from the m
 
     | Attribute | Value | Details |
     | ----- | ------ | --- |
-    | Name | *Provide a name* | For example, *Out to AAD – User UserType* |
+    | Name | *Provide a name* | For example, *Out to Microsoft Entra ID – User UserType* |
     | Description | *Provide a description* ||
-    | Connected System | *Select the AAD connector* ||
+    | Connected System | *Select the Microsoft Entra connector* ||
     | Connected System Object Type | **User** ||
     | Metaverse Object Type | **Person** ||
     | Link Type | **Join** ||
@@ -316,7 +321,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    The scoping filter determines to which Azure AD objects this outbound synchronization rule is applied. In this example, we use the same scoping filter from the *Out to AD – User Identity* out-of-box synchronization rule. It prevents the synchronization rule from being applied to User objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    The scoping filter determines to which Microsoft Entra objects this outbound synchronization rule is applied. In this example, we use the same scoping filter from the *Out to AD – User Identity* out-of-box synchronization rule. It prevents the synchronization rule from being applied to User objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Microsoft Entra Connect deployment.
 
 6. Go to the **Transformation** tab and implement the following transformation rule:
 
@@ -329,7 +334,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
 ![Create outbound synchronization rule](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
 ### Step 6: Run a full synchronization cycle
-In general, a full synchronization cycle is required because we have added new attributes to both the Active Directory and Azure AD Connector schemas, and introduced custom synchronization rules. You want to verify the changes before exporting them to Azure AD. 
+In general, a full synchronization cycle is required because we have added new attributes to both the Active Directory and Microsoft Entra Connector schemas, and introduced custom synchronization rules. You want to verify the changes before exporting them to Microsoft Entra ID. 
 
 You can use the following steps to verify the changes while manually running the steps that make up a full synchronization cycle.
 
@@ -343,15 +348,15 @@ You can use the following steps to verify the changes while manually running the
       > [!NOTE]
       > You can skip a full import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any changes during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
-2. Run a **Full import** on the **Azure AD Connector**:
+2. Run a **Full import** on the **Microsoft Entra Connector**:
 
-   1. Right-click the **Azure AD Connector** and select **Run**.
+   1. Right-click the **Microsoft Entra Connector** and select **Run**.
    2. In the pop-up dialog box, select **Full Import** and then click **OK**.
    3. Wait for the operation to finish.
 
 3. Verify the synchronization rule changes on an existing User object:
 
-    The source attribute from on-premises Active Directory and the UserType from Azure AD have been imported into their respective Connector Spaces. Before proceeding with a full synchronization, do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you chose should have the source attribute populated.
+    The source attribute from on-premises Active Directory and the UserType from Microsoft Entra ID have been imported into their respective Connector Spaces. Before proceeding with a full synchronization, do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you chose should have the source attribute populated.
     
     A successful **Preview** with the UserType populated in the metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to the section [Verify the change](#verify-the-change).
 
@@ -361,9 +366,9 @@ You can use the following steps to verify the changes while manually running the
    2. In the pop-up dialog box, select **Full Synchronization** and then click **OK**.
    3. Wait for the operation to finish.
 
-5. Verify **Pending Exports** to Azure AD:
+5. Verify **Pending Exports** to Microsoft Entra ID:
 
-   1. Right-click the **Azure AD Connector** and select **Search Connector Space**.
+   1. Right-click the **Microsoft Entra Connector** and select **Search Connector Space**.
    2. In the **Search Connector Space** pop-up dialog box:
 
       - Set **Scope** to **Pending Export**.
@@ -371,14 +376,14 @@ You can use the following steps to verify the changes while manually running the
       - Click the **Search** button to get the list of objects with changes to be exported. To examine the changes for a given object, double-click the object.
       - Verify that the changes are expected.
 
-6. Run **Export** on the **Azure AD Connector**:
+6. Run **Export** on the **Microsoft Entra Connector**:
 
-   1. Right-click the **Azure AD Connector** and select **Run**.
+   1. Right-click the **Microsoft Entra Connector** and select **Run**.
    2. In the **Run Connector** pop-up dialog box, select **Export** and then click **OK**.
-   3. Wait for the export to Azure AD to finish.
+   3. Wait for the export to Microsoft Entra ID to finish.
 
 > [!NOTE]
-> These steps do not include the full synchronization and export steps on the Azure AD Connector. These steps are not required because the attribute values are flowing from on-premises Active Directory to Azure AD only.
+> These steps do not include the full synchronization and export steps on the Microsoft Entra Connector. These steps are not required because the attribute values are flowing from on-premises Active Directory to Microsoft Entra-only.
 
 ### Step 7: Re-enable the sync scheduler
 Re-enable the built-in sync scheduler:
@@ -393,5 +398,5 @@ Re-enable the built-in sync scheduler:
 
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

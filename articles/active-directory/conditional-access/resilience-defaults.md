@@ -1,6 +1,6 @@
 ---
-title: Resilience defaults for Azure AD Conditional Access
-description: Resilience defaults and the Azure AD Backup Authentication Service
+title: Resilience defaults for Microsoft Entra Conditional Access
+description: Resilience defaults and the Microsoft Entra Backup Authentication Service
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Resilience defaults
 
-If there was an outage of the primary authentication service, the Azure Active Directory (Azure AD) Backup Authentication Service may automatically issue access tokens to applications for existing sessions. This functionality may significantly increase Azure AD resilience, because reauthentications for existing sessions account for more than 90% of authentications to Azure AD. The Backup Authentication Service doesn't support new sessions or authentications by guest users.
+If there was an outage of the primary authentication service, the Microsoft Entra Backup Authentication Service may automatically issue access tokens to applications for existing sessions. This functionality may significantly increase Microsoft Entra resilience, because reauthentications for existing sessions account for more than 90% of authentications to Microsoft Entra ID. The Backup Authentication Service doesn't support new sessions or authentications by guest users.
 
 For authentications protected by Conditional Access, policies are reevaluated before access tokens are issued to determine:
 
@@ -43,7 +43,7 @@ During an outage, the Backup Authentication Service will automatically reissue a
 | Existing session – Conditional Access policies configured and the required controls, like MFA, were previously satisfied | Yes |
 | Existing session – Conditional Access policies configured and the required controls, like MFA, weren't previously satisfied | Determined by resilience defaults |
 
-When an existing session expires during an Azure AD outage, the request for a new access token is routed to the Backup Authentication Service and all Conditional Access policies are reevaluated. If there are no Conditional Access policies or all the required controls, such as MFA, were previously satisfied at the beginning of the session, the Backup Authentication Service issues a new access token to extend the session. 
+When an existing session expires during a Microsoft Entra outage, the request for a new access token is routed to the Backup Authentication Service and all Conditional Access policies are reevaluated. If there are no Conditional Access policies or all the required controls, such as MFA, were previously satisfied at the beginning of the session, the Backup Authentication Service issues a new access token to extend the session. 
 
 If the required controls of a policy weren't previously satisfied, the policy is reevaluated to determine whether access should be granted or denied. However, not all conditions can be reevaluated real time during an outage. These conditions include: 
 
@@ -73,18 +73,19 @@ When resilience defaults are disabled, the Backup Authentication Service won't u
 
 ## Testing resilience defaults
 
-It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Azure AD will conduct monthly exercises using the Backup Authentication Service. The sign-in logs will display if the Backup Authentication Service was used to issue the access token. In **Azure portal** > **Monitoring** > **Sign-in Logs** blade, you can add the filter "Token issuer type == Azure AD Backup Auth" to display the logs processed by Azure AD Backup Authentication service. 
+It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Microsoft Entra ID will conduct monthly exercises using the Backup Authentication Service. The sign-in logs will display if the Backup Authentication Service was used to issue the access token. In **Identity** > **Monitoring & health** > **Sign-in Logs** blade, you can add the filter "Token issuer type == Microsoft Entra Backup Auth" to display the logs processed by Microsoft Entra Backup Authentication service. 
 
 ## Configuring resilience defaults
 
-You can configure Conditional Access resilience defaults from the Azure portal, MS Graph APIs, or PowerShell. 
+You can configure Conditional Access resilience defaults from the Microsoft Entra admin center, MS Graph APIs, or PowerShell. 
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Navigate to the **Azure portal** > **Security** > **Conditional Access**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Create a new policy or select an existing policy
 1. Open the Session control settings
-1. Select Disable resilience defaults to disable the setting for this policy. Sign-ins in scope of the policy will be blocked during an Azure AD outage
+1. Select Disable resilience defaults to disable the setting for this policy. Sign-ins in scope of the policy will be blocked during a Microsoft Entra outage
 1. Save changes to the policy
 
 ### MS Graph APIs
@@ -138,7 +139,7 @@ Invoke-MgGraphRequest -Method PATCH -Uri https://graph.microsoft.com/beta/identi
 
 Microsoft recommends enabling resilience defaults. While there are no direct security concerns, customers should evaluate whether they want to allow the Backup Authentication Service to evaluate Conditional Access policies during an outage using data collected at the beginning of the session as opposed to in real time. 
 
-It's possible that a user’s role or group membership may have changed since the beginning of the session. With [Continuous Access Evaluation (CAE)](concept-continuous-access-evaluation.md), access tokens are valid for 24 hours, but subject to instant revocation events. The Backup Authentication Service subscribes to the same revocation events CAE. If a user’s token is revoked as part of CAE, the user is unable to sign in during an outage. When resilience defaults are enabled, existing sessions that expire during an outage will be extended. Sessions are extended even if the policy was configured with a session control to enforce a sign-in frequency. For example, a policy with resilience defaults enabled may require that users reauthenticate every hour to access a SharePoint site. During an outage, the user’s session would be extended even though Azure AD may not be available to reauthenticate the user. 
+It's possible that a user’s role or group membership may have changed since the beginning of the session. With [Continuous Access Evaluation (CAE)](concept-continuous-access-evaluation.md), access tokens are valid for 24 hours, but subject to instant revocation events. The Backup Authentication Service subscribes to the same revocation events CAE. If a user’s token is revoked as part of CAE, the user is unable to sign in during an outage. When resilience defaults are enabled, existing sessions that expire during an outage will be extended. Sessions are extended even if the policy was configured with a session control to enforce a sign-in frequency. For example, a policy with resilience defaults enabled may require that users reauthenticate every hour to access a SharePoint site. During an outage, the user’s session would be extended even though Microsoft Entra ID may not be available to reauthenticate the user. 
 
 ## Next steps
 

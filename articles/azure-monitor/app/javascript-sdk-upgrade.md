@@ -2,7 +2,7 @@
 title: Azure Application Insights JavaScript SDK upgrade information
 description: Azure Application Insights JavaScript SDK upgrade information
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -33,7 +33,7 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
 
 - Download via CDN scenario: Update the JavaScript (Web) SDK Loader Script that you currently use to point to the following URL:
    ```
-   "https://js.monitor.azure.com/scripts/b/ai.2.min.js"
+   "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js"
    ```
 
 - npm scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with a connection string:
@@ -41,7 +41,7 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
    ```ts
    appInsights.downloadAndSetup({
      connectionString: "Copy connection string from Application Insights Resource Overview",
-     url: "https://js.monitor.azure.com/scripts/b/ai.2.min.jss"
+     url: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js"
      });
    ```
 

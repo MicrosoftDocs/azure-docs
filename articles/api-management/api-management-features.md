@@ -17,11 +17,13 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 
 > [!IMPORTANT]
 > * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
-> * The Consumption tier isn't available in the US Government cloud or the Azure China cloud. 
+> * The Consumption tier isn't available in the US Government cloud or the Microsoft Azure operated by 21Vianet cloud.  
+> * API Management **v2 tiers** are now in preview, with updated feature availability. [Learn more](v2-service-tiers-overview.md).
+
 
 | Feature                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Azure AD integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
+| Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
 | Virtual Network (VNet) support                                                               | No          | Yes       | No    | No       | Yes     |
 | Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | Yes       | Yes     |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | Yes     |
@@ -48,7 +50,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Pass-through GraphQL APIs](graphql-apis-overview.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
 | [Synthetic GraphQL APIs](graphql-apis-overview.md)                                            | Yes           | Yes       | Yes   | Yes      | Yes     |
 
-<sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
+<sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
 <sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the dedicated, consumption, and self-hosted gateways. <br/>

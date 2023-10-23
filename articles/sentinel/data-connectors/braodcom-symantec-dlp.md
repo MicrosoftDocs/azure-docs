@@ -3,7 +3,7 @@ title: "Broadcom Symantec DLP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Broadcom Symantec DLP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -45,7 +45,7 @@ SymantecDLP
 ## Vendor installation instructions
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SymantecDLP and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Broadcom%20SymantecDLP/Parsers/SymantecDLP.txt). The function usually takes 10-15 minutes to activate after solution installation/update.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SymantecDLP and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Broadcom%20SymantecDLP/Parsers/SymantecDLP.yaml). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Linux Syslog agent configuration
 
@@ -72,7 +72,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 2. Forward Symantec DLP logs to a Syslog agent
 
 Configure Symantec DLP to forward Syslog messages in CEF format to your Microsoft Sentinel workspace via the Syslog agent.
-1. [Follow these instructions](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) to configure the Symantec DLP to forward syslog
+1. [Follow these instructions](https://knowledge.broadcom.com/external/article/159509/generating-syslog-messages-from-data-los.html) to configure the Symantec DLP to forward syslog
 2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
 3. Validate connection

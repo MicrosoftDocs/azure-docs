@@ -1,9 +1,6 @@
 ---
 title: Managing Fluid containers
 description: Overview of how to manage containers in Azure Fluid Relay service.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid

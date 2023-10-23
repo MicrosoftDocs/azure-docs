@@ -1,6 +1,6 @@
 ---
 title: Architecture overview
-description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
+description: Learn what a Microsoft Entra tenant is and how to manage Azure using Microsoft Entra ID.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -16,15 +16,17 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# What is the Azure Active Directory architecture?
+# What is the Microsoft Entra architecture?
 
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+Microsoft Entra ID enables you to securely manage access to Azure services and resources for your users. Included with Microsoft Entra ID is a full suite of identity management capabilities. For information about Microsoft Entra features, see [What is Microsoft Entra ID?](../fundamentals/whatis.md)
 
-With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](../fundamentals/active-directory-whatis.md).
+With Microsoft Entra ID, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](../fundamentals/whatis.md).
 
-## Azure AD architecture
+<a name='azure-ad-architecture'></a>
 
-Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities, which deliver company-wide availability and performance to customers.
+## Microsoft Entra architecture
+
+The geographically distributed architecture of Microsoft Entra ID combines extensive monitoring, automated rerouting, failover, and recovery capabilities, which deliver company-wide availability and performance to customers.
 
 The following architecture elements are covered in this article:
 
@@ -35,13 +37,13 @@ The following architecture elements are covered in this article:
 
 ### Service architecture design
 
-The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units. For the Azure AD data tier, scale units are called *partitions*.
+The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units. For the Microsoft Entra data tier, scale units are called *partitions*.
 
 The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed datacenters.
 
   ![Single-directory partition diagram](./media/architecture/active-directory-architecture.png)
 
-The components of Azure AD architecture include a primary replica and secondary replicas.
+The components of Microsoft Entra architecture include a primary replica and secondary replicas.
 
 #### Primary replica
 
@@ -61,9 +63,9 @@ Directory applications connect to the nearest datacenters. This connection impro
 
 ### Continuous availability
 
-Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes. Through this high availability design, Azure AD requires no downtime for maintenance activities.
+Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Microsoft Entra ID’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes. Through this high availability design, Microsoft Entra ID requires no downtime for maintenance activities.
 
-Azure AD’s partition design is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
+The partition design of Microsoft Entra ID is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
 
 #### Fault tolerance
 
@@ -75,16 +77,16 @@ Read operations (which outnumber writes by many orders of magnitude) only go to 
 
 A write is durably committed to at least two datacenters prior to it being acknowledged. This happens by first committing the write on the primary, and then immediately replicating the write to at least one other datacenter. This write action ensures that a potential catastrophic loss of the datacenter hosting the primary doesn't result in data loss.
 
-Azure AD maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) to not lose data on failovers. This includes:
+Microsoft Entra ID maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) to not lose data on failovers. This includes:
 
 * Token issuance and directory reads
 * Allowing only about 5 minutes RTO for directory writes
 
 ### Datacenters
 
-Azure AD’s replicas are stored in datacenters located throughout the world. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
+Microsoft Entra replicas are stored in datacenters located throughout the world. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
-Azure AD operates across datacenters with the following characteristics:
+Microsoft Entra ID operates across datacenters with the following characteristics:
 
 * Authentication, Graph, and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will fail over automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy datacenters.
 * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple datacenters. If a datacenter fails, traffic is automatically routed to a different datacenter.
@@ -94,24 +96,24 @@ Azure AD operates across datacenters with the following characteristics:
 
 The directory model is one of eventual consistencies. One typical problem with distributed asynchronously replicating systems is that the data returned from a “particular” replica may not be up-to-date. 
 
-Azure AD provides read-write consistency for applications targeting a secondary replica by routing its writes to the primary replica, and synchronously pulling the writes back to the secondary replica.
+Microsoft Entra ID provides read-write consistency for applications targeting a secondary replica by routing its writes to the primary replica, and synchronously pulling the writes back to the secondary replica.
 
-Application writes using the Microsoft Graph API of Azure AD are abstracted from maintaining affinity to a directory replica for read-write consistency. The Microsoft Graph API service maintains a logical session, which has affinity to a secondary replica used for reads; affinity is captured in a “replica token” that the service caches using a distributed cache in the secondary replica datacenter. This token is then used for subsequent operations in the same logical session. To continue using the same logical session, subsequent requests must be routed to the same Azure AD datacenter. It isn't possible to continue a logical session if the directory client requests are being routed to multiple Azure AD datacenters; if this happens then the client has multiple logical sessions that have independent read-write consistencies.
+Application writes using the Microsoft Graph API of Microsoft Entra ID are abstracted from maintaining affinity to a directory replica for read-write consistency. The Microsoft Graph API service maintains a logical session, which has affinity to a secondary replica used for reads; affinity is captured in a “replica token” that the service caches using a distributed cache in the secondary replica datacenter. This token is then used for subsequent operations in the same logical session. To continue using the same logical session, subsequent requests must be routed to the same Microsoft Entra datacenter. It isn't possible to continue a logical session if the directory client requests are being routed to multiple Microsoft Entra datacenters; if this happens then the client has multiple logical sessions that have independent read-write consistencies.
 
  >[!NOTE]
  >Writes are immediately replicated to the secondary replica to which the logical session's reads were issued.
 
 #### Service-level backup
 
-Azure AD implements daily backup of directory data and can use these backups to restore data if there is any service-wide issue.
+Microsoft Entra ID implements daily backup of directory data and can use these backups to restore data if there is any service-wide issue.
  
 The directory also implements soft deletes instead of hard deletes for selected object types. The tenant administrator can undo any accidental deletions of these objects within 30 days. For more information, see the [API to restore deleted objects](/graph/api/directory-deleteditems-restore).
 
 #### Metrics and monitors
 
-Running a high availability service requires world-class metrics and monitoring capabilities. Azure AD continually analyzes and reports key service health metrics and success criteria for each of its services. There is also continuous development and tuning of metrics and monitoring and alerting for each scenario, within each Azure AD service and across all services.
+Running a high availability service requires world-class metrics and monitoring capabilities. Microsoft Entra ID continually analyzes and reports key service health metrics and success criteria for each of its services. There is also continuous development and tuning of metrics and monitoring and alerting for each scenario, within each Microsoft Entra service and across all services.
 
-If any Azure AD service isn't working as expected, action is immediately taken to restore functionality as quickly as possible. The most important metric Azure AD tracks is how quickly live site issues can be detected and mitigated for customers. We invest heavily in monitoring and alerts to minimize time to detect (TTD Target: <5 minutes) and operational readiness to minimize time to mitigate (TTM Target: <30 minutes).
+If any Microsoft Entra service isn't working as expected, action is immediately taken to restore functionality as quickly as possible. The most important metric Microsoft Entra ID tracks is how quickly live site issues can be detected and mitigated for customers. We invest heavily in monitoring and alerts to minimize time to detect (TTD Target: <5 minutes) and operational readiness to minimize time to mitigate (TTM Target: <30 minutes).
 
 #### Secure operations
 
@@ -119,4 +121,4 @@ Using operational controls such as multi-factor authentication (MFA) for any ope
 
 ## Next steps
 
-[Azure Active Directory developer's guide](../develop/index.yml)
+[Microsoft Entra developer's guide](../develop/index.yml)

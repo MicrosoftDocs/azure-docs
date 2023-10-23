@@ -2,8 +2,7 @@
 title: Introduction to red teaming large language models (LLMs)
 titleSuffix: Azure OpenAI Service
 description: Learn about how red teaming and adversarial testing is an essential practice in the responsible development of systems and features using large language models (LLMs)
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 05/18/2023
 ms.custom: 

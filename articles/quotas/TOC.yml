@@ -6,6 +6,8 @@
     href: quotas-overview.md
   - name: View quotas
     href: view-quotas.md
+  - name: Monitoring & Alerts for Quotas
+    href: monitoring-alerting.md
 - name: Quickstarts
   items:
   - name: Request a quota increase
@@ -26,6 +28,8 @@
         href: networking-quota-requests.md
       - name: Increase storage account quotas
         href: storage-account-quota-requests.md
+    - name: How-to-Guide - Monitoring & Alerting
+      href: how-to-guide-monitoring-alerting.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -33,7 +37,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.quota/
   - name: Azure REST API
-    href: /rest/api/reserved-vm-instances/quotaapi
+    href: /rest/api/quota
 - name: Resources
   items:
   - name: Azure updates

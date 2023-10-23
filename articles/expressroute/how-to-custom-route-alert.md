@@ -12,7 +12,7 @@ ms.author: duau
 ---
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-virtual-network-to-on-premises-on-expressroute-private-peering)
 
 **Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
 
@@ -34,8 +34,6 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You have at least one ExpressRoute gateway in your deployment.
 
-* You have a basic understanding of [Run As accounts](../automation/manage-runas-account.md) in Azure Automation.
-
 * You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 * You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
@@ -48,11 +46,11 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a Run As account is automatically created. This account takes following actions:
 
-* Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
+* Creates a Microsoft Entra application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
-* Creates a service principal account for the application in Azure AD.
+* Creates a service principal account for the application in Microsoft Entra ID.
 
 * Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
@@ -306,7 +304,7 @@ A logic app workflow accesses other apps, services, and the platform though conn
 
    :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Create job":::
 
-3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create an Azure AD service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
+3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create a Microsoft Entra service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot that shows the 'Recurrence' section with the 'Connect with Service Principal' action highlighted.":::
 

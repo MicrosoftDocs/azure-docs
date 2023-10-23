@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.date: 09/13/2023
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
@@ -125,9 +125,6 @@ To interact with your Azure Cognitive Search service you will need the service U
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
 
-<!-- This code sample doesn't include a query so the following sentence should be deleted.
-  Get the query key as well. It's a best practice to issue query requests with read-only access. -->
-
    ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
@@ -164,10 +161,11 @@ For this project, install version 11 or later of the `Azure.Search.Documents` an
 
     ```json
     {
-      "SearchServiceUri": "Put your search service URI here",
-      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-      "SearchServiceQueryApiKey": "Put your query API key here",
-      "AzureBlobConnectionString": "Put your Azure Blob connection string here",
+      "SearchServiceUri": "<YourSearchServiceUri>",
+      "SearchServiceAdminApiKey": "<YourSearchServiceAdminApiKey>",
+      "SearchServiceQueryApiKey": "<YourSearchServiceQueryApiKey>",
+      "AzureAIServicesKey": "<YourMultiRegionAzureAIServicesKey>",
+      "AzureBlobConnectionString": "<YourAzureBlobConnectionString>"
     }
     ```
 
@@ -204,7 +202,7 @@ public static void Main(string[] args)
 
     string searchServiceUri = configuration["SearchServiceUri"];
     string adminApiKey = configuration["SearchServiceAdminApiKey"];
-    string cognitiveServicesKey = configuration["CognitiveServicesKey"];
+    string azureAiServicesKey = configuration["AzureAIServicesKey"];
 
     SearchIndexClient indexClient = new SearchIndexClient(new Uri(searchServiceUri), new AzureKeyCredential(adminApiKey));
     SearchIndexerClient indexerClient = new SearchIndexerClient(new Uri(searchServiceUri), new AzureKeyCredential(adminApiKey));
@@ -512,12 +510,14 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 Build the [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset) using the skills you created.
 
 ```csharp
-private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)
+private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string azureAiServicesKey)
 {
     SearchIndexerSkillset skillset = new SearchIndexerSkillset("demoskillset", skills)
     {
+        // Azure AI services was formerly known as Cognitive Services.
+        // The APIs still use the old name, so we need to create a CognitiveServicesAccountKey object.
         Description = "Demo skillset",
-        CognitiveServicesAccount = new CognitiveServicesAccountKey(cognitiveServicesKey)
+        CognitiveServicesAccount = new CognitiveServicesAccountKey(azureAiServicesKey)
     };
 
     // Create the skillset in your search service.
@@ -559,7 +559,7 @@ skills.Add(splitSkill);
 skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skills, cognitiveServicesKey);
+SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skills, azureAiServicesKey);
 ```
 
 ### Step 3: Create an index

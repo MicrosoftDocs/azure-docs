@@ -130,7 +130,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 }
 ```
 
-# [.NET (low level) ](#tab/dotnet)
+# [.NET (low level)](#tab/dotnet)
 
 Here's an example of defining the configuration in an [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) file. This example is taken from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub.
 
@@ -206,7 +206,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # [Node.js](#tab/nodejs)
 
-Install the packages by running `npm install` in the folder where *package.json* file resides. Then, import **msal-node** package:
+Install the packages by running `npm install` in the folder where `package.json` file resides. Then, import the `msal-node` package:
 
 ```JavaScript 
 const msal = require('@azure/msal-node');
@@ -511,7 +511,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
+When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -520,7 +520,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Azure AD, plus additional client claims that you want to send.
+When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Microsoft Entra ID, plus additional client claims that you want to send.
 This code shows how to do that:
 
 ```csharp
@@ -533,7 +533,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Again, for details, see [Client assertions](msal-net-client-assertions.md).
+Again, for details, see [Client assertions](/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions).
 
 ---
 

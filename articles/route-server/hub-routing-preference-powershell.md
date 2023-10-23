@@ -1,81 +1,74 @@
 ---
-title: Configure routing preference (preview) to influence route selection - PowerShell
+title: Configure routing preference - PowerShell
 titleSuffix: Azure Route Server
 description: Learn how to configure routing preference (preview) in Azure Route Server using Azure PowerShell to influence its route selection.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 10/12/2023
+ms.custom: devx-track-azurepowershell
+
+#CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server by using Azure PowerShell.
 ---
 
-# Use Azure Route Server routing preference to influence route selection - PowerShell
+# Configure routing preference to influence route selection using PowerShell
 
-Learn how to use [routing preference (preview)](routing-preference.md) setting in Azure Route Server to influence its route selection. 
+Learn how to use routing preference setting in Azure Route Server to influence its route learning and selection. For more information, see [Routing preference (preview)](hub-routing-preference.md).
 
 > [!IMPORTANT]
-> Routing preference is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Routing preference is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure route server. If you need to create a Route Server, see [Create and configure Azure Route Server](quickstart-configure-route-server-powershell.md).
 - Azure Cloud Shell or Azure PowerShell installed locally.
 
-## Create a virtual network
+## View routing preference configuration
 
-Before you can create a virtual network, you have to create a resource group. Use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create the resource group. This example creates a resource group named **myResourceGroup** in the **EastUS** region.
-
-Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. This example creates a virtual network named **myVirtualNetwork** in the **EastUS** region. You need a dedicated subnet called **RouteServerSubnet** for the Route Server. Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configuration of RouteServerSubnet.
+Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) to view the current routing preference configuration.
 
 ```azurepowershell-interactive
-# Create a resource group.
-New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
-
-# Create RouteServerSubnet configuration and place it into a variable.
-$subnet = New-AzVirtualNetworkSubnetConfig -Name 'RouteServerSubnet' -AddressPrefix '10.0.1.0/24'
-
-# Create the virtual network and place it into a variable.
-$vnet = New-AzVirtualNetwork -Name 'myVirtualNetwork' -ResourceGroupName 'myResourceGroup' -Location 'EastUS' -AddressPrefix '10.0.0.0/16' -Subnet $subnet
-
-# Place the subnet ID into a variable.
-$subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnet).Id
+# Get the Route Server.
+Get-AzRouteServer -ResourceGroupName 'myResourceGroup'
 ```
 
-## Create the Route Server
+In the output, you can see the current routing preference setting under **HubRoutingPreference**:
 
-Before you create the Route Server, create a standard public IP using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Then use [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver) to create the route server with a routing preference set to **VpnGateway**. When you choose VpnGateway as a routing preference, Route Server prefers routes learned through VPN/SD-WAN connections over routes learned through ExpressRoute.
-
-```azurepowershell-interactive
-# Create a standard public IP for the Route Server.
-$publicIp = New-AzPublicIpAddress -Name 'RouteServerIP' -IpAddressVersion 'IPv4' -Sku 'Standard' -AllocationMethod 'Static' -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
-
-# Create a Route Server with routing preference set to VpnGateway
-New-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'VpnGateway' -HostedSubnet $subnetId -PublicIpAddress $publicIp -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
-
-# Create a Route Server with routing preference set to ExpressRoute
-New-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ExpressRoute' -HostedSubnet $subnetId -PublicIpAddress $publicIp -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
-
-# Create a Route Server with routing preference set to ASPath
-New-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ASPath' -HostedSubnet $subnetId -PublicIpAddress $publicIp -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
+```output
+ResourceGroupName Name          Location RouteServerAsn RouteServerIps       ProvisioningState HubRoutingPreference
+----------------- ----          -------- -------------- --------------       ----------------- --------------------
+myResourceGroup   myRouteServer eastus   65515          {10.1.1.5, 10.1.1.4} Succeeded         ExpressRoute
 ```
 
-## Update routing preference
+> [!NOTE]
+> The default routing preference setting is **ExpressRoute**.
 
-To update the routing preference of an existing Route Server, use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver). This example updates the routing preference to AS Path.
+## Configure routing preference
+
+Use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) to configure routing preference.
 
 ```azurepowershell-interactive
 # Change the routing preference to AS Path.
 Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ASPath' -ResourceGroupName 'myResourceGroup'
+```
 
+```azurepowershell-interactive
 # Change the routing preference to VPN Gateway.
-Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'VPNGateway' -ResourceGroupName 'myResourceGroup'
+Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'VpnGateway' -ResourceGroupName 'myResourceGroup'
+```
 
+```azurepowershell-interactive
 # Change the routing preference to ExpressRoute.
 Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ExpressRoute' -ResourceGroupName 'myResourceGroup'
 ```
 
-## Next steps
+> [!IMPORTANT]
+> Include ***-AllowBranchToBranchTraffic*** parameter to enable **route exchange (branch-to-branch)** even if it was enabled before running the **Update-AzRouteServer** cmdlet. For more information, see [Configure route exchange](quickstart-configure-route-server-powershell.md#configure-route-exchange).
 
-- To learn more about configuring Azure Route Servers, see [Create and configure Route Server using Azure PowerShell](quickstart-configure-route-server-powershell.md).
-- To learn more about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
+## Related content
+
+- [Create and configure Route Server](quickstart-configure-route-server-powershell.md)
+- [Monitor Azure Route Server](monitor-route-server.md)
+- [Azure Route Server FAQ](route-server-faq.md)

@@ -1,12 +1,13 @@
 ---
-title: VPN with Azure AD MFA using the NPS extension
-description: Integrate your VPN infrastructure with Azure AD MFA by using the Network Policy Server extension for Microsoft Azure.
+title: VPN with Microsoft Entra multifactor authentication using the NPS extension
+description: Integrate your VPN infrastructure with Microsoft Entra multifactor authentication by using the Network Policy Server extension for Microsoft Azure.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: justinha
@@ -15,9 +16,9 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Integrate your VPN infrastructure with Azure AD MFA by using the Network Policy Server extension for Azure
+# Integrate your VPN infrastructure with Microsoft Entra multifactor authentication by using the Network Policy Server extension for Azure
 
-The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure AD Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), which provides two-step verification.
+The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Microsoft Entra multifactor authentication](howto-mfaserver-nps-rdg.md), which provides two-step verification.
 
 This article provides instructions for integrating NPS infrastructure with MFA by using the NPS extension for Azure. This process enables secure two-step verification for users who attempt to connect to your network by using a VPN.
 
@@ -40,7 +41,7 @@ Network Policy and Access Services gives organizations the ability to:
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.
   For more information, see [Network Policy Server](/windows-server/networking/technologies/nps/nps-top).
 
-To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure AD Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
+To enhance security and provide a high level of compliance, organizations can integrate NPS with Microsoft Entra multifactor authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
 Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and MFA environments had to configure and maintain a separate MFA server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 
@@ -63,9 +64,9 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 1. The VPN server receives an authentication request from a VPN user that includes the username and password for connecting to a resource, such as a Remote Desktop session.
 2. Acting as a RADIUS client, the VPN server converts the request to a RADIUS *Access-Request* message and sends it (with an encrypted password) to the RADIUS server where the NPS extension is installed.
 3. The username and password combination is verified in Active Directory. If either the username or password is incorrect, the RADIUS Server sends an *Access-Reject* message.
-4. If all conditions, as specified in the NPS Connection Request and Network Policies, are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure AD Multi-Factor Authentication.
-5. Azure AD Multi-Factor Authentication communicates with Azure Active Directory, retrieves the user's details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app).
-6. When the MFA challenge is successful, Azure AD Multi-Factor Authentication communicates the result to the NPS extension.
+4. If all conditions, as specified in the NPS Connection Request and Network Policies, are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Microsoft Entra multifactor authentication.
+5. Microsoft Entra multifactor authentication communicates with Microsoft Entra ID, retrieves the user's details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app).
+6. When the MFA challenge is successful, Microsoft Entra multifactor authentication communicates the result to the NPS extension.
 7. After the connection attempt is both authenticated and authorized, the NPS where the extension is installed sends a RADIUS *Access-Accept* message to the VPN server (RADIUS client).
 8. The user is granted access to the virtual port on the VPN server and establishes an encrypted VPN tunnel.
 
@@ -75,11 +76,11 @@ This section details the prerequisites that must be completed before you can int
 
 * VPN infrastructure
 * Network Policy and Access Services role
-* Azure AD Multi-Factor Authentication license
+* Microsoft Entra multifactor authentication license
 * Windows Server software
 * Libraries
-* Azure Active Directory (Azure AD) synced with on-premises Active Directory
-* Azure Active Directory GUID ID
+* Microsoft Entra ID synced with on-premises Active Directory
+* Microsoft Entra GUID ID
 
 ### VPN infrastructure
 
@@ -93,9 +94,11 @@ Network Policy and Access Services provides the RADIUS server and client functio
 
 For information about installing the Network Policy and Access Services role service Windows Server 2012 or later, see [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). NAP is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
-### Azure AD MFA License
+<a name='azure-ad-mfa-license'></a>
 
-A license is required for Azure AD Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication stand-alone license. Consumption-based licenses for Azure AD MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
+### Microsoft Entra multifactor authentication License
+
+A license is required for Microsoft Entra multifactor authentication, and it is available through a Microsoft Entra ID P1 or P2, Enterprise Mobility + Security, or a multifactor authentication stand-alone license. Consumption-based licenses for Microsoft Entra multifactor authentication such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Microsoft Entra multifactor authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
 
@@ -105,20 +108,24 @@ The NPS extension requires Windows Server 2008 R2 SP1 or later, with the Network
 
 The following libraries are installed automatically with the NPS extension:
 
--    [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--    [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Azure AD PowerShell module version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-If the Microsoft Azure Active Directory PowerShell Module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
+If the Azure Active Directory PowerShell module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 
-### Azure Active Directory synced with on-premises Active Directory
+<a name='azure-active-directory-synced-with-on-premises-active-directory'></a>
 
-To use the NPS extension, on-premises users must be synced with Azure Active Directory and enabled for MFA. This guide assumes that on-premises users are synced with Azure Active Directory via Azure AD Connect. Instructions for enabling users for MFA are provided below.
+### Microsoft Entra ID synced with on-premises Active Directory
 
-For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+To use the NPS extension, on-premises users must be synced with Microsoft Entra ID and enabled for MFA. This guide assumes that on-premises users are synced with Microsoft Entra ID via Microsoft Entra Connect. Instructions for enabling users for MFA are provided below.
 
-### Azure Active Directory GUID ID
+For information about Microsoft Entra Connect, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
-To install the NPS extension, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
+<a name='azure-active-directory-guid-id'></a>
+
+### Microsoft Entra GUID ID
+
+To install the NPS extension, you need to know the GUID of the Microsoft Entra ID. Instructions for finding the GUID of the Microsoft Entra ID are provided in the next section.
 
 ## Configure RADIUS for VPN connections
 
@@ -295,9 +302,11 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ![Event Viewer showing NPAS events](./media/howto-mfa-nps-extension-vpn/image22.png)
 
-## Configure Multi-Factor Authentication
+<a name='configure-multi-factor-authentication'></a>
 
-For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
+## Configure multifactor authentication
+
+For assistance configuring users for multifactor authentication see the articles [Planning a cloud-based Microsoft Entra multifactor authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 
 ## Install and configure the NPS extension
 
@@ -307,31 +316,30 @@ This section provides instructions for configuring VPN to use MFA for client aut
 > The REQUIRE_USER_MATCH registry key is case sensitive. All values must be set in UPPER CASE format.
 >
 
-After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Azure AD Multi-Factor Authentication, you can do either of the following:
+After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Microsoft Entra multifactor authentication, you can do either of the following:
 
 * Set up another RADIUS server to authenticate users who are not configured to use MFA.
 
-* Create a registry entry that allows challenged users to provide a second authentication factor if they are enrolled in Azure AD Multi-Factor Authentication.
+* Create a registry entry that allows challenged users to provide a second authentication factor if they are enrolled in Microsoft Entra multifactor authentication.
 
 Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *TRUE* or *FALSE*.
 
 ![The "Require User Match" setting](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-If the value is set to *TRUE* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *FALSE*, MFA challenges are issued only to users who are enrolled in Azure AD Multi-Factor Authentication. Use the *FALSE* setting only in testing or in production environments during an onboarding period.
+If the value is set to *TRUE* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *FALSE*, MFA challenges are issued only to users who are enrolled in Microsoft Entra multifactor authentication. Use the *FALSE* setting only in testing or in production environments during an onboarding period.
 
 
 
-### Obtain the Azure Active Directory tenant ID
+### Obtain the directory tenant ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Microsoft Entra tenant. To get the tenant ID, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Install the NPS extension
 
@@ -343,29 +351,29 @@ The NPS extension must be installed on a server that has the Network Policy and 
 
 3. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe** and, if you are prompted, select **Run**.
 
-4. In the **NPS Extension For Azure AD MFA Setup** window, review the software license terms, select the **I agree to the license terms and conditions** check box, and then select **Install**.
+4. In the **NPS Extension For Microsoft Entra multifactor authentication Setup** window, review the software license terms, select the **I agree to the license terms and conditions** check box, and then select **Install**.
 
-    ![The "NPS Extension for Azure AD MFA Setup" window](./media/howto-mfa-nps-extension-vpn/image36.png)
+    ![The "NPS Extension for Microsoft Entra multifactor authentication Setup" window](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. In the **NPS Extension For Azure AD MFA Setup** window, select **Close**.  
+5. In the **NPS Extension For Microsoft Entra multifactor authentication Setup** window, select **Close**.  
 
     ![The "Setup Successful" confirmation window](./media/howto-mfa-nps-extension-vpn/image37.png)
 
 ### Configure certificates for use with the NPS extension by using a PowerShell script
 
-To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
+To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 
 * Creates a self-signed certificate.
-* Associates the public key of the certificate to the service principal on Azure AD.
+* Associates the public key of the certificate to the service principal on Microsoft Entra ID.
 * Stores the certificate in the local machine store.
 * Grants the network user access to the certificate's private key.
 * Restarts the NPS service.
 
-If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Azure AD, and so on.
+If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Microsoft Entra ID, and so on.
 
-To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. The account must be in the same Azure AD tenant as you wish to enable the extension for. Run the script on each NPS server where you install the NPS extension.
+To use the script, provide the extension with your Microsoft Entra administrative credentials and the Microsoft Entra tenant ID that you copied earlier. The account must be in the same Microsoft Entra tenant as you wish to enable the extension for. Run the script on each NPS server where you install the NPS extension.
 
 1. Run Windows PowerShell as an administrator.
 
@@ -379,13 +387,13 @@ To use the script, provide the extension with your Azure Active Directory admini
     
     After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module sign-in window.
 
-4. Enter your Azure AD administrator credentials and password, and then select **Sign in**.
+4. Enter your Microsoft Entra administrator credentials and password, and then select **Sign in**.
 
     ![Authenticate to Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
 
 5. At the command prompt, paste the tenant ID that you copied earlier, and then select Enter.
 
-    ![Input the Azure AD Tenant ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Input the Microsoft Entra tenant ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     The script creates a self-signed certificate and performs other configuration changes. The output is like that in the following image:
 
@@ -399,7 +407,7 @@ To verify the configuration, you must establish a new VPN connection with the VP
 
 ![The Windows Settings VPN window](./media/howto-mfa-nps-extension-vpn/image42.png)
 
-If you successfully authenticate with the secondary verification method that you previously configured in Azure AD MFA, you are connected to the resource. However, if the secondary authentication is unsuccessful, you are denied access to the resource.
+If you successfully authenticate with the secondary verification method that you previously configured in Microsoft Entra multifactor authentication, you are connected to the resource. However, if the secondary authentication is unsuccessful, you are denied access to the resource.
 
 In the following example, the Microsoft Authenticator app on a Windows Phone provides the secondary authentication:
 
@@ -421,7 +429,7 @@ You can also view the security log or the Network Policy and Access Services cus
 
 ![Example Network Policy Server log](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-On the server where you installed the NPS extension for Azure AD Multi-Factor Authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
+On the server where you installed the NPS extension for Microsoft Entra multifactor authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
 
 ```powershell
 Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
@@ -431,17 +439,17 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 ## Troubleshooting guide
 
-If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
+If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
 
-If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Azure AD Multi-Factor Authentication logs that are discussed in the previous section.
+If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Microsoft Entra multifactor authentication logs that are discussed in the previous section.
 
 An example of a security log that displays a failed sign-in event (event ID 6273) is shown here:
 
 ![Security log showing a failed sign-in event](./media/howto-mfa-nps-extension-vpn/image47.png)
 
-A related event from the Azure AD Multi-Factor Authentication log is shown here:
+A related event from the Microsoft Entra multifactor authentication log is shown here:
 
-![Azure AD Multi-Factor Authentication logs](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Microsoft Entra multifactor authentication logs](./media/howto-mfa-nps-extension-vpn/image48.png)
 
 To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
@@ -453,12 +461,12 @@ To do additional troubleshooting, you can use a protocol analyzer such as Wiresh
 
 ![Microsoft Message Analyzer showing filtered traffic](./media/howto-mfa-nps-extension-vpn/image50.png)
 
-For more information, see [Integrate your existing NPS infrastructure with Azure AD Multi-Factor Authentication](howto-mfa-nps-extension.md).
+For more information, see [Integrate your existing NPS infrastructure with Microsoft Entra multifactor authentication](howto-mfa-nps-extension.md).
 
 ## Next steps
 
-[Get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md)
+[Get Microsoft Entra multifactor authentication](concept-mfa-licensing.md)
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+[Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md)

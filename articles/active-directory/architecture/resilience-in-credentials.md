@@ -1,5 +1,5 @@
 ---
-title: Build resilience with credential management in Azure Active Directory
+title: Build resilience with credential management in Microsoft Entra ID
 description: A guide for architects
  and IT administrators on building a resilient credential strategy.
 services: active-directory
@@ -15,12 +15,12 @@ ms.collection: M365-identity-device-management
 ---
 # Build resilience with credential management
 
-When a credential is presented to Azure Active Directory (Azure AD) in a token request, there are multiple dependencies that must be available for validation. The first authentication factor relies on Azure AD authentication and, in some cases, on on-premises infrastructure. For more information on hybrid authentication architectures, see [Build resilience in your hybrid infrastructure](resilience-in-hybrid.md). 
+When a credential is presented to Microsoft Entra ID in a token request, there are multiple dependencies that must be available for validation. The first authentication factor relies on Microsoft Entra authentication and, in some cases, on on-premises infrastructure. For more information on hybrid authentication architectures, see [Build resilience in your hybrid infrastructure](resilience-in-hybrid.md). 
 
 If you implement a second factor, the dependencies for the second factor are added to the dependencies for the first. For example, if your first factor is via PTA and your second factor is SMS, your dependencies are as follows.
 
-* Azure AD authentication services
-* Azure AD Multi-Factor Authentication service
+* Microsoft Entra authentication services
+* Microsoft Entra multifactor authentication service
 * On-premises infrastructure
 * Phone carrier
 * The user's device (not pictured)
@@ -37,16 +37,16 @@ For second factors, the Microsoft Authenticator app or other authenticator apps 
 
 ## How do multiple credentials help resilience?
 
-Provisioning multiple credential types gives users options that accommodate their preferences and environmental constraints. As a result, interactive authentication where users are prompted for Multi-factor authentication will be more resilient to specific dependencies being unavailable at the time of the request. You can [optimize reauthentication prompts for Multi-factor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+Provisioning multiple credential types gives users options that accommodate their preferences and environmental constraints. As a result, interactive authentication where users are prompted for multifactor authentication will be more resilient to specific dependencies being unavailable at the time of the request. You can [optimize reauthentication prompts for multifactor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
-In addition to individual user resiliency described above, enterprises should plan contingencies for large-scale disruptions such as operational errors that introduce a misconfiguration, a natural disaster, or an enterprise-wide resource outage to an on-premises federation service (especially when used for Multi-factor authentication). 
+In addition to individual user resiliency described above, enterprises should plan contingencies for large-scale disruptions such as operational errors that introduce a misconfiguration, a natural disaster, or an enterprise-wide resource outage to an on-premises federation service (especially when used for multifactor authentication). 
 
 ## How do I implement resilient credentials?
 
 * Deploy [Passwordless credentials](../authentication/howto-authentication-passwordless-deployment.md) such as Windows Hello for Business, Phone Authentication, and FIDO2 security keys to reduce dependencies.
 * Deploy the [Microsoft Authenticator App](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) as a second factor.
-* Turn on [password hash synchronization](../hybrid/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as Active Directory Federation Services (AD FS) and provides a fallback in case the federation service fails.
-* [Analyze usage of Multi-factor authentication methods](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve user experience.
+* Turn on [password hash synchronization](../hybrid/connect/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as Active Directory Federation Services (AD FS) and provides a fallback in case the federation service fails.
+* [Analyze usage of multifactor authentication methods](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve user experience.
 * [Implement a resilient access control strategy](../authentication/concept-resilient-controls.md)
 
 ## Next steps

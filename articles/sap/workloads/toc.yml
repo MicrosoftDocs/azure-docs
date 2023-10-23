@@ -69,6 +69,8 @@ items:
         href: hana-vm-operations-netapp.md
       - name: Azure Files NFS/SMB for SAP
         href: planning-guide-storage-azure-files.md
+      - name: SAP HANA data tiering and archiving guidance
+        href: hana-tiering-guidance.md
     - name: High availability (HA)
       items:
       - name: About HA for Azure VMs
@@ -225,6 +227,8 @@ items:
       items:
       - name: Outbound E-Mail from SAP to Exchange Online
         href: exchange-online-integration-sap-email-outbound.md
+      - name: Recommended setup for SAP Cloud Identity Services and SAP Business Technology Platform with Microsoft Entra ID
+        href: /azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration
       - name: Expose SAP Process Orchestration on Azure securely
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query

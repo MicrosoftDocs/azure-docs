@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -64,7 +64,7 @@ The following examples compare **February 4, 2019 16:00 UTC** and **March 5, 201
     | **Nanosecond** | `nanosecond`, `ns` |
 - The function always returns a signed integer value. The function returns a measurement of the number of boundaries crossed for the specified date and time part, not a measurement of the time interval.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`DateTimeBin`](datetimebin.md)
