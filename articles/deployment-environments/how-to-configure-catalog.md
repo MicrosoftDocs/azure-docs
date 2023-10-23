@@ -39,7 +39,7 @@ After you create a dev center, before you can attach a catalog, you must configu
 If your dev center doesn't have an MSI attached, follow the steps in this article to create and attach one: [Configure a managed identity](how-to-configure-managed-identity.md).
 
 
-To learn more about managed identities, see: [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+To learn more about managed identities, see: [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 ## Add a catalog
 
