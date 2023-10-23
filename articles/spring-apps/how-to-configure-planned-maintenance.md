@@ -35,7 +35,7 @@ Updating the configuration can take a few minutes. You should get a notification
 There will be some notificaions and messages sent before and during the maintenance. Following table describe the details:
 
 | Sequence # | Message Type                | Channel             | Time to Send the Message                                 |
-| ---------- | --------------------------- | ------------------- | -------------------------------------------------------- |
+| :--------: | --------------------------- | ------------------- | -------------------------------------------------------- |
 | 1          | Release Note                | Activity Log        | At the end of release rollout                            |
 | 2          | Maintenance Announcement    | Planned Maintenance | Two weeks before the first available maintenance window  |
 | 3          | Start of Maintenance Window | Activity Log        | At the start of the execution of the entire maintenance  |
