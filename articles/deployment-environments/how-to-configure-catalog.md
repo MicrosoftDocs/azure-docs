@@ -12,9 +12,9 @@ ms.topic: how-to
 
 # Add and configure a catalog hosted in a GitHub or Azure DevOps repository
 
-In this article, you learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your dev center. You use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). To allow your dev center access to your catalog, you must configure a method of authentication, which involves assigning a managed identity to the dev center, and then giving that identity access to the catalog by assigning permissions to a managed service identity (MSI) or by using a Personal Access Token (PAT). 
+In this article, you learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your dev center. You use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). To allow your dev center access to your catalog, you must configure a method of authentication, by assigning a managed identity to the dev center. You then give that identity access to the catalog by assigning permissions to a managed service identity (MSI) or by using a Personal Access Token (PAT). 
 
-Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to an. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
+Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
 A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
@@ -36,14 +36,14 @@ In this article, you learn how to:
 
 After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
 
-If your dev center doesn't have an MSI attached, follow the steps in this article to crate and attache one: [Configure a managed identity](how-to-configure-managed-identity.md).
+If your dev center doesn't have an MSI attached, follow the steps in this article to create and attach one: [Configure a managed identity](how-to-configure-managed-identity.md).
 
 
 To learn more about managed identities, see: [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 ## Add a catalog
 
-You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, also called a managed identity, or by using a PAT which you store in a key vault.
+You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, also called a managed identity, or by using a PAT, which you store in a key vault.
 
 Select the tab for the type of repository and authentication you want to use.
 
@@ -345,3 +345,9 @@ An invalid environment definition error might occur for various reasons:
   - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   
 - **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
+
+## Related content
+
+- [Configure environment types for a dev center](how-to-configure-devcenter-environment-types.md)
+- [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
+- [Configure project environment types](how-to-configure-project-environment-types.md)
