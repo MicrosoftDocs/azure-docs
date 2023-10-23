@@ -34,17 +34,18 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
 2. Adding `async` attribute that specifies that the script is downloaded in parallel to parsing the page, then the script is executed as soon as it is available (before parsing completes):
 
 	 ```javascript
-	<script src="my-script.js" async ></script>	
+	<script src="my-script.js" async></script>	
 	```
 
 3. Using `addEventListener()` method that attaches an event handler to a document:
+   
         ```javascript
-	  <script>
-	      document.addEventListener("DOMContentLoaded", function () {
-		  // Your JavaScript code here
-	      });
-	  </script>
-	```
+  	<script>
+	    document.addEventListener("DOMContentLoaded", function () {
+	    	// Your JavaScript code here
+	    });
+	</script>
+ 	```
 
 To enable JavaScript and advance HTML tags and attributes:
 
