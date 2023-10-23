@@ -120,7 +120,7 @@ For example, if you have a large customer CSV input file, and the load test runs
 
 > [!IMPORTANT]
 > Azure Load Testing doesn't preserve the header row when splitting your CSV file. 
-> 1. [Configure your JMeter script](#configure-your-jmeter-script) to use variable names when reading the CSV file. 
+> 1. [Configure your JMeter script](#update-your-jmeter-script-to-read-csv-data) to use variable names when reading the CSV file. 
 > 1. Remove the header row from the CSV file before you add it to the load test.
 
 To configure your load test to split input CSV files:
