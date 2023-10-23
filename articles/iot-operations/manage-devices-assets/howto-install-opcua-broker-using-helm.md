@@ -77,6 +77,8 @@ Use the following helm command to deploy OPC UA Broker to your Kubernetes cluste
   ```
 If you installed MQ into a different namespace than `default`, specify the corresponding address of MQTT broker by adding the following line to the previous statement.
 
+### Test new heading
+
 #### [bash](#tab/bash)
 
   `--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 \`
@@ -87,9 +89,11 @@ If you installed MQ into a different namespace than `default`, specify the corre
   --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 `
   ```
 
-If you configured MQ with a specific audience for SAT-based authentication via `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource, then configure the same audience for OPC UA Broker via `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the Prerequisites to set SAT audience. 
+You can configure MQ for a specific audience for SAT-based authentication by using the `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource. If you did that,  configure the same audience for OPC UA Broker by using `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the [Prerequisites](#prerequisites) to set SAT audience. 
 
 The following example shows how to configure OPC UA Broker for the `aio-mq` audience:
+
+### Test another heading
 
 #### [bash](#tab/bash)
 
