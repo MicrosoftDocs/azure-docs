@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Perform packet capture on a packet core instance
 
-Packet capture for control or data plane packets is performed using the **UPF Trace (UPFT)** tool. UPFT is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface. You can use this tool to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device, as well as the control plane (N2 interface).
+Packet capture for control or data plane packets is performed using the **UPF Trace** tool. UPF Trace is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface (CLI). You can use UPF Trace to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device, as well as the control plane (N2 interface). You can access UPF Trace using the Azure portal or the Azure CLI.
 
 Packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform packet capture on a packet core instance.
 
@@ -37,12 +37,12 @@ To perform packet capture using the command line, you must:
 ### Start a packet capture
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
+1. Navigate to the **Packet Core Control Pane** overview page of the site you want to run a packet capture in.
 1. Select **Packet Capture** under the **Help** section on the left side. This will open a **Packet Capture** view.
-1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the packet capture. For example:  
+1. Enter the **Storage account blob URL** that was configured for diagnostics storage and append the file name that you want to give the packet capture. For example:  
     `https://storageaccountname.blob.core.windows.net/diagscontainername/packetcapturename.zip`  
     > [!TIP]
-    > The **Container URL** should have been noted during creation. If it wasn't:
+    > The **Storage account blob URL** should have been noted during creation. If it wasn't:
     >
     >    1. Navigate to your **Storage account**.
     >    1. Select the **...** symbol on the right side of the container blob that you want to use for packet capture.
@@ -51,10 +51,11 @@ To perform packet capture using the command line, you must:
 
 1. Select **Start packet capture**.
 1. Fill in the details on the **Start packet capture** pane and select **Create**.
-1. The AP5GC online service will generate a packet capture at the provided storage account URL. Once the portal reports that this has succeeded, you'll be able to download the packet capture.
-1. To download the packet capture, see [Download a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
+1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
+1. Once the packet capture has completed, the AP5GC online service will save the output at the provided storage account URL.
+1. To download the packet capture output, you can use the **Copy to clipboard** button in the **Storage** or **File name** columns to copy those details and then paste them into the **Search** box in the portal. To download the output, right-click the file and select **Download**.
 
-## Performing packet capture using the command line
+## Performing packet capture using the Azure CLI
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
 
@@ -84,6 +85,7 @@ To perform packet capture using the command line, you must:
 
     > [!IMPORTANT]
     > Packet capture files may be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.
+
 1. Leave the container:
 
     ```azurecli

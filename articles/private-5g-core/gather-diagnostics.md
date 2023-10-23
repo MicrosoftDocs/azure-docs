@@ -32,10 +32,10 @@ You must already have an AP5GC site deployed to collect diagnostics.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
 1. Select **Diagnostics Collection** under the **Help** section on the left side. This will open a **Diagnostics Collection** view.
-1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
+1. Enter the **Storage account blob URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
     `https://storageaccountname.blob.core.windows.net/diagscontainername/diagsPackageName.zip`  
     > [!TIP]
-    > The **Container URL** should have been noted during creation. If it wasn't:
+    > The **Storage account blob URL** should have been noted during creation. If it wasn't:
     >
     >    1. Navigate to your **Storage account**.
     >    1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
@@ -44,7 +44,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 1. Select **Diagnostics collection**.
 1. The AP5GC online service will generate a package at the provided storage account URL. Once the portal reports that this has succeeded, you'll be able to download the diagnostics package ready to share with Azure support.
-    1. To download the diagnostics package, see [Download a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
+    1. To download the diagnostics package, navigate to the storage account URL, right-click the file and select **Download**.
     1. To open a support request and share the diagnostics package with Azure support, see [How to open a support request for Azure Private 5G Core](open-support-request.md).
 
 ## Troubleshooting
@@ -57,7 +57,6 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 ## Next steps
 
-To continue to monitor your 5G core:
-
+- [Perform packet capture on a packet core instance](data-plane-packet-capture.md)
 - [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
 - [Monitor Azure Private 5G Core with packet core dashboards](packet-core-dashboards.md)
