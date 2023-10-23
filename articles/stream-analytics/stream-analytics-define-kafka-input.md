@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/21/2023
+ms.date: 10/23/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -105,6 +105,8 @@ When configuring your Azure Stream Analytics job to connect to your Kafka cluste
 * When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units. 
 * When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
+* Azure Stream Analytics does not support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol
+
 
 > [!NOTE]
 > For direct help with using the Azure Stream Analytics Kafka adapter, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
