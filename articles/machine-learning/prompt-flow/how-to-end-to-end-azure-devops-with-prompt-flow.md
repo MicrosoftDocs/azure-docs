@@ -1,3 +1,18 @@
+---
+title: Set up LLMOps with Azure DevOps
+titleSuffix: Azure Machine Learning
+description: Learn how to set up a sample LLMOps environment and pipeline on Azure DevOps for prompt flow project
+services: machine-learning
+author: jiaochenlu
+ms.author: chenlujiao
+ms.service: machine-learning
+ms.subservice: prompt-flow
+ms.topic: how-to
+ms.reviewer: larryfr
+ms.date: 10/24/2023
+ms.custom: cli-v2, sdk-v2
+---
+
 # Set up end-to-end LLMOps with prompt flow and Azure DevOps (preview)
 
 Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
@@ -30,7 +45,7 @@ In this article, you can learn **LLMOps with Prompt Flow** by following the end-
 - An Azure Machine Learning workspace.
 - Git running on your local machine.
 - An [organization](/azure/devops/organizations/accounts/create-organization) in Azure DevOps.
-- [Azure DevOps project](how-to-devops-machine-learning.md) that will host the source repositories and pipelines.
+- [Azure DevOps project](../how-to-devops-machine-learning.md) that will host the source repositories and pipelines.
 - The [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) if you're using Azure DevOps + Terraform to spin up infrastructure
 
 
@@ -187,21 +202,21 @@ LLMOps with Prompt Flow is a "LLMOps template and guidance" to help you build LL
 - **Centralized Code Hosting**: This repo supports hosting code for multiple flows based on prompt flow, providing a single repository for all your flows. Think of this platform as a single repository where all your prompt flow code resides. It's like a library for your flows, making it easy to find, access, and collaborate on different projects.
 
 - **Lifecycle Management**: Each flow enjoys its own lifecycle, allowing for smooth transitions from local experimentation to production deployment.
-    ![Screenshot of Pipeline security.](./media/how-to-end-to-end-llmops-with-prompt-flow/pipeline.png)
+    ![Screenshot of pipeline.](./media/how-to-end-to-end-llmops-with-prompt-flow/pipeline.png)
 
 - **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
 
 - **Multiple Deployment Targets**: The repo supports deployment of flows to Kubernetes, Azure Managed computes driven through configuration ensuring that your flows can scale as needed.
-    ![Screenshot of Pipeline security.](./media/how-to-end-to-end-llmops-with-prompt-flow/endpoints.png)
+    ![Screenshot of endpoints.](./media/how-to-end-to-end-llmops-with-prompt-flow/endpoints.png)
 
 - **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow flows. This means you can effortlessly compare different versions of a flows in a real-world setting to determine which performs best.
-    ![Screenshot of Pipeline security.](./media/how-to-end-to-end-llmops-with-prompt-flow/abdeployments.png)
+    ![Screenshot of deployments.](./media/how-to-end-to-end-llmops-with-prompt-flow/abdeployments.png)
 
 - **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
 
 - **Comprehensive Reporting**: Generate detailed reports for each variant configuration, allowing you to make informed decisions. Provides detailed Metric collection, experiment and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
-    ![Screenshot of Pipeline security.](./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png)
-    ![Screenshot of Pipeline security.](./media/how-to-end-to-end-llmops-with-prompt-flow/metrics.png)
+    ![Screenshot of flow variants report.](./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png)
+    ![Screenshot of metrics report.](./media/how-to-end-to-end-llmops-with-prompt-flow/metrics.png)
 
 Other features for customization:
 - Offers **BYOF** (bring-your-own-flows). A **complete platform** for developing multiple use-cases related to LLM-infused applications.
@@ -259,7 +274,7 @@ More details on how to use the template can be found in the [Github repository](
 * [LLMOps wit Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on Github
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
-* [Install and set up Python CLI v2](how-to-configure-cli.md)
+* [Install and set up Python CLI v2](../how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
 
 
