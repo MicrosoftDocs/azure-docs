@@ -43,7 +43,7 @@ Azure IoT Operations Preview runs on Arc-enabled Kubernetes clusters on the edge
 
 ## Manage devices and assets
 
-Azure IoT Operations Preview can connect to various industrial devices and assets. You can use the [Azure IoT Operations Experience portal](../manage-devices-assets/howto-configure-assets-endpoint.md) to manage the devices and assets that you want to connect to.
+Azure IoT Operations Preview can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
 
 The [OPC UA Broker Preview](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
@@ -96,14 +96,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Validated environments
 
-Project Alice Springs ships as a set of Azure Arc-enabled Kubernetes services and is intended for use with [CNCF](https://www.cncf.io/) conformant [Arc validated partner products](/azure/azure-arc/kubernetes/validation-program). Currently, Microsoft has validated Project Alice Springs against the following fixed-set of infrastructures and environments:
-
-| Environment | Version |
-| ----------- | ------- |
-| AKS-EE on Windows 11 IoT Enterprise <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | AksEdge-k3s-1.25.8-1.2.414.0 |
-| K3s on Ubuntu 22.04.2 <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 32-GB RAM| K3s version 1.27.3 |
-
-See also the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
+[!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
 ## Next step
 

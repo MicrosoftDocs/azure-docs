@@ -75,7 +75,7 @@ Data that hasn't been accessed for one year (“the retention period”) will be
 
 ### Deleted data recovery
 
-The data retention policy isn't configurable. Once the data is permanently deleted, it isn't recoverable. However, The settings data is deleted only from the Microsoft cloud, not from the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings are again synced and stored in the Microsoft cloud.
+The data retention policy isn't configurable. Once the data is permanently deleted, it isn't recoverable. However, the settings data is deleted only from the Microsoft cloud, not from the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings are again synced and stored in the Microsoft cloud.
 
 ## Next steps
 
