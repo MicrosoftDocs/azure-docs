@@ -25,7 +25,7 @@ items:
         href: troubleshooting.md
       - name: Limitations
         href: limitations.md
-  - name: Deploy Cloud Shell in a VNET
+  - name: Deploy Cloud Shell in a virtual network
     items:
       - name: Overview
         href: private-vnet.md
