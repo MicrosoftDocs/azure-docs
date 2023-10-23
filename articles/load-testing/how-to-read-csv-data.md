@@ -45,7 +45,7 @@ Modify the JMeter script by using the Apache JMeter GUI:
 
 	Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the **CSV Data Set Config** element instead of using a header row.
 
-	:::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the JMeter UI to configure a C S V Data Set Config element.":::
+	:::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the JMeter UI to configure a C S V Data Set Config element." lightbox="media/how-to-read-csv-data/update-csv-data-set-config.png":::
 
 1. Repeat the previous steps for every **CSV Data Set Config** element in the script.
 
@@ -68,13 +68,13 @@ To add a CSV file to your load test by using the Azure portal:
 
 1. Select your test from the list by selecting the checkbox, and then select **Edit**.
 
-    :::image type="content" source="media/how-to-read-csv-data/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
+    :::image type="content" source="media/how-to-read-csv-data/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button." lightbox="media/how-to-read-csv-data/edit-test.png":::
 
 1. On the **Test plan** tab, select the CSV file from your computer, and then select **Upload** to upload the file to Azure. 
 
     If you're using a URL-based load test, you can enter the variable names as a comma-separated list in the **Variables** column.
 
-    :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the Test plan tab on the Edit test pane.":::
+    :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the Test plan tab on the Edit test pane." lightbox="media/how-to-read-csv-data/edit-test-upload-csv.png":::
 
     If the size of the CSV file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
 
@@ -131,7 +131,7 @@ To configure your load test to split input CSV files:
 
 1. Select **Split CSV evenly between Test engines**.
 
-    :::image type="content" source="media/how-to-read-csv-data/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
+    :::image type="content" source="media/how-to-read-csv-data/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal." lightbox="media/how-to-read-csv-data/configure-test-split-csv.png":::
 
 1. Select **Apply** to confirm the configuration changes.
 
