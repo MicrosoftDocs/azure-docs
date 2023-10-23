@@ -40,7 +40,7 @@ You can sign in to Azure and run Azure CLI commands in one of two ways:
 
 ### Use Azure Cloud Shell
 
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -91,7 +91,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+To log into your local installation of the CLI, run the [az sign-in](/cli/azure/reference-index#az-login) command:
 
 ```azurecli-interactive
 az login
@@ -113,9 +113,9 @@ If you plan to use `azd` via Cloud Shell:
   * Sign-in to the [Azure portal](https://portal.azure.com) 
   * Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
   
-    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::    
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::    
     
-To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth login](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
+To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth sign-in](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
 
 ```azurecli-interactive
     azd auth login
@@ -475,7 +475,7 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure.  Enter the name `azdstorage` and press enter.
 
-    :::image type="content" source="media/storage-account-create/azd-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
 
 1. Next, run the `azd up` command to begin the template provisioning and deployment process.
 
@@ -495,11 +495,11 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
 
-    :::image type="content" source="media/storage-account-create/azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
 
 1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
 
-    :::image type="content" source="media/storage-account-create/azd-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
 
 ---
 ## Delete a storage account
