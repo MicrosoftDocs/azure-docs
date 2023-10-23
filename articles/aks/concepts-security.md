@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 author: miwithro
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 07/18/2023
+ms.date: 10/23/2023
 ms.author: miwithro
 ---
 
@@ -70,7 +70,7 @@ To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, A
 
 ### Hostile multi-tenant workloads
 
-Currently, Kubernetes environments aren't safe for hostile multi-tenant usage. Extra security features, like *Pod Security Policies* or Kubernetes RBAC for nodes, efficiently block exploits. For true security when running hostile multi-tenant workloads, only trust a hypervisor. The security domain for Kubernetes becomes the entire cluster, not an individual node. 
+Currently, Kubernetes environments aren't safe for hostile multi-tenant usage. Extra security features, like *Pod Security Policies* or Kubernetes RBAC for nodes, efficiently block exploits. For true security when running hostile multi-tenant workloads, only trust a hypervisor. The security domain for Kubernetes becomes the entire cluster, not an individual node.
 
 For these types of hostile multi-tenant workloads, you should use physically isolated clusters. For more information on ways to isolate workloads, see [Best practices for cluster isolation in AKS][cluster-isolation].
 
@@ -78,9 +78,9 @@ For these types of hostile multi-tenant workloads, you should use physically iso
 
 Because of compliance or regulatory requirements, certain workloads may require a high degree of isolation from other customer workloads. For these workloads, Azure provides:
 
-* [Isolated VMs](../virtual-machines/isolation.md) to use as the agent nodes in an AKS cluster. These VMs are isolated to a specific hardware type and dedicated to a single customer. Select [one of the isolated VMs sizes](../virtual-machines/isolation.md) as the **node size** when creating an AKS cluster or adding a node pool.
-* [Confidential Containers](use-confidential-containers.md) (preview), which is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. It helps isolate your containers from other container groups/pods, as well as VM node OS kernel.
-* [Pod Sandboxing](use-pod-sandboxing.md) (preview) provides an isolation boundary between the container application, and the shared kernel and compute resources (CPU, memory, and network) of the container host.
+* [Kernel isolated containers][azure-confidential-containers] to use as the agent nodes in an AKS cluster. These containers are completely isolated to a specific hardware type and isolated from the Azure Host fabric, the host operating system, and the hypervisor. They are dedicated to a single customer. Select [one of the isolated VMs sizes][isolated-vm-size] as the **node size** when creating an AKS cluster or adding a node pool.
+* [Confidential Containers][confidential-containers] (preview), also based on Kata Confidential Containers, encrypts container memory and prevents data in memory during computation from being in clear text, readable format, and tampering. It helps isolate your containers from other container groups/pods, as well as VM node OS kernel. Confidental Containers (preview) uses hardware based memory encryption (SEV SNP).
+* [Pod Sandboxing][pod-sandboxing] (preview) provides an isolation boundary between the container application, and the shared kernel and compute resources (CPU, memory, and network) of the container host.
 
 ## Cluster upgrades
 
@@ -157,6 +157,10 @@ For more information on core Kubernetes and AKS concepts, see:
 
 <!-- LINKS - Internal -->
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
+[azure-confidential-containers]: ../confidential-computing/confidential-containers.md
+[confidential-containers]: use-confidential-containers.md
+[pod-sandboxing]: use-pod-sandboxing.md
+[isolated-vm-size]: ../virtual-machines/isolation.md
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
 [aks-add-np-containerd]: create-node-pools.md

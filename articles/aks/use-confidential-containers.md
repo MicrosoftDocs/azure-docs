@@ -2,26 +2,29 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/17/2023
+ms.date: 10/23/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to protect your data and workloads from:
+To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers and hardware-based encryption, to encrypt container memory that prevents data in memory during computation from being in clear text, readable format, and ensures data integrity. You can gain trust in the container memory encryption being enforced by hardware through attestation.
+
+Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to protect your data and workloads from:
 
 * Your AKS cluster admin
 * The AKS control plane & daemon sets
 * The cloud and host operator
 * The AKS worker node operating system
 * Another pod running on the same VM node
-* Helps application owners protect data by enforcing application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc).
-* Help protect your data from Cloud Service Providers (CSPs)
+* Helps application owners enforce application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc).
+* Access from Cloud Service Providers (CSPs)
 
-Together with other security measures or data protection controls, as part of your overall architecture, it helps you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
 This article helps you understand the Confidential Containers feature, and how to implement and configure the following:
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
+* Add an annotation to your pod YAML to mark the pod as being run as a confidential container
 * Add a security policy to your pod YAML
 * Enable enforcement of the security policy
 * Deploy your application confidentially
@@ -119,7 +122,7 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.24.0 and above> --os-sku AzureLinux --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
@@ -143,7 +146,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 To use this feature with an existing AKS cluster, the following requirements must be met:
 
 * Follow the steps to [register the KataCcIsolationPreview](#register-the-kataccisolationpreview-feature-flag) feature flag.
-* Verify the cluster is running Kubernetes version 1.24.0 and higher.
+* Verify the cluster is running Kubernetes version 1.25.0 and higher.
 * [Enable workload identity][upgrade-cluster-enable-workload-identity] on the cluster if it isn't already.
 
 Use the following command to enable Confidential Containers (preview) by creating a node pool to host it.
@@ -242,7 +245,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
     az confcom katapolicygen -y myapplication.yml
     ```
 
-1. Upload keys to your Managed HSM instance with key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
+1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
 
     ```bash
     go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
@@ -269,7 +272,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
 1. Deploy the application by running the following command:
 
     ```bash
-    Kubectl apply -f myapplication
+    kubectl apply -f myapplication
     ```
 
 1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command. (Run command to view secrets to verify it is working from the pod).
