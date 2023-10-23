@@ -274,6 +274,8 @@
         href: ecasv5-ecadsv5-series.md
       - name: ECas_cc_v5 and ECads_cc_v5-series
         href: ecasccv5-ecadsccv5-series.md
+      - name: ECesv5 and ECedsv5-series
+        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
