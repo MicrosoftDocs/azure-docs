@@ -52,7 +52,7 @@ Creating a storage mover requires you to decide on a subscription, a resource gr
 
 ### [Azure CLI](#tab/CLI)
 
-### Prepare your Azure CLI Environment
+### Prepare your Azure CLI environment
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -80,6 +80,10 @@ az storage-mover create --Name $storageMoverName \
 
 ```
 ### [Azure PowerShell](#tab/powershell)
+
+### Prepare your Azure PowerShell environment 
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/includes/azure-powershell-requirements-no-header.md)]
 
 The `New-AzStorageMover` cmdlet is used to create new storage mover resource in a resource group. If you haven't yet installed the `Az.StorageMover` module:
 
