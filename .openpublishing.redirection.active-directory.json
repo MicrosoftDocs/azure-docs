@@ -18534,7 +18534,12 @@
       "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation.md",
       "redirect_url": "/entra/workload-id/workload-identity-federation",
       "redirect_document_id": false
-    },  
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/ad-auth-no-join-linux-vm.md",
+      "redirect_url": "/entra/identity/domain-services/ad-auth-no-join-linux-vm",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/active-directory-domain-services/administration-concepts.md",
       "redirect_url": "/entra/identity/domain-services/administration-concepts",
