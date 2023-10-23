@@ -44,7 +44,7 @@ Microsoft Entra Cloud Sync is the future for accomplishing your hybrid identity 
 |Verify all users are provisioned|As you migrate users, verify that they're provisioning and synchronizing correctly.|
 |Stop Microsoft Entra Connect|Once you've verified that all of your users are migrated, you can turn off the Microsoft Entra Connect synchronization service.  Microsoft recommends that you leave the server is a disabled state for a period of time, so you can verify the migration was successful
 |Verify everything is good|After a period of time, verify that everything is good.|
-|Decommission the Microsoft Entra Connect server|Once you've verified everything is good you can use the steps below to take the Microsoft Entra Connect server offline.|
+|Decommission the Microsoft Entra Connect server|Once you've verified everything is good, take the Microsoft Entra Connect server offline. For more information, see [Uninstall Microsoft Entra Connect](../connect/how-to-connect-uninstall.md).|
 
 
 

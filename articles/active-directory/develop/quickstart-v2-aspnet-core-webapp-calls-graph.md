@@ -58,7 +58,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > 
 > ## About the code
 > 
-> This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](microsoft-identity-web.md), which is a wrapper around [MSAL.NET](msal-overview.md).
+> This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/), which is a wrapper around [MSAL.NET](msal-overview.md).
 > 
 > ### How the sample works
 > 
@@ -103,7 +103,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > 
 > The `AddAuthentication()` method configures the service to add cookie-based authentication, which is used in browser scenarios and to set the challenge to OpenID Connect.
 > 
-> The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](microsoft-identity-web.md). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+> The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. This is provided by [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/). It's then configured to sign in using the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 > 
 > | *appsettings.json* key | Description                                                                                                                 >                                          |
 > |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

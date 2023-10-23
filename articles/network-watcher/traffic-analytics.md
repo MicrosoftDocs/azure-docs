@@ -63,7 +63,7 @@ To use traffic analytics, you need the following components:
 
 - **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
 
-- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) or a virutal network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
+- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
 
     - **Network security group (NSG)**: A resource that contains a list of security rules that allow or deny network traffic to or from resources that are connected to an Azure virtual network. Network security groups can be associated with subnets, network interfaces (NICs) that are attached to VMs (Resource Manager), or individual VMs (classic). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json).
     
