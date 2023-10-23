@@ -7,8 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/23/2023
-tags: connectors
+ms.date: 10/24/2023
 ---
 
 # Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS Program Call connector (preview)
@@ -43,6 +42,16 @@ After you generate the metadata file from the HIS Designer, you can add that fil
 
 ## Connector technical reference
 
+The following section describes the operations for the IMS connector, which currently includes only the following action:
+
+### Call an IMS program
+
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **HIDX Name** | Yes | String | Select the IMS HIDX file that you want to use. |
+| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+
+This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
 
 ## Prerequisites
 
@@ -50,7 +59,7 @@ After you generate the metadata file from the HIS Designer, you can add that fil
 
 * Access to the mainframe that hosts the IMS system
 
-* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **CICS Program Call** connector to drive your mainframe app.
+* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IMS Program Call** connector to drive your mainframe app.
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-desiner-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
@@ -60,7 +69,7 @@ After you generate the metadata file from the HIS Designer, you can add that fil
 
   The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you are using HIS, you can use the TI Designer to create the HIDX file.
 
-* The Standard logic app workflow to use for integrating with the IBM IMS system
+* The Standard logic app workflow to use for integrating with the IMS system
 
   The IMS connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the IMS connector actions. To get started, create a blank workflow in your Standard logic app resource.
 
@@ -111,8 +120,8 @@ After you finish all the previous steps, you can use the action that you added t
 
 1. After the connection details pane appears, provide the following information:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name for your connection |
    | **The IMS System ID** | Yes | <*IMS-system-ID*> | The name of the IMS system where the IMS Connect model directs incoming requests |
    | **ITOC Exit Name** | No | <*ITOC-exit-name*> | The name for the exit routine that IMS uses to handle incoming requests |
@@ -136,11 +145,11 @@ After you finish all the previous steps, you can use the action that you added t
 
 1. After the action details pane appears, in the **Parameters** section, provide the required information:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the IMS HIDX file that you want to use. |
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. |
-   | **Advanced parameters** | This list appears after you select a method so that you can add other parameters to use with the selected method. |
+   | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
    For example:
 
@@ -166,5 +175,7 @@ After you finish all the previous steps, you can use the action that you added t
 
 ## Next steps
 
-* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](../logic-apps/monitor-logic-apps.md?tabs=standard)
+* [View metrics for workflow health and performance in Azure Logic Apps](../logic-apps/view-workflow-metrics.md?tabs=standard)
+* [Monitor and collect diagnostic data for workflows in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md?tabs=standard)
+* [Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](../logic-apps/enable-enhanced-telemetry-standard-workflows.md)
