@@ -21,7 +21,7 @@ You can configure optional claims for your application through the Azure portal 
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
 1. Under **Manage**, select **Token configuration**.
-   - The UI option **Token configuration** blade isn't available for apps registered in an Azure AD B2C tenant, which can be configured by modifying the application manifest. For more information, see  [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+   - The UI option **Token configuration** blade isn't available for apps registered in an Azure AD B2C tenant, which can be configured by modifying the application manifest. For more information, see  [Add claims and customize user input using custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/configure-user-input)  
 
 Configure claims using the manifest:
 

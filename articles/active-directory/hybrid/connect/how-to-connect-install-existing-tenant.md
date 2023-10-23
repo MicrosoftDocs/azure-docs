@@ -48,7 +48,26 @@ If you matched your objects with a soft-match, then the **sourceAnchor** is adde
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Microsoft Entra Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Microsoft Entra Connect), which is a lot faster than doing the same in Microsoft Entra ID. A hard match is evaluated both by Connect and by Microsoft Entra ID. A soft match is only evaluated by Microsoft Entra ID.
 
- We have added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature) shows how to disable Soft Matching.
+We have added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. 
+
+To disable Soft Matching, use the [Update-MgDirectoryOnPremiseSynchronization](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryonpremisesynchronization) Microsoft Graph PowerShell cmdlet:
+
+```powershell
+Import-Module Microsoft.Graph.Beta.Identity.DirectoryManagement 
+
+Connect-MgGraph -Scopes "OnPremDirectorySynchronization.ReadWrite.All"
+$onPremisesDirectorySynchronizationId = "<TenantID>"  
+$params = @{ 
+	features = @{ 
+		blockSoftMatchEnabled = $true 
+	} 
+} 
+Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $onPremisesDirectorySynchronizationId -BodyParameter $params
+```
+
+> [!NOTE]
+> 
+> blockSoftMatchEnabled - Use to block soft match for all objects if enabled for the tenant. Customers are encouraged to enable this feature and keep it enabled until soft matching is required again for their tenancy. This flag should be enabled again after any soft matching has been completed and is no longer needed.
 
 ### Other objects than users
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.
@@ -61,8 +80,6 @@ To prevent untrusted on-premises users from matching with a cloud user that has 
 3.    Trigger a sync.
 4.    Optionally add the directory roles back to the user object in cloud once the matching has occurred.
 
-
-
 <a name='create-a-new-on-premises-active-directory-from-data-in-azure-ad'></a>
 
 ## Create a new on-premises Active Directory from data in Microsoft Entra ID
@@ -72,3 +89,4 @@ If the only reason why you plan to add on-premises AD is to support LOBs (Line-o
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
+

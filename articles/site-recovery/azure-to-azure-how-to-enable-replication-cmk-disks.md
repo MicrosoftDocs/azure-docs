@@ -26,7 +26,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 1. In the **Enable replication** page, under **Source**, do the following:
    - **Region**: Select the Azure region from where you want to protect your VMs. 
    For example, the source location is *East Asia*.
-   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
+   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Microsoft Entra tenant where your recovery services vault exists.
    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
    - **Virtual machine deployment model**: Select Azure deployment model of the source machines.
    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.
@@ -169,4 +169,3 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 * **I have enabled both platform and customer managed keys, how can I protect my disks?**
 
     Enabling double encryption with both platform and customer managed keys is supported by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
-

@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 The following documentation provides information on how to enable the device writeback feature in Microsoft Entra Connect. Device Writeback is used in the following scenarios:
 
-* Enable [Windows Hello for Business using hybrid certificate trust deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Enable [Windows Hello for Business using hybrid certificate trust deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust#device-registration)
 * Enable Conditional Access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
 This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../../conditional-access/overview.md) and [Setting up On-premises Conditional Access using Microsoft Entra Device Registration](../../devices/overview.md).

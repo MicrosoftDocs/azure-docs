@@ -98,7 +98,7 @@ Ransomware can attack while you are planning for an attack so your first priorit
 
 In our experience, the five most important applications to customers fall into the following categories in this priority order:
 
-- Identity systems – required for users to access any systems (including all others described below) such as Active Directory, [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md), AD domain controllers
+- Identity systems – required for users to access any systems (including all others described below) such as Active Directory, [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md), AD domain controllers
 - Human life – any system that supports human life or could put it at risk such as medical or life support systems, safety systems (ambulance, dispatch systems, traffic light control), large machinery, chemical/biological systems, production of food or personal products, and others
 - Financial systems – systems that process monetary transactions and keep the business operating, such as payment systems and related databases, financial system for quarterly reporting
 - Product or service enablement – any systems that are required to provide the business services or produce/deliver physical products that your customers pay you for, factory control systems, product delivery/dispatch systems, and similar
