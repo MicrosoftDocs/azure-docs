@@ -12,7 +12,7 @@ zone_pivot_groups: functions-hosting-plan
 
 You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-For a broad set of example Bicep files and ARM templates, see the [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates) repository.
+For a broad set of example Bicep files and ARM templates, see [these function app deployment examples](samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager).
 
 >[!IMPORTANT]
 >Deployment code depends on how your function app is hosted and whether you are deploying code or a containerized function app. This article supports the three Functions hosting plans (Consumption, Elastic Premium, and Dedicated), as well as deployments to both Azure Container Apps and Azure Arc. 
@@ -203,9 +203,9 @@ For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/
 
 ---
 
-The connection  also needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
+The connection also needs to be provided to the function app using the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
-You need to set the connection string for this Application Insights instance as the `APPLICATIONINSIGHTS_CONNECTION_STRING` app setting. The templates in this article obtain the connection string value for the created instance. Older template versions might instead use `APPINSIGHTS_INSTRUMENTATIONKEY` to set the instrumentation key, which is no longer recommended. For more information, see [Application settings](#application-configuration).
+The templates in this article obtain the connection string value for the created instance. Older template versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#applicationinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. For more information, see [Application settings](#application-configuration).
 
 :::zone pivot="premium-plan,dedicated-plan,consumption-plan"  
 ## Create the hosting plan
@@ -306,13 +306,17 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
 ```
 
 ---  
+
+For more information about the `sku` object, see [`SkuDefinition`](/azure/templates/microsoft.web/serverfarms#skudescription) or review the example templates. 
 ::: zone-end
 :::zone pivot="dedicated-plan" 
 In the Dedicated (App Service) plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs in App Service plans, similar to web apps. For more information, see [Dedicated plan](./dedicated-plan.md).
 
 For a sample Bicep file/Azure Resource Manager template, see [Function app on Azure App Service plan]
 
-In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. The way that you define the hosting plan depends on whether your function app runs on Windows or on Linux: 
+In Functions, the Dedicated plan is just a regular App Service plan, which is defined by a `serverfarm` resource. You must provide at least the `name` value. For a list of supported plan names, see the `--sku` setting in [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) for the current list of supported values for a Dedicated plan. 
+
+The way that you define the hosting plan depends on whether your function app runs on Windows or on Linux: 
 
 ### [Windows](#tab/windows/bicep)
 
@@ -635,7 +639,7 @@ For a sample Bicep file/Azure Resource Manager template, see this [function app 
 
 When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
  
-For a list of application settings required when running on Linux in a Consumption plan,  see [Application configuration](#application-configuration).
+For a list of application settings required when running on Linux in a Consumption plan, see [Application configuration](#application-configuration).
 :::zone pivot="consumption-plan"
 For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 ::: zone-end
