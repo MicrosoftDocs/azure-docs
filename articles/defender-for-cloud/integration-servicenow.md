@@ -1,5 +1,5 @@
 ---
-title: Integration of ServiceNow with Microsoft Defender for Cloud.
+title: Integrate ServiceNow with Microsoft Defender for Cloud
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: justinha
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ---
 
-# Integration of ServiceNow with Microsoft Defender for Cloud
+# Integrate ServiceNow with Microsoft Defender for Cloud
 
 We're excited to introduce ServiceNow integration with Microsoft Defender for Cloud that will enable customers to 
 connect ServiceNow to their Defender for Cloud environment. As part of this connection, you will be able to 
@@ -55,4 +55,14 @@ NOTE: The default value of RefreshToken Lifespan is too small, we recommend to i
 Lifespan to as maximum as possible to give it a long life so that you don’t need to refresh the token 
 soon.
 
+Click on the Submit button to save the API Client ID and Client Secret. (Refer example screenshot 
+below) 
+After you complete the steps above, you can use this user for integrating the instance to Microsoft 
+Defender for Cloud.
+
+### Create ServiceNow Integration with MDC
+1. Use the following URL to login to Azure portal and navigate to Microsoft Defender for Cloud, Environment 
+settings: https://aka.ms/integrations
+2. Click on ‘Integrations’ to connect your environment to 3rd party ticketing system (ServiceNow in the current 
+scenario)
 
