@@ -363,7 +363,7 @@ When you configure the Secrets Store CSI Driver configuration, you modify the fo
 The following table contains parameters you can use with a helm chart. 
 
 
-| Name                                         | Required | Datatype         | Default                                                 | Description                                                                                                                                                           |
+| Name                                         | Required | Datatype         | Default                             | Description                                                                                                                                                           |
 | -------------------------------------------- | -------- | ---------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `deployOwnMqttBroker`                        | false    | Boolean          | `false`                                                 | Controls if Mosquitto should be deployed in OPC UA Broker runtime namespace                                                                                  |
 | `logging.logLevel`                           | false    | Enumeration      | `Information`                                           | The default logging level used by OPC UA Broker runtime [`Trace`, `Debug`, `Information`, `Warning`, `Error`, `Critical`, `None`]                            |
