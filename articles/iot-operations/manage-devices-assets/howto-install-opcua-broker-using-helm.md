@@ -48,61 +48,81 @@ If you installed Azure IoT Operations as shown in the prerequisites, the setup i
 
 Use the following helm command to deploy OPC UA Broker to your Kubernetes cluster:
 
-#### [bash](#tab/bash)
+# [bash1](#tab/bash)
 
-  ```bash
-  helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker \
-      --set image.registry={{% oub-registry %}} \
-      --version {{% oub-version %}} \
-      --namespace opcuabroker \
-      --create-namespace \
-      --set secrets.kind=k8s \
-      --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 \
-      --set opcPlcSimulation.deploy=true \
-      --wait
-  ```
+```bash
+helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker \
+    --set image.registry={{% oub-registry %}} \
+    --version {{% oub-version %}} \
+    --namespace opcuabroker \
+    --create-namespace \
+    --set secrets.kind=k8s \
+    --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 \
+    --set opcPlcSimulation.deploy=true \
+    --wait
+```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker `
-      --set image.registry={{% oub-registry %}} `
-      --version {{% oub-version %}} `
-      --namespace opcuabroker `
-      --create-namespace `
-      --set secrets.kind=k8s `
-      --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 `
-      --set opcPlcSimulation.deploy=true `
-      --wait
-  ```
+```azurepowershell
+helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker `
+    --set image.registry={{% oub-registry %}} `
+    --version {{% oub-version %}} `
+    --namespace opcuabroker `
+    --create-namespace `
+    --set secrets.kind=k8s `
+    --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.default:1883 `
+    --set opcPlcSimulation.deploy=true `
+    --wait
+```
 
-#### Specify the address of MQTT broker
 If you installed MQ into a different namespace than `default`, specify the corresponding address of MQTT broker by adding the following line to the previous command.
 
-##### [bash](#tab/bash)
+# [bash](#tab/bash)
 
-  `--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 \`
+`--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 \`
 
-##### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 `
-  ```
+```azurepowershell
+--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 `
+```
 
-#### Configure SAT-based authentication
 You can configure MQ for a specific audience for SAT-based authentication by using the `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource. If you did that,  configure the same audience for OPC UA Broker by using `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the [Prerequisites](#prerequisites) to set SAT audience. 
 
 The following example shows how to configure OPC UA Broker for the `aio-mq` audience:
 
-##### [bash](#tab/bash)
+# [bash](#tab/bash)
 
 `--set mqttBroker.serviceAccountTokenAudience=aio-mq \`
 
-##### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  --set mqttBroker.serviceAccountTokenAudience=aio-mq `
-  ```
+```azurepowershell
+--set mqttBroker.serviceAccountTokenAudience=aio-mq `
+```
+
+To use OPC UA Broker with Mosquitto, specify the following additional parameters:
+
+# [bash](#tab/bash)
+
+```bash
+--set deployOwnMqttBroker=true \
+--set mqttBroker.address=mqtt://mosquitto.opcuabroker:1883 \
+--set mqttBroker.authenticationMethod="none" \
+```
+
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+--set deployOwnMqttBroker=true `
+--set mqttBroker.address=mqtt://mosquitto.opcuabroker:1883 `
+--set mqttBroker.authenticationMethod="none" `
+```
+
+### Use OPC UA Broker with TLS-enabled MQ
+
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
