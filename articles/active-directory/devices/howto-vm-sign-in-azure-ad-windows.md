@@ -77,6 +77,9 @@ Microsoft Azure operated by 21Vianet:
 - `https://login.chinacloudapi.cn`: For authentication flows.
 - `https://pas.chinacloudapi.cn`: For Azure RBAC flows.
 
+### Authorization requirements
+To define who can access a Virtual Machine using Microsoft Entra authentication, you need permission to create role assignments to the VM User Login or VM Admin login role. You should have the [Virtual Machine Data Access Administrator](azure/role-based-access-control/built-in-roles#key-vault-data-access-administrator-preview) or any role with `Microsoft.Authorization/roleAssignments/write`.
+
 ### Authentication requirements
 
 [Microsoft Entra Guest accounts](../external-identities/what-is-b2b.md) can't connect to Azure VMs or Azure Bastion enabled VMs via Microsoft Entra authentication.
@@ -166,7 +169,7 @@ After the extension is installed on the VM, `provisioningState` shows `Succeeded
 
 ## Configure role assignments for the VM
 
-Now that you've created the VM, you need to configure an Azure RBAC policy to determine who can log in to the VM. Two Azure roles are used to authorize VM login:
+Now that you've created the VM, you need to assign any of the following Azure roles to determine who can log in to the VM. To assign these roles, you must have the [Virtual Machine Data Access Administrator](azure/role-based-access-control/built-in-roles#key-vault-data-access-administrator-preview) role, or any role that includes the `Microsoft.Authorization/roleAssignments/write` action.
 
 - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
