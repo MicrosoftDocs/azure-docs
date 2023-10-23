@@ -1151,7 +1151,7 @@ productDirectory:
         - networking
       url: traffic-manager/index.yml
     # Card
-    - title: Update Manager
+    - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/update-center.svg
       azureCategories:
