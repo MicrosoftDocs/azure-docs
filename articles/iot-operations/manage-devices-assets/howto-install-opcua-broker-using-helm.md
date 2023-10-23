@@ -48,7 +48,7 @@ If you installed Azure IoT Operations as shown in the prerequisites, the setup i
 
 Use the following helm command to deploy OPC UA Broker to your Kubernetes cluster:
 
-# [bash1](#tab/bash)
+# [bash](#tab/bash)
 
 ```bash
 helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker \
@@ -75,6 +75,7 @@ helm upgrade -i opcuabroker oci://{{% oub-registry %}}/opcuabroker/helmchart/mic
     --set opcPlcSimulation.deploy=true `
     --wait
 ```
+---
 
 If you installed MQ into a different namespace than `default`, specify the corresponding address of MQTT broker by adding the following line to the previous command.
 
@@ -87,6 +88,7 @@ If you installed MQ into a different namespace than `default`, specify the corre
 ```azurepowershell
 --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 `
 ```
+---
 
 You can configure MQ for a specific audience for SAT-based authentication by using the `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource. If you did that,  configure the same audience for OPC UA Broker by using `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the [Prerequisites](#prerequisites) to set SAT audience. 
 
@@ -101,6 +103,7 @@ The following example shows how to configure OPC UA Broker for the `aio-mq` audi
 ```azurepowershell
 --set mqttBroker.serviceAccountTokenAudience=aio-mq `
 ```
+---
 
 To use OPC UA Broker with Mosquitto, specify the following additional parameters:
 
@@ -120,9 +123,9 @@ To use OPC UA Broker with Mosquitto, specify the following additional parameters
 --set mqttBroker.address=mqtt://mosquitto.opcuabroker:1883 `
 --set mqttBroker.authenticationMethod="none" `
 ```
+---
 
 ### Use OPC UA Broker with TLS-enabled MQ
-
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
