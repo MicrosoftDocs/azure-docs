@@ -140,7 +140,8 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
 
 > [!NOTE]
-> Deleting a restored table doesn't delete the data in the source table.
+> - Deleting a restored table doesn't delete the data in the source table.
+> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
 
 # [Portal](#tab/azure-portal-2)
 
