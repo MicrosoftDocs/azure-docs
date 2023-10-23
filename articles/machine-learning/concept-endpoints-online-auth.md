@@ -14,27 +14,22 @@ ms.custom: devplatv2
 ms.date: 10/18/2023
 ---
 
-# Authentication with managed online endpoints
+# Authentication for managed online endpoints
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, we will explain what types of the authentication are available for online endpoints. We will cover both control plane operations and data plane operations.
+This article explain the kinds of authentication that are available for online endpoints. You'll learn about authentication for control plane operations and data plane operations.
 
-## Types of operations
+The operations you perform with online endpoints fall into one of two categories, namely, control plane operations and data plane operations.
 
-There are two types of operations on online endpoints: control plane operations and data plane operations.
+- _Control plane operations_ control and can change the online endpoints themselves. These operations include create, read, update, and delete (CRUD) operations on online endpoints and online deployments. For online endpoints and deployments, requests to perform control plane operations go to the Azure Machine Learning workspace.
+- _Data plane operations_ don't change the online endpoints but use data to interact with the endpoints. An example of a data plane operation is to send a scoring request to an online endpoint and get a response from it. For online endpoints and deployments, request to perform data plane operations go to the scoring URI of the online endpoint.
 
-- Control plane operations are operations that control the online endpoints themselves, such as create, read, update and delete (CRUD) operations on online endpoints and online deployments. For online endpoints/deployments, request to control plane goes to the workspace. 
-- Data plane operations are operations that don't change the online endpoints but interact with them with data, such as sending a scoring request to the online endpoint and getting a response from it. For online endpoints/deployments, request to data plane goes to the scoring Uri of the online endpoint.
-
-
-## Control plane authentication and authorization
-
-### Authentication for control plane operations
+## Authentication for control plane operations
 
 For control plane operations, you will use the authentication to the workspace, based on Microsoft Entra ID. There are multiple authentication flows you can choose from, depending on your use case. You'll also need a proper Azure role-based access control (Azure RBAC) allowed for your identity of choice to your resources. See [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md) for more.
 
-### Authorization for control plane operations
+## Authorization for control plane operations
 
 For control plane operations, you will need to have a proper Azure role-based access control (Azure RBAC) allowed for your identity of choice to your resources. Specifically for CRUD operations on online endpoints and deployments, you will need the identity to have the role assigned with the below actions:
 
@@ -54,13 +49,11 @@ For control plane operations, you will need to have a proper Azure role-based ac
 
 See [Manage access to Azure Machine Learning](how-to-assign-roles.md) for more.
 
-## Data plane authentication and authorization
-
-### Authentication for data plane operations
+## Authentication for data plane operations
 
 For data plane operations, you can choose from 3 types of authentication: key, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`) to authenticate to send requests to the scoring Uri of the endpoint. See [How to authenticate to an online endpoint](how-to-authenticate-online-endpoint.md) for more.
 
-### Authorization for data plane operations
+## Authorization for data plane operations
 
 For data plane operations, you will need to have a proper Azure role-based access control (Azure RBAC) allowed for your identity of choice to your resources, only if you endpoint is set to use Microsoft Entra token (`aad_token`). Specifically for data plane operations on online endpoints, you will need the identity to have the role assigned with the below actions:
 

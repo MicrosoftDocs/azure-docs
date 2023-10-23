@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Authenticate for online endpoints
+# Authenticate clients for online endpoints
 
 This article will focus on the authentication for data plane operations. See [Authentication for managed online endpoint](concept-endpoints-online-auth.md) for more information on authentication in general.
 
