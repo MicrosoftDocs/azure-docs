@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 10/24/2023
 tags: connectors
 ---
 
@@ -138,7 +138,7 @@ After you finish all the previous steps, you can use the action that you added t
    |----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the CICS HIDX file that you want to use. |
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. |
-   | **Advanced parameters** | This list appears after you select a method so that you can add other parameters to use with the selected method. |
+   | **Advanced parameters** | No |  | This list appears after you select a method so that you can add other parameters to use with the selected method. |
 
    For example:
 
@@ -164,5 +164,7 @@ After you finish all the previous steps, you can use the action that you added t
 
 ## Next steps
 
-* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](../logic-apps/monitor-logic-apps.md?tabs=standard)
+* [View metrics for workflow health and performance in Azure Logic Apps](../logic-apps/view-workflow-metrics.md?tabs=standard)
+* [Monitor and collect diagnostic data for workflows in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md?tabs=standard)
+* [Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](../logic-apps/enable-enhanced-telemetry-standard-workflows.md)
