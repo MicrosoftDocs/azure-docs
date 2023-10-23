@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 02/15/2023
+ms.date: 10/24/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -71,6 +71,22 @@ You can connect an SCVMM management server to Azure by deploying Azure Arc resou
 * Control access and add Azure tags
 * Add, remove, and update network interfaces
 * Add, remove, and update disks and update VM size (CPU cores and memory)
+
+## Example scenarios
+
+The following are just two examples of the many scenarios that can be enabled by using Arc resource bridge in a hybrid environment.
+
+### Apply Azure Policy and other Azure services to on-premises VMware VMs
+
+A customer deploys Arc Resource Bridge onto their on-premises VMware environment. They sign into the Azure portal and select the VMware VMs that they'd like to connect to Azure. Now they can manage these on-premises VMware VMs in Azure Resource Manager (ARM) as Arc-enabled machines, alongside their native Azure machines, achieving a single pane of glass to view their resources in a VMware/Azure hybrid environment. This includes deploying Azure services, such as Defender for Cloud and Azure Policy, to keep updated on the security and compliance posture of their on-premises VMware VMs in Azure.
+
+:::image type="content" source="../media/overview/resource-bridge-vmware.png" alt-text="Diagram showing VMware VMs connected to Azure through Arc resource bridge.":::
+
+### Create physical HCI VMs on-premises from Azure
+
+A customer has multiple datacenter locations in Canada and New York. They install an Arc resource bridge in each datacenter and connect their Azure Stack HCI VMs to Azure in each location. They can then sign into Azure portal and see all their Arc-enabled VMs from the two physical locations together in one central cloud location. From the portal, the customer can choose to create a new VM; that VM is also created on-premises at the selected datacenter, allowing the customer to manage VMs in different physical locations centrally through Azure.
+
+:::image type="content" source="../media/overview/resource-bridge-multi-datacenter.png" alt-text="Diagram showing Azure Stack HCI VMs in two datacenters connected to Azure through Arc resource bridge.":::
 
 ### Supported regions
 
