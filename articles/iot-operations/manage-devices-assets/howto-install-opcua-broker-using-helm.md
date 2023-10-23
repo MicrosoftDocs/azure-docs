@@ -306,13 +306,12 @@ helm upgrade -i opcuabroker oci://mcr.microsoft.com/opcuabroker/helmchart/micros
 
 #### Use Azure Key Vault Provider for Secrets Store CSI Driver
 
-The OPC UA Broker supports use of [Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver)
-for consumption of credentials instead of using native [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+The OPC UA Broker supports use of [Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-driver.md) for consumption of credentials instead of using native [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 To enable using Azure Key Vault Provider, deploy the CSI driver into Kubernetes cluster, and enable it. See the following articles for further details: 
 
-- [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver)
-- [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/csi-secrets-store-identity-access)
+- [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster](../../aks/csi-secrets-store-driver.md)
+- [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS)](../../aks/csi-secrets-store-identity-access.md)
 
 As an alternative to the steps in the preceding linked articles, you can run the following script to set up CSI driver for your cluster:
 
@@ -410,7 +409,7 @@ The following table contains parameters you can use with a helm chart.
 | `opcUaConnector.maxNumberOfDeployments`      | false    | Unsigned Integer | 10                                                      | The maximum number of OPC UA Broker deployments (hard limit)                                                                                                          |
 | `opcUaConnector.maxDataPointsPerSecond`      | false    | Unsigned Integer | 5000                                                    | The maximum number of data points and events emitted per second by an OPC UA Broker deployment (soft limit)                                                           |
 | `openTelemetry.enabled`                      | false    | Boolean          | `false`                                                 | Enables the OpenTelemetry integration                                                                                                                                 |
-| `openTelemetry.endpoints`                    | false    | Map of Objects   | `{}`                                                    | Map of OpenTelemetry endpoint configurations. For information see [OpenTelemetry endpoint configuration](#opentelemetry-endpoint-configuration)                       |
+| `openTelemetry.endpoints`                    | false    | Map of Objects   | `{}`                                                    | Map of OpenTelemetry endpoint configurations. For information see [Configure OpenTelemetry endpoints](#configure-opentelemetry-endpoints)                       |
 | `admissionController.deploy`                 | false    | Boolean          | `false`                                                 | Controls if admission controller service should be deployed in OPC UA Broker runtime namespace                                                               |
 | `admissionController.image`                  | false    | String           | `mcr.microsoft.com/opcuabroker/admission-controller` | Image of admission controller                                                                                                                                         |
 | `admissionController.tag`                    | false    | String           | `0.1.0-preview.2`                                   | Image tag of admission controller                                                                                                                                     |
@@ -423,7 +422,7 @@ The following table contains parameters you can use with a helm chart.
 
 ### Deploy to an Azure Arc-enabled cluster
 
-If your [Kubernetes cluster is connected to Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli), you can deploy OPC UA Broker by using the Azure CLI with the following command line:
+If your [Kubernetes cluster is connected to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), you can deploy OPC UA Broker by using the Azure CLI with the following command line:
 
 # [bash](#tab/bash)
 
