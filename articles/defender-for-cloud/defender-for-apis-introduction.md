@@ -25,7 +25,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Inventory**: In a single dashboard, get an aggregated view of all managed APIs.
 - **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
-- **API data classification**: Safeguard API data exposure and prioritize risk mitigtion by classifying sensitive APIs with built-in and custom sensitive information types (SIT) and labels, natively integrated with Microsoft Information Protection (MIP) Purview. 
+- **API data classification**: Safeguard against API data exposure and support risk prioritization by classifying sensitive APIs with built-in and custom sensitive information types (SIT) and labels, natively integrated with Microsoft Information Protection (MIP) Purview. 
 - **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats. 
 - **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization. Leverage built-in query templates to quickly identify top risks to your APIs.
 - **API Attack Paths**: Identify misconfigured APIs exposing sensitive data to external networks and remediate API attack paths efficiently.   
