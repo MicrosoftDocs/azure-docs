@@ -331,9 +331,46 @@ Get the path to the secret you created in the key vault.
 
 ---
 
-[!INCLUDE [catalog-update-delete-sync-errors](includes/catalog-update-delete-sync-errors.md)]
+## Update a catalog
 
-## Next steps
+If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
 
-- Learn how to [create and configure a project](./quickstart-create-and-configure-projects.md).
-- Learn how to [create and configure a project environment type](how-to-configure-project-environment-types.md).
+To sync an updated catalog:
+
+1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**,
+1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all the associated projects in the dev center.
+
+## Delete a catalog
+
+You can delete a catalog to remove it from the dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+
+To delete a catalog:
+
+1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
+1. Select the specific catalog, and then select **Delete**.
+1. In the **Delete catalog** dialog, select **Continue** to delete the catalog.
+
+## Catalog sync errors
+
+When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all the environment definitions have errors. Use the Azure CLI or the REST API to GET the catalog. The GET response shows you the type of errors:
+
+- Ignored environment definitions that were detected to be duplicates.
+- Invalid environment definitions that failed due to schema, reference, or validation errors.
+
+### Resolve ignored environment definition errors
+
+An ignored environment definition error occurs if you add two or more environment definitions that have the same name. You can resolve this issue by renaming environment definitions so that each environment definition has a unique name within the catalog.
+
+### Resolve invalid environment definition errors
+
+An invalid environment definition error might occur for various reasons:
+
+- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](../configure-environment-definition.md#add-an-environment-definition).
+
+- **Validation errors**. Check the following items to resolve validation errors:
+
+  - Ensure that the manifest's engine type is correctly configured as `ARM`.
+  - Ensure that the environment definition name is between 3 and 63 characters.
+  - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
+  
+- **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
