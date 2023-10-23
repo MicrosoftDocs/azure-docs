@@ -83,6 +83,19 @@ sections:
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
       - question: |
+          What are the known limitations of the GPT-4V model?
+        answer: |
+          1. If multiple images are uploaded in one message, augmentation will not be offered.
+          2. Image type 'image_hr' is no longer allowed in request payload.
+          3. Downloading image from a URL is not supported, images must be provided as base64 encoded string in the request payload.
+          4. The Chat API endpoint treats an input image as a high resolution image by default.
+          5. Max allowed size of input images is 4 MB.
+          6. Max token support is 16k (context+generated = 16384).
+          7. Images in CMYK colorspaces are not supported (JPEGs are supported, but JPEGs with CMYK colorspace are not supported)
+          8. Recommendation is to use PNG format with RGB colorspace.
+          9. Though images provided as input to chat API are treated as high resolution images, GPT-4V will downsample it to (2048, 2048) resolution. Teh high resolution feature may not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+      
+      - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
         answer: | 
           Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
