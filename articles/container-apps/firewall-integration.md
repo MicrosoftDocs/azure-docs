@@ -33,9 +33,10 @@ The following rules are required when using NSGs with workload profile environme
 #### Inbound
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+|--|--|--|--|--|--|
 | TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
 | TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| TCP | Client IP | \* |Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | <Your Client IP> | \* |Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
 * The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
 
@@ -43,6 +44,10 @@ The following rules are required when using NSGs with workload profile environme
 
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+
+| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+|--|--|--|--|--|--|
+| TCP | \* | 
 
 | Protocol | Port | ServiceTag | Description
 |--|--|--|--|
@@ -63,6 +68,7 @@ The following rules are required when using NSGs with Consumption only environme
 #### Inbound
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+|--|--|--|--|--|--|
 | TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
 | TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
