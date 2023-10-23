@@ -70,8 +70,9 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 ## Request authorization of the new spacecraft resource
 
    > [!NOTE]
-   > Private spacecraft: prior to submitting an authorization request, you must have an active spacecraft license for your satellite and work with Mircosot to add your satellite to our ground station licenses. Microsoft can provide technical information required to complete the federal regulator and ITU processes as needed.
-   > Public spacecraft: licensing is not required for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
+   > **Private spacecraft**: prior to submitting an authorization request, you must have an active spacecraft license for your satellite and work with Mircosot to add your satellite to our ground station licenses. Microsoft can provide technical information required to complete the federal regulator and ITU processes as needed.
+   > 
+   > **Public spacecraft**: licensing is not required for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
 
 1. Navigate to the newly created spacecraft resource's overview page.
 2. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
