@@ -15,9 +15,9 @@
 - name: Concepts
   items:
   - name: Custom locations
-    href: ../platform/conceptual-custom-locations.md?toc=../system-center-virtual-machine-manager/toc.json&bc=../system-center-virtual-machine-manager/breadcrumb/toc.json
+    href: custom-locations.md
   - name: Azure Arc Resource Bridge
-    href: ../resource-bridge/overview.md?toc=../system-center-virtual-machine-manager/toc.json&bc=../system-center-virtual-machine-manager/breadcrumb/toc.json
+    href: azure-arc-resource-bridge.md
   - name: Azure Arc agent
     href: agent-overview-scvmm.md
 - name: How-to guides
