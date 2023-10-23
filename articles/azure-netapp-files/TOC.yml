@@ -49,8 +49,12 @@
       href: azure-policy-definitions.md
     - name: Storage service add-ons
       href: storage-service-add-ons.md
+  - name: Cost optimization 
+    items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
+    - name: Standard storage with cool access
+      href: cool-access-introduction.md
   - name: Quotas 
     items:
     - name: Understand volume quota
@@ -285,6 +289,8 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+      - name: Manage standard storage with cool access 
+        href: manage-cool-access.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
