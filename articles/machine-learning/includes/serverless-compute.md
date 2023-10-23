@@ -11,4 +11,4 @@ ms.custom: include file, build-2023
 ---
 
 > [!NOTE]
-> Instead of creating a compute cluster, use [serverless compute](../how-to-use-serverless-compute.md) (preview) to offload compute lifecycle management to Azure Machine Learning.
+> Instead of creating a compute cluster, use [serverless compute](../how-to-use-serverless-compute.md) to offload compute lifecycle management to Azure Machine Learning.
