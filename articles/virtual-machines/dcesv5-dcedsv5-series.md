@@ -2,7 +2,7 @@
 title: Azure DCesv5 and DCedsv5-series confidential virtual machines
 description: Specifications for Azure Confidential Computing's DCesv5 and DCedsv5-series confidential virtual machines. 
 author: michamcr
-ms.author: michamcr
+ms.author: mmcrey
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -15,28 +15,32 @@ ms.date: 11/14/2023
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
-The DCesv5-series and DCedsv5-series are [confidential VMs](../confidential-computing/confidential-vm-overview.md) for use in Confidential Computing. 
+The DCesv5-series and DCedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) which can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
 
-These confidential VMs use AMD's third-Generation EPYC<sup>TM</sup> 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache. These processors can achieve a boosted maximum frequency of 3.5 GHz. Both series offer Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP). SEV-SNP provides hardware-isolated VMs that protect data from other VMs, the hypervisor, and host management code. Confidential VMs offer hardware-based VM memory encryption. These series also offer OS disk pre-encryption before VM provisioning with different key management solutions. 
+These machines are powered by Intel® 4th Generation Xeon® Scalable processors with All Core Frequency of 2.1 GHz, and use Intel® Turbo Boost Max Technology to reach 2.9 GHz.
+
+Featuring Intel® Trust Domain Extensions (TDX), these VMs are hardened from the cloud virtualized environment by denying the hypervisor, other host management code and administrators access to the VM memory and state. It helps to protect VMs against a broad range of sophisticated [hardware and software attacks](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html). 
+
+These VMs have native support for [confidential disk encryption](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview) meaning organizations can encrypt their VM disks at boot with either a customer-managed key (CMK), or platform-managed key (PMK). This feature is fully integrated with [Azure KeyVault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) or [Azure Managed HSM](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview) with validation for FIPS 140-2 Level 3. For organizations wanting further separation of duties for flexibility over key management, attestation, and disk encryption, these VMs are provide that experience.
 
 ## DCesv5-series
 
-DCesv5-series VMs offer a combination of vCPU and memory for most production workloads. These VMs with no local disk provide a better value proposition for workloads where you don't need a local temporary disk. For more information, see the [FAQ for Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.yml). 
+The DCesv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
-### DCesv5-series feature support
+### DCesv5 and DCedsv5-series feature support
 
-*Supported* features in DCesv5-series VMs:
+*Supported* features include: 
 
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
 
-*Unsupported* features in DCesv5-series VMs:
+*Unsupported* features include:
 
 - [Live Migration](maintenance-and-updates.md)
 - [Memory Preserving Updates](maintenance-and-updates.md)
@@ -59,27 +63,9 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 ## DCedsv5-series
 
-DCedsv5-series offer a combination of vCPU, memory, and temporary storage for most production workloads.
+The DCedsv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for up to 2.8 TB of local disk storage. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
-> [!NOTE]
-> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
-
-### DCedsv5-series feature support
-
-*Supported* features in DCedsv5-series VMs:
-
-- [Premium Storage](premium-storage-performance.md)
-- [Premium Storage caching](premium-storage-performance.md)
-- [VM Generation 2](generation-2.md)
-- [Ephemeral OS Disks](ephemeral-os-disks.md)
-
-*Unsupported* features in DCedsv5-series VMs:
-
-- [Live Migration](maintenance-and-updates.md)
-- [Memory Preserving Updates](maintenance-and-updates.md)
-- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
 
 ### DCedsv5-series products
 
