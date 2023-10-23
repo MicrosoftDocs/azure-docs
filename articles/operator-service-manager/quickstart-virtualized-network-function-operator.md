@@ -139,7 +139,7 @@ In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-s
 
 In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the deployment of the Virtual Network Function and the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
 
-### Grant Contributor role to Managed Identity
+### Grant Contributor role over Virtual Network to Managed Identity
 
 1. Access the Azure portal and open the Resource Group created earlier in this case *OperatorResourceGroup*.
 1. Locate and select the Virtual Network named **ubuntu-vm-vnet**.
@@ -157,6 +157,26 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Select **Review and assign**.
 
     :::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members.":::
+
+### Grant Contributor role over publisher Resource Group to Managed Identity
+
+1. Access the Azure portal and open the Publisher Resource  Group created when publishing the Network Function Definition in this case *ubuntu-publisher-rg*.
+
+1. In the side menu of the Resource Group, select **Access Control (IAM)**.
+1. Choose **Add Role Assignment**.
+
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screen shot showing the ubuntu publisher resource screen where you add role assignment.":::
+     
+
+1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
+
+    :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot show privileged administrator roles with owner of contributor.":::
+
+1. Select **Managed identity**.
+1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
+1. Select **Review and assign**.
+
+    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the add role assignment screen with review + assign highlighted.":::
 
 ### Grant Managed Identity Operator role to itself
 
