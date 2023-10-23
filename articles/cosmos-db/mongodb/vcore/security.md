@@ -2,7 +2,7 @@
 title: Security options and features
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Learn how Azure Cosmos DB for MongoDB vCore provides database protection and data security for your data.
-author: khelan-modi
+author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: sidandrews
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/23/2023
 ---
 
-# Overview of database security in Azure Cosmos DB
+# Overview of database security in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -79,7 +79,6 @@ Let's dig into each one in detail.
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
 :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Screenshot of activity logs for Azure Cosmos DB.":::
 
-<!-- 
 ## Network security options
 
 This section outlines various network security options you can configure for your account.
@@ -98,7 +97,7 @@ Azure Cosmos DB for MongoDB vCore uses a server-level firewall to prevent all ac
 
 Firewall rules enable clients to access your cluster and all the databases within it. Server-level firewall rules can be configured using the Azure portal or programmatically using Azure tools such as the Azure CLI.
 
-By default, the firewall blocks all access to your cluster. To begin using your cluster from another computer, you need to specify one or more server-level firewall rules to enable access to your cluster. Use the firewall rules to specify which IP address ranges from the Internet to allow. Firewall rules don't affect access to the Azure portal website itself. Connection attempts from the internet and Azure must first pass through the firewall before they can reach your databases. -->
+By default, the firewall blocks all access to your cluster. To begin using your cluster from another computer, you need to specify one or more server-level firewall rules to enable access to your cluster. Use the firewall rules to specify which IP address ranges from the Internet to allow. Firewall rules don't affect access to the Azure portal website itself. Connection attempts from the internet and Azure must first pass through the firewall before they can reach your databases. 
 
 ## Next steps
 
