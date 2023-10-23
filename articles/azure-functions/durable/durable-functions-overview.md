@@ -59,7 +59,7 @@ In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other fu
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -82,7 +82,7 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("Chaining")]
@@ -246,7 +246,7 @@ The Durable Functions extension handles this pattern with relatively simple code
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -275,7 +275,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("FanOutFanIn")]
@@ -522,7 +522,7 @@ The following code implements a basic monitor:
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -552,7 +552,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("MonitorJobStatus")]
@@ -787,7 +787,7 @@ These examples create an approval process to demonstrate the human interaction p
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -816,7 +816,7 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("ApprovalWorkflow")]
@@ -1030,7 +1030,7 @@ An event can also be raised using the durable orchestration client from another 
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -1043,7 +1043,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("RaiseEventToOrchestration")]
@@ -1160,7 +1160,7 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 > [!NOTE]
 > Support for Durable entities is currently in **preview** for the .NET-isolated worker. [Learn more.](durable-functions-dotnet-entities.md)
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("Counter")]
@@ -1203,7 +1203,7 @@ public class Counter
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function(nameof(Counter))]
@@ -1376,7 +1376,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -1396,7 +1396,7 @@ public static async Task Run(
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("EventHubTriggerCSharp")]
