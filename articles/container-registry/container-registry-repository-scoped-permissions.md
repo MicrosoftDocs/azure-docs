@@ -139,31 +139,33 @@ The output shows details about the token. By default, two passwords are generate
 > [!NOTE]
 > To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
-### Use wildcards to assign permissions to multiple repositories
+### How to use scope maps to define and assign permissions for multiple repositories?
 
-Scope maps allow to use wildcards to define permissions to multiple repositories that share the same prefix. Repository specific permissions and wildcards can be used in the same scope map. 
+Scope maps allow for the use of wildcards to define and grant similar permissions for multiple repositories sharing a common prefix. The repository specific permissions and wildcards can be used in the same scope map. This will allow flexibility to manage permissions for multiple repositories in a single scope map.
 
 These can be created when a scope map is created and assigned to a token, or when a token is created and directly assigned to a repository.
 
-This example creates a scope map with wild card and then assigns it to a token.
+The following example creates a scope map with wild card and then assigns it to a token.
+
 ```azurecli
 az acr scope-map create --name MyScopeMapWildcard --registry myregistry \
   --repository samples/* \
   content/write content/read \
   --description "Sample scope map with wildcards"
-
 az acr token create --name MyTokenWildcard \
   --registry myregistry \
   --scope-map MyScopeMapWildcard
 ```
-This example creates a token with a wildcard.
+
+The following example creates a token with a wildcard.
+
 ```azurecli
  az acr token create --name MyTokenWildcard --registry myregistry \
   --repository samples/* \
   content/write content/read \
 ```
 
-Wildcard permissions are additive, meaning that given a specific repository the resulting permissions will include the permissions for all the scope map rules that match the wildcard prefix.
+The wildcard permissions are additive, which means that when a specific repository is accessed, the resulting permissions will include the permissions for all the scope map rules that match the wildcard prefix.
 
 In this example, if a token is assigned to a scope map with the following repositories defined:
 
@@ -175,17 +177,20 @@ In this example, if a token is assigned to a scope map with the following reposi
 
 The token would have `[content/read, content/write, content/delete]` when accessing repository `sample/teamA/projectB`. And will have only `[content/read, content/write]` when accessing repository `sample/teamA/projectC`.
 
-> [!NOTE]
-> Repositories using wildcards in the scope map should always end with a `/*` suffix to be valid, and have a single wildcard character in the repository name.
-> - `sample/*/teamA`: This is not a valid wildcard because it has a wildcard in the middle of the repository name.
-> - `sample/teamA*`: This is not a valid wildcard because it does not end with `/*`.
-> - `sample/teamA/*/projectB/*`: This is not a valid wildcard because it has multiple wildcards in the repository name.
+> [!IMPORTANT]
+> Repositories using wildcards in the scope map should always end with a /* suffix to be valid, and have a single wildcard character in the repository name.
+> Here are some examples of invalid wildcards:
+>
+> * `sample/*/teamA` with a wildcard in the middle of the repository name.
+> * `sample/teamA*` with a wildcard does not end with `/*``.
+> * `sample/teamA/*/projectB/*` with multiple wildcards in the repository name.
 
 #### Root level wildcards
 
 Wildcards can also be applied at a root level. This means that any permissions assigned to the repository defined as `*`, will be applied registry wide.
 
-The following example creates a token with a root level wild card that would give the token `[content/read, content/write]` permission to all repositories in the registry.
+The example shows how to create a token with a root level wildcard that would give the token `[content/read, content/write]` permission to all repositories in the registry. This provides a simple way to grant permissions to all repositories in the registry without having to specify each repository individually.
+
 ```azurecli
  az acr token create --name MyTokenWildcard --registry myregistry \
   --repository * \
