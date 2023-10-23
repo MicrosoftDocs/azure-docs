@@ -23,7 +23,7 @@ Many organizations want to let users sign in to Microsoft Entra ID using the sam
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
 
-* By default, the Microsoft Entra User Principal Name (UPN) is set to the same value as the on-premises UPN.
+* By default, the Microsoft Entra user Principal Name (UPN) is set to the same value as the on-premises UPN.
 * Changing the Microsoft Entra UPN creates a mismatch between on-premises and Microsoft Entra environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Microsoft Entra ID.
 
@@ -64,6 +64,7 @@ In the current preview state, the following limitations apply to email as an alt
     * [Microsoft Entra joined devices](../devices/concept-directory-join.md)
     * [Microsoft Entra registered devices](../devices/concept-device-registration.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
+    * [Single Sign-On and App Protection Policies on Mobile Platform](../develop/mobile-sso-support-overview.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
 
@@ -135,7 +136,7 @@ Email as an alternate login ID applies to [Microsoft Entra B2B collaboration](..
 ## Enable user sign-in with an email address
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homerealmdiscoverypolicy).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Microsoft Entra ID using Microsoft Entra Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Microsoft Entra login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -172,7 +173,7 @@ You need *Global Administrator* privileges to complete the following steps:
     Install-Module Microsoft.Graph
     ```
 
-    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/graph/powershell/installation).
+    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
 
 1. Sign-in to your Microsoft Entra tenant using the `Connect-MgGraph` cmdlet:
 

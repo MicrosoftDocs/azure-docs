@@ -83,9 +83,9 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your M-Files Tenant URL and Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to M-Files. If the connection fails, ensure your M-Files account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your M-Files Tenant URL, Token Endpoint, Client Identifier and Client Secret. Click **Test Connection** to ensure Microsoft Entra ID can connect to M-Files. If the connection fails, ensure your M-Files account has Admin permissions and try again.
 
- 	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Screenshot of Token.](media/m-files-provisioning-tutorial/test-connection.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 

@@ -290,4 +290,4 @@ To diagnose a spike in failed requests:
 
 ## Next steps
 
-To create actionable dashboards by using metrics, see [Create custom KPI dashboards](../app/tutorial-app-dashboards.md).
+To create actionable dashboards by using metrics, see [Create custom KPI dashboards](../app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).

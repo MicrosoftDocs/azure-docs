@@ -21,7 +21,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
 - An existing host pool.
 
-- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that was used. All session hosts in a host pool should be the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Azure AD and some session hosts joined to an Active Directory domain.
+- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that was used. All session hosts in a host pool should be the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 
 - The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on the resource group:
 
@@ -37,7 +37,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
 
 ## Generate a registration key
 
@@ -145,7 +145,7 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Parameter | Value/Description |
    |--|--|
    | Resource group | This automatically defaults to the same resource group as your host pool, but you can select an alternative existing one from the drop-down list. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+   | Name prefix | Enter a name for your session hosts, for example **me-id-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **me-id-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
    | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
@@ -161,7 +161,7 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **Basic** will create a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG. |
    | Public inbound ports | We recommend you select **No**. |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.<br /><br />To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md). |
+   | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.<br /><br />To learn more about joining session hosts to Microsoft Entra ID, see [Microsoft Entra joined session hosts](azure-ad-joined-session-hosts.md). |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for the new session host VMs. |
    | Password | Enter a password for the local administrator account. |
@@ -194,7 +194,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 # [GUI](#tab/gui)
 
-1. Make sure the virtual machines you want to use as session hosts are joined to Azure Active Directory or an Active Directory domain (AD DS or Azure AD DS).
+1. Make sure the virtual machines you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (AD DS or Microsoft Entra Domain Services).
 
 1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role, then restart the virtual machine. For more information, see [Install roles, role services, and features by using the add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
 
@@ -229,7 +229,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 > [!IMPORTANT]
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
-1. Make sure the virtual machines you want to use as session hosts are joined to Azure Active Directory or an Active Directory domain (AD DS or Azure AD DS).
+1. Make sure the virtual machines you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (AD DS or Microsoft Entra Domain Services).
 
 1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which will also restart the virtual machines:
 

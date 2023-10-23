@@ -25,9 +25,9 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Inventory**: In a single dashboard, get an aggregated view of all managed APIs.
 - **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
-- **API data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization.
+- **API sensitive data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization. Defender for APIs integrates with MIP Purview enabling custom data classification and support for sensitivity labels, and hydration of same into Cloud Security Explorer for end to end Data Security
 - **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats. 
-- **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
+- **Defender CSPM integration**: Integrate with Cloud Security Graph and Attack Paths in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
 
@@ -49,7 +49,7 @@ Last called data (UTC): The date when API traffic was last observed going to/fro
 - **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*. 
 - **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as *unauthenticated*.
 - **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint. 
-- **Data classification**: Classifies API request and response bodies based on supported data types. 
+- **Data classification**: Classifies API request and response bodies based on data types defined in MIP Purview or from a Microsoft supported set. 
 
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.

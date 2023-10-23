@@ -3,6 +3,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 09/27/2023
 ---
@@ -30,7 +31,7 @@ ms.date: 09/27/2023
         --location $location
     ```
 
-1. Use `az cosmosdb create` to create a new API for NoSQL account with default settings.
+1. Use `az cosmosdb create` to create a new API for Gremlin account with default settings.
 
     ```azurecli-interactive
     az cosmosdb create \

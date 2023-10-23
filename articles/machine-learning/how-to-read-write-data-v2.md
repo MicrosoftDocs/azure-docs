@@ -44,9 +44,9 @@ Before you explore the detailed options available to you when accessing data, we
 
 ### Read data from Azure storage in an Azure Machine Learning job
 
-In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account, by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Azure Active Directory passthrough. When you submit a job, you can choose:
+In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account, by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Microsoft Entra passthrough. When you submit a job, you can choose:
 
-- **User identity:** Passthrough your Azure Active Directory identity to access the data.
+- **User identity:** Passthrough your Microsoft Entra identity to access the data.
 - **Managed identity:** Use the managed identity of the compute target to access data.
 - **None:** Don't specify an identity to access the data. Use None when using credential-based (key/SAS token) datastores or when accessing public data.
 
