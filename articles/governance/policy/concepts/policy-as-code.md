@@ -59,7 +59,7 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
 
 ### Source control
 
-Existing [policy and initiative definitions can be exported](../how-to/exportresources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
+Existing [policy and initiative definitions can be exported](../how-to/export-resources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update policy definitions
 
@@ -135,7 +135,7 @@ definition comes in a later step.
 > [!NOTE]
 > It's recommended to use a centralized deployment mechanism like GitHub workflows or Azure
 > Pipelines to deploy policies. This helps to ensure only reviewed policy resources are deployed
-> to your environment and that a graudal and central deployment mechanism is used. _Write_ permissions
+> to your environment and that a gradual and central deployment mechanism is used. _Write_ permissions
 > to policy resources can be restricted to the identity used in the deployment.
 
 ### Test and validate the updated definition
