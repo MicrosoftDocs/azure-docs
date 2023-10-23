@@ -155,7 +155,7 @@ az monitor diagnostic-settings create  \
 
 # [Resource Manager](#tab/arm)
 
-The following JSON template provides an example for creating a diagnostic setting to send all audit flogs to a log analytics workspace. Keep in mind that the `apiVersion` can change depending on the resource in the scope.
+The following JSON template provides an example for creating a diagnostic setting to send all audit logs to a log analytics workspace. Keep in mind that the `apiVersion` can change depending on the resource in the scope.
 
 **Template file**
 
