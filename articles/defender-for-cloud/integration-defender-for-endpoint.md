@@ -273,11 +273,11 @@ You can also enable the Defender for Endpoint unified solution at scale through 
 
 Here's an example request body for the PUT request to enable the Defender for Endpoint unified solution:
 
-URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP_UNIFIED_SOLUTION?api-version=2022-05-01`
+URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP?api-version=2022-05-01`
 
 ```json
 {
-    "name": "WDATP_UNIFIED_SOLUTION",
+    "name": "WDATP",
     "type": "Microsoft.Security/settings",
     "kind": "DataExportSettings",
     "properties": {
