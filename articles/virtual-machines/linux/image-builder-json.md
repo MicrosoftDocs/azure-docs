@@ -827,7 +827,7 @@ The `errorHandling` property allows you to configure how errors are handled duri
 The `errorHandling` property also has two possible values for handling errors during image creation:
 
 - **cleanup** - Ensures that temporary resources created by Packer are cleaned up even if Packer or one of the customizations/validations encounters an error. This maintains backwards compatibility with existing behavior.
-- **abort** - In case Packer encounters an error, AIB skips the clean up of temporary resources. As the owner of the AIB template, you are responsible for cleaning up these resources from your subscription. These resources may contain useful information such as logs and files left behind in a temporary VM, which can aid in investigating the error encountered by Packer.
+- **abort** - In case Packer encounters an error, the AIB (Azure Image Builder) service skips the clean up of temporary resources. As the owner of the AIB template, you are responsible for cleaning up these resources from your subscription. These resources may contain useful information such as logs and files left behind in a temporary VM, which can aid in investigating the error encountered by Packer.
 
 ## Properties: distribute
 
