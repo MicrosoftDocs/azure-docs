@@ -229,13 +229,13 @@ In the **Actions** area, enter the following details:
 |**Hostname / Port**     | Enter the NetWitness server's hostname and port. |
 |**Time zone**    | Enter the time zone you want to use in the time stamp for the alert detection at the SIEM. |
 
-## Configure forwarding rules for partner server integrations
+## Configure forwarding rules for partner integrations
 
 You may be integrating Defender for IoT with a partner service to send alert or device inventory information to another security or device management system, or to communicate with partner-side firewalls.
 
 [Partner integrations](integrate-overview.md) can help to bridge previously siloed security solutions, enhance device visibility, and accelerate system-wide response to more rapidly mitigate risks.
 
-In such cases, use the **Actions** described below to enter credentials and other information required to communicate with integrated partner services.
+In such cases, use supported **Actions** to enter credentials and other information required to communicate with integrated partner services.
 
 For more information, see:
 

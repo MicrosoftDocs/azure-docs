@@ -6,7 +6,7 @@ ms.date: 09/06/2023
 ms.custom: how-to
 ---
 
-# Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)
+# Integrate ClearPass with Microsoft Defender for IoT
 
 
 This article describes how to integrate Aruba ClearPass with Microsoft Defender for IoT, in order to view both ClearPass and Defender for IoT information in a single place.
