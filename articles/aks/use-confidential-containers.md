@@ -57,7 +57,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
-- An [Azure Key Vault Managed HSM][azure-key-vault-managed-hardware-security-module] (Hardware Security Module). See [Provision and activate a Managed HSM][create-managed-hsm].
+- Confidential containers on AKS provide a sidecar open source container for attestation and secure key release. The sidecar integrates with a Key Management Service (KMS), like Azure Key Vault, for releasing a key to the container group after validation has been completed. Deploying an [Azure Key Vault Managed HSM][azure-key-vault-managed-hardware-security-module] (Hardware Security Module) is optional but recommended to support container-level integrity and attestation. See [Provision and activate a Managed HSM][create-managed-hsm] to deploy Managed HSM.
 
 ### Install the aks-preview Azure CLI extension
 
@@ -223,8 +223,6 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
           - name: nginx
             image: nginx:1.14.2
             resources:
-              requests:
-                memory: "512Mi"
               limits:
                 memory: "512Mi"
                 cpu: "60m"
@@ -237,6 +235,10 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
             env: 
               - name: SkrSideCarArgs
                 value: ewogICAiY2VydGNhY2hlIjogewogICAgICAiZW5kcG9pbnQiOiAiYW1lcmljYXMuYWNjY2FjaGUuYXp1cmUubmV0IiwKICAgICAgInRlZV90eXBlIjogIlNldlNucFZNIiwKICAgICAgImFwaV92ZXJzaW9uIjogImFwaS12ZXJzaW9uPTIwMjAtMTAtMTUtcHJldmlldyIKICAgfSAgICAgIAp9
+            resources:
+              limits:
+                memory: "512Mi"
+                cpu: "60m"
     ```
 
 1. Generate the deployment policy by running the following command. Replace `<path to pod yaml>` with the name of the manifest saved in the previous step.
