@@ -230,7 +230,7 @@ public double functionChaining(
 }
 ```
 
-You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these methods is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 ::: zone-end
 
@@ -777,7 +777,7 @@ When a request is received, a new orchestration instance is created for that job
 
 Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
 
-An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (mightbe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
+An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (might be the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
 
 ![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
 

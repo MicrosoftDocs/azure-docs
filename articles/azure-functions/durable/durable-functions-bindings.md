@@ -433,7 +433,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 You can use regular input and output bindings in addition to the activity trigger binding. 
 
 ::: zone pivot="programming-language-javascript" 
-For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
+For example, you can take the input to your activity binding, and send a message to an Event Hub using the EventHubs output binding:
 
 ```json
 {
