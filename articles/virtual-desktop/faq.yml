@@ -197,6 +197,6 @@ sections:
         answer: |
          If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you'll receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-      - question: Can I do in-place upgrades for the session host operating system?
+      - question: Can I do an in-place upgrade of a session host's operating system?
         answer: |
-          Yes, provided your deployment is running either the single-session or Enterprise multi-session editions. For more information, see [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md) and [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade).                   
+          Yes. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).
