@@ -43,16 +43,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure for Students? #update
-            url: ./azure-dev-tools-teaching/about-program.md
+          - text: What is Azure for Students?
+            url: about-azure-for-students.md
 
   # Card
   - title: Azure for Students Starter
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure for Student Starter? #update
-            url: ./azure-dev-tools-teaching/about-program.md
+          - text: What is Azure for Student Starter?
+            url: about-azure-for-students-starter.md
 
   # Card
   - title: Azure Classroom
