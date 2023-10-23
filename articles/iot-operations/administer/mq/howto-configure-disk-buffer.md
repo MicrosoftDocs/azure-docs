@@ -12,7 +12,7 @@ ms.date: 10/18/2023
 
 # Configure disk-backed message buffer behavior
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the Azure IoT MQ distributed MQTT broker. Thie benefits include:
 

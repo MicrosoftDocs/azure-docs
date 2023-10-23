@@ -12,7 +12,7 @@ ms.date: 10/02/2023
 
 # Configure Azure IoT MQ authorization
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the *BrokerAuthorization* resource.

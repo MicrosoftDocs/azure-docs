@@ -12,7 +12,7 @@ ms.date: 10/18/2023
 
 # Configure availability and scale
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 The **Broker** custom resource is the main resource that defines the overall settings for Azure IoT MQ broker, like the name, namespace, and labels. It also determines the number and type of pods that run the broker components, such as the frontend and the backend. You can also use the *Broker* custom resource to configure the memory profile for the broker.
 
