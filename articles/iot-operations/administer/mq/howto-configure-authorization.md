@@ -166,6 +166,18 @@ spec:
               - "orders"                                       
 ```
 
+| Field Name | Required | Description |
+| --- | --- | --- |
+| listenerRef | Yes | The reference to the listener that the authorization policies apply to. |
+| authorizationPolicies | Yes | The authorization policies that apply to the listener. |
+| enableCache | No | Whether to enable caching for the authorization policies. |
+| rules | Yes | The rules that define the authorization policies. |
+| principals | Yes | The principals that the rule applies to, including their attributes. |
+| attributes | Yes | The attributes of the principal, such as their group. |
+| brokerResources | Yes | The broker resources that the rule applies to, including their methods and topics. |
+| method | Yes | The method that the rule applies to, such as Connect or Publish. |
+| topics | No | The topics that the rule applies to, such as odd-numbered-orders or orders. |
+
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../../develop/howto-develop-dapr-apps.md).
 
 ## Key-value Store

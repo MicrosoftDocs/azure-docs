@@ -1,16 +1,16 @@
 ---
-title: Use MQTT bridge to connect to Azure Event Grid
+title: Connect MQTT bridge cloud connector to other MQTT brokers
 # titleSuffix: Azure IoT MQ
-description: Configure Azure IoT MQ for bi-directional communication with Azure Event Grid.
+description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 10/21/2023
 
-#CustomerIntent: As an architect, I want to understand how to configure Azure IoT MQ so that I have bi-directional communication between the Azure Event Grid and clients.
+#CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
 
-# Use MQTT bridge to connect to Azure Event Grid
+# Connect MQTT bridge cloud connector to other MQTT brokers
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -160,9 +160,9 @@ The `systemAssignedManagedIdentity` field includes the following fields:
 | --- | --- | --- |
 | `audience` | Yes | The audience for the token. Required if using managed identity. For Event Grid, it's `https://eventgrid.azure.net`. |
 
-If Azure IoT MQ is deployed as an [Azure Arc extension](/docs//mqtt-broker/deploy/), it gets a [system-assignment managed identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) by default. It's the recommended way for Azure IoT MQ to interact with Azure resources, [including Event Grid MQTT broker](#recommended-for-arc-connected-clusters-system-assigned-managed-identity), because it allows you to avoid credential management and still retain high availability.
+If Azure IoT MQ is deployed as an Azure Arc extension, it gets a [system-assignment managed identity](/azure/active-directory/managed-identities-azure-resources/overview) by default. It's the recommended way for Azure IoT MQ to interact with Azure resources, including Event Grid MQTT broker, because it allows you to avoid credential management and retain high availability.
 
-To use managed identity for authentication with Azure resources, first [assign](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) an appropriate Azure RBAC role like [MQTT Broker Publisher](#recommended-for-arc-connected-clusters-system-assigned-managed-identity) to Azure IoT MQ's managed identity provided by Arc.
+To use managed identity for authentication with Azure resources, first [assign](/azure/role-based-access-control/role-assignments-portal) an appropriate Azure RBAC role like [MQTT Broker Publisher](#recommended-for-arc-connected-clusters-system-assigned-managed-identity) to Azure IoT MQ's managed identity provided by Arc.
 
 Then, specify and MQTTBridgeConnector with managed identity as the authentication method:
 
@@ -176,7 +176,7 @@ spec:
 
 When using managed identity, the client ID isn't configurable, and equates to the Azure IoT MQ Azure Arc extension ARM resource ID within Azure.
 
-The system-assigned managed identity is provided by Azure Arc. The certificate associated with the managed identity must be renewed at least every 90 days to avoid a manual recovery process. To learn more, see [How do I address expired Azure Arc-enabled Kubernetes resources?](https://learn.microsoft.com/azure/azure-arc/kubernetes/faq#how-do-i-address-expired-azure-arc-enabled-kubernetes-resources)
+The system-assigned managed identity is provided by Azure Arc. The certificate associated with the managed identity must be renewed at least every 90 days to avoid a manual recovery process. To learn more, see [How do I address expired Azure Arc-enabled Kubernetes resources?](/azure/azure-arc/kubernetes/faq#how-do-i-address-expired-azure-arc-enabled-kubernetes-resources)
 
 #### X.509
 
@@ -286,7 +286,7 @@ spec:
 
 Here:
 
-- `trustedCaCertifcateName` is the ConfigMap you create for the root CA of Azure IoT MQ, similar to the [ConfigMap for the root ca of the remote broker](#tls-support). If you used cert-manager to create the root ca for Azure IoT MQ, the root ca can be obtained as shown [here](/docs/mqtt-broker/listeners/automatic/#distribute-the-root-certificate). 
+- `trustedCaCertifcateName` is the ConfigMap you create for the root CA of Azure IoT MQ, similar to the [ConfigMap for the root ca of the remote broker](#tls-support). If you used cert-manager to create the root ca for Azure IoT MQ, the root CA can be obtained. For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../administer/mq/howto-configure-tls-auto.md). 
 
 ### TLS support
 
@@ -471,13 +471,13 @@ routes:
         groupName: "sub-group"
 ```
 
-This way, Azure IoT MQ's MQTT bridge creates three subscriber clients (no matter how many instances). Only one client gets each message from `$share/sub-group/shared-sub-topic`. Then, the same client publishes the message to the bridged remote broker under topic `remote/topic`. The next message goes to a different client (round robin).
+This way, Azure IoT MQ's MQTT bridge creates three subscriber clients (no matter how many instances). Only one client gets each message from `$share/sub-group/shared-sub-topic`. Then, the same client publishes the message to the bridged remote broker under topic `remote/topic`. The next message goes to a next client.
 
 This helps you balance the message traffic for the bridge between multiple clients with different IDs. This is useful if your bridged broker limits how many messages each client can send.
 
 ## Azure Event Grid MQTT broker support
 
-[Event Grid MQTT Broker](https://learn.microsoft.com/azure/event-grid/mqtt-overview) requires each set of client credential (like an X.509 certificate) to be registered ahead of time in the registry, and then multiple clients (with different client IDs) can connect without you having to registry them again.
+[Event Grid MQTT Broker](/azure/event-grid/mqtt-overview) requires each set of client credential like an X.509 certificate to be registered ahead of time in the registry, and then multiple clients with different client IDs can connect without you having to registry them again.
 
 This works well with MQTTBridgeConnector's dynamic client ID and shared subscription systems to scale out connector instances for increased throughput and redundancy.
 
@@ -485,7 +485,7 @@ This works well with MQTTBridgeConnector's dynamic client ID and shared subscrip
 
 To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker. To setup:
 
-1. Deploy Azure IoT MQ on an Arc-connected Kubernetes cluster [as an Arc extension](/docs//mqtt-broker/deploy/).
+1. Deploy Azure IoT MQ on an Arc-connected Kubernetes cluster as an Arc extension.
 
 1. Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. For example:
 
@@ -522,11 +522,11 @@ To minimize credential management, using the system-assigned managed identity an
    }
    ```
 
-   ![Screenshot showing custom role creation](custom-role.png)
+   <!-- ![Screenshot showing custom role creation](custom-role.png) -->
 
-1. At the Event Grid resource, [assign](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) the role(s) to the Azure IoT MQ Arc extension managed identity. Choose **User, group, or service principal** when searching for the extension identity (*not* managed identity - a temporary issue). Make sure the object ID matches the ID from earlier.
+1. At the Event Grid resource, [assign](/azure/role-based-access-control/role-assignments-portal) the roles to the Azure IoT MQ Arc extension managed identity. Choose **User, group, or service principal** when searching for the extension identity. Verify the object ID matches the ID from earlier.
 
-   ![Screenshot of Azure Portal role assignment page](rbac.png)
+<!--  ![Screenshot of Azure Portal role assignment page](rbac.png) -->
 
 1. Create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method
 
@@ -578,7 +578,7 @@ On your Kubernetes cluster:
 
 1. Create Topic Maps and deploy the MQTT bridge with `kubectl`.
 
-Once deployed, the messages should start flowing to your Event Grid MQTT broker. For a full example, including scripts for generating the certificates, see [Tutorial: Set up MQTT bridge between Azure IoT MQ and Azure Event Grid](/docs/mqtt-broker/tutorials/event-grid/).
+Once deployed, the messages should start flowing to your Event Grid MQTT broker.
 
 ### Maximum client sessions per authentication name
 

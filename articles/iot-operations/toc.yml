@@ -127,8 +127,8 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
-      - name: Connect to Event Grid
-        href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
+      - name: Connect to MQTT or Event Grid
+        href: connect-to-cloud/howto-configure-mqtt-bridge.md
       - name: Connect to Messaging services
         href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
       - name: Send data to Azure Data Explorer from a pipeline

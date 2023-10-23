@@ -37,9 +37,9 @@ You should see terminal messages indicating successful publishes every two secon
 
 ## Subscribe
 
-Next, subscribe to the `orders` topic from another MQTT client. Create a new terminal in the Codespace using the `+` button on the top right, while ensuring the current terminal window is continuing to publish test messages:
+Subscribe to the `orders` topic from another MQTT client. Create a new terminal in the Codespace using the `+` button on the top right, while ensuring the current terminal window is continuing to publish test messages.
 
-![](new-terminal.png)
+<!-- ![](new-terminal.png) -->
 
 Monitor the messages received by the subscriber in real-time using a terminal UI tool called [mqttui](https://github.com/EdJoPaTo/mqttui). Use the command below to subscribe to all topics and see messages arriving on the `orders` topic in real-time:
 
@@ -47,9 +47,9 @@ Monitor the messages received by the subscriber in real-time using a terminal UI
 mqttui -b mqtt://localhost:1883
 ```
 
-> Use ⬇️ arrow or `j` key to select the `orders` topic; you can click in the UI to select as well. `q` quits the UI.
+> Use down arrow key or *j* key to select the `orders` topic; you can click in the UI to select as well. *q* key quits the UI.
 
-![](sub.png)
+<!-- ![](sub.png) -->
 
 Azure IoT MQ's MQTT Broker is compliant with both MQTT v5 and v3.1.1 standards. This means you can use standard, off-the-shelf, client libraries and tools to interact with Azure IoT MQ's MQTT Broker.
 
