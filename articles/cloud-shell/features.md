@@ -178,7 +178,7 @@ You can verify the version of the language using the command listed in the table
 [02]: ../key-vault/general/manage-with-cli2.md#prerequisites
 [03]: ../service-fabric/service-fabric-cli.md
 [04]: ../storage/common/storage-use-azcopy-v10.md
-[05]: ./getting-started.md
+[05]: ./get-started.md
 [06]: ./media/features/azure-drive.png
 [07]: ./media/features/exchangeonline.png
 [08]: ./media/features/exchangeonlinecmdlets.png

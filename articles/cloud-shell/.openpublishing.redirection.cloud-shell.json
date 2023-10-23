@@ -7,17 +7,17 @@
         },
         {
             "source_path_from_root": "/articles/cloud-shell/quickstart.md",
-            "redirect_url": "/azure/cloud-shell/getting-started",
+            "redirect_url": "/azure/cloud-shell/get-started",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
-            "redirect_url": "/azure/cloud-shell/getting-started",
+            "redirect_url": "/azure/cloud-shell/get-started",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
-            "redirect_url": "/azure/cloud-shell/getting-started",
+            "redirect_url": "/azure/cloud-shell/get-started",
             "redirect_document_id": false
         },
         {
