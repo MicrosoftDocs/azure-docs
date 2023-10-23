@@ -41,7 +41,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 |**Autoscaling**|Supported on request and incurs charge|Enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Business continuity**|Supported: <br> • Customer Managed Keys (CMK) <br> • Database backup and restore • Cross-region disaster recovery (DR) |Supported: <br> • Database backup and restore <br> Upcoming: <br> • Customer Managed Keys (CMK)<br> • Availability zone support|
+|**Business continuity**|Supported: <br> • Customer Managed Keys (CMK) <br> • Database backup and restore <br> • Cross-region disaster recovery (DR) |Supported: <br> • Database backup and restore <br> Upcoming: <br> • Customer Managed Keys (CMK)<br> • Availability zone support|
 
 ### Things to consider that may affect your architecture
 
