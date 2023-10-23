@@ -11,7 +11,7 @@ Azure Event Grid has two tiers with different capabilities. This article will sh
 
 ## Event Grid standard tier
 
-Event Grid standard tier enables pub-sub using MQTT broker functionality and push/pull delivery of messages through the Event Grid namespace.
+Event Grid standard tier enables pub-sub using MQTT broker capability, pull delivery and push delivery of messages through the Event Grid namespace.
 
 Use this tier:
 
