@@ -1,7 +1,7 @@
 ---
-title: Add and configure a catalog
+title: Add and configure a catalog hosted in a GitHub or Azure DevOps repository
 titleSuffix: Azure Deployment Environments
-description: Learn how to add a catalog in your dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
+description: Learn how to add a catalog to your dev center to provide environment templates for developers. Catalogs are collections of IaC templates in repositories hosted by Azure DevOps or GitHub. 
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
 author: RoseHJM
@@ -10,33 +10,40 @@ ms.date: 10/23/2023
 ms.topic: how-to
 ---
 
-# Add and configure a catalog from GitHub or Azure DevOps
+# Add and configure a catalog hosted in a GitHub or Azure DevOps repository
 
 In this article, you learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your dev center. You use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). To allow your dev center access to your catalog, you must configure a method of authentication, which involves assigning a managed identity to the dev center, and then giving that identity access to the catalog by assigning permissions to a managed service identity (MSI) or by using a Personal Access Token (PAT). 
 
 Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to an. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
-
-
-For more information about environment definitions, see [Add and configure an environment definition](./configure-environment-definition.md).
 
 A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
-We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
+> - Configure a managed identity for the dev center.
 > - Add a catalog.
 > - Update a catalog.
 > - Delete a catalog.
 
+## Configure a managed identity for the dev center
+
+After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
+
+If your dev center doesn't have an MSI attached, follow the steps in this article to crate and attache one: [Configure a managed identity](how-to-configure-managed-identity.md).
+
+
+To learn more about managed identities, see: [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+
 ## Add a catalog
 
-You can add from an Azure DevOps repository, or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, also called a managed identiy, or by using a PAT which you store in a key vault,
+You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, also called a managed identity, or by using a PAT which you store in a key vault.
 
 Select the tab for the type of repository and authentication you want to use.
 
@@ -48,42 +55,6 @@ To add a catalog, you complete these tasks:
 - Assign roles for the dev center managed identity.
 - Assign permissions in Azure DevOps for the dev center managed identity.
 - Add your repository as a catalog.
-
-### Configure a managed identity for the dev center
-
-After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
-
-In this article, you configure a system-assigned MSI for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
-
-### Attach a system-assigned managed identity
-
-To attach a system-assigned managed identity to your dev center:
-
-1.	In Dev centers, select your dev center.
-1.	In the left menu under Settings, select **Identity**.
-1.	Under **System assigned**, set **Status** to **On**, and then select **Save**.
-
-    :::image type="content" source="media/how-to-configure-catalog/system-assigned-managed-identity-on.png" alt-text="Screenshot that shows a system-assigned managed identity.":::
-
-1.	In the **Enable system assigned managed identity** dialog, select **Yes**.
-
-### Assign roles for the dev center managed identity
-
-The managed identity that represents your dev center requires access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types), and to the Azure DevOps repo that stores your catalog. 
-
-1.	Navigate to your dev center.
-1.  On the left menu under Settings, select **Identity**.
-1.	Under System assigned > Permissions, select **Azure role assignments**.
-
-    :::image type="content" source="media/how-to-configure-catalog/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
-
-1. To give access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
-    
-    |Name     |Value     |
-    |---------|----------|
-    |**Scope**|Subscription|
-    |**Subscription**|Select the subscription in which to use the managed identity.|
-    |**Role**|Owner|
 
 ### Assign permissions in Azure DevOps for the dev center managed identity
 You must give the dev center managed identity permissions to the repository in Azure DevOps.  
@@ -106,7 +77,7 @@ You must give the dev center managed identity permissions to the repository in A
 
     |Name     |Value     |
     |---------|----------|
-    |**Users or Service Principals**|Enter the name of your dev center. </br> When you use a system assigned managed account, specify the name of the dev center, not the Object ID of the Managed Account. When you use a user assigned managed account, use the name of the managed account. |
+    |**Users or Service Principals**|Enter the name of your dev center. </br> When you use a system-assigned managed account, specify the name of the dev center, not the object ID of the managed account. When you use a user-assigned managed account, use the name of the managed account. |
     |**Access level**|Select **Basic**.|
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
@@ -155,7 +126,7 @@ To add a catalog, you complete these tasks:
 ### Get the clone URL for your Azure DevOps repository
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
-1. [Get the Git repo clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
+1. [Get the Azure Repos Git repo clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
 1. Copy and save the URL. You use it later.
  
 ### Create a personal access token in Azure DevOps
@@ -165,7 +136,7 @@ To add a catalog, you complete these tasks:
 1. Save the generated token. You use the token later.
 
 ### Create a Key Vault
-You need an Azure Key Vault to store the personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
+You need an Azure Key Vault to store the personal access token (PAT) that is used to grant Azure access to your repository. Key vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
 
 Use the following steps to create an RBAC key vault:
 
@@ -225,9 +196,9 @@ Get the path to the secret you created in the key vault.
     | **Folder path** | Select the folder that holds your IaC templates.|
     | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
-    :::image type="content" source="media/how-to-configure-catalog/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-devops-catalog-pane.png":::
+    :::image type="content" source="media/how-to-configure-catalog/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
+1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, the **Status** is **Connected**.
 
 
 ## [GitHub repo with PAT](#tab/GitHubRepoPAT/)
@@ -266,7 +237,7 @@ To add a catalog, you complete these tasks:
 
 
 ### Create a Key Vault
-You need an Azure Key Vault to store the personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
+You need an Azure Key Vault to store the personal access token (PAT) that is used to grant Azure access to your repository. Key vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
 
 Use the following steps to create an RBAC key vault:
 
