@@ -214,20 +214,20 @@ The _arrayContent.json_ format is:
 
 ```json
 [
-    "value1",
-    "value2"
+  "value1",
+  "value2"
 ]
 ```
 
 To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
 
 ```json
-    "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Cost Center": "IT Department"
-      }
-    }
+"resourceTags": {
+  "type": "object",
+  "defaultValue": {
+    "Cost Center": "IT Department"
+  }
+}
 ```
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
@@ -258,14 +258,12 @@ However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShe
 
 Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
-To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
-
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
-  --parameters '@storage.parameters.json'
+  --parameters 'storage.parameters.json'
 ```
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
@@ -282,7 +280,6 @@ az deployment group create \
 ```
 
 The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
-
 
 ## Comments and the extended JSON format
 
