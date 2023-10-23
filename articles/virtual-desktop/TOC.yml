@@ -9,6 +9,9 @@
   - name: Terminology
     displayName: azure virtul desktop, avd, overview, what is
     href: terminology.md
+  - name: Service architecture and resilience
+    displayName: architecture
+    href: service-architecture-resilience.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
