@@ -4,10 +4,10 @@ ms.contributor: jahelmic
 ms.date: 10/10/2023
 ms.topic: article
 ms.custom: devx-track-arm-template
-title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
+title: Deploy Azure Cloud Shell in a virtual network using quickstart templates
 ---
 
-# Deploy Azure Cloud Shell in a virtual network with quickstart templates
+# Deploy Azure Cloud Shell in a virtual network using quickstart templates
 
 Before you can deploy Azure Cloud Shell in a virtual network (VNet) configuration using the
 quickstart templates, there are several prerequisites to complete before running the templates.
@@ -105,21 +105,22 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 
 ### Azure Container Instance ID
 
-To configure the virtual network for Cloud Shell using the quickstarts, retrieve the `Azure Container Instance`
-ID for your organization.
+The **Azure Container Instance ID** is a unique value for every tenant. You use this identifier in
+the [quickstart templates][07] to configure virtual network for Cloud Shell.
 
-```powershell
-Get-AzADServicePrincipal -DisplayNameBeginsWith 'Azure Container Instance'
-```
+1. Sign in to the [Azure portal][09].From the **Home** screen, select **Microsoft Entra ID**. If the
+   icon isn't displayed, enter `Microsoft Entra ID` in the top search bar.
+1. On the left menu, select **Overview** and enter `azure container instance service` into the
+   search bar.
 
-```Output
-DisplayName                      Id                                   AppId
------------                      --                                   -----
-Azure Container Instance Service 8fe7fd25-33fe-4f89-ade3-0e705fcf4370 34fbe509-d6cb-4813-99df-52d944bfd95a
-```
+   ![Screenshot of selecting resource providers in the Azure portal.][03]
 
-Take note of the **Id** value for the `Azure Container Instance` service principal. It's needed for
-the **Azure Cloud Shell - VNet storage** template.
+1. In the results under **Enterprise applications**, select the **Azure Container Instance Service**.
+1. Find **ObjectID** listed as a property on the **Overview** page for **Azure Container Instance
+   Service**.
+1. You use this ID in the quickstart template for virtual network.
+
+   ![Screenshot of selecting resource providers in the Azure portal.][02]
 
 ## 2. Create the virtual network using the ARM template
 
