@@ -22,47 +22,66 @@ In the Consumption only environment, custom user-defined routes (UDRs) and Expre
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules.
+The following tables describe how to configure a collection of NSG allow rules. The specific rules required will depend on your [environment type](add link).
 >[!NOTE]
-> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment (preview), a `/27` or larger is required.
+> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment, a `/27` or larger is required.
 
-### Inbound
+### Workload Profile Environments
 
-| Protocol | Port | ServiceTag | Description |
+The following rules are required when using NSGs with workload profile environments.
+
+#### Inbound
+
+| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
+| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | Client IP | \* |Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+
+* The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
+
+#### Outbound
+
+>[!Note]
+> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+
+| Protocol | Port | ServiceTag | Description
 |--|--|--|--|
+| TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
+| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
+| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | Should this be Azure cloud? for service tag?
+| UDP | `123` | \* | NTP server. |
+| TCP | `5671` | \* | Container Apps control plane. | ?
+| TCP | `5672` | \* | Container Apps control plane. | ?
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
-### Outbound with service tags
+#### Consumption only environments
 
-The following service tags are required when using NSGs on the Consumption only environment:
+The following rules are required when using NSGs with Consumption only environments.
+
+
+#### Inbound
+
+| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
+| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+
+* The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
+
+#### Outbound
+
+>[!Note]
+> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
 
 | Protocol | Port | ServiceTag | Description
 |--|--|--|--|
 | UDP | `1194` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
-
-The following service tags are required when using NSGs on the workload profiles environment:
-
->[!Note]
-> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
-
-| Protocol | Port | Service Tag | Description
-|--|--|--|--|
-| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
-| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-
-### Outbound with wild card IP rules
-
-The following IP rules are required when using NSGs on both the Consumption only environment and the workload profiles environment:
-
-| Protocol | Port | IP | Description |
-|--|--|--|--|
-| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. |
+| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | Should this be Azure cloud? for service tag?
 | UDP | `123` | \* | NTP server. |
-| TCP | `5671` | \* | Container Apps control plane. |
-| TCP | `5672` | \* | Container Apps control plane. |
+| TCP | `5671` | \* | Container Apps control plane. | ?
+| TCP | `5672` | \* | Container Apps control plane. | ?
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
