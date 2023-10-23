@@ -91,13 +91,21 @@ The managed identity that represents your dev center requires access to the subs
 
     :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
 
-1. To give access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
     
     |Name     |Value     |
     |---------|----------|
     |**Scope**|Subscription|
     |**Subscription**|Select the subscription in which to use the managed identity.|
-    |**Role**|Owner|
+    |**Role**|Contributor|
+
+1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 ### Assign permissions in Azure DevOps for the dev center managed identity
 You must give the dev center managed identity permissions to the repository in Azure DevOps.  
