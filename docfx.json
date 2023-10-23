@@ -527,9 +527,6 @@
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
-        ],
-        "articles/active-directory/**/*.md": [
-          "binaryRatingUpdate"
         ]
       },
       "feedback_product_url": {
@@ -1260,8 +1257,6 @@
         "articles/app-service/scripts/*.yml": "Azure App Service",
         "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
-        "articles/active-directory/**/*.md": "Microsoft Entra",
-        "articles/active-directory/**/*.yml": "Microsoft Entra",
         "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/azure-cache-for-redis/**/*.md": "Azure Cache for Redis",
         "articles/azure-cache-for-redis/**/*.yml": "Azure Cache for Redis",
