@@ -45,36 +45,6 @@ highlightedContent:
 
 
 ## BAND 2 ####################################################################################################################################################
-productDirectory:
-  sections:
-    - title: Authenticate and authorize for any app type
-      summary: Select the app type that you want to build to access documentation focusing on it.
-      items:
-        ## ROW 1 ######################
-        - title: Single-page app (SPA)
-          url: index-spa.yml
-          summary: A web application whose code is downloaded and run in the browser itself such as vanilla JavaScript, React and Angular.
-        - title: Web app
-          url: index-web-app.yml
-          #url: web-app-quickstart.md
-          summary: A web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
-        - title: Web API
-          url: index-web-api.yml
-          #url: web-api-quickstart.md
-          summary: A RESTful web service that is accessed by any app type or other web APIs, and is protected by Azure AD B2C.
-        ## ROW 2 ######################
-        - title: Desktop app
-          url: index-desktop.yml
-          #url: desktop-app-quickstart.md
-          summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer such as Windows OS.
-        - title: Mobile app
-          url: index-mobile.yml
-          #url: mobile-app-quickstart.md
-          summary: Applications with a UI whose code runs on a user's phone, tablet, or other mobile device such as Android and iOS.
-        - title: Back-end service or daemon
-          url: index-service.yml
-          #url: mobile-app-quickstart.md
-          summary: An application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
 
 
