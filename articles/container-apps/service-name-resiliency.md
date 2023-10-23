@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 10/23/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
