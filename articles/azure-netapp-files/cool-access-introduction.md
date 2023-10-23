@@ -288,7 +288,7 @@ Your first twelve-month savings:
 
 
 > [!TIP]     
-> You can use the [Azure NetApp Files standard storage with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/calc/) to interactively estimate cost savings based on changeable input parameters.
+> You can use the [Azure NetApp Files standard storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.
 
 ## Next steps
 
