@@ -29,7 +29,7 @@ Azure Arc resource bridge (preview) hosts other components such as [custom locat
 - The platform layer that includes the custom location and cluster extension. 
 - The solution layer for each service supported by Arc resource bridge (that is, the different type of VMs).
  
-:::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
+:::image type="content" source="media/azure-arc-resource-bridge/architecture-overview.png" alt-text="Diagram of Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
 
 Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 - Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
@@ -61,7 +61,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 Management from Azure is unavailable during that service outage.
 
 ### Supported versions
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](https://learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade).
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays might occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](https://learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade).
 
 ## Next steps
 Learn more about [Arc-enabled SCVMM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/overview)
