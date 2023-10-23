@@ -21,10 +21,10 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ### Compute
 
 * The cluster must have a minimum of three worker nodes and three master nodes.
-* Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
-* If you are making use of infrastructure nodes, do not run any undesignated workloads on them as this may affect the Service Level Agreement and cluster stability. Also, it is strongly recommended to have at least 3 infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
+* Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group isn't supported.
+* If you're making use of infrastructure nodes, don't run any undesignated workloads on them as this can affect the Service Level Agreement and cluster stability. Also, it's recommended to have at least three infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
-* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, as well as loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, please contact support before making any changes.
+* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, please contact support before making any changes.
 
 ### Operators
 
@@ -34,7 +34,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
 * To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
-* Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
+* Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it causes extra resource usage and stability issues that can affect the entire cluster.
 
 ### Logging and monitoring
 
