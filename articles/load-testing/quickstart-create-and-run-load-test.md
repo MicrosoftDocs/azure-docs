@@ -54,7 +54,7 @@ To create a load test for a web endpoint:
 
 1. On the **Get started** tab, select **Add HTTP requests** > **Create**.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quick-test-resource-overview.png" alt-text="Screenshot that shows how to create a URL-based test from the resource overview page in the Azure portal.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quick-test-resource-overview.png" alt-text="Screenshot that shows how to create a URL-based test from the resource overview page in the Azure portal." lightbox="media/quickstart-create-and-run-load-test/quick-test-resource-overview.png":::
 
 1. On the **Basics** tab, enter the load test details:
 
@@ -79,7 +79,7 @@ To create a load test for a web endpoint:
 
 1. Select **Review + create** to review the load test configuration, and then select **Create** to start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-virtual-users.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying virtual users.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-virtual-users.png" alt-text="Screenshot that shows the quick test page in the Azure portal, highlighting the option for specifying virtual users." lightbox="media/quickstart-create-and-run-load-test/quickstart-test-virtual-users.png":::
 
 After the load test is saved, Azure Load Testing generates a load test script to simulate traffic to your application endpoint. Then, the service provisions the infrastructure for simulating the target load.
 
@@ -89,15 +89,15 @@ Once the load test starts, you're redirected to the test run dashboard. While th
 
 1. On the test run dashboard, you can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows results of the load test.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows results of the load test." lightbox="./media/quickstart-create-and-run-load-test/test-run-aggregated-by-percentile.png":::
 
 1. After the load test finishes, you can view the load test summary statistics, such as total requests, duration, average response time, error percentage, and throughput.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-results-statistics.png" alt-text="Screenshot that shows test run dashboard, highlighting the load test statistics.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-results-statistics.png" alt-text="Screenshot that shows test run dashboard, highlighting the load test statistics." lightbox="./media/quickstart-create-and-run-load-test/test-results-statistics.png":::
 
 1. Optionally, change the display filters to view a specific time range, result percentile, or error type.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test." lightbox="./media/quickstart-create-and-run-load-test/test-result-filters.png":::
 
 ## Add requests to a load test
 
@@ -111,7 +111,7 @@ To add an HTTP request to the load test you created previously:
 
 1. Select your test from the list by selecting the corresponding checkbox, and then select **Edit**.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/edit-load-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the Edit button to modify the load test settings.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/edit-load-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the Edit button to modify the load test settings." lightbox="./media/quickstart-create-and-run-load-test/edit-load-test.png":::
 
 1. On the **Basics** tab, select **Enable advanced settings**.
 
@@ -133,7 +133,7 @@ To add an HTTP request to the load test you created previously:
     | **Headers**          | (Optional) Enter HTTP headers to include in the HTTP request. |
     | **Body**             | (Optional) Depending on the HTTP method, you can specify the HTTP body content. Azure Load Testing supports the following formats: raw data, JSON view, JavaScript, HTML, and XML. |
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/load-test-add-request.png" alt-text="Screenshot that shows how to add a request to a URL-based load test in the Azure portal.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/load-test-add-request.png" alt-text="Screenshot that shows how to add a request to a URL-based load test in the Azure portal." lightbox="./media/quickstart-create-and-run-load-test/load-test-add-request.png":::
 
 1. (Optional) Add more requests to your load test.
 
@@ -141,7 +141,7 @@ To add an HTTP request to the load test you created previously:
 
     Notice that the advanced settings enable you to configure the number of test engine instances and choose from different load patterns.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/load-test-configure-load.png" alt-text="Screenshot that shows the Load tab when configuring a load test in the Azure portal.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/load-test-configure-load.png" alt-text="Screenshot that shows the Load tab when configuring a load test in the Azure portal." lightbox="./media/quickstart-create-and-run-load-test/load-test-configure-load.png":::
 
 1. Select **Apply** to update the load test configuration.
 
@@ -149,7 +149,7 @@ To add an HTTP request to the load test you created previously:
 
     Notice that the test run dashboard displays metrics for the different HTTP requests in the load test. You can use the **Requests** filter to only view metrics for specific requests.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-results-multiple-requests.png" alt-text="Screenshot that shows the test results dashboard in the Azure portal, showing the results for the different requests in the load test.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-results-multiple-requests.png" alt-text="Screenshot that shows the test results dashboard in the Azure portal, showing the results for the different requests in the load test." lightbox="./media/quickstart-create-and-run-load-test/test-results-multiple-requests.png":::
 
 ## How did we solve the problem?
 

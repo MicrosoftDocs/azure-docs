@@ -46,7 +46,7 @@ To create a load test using an existing JMeter script in the Azure portal:
 
 1. Go to your Azure Load Testing resource, select **Tests** from the left pane, select **+ Create**, and then select **Upload a JMeter script**.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png":::
     
 1. On the **Basics** tab, enter the load test details:
 
@@ -58,7 +58,7 @@ To create a load test using an existing JMeter script in the Azure portal:
 
 1. On the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-test-plan.png":::
     
     > [!NOTE]
     > You can upload additional JMeter configuration files or other files that you reference in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). See also how to [read data from a CSV file](./how-to-read-csv-data.md). For files other than JMeter scripts and user properties, if the size of the file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
@@ -75,11 +75,11 @@ If you selected **Run test after creation**, your load test will start automatic
 
 1. Go to your load testing resource, select **Tests** from the left pane, and then select the test that you created earlier.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/tests.png" alt-text="Screenshot that shows the list of load tests." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/tests.png" alt-text="Screenshot that shows the list of load tests." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/tests.png":::
 
 1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the confirmation pane to start the load test. Optionally, provide a test run description.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/run-test-confirm.png":::
 
     > [!TIP]
     > You can stop a load test at any time from the Azure portal.
@@ -88,7 +88,7 @@ If you selected **Run test after creation**, your load test will start automatic
 
     If you have multiple requests in your test script, the charts display all requests, and you can also filter for specific requests.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the test run dashboard." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the test run dashboard." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png":::
 
     Use the run statistics and error information to identify performance and stability issues for your application under load.
 
@@ -104,7 +104,7 @@ To convert a URL-based load test to a JMeter-based load test:
 
 1. Select the **ellipsis (...)** for a URL-based load test, and then select **Convert to JMeter script**.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-convert-to-jmeter-script.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the menu option to convert the test to a JMeter-based test." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-convert-to-jmeter-script.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the menu option to convert the test to a JMeter-based test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-convert-to-jmeter-script.png":::
 
     Alternately, select the test, and then select **Convert to JMeter script** on the test details page.
 
@@ -112,7 +112,7 @@ To convert a URL-based load test to a JMeter-based load test:
 
     Notice that the test type has changed to *JMX* in the test list.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the test type has changed to JMX for the converted test." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the test type has changed to JMX for the converted test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png":::
 
 ## Related content
 

@@ -42,7 +42,7 @@ To specify the load parameters for a URL-based load test:
 
 1. In the list, select your load test, and then select **Edit**.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button." lightbox="media/how-to-high-scale-load/edit-test.png":::
 
     Alternately, you can also edit the test configuration from the test details page. To do so, select **Configure**, and then select **Test**.
 
@@ -54,13 +54,13 @@ To specify the load parameters for a URL-based load test:
 
 1. Use the **Engine instances** slider control to update the number of parallel test engine instances. Alternately, enter the target value in the input box.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
 
 1. Select the **Load pattern** value from the list.
 
     For each pattern, fill the corresponding configuration settings. The chart gives a visual representation of the load pattern and its configuration parameters.
 
-    :::image type="content" source="media/how-to-high-scale-load/load-test-configure-load-pattern.png" alt-text="Screenshot of the 'Load' tab when editing a load test, showing how to configure the load pattern.":::
+    :::image type="content" source="media/how-to-high-scale-load/load-test-configure-load-pattern.png" alt-text="Screenshot of the 'Load' tab when editing a load test, showing how to configure the load pattern." lightbox="media/how-to-high-scale-load/load-test-configure-load-pattern.png":::
 
 ### Configure load parameters for JMeter-based tests
 
@@ -74,13 +74,13 @@ To specify the load parameters for a JMeter-based load test:
 
 1. In the list, select your load test, and then select **Edit**.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button." lightbox="media/how-to-high-scale-load/edit-test.png":::
 
     Alternately, you can also edit the test configuration from the test details page. To do so, select **Configure**, and then select **Test**.
 
 1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
@@ -129,7 +129,7 @@ To view the engine resource metrics:
     
     Optionally, select a specific test engine instance by using the filters controls.
 
-:::image type="content" source="media/how-to-high-scale-load/engine-health-metrics.png" alt-text="Screenshot that shows the load engine health metrics on the test run dashboard.":::
+:::image type="content" source="media/how-to-high-scale-load/engine-health-metrics.png" alt-text="Screenshot that shows the load engine health metrics on the test run dashboard." lightbox="media/how-to-high-scale-load/engine-health-metrics.png":::
 
 ### Troubleshoot unhealthy engine instances
 
