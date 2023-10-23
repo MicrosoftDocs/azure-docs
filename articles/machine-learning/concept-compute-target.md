@@ -49,7 +49,7 @@ Learn [where and how to deploy your model to a compute target](./v1/how-to-deplo
 
 ## Azure Machine Learning compute (managed)
 
-Azure Machine Learning create and manages a managed compute resource. The compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
+Azure Machine Learning creates and manages the managed compute resources. This type of compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
 
 There's no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
 
