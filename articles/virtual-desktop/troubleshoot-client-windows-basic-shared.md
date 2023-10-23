@@ -26,7 +26,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
-   :::image type="content" source="media/troubleshoot-client-windows/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
+   :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
 
    You should also check the estimated connection round trip time (RTT) from your current location to the Azure Virtual Desktop service. For more information, see [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/products/virtual-desktop/assessment/#estimation-tool)
 
@@ -48,7 +48,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
-   :::image type="content" source="media/troubleshoot-client-windows/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
+   :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
 
    You should also check the estimated connection round trip time (RTT) from your current location to the Azure Virtual Desktop service. For more information, see [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/products/virtual-desktop/assessment/#estimation-tool)
 
@@ -74,7 +74,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
-   :::image type="content" source="media/troubleshoot-client-windows/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
+   :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
 
 1. Restart your dev box from the Dev Box developer portal.
 
