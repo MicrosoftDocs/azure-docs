@@ -86,4 +86,4 @@ For reference, visit [Azure SDK for .NET](/dotnet/api/microsoft.azure.management
 ## Limitations
 - API version 2020-01-01 or later should be used to configure buffers.
 - Currently, these changes are not supported through Portal and PowerShell.
-- Request and Response Buffers can only be disabled for the WAF v2 SKU if request body checking is disabled. Otherwise, Request and Response Buffers cannot be disabled for the WAF v2 SKU.
+- Request buffering can only be disabled for the WAF v2 SKU if request body inspection is also disabled. The WAF requires the full request to buffer before it can do inspection, therefore, even if you disable request buffering within Application Gateway the WAF will still buffer the request before inspecting.
