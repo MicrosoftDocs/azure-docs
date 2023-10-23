@@ -260,8 +260,6 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-    if (cpu_cluster)
-    else None,  # No compute needs to be passed to use serverless
     display_name="credit_default_prediction",
 )
 ```
