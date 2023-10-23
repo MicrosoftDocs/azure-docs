@@ -70,6 +70,7 @@ Let's dig into each one in detail.
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a five-step incident response process is kicked off. The goal of the five-step process is to restore normal service security and operations. The five-step process restores services as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB supports TLS levels up to 1.2 (included).<br>It's possible to enforce a minimum TLS level on server-side. To do so, refer to self service guide [Self-serve minimum TLS version enforcement in Azure Cosmos DB](./self-serve-minimum-tls-enforcement.md).|
+|Encryption in transit|Encryption (SSL/TLS) is always enforced, and if you attempt to connect to your cluster without encryption, that attempt fails. Only connections via a MongoDB client are accepted and encryption is always enforced. Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encrypted in-transit with Transport Layer Security 1.2.|
 |Encryption at rest|Azure Cosmos DB for MongoDB vCore uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including all backups, are encrypted on disk, including the temporary files. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on, and can't be disabled.|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS and HMAC secret based authentication is baked in by default.|
@@ -78,22 +79,7 @@ Let's dig into each one in detail.
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
 :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Screenshot of activity logs for Azure Cosmos DB.":::
 
-<!-- # Security in Azure Cosmos DB for MongoDB vCore
-
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
-
-This page outlines the multiple layers of security available to protect the data in your cluster.
-
-## In transit
-
-Encryption (SSL/TLS) is always enforced, and if you attempt to connect to your cluster without encryption, that attempt fails. Only connections via a MongoDB client are accepted and encryption is always enforced.
-
-Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encrypted in-transit with Transport Layer Security 1.2.
-
-## At rest
-
-Azure Cosmos DB for MongoDB vCore uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including all backups, are encrypted on disk, including the temporary files. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on, and can't be disabled.
-
+<!-- 
 ## Network security options
 
 This section outlines various network security options you can configure for your account.
