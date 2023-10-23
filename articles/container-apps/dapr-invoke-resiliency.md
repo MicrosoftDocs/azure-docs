@@ -34,7 +34,7 @@ Resiliency policies are configured as a sub-resource to a container app. When a 
 
 ## Creating resiliency policies
 
-Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
+Create resiliency policies using Bicep, the CLI, and the Azure portal. Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
