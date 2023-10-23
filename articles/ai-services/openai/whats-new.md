@@ -14,6 +14,10 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## November 2023
+
+TBD new Content filters
+
 ## September 2023
 
 ### GPT-4
