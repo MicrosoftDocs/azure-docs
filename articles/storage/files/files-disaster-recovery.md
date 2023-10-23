@@ -4,7 +4,7 @@ description: Learn how to recover your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/28/2023
+ms.date: 10/23/2023
 ms.author: kendownie
 ---
 
@@ -13,7 +13,7 @@ ms.author: kendownie
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur, and you should have a disaster recovery (DR) plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable. This article describes the concepts and processes involved with disaster recovery (DR) and storage account failover.
 
 > [!IMPORTANT]
-> Azure File Sync doesn't support storage account failover. If you attempt to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, the sync will stop working and might also cause unexpected data loss in the case of newly tiered files. See [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
+> Azure File Sync only supports storage account failover if the Storage Sync Service is also failed over. This is because Azure File Sync requires the storage account and Storage Sync Service to be in the same Azure region. If only the storage account is failed over, sync and cloud tiering operations will fail until the Storage Sync Service is failed over to the secondary region. If you want to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, see [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
 
 ## Recovery metrics and costs
 To formulate an effective DR strategy, an organization must understand:
