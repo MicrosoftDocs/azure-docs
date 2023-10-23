@@ -13,7 +13,7 @@
   - name: Recover item
     href:
   - name: View protected items and perform actions
-    href: 
+    href: tutorial-view-protected-items-and-perform-actions.md
   - name: Review security posture
     href: 
   - name: Monitor and operate
@@ -25,7 +25,7 @@
 - name: Concepts
   items:
   - name: Support matrices
-    href:
+    href: business-continuity-center-support-matrix.md
 - name: How-to guides
   items:
   - name: Vaults
