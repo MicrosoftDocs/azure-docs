@@ -50,7 +50,7 @@ The pipeline in this example reads data from a DICOM service and writes its outp
 
 1. On the **New linked service** pane, search for **REST**. Select the **REST** tile and then select **Continue**.
 
-   :::image type="content" source="media/data-factory-rest.png" alt-text="Screenshot that shows the New Linked services pane with the REST tile selected." lightbox="media/data-factory-rest.png":::
+   :::image type="content" source="media/data-factory-rest.png" alt-text="Screenshot that shows the New linked service pane with the REST tile selected." lightbox="media/data-factory-rest.png":::
 
 1. Enter a **Name** and **Description** for the linked service.
 
@@ -72,11 +72,11 @@ The pipeline in this example reads data from a DICOM service and writes its outp
 
 1. On the **New linked service** pane, search for **Azure Data Lake Storage Gen2**. Select the **Azure Data Lake Storage Gen2** tile and then select **Continue**.
 
-   :::image type="content" source="media/data-factory-adls.png" alt-text="Screenshot that shows the New Linked services pane with the Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adls.png":::
+   :::image type="content" source="media/data-factory-adls.png" alt-text="Screenshot that shows the New linked service pane with the Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adls.png":::
 
 1. Enter a **Name** and **Description** for the linked service.
 
-   :::image type="content" source="media/data-factory-linked-service-adls.png" alt-text="Screenshot that shows the New Linked services pane with Data Lake Storage Gen2 details." lightbox="media/data-factory-linked-service-adls.png":::
+   :::image type="content" source="media/data-factory-linked-service-adls.png" alt-text="Screenshot that shows the New linked service pane with Data Lake Storage Gen2 details." lightbox="media/data-factory-linked-service-adls.png":::
 
 1. For **Authentication type**, select **System Assigned Managed Identity**.
 
@@ -195,7 +195,7 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
    :::image type="content" source="media/fabric-new-shortcut.png" alt-text="Screenshot that shows the New shortcut view with the Azure Data Lake Storage Gen2 tile." lightbox="media/fabric-new-shortcut.png":::
 
-1. Under **Connection settings**, enter the **URL** you used in the [Linked services](#create-linked-service-for-azure-data-lake-storage-gen2) section.
+1. Under **Connection settings**, enter the **URL** you used in the [Linked services](#create-a-linked-service-for-azure-data-lake-storage-gen2) section.
 
    :::image type="content" source="media/fabric-connection-settings.png" alt-text="Screenshot that shows the connection settings for the Azure Data Lake Storage Gen2 account." lightbox="media/fabric-connection-settings.png":::
 
