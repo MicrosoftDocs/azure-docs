@@ -14,6 +14,11 @@ ms.author: pafarley
 
 different between the passive and active modes. focused strictly on client-side SDK. Also, the "correlation ID"
 
+[!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
+
+## Auditing
+
+## How to improve pass rate
 
 ## Anomaly detection
 

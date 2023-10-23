@@ -72,6 +72,9 @@ You can try out Face detection quickly and easily in your browser using Vision S
 
 ## Liveness detection
 
+[!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
+
+
 should have links to all the liveness docs TBD:
 
 concept
