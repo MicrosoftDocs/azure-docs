@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
