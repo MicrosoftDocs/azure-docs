@@ -83,10 +83,23 @@ If you installed MQ into a different namespace than `default`, specify the corre
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-  ```--set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 ```
+  ```azurepowershell
+  --set mqttBroker.address=mqtt://aio-mq-dmqtt-frontend.<your-aio-mq-namespace>:1883 `
+  ```
 
-If MQ is configured with a specific audience for SAT-based authentication via `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource, then the same audience should be set for {{% oub-product-name %}} via `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md).
-The original deployment of OPC UA Broker from above can be modified to set SAT audience, here for `aio-mq` audience:
+If you configured MQ with a specific audience for SAT-based authentication via `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource, then configure the same audience for OPC UA Broker via `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the Prerequisites to set SAT audience. 
+
+The following example shows how to configure OPC UA Broker for the `aio-mq` audience:
+
+#### [bash](#tab/bash)
+
+`--set mqttBroker.serviceAccountTokenAudience=aio-mq \`
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+  ```azurepowershell
+  --set mqttBroker.serviceAccountTokenAudience=aio-mq `
+  ```
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
