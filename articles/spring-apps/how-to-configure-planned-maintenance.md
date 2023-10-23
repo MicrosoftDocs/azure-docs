@@ -23,7 +23,7 @@ Using following steps to configure planned maintenance in Azure Spring Apps:
 
 1. Select the day of the week you want to execute the maintenance job.
 
-1. Select start time of upgrade. Maintenance job will be executed during an 8 hour time window.
+1. Select start time of upgrade. Maintenance job will be executed during the 8 hour time window.
 
 1. Click **Apply** to submit your configuration for planned maintenance.
 
