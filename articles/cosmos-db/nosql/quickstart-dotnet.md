@@ -194,28 +194,38 @@ When developing locally with passwordless authentication, make sure the user acc
     dotnet user-secrets set "AZURE_COSMOS_DB_NOSQL_ENDPOINT" "<cosmos-db-nosql-endpoint>" --project ./src/web/Cosmos.Samples.NoSQL.Quickstart.Web.csproj
     ```
 
-1. Create a role using the `az role definition create` command. Name the role PasswordlessReadWrite with permissions to read and write items in Cosmos DB containers. Name the role `Write to Azure Cosmos DB for NoSQL data plane` and ensure the role is scoped to the account level using `/`. Include the following permissions:
+1. Create a JSON file named `role-definition.json`. Use this content to configure the role with the following permissions:
 
     - `Microsoft.DocumentDB/databaseAccounts/readMetadata`
     - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
     - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 
+    ```json
+    {
+      "RoleName": "Write to Azure Cosmos DB for NoSQL data plane",
+      "Type": "CustomRole",
+      "AssignableScopes": [
+        "/"
+      ],
+      "Permissions": [
+        {
+          "DataActions": [
+            "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+          ]
+        }
+      ]
+    }
+    ```
+
+1. Create a role using the `az role definition create` command. Name the role `Write to Azure Cosmos DB for NoSQL data plane` and ensure the role is scoped to the account level using `/`. Use the `role-definition.json` file you created in the previous step.
+
     ```azurecli
     az cosmosdb sql role definition create \
         --resource-group <resource-group-name> \
         --account-name <account-name> \
-        --body '{
-            "RoleName": "Write to Azure Cosmos DB for NoSQL data plane",
-            "Type": "CustomRole",
-            "AssignableScopes": ["/"],
-            "Permissions": [{
-                "DataActions": [
-                    "Microsoft.DocumentDB/databaseAccounts/readMetadata",
-                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
-                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
-                ]
-            }]
-        }'
+        --body @role-definition.json
     ```
 
 1. When the command is finished, it outputs an object that includes an `id` field. Record the value from the `id` field as you use it a follow-up step.
