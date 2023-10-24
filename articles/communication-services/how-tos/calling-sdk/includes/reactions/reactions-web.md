@@ -59,5 +59,8 @@ reaction.on('reaction', event => {
 ```
 
 ### Key things to note about using Reactions:
-- For teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the reaction capability.
-- On direct 1:1 calls between a CTE user and a teams user, the reaction functionality is disabled.
+- For Microsoft Teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the reaction capability.
+- Reactions are supported in the Web Calling SDK.
+- Reactions are not currently supported in the Native SDKs.
+- Reactions are supported for Microsoft Teams Meeting interoperability, Azure Communication Services Rooms, and Group Calls.
+- Reactions are not supported for 1:1 calls.
