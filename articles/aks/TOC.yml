@@ -180,6 +180,12 @@
           href: operator-best-practices-storage.md
         - name: Business continuity (BC) and disaster recovery (DR)
           href: operator-best-practices-multi-region.md
+    - name: Performance and scaling
+      items:
+        - name: For small to medium workloads
+          href: best-practices-performance-scale.md
+        - name: For large workloads
+          href: best-practices-performance-scale-large.md
     - name: Application development
       items:
         - name: Resource management
