@@ -31,7 +31,7 @@ When that is complete you'll have all the Azure resources you need provisioned t
 ### [Azure portal](#tab/manual)
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites-openai.md)]
-***
+---
 
 ## Set up the environment
 
@@ -180,7 +180,7 @@ python openai-speech.py
 
 > [!IMPORTANT]
 > Make sure that you set the `AZURE_OPEN_AI_KEY`, `AZURE_OPEN_AI_ENDPOINT`, `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
-***
+---
 
 Speak into your microphone when prompted. The console output includes the prompt for you to begin speaking, then your request as text, and then the response from Azure OpenAI as text. The response from Azure OpenAI should be converted from text to speech and then output to the default speaker.
 
