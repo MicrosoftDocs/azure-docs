@@ -65,7 +65,7 @@ Follow these steps to clone the copilot sample repository into your project's `c
 1. Go to the `code` folder by running `cd code` in the terminal:
 
     ```bash
-    cd ~/code
+    cd code
     ```
 
 1. Clone the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository into your project's `code` folder. You might be prompted to authenticate.
