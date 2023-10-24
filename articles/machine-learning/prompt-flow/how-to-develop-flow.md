@@ -174,7 +174,7 @@ The chat box provides an interactive way to test your chat flow by simulating a 
 1. Select the "Chat" button to open the chat box.
 2. Type your test inputs into the chat box and press Enter to send them to the chatbot.
 3. Review the chatbot's responses to ensure they're contextually appropriate and accurate.
-![Chat flow authoring page](./media/how-to-develop-flow/chat-box.png)
+![Chat flow chatbox experience](./media/how-to-develop-flow/chat-box.png)
 
 ## Next steps
 
