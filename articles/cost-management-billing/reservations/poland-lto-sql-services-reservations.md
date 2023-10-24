@@ -119,5 +119,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Next steps
 
-- [Understand Azure Reserved VM Instances discount](reservation-discount-application.md)
-- [Purchase Azure Reserved VM Instances in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade)
+- [Understand Azure reservation discount](reservation-discount-application.md)
+- [Purchase reserved capacity in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade)
