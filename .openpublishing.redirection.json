@@ -24492,6 +24492,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/spring-apps/how-to-enable-redundancy-and-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-spring-apps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/update-center/assessment-options.md",
             "redirect_url": "/azure/update-manager/assessment-options",
             "redirect_document_id": false
@@ -24655,6 +24660,11 @@
             "source_path": "articles/update-center/workbooks.md",
             "redirect_url": "/azure/update-manager/workbooks",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/orbital/delete-contact.md",
+	    "redirect_url": "/azure/orbital/spacecraft-object",
+            "redirect_document_id": false
+        },
     ]
 }
