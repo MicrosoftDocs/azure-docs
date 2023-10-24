@@ -137,6 +137,8 @@
       href: troubleshoot-isolation-domain.md
     - name: Troubleshoot Internet host virtual machine
       href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
+      href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
     - name: BareMetal Actions
@@ -156,6 +158,13 @@
   href: azure-operator-nexus-faq.md
 - name: Reference
   items:
+    - name: Nexus Kubernetes service
+      expanded: false
+      items:
+        - name: Supported VM sizes
+          href: reference-nexus-kubernetes-cluster-sku.md
+        - name: Supported Kubernetes versions
+          href: reference-nexus-kubernetes-cluster-supported-versions.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
@@ -166,7 +175,3 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
-    - name: Nexus Kubernetes service VM SKUs
-      href: reference-nexus-kubernetes-cluster-sku.md
-    - name: Supported Nexus Kubernetes Versions
-      href: reference-nexus-kubernetes-cluster-supported-versions.md

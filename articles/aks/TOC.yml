@@ -218,8 +218,6 @@
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Cloud Controller Manager
-          href: out-of-tree.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -449,12 +447,16 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
+                - name: Azure Key Vault provider with Secrets Store CSI Driver
+                  items:
+                    - name: 1 - Configure Secrets Store CSI Driver
+                      href: csi-secrets-store-driver.md
+                    - name: 2 - Provide Azure Key Vault access
+                      href: csi-secrets-store-identity-access.md
+                    - name: 3 - Apply extra configurations or perform troubleshooting
+                      href: csi-secrets-store-configuration-options.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
