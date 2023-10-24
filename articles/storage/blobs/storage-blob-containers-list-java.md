@@ -41,6 +41,8 @@ By default, a listing operation returns up to 5000 results at a time. To return 
 
 - [ListBlobContainersOptions.setMaxResultsPerPage](/java/api/com.azure.storage.blob.models.listblobcontainersoptions#com-azure-storage-blob-models-listblobcontainersoptions-setmaxresultsperpage(java-lang-integer))
 
+The examples presented in this article show you how to return results in pages. To learn more about pagination concepts, see [Pagination with the Azure SDK for Java](/azure/developer/java/sdk/pagination).
+
 ### Filter results with a prefix
 
 To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix. You can set this value using the following method:
