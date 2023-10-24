@@ -399,7 +399,25 @@
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
-      href: functions-reference-python.md
+      items:
+        - name: Developer Reference Guide
+          href: functions-reference-python.md
+        - name: Programming models 
+          href: functions-reference-python.md#programming-model
+        - name: Develop Python worker extensions
+          href: develop-python-worker-extensions.md
+        - name: Scale and performance recommendations
+          href: python-scale-performance-reference.md
+        - name: Troubleshooting
+          items: 
+            - name: General troubleshooting
+              href: recover-python-functions.md
+            - name: Memory profiling
+              href: python-memory-profiler-reference.md
+        - name: Python Functions Library API Reference
+          href: /python/api/azure-functions/azure.functions
+        - name: Samples
+          href: /samples/browse/?products=azure-functions&languages=python
 - name: How-to guides
   items:
     - name: Develop
