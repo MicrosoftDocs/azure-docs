@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 10/24/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -53,7 +53,7 @@ These terms and conditions (hereinafter referred to as "terms") govern the limit
 - SQL Managed Instance Business Critical - Compute Gen5
 - SQL Managed Instance General Purpose - Compute Gen5
 
-The 66 percent saving is based on one Azure Database for MySQL Single Server Memory Optimized - Compute Gen5 in the Poland Central region running for 36 months at a pay-as-you-go rate; reduced rate for a three-year reserved capacity. Actual savings might vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
+The 66 percent saving is based on one Azure Database for MySQL Single Server Memory Optimized - Compute Gen5 in the Poland Central region running for 36 months at a pay-as-you-go rate; reduced rate for a three-year reserved capacity. Actual savings might vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs. For more information about pricing, see [Poland Central SQL Services reservation savings](/DocsLegal/cost-management-billing/reservations/poland-central-limited-time-sql-services).
 
 **Eligibility** - The Offer is open to individuals who meet the following criteria:
 
