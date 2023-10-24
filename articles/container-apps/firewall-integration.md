@@ -22,9 +22,7 @@ In the Consumption only environment, custom user-defined routes (UDRs) and Expre
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules. The specific rules required will depend on your [environment type](add link).
->[!NOTE]
-> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment, a `/27` or larger is required.
+The following tables describe how to configure a collection of NSG allow rules. The specific rules required will depend on your [environment type](./environment.md).
 
 ### Inbound 
 
@@ -33,7 +31,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 # [Workload profiles environment](#tab/workload-profiles-env)
 
-The following rules are required when using NSGs with workload profile environments.
+The following rules are required when using NSGs with workload profiles environments.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
