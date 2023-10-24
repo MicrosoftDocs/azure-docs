@@ -289,8 +289,10 @@
             
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
-            - name: Connect to cluster nodes
+            - name: Connect securely to cluster nodes
               href: node-access.md
+            - name: Manage SSH key 
+              href: manage-ssh-node-access.md
         - name: Node pools
           items:
             - name: Create node pools
@@ -447,12 +449,16 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
+                - name: Azure Key Vault provider with Secrets Store CSI Driver
+                  items:
+                    - name: 1 - Configure Secrets Store CSI Driver
+                      href: csi-secrets-store-driver.md
+                    - name: 2 - Provide Azure Key Vault access
+                      href: csi-secrets-store-identity-access.md
+                    - name: 3 - Apply extra configurations or perform troubleshooting
+                      href: csi-secrets-store-configuration-options.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -621,22 +627,32 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Upgrade an AKS cluster
+        - name: Upgrade options
           href: upgrade-cluster.md
-        - name: Upgrade the node image
-          href: node-image-upgrade.md
-        - name: Automate and schedule upgrade events
           items:
-            - name: Automatically upgrade an AKS cluster
-              href: auto-upgrade-cluster.md
-            - name: Automatically upgrade AKS cluster node operating system images
-              href: auto-upgrade-node-image.md
-            - name: Upgrade the node image automatically with GitHub Actions
-              href: node-upgrade-github-actions.md
-            - name: Use planned maintenance to schedule and control upgrades
-              href: planned-maintenance.md
-        - name: Process node OS updates
-          href: node-updates-kured.md
+          - name: Perform manual upgrades
+            items:
+            - name: Upgrade an AKS cluster
+              href: upgrade-aks-cluster.md
+            - name: Upgrade the node image
+              href: node-image-upgrade.md
+            - name: Customize node surge upgrade
+              href: upgrade-aks-cluster.md#customize-node-surge-upgrade
+            - name: Process node OS updates
+              href: node-updates-kured.md
+          - name: Configure automatic upgrades
+            items:
+              - name: Automatically upgrade an AKS cluster
+                href: auto-upgrade-cluster.md
+              - name: Use Planned Maintenance to schedule and control upgrades
+                href: planned-maintenance.md
+              - name: Stop cluster upgrades automatically on API breaking changes
+                href: stop-cluster-upgrade-api-breaking-changes.md
+              - name: Automatically upgrade AKS cluster node operating system images
+                href: auto-upgrade-node-image.md
+              - name: Upgrade the node image automatically with GitHub Actions
+                href: node-upgrade-github-actions.md
+
     - name: Azure Linux container host for AKS
       href: use-azure-linux.md
     - name: Windows Server containers
