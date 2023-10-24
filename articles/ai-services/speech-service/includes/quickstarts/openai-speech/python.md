@@ -12,7 +12,26 @@ ms.author: eur
 
 ## Prerequisites
 
+You will need to provision Azure resources to run this sample.  You can choose to do so easily with the Azure Developer CLI or manually via the Azure portal.
+
+### [Azure Developer CLI](#tab/azd)
+
+The Azure Developer CLI is a command line utility that provisions all the Azure resources you need for this sample with a few simple commands.
+
+1. Install the Azure Developer CLI (https://aka.ms/azd-install)
+1. Open a Terminal
+1. Navigate to an empty directory.
+1. Run `azd auth login`
+1. Run `azd init -t azure-openai-speech-to-speech-chat`
+1. Run `azd provision`
+
+When that is complete you'll have all the Azure resources you need provisioned to the Azure portal.
+
+
+### [Azure portal](#tab/manual)
+
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites-openai.md)]
+***
 
 ## Set up the environment
 
@@ -24,9 +43,26 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 Install the following Python libraries: `os`, `requests`, `json`
 
+### Run the app
+
+#### [Azure Template](#tab/azure-template)
+
+When you ran the `azd init` command earlier in this article, you also downloaded the code needed to run this sample.  Let's open that code in VS Code and inspect it before running it.
+
+1. Open the Terminal to the diretory where you ran `azd` from earlier.
+1. Run `code .` to open the template in VS Code.
+1. Hit F5
+1. You will see `Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.` in the terminal.
+1. Speak something into your microphone, like "What is the capital of Washington?"
+1. The app will print the result to the screen.
+
+!["AI is Listening"](../../../media/ai-services/ai-is-listening.png)
+
+#### [Manual](#tab/manual-run)
+
 ### Set environment variables
 
-This example requires environment variables named `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
+This example requires environment variables named `AZURE_OPEN_AI_KEY`, `AZURE_OPEN_AI_ENDPOINT`, `AZURE_SPEECH_KEY`, and `AZURE_SPEECH_REGION`.
 
 [!INCLUDE [Environment variables](../../common/environment-variables-openai.md)]
 
@@ -53,18 +89,18 @@ Follow these steps to create a new console application.
     import azure.cognitiveservices.speech as speechsdk
     import openai
     
-    # This example requires environment variables named "OPEN_AI_KEY" and "OPEN_AI_ENDPOINT"
+    # This example requires environment variables named "AZURE_OPEN_AI_KEY" and "AZURE_OPEN_AI_ENDPOINT"
     # Your endpoint should look like the following https://YOUR_OPEN_AI_RESOURCE_NAME.openai.azure.com/
-    openai.api_key = os.environ.get('OPEN_AI_KEY')
-    openai.api_base =  os.environ.get('OPEN_AI_ENDPOINT')
+    openai.api_key = os.environ.get('AZURE_OPEN_AI_KEY')
+    openai.api_base =  os.environ.get('AZURE_OPEN_AI_ENDPOINT')
     openai.api_type = 'azure'
     openai.api_version = '2022-12-01'
     
     # This will correspond to the custom name you chose for your deployment when you deployed a model.
     deployment_id='text-davinci-003' 
     
-    # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-    speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+    # This example requires environment variables named "AZURE_SPEECH_KEY" and "AZURE_SPEECH_REGION"
+    speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('AZURE_SPEECH_KEY'), region=os.environ.get('AZURE_SPEECH_REGION'))
     audio_output_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
     
@@ -80,8 +116,13 @@ Follow these steps to create a new console application.
     def ask_openai(prompt):
     
         # Ask Azure OpenAI
-        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
-        text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
+        messages = [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt},
+        ]
+        response = openai.ChatCompletion.create(engine=deployment_id, messages=messages)
+        text = response.choices[0].message.content
+
         print('Azure OpenAI response:' + text)
         
         # Azure text to speech output
@@ -138,7 +179,8 @@ python openai-speech.py
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `AZURE_OPEN_AI_KEY`, `AZURE_OPEN_AI_ENDPOINT`, `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+***
 
 Speak into your microphone when prompted. The console output includes the prompt for you to begin speaking, then your request as text, and then the response from Azure OpenAI as text. The response from Azure OpenAI should be converted from text to speech and then output to the default speaker.
 
