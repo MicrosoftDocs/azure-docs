@@ -2,7 +2,7 @@
 title: Tutorial - Configure SAP HANA database instance snapshot backup 
 description: In this tutorial, learn how to configure SAP HANA database instance snapshot backup and run an on-demand backup.
 ms.topic: tutorial
-ms.date: 06/20/2023
+ms.date: 11/02/2023
 ms.custom: devx-track-azurecli
 ms.service: backup
 author: AbhishekMallick-MS

@@ -3,7 +3,7 @@ title: Quickstart - Restore the entire SAP HANA system to a snapshot restore poi
 description: In this quickstart, learn how to restore the entire SAP HANA system to a snapshot restore point.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/20/2023
+ms.date: 11/02/2023
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.service: backup
 author: AbhishekMallick-MS
