@@ -21,7 +21,7 @@ This is an instruction of setting up an isloated network environment for testing
 
 You would also need to [setup a DNS server](#setup-the-dns-server) in each isolated layer (level 3 and lower).
 
-## Setup Isolated Network with physical segmentation 
+## Configure isolated network with physical segmentation 
 This is an example for setting up a simple isolated network with minimum real devices. In the diagram below:  
 1. The wireless access point is used for setting up a local network and does not provide internet access.
 2. Level 4 cluster - A single node cluster hosted on a dual NIC (Network Interface Card) physical machine, connects to internet and the local network.

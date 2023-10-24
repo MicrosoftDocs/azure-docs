@@ -1,30 +1,38 @@
 ---
-title: Configure AKS EE clusters in Azure IoT Layered Network Management
+title: Configure AKS Edge Essentials clusters in Azure IoT Layered Network Management
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure AKS EE clusters using Azure Arc in the ISA-95 network environment.
+description: Configure AKS Edge Essentials clusters using Azure Arc in the ISA-95 network environment.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/24/2023
 
-#CustomerIntent: As an operator, I want to Azure Arc enable AKS EE clusters using Layered Network Management so that I have secure isolate devices.
+#CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
-# Configure AKS EE clusters in Azure IoT Layered Network Management
+
+# Configure AKS Edge Essentials in Azure IoT Layered Network Management
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This page describes the end-to-end process to Arc-enable AKS EE clusters in the ISA-95 network environment as illustrated below. The **Layered Network Management** service is deployed to the level 4 cluster which can directly access the internet. With a dual NIC (Network Interface Card) host, the level 4 cluster is also visible to the local network (level 3). With the custom DNS resolving of the DNS sever in the local network, the level 3 AKS EE will connect to the Layered Network Management service as a proxy for all the Azure/Arc related traffic.
+You can Arc-enable AKS Edge Essentials clusters in a *ISA-95 network environment* using the **Layered Network Management** service. In this article, you deploy an example level 4 cluster that can:
+- Directly access the internet
+- A dual network interface card (NIC) host that allows the level 4 cluster be visible to the level 3 local network. 
+- A custom DNS that resolves the DNS server in the local network
+- The level 3 Azure KS EE connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
 
-![Diagram](Arc_enabled_AKSEE_2.png)
+![Diagram showing a level 4 and level 3 AKS Edge Essentials network](./media/howto-configure-aks-ee-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
 
-## Setup Network Environment
-Follow the instruction in [Setup Isolated Network with physical segmentation](/docs/e4in/setup-isolated-network/#setup-isolated-network-with-physical-segmentation) to setup your Wi-Fi Access Point, local network and DNS server.
-- When setting up the DNS server, you need to point the Arc related domains to **local network IP of the level 4 machine**. For example:
-    ```
-    address=/.login.microsoft.com/<local network IP of the level 4 machine>
-    ```
+## Configure network environment
 
-## Setup Level 4 AKS EE and Layered Network Management
+Complete the steps in [Configure isolated network with physical segmentation](./howto-configure-layered-network.md#configure-isolated-network-with-physical-segmentation) to configure your Wi-Fi access point, local network, and DNS server.
+
+When configuring the DNS server, you need to point the Arc related domains to **local network IP of the level 4 machine**. For example:
+
+```
+address=/.login.microsoft.com/<local network IP of the level 4 machine>
+```
+
+## Configure level 4 AKS Edge Essentials and Layered Network Management
 
 Follow the instruction in [Setup Level 4 Cluster and Deploy Layered Network Management Service](/docs/e4in/setup-l4-cluster/).
 - Setup the level 4 AKS EE.
