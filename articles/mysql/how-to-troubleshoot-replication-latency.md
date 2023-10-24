@@ -109,7 +109,7 @@ The output contains numerous information. Normally, you need to focus on only th
 |Last_IO_Error| Displays the IO thread error message, if any.|
 |Last_SQL_Errno|Displays the SQL thread error code, if any. For more information about these codes, see the [MySQL server error message reference](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_SQL_Error|Displays the SQL thread error message, if any.|
-|Slave_SQL_Running_State| Indicates the current SQL thread status. In this state, `System lock` is normal. It's also normal to see a status of `Waiting for dependent transaction to commit`. This status indicates that the replica is waiting for the source server to update committed transactions.|
+|Slave_SQL_Running_State| Indicates the current SQL thread status. In this state, `System lock` is normal. It's also normal to see a status of `Waiting for dependent transaction to commit`. This status indicates that the replica is waiting for other SQL worker threads to update committed transactions.|
 
 If Slave_IO_Running is `Yes` and Slave_SQL_Running is `Yes`, then the replication is running fine. 
 
