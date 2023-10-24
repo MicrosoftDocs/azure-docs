@@ -32,26 +32,19 @@ The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular 
 public class ChatAttachment
 {
     public ChatAttachment(string id, AttachmentType attachmentType) { }
-    public AttachmentType AttachmentType { get { throw null; } }
-    public string Extension { get { throw null; } }
-    public string Id { get { throw null; } }
-    public string Name { get { throw null; } }
-    public System.Uri PreviewUrl { get { throw null; } }
-    public System.Uri Url { get { throw null; } }
+    public AttachmentType AttachmentType { get }
+    public string Extension { get }
+    public string Id { get }
+    public string Name { get }
+    public System.Uri PreviewUrl { get }
+    public System.Uri Url { get }
 }
 
 public struct AttachmentType : System.IEquatable<AttachmentType>
 {
-    public AttachmentType(string value) { throw null; }
-    public static Azure.Communication.Chat.AttachmentType File { get { throw null; } }
-    public static Azure.Communication.Chat.AttachmentType Image { get { throw null; } }
-    public bool Equals(Azure.Communication.Chat.AttachmentType other) { throw null; }
-    public override bool Equals(object obj) { throw null; }
-    public override int GetHashCode() { throw null; }
-    public static bool operator ==(Azure.Communication.Chat.AttachmentType left, Azure.Communication.Chat.AttachmentType right) { throw null; }
-    public static implicit operator Azure.Communication.Chat.AttachmentType (string value) { throw null; }
-    public static bool operator !=(Azure.Communication.Chat.AttachmentType left, Azure.Communication.Chat.AttachmentType right) { throw null; }
-    public override string ToString() { throw null; }
+    public AttachmentType(string value) { }
+    public static Azure.Communication.Chat.AttachmentType File { get }
+    public static Azure.Communication.Chat.AttachmentType Image { get }
 }
 ```
 
