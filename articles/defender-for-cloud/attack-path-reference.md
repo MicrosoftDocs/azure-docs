@@ -139,7 +139,7 @@ Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
 
 ### APIs
  
-Prerequisite: [Enable Defender for APIs](defender-for-apis.md).
+Prerequisite: [Enable Defender for APIs](defender-for-apis-deploy.md).
  
 | Attack path display name | Attack path description |
 |--|--|
