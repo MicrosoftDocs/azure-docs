@@ -1,6 +1,6 @@
 ---
 title: Basic troubleshooting for the Remote Desktop client for Windows - Azure Virtual Desktop
-description: Troubleshoot issues you may experience with the Remote Desktop client for Windows when connecting to Azure Virtual Desktop, Windows 365, and Dev Box.
+description: Troubleshoot issues you might experience with the Remote Desktop client for Windows when connecting to Azure Virtual Desktop, Windows 365, and Dev Box.
 ms.topic: troubleshooting
 zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
