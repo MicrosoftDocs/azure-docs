@@ -20,7 +20,7 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
+See the [Configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) section of [networking in Azure Container Apps](./networking.md) for more information.
 
 ## Prerequisites
 
