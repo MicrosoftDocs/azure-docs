@@ -81,6 +81,6 @@ Refer to the Azure CLI [reference documentation](/cli/azure/postgres/flexible-se
 > If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
 ## Next steps
-- Learn more about [networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md).
+- Learn more about [private networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking-private.md).
 - [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
-- Understand more about [Azure Database for PostgreSQL - Flexible Server virtual network](./concepts-networking.md#private-access-vnet-integration).
+

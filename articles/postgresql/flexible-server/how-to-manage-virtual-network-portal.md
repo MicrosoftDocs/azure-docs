@@ -60,5 +60,4 @@ To create a flexible server in a virtual network, you need:
 
 ## Next steps
 - [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
-- Learn more about [networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md)
-- Understand more about [Azure Database for PostgreSQL - Flexible Server virtual network](./concepts-networking.md#private-access-vnet-integration).
+- Learn more about [private networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking-private.md)
