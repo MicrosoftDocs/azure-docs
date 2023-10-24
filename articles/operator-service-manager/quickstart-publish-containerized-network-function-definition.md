@@ -16,7 +16,7 @@ ms.service: azure-operator-service-manager
 
 - An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
 
-- The Contributor role over this subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
+- The Contributor and AcrPush roles over this subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
 
 - Complete the [Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager](quickstart-containerized-network-function-prerequisites.md).
 
