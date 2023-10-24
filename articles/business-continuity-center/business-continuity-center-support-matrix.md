@@ -12,9 +12,9 @@ ms.author: v-abhmallick
 # Support matrix for Azure Business Continuity center (preview)
 
 
-This article describes the supportability metrices for using A
+This article describes the supportabie scenarios and limmitations for Azure Business Continuity center.
 
-You can use [Azure Backup](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for Azure Backup scenarios and deployments.
+You can use [Azure Business Continuity center](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for Azure Backup scenarios and deployments.
 
 Other support matrices are available:
 
