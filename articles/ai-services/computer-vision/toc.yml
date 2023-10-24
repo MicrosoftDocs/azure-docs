@@ -274,6 +274,8 @@ items:
   items:
   - name: Face overview
     href: overview-identity.md
+  - name: Quotas and limits
+    href: identity-quotas-limits.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: Face quickstart
