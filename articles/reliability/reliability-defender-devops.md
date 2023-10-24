@@ -19,7 +19,7 @@ This article describes reliability support in [Defender for DevOps](../defender-
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Defender for DevOps supports single-region disaster recovery. As such, a multi-region disaster recovery process simply implements [that single-region disaster recovery process outlined in this document](#single-region-disaster-recovery-process). Defender for DevOps uses a [Shared Responsibility model](/azure/security/fundamentals/shared-responsibility) in its approach to disaster recovery. 
+Defender for DevOps supports single-region disaster recovery. As such, a multi-region disaster recovery process simply implements [that single-region disaster recovery process outlined in this document](#single-region-disaster-recovery-process). 
 
 
 ### Supported regions
