@@ -17,17 +17,21 @@ ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 
 This article covers how to authenticate clients to perform data plane operations on online endpoints. Data plane operations use data to interact with online endpoints without changing the endpoints. For example, a data plane operation could consist of sending a scoring request to an online endpoint and getting a response.
 
+## Prerequisites
+
+- This example assumes that you have a model correctly deployed as a managed online endpoint.
+
 ## Prepare a user identity
 
-You can use the same identity you use for CRUD (control plane) operations when desired but this is not required. To create the identity under Microsoft Entra ID, refer to [Set up authentication](how-to-setup-authentication.md#microsoft-entra-id).
-
-You will need the identity ID later.
+You can use the same identity that you use for control plane operations (that is, create, read, update, and delete (CRUD) CRUD operations). However, using this same identity isn't required. To create a user identity under Microsoft Entra ID, see [Set up authentication](how-to-setup-authentication.md#microsoft-entra-id). You'll need the identity ID later.
 
 ## Assign permissions to the identity
 
+In this section, you assign permissions to the user identity that you'll use for accessing the endpoint. You begin by using a built-in role or by creating a custom role, and then you assign the role to your user identity.
+
 ### Use a built-in role
 
-`AzureML Data Scientist` built-in role includes below control plane RBAC actions:
+The `AzureML Data Scientist` built-in role includes the following _control plane_ RBAC actions:
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read`
@@ -35,114 +39,121 @@ You will need the identity ID later.
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action`
 
-The same role includes below data plane RBAC action as well:
+and includes the following _data plane_ RBAC action:
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
 
-If you decide to use this built-in role, there's no action needed at this step.
+If you use this built-in role, there's no action needed at this step.
 
 ### Create a custom role (optional)
 
-You can skip this step if you are using built-in roles or other custom roles pre-created.
+You can skip this step if you're using built-in roles or other pre-made custom roles.
 
-Create .json definitions of custom roles that define the scope and actions for the role. For example, the following role definitions allow the user to CRUD on online endpoints, and send scoring requests to online endpoint, respectively, under a specified workspace.
+1. Create JSON definitions of custom roles to define the scope and actions for the role. For example, the following role definition allows the user to CRUD on an online endpoint, under a specified workspace.
 
-`custom-role-for-control-plane.json`:
+    _custom-role-for-control-plane.json_:
+    
+    ```json
+    {
+        "Name": "Custom role for control plane operations - online endpoint",
+        "IsCustom": true,
+        "Description": "Can CRUD against online endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write",
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete",
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read",
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action",
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action"
+        ],
+        "NotActions": [
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>"
+        ]
+    }
+    ```
+    
+    The following role definition allows the user to send scoring requests to an online endpoint, under a specified workspace.
+    
+    _custom-role-for-scoring.json_:
+    
+    ```json
+    {
+        "Name": "Custom role for scoring - online endpoint",
+        "IsCustom": true,
+        "Description": "Can score against online endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*/action"
+        ],
+        "NotActions": [
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>"
+        ]
+    }
+    ```
 
-```json
-{
-    "Name": "Custom role for control plane operations - online endpoint",
-    "IsCustom": true,
-    "Description": "Can CRUD against online endpoints.",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write",
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete",
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read",
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action",
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action"
-    ],
-    "NotActions": [
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>"
-    ]
-}
-```
+1. Use the definitions to create custom roles:
 
-`custom-role-for-scoring.json`:
+    ```bash
+    az role definition create --role-definition custom-role-for-control-plane.json --subscription <subscriptionId>
+    
+    az role definition create --role-definition custom-role-for-scoring.json --subscription <subscriptionId>
+    ```
 
-```json
-{
-    "Name": "Custom role for scoring - online endpoint",
-    "IsCustom": true,
-    "Description": "Can score against online endpoints.",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*/action"
-    ],
-    "NotActions": [
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>"
-    ]
-}
-```
+    @seokjin please clarify note
+    
+    > [!NOTE]
+    > You need either owner or user access administrator role, or a custom role that allows `Microsoft.Authorization/roleDefinitions/write` permission to be able to create/delete/update custom roles and `Microsoft.Authorization/roleDefinitions/read` to view custom roles. See [Azure custom roles](https://learn.microsoft.com/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role) for more.
+    
+1. Check the role definition to verify it:
 
-Use the definition to create custom roles:
-
-```bash
-az role definition create --role-definition custom-role-for-control-plane.json --subscription <subscriptionId>
-
-az role definition create --role-definition custom-role-for-scoring.json --subscription <subscriptionId>
-```
-
-> [!NOTE]
-> You will need either Owner or User Access Administrator role, or a custom role that allows `Microsoft.Authorization/roleDefinitions/write` permission to be able to create/delete/update custom roles and `Microsoft.Authorization/roleDefinitions/read` to view custom roles. See [Azure custom roles](https://learn.microsoft.com/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role) for more.
-
-You can check current definition to verify it:
-
-```bash
-az role definition list --custom-role-only -o table
-
-az role definition list -n "Custom role for control plane operations - online endpoint"
-az role definition list -n "Custom role for scoring - online endpoint"
-
-export role_definition_id1=`(az role definition list -n "Custom role for control plane operations - online endpoint" --query "[0].id" | tr -d '"')`
-
-export role_definition_id2=`(az role definition list -n "Custom role for scoring - online endpoint" --query "[0].id" | tr -d '"')`
-```
+    ```bash
+    az role definition list --custom-role-only -o table
+    
+    az role definition list -n "Custom role for control plane operations - online endpoint"
+    az role definition list -n "Custom role for scoring - online endpoint"
+    
+    export role_definition_id1=`(az role definition list -n "Custom role for control plane operations - online endpoint" --query "[0].id" | tr -d '"')`
+    
+    export role_definition_id2=`(az role definition list -n "Custom role for scoring - online endpoint" --query "[0].id" | tr -d '"')`
+    ```
 
 ### Assign the role to the identity
 
-If you are using `AzureML Data Scientist` built-in role,
+1. If you're using the `AzureML Data Scientist` built-in role, use the following code to assign the role to your user identity.
 
-```bash
-az role assignment create --assignee <identityId> --role "AzureML Data Scientist" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
-```
+    ```bash
+    az role assignment create --assignee <identityId> --role "AzureML Data Scientist" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```
 
-If you are using your own custom role,
+1. If you're using a custom role, use the following code to assign the role to your user identity.
 
-```bash
-az role assignment create --assignee <identityId> --role "Custom role for control plane operations - online endpoint" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```bash
+    az role assignment create --assignee <identityId> --role "Custom role for control plane operations - online endpoint" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    
+    az role assignment create --assignee <identityId> --role "Custom role for scoring - online endpoint" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```
 
-az role assignment create --assignee <identityId> --role "Custom role for scoring - online endpoint" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
-```
+@seokjin please clarify note
 
 > [!NOTE]
 > You will need either Owner or User Access Administrator role, or a custom role that allows `Microsoft.Authorization/roleAssignments/write` permission to be able to assign custom roles and `Microsoft.Authorization/roleAssignments/read` to view role assignments. See [Azure roles](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) and [Assigning Azure roles using Azure Portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more.
 
-Confirm the assignment:
+1. Confirm the role assignment:
 
-```bash
-az role assignment list --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
-```
-
+    ```bash
+    az role assignment list --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```
 
 ## Get Microsoft Entra token for control plane operations
 
-This step is needed only when you will perform control plane operations with REST API, which will use the token. If you plan to use other development channels such as CLI/SDK/Studio, you don't need to manually get this token because the identity would be already authenticated while you log in and token will be automatically retrieved and passed for you.
+You need this step only if you plan to perform control plane operations with REST API, which will use the token. If you plan to use Azure Machine Learning CLI (v2) or Python SDK (v2) or studio, you don't need to manually get the Microsoft Entra token because your user identity would already be authenticated during sign in, and the token would automatically be retrieved and passed for you.
 
-Microsoft Entra token for control plane can be retrieved from Azure resource endpoint of `https://management.azure.com`.
+Microsoft Entra token for control plane operations can be retrieved from the Azure resource endpoint: `https://management.azure.com`.
 
+@seokjin is this line needed?
+To retrieve the token via REST API, see [Invoke the endpoint to score data with your model](how-to-deploy-with-rest.md#invoke-the-endpoint-to-score-data-with-your-model)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -153,13 +164,13 @@ export CONTROL_PLANE_TOKEN=`(az account get-access-token --resource https://mana
 
 # [REST](#tab/rest)
 
-To get the Microsoft Entra token (`aad_token`) for the control plane operation, get the token from Azure resource endpoint of `management.azure.com` from an environment with managed identity:
+To get the Microsoft Entra token (`aad_token`) for the control plane operation, get the token from the Azure resource endpoint `management.azure.com` from an environment with managed identity:
 
 ```bash
 export CONTROL_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)`
 ```
 
-Refer to [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) for more.
+For more information on getting tokens, see [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
 
 # [Python](#tab/python)
 
@@ -181,7 +192,7 @@ Refer to [Get a token using the Azure identity client library](/active-directory
 
 # [Studio](#tab/studio)
 
-Studio doesn't expose the Entra token.
+The studio doesn't expose the Entra token.
 
 ---
 
@@ -191,7 +202,7 @@ Studio doesn't expose the Entra token.
 
 Create an endpoint definition YAML file.
 
-`endpoint.yml`:
+_endpoint.yml_:
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
@@ -199,29 +210,28 @@ name: my-endpoint
 auth_mode: aad_token
 ```
 
-Replace `auth_mode` to `key` for key auth, or `aml_token` for Azure Machine Learning token auth.
+Replace `auth_mode` with `key` for key auth, or `aml_token` for Azure Machine Learning token auth.
 
-CLI command:
 
 ```CLI
 az ml online-endpoint create -f endpoint.yml
 ```
 
-Note that CLI doesn't require you to explicitly provide the control plane token.
+CLI doesn't require you to explicitly provide the control plane token.
 
-Check current status:
+Check the endpoint's status:
 
 ```CLI
 az ml online-endpoint show -n my-endpoint
 ```
 
-If you want to override auth_mode (for example, to `aad_token`), you can:
+If you want to override `auth_mode` (for example, to `aad_token`), run the following code:
 
 ```CLI
 az ml online-endpoint create -n my-endpoint --auth_mode aad_token
 ```
 
-If you want to update existing endpoint and specify auth_mode (for example, to `aad_token`), you can:
+If you want to update the existing endpoint and specify `auth_mode` (for example, to `aad_token`), run the following code:
 
 ```CLI
 az ml online-endpoint update -n my-endpoint --set auth_mode=aad_token
@@ -229,9 +239,9 @@ az ml online-endpoint update -n my-endpoint --set auth_mode=aad_token
 
 # [REST](#tab/rest)
 
-You will use the control plane token you retrieved earlier.
+You'll use the control plane token you retrieved earlier.
 
-Create or Update an endpoint:
+Create or update an endpoint:
 
 ```bash
 export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
@@ -257,11 +267,12 @@ response=$(curl --location --request PUT "https://management.azure.com/subscript
 echo $response
 ```
 
-Replace `authMode` to `key` for key auth, or `AMLToken` for Azure Machine Learning token auth.
+@seokjin `aml_token` or `AMLToken`?
+Replace `authMode` with `key` for key auth, or `AMLToken` for Azure Machine Learning token auth.
 
-Note that REST API call will require you to explicitly provide the control plane token.
+The REST API call requires you to explicitly provide the control plane token.
 
-Get current status:
+Get the current status of the online endpoint:
 
 ```bash
 response=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/onlineEndpoints/$ENDPOINT_NAME?api-version=$API_VERSION" \
@@ -302,25 +313,25 @@ endpoint = ManagedOnlineEndpoint(
 ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-Replace `auth_mode` to `key` for key auth, or `aml_token` for Azure Machine Learning token auth.
+Replace `auth_mode` with `key` for key auth, or `aml_token` for Azure Machine Learning token auth.
 
-Note that SDK doesn't require you to explicitly provide the control plane token.
+Python SDK doesn't require you to explicitly provide the control plane token.
 
 # [Studio](#tab/studio)
 
-Creating endpoint with Entra token in Studio is not supported at this moment.
+The studio doesn't support creating an online endpoint with the Microsoft Entra token.
 
 ---
 
 ## Create a deployment
 
-You can refer to [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md) or [Use REST to deploy an model as an online endpoint](how-to-deploy-with-rest.md) to create a deployment. There's no difference in creating deployments for different auth modes.
+You can refer to [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md) or [Use REST to deploy an model as an online endpoint](how-to-deploy-with-rest.md) to create a deployment. There's no difference in how you create deployments for different auth modes.
 
 # [Azure CLI](#tab/azure-cli)
 
 Create a deployment definition YAML file.
 
-`blue-deployment.yml`:
+_blue-deployment.yml_:
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
@@ -338,25 +349,25 @@ instance_type: Standard_DS3_v2
 instance_count: 1
 ```
 
-Create the deployment using the YAML file. For this sample, we'll set all traffic to the new deployment.
+Create the deployment using the YAML file. For this sample, set all traffic to the new deployment.
 
 ```CLI
 az ml online-deployment create -f blue-deployment.yml --all-traffic
 ```
 
-Refer to [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-cli#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-cli#deploy-to-azure)
 
 # [REST](#tab/rest)
 
-Refer to [Use REST to deploy an model as an online endpoint](how-to-deploy-with-rest.md).
+For more information on deploying online endpoints using REST, see [Use REST to deploy an model as an online endpoint](how-to-deploy-with-rest.md).
 
 # [Python](#tab/python)
 
-Refer to [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=python#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=python#deploy-to-azure)
 
 # [Studio](#tab/studio)
 
-Refer to [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-studio#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-studio#deploy-to-azure)
 
 ---
 
