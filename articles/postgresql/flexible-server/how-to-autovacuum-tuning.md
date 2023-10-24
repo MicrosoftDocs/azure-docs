@@ -11,7 +11,7 @@ ms.date: 08/03/2022
 
 # Autovacuum Tuning in Azure Database for PostgreSQL - Flexible Server
 
-This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL - Flexible Server](overview.md) and the feature troubleshooting guides that is available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation. 
+This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL - Flexible Server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation. 
 
 ## What is autovacuum 
 
@@ -19,7 +19,7 @@ Internal data consistency in PostgreSQL is based on the Multi-Version Concurrenc
 
 PostgreSQL databases need appropriate maintenance. For example, when a row is deleted, it isn't removed physically. Instead, the row is marked as “dead”. Similarly for updates, the row is marked as "dead" and a new version of the row is inserted. These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.   
 
-PostgreSQL uses a process called autovacuum to automatically clean up dead tuples. 
+PostgreSQL uses a process called autovacuum to automatically clean-up dead tuples. 
 
 
 ## Autovacuum internals
@@ -68,7 +68,7 @@ The following columns help determine if autovacuum is catching up to table activ
 
 ## When does PostgreSQL trigger autovacuum 
 
-An autovacuum action (either *ANALYZE* or *VACUUM*) triggers when the number of dead tuples exceeds a particular number that is dependent on two factors: the total count of rows in a table, plus a fixed threshold. *ANALYZE*, by default, triggers when 10% of the table plus 50 rows changes, while *VACUUM* triggers when 20% of the table plus 50 rows changes.  Since the *VACUUM* threshold is twice as high as the *ANALYZE* threshold, *ANALYZE* gets triggered much earlier than *VACUUM*. 
+An autovacuum action (either *ANALYZE* or *VACUUM*) triggers when the number of dead tuples exceeds a particular number that is dependent on two factors: the total count of rows in a table, plus a fixed threshold. *ANALYZE*, by default, triggers when 10% of the table plus 50 rows changes, while *VACUUM* triggers when 20% of the table plus 50 rows changes.  Since the *VACUUM* threshold is twice as high as the *ANALYZE* threshold, *ANALYZE* gets triggered earlier than *VACUUM*. 
 
 The exact equations for each action are: 
 
@@ -188,7 +188,7 @@ If autovacuum is too disruptive, consider the following:
 
 #### Too many autovacuum workers  
 
-Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Having a high number of autovacuum workers isn't recommended. 
+Increasing the number of autovacuum workers won't necessarily increase the speed of vacuum. Having a high number of autovacuum workers isn't recommended. 
 
 Increasing the number of autovacuum workers will result in more memory consumption, and depending on the value of `maintenance_work_mem` , could cause performance degradation. 
 
@@ -211,7 +211,7 @@ Stop the postmaster and vacuum that database in single-user mode.
 > This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you cannot run any data manipulation language (DML), you can still run VACUUM.
 
 
-The wraparound problem occurs when the database is either not vacuumed or there are too many dead tuples that could not be removed by autovacuum. The reasons for this might be: 
+The wraparound problem occurs when the database is either not vacuumed or there are too many dead tuples that couldn't be removed by autovacuum. The reasons for this might be: 
  
 #### Heavy workload 
 
@@ -220,7 +220,7 @@ The workload could cause too many dead tuples in a brief period that makes it di
 
 #### Long-running transactions 
 
-Any long-running transactions in the system will not allow dead tuples to be removed while autovacuum is running. They're a blocker to the vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs.    
+Any long-running transactions in the system won't allow dead tuples to be removed while autovacuum is running. They're a blocker to the vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs.    
 
 Long-running transactions can be detected using the following query: 
 
@@ -238,8 +238,8 @@ Long-running transactions can be detected using the following query:
 
 #### Prepared statements 
 
-If there are prepared statements that are not committed, they would prevent dead tuples from being removed.   
-The following query helps find non-committed prepared statements:
+If there are prepared statements that aren't committed, they would prevent dead tuples from being removed.   
+The following query helps find noncommitted prepared statements:
 
 ```postgresql
     SELECT gid, prepared, owner, database, transaction 
@@ -261,12 +261,12 @@ Unused replication slots prevent autovacuum from claiming dead tuples. The follo
 
 Use `pg_drop_replication_slot()` to delete unused replication slots. 
 
-When the database runs into transaction ID wraparound protection, check for any blockers as mentioned previously, and remove those manually for autovacuum to continue and complete.  You can also increase the speed of autovacuum by setting `autovacuum_cost_delay` to 0 and increasing the `autovacuum_cost_limit` to a value much greater than 200. However, changes to these parameters will not be applied to existing autovacuum workers. Either restart the database or kill existing workers manually to apply parameter changes. 
+When the database runs into transaction ID wraparound protection, check for any blockers as mentioned previously, and remove those manually for autovacuum to continue and complete.  You can also increase the speed of autovacuum by setting `autovacuum_cost_delay` to 0 and increasing the `autovacuum_cost_limit` to a value greater than 200. However, changes to these parameters won't be applied to existing autovacuum workers. Either restart the database or kill existing workers manually to apply parameter changes. 
 
 
 ### Table-specific requirements  
 
-Autovacuum parameters may be set for individual tables. It's especially important for small and big tables. For example, for a small table that contains only 100 rows, autovacuum triggers VACUUM operation when 70 rows change (as calculated previously). If this table is frequently updated, you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes aren't as big. Alternatively, a table containing a billion rows needs to change 200 million rows to trigger autovacuum operations.  Setting autovacuum parameters appropriately prevents such scenarios.
+Autovacuum parameters may be set for individual tables. It's especially important for small and big tables. For example, for a small table that contains only 100 rows, autovacuum triggers VACUUM operation when 70 rows change (as calculated previously). If this table is frequently updated, you might see hundreds of autovacuum operations a day. This prevents autovacuum from maintaining other tables on which the percentage of changes aren't as big. Alternatively, a table containing a billion rows needs to change 200 million rows to trigger autovacuum operations.  Setting autovacuum parameters appropriately prevents such scenarios.
 
 To set autovacuum setting per table, change the server parameters as the following examples: 
 
@@ -281,11 +281,11 @@ To set autovacuum setting per table, change the server parameters as the follo
 
 ### Insert-only workloads  
 
-In versions of PostgreSQL prior to 13, autovacuum will not run on tables with an insert-only workload, because if there are no updates or deletes, there are no dead tuples and no free space that needs to be reclaimed. However, autoanalyze will run for insert-only workloads since there is new data. The disadvantages of this are: 
+In versions of PostgreSQL prior to 13, autovacuum won't run on tables with an insert-only workload, because if there are no updates or deletes, there are no dead tuples and no free space that needs to be reclaimed. However, autoanalyze will run for insert-only workloads since there's new data. The disadvantages of this are: 
 
 - The visibility map of the tables isn't updated, and thus query performance, especially where there are Index Only Scans, starts to suffer over time.
 - The database can run into transaction ID wraparound protection.
-- Hint bits will not be set.
+- Hint bits won't be set.
 
 #### Solutions  
 
@@ -303,7 +303,7 @@ Autovacuum will run on tables with an insert-only workload. Two new server p
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to setup the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Next steps
 
