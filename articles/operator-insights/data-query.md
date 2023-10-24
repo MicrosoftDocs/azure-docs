@@ -29,7 +29,7 @@ Access to the data is controlled by role-based access control (RBAC).
 1. Open the [Azure Data Explorer web UI](https://dataexplorer.azure.com/) and select **Add** > **Connection**.
 1. Paste your Consumption URL in the connection box and select **Add**.
 
-For more information, see [Add a cluster connection in the Azure Data Explorer web UI](https://learn.microsoft.com/azure/data-explorer/add-cluster-connection).
+For more information, see [Add a cluster connection in the Azure Data Explorer web UI](/azure/data-explorer/add-cluster-connection).
 
 ## Perform a query
 
@@ -52,12 +52,12 @@ $TableName
 | take 1
 ```
 
-With access to the data, you can run queries to gain insights or you can visualize and analyze your data. These queries are written in [Kusto Query Language (KQL)](https://learn.microsoft.com/azure/data-explorer/kusto/query/).
+With access to the data, you can run queries to gain insights or you can visualize and analyze your data. These queries are written in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/).
 
-Aggregated data in the Data Product is stored in [materialized views](https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview). These views can be queried like tables, or by using the [materialized_view() function](https://learn.microsoft.com/azure/data-explorer/kusto/query/materialized-view-function). Queries against materialized views are highly performant when using the `materialized_view()` function.
+Aggregated data in the Data Product is stored in [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview). These views can be queried like tables, or by using the [materialized_view() function](/azure/data-explorer/kusto/query/materialized-view-function). Queries against materialized views are highly performant when using the `materialized_view()` function.
 
 ## Related content
 
-- For information on using the query editor, see [Writing Queries for Data Explorer](https://learn.microsoft.com/azure/data-explorer/web-ui-kql)
-- For information on KQL, see [Kusto Query Language Reference](https://learn.microsoft.com/azure/data-explorer/kusto/query/)
+- For information on using the query editor, see [Writing Queries for Data Explorer](/azure/data-explorer/web-ui-kql)
+- For information on KQL, see [Kusto Query Language Reference](/azure/data-explorer/kusto/query/)
 - For information on accessing the dashboards in your Data Product, see [Use Data Product dashboards](dashboards-use.md)

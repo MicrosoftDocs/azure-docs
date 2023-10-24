@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: how-to
-ms.date: 10/22/2023
+ms.date: 10/23/2023
 
 #CustomerIntent: As a Data Product user, I want to access dashboards so that I can view my data.
 ---
@@ -53,5 +53,5 @@ Users with Edit permissions on dashboards can make changes.
 
 ## Related content
 
-- For more information on dashboards and how to create your own, see [Visualize data with Azure Data Explorer dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
+- For more information on dashboards and how to create your own, see [Visualize data with Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards)
 - For general information on data querying in the Data Product, see [Query data in the Data Product](data-query.md)

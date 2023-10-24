@@ -18,7 +18,7 @@ The Azure Operator Insights Data Product is an Azure service that handles proces
 
 Enriched and processed data is stored in the Data Product and is made available for querying with the Consumption URL, which you can connect to in the [Azure Data Explorer web UI](https://dataexplorer.azure.com/). Permissions are governed by role-based access control.
 
-The Data Product exposes a database, which contains a set of tables and materialized views. You can query this data in the Data Explorer GUI using [Kusto Query Language](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/).
+The Data Product exposes a database, which contains a set of tables and materialized views. You can query this data in the Data Explorer GUI using [Kusto Query Language](/azure/data-explorer/kusto/query/).
 
 ## Enrichment and aggregation
 
@@ -34,7 +34,7 @@ Dashboards are deployed with the Data Product. These dashboards include a set of
 
 For information on accessing and using the built-in dashboards, see [Use Data Product dashboards](dashboards-use.md).
 
-You can also create your own visualizations, either by using the KQL [render](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer) operator in the [Azure Data Explorer web UI](https://dataexplorer.azure.com/) or by creating dashboards following the guidance in [Visualize data with Azure Data Explorer dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards).
+You can also create your own visualizations, either by using the KQL [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer) operator in the [Azure Data Explorer web UI](https://dataexplorer.azure.com/) or by creating dashboards following the guidance in [Visualize data with Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards).
 
 ## Querying
 
