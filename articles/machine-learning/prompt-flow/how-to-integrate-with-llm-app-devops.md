@@ -52,7 +52,7 @@ Overview of the flow folder structure and the key files it contains:
 - **Source code files (.py, .jinja2)**: The flow folder also includes user-managed source code files, which are referred to by the tools/nodes in the flow.
     - Files in Python (.py) format can be referenced by the python tool for defining custom python logic.
     - Files in Jinja2 (.jinja2) format can be referenced by the prompt tool or LLM tool for defining prompt context.
-- **Non-source files**: The flow folder may also contain non-source files such as utility files and data files that can be included in the source files.
+- **Non-source files**: The flow folder can also contain non-source files such as utility files and data files that can be included in the source files.
 
 Once the flow is created, you can navigate to the Flow Authoring Page to view and operate the flow files in the right file explorer. This allows you to view, edit, and manage your files. Any modifications made to the files will be directly reflected in the file share storage.
 
@@ -311,7 +311,7 @@ pf.get_metrics("evaluation_run_name")
 
 ### Local development and testing
 
-During iterative development, as you refine and fine-tune your flow or prompts, you may find it beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
+During iterative development, as you refine and fine-tune your flow or prompts, you might find it beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
 
 #### Prompt flow VS Code extension
 
@@ -408,7 +408,7 @@ For more information on how to deploy your flow, see [Deploy flows to Azure Mach
 
 ## Collaborating on flow development in production
 
-In the context of developing a LLM-based application with Prompt flow, collaboration amongst team members is often essential. Team members may be engaged in the same flow authoring and testing, working on diverse facets of the flow or making iterative changes and enhancements concurrently.
+In the context of developing a LLM-based application with Prompt flow, collaboration amongst team members is often essential. Team members might be engaged in the same flow authoring and testing, working on diverse facets of the flow or making iterative changes and enhancements concurrently.
 
 Such collaboration necessitates an efficient and streamlined approach to sharing code, tracking modifications, managing versions, and integrating these changes into the final project.
 
@@ -437,7 +437,7 @@ The introduction of the Prompt flow **SDK/CLI** and the **Visual Studio Code Ext
     - Following the analysis of experiments, team members can return to the code repository for additional development and fine-tuning. Subsequent runs can then be submitted to the cloud in an iterative manner. 
         - This iterative approach ensures consistent enhancement until the team is satisfied with the quality ready for production.
     - Once the team is fully confident in the quality of the flow, it can be seamlessly deployed via a UI wizard as an online endpoint in Azure Machine Learning. Once the team is entirely confident in the flow's quality, it can be seamlessly transitioned into production via a UI deploy wizard as an online endpoint in a robust cloud environment.
-        - This deployment on an online endpoint can based on a run snapshot, allowing for stable and secure serving, further resource allocation and usage tracking, and log monitoring in the cloud.
+        - This deployment on an online endpoint can be based on a run snapshot, allowing for stable and secure serving, further resource allocation and usage tracking, and log monitoring in the cloud.
         :::image type="content" source="media/how-to-integrate-with-llm-app-devops/deploy-from-snapshot.png" alt-text="Screenshot of deploying flow from a run snapshot. " lightbox = "media/how-to-integrate-with-llm-app-devops/deploy-from-snapshot.png":::
         :::image type="content" source="media/how-to-integrate-with-llm-app-devops/deploy-wizard.png" alt-text="Screenshot of deploy wizard. " lightbox = "media/how-to-integrate-with-llm-app-devops/deploy-wizard.png":::
 
