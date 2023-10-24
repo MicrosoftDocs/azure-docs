@@ -17,7 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy/bicep/aks-store-application.png":::
+:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
 
 ## Before you begin
 
