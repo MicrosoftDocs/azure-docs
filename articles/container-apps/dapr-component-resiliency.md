@@ -98,7 +98,7 @@ To create resiliency policies for your container app from a resiliency YAML you'
 az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
 ```
 
-This command passes a YAML file similar to the following:
+This command passes a YAML file similar to the following example:
 
 ```yaml
 spec:

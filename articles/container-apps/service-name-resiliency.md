@@ -18,9 +18,11 @@ zone_pivot_groups: resiliency-options
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For container app resiliency, policies are configured as a sub-resource to a container app. When a container app request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). 
+For container app resiliency, policies are configured as a subresource to a container app. When a container app request fails, the policies associated with the container app being called (callee) determine the resiliency behavior. 
 
-For example, in the diagram below, the resiliency policies tailored to the specific requirement of the callee, App B, determine how retries, timeouts, and other resiliency policies are applied to both App A and App B. 
+As demonstrated in the diagram, resiliency policies:
+1. Are tailored to the specific requirement of the callee, App B
+1. Determine how retries, timeouts, and other resiliency policies are applied to communication between App A and App B. 
 
 :::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 
@@ -121,7 +123,7 @@ To create resiliency policies for your container app from a resiliency YAML you'
 ```azurecli
 az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
 ```
-This command passes a YAML file similar to the following:
+This command passes a YAML file similar to the following example:
 
 ```yaml
 timeoutPolicy:
@@ -238,7 +240,7 @@ properties: {
 | `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
 | `matches` | Y | Set match values to limit when the app should attempt a retry.  | `headers`, `httpStatusCodes`, `errors` |
 | `matches.headers` | Y* | Retry on any status code defined in retriable headers. *Headers are only required properties if you've specified the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
-| `matches.httpStatusCodes` | Y* | Retry on any status code defined in additional status codes. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
+| `matches.httpStatusCodes` | Y* | Retry on any status code defined. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
 | `matches.errors` | Y | Only retries when the app returns a specific error message. [Learn more about available errors.](#errors) | `connect-failure`, `reset` |
 
 ##### Header matches
@@ -291,7 +293,7 @@ matches: {
 | `5xx` | Retry if upstream server responds with any 5xx response codes. |
 | `reset` | Retry if the upstream server doesn't respond. |
 | `connect-failure` | Retry if request has failed due to a connection failure with the upstream server. |
-| `retriable-4xx` | Retry if upstream server responds with a retriable 4xx respons code, like `409`. |
+| `retriable-4xx` | Retry if upstream server responds with a retriable 4xx response code, like `409`. |
 
 #### tcpRetryPolicy
 

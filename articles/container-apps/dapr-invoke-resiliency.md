@@ -18,15 +18,17 @@ zone_pivot_groups: resiliency-options
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For container app resiliency, policies are configured as a sub-resource to a container app. When a container app request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). 
+For container app resiliency, policies are configured as a subresource to a container app. When a container app request fails, the policies associated with the container app being called (callee) determine the resiliency behavior. 
 
-For example, in the diagram below, the resiliency policies tailored to the specific requirement of the callee, App B, determine how retries, timeouts, and other resiliency policies are applied to both App A and App B. 
+As demonstrated in the diagram, resiliency policies:
+1. Are tailored to the specific requirement of the callee, App B
+1. Determine how retries, timeouts, and other resiliency policies are applied to communication between App A and App B. 
 
 :::image type="content" source="media/dapr-invoke-resiliency/dapr-invoke-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps using Dapr service invocation API.":::
 
 You can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-name-resiliency.md) or Dapr service invocation. 
 
-This guide focuses on configuring Dapr's resiliency policies when leveraging Dapr’s Service Invocation API for container app-to-container app communication. 
+This guide focuses on configuring Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
 
 ## Supported resiliency policies
 
@@ -90,7 +92,7 @@ To create resiliency policies for your container app from a resiliency YAML you'
 az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
 ```
 
-This command passes a YAML file similar to the following:
+This command passes a YAML file similar to the following example:
 
 ```yaml
 timeoutPolicy:
