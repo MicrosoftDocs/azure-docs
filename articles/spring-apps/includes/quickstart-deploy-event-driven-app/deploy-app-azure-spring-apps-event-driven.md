@@ -22,11 +22,23 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [deploy-event-driven-app-with-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
 
-      ```output 
-      [INFO] Deployment(default) is successfully created
-      [INFO] Starting Spring App after deploying artifacts...
-      [INFO] Deployment Status: Running
-      ```
+1. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw azure-spring-apps:deploy
+   ```
+
+   The following list describes the command interaction:
+
+    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+
+   ```output 
+   [INFO] Deployment(default) is successfully created
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   ```
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
