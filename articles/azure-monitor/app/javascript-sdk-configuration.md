@@ -65,6 +65,7 @@ For instructions on how to add SDK configuration, see [Add SDK configuration](./
 | enableUnhandledPromiseRejectionTracking<br><br>If true, unhandled promise rejections are autocollected as a JavaScript error. When disableExceptionTracking is true (don't track exceptions), the config value is ignored and unhandled promise rejections aren't reported. | boolean | false |
 | eventsLimitInMem<br><br>The number of events that can be kept in memory before the SDK starts to drop events when not using Session Storage (the default). | number | 10000 |
 | excludeRequestFromAutoTrackingPatterns<br><br>Provide a way to exclude specific route from automatic tracking for XMLHttpRequest or Fetch request. If defined, for an Ajax / fetch request that the request url matches with the regex patterns, auto tracking is turned off. Default is undefined. | string[] \| RegExp[] | undefined |
+| featureOptIn<br><br>Set Feature opt in details.<br><br>This configuration field is only available in version 3.0.3 and later. | IFeatureOptIn | undefined |
 | idLength<br><br>Identifies the default length used to generate new random session and user IDs. Defaults to 22, previous default value was 5 (v2.5.8 or less), if you need to keep the previous maximum length you should set the value to 5. | numeric | 22 |
 | ignoreHeaders<br><br>AJAX & Fetch request and response headers to be ignored in log data. To override or discard the default, add an array with all headers to be excluded or an empty array to the configuration. | string[] | ["Authorization", "X-API-Key", "WWW-Authenticate"] |
 | isBeaconApiDisabled<br><br>If false, the SDK sends all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) | boolean | true |
@@ -87,6 +88,7 @@ For instructions on how to add SDK configuration, see [Add SDK configuration](./
 | sessionCookiePostfix<br><br>An optional value that is used as name postfix for session cookie name. If undefined, namePrefix is used as name postfix for session cookie name. | string | undefined |
 | sessionExpirationMs<br><br>A session is logged if it has continued for this amount of time in milliseconds. Default is 24 hours | numeric | 86400000 |
 | sessionRenewalMs<br><br>A session is logged if the user is inactive for this amount of time in milliseconds. Default is 30 minutes | numeric | 1800000 |
+| throttleMgrCfg<br><br>Set throttle mgr configuration by key.<br><br>This configuration field is only available in version 3.0.3 and later. | `{[key: number]: IThrottleMgrConfig}` | undefined |
 | userCookiePostfix<br><br>An optional value that is used as name postfix for user cookie name. If undefined, no postfix is added on user cookie name. | string | undefined |
 
 ## Cookie management
@@ -301,6 +303,12 @@ This section only applies to you if you're using the deprecated functions and yo
 | DateTimeUtils.GetDuration | dateTimeUtilsDuration |
 | **ConnectionStringParser** | **@microsoft/applicationinsights-common-js** |
 | ConnectionStringParser.parse | parseConnectionString |
+
+## Service notifications
+
+Service notifications is a feature built into the SDK to provide actionable recommendations to help ensure your telemetry flows uninterrupted to Application Insights. You will see the notifications as an exception message within Application Insights. We ensure notifications are relevant to you based on your SDK settings, and we adjust the verbosity based on the urgency of the recommendation. We recommend leaving service notifications on, but you are able to opt out via the `featureOptIn` configuration. See below for a list of active notifications.
+
+Currently, no active notifications are being sent.
 
 ## Troubleshooting
 

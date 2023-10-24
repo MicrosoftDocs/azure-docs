@@ -3,9 +3,10 @@ title: Managing and monitoring your Azure Dev/Test subscriptions
 description: Manage your Azure Dev/Test subscriptions with the flexibility of Azure's cloud environment. This guide also covers Azure Monitor to help maximize availability and performance for applications and services.
 author: jenp
 ms.author: jenp
-ms.prod: visual-studio-windows
+ms.prod: visual-studio-family
+ms.technology: vs-subscriptions
 ms.topic: how-to 
-ms.date: 10/12/2021
+ms.date: 10/18/2023
 ms.custom: devtestoffer, devx-track-arm-template
 ---
 
@@ -31,23 +32,23 @@ Azure Monitor allows you to use dev/test benefits to optimize your apps’ time 
 
 Monitoring allows you to maximize your dev/test benefits with net new applications and existing applications.  
 
-- Pre-Production with Net New Green Field Applications – with new apps, you create and enable custom metrics with log analytics or smart alerts in pre-production that you'll use in production. Using monitoring early refines your performance data for your production services  
-- Post-Production with Existing Applications – when deploying new features or adding new functionality with an API to existing apps, you can deploy this feature in pre-production and tweak your monitoring to ensure correct data feeds early. Using tracking in the new feature's pre-production gives you clear visibility and allows you to blend this monitoring with your overall monitoring system after production. Integrates recent performance data with existing logs to ensure monitoring is used  
-- Monitoring different stages of non-production deployment mirrors monitoring during production. You manage your costs and analyze your spending before production and in post-production.  
+- Pre-Production with Net New Green Field Applications – with new apps, you create and enable custom metrics with log analytics or smart alerts in preproduction that you use in production. Using monitoring early refines your performance data for your production services  
+- Post-Production with Existing Applications – when deploying new features or adding new functionality with an API to existing apps, you can deploy this feature in preproduction and tweak your monitoring to ensure correct data feeds early. Using tracking in the new feature's preproduction gives you clear visibility and allows you to blend this monitoring with your overall monitoring system after production. Integrates recent performance data with existing logs to ensure monitoring is used  
+- Monitoring different stages of nonproduction deployment mirrors monitoring during production. You manage your costs and analyze your spending before production and in post-production.  
 
 ## Cost Management
 
-[Azure Cost Management](../../cost-management-billing/cost-management-billing-overview.md) allows you to improve the technical performance of your business workloads significantly. It can also reduce your costs and the overhead required to manage organizational assets.  
+[Microsoft Cost Management](../../cost-management-billing/cost-management-billing-overview.md) allows you to improve the technical performance of your business workloads significantly. It can also reduce your costs and the overhead required to manage organizational assets.  
 
-Using monitoring, you can use cost-analysis tools in pre-production before you deploy your services to run an analysis of your current pre-production compute to forecast production costs and potentially save money.  
+Using monitoring, you can use cost-analysis tools in preproduction before you deploy your services to run an analysis of your current preproduction compute to forecast production costs and potentially save money.  
 
 ## Performance Management
 
-Besides monitoring and cost management, you'll also want to performance test pre-production compute against expected workloads.  
+Besides monitoring and cost management, you also have to run performance tests in preproduction to validate against expected workloads.  
 
-In pre-production, you may set up scaling to expand based on load. When you test your application in a dev/test environment under load, you'll get better cost-analysis and monitoring figures. You'll have a better idea whether you need to start at a higher or lower scale.  
+In preproduction, you might set up scaling to expand based on load. When you test your application in a dev/test environment under load, you get better cost-analysis and monitoring figures. You have a better idea whether you need to start at a higher or lower scale.  
 
-Load and duress analysis provide another data in pre-production so you can continue to optimize your time to market and the delivery of your application.  
+Load and duress analysis provide another data in preproduction so you can continue to optimize your time to market and the delivery of your application.  
 
 As you perform load and duress testing with your application or service, the method for scaling up or out depends on your workloads. You can learn more about scaling your apps in Azure:  
 
@@ -58,16 +59,16 @@ Enable monitoring for your application with [Application Insights](../../azure-m
 
 ## Azure Automation
 
-[Azure automation](../../automation/automation-intro.md) delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This tool gives you control during deployment, operations, and decommission of workloads and resources. Azure Automation is always on. It works with existing resources. Azure Automation lets you create resources or subscriptions on demand. You only pay for what you use.  
+[Azure Automation](../../automation/automation-intro.md) delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This tool gives you control during deployment, operations, and decommission of workloads and resources. Azure Automation is always on. It works with existing resources. Azure Automation lets you create resources or subscriptions on demand. You only pay for what you use.  
 
 Example: If you're following a dev/test production deployment, some of the resources and stages need to be up and running all the time. Others only need to update and run a few times a year.  
 
-Azure Automation becomes important in this scenario. When you're going into a new round of app development and you submit your first pull request (PR), you can kick off an automation job. The job will deploy infrastructure as code through an Azure Resource Manager (ARM) template to create all your resources in your Azure dev/test subscription during pre-production.  
+Azure Automation becomes important in this scenario. When you're going into a new round of app development and you submit your first pull request (PR), you can kick off an automation job. The job deploys infrastructure as code through an Azure Resource Manager (ARM) template to create all your resources in your Azure dev/test subscription during preproduction.  
 
 ## Azure Resource Manager
 
 [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) implement infrastructure as code for your Azure solutions. The template defines the infrastructure and configuration for your project. You can automate your deployments.  
 
-You can deploy your configurations as many times as you want to update the pre-production environment and track your costs. Using Azure Automation you can run and delete your ARM templates as needed.  
+You can deploy your configurations as many times as you want to update the preproduction environment and track your costs. Using Azure Automation you can run and delete your ARM templates as needed.  
 
 When a service or resource only needs to be updated twice a year, use DevOps tools to deploy your ARM template. Let the automation job turn off your resource, and then redeploy it as needed.  

@@ -14,6 +14,8 @@ ms.author: mbullwin
 
 # Create and Anomaly Detector resource
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Anomaly Detector service is a cloud-based Azure AI service that uses machine-learning models to detect anomalies in your time series data. Here, you'll learn how to create an Anomaly Detector resource in the Azure portal.
 
 ## Create an Anomaly Detector resource in Azure portal

@@ -9,7 +9,7 @@ ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 
 # Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-As part of the application and cluster lifecycle, you may want to upgrade to the latest available version of Kubernetes. You can upgrade your Azure Kubernetes Service (AKS) cluster using the Azure CLI, Azure PowerShell, or the Azure portal.
+As part of the application and cluster lifecycle, you might want to upgrade to the latest available version of Kubernetes. You can upgrade your Azure Kubernetes Service (AKS) cluster using the Azure CLI, Azure PowerShell, or the Azure portal.
 
 In this tutorial, part seven of seven, you learn how to:
 
@@ -109,7 +109,7 @@ If no upgrades are available, create a new cluster with a supported version of K
 
 AKS nodes are carefully cordoned and drained to minimize any potential disruptions to running applications. During this process, AKS performs the following steps:
 
-* Adds a new buffer node (or as many nodes as configured in [max surge](./upgrade-cluster.md#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
+* Adds a new buffer node (or as many nodes as configured in [max surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
 * [Cordons and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
 * This process repeats until all nodes in the cluster have been upgraded.
@@ -197,7 +197,7 @@ It takes a few minutes to upgrade the cluster, depending on how many nodes you h
 ## View the upgrade events
 
 > [!NOTE]
-> When you upgrade your cluster, the following Kubernetes events may occur on the nodes:
+> When you upgrade your cluster, the following Kubernetes events might occur on the nodes:
 >
 > * **Surge**: Create a surge node.
 > * **Drain**: Evict pods from the node. Each pod has a *five minute timeout* to complete the eviction.
@@ -268,7 +268,7 @@ Confirm the upgrade was successful using the following steps:
 
 ## Delete the cluster
 
-As this tutorial is the last part of the series, you may want to delete your AKS cluster. The Kubernetes nodes run on Azure virtual machines and continue incurring charges even if you don't use the cluster.
+As this tutorial is the last part of the series, you might want to delete your AKS cluster. The Kubernetes nodes run on Azure virtual machines and continue incurring charges even if you don't use the cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -297,7 +297,7 @@ Delete your cluster using the following steps:
 ---
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory (Azure AD) service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
 
 ## Next steps
 

@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 
 # Create a Personalizer resource
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 A Personalizer resource is the same thing as a Personalizer learning loop. A single resource, or learning loop, is created for each subject domain or content area you have. Do not use multiple content areas in the same loop because this will confuse the learning loop and provide poor predictions.
 
 If you want Personalizer to select the best content for more than one content area of a web page, use a different learning loop for each.

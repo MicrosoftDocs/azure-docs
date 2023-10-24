@@ -60,7 +60,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Details**: When using a Microsoft Entra subscription, you can't create storage.
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
   ID subscriptions aren't able to create Azure resources.
 
@@ -263,7 +263,7 @@ again.
    Bash:
 
    ```bash
-   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" -o tsv --query accessToken)
    curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 

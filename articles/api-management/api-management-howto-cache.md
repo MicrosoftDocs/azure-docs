@@ -37,6 +37,9 @@ What you'll learn:
 
 > [!NOTE]
 > Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
+> 
+> For feature availability in the v2 tiers (preview), see the [v2 tiers overview](v2-service-tiers-overview.md).
+
 
 ## Prerequisites
 

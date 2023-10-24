@@ -15,8 +15,9 @@ title: Frequently asked questions about Jupyter Notebooks in Azure Cosmos DB (pr
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-  > [!IMPORTANT]
-  > The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+  > [!WARNING]
+  > The Jupyter Notebooks feature of Azure Cosmos DB will be retired March 30, 2024; you will not be able to use built-in Jupyter notebooks from the Azure Cosmos DB account. We recommend using [Visual Studio Code's support for Jupyter notebooks](nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client.
+
 
   Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azure portal and your Azure Cosmos DB accounts, making them convenient and easy to use. Developers, data scientists, engineers, and analysts can use the familiar Jupyter Notebooks experience to perform common tasks. These common tasks include:
 
@@ -35,7 +36,7 @@ sections:
       - question: |
           When will the notebook preview feature be available for me to use?
         answer: |
-          The feature is slowly being rolled out in flights across all of our customers. If you don't have the feature already, you should expect to see it sometime in the future.
+          The feature will be retired on March 30, 2024. Until then, only customers already enrolled in the preview will be able to access the feature. We recommend using [Visual Studio Code's support for Jupyter notebooks](nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client to use notebooks.
       - question: |
           Is the notebook feature available in all Azure regions and clouds?
         answer: |

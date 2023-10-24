@@ -253,7 +253,7 @@ items:
         href: how-to-custom-domain.md
       - name: Deploy Azure Spring Apps in a virtual network
         href: how-to-deploy-in-azure-virtual-network.md
-      - name: Access your application in a private network
+      - name: Access your app in a private network
         href: access-app-virtual-network.md
       - name: Expose applications to the internet with TLS Termination at gateway
         href: expose-apps-gateway-tls-termination.md
@@ -299,10 +299,10 @@ items:
         href: how-to-github-actions.md
       - name: Auth with Key Vault in GitHub Actions
         href: github-actions-key-vault.md
-    - name: Disaster recovery
+    - name: Reliability
       items:
-      - name: Redundancy and high availability
-        href: how-to-enable-redundancy-and-disaster-recovery.md
+      - name: Disaster recovery and availability zones
+        href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
       - name: Self-diagnose and solve problems
