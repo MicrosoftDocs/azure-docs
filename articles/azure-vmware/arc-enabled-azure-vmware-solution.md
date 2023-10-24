@@ -9,51 +9,51 @@ ms.custom: references_regions
 
 # Arc-enabled Azure VMware Solution (Preview)
 
-In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution (Preview) allows you to do the following:
+In this article, learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution (Preview) allows you to do the  actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
-- Permit developers and application teams to use VM operations on-demand with [Azure role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview).
+- Permit developers and application teams to use VM operations on-demand with [Role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview).
 - Install the Arc-connected machine agent to [govern,, protect, configure,, and monitor](https://learn.microsoft.com/azure/azure-arc/servers/overview#supported-cloud-operations) them.
 - Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
 
 
-## How Arc-enabled VMware vSphere differes from Arc-enabled servers 'Differences between Arc-enabled vSphere and Arc-enabled servers' <possibly new title?>
+## How Arc-enabled VMware vSphere differs from Arc-enabled servers 'Differences between Arc-enabled vSphere and Arc-enabled servers' <possibly new title?>
 
-You have the flexibility to start with either option, Arc-enabled servers or Arc-enabled VMware vSphere. With both options, you'll enjoy the same consistent experience. Regardless of the initial option chosen, you can incorporate the other one later without disruption. The following information will help you understand the difference between both options:
+You have the flexibility to start with either option, Arc-enabled servers or Arc-enabled VMware vSphere. With both options, you receive the same consistent experience. Regardless of the initial option chosen, you can incorporate the other one later without disruption. The following information helps you understand the difference between both options:
 
 **Arc-enabled servers**
-Azure Arc-enabled servers interact on the guest operating system level. They do this with no awareness of the underlying infrastructure or the virtualization platform they're running on. Since Arc-enabled servers support bare-metal machines, there may not even be a ost hypervisor in some cases.
+Azure Arc-enabled servers interact on the guest operating system level. They do that with no awareness of the underlying infrastructure or the virtualization platform they're running on. Since Arc-enabled servers support bare-metal machines, there might not be a host hypervisor in some cases.
 
 **Arc-enabled VMware vSphere**
-Arc-enabled VMware vSphere is a superset of Arc-enabled servers that extends management capabilities beyond the quest operating system to the VM itself which provides lifecycle management and CRUD (Create, Read, Update, Delete) operations on a VMware vSphere VM. These lifecycle management capabilities are exposed in the Azure portal with a look and feel just like a regular Azure VM. Azure Arc-enabled VMware vSphere provides guest operating system management that uses the same components as Azuer Arc-enabled servers.
+Arc-enabled VMware vSphere is a superset of Arc-enabled servers that extends management capabilities beyond the quest operating system to the VM itself that provides lifecycle management and CRUD (Create, Read, Update, Delete) operations on a VMware vSphere VM. These lifecycle management capabilities are exposed in the Azure portal with a look and feel just like a regular Azure VM. Azure Arc-enabled VMware vSphere provides guest operating system management that uses the same components as Azure Arc-enabled servers.
 
 ## Deploy Arc
 
-There should be an isolated NSX-T Data Center network segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center network segment soesn't exist, one will be created.
+There should be an isolated NSX-T Data Center network segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center network segment doesn't exist, one is created.
 
 ### Prerequisites
 
 > [!IMPORTANT]
 > You can't create the resources in a separate resource group. Ensure you use the same resource group from where the Azure VMware Solution private cloud was created to create your resources.
 
-You'll need the following items to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
+You need the following items to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
 
 - Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution (Preview) is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview#supported-regions).
 - A jump box virtual machine (VM) or a [management VM](https://learn.microsoft.com/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter.
-	- From the jump box VM, veriy you  have access to [vCenter Server and NSX-T manager portals](https://learn.microsoft.com/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
-- A resource group in the subsctiption where you have an owner or contributor role.
-- There should be an unused isolated [NSX Data Center newtork segment](https://learn.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment with static IP assignment of size /28 CIDR for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one will be created.
+	- From the jump box VM, verify you  have access to [vCenter Server and NSX-T manager portals](https://learn.microsoft.com/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
+- A resource group in the subscription where you have an owner or contributor role.
+- There should be an unused isolated [NSX Data Center network segment](https://learn.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment with static IP assignment of size /28 CIDR for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
 - Verify your Azure subscription is enabled and has connectivity to Azure end points.
-- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Ccontrol Plane IP to the required Arc resource bridge URLs. See the [Azur eArc resource bridge (Preview) network requirements](https://learn.microsoft.com/azure/azure-arc/resource-bridge/network-requirements).
+- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](https://learn.microsoft.com/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 6.7 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
-- On the vCenter Server, allow inbound connections on TCP port 443. This ensures that the Arc resounce bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
+- On the vCenter Server, allow inbound connections on TCP port 443. This action ensures that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
 	> [!IMPORTANT] 
 	> Only the default post of 443 is supported. If you use a different port, Appliance VM creation will fail.
 
-- Customers need to ensure kubeconfig, SSH keys and appliance config yaml files remain available as they'll be required at the time of upgrade, log collection, and credential uupdate scenarios.
+- Customers need to ensure kubeconfig, SSH keys and appliance config yaml files remain available as they're required at the time of upgrade, log collection, and credential update scenarios.
 
 > [!NOTE]
 > - Private endpoint is currently not supported.
@@ -74,7 +74,7 @@ az provider register --namespace Microsoft.AVS
 
 Alternately, users can sign into their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
 
-For feature registration, users will need to sign into their **Subscription**, navigate to the **Preview features** tab, and search for 'Azure Arc for Azure VMware Solution'. Once registered, no other permissions are required for users to access Arc.
+For feature registration, users need to sign into their **Subscription**, navigate to the **Preview features** tab, and search for 'Azure Arc for Azure VMware Solution'. Once registered, no other permissions are required for users to access Arc.
 
 Users need to ensure they've registered themselves to **Microsoft.AVS/earlyAccess**. After registering, use the following feature to verify registration.
 
@@ -109,12 +109,12 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     
     - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
     - `isStatic` is always true. 
-    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One will be created if it doesn't already exist.  
+    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One gets created if it doesn't already exist.  
     - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
-    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
+    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the K8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You may choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
 
     **Json example**
     ```json
@@ -149,7 +149,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     ```
 ---
 
-4. You'll notice more Azure Resources have been created in your resource group.
+4. You notice more Azure Resources have been created in your resource group.
     - Resource bridge
     - Custom location
     - VMware vCenter
@@ -157,11 +157,11 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 > [!IMPORTANT]
 > After the successful installation of Azure Arc resource bridge, it's recommended to retain a copy of the resource bridge config.yaml files and the kubeconfig file safe and secure them in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script.
 
-When the script has run successfully, check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following:
+When the script has run successfully, check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following actions:
 
 - In the left navigation, locate **Operations**.
 - Choose **Azure Arc (Preview)**. 
-- Azure Arc state will show as **Configured**.
+- Azure Arc state shows as **Configured**.
 
 Recover from failed deployments 
 
@@ -178,7 +178,7 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 
 ## Enable resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
 
-After you've connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section will show you how to enable resource pools, networks, and other non-VM resources in Azure.
+After you've connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section shows you how to enable resource pools, networks, and other non-VM resources in Azure.
 
 > [!NOTE]
 > Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. It doesn't make changes to your resource in vCenter.
@@ -187,9 +187,9 @@ After you've connected your Azure VMware Solution private cloud to Azure, you ca
 2. Select the resource(s) you want to enable, then select **Enable in Azure**.
 3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
 
-  This starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Azure role-based access control (RBAC) granularly. 
+  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control (RBAC) granularly. 
 
-4. Repeat those steps for one or more network, resource pool, and VM template resources.
+4. Repeat the previous steps for one or more network, resource pool, and VM template resources.
 
 ## Enable guest management and extension installation
 
@@ -222,11 +222,11 @@ After you've enabled VMs to be managed from Azure, you need to enable guest mana
 1. Find the Arc-enabled Azure VMware Solution VM that you want to install an extension on and select the VM name. 
 1. Locate **Extensions** from the left navigation and select **Add**.
 1. Select the extension you want to install. 
-    1. Based on the extension, you'll need to provide details. For example, `workspace Id` and `key` for LogAnalytics extension. 
+    1. Based on the extension, you need to provide details. For example, `workspace Id` and `key` for LogAnalytics extension. 
 1. When you're done, select **Review + create**. 
 
 When the extension installation steps are completed, they trigger deployment and install the selected extension on the VM. 
 
 ## Supported extensions and management services
 
-Perform VM operations on VMware VMs throuh Azure using [supported extensions and management services](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#supported-extensions-and-management-services)
+Perform VM operations on VMware VMs through Azure using [supported extensions and management services](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#supported-extensions-and-management-services)
