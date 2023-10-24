@@ -138,7 +138,7 @@ For more details on supported authentication methods, see [Configure Azure IoT M
 
 For deployment of OPC UA Broker SAT-based authentication should be added when `BrokerAuthentication` class is created manually. SAT-based authentication is enabled with the default deployment of MQ with `--set global.quickstart=true`.
 
-Regardless how TLS is enabled for MQ, OPC UA Broker requires the public part of a CA certificate for validation. For details on the automatic steps, see [Configure TLS with automatic certificate management to secure MQTT communication](../administer/howto-configure-tls-auto.md#distribute-the-root-certificate).  In this case, assume that the CA certificate output of that step is stored in a `tls.crt` file.
+Regardless how TLS is enabled for MQ, OPC UA Broker requires the public part of a CA certificate for validation. For details on the automatic steps, see [Configure TLS with automatic certificate management to secure MQTT communication](../administer/mq/howto-configure-tls-auto.md#distribute-the-root-certificate).  In this case, assume that the CA certificate output of that step is stored in a `tls.crt` file.
 
 To enable TLS-based communication for OPC UA Broker, create a ConfigMap containing the CA certificate.  For example, name the CA certificate `mqtt-ca-cert`:
 
