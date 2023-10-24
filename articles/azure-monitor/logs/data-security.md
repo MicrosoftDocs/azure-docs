@@ -156,7 +156,7 @@ With any agent reporting to an Operations Manager management group that is integ
 
 The Windows or management server agent cached data is protected by the operating system's credential store. If the service cannot process the data after two hours, the agents will queue the data. If the queue becomes full, the agent starts dropping data types, starting with performance data. The agent queue limit is a registry key so you can modify it, if necessary. Collected data is compressed and sent to the service, bypassing the Operations Manager management group databases, so it does not add any load to them. After the collected data is sent, it is removed from the cache.
 
-As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/) and [Does my agent traffic use my Azure ExpressRoute connection?](#does-my-agent-traffic-use-my-azure-expressroute-connection).
 
 ### 3. The Azure Monitor service receives and processes data
 The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hubs in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
@@ -182,6 +182,13 @@ Azure Monitor is an append-only data platform, but includes provisions to delete
 
 To fully tamper-proof your monitoring solution, we recommend you [export your data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does my agent traffic use my Azure ExpressRoute connection?
+
+Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic.
 
 ## Next steps
 * [See the different kinds of data that you can collect in Azure Monitor](../monitor-reference.md).

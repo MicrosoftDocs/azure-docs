@@ -113,6 +113,14 @@ When you migrate the following services, which currently use Log Analytics agent
 |	 [Update Management](../../automation/update-management/overview.md)	|	 Update Manager - Public preview (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Update Manager (Public preview with Azure Monitor Agent) documentation](../../update-center/index.yml)	|
 |	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension - Generally available (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
+
+Yes. If you're migrating to Azure Monitor Agent, you might consider installing Azure Monitor Agent together with a legacy agent for a transition period, but you must be mindful of certain considerations. Read more about agent coexistence considerations in the [Azure Monitor Agent migration guidance](./azure-monitor-agent-migration.md#migration-guidance).
+
 ## Next steps
 
 For more information, see:

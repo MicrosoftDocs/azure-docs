@@ -86,6 +86,14 @@ The details for the covered scenarios are below:
 ### Share Linux Logs
 To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh -A L.  You'll be asked for a file location to create the zip file.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I confirm that the Log Analytics agent can communicate with Azure Monitor?
+
+From Control Panel on the agent computer, select **Security & Settings** > **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent can communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+
 ## Next steps
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
 - [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
