@@ -52,7 +52,7 @@
           href: how-to-connect-studio-3t.md
     - name: Migrate data
       items:
-        - name: Pre-migration assessment
+        - name: Premigration assessment
           href: how-to-assess-migration-readiness.md
         - name: Native tools
           href: how-to-migrate-native-tools.md
