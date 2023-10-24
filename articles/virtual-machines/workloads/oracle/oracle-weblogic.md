@@ -46,7 +46,7 @@ The solutions enable a wide range of production-ready deployment architectures w
 
 :::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
-After resources are automatically provisioned by the solutions, you have complete flexibility to customize your deployments further. It is likely on top of deploying applications you'll integrate further Azure resources with your deployments. You are encouraged to [connect with the development team](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) and provide feedback on further improving the solutions.
+After resources are automatically provisioned by the solutions, you have complete flexibility to customize your deployments further. It's likely on top of deploying applications you'll integrate further Azure resources with your deployments. You're encouraged to [connect with the development team](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) and provide feedback on further improving the solutions.
 
 ## Next steps
 
