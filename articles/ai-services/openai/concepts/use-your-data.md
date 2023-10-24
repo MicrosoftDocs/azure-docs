@@ -65,7 +65,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 > [!TIP]
 > For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
-There are three different sources of data that you can use with Azure OpenAI on your data. 
+There are two different sources of data that you can use with Azure OpenAI on your data. 
 * Blobs in an Azure storage container that you provide
 * Local files uploaded using the Azure OpenAI Studio
 
