@@ -99,7 +99,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
   -OrchestrationMode "Flexible" `
-  -VMSize "Standard_F1"
+  -VMSize "Standard_F1" `
   -Location "EastUS" `
   -Credential $cred
 ```
