@@ -406,28 +406,47 @@ The last step to go to production is to deploy your flow as an online endpoint i
 
 For more information on how to deploy your flow, see [Deploy flows to Azure Machine Learning managed online endpoint for real-time inference with CLI and SDK](how-to-deploy-to-code.md).
 
-## Collaborating on prompt flow in repository
+## Collaborating on flow development in production
 
-When working on a LLM-based application development project with Prompt flow, team members often need to collaborate on the same flow authoring nad testing. They might be working on different aspects of the flow or making changes and improvements simultaneously in iterations.
+In the context of developing a LLM-based application with Prompt flow, collaboration amongst team members is often essential. Team members may be engaged in the same flow authoring and testing, working on diverse facets of the flow or making iterative changes and enhancements concurrently.
 
-This requires a streamlined and efficient method of sharing code, tracking changes, managing versions, and integrating these changes into the final project.
+Such collaboration necessitates an efficient and streamlined approach to sharing code, tracking modifications, managing versions, and integrating these changes into the final project.
 
-With the code definition and code experience of prompt flow, which introducing the Prompt flow SDK/CLI and the vscode extension we provided, you can easily collaborate on the flow in your code repository. You can use the **code repository** to track changes, manage versions, and integrate these changes into the final project.
+The introduction of the Prompt flow **SDK/CLI** and the **Visual Studio Code Extension** as part of the code experience of Prompt flow facilitates easy collaboration on flow development within your code repository. It is advisable to utilize a cloud-based **code repository**, such as GitHub or Azure DevOps, for tracking changes, managing versions, and integrating these modifications into the final project.
 
-1. Code Repository and Visual Studio Code Extension - Develop your flow locally
-    ![Local development](media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png)
-    - The first step in this collaborative process is to use a code repository to store the Prompt Flow code. This centralized location allows for efficient organization, tracking of all code changes and collaboration among team members.
-    - Once the code is stored in the repository, team members can use the VSC extension for local development and testing of the flow. This standard integrated development environment allows multiple people to collaborate while developing different parts of the flow.
-1. The Prompt flow Azure CLI/SDK and Workspace Portal UI - Experiment your flow for batch testing and evaluation on cloud 
-    ![pfazure submit run](media/how-to-integrate-with-llm-app-devops/pfazure-run.png)
-    - After the local development and testing phase, the pfazure CLI and SDK come into play. These tools allow team members to submit runs based on the local flow files to the cloud. This action provides a way for results to be stored persistently and managed efficiently.
-      
-    ![pfazure run snapshot](media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png)
-    - Post submission, team members can go to the cloud portal UI to view the results and manage the experiments. This portal provides a comprehensive view of the run, aiding in analyzing the performance and making necessary adjustments.
-1. Iterative Development
-    - Following the analysis and management of experiments, team members can return to the local VSC extension for further development and tuning. This iterative process ensures continuous improvement and refinement of the Prompt Flow.
+### Best practice for collaborative development
 
-By following this process, teams can create a seamless, efficient, and productive collaborative environment for Prompt Flow development.
+1. Authoring and single testing your flow locally - Code repository and VSC Extension
+
+    - The first step of this collaborative process involves using a code repository as the base for your project code, which includes the Prompt Flow code. 
+        - This centralized repository enables efficient organization, tracking of all code changes, and collaboration among team members.
+    - Once the repository is set up, team members can leverage the VSC extension for local authoring and single input testing of the flow.
+        - This standardized integrated development environment fosters collaboration among multiple members working on different aspects of the flow.
+        ![Local development](media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png)
+1. Cloud-based experimental batch testing and evaluation - Prompt flow CLI/SDK and workspace portal UI
+    - Following the local development and testing phase, flow developers can use the pfazure CLI or SDK to submit batch runs and evaluation runs from the local flow files to the cloud.
+        - This action provides a way for cloud resource consuming, results to be stored persistently and managed efficiently with a portal UI in the Azure Machine Learning workspace. This step allows for cloud resource consumption including compute and storage and further endpoint for deployments.
+        ![pfazure submit run](media/how-to-integrate-with-llm-app-devops/pfazure-run.png)
+    - Post submissions to cloud, team members can access the cloud portal UI to view the results and manage the experiments efficiently.
+        - This cloud workspace provides a centralized location for gathering and managing all the runs history, logs, snapshots, comprehensive results including the instance level inputs and outputs.
+        ![pfazure run snapshot](media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png)
+        - In the run list that records all run history from during the development, team members can easily compare the results of different runs, aiding in quality analysis and necessary adjustments.
+        ![Run list on cloud](media/how-to-integrate-with-llm-app-devops/cloud-run-list.png)
+        ![Runs comparison on cloud](media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png)
+1. Local iterative development or one-step UI deployment for production
+    - Following the analysis of experiments, team members can return to the code repository for additional development and fine-tuning. Subsequent runs can then be submitted to the cloud in an iterative manner. 
+        - This iterative approach ensures consistent enhancement until the team is satisfied with the quality ready for production.
+    - Once the team is fully confident in the quality of the flow, it can be seamlessly deployed via a UI wizard as an online endpoint in Azure Machine Learning. Once the team is entirely confident in the flow's quality, it can be seamlessly transitioned into production via a UI deploy wizard as an online endpoint in a robust cloud environment.
+        - This deployment on an online endpoint can based on a run snapshot, allowing for stable and secure serving, further resource allocation and usage tracking, and log monitoring in the cloud.
+        ![Deploy flow from a snapshot](media/how-to-integrate-with-llm-app-devops/deploy-from-sanpshot.png)
+        ![Deploy flow wizard](media/how-to-integrate-with-llm-app-devops/deploy-wizard.png)  
+
+### Why we recommend using the code repository for collaborative development
+For iterative development, a combination of a local development environment and a version control system, such as Git, is typically more effective. You can make modifications and test your code locally, then commit the changes to Git. This creates an ongoing record of your changes and offers the ability to revert to earlier versions if necessary.
+
+When **sharing flows** across different environments is required, using a cloud-based code repository like GitHub or Azure Repos is advisable. This enables you to access the most recent version of your code from any location and provides tools for collaboration and code management.
+
+By following this best practice, teams can create a seamless, efficient, and productive collaborative environment for Prompt flow development.
 
 ## Next steps
 
