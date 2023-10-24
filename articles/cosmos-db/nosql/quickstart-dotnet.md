@@ -43,7 +43,7 @@ Use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL accou
     > [!TIP]
     > We recommend creating a new uniquely named directory within the fileshare folder (`~/clouddrive`).
     >
-    > For example, this command will create a new directory and remove the existing directory if it already exists:
+    > For example, this command will create a new directory and navigate to that directory:
     >
     > ```azurecli-interactive
     > mkdir ~/clouddrive/cosmos-db-nosql-dotnet-quickstart
