@@ -3,7 +3,7 @@ title: Developer's Guide to Durable Entities in .NET - Azure Functions
 description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 10/24/2023
 ms.author: azfuncdf
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
@@ -186,7 +186,7 @@ Operations also have access to functionality provided by the `Entity.Current` co
 
 For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
 
-#### [In-Process](#tab/in-process)
+#### [In-process](#tab/in-process)
 ```csharp
 public void Add(int amount) 
 {
@@ -355,7 +355,7 @@ Besides providing type checking, interfaces are useful for a better separation o
 
 ### Example: client signals entity through interface
 
-#### [In-Process](#tab/in-process)
+#### [In-process](#tab/in-process)
 Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. For example:
 
 ```csharp
@@ -385,7 +385,7 @@ This is currently not supported in the .NET isolated worker.
 
 ### Example: orchestration first signals, then calls entity through proxy
 
-#### [In-Process](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
 
