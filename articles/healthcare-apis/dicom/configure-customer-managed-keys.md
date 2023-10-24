@@ -1,6 +1,6 @@
 ---
 title: Configure customer-managed Keys (CMK) - Azure Health Data Services
-description: This document describes how to configure Customer Managed Keys (CMK) for the DICOM service in Azure Health Data Services.
+description: This document describes how to configure Customer-Managed Keys (CMK) for the DICOM service in Azure Health Data Services.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -77,7 +77,9 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 :::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of the key version details and the copy action forthe Key Identifier." lightbox="media/kv-key-url.png":::
 
-3. Use the Azure portal to **Deploy a custom template** and use following ARM template to update the key.  
+3. Use the Azure portal to **Deploy a custom template** and use one of the following ARM templates to update the key.  For more information, see [Create and deploy ARM templates by using the Azure portal](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+
+#### ARM template for a system assigned managed identity
 
 ``` json
 {
@@ -117,10 +119,132 @@ Once the key has been created, the DICOM service will need to be updated with th
         }
     ]
 }
+```
+#### ARM template for a user assigned managed identity
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String"
+        },
+        "dicomServiceName": {
+            "type": "String"
+        },
+        "keyVaultName": {
+            "type": "String"
+        },
+        "keyName": {
+            "type": "String"
+        },
+        "userAssignedIdentityName": {
+            "type": "String"
+        },
+        "roleAssignmentName": {
+            "type": "String"
+        },
+        "region": {
+            "defaultValue": "West US 3",
+            "type": "String"
+        },
+        "tenantId": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('keyVaultName')]",
+            "location": "[parameters('region')]",
+            "properties": {
+              "accessPolicies": [],
+              "enablePurgeProtection": true,
+              "enableRbacAuthorization": true,
+              "enableSoftDelete": true,
+              "sku": {
+                "family": "A",
+                "name": "standard"
+              },
+              "tenantId": "[parameters('tenantId')]"
+            }
+        },
+        {
+            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "apiVersion": "2023-01-31",
+            "name": "[parameters('userAssignedIdentityName')]",
+            "location": "[parameters('region')]"
+        },
+        {
+            "type": "Microsoft.KeyVault/vaults/keys",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('keyVaultName'), '/', parameters('keyName'))]",
+            "properties": {
+              "attributes": {
+                "enabled": true
+              },
+              "curveName": "P-256",
+              "keyOps": [ "unwrapKey","wrapKey" ],
+              "keySize": 2048,
+              "kty": "RSA"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2021-04-01-preview",
+            "name": "[guid(parameters('roleAssignmentName'))]",
+            "properties": {
+              "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', '14b46e9e-c2b7-41b4-b07b-48a6ebf60603')]",
+              "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))).principalId]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults/keys', parameters('keyVaultName'), parameters('keyName'))]",
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.HealthcareApis/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2022-05-15",
+            "location": "[parameters('region')]"
+        },
+        {
+            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+            "apiVersion": "2023-06-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+            "location": "[parameters('region')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]",
+                "[resourceId('Microsoft.Authorization/roleAssignments', guid(parameters('roleAssignmentName')))]"
+            ],
+            "identity": {
+                "type": "userAssigned",
+                "userAssignedIdentities": {
+                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
+                }
+            },
+            "properties": {
+                "encryption": {
+                    "customerManagedKeyEncryption": {
+                        "keyEncryptionKeyUrl": "[concat(reference(resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))).vaultUri, 'keys/', parameters('keyName'))]"
+                    }
+                }
+            }
+        }
+    ]
+}
 ```
 
-4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier copied from the key vault.  
+4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  
+
+    * If using a system assigned managed identity, enter the Key Identifier copied from the key vault in the **Key Encryption Key Url** field.
+    * If using a user assigned managed identity, enter in the additional values for the key vault name, key name, user assigned identity name, and tenant ID using the values from prior steps.  
+
 
 :::image type="content" source="media/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/cmk-arm-deploy.png":::
 
@@ -128,15 +252,9 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 When the deployment succeeds, the DICOM service data will be encrypted with the key provided.
 
-## Losing access to the key
-For the DICOM service to operate properly, it must always have access to the key in the key vault.  There are some scenarios where the service could lose access to the key, including:
+## Next steps
 
-- The key is disabled or deleted from the key vault
-- The DICOM service's system assigned managed identity is disabled 
-- The DICOM service's system assigned managed identity loses access to the key vault
+This article described the basic steps configure customer-managed keys for the DICOM service. For information about working with customer-managed keys, see 
 
-In any scenario where the DICOM service can't access the key, API requests will return with `500` errors and your data will be inaccessible until access to the key is restored.  The Resource health view for the DICOM service can help diagnose key access issues.
-
-If key access is lost for less than 30 minutes, 
-
-## Rotating they key
+>[!div class="nextstepaction"]
+>[Using customer-managed keys with the DICOM service](customer-managed-keys.md)
