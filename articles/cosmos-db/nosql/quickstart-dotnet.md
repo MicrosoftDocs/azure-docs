@@ -228,7 +228,7 @@ When developing locally with passwordless authentication, make sure the user acc
         --body @role-definition.json
     ```
 
-1. When the command is finished, it outputs an object that includes an `id` field. Record the value from the `id` field as you use it a follow-up step.
+1. When the command is finished, it outputs an object that includes an `id` field. Record the value from the `id` field. You use this value in an upcoming step.
 
     > [!TIP]
     > If you need to get the `id` again, you can use the `az cosmosdb sql role definition list` command:
@@ -241,7 +241,7 @@ When developing locally with passwordless authentication, make sure the user acc
     > ```
     >
 
-1. For local development, get your currently logged in **service principal id**.
+1. For local development, get your currently logged in **service principal id**. Record this value as you'll also use this value in the next step.
 
     ```azurecli
     az ad signed-in-user show --query id
@@ -296,7 +296,7 @@ Application requests to most Azure services must be authorized. Using the <xref:
 
 The client authentication code for this project is in the `src/web/Program.cs` file.
 
-For example, your app can authenticate using your Visual Studio sign-in credentials when developing locally, and then use a system-assigned managed identity once it has been deployed to Azure. No code changes are required for this transition between environments
+For example, your app can authenticate using your Visual Studio sign-in credentials when developing locally, and then use a system-assigned managed identity once it has been deployed to Azure. No code changes are required for this transition between environments.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Program.cs" id="create_client":::
 
