@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/19/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -69,7 +69,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 # Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-# Login with an Azure AD credential that has either storage account owner or contributor Azure role 
+# Login to Azure using a credential that has either storage account owner or contributor Azure role 
 # assignment. If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) 
 # you will need to specify that.
 # See https://learn.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
