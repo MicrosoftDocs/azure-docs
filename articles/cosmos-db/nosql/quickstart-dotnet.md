@@ -241,11 +241,11 @@ When developing locally with passwordless authentication, make sure the user acc
 
     ```azurecli
     az cosmosdb sql role assignment create \
-        --account-name <account-name> \
         --resource-group <resource-group-name> \
+        --account-name <account-name> \
         --scope "/" \
-        --principal-id "<your-service-principal-id>" \
-        --role-definition-id "<your-custom-role-definition-id>"
+        --role-definition-id "<your-custom-role-definition-id>" \
+        --principal-id "<your-service-principal-id>"
     ```
 
 1. Run the .NET web application.
