@@ -277,7 +277,7 @@ An agent is only required to collect data from the operating system and workload
 
 ### How can I be notified when data collection from the Log Analytics agent stops?
 
-Use the steps described in [Create a new log alert](alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
           
 - **Define alert condition**: Specify your Log Analytics workspace as the resource target.
 - **Alert criteria**:
@@ -293,7 +293,7 @@ Specify an existing or new [action group](../alerts/action-groups.md) so that wh
        
 ### Will Azure Monitor Agent support data collection for the various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel?
 
-Review the list of [Azure Monitor Agent extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These extensions are the same solutions and services now available by using the new Azure Monitor Agent instead. 
+Review the list of [Azure Monitor Agent extensions currently available in preview](#supported-services-and-features). These extensions are the same solutions and services now available by using the new Azure Monitor Agent instead. 
 
 You might see more extensions getting installed for the solution or service to collect extra data or perform transformation or processing as required for the solution or service. Then use Azure Monitor Agent to route the final data to Azure Monitor. 
           

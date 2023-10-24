@@ -127,4 +127,4 @@ For more information, see:
 
 - [Azure Monitor Agent overview](agents-overview.md)
 - [Azure Monitor Agent migration for Microsoft Sentinel](../../sentinel/ama-migrate.md)
-- [Frequently asked questions for Azure Monitor Agent migration](/azure/azure-monitor/faq#azure-monitor-agent)
+- [Frequently asked questions for Azure Monitor Agent](agents-overview.md#frequently-asked-questions)
