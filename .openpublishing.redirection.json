@@ -1,5 +1,140 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/active-directory/azuread-dev/about-microsoft-identity-platform.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/active-directory-acs-migration.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-acs-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/app-types.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/app-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/azure-ad-endpoint-comparison.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/azure-ad-federation-metadata.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/azure-ad-federation-metadata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/conditional-access-dev-guide.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/conditional-access-dev-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-get-appsource-certified.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-get-appsource-certified",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-enable-sso-android.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-v1-enable-sso-android",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-enable-sso-ios.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-v1-enable-sso-ios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/native-app.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/native-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/sample-v1-code.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/sample-v1-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/service-to-service.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/service-to-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/single-page-application.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/single-page-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-authentication-scenarios.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-authentication-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-overview.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-permissions-consent.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-permissions-consent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-protocols-oauth-code.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-protocols-oauth-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/v1-protocols-openid-connect-code.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-protocols-openid-connect-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/videos.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/web-api.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/web-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/web-app.md",
+      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/web-app",
+      "redirect_document_id": false
+    },
 	{
             "source_path": "articles/communication-services/tutorials/file-sharing-tutorial.md",
             "redirect_URL": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
