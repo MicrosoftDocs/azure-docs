@@ -202,7 +202,7 @@ When you use TLS-enabled MQ, note the following details:
 You can deploy OPC UA Broker with High Availability mode enabled. When you do that, it creates for all Connector deployments a scale set of two Kubernetes Connector pods with [anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity) configured. The two pods are deployed on different nodes if the infrastructure supports this type of deployment. At any given time, one of the two pods is active and one is passive.  The active one maintains an open session to the OPC UA Server and emits telemetry and event messages. The passive one remains on  standby to take over and connect to the OPC UA server to continue emitting messages. The OPC UA Broker controls the failover process.  Failover is triggered if the active pod crashes. OPC UA Broker then starts a new passive pod.
 
 The following diagram shows the architecture:
-:::image type="content" source="media/howto-install-opcua-broker-using-helm/HASchema.png" alt-text="Diagram of Connector pods and MQTT Broker":::
+:::image type="content" source="media/howto-install-opcua-broker-using-helm/high-availability-schema.png" alt-text="Diagram of Connector pods and MQTT Broker":::
 
 ### Configure scale up and scale out behavior
 

@@ -280,7 +280,7 @@ To configure a custom application certificate, you need the following items:
 - A private key stored in the [PKCS #12](https://reference.opcfoundation.org/GDS/v105/docs/2#PKCS12) format with a `.pfx` extension, or stored in the OpenSSL PEM format
 - A thumbprint of the certificate
 
-Next, create a secret that contains the certificate and the private key. Create the secret in the namespace where `aio-opcplc-connector` Helm chart is deployed.
+Next, create a secret that contains the certificate and the private key. Create the secret in the namespace where `aio-opcplc-connector` helm chart is deployed.
 
 > [!NOTE]
 > The certificate and the private key should have the same base filename (apart from extension). Otherwise the OPC UA stack fails to find a matching private key.
@@ -365,7 +365,7 @@ kubectl create secret generic own-certs `
 ```
 ---
 
-##### Deploy the `aio-opcplc-connector` helm chart
+##### Deploy the aio-opcplc-connector helm chart
 In this section, you use the `opcUaConnector.settings.transportAuthentication.ownCertReference` and `opcUaConnector.settings.transportAuthentication.ownCertThumbprint` settings to 
 indicate to OPC UA Connector to load the application certificate and its private key from the Kubernetes Secret. The OPC UA Broker runtime dereferences the `<secret-name>` references. The OPC UA Broker runtime also maps the contents of the secret into the OPC UA Connector's filesystem for the OPC UA stack to use at runtime.
 
@@ -499,7 +499,7 @@ kubectl apply -f aio-opc-ua-broker-client-certificate.yaml --namespace opcuabrok
 ```
 ---
 
-##### Deploy the `aio-opcplc-connector` helm chart
+##### Deploy the aio-opcplc-connector helm chart
 In this section, you use the `opcUaConnector.settings.transportAuthentication.ownCertReference` and `opcUaConnector.settings.transportAuthentication.ownCertThumbprint` settings to 
 indicate to OPC UA Connector to load the application certificate and its private key from the `aio-opc-ua-broker-client-certificate` `SecretProviderClass` instance. The OPC UA Broker runtime dereferences the `<secret-name>` references. The OPC UA Broker runtime also maps the contents of the secret into the OPC UA Connector's filesystem for the OPC UA stack to use at runtime.
 
