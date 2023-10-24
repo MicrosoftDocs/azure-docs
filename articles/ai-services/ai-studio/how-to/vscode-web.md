@@ -42,7 +42,7 @@ Your file explorer is opened to the specific project directory you launched from
 > [!IMPORTANT]
 > It's recommended that you work within this project directory, as files, folders, and repos you include here persist across each VS Code (Web) session for that project.
 
-The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current working context, and help you work with you code, data and shared files most efficiently. This `afh` directory houses your Azure AI projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance).
+The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance).
 
 This table summarizes the folder structure:
 
