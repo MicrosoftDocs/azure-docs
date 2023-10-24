@@ -1,35 +1,31 @@
 ---
 title: Configure customer-managed Keys (CMK) - Azure Health Data Services
-description: This document describes how to configure Customer Managed Keys (CMK) for the DICOM service in Azure Health Data Services.
+description: Learn how to use customer-managed keys (CMK) with Azure Key Vault to encrypt and decrypt data stored by the DICOM service in Azure Health Data Services. Follow the steps to create a key, enable a managed identity, and update the encryption key.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2023
 ms.author: mmitrik
 ---
 
-# Configure customer-managed keys for the DICOM service
+# Set up customer-managed keys for the DICOM service
 
-Customer-managed keys (CMK) enable customers to protect and control access to their data using keys they create and manage.  The DICOM service supports CMK, allowing customers to create and manage keys using Azure Key Vault and then use those keys to encrypt the data stored by the DICOM service.  This article shows how to configure Azure Key Vault and the DICOM service to use customer-managed keys.
+With customer-managed keys (CMK), you can protect and control access to your organization's data using keys that you create and manage. Azure Key Vault is a cloud service that lets you securely store and manage secrets, such as keys, passwords, and certificates. You can use [Azure Key Vault](../../key-vault/index.yml) to create and manage keys for CMK and then use those keys to encrypt the data stored by the DICOM&reg; service. For more information, see [About Key Vault keys](../../key-vault/keys/about-keys.md).
 
-## Create a key in Azure Key Vault
+## Add a key for the DICOM service in Azure Key Vault
 
-To use customer-managed keys with the DICOM service, the key must first be created in Azure Key Vault.  The DICOM service also requires that keys meet the following requirements:
+Before you set up keys, you need to [add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). The DICOM service requires that keys meet these requirements:
 
-- The key vault or managed HSM that stores the key must have both **soft delete** and **purge protection** enabled.
+   - The key type is **RSA-HSM** or **RSA** with one of these sizes: **2048-bit** or **3072-bit**.
 
-- The key type is **RSA-HSM** or **RSA** with one of the following sizes: **2048-bit** or **3072-bit**.
-
-For more information, see [About keys](../../key-vault/keys/about-keys.md).
-
-To create a key in your key vault, see [Add a key to Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault)
+   - To prevent losing the encryption key for the DICOM service, the key vault or managed HSM (hardware security module) must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
 ## Enable a managed identity
 
-Before you configure keys, you need to enable a managed identity for the DICOM service.  Either a system assigned or user assigned managed identity can be used.
+Before you set up keys, you need to enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity.
 
-### System assigned managed identity
+#### System-assigned managed identity
 
 1. In the Azure portal, go to the DICOM instance and then select **Identity** from the left pane.
 
@@ -37,13 +33,13 @@ Before you configure keys, you need to enable a managed identity for the DICOM s
 
 :::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/system-assigned-managed-identity.png"::
 
-### User assigned managed identity
+#### User-assigned managed identity
 
-If desired, a user assigned managed identity can be used.  See [Managed user-assigned managed identities](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for details.
+Instead of a system-assigned managed identity, you can use a user-assigned managed identity. To understand the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). For steps to add a user-managed identity, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 
-## Assign Key Vault Crypto Officer role to the managed identity
+## Assign the Key Vault Crypto Officer role
 
-The system assigned managed identity needs the [Key Vault Crypto Officer](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role in order to access keys and use them to encrypt and decrypt data.  
+The system-assigned managed identity needs the [Key Vault Crypto Officer](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role to access keys and use them to encrypt and decrypt data.  
 
 1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
 
@@ -61,19 +57,19 @@ The system assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 :::image type="content" source="media/kv-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-add-role-assignment.png":::
 
-6. Review the role assignment and select **Review + assign**. 
+6. Review the role assignment and then select **Review + assign**. 
 
 :::image type="content" source="media/kv-add-role-review.png" alt-text="Screenshot of the role assignment with the review + assign action." lightbox="media/kv-add-role-review.png":::
 
 ## Use an ARM template to update the encryption key
 
-Once the key has been created, the DICOM service will need to be updated with the key URL.  
+After you add the key, you need to update the DICOM service with the key URL.  
 
 1. In the key vault, select **Keys** and then select the key for the DICOM service.  
 
 :::image type="content" source="media/kv-keys-list.png" alt-text="Screenshot of they Keys page and the key to use with the DICOM service." lightbox="media/kv-keys-list.png":::
 
-2. Select the key version and copy the **Key Identifier**.  This is the Key Url you will use in the next step.
+2. Select the key version and copy the **Key Identifier**.  You need the Key Url for the next step.
 
 :::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of the key version details and the copy action forthe Key Identifier." lightbox="media/kv-key-url.png":::
 
@@ -120,23 +116,23 @@ Once the key has been created, the DICOM service will need to be updated with th
 
 ```
 
-4. When prompted, select the appropriate values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier copied from the key vault.  
+1. When prompted, select the values for the resource group, region, workspace, and DICOM service name.  In the **Key Encryption Key Url** field, enter the Key Identifier you copied from the key vault.  
 
 :::image type="content" source="media/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/cmk-arm-deploy.png":::
 
-5. Select **Review + create** to deploy the key changes.
+5. Select **Review + create** to deploy the updates to the key.
 
-When the deployment succeeds, the DICOM service data will be encrypted with the key provided.
+When the deployment completes, the DICOM service data is encrypted with the key you provided.
 
-## Losing access to the key
-For the DICOM service to operate properly, it must always have access to the key in the key vault.  There are some scenarios where the service could lose access to the key, including:
+## Troubleshoot lost access to the key
+For the DICOM service to operate properly, it must always have access to the key in the key vault. There are some scenarios where the service could lose access to the key, including:
 
 - The key is disabled or deleted from the key vault
-- The DICOM service's system assigned managed identity is disabled 
-- The DICOM service's system assigned managed identity loses access to the key vault
+- The DICOM service's system-assigned managed identity is disabled 
+- The DICOM service's system-assigned managed identity loses access to the key vault
 
-In any scenario where the DICOM service can't access the key, API requests will return with `500` errors and your data will be inaccessible until access to the key is restored.  The Resource health view for the DICOM service can help diagnose key access issues.
+In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The Resource health view for the DICOM service can help diagnose key access issues.
 
 If key access is lost for less than 30 minutes, 
 
-## Rotating they key
+## Rotate the key
