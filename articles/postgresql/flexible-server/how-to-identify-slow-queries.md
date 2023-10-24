@@ -13,7 +13,7 @@ ms.date: 10/18/2023
 
 This article shows you how to troubleshoot and identify slow running queries when using [Azure Database for PostgreSQL - Flexible Server](overview.md).
 
-In a high CPU utilization scenario, in this article, you'll learn how to:
+In a high CPU utilization scenario, in this article, you learn how to:
 
 - Identify slow running queries.
 
@@ -23,7 +23,7 @@ In a high CPU utilization scenario, in this article, you'll learn how to:
 
 ### Prerequisites
 
-As a pre-requisite one must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server.To enable troubleshooting guides follow the  steps mentioned [here](how-to-troubleshooting-guides.md).
+As a prerequisite one must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server.To enable troubleshooting guides, follow the  steps mentioned [here](how-to-troubleshooting-guides.md).
 
 To enable auto explain extension follow the steps below: 
 
@@ -44,11 +44,11 @@ To enable auto explain extension follow the steps below:
 
 ### Scenario - Identify slow running query
 
-With troubleshooting guides and auto_explain extension in place we will explain the scenario with the help of an example.
+With troubleshooting guides and auto_explain extension in place we explain the scenario with the help of an example.
 
 We have a scenario where CPU utilization is spiked to 90% and would like to know the root cause of the spike. To debug the scenario, follow the steps mentioned below.
 
-1.    As soon as you are alerted by a CPU scenario it is advised to go to the troubleshooting guides available under the Help tab on the overview blade of the Flexible server portal.
+1.    As soon as you're alerted by a CPU scenario, it's advised to go to the troubleshooting guides available under the Help tab on the overview blade of the Flexible server portal.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu.":::
 
@@ -56,7 +56,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides menu.":::
 
-3.    Select time range of the reported CPU spike using the time range drop down.
+3.    Select time range of the reported CPU spike using the time range drop-down.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-timerange.png" alt-text="Screenshot of troubleshooting guides menu.":::
 
@@ -76,7 +76,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
      WHERE query_text_id = <add query id identified>;
 ```
 
-6. In the example considered the query that was found slow was following : 
+6. In the example considered the query that was found slow was following: 
 ```sql 
 SELECT  c_id, SUM(c_balance) AS total_balance 
 FROM customer
@@ -89,7 +89,7 @@ order by c_w_id;
     :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu.":::
  
 
-8. Select the time range where 90% CPU Utilization was found.
+8. Select the time range were 90% CPU Utilization was found.
    
    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu.":::
 
@@ -126,7 +126,7 @@ Buffers: shared hit=44639 read=355362, temp read=77521 written=77701
 Output: c_id, c_w_id, c_balance 
 ```
 
-The query ran for ~2.5 minutes as shown in troubleshooting guides and confirmed by `duration` value of 150692.864 ms from explain analyze output . Use the explain analyze output to further troubleshoot and tune the query.
+The query ran for ~2.5 minutes as shown in troubleshooting guides and confirmed by `duration` value of 150692.864 ms from explain analyze output. Use the explain analyze output to further troubleshoot and tune the query.
 
 > [!NOTE]
 > Please note the query ran 22 times during the interval and the logs shown above is one such entry captured during the interval.
@@ -134,11 +134,11 @@ The query ran for ~2.5 minutes as shown in troubleshooting guides and confirmed 
 
 ## High CPU scenario - Identify slow running procedure and slow queries associated with the procedure
 
-In the second scenario a stored procedure execution time is found to be slow, and the goal is to identify and tune the slow running query that is part of the stored procedure.
+In the second scenario, a stored procedure execution time is found to be slow, and the goal is to identify and tune the slow running query that is part of the stored procedure.
 
 ### Prerequisites
 
-As a pre-requisite one must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server.To enable troubleshooting guides follow the  steps mentioned [here](how-to-troubleshooting-guides.md).
+As a prerequisite one must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server.To enable troubleshooting guides, follow the  steps mentioned [here](how-to-troubleshooting-guides.md).
 
 To enable auto explain extension follow the steps below: 
 
@@ -160,11 +160,11 @@ To enable auto explain extension follow the steps below:
 
 ### Scenario - Identify slow running query in a stored procedure
 
-With troubleshooting guides and auto_explain extension in place we will explain the scenario with the help of an example.
+With troubleshooting guides and auto_explain extension in place we explain the scenario with the help of an example.
 
 We have a scenario where CPU utilization is spiked to 90% and would like to know the root cause of the spike. To debug the scenario, follow the steps mentioned below.
 
-1.    As soon as you are alerted by a CPU scenario it is advised to go to the troubleshooting guides available under the Help tab on the overview blade of the Flexible server portal.
+1.    As soon as you're alerted by a CPU scenario, it's advised to go to the troubleshooting guides available under the Help tab on the overview blade of the Flexible server portal.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu.":::
 
@@ -172,7 +172,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides tabs.":::
 
-3.    Select time range of the reported CPU spike using the time range drop down.
+3.    Select time range of the reported CPU spike using the time range drop-down.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure-timerange.png" alt-text="Screenshot of troubleshooting guides - CPU tab.":::
 
@@ -180,7 +180,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
       
       The tab shares details of all the queries that ran in the interval where 90% CPU utilization was seen. From the snapshot it looks like query with slowest average execution time during the time interval was ~6.3 minutes and the query ran for 35 times during the interval. This is most likely the cause of CPU spikes.
 
-      Its important to note from snapshot below is the query type of the query as highlighted below is `Utility``. In general a utility can be a stored procedure or function that was running during the interval. 
+      It's important to note from snapshot below is the query type of the query as highlighted below is `Utility``. In general, a utility can be a stored procedure or function that was running during the interval. 
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure.png" alt-text="Screenshot of troubleshooting guides - Top CPU consuming queries tab.":::
 
@@ -218,7 +218,7 @@ AzureDiagnostics
 | project TimeGenerated, Message
 ``` 
 
-The procedure has multiple queries which are highlighted below. The explain analyze of every query used in stored procedure is logged in to further analyze and troubleshoot. The execution time of the queries logged can be used to identify the slowest of the all queries that are part of stored procedure. 
+The procedure has multiple queries, which are highlighted below. The explain analyze of every query used in stored procedure is logged in to further analyze and troubleshoot. The execution time of the queries logged can be used to identify the slowest of the all queries that are part of stored procedure. 
 
 ```sql
 2023-10-11 17:52:45 UTC-6526d7f0.7f67-LOG: duration: 38459.176 ms plan: 
