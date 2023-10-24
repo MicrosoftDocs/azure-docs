@@ -12,13 +12,13 @@ ms.date: 10/17/2023
 
 # What is Azure IoT Layered Network Management?
 
-Layered Network Management, formerly known as E4IN, is a Kubernetes-based solution that provides secure communication between devices and the cloud through **isolated network environments** based on the ISA-95/Purdue Network architecture. This solution is deployed and managed as a component of Alice Springs on Arc-enabled Kubernetes clusters.  
+Layered Network Management is a Kubernetes-based solution that provides secure communication between devices and the cloud through **isolated network environments** based on the *ISA-95/Purdue Network architecture*. The solution is deployed and managed as a component of Azure IoT Operations on Arc-enabled Kubernetes clusters.
 
 Layered Network Management provides several benefits including:
 
 * Kubernetes-based configuration and compatibility with IP and NIC mapping for crossing levels
-* Connecting devices in isolated networks at scale to [Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/) for application life cycle management and configuration of previously isolated resources remotely from a single Azure control plane
-* Security and governance across network levels for devices and services with URL allow lists and connection auditing for deterministic network configurations  
+* Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application life cycle management and configuration of previously isolated resources remotely from a single Azure control plane
+* Security and governance across network levels for devices and services with URL allowlists and connection auditing for deterministic network configurations
 * Kubernetes observability tooling for previously isolated devices and applications across levels
 * Default compatibility with all Alice Springs service connections 
 
@@ -31,7 +31,7 @@ Layered Network Management provides several benefits including:
 | E4IN | Edge for Isolated Networks. This project name is deprecated and replaced with **Layered Network Management** |
 | ISA-95 | Enterprise-Control system integration standard published by the International Society of Automation (ISA) |
 |Purdue Enterprise Reference Architecture (PERA) | Purdue Enterprise Reference Architecture (PERA) is a 1990s reference model for enterprise architecture, developed by Theodore J. Williams and members of the Industry-Purdue University Consortium for Computer Integrated Manufacturing |
-| Kubernetes Custom Resources (CR) | From [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/): A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. |
+| Kubernetes Custom Resources (CR) | From [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/): A custom resource is an extension of the Kubernetes API that isn't necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. |
 | Kubernetes Custom Resource Definition (CRD) | From [Custom Resource Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions): Defining a CRD object creates a new custom resource with a name and a schema |
 | AKS EE | [AKS Edge Essentials](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-overview), a Microsoft-supported Kubernetes platform. |
 
@@ -47,7 +47,7 @@ There are several ways to try the Layered Network Management and experience its 
   2. Level 4 cluster - A single node cluster hosted on a dual NIC physical machine, connects to internet and the local network.
   3. Level 3 cluster - Another single node cluster hosted on a physical machine. This device (cluster) only connects to the local network.
   4. DNS server - A DNS server setup in the local network. It provides custom domain name resolution and point the network request to the IP of level 4 cluster.
-- **ISA-95 network in real-world** - We encourage you to try deploying Layered Network Management to a real ISA-95 network, or a pre-production environment. Please engage with the Layered Network Management core team for further discussion on this approach.
+- **ISA-95 network in real-world** - We encourage you to try deploying Layered Network Management to a real ISA-95 network, or a preproduction environment.
 
 ## Key features and roadmap
 
@@ -57,7 +57,7 @@ Layered Network Management supports the Alice Spring components functioning in a
 |------------------------------------------------------------------------------------------|:---:|
 |Forward TLS traffic|Supported|
 |Traffic Auditing - Basic: Source/destination IP addresses and header values|Supported|
-|Allow list management through Kubernetes Custom Resource|Supported|
+|Allowlist management through Kubernetes Custom Resource|Supported|
 |Installation: Integrated install experience of Layered Network Management and other Alice Spring components|Supported|
 |Reverse Proxy for OSI Layer4 (TCP)|Supported|
 |Support East-West traffic forwarding for Alice Spring components (manual setup)|Public Preview|
@@ -65,9 +65,8 @@ Layered Network Management supports the Alice Spring components functioning in a
 |Traffic Auditing - Basic: Send a copy of the traffic (encrypted) to a configured application|Post Public Preview|
 |Azure Arc portal experience for Layered Network Management|Post Public Preview|
 |Forward Proxy for OSI Layer7 (HTTP, HTTPS / MQTT over WebSockets)|Post Public Preview|
-|TLS terminating proxy for OSI Layer7 (HTTPS / MQTT over Websockets)|Post Public Preview|
+|TLS terminating proxy for OSI Layer7 (HTTPS / MQTT over WebSockets)|Post Public Preview|
 
-<br />
 
 | Integration with Arc and Alice Spring | Status |
 |---|:----:|
@@ -79,21 +78,8 @@ Layered Network Management supports the Alice Spring components functioning in a
 |MQTT bridge|Public Preview|
 |Azure Monitor|Public Preview|
 
-
-## Next steps
-
-Follow the [quickstart to deploy and try Layered Network Management in a test environment](./deploy-e4in-to-aks).
-
-Or the following for more detail:
-- [Setup an Isolated Networks Environment](./setup-isolated-network)
-- [Arc-enable AKS EE in Isolated Networks](/docs/e4in/arc-enable-aks-ee)
-
 ## Related content
 
-TODO: Add your next step link(s)
+[Configure Azure IoT Layered Network Management Environment](howto-configure-layered-network.md)
+[Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
 
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
