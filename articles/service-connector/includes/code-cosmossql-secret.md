@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/18/2023
+ms.date: 10/24/2023
 ms.author: wchi
 ---
 
