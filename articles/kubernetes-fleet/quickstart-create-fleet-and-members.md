@@ -134,7 +134,7 @@ If you are creating a Hub enabled Fleet, the identity configured on the Fleet wi
 
 #### System-Assigned
 
-```baazurecli-interactivesh
+```azurecli-interactive
 # The flag '--enable-managed-identity' enables MSI and defaults to an identity type of system-assigned.
 az fleet update -g ${GROUP} -f ${FLEET}  --enable-managed-identity 
 ```
