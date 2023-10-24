@@ -16,14 +16,14 @@ Install dependencies
 dotnet add package Azure.Identity
 ```
 
-Here's sample codes to connect to Blob storage using managed identity or service principal.
+Here's sample code to connect to Blob storage using managed identity or service principal.
 
 ```csharp
 using Azure.Identity;
 using Azure.Storage.Blobs;
 
 // get blob endpoint
-// var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
+var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
 // Uncomment the following lines according to the authentication type.
 // system-assigned managed identity
