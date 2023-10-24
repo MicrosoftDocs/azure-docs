@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence general document model
 
-:::moniker range="4.0.0"
+:::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
 > Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:

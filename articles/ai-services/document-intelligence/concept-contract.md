@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 09/20/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -25,7 +25,7 @@ Automated contract processing is the process of extracting key contract fields f
 
 ## Development options
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
 Document Intelligence v4.0 supports the following tools, applications, and libraries:
 

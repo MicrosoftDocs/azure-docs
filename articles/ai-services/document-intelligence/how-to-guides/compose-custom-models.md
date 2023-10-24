@@ -346,7 +346,7 @@ Document Intelligence uses the [Layout](../concept-layout.md) API to learn the e
 
 [Get started with Train with labels](../label-tool.md)
 
-> [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+    :::video source="https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player":::
 
 ## Create a composed model
 
