@@ -10,9 +10,8 @@ ms.date: 10/19/2023
 ms.reviewer: lualderm
 ---
 
-# Diagnostic settings in Azure Monitor
+# Create diagnostic settings in Azure Monitor
 
-## Create diagnostic settings
 Create and edit diagnostic settings in Azure Monitor to send Azure platform metrics and logs to different destinations like Azure Monitor Logs, Azure Storage, or Azure Event Hubs. You can use different methods to work with the diagnostic settings, such as the Azure portal, the Azure CLI, PowerShell, and Azure Resource Manager.
 
 > [!IMPORTANT]
@@ -116,7 +115,7 @@ The following example command creates a diagnostic setting by using all three de
 
 To specify [resource-specific mode](resource-logs.md#resource-specific) if the service supports it, add the `export-to-resource-specific` parameter with a value of `true`.`
 
-```bash
+```azurecli
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
 --resource /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.KeyVault/vaults/mykeyvault \
