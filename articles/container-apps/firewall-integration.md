@@ -46,8 +46,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 ---
 
-<sup>1</sup>This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.
-
+<sup>1</sup>This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.   
 <sup>2</sup>The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated. Once created, the required ports will be 2 immutable, static values, and you can update your NSG rules.
 
 
