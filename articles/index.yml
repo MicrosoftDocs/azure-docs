@@ -127,7 +127,7 @@ productDirectory:
         - ai-machine-learning
       url: ./ai-services/document-intelligence/index.yml
     # Card
-    - title: AI Search
+    - title: Azure AI Search
       summary: AI-powered cloud search service for mobile and web app development
       imageSrc: ai-services/media/service-icons/search.svg
       azureCategories:
