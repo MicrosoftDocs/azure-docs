@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Prerequisites
 
-You will need to provision Azure resources to run this sample.  You can choose to do so easily with the Azure Developer CLI or manually via the Azure portal.
+You will need to provision Azure resources to run this sample.  You can choose to do so easily with the [Azure Developer CLI](https://aka.ms/azd) or manually via the Azure portal.
 
 ### [Azure Developer CLI](#tab/azd)
 
