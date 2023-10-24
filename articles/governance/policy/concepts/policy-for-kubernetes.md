@@ -12,7 +12,7 @@ author: davidsmatlak
 Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces.
 
-Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes cluster components from one place. By using Azure Policy's Add-On or Extension, governing your cluster components is enhanced with Azure Policy features, like the ability to use [selectors](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) and [overrides](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure#overrides-preview) for safe policy rollout and rollback. 
+Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes cluster components from one place. By using Azure Policy's Add-On or Extension, governing your cluster components is enhanced with Azure Policy features, like the ability to use [selectors](./assignment-structure.md#resource-selectors-preview) and [overrides](./assignment-structure#overrides-preview) for safe policy rollout and rollback. 
 
 Azure Policy for Kubernetes supports the following cluster environments:
 
@@ -285,9 +285,9 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](https://learn.microsoft.com/azure/governance/policy/samples/built-in-policies) that can be used to govern your cluster components. 
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md) that can be used to govern your cluster components. 
 
-Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's VS Code Extension](https://learn.microsoft.com/azure/governance/policy/how-to/extension-for-vscode#create-policy-definition-from-constraint-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
+Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's VS Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
 With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
 `Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutate) are used to manage your Kubernetes clusters. 
@@ -677,11 +677,11 @@ aligns with how the add-on was installed:
   - Maximum number of Non-compliant records per policy per cluster: **500**
   - Maximum number of Non-compliant records per subscription: **1 million**
   - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
-  - [Reasons for non-compliance](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Use [Component details](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#component-details-for-resource-provider-modes).
- - Component-level [exemptions](https://learn.microsoft.com/azure/governance/policy/concepts/exemption-structure) aren’t supported for [Resource Provider modes](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
+  - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](h./definition-structure.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+ - Component-level [exemptions](./exemption-structure.md) aren’t supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
-•	[AKS Pod security policy](https://learn.microsoft.com/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](https://learn.microsoft.com/azure/aks/use-azure-policy).
+•	[AKS Pod security policy](/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](/aks/use-azure-policy).
 •	Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.
 
 ## Frequently asked questions
@@ -724,8 +724,8 @@ collected:
 - Number of Gatekeeper policy definitions not installed by Azure Policy Add-on
 
 ### What are general best practices to keep in mind when installing the Azure Policy Add-On? 
-  - Use system node pool with CriticalAddonsOnly taint to schedule Gatekeeper pods. For more information, see [Using system node pools](https://learn.microsoft.com/azure/aks/use-system-pools#system-and-user-node-pools).
-  - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](https://learn.microsoft.com/azure/aks/limit-egress-traffic) for cluster nodes.
+  - Use system node pool with CriticalAddonsOnly taint to schedule Gatekeeper pods. For more information, see [Using system node pools](/aks/use-system-pools#system-and-user-node-pools).
+  - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](/aks/limit-egress-traffic) for cluster nodes.
   - If the cluster has aad-pod-identity enabled, Node Managed Identity (NMI) pods modify the nodes' iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use aad-pod-identity.
   - AzurePodIdentityException CRD can be configured to inform aad-pod-identity that any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with kubernetes.azure.com/managedby: aks label in kube-system namespace should be excluded in aad-pod-identity by configuring the AzurePodIdentityException CRD. For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception). To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
