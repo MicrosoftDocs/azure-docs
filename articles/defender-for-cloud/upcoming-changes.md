@@ -31,6 +31,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
+| [Defender for Cloud plan and strategy for the Log Analytics agent deprecation]
+| [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
 ## Four alerts are set to be deprecated
@@ -226,7 +228,7 @@ The following section describes the planned introduction of a new and improved S
 
 **Estimated date for change: November 2023**
 
-Following quality improvement process, the following security incidents are set to be deprecated: 'Security incident detected suspicious virtual machines activity' and 'Security incident detected on multiple machines'.
+Following quality improvement process, the following security incidents are set to be deprecated: `Security incident detected suspicious virtual machines activity` and `Security incident detected on multiple machines`.
 
 ## Next steps
 
