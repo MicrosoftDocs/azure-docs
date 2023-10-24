@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 10/09/2023
+ms.date: 10/24/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -22,6 +22,52 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## October 2023
+
+Here's what changed in October 2023:
+
+### OneDrive support for Azure Virtual Desktop RemoteApps in preview
+
+Azure Virtual Desktop support for using Microsoft OneDrive and RemoteApps at the same time is now in public preview. You can use this feature to access and synchronize your files while using RemoteApps. When you connect to a RemoteApp, OneDrive automatically launches as a companion to the RemoteApp.
+
+For more information about prerequisites and installation, see [Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)](onedrive-remoteapp.md). 
+
+## September 2023
+
+Here's what changed in September 2023:
+
+### Updates to Azure Virtual Desktop overview page in the Azure portal 
+
+We've updated the overview page in the Azure Virtual Desktop administrator portal to include new visuals and tile links. These updates make it easier to navigate to documentation, find the forums for collaboration and discussion, submit feedback, and locate release notes for Azure Virtual Desktop.
+
+### Windows multi-session images now automatically include the latest version of FSLogix
+
+We added the latest version of FSLogix to Windows 10 and 11 multi-session images in the Azure Marketplace. As of September 12, 2023, all images come preinstalled with the latest version of FSLogix.
+
+For more information about what’s new in FSLogix, see the [FSLogix Release Notes](/fslogix/overview-release-notes?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext).
+
+### Azure Virtual Desktop Insights support for the Azure Monitor Agent is now generally available 
+
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps IT professionals understand their Azure Virtual Desktop environments. Azure Virtual Desktop Insights support for the Azure Monitor agent is now generally available.
+
+For more information, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor). 
+
+## August 2023
+
+Here's what changed in August 2023:
+
+### Updated Group Policy templates for FSLogix 
+
+The [FSLogix 2210 hotfix 2](/fslogix/overview-release-notes#fslogix-2210-hotfix-2-29861260056) release includes updates to the Group Policy templates. Before this release, the Group Policy template files had some unique behaviors that made it difficult for users to find the correct policy name based on the list of configuration settings for Profiles, Office Data File Containers (ODFC), and Cloud Cache. 
+
+For more information about FSLogix Group Policy Template Files, see [How to Use FSLogix Group Policy Template Files for FSLogix](/fslogix/how-to-use-group-policy-templates). 
+
+### Custom image templates now include updated features
+
+We've updated custom image templates to include new features. Custom image templates let you create custom images you can use when deploying session hosts VMs. You can use them to standardize configuration for your session host VMs in your organization. This update includes new languages, tooltips, and links that you can use in teh Azure portal. You can also now remove Clipchamp in the Remove App-X package list in the built-in customization section.
+
+We built the custom image templates feature using [Azure Image Builder](../virtual-machines/image-builder-overview.md), and made them to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
 
 ## July 2023
 
