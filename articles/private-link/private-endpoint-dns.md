@@ -43,7 +43,7 @@ For Azure services, use the recommended zone names as described in the following
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
-| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
+| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook <br> DSCAndHybridWorker | privatelink.azure-automation.net | {regionCode}.azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
 | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
