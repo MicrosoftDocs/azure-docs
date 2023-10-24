@@ -1,7 +1,7 @@
 ---
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
-description: In this article, learn about how to create an internal load balancer with outbound NAT.
+description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
