@@ -4,7 +4,7 @@ description: Find out about reliability in Defender for DevOps
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 10/24/2023
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
@@ -37,7 +37,7 @@ Defender for DevOps is only supported in the following regions:
 
 ### Single-region disaster recovery process
 
-The single region disaster recovery process for Defender for DevOps contains two re
+The single region disaster recovery process for Defender for DevOps is based on the [Shared Responsibility model](/azure/security/fundamentals/shared-responsibility), and so includes both customer and Microsoft procedures.
 
 #### Customer responsibility
 
@@ -69,8 +69,9 @@ When a region goes down and you have established the new connector, Microsoft re
 > Microsoft doesn't recreate history for some functionalities, such as container mapping data from previous runs, alerts data more than one week old, and IaC mapping history data.
 
 
+#### Test your disaster recovery process
 
-
+To test your disaster recovery process, you can simulate a lost connector by deleting your primary connector.
 
 ## Next steps
 
