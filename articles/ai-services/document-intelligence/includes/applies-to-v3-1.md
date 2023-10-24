@@ -9,4 +9,4 @@ ms.topic: include
 ms.date: 11/15/2023
 ---
 
-**This article applies to:** ![checkmark](../media/yes-icon.png) **Document Intelligence v3.1:2023-07-31 (GA)**
+**This article applies to:** ![checkmark](../media/yes-icon.png) **Document Intelligence v3.1 (GA)**
