@@ -421,6 +421,13 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
 | `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net`|
+| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net` |
+
+<sup>1</sup> To use proxy bypass value `ArcData`, you need a supported Azure Connected Machine agent and a supported Azure Extension for SQL Server version. Releases are supported beginning November, 2023. To see the latest release, check the release notes:
+   - [Azure Connected Machine Agent](./agent-release-notes.md)
+   - [Azure extension for SQL Server](/sql/sql-server/azure-arc/release-notes?view=sql-server-ver16&preserve-view=true) 
+
+   Later versions are also supported.
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 
