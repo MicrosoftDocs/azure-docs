@@ -1,6 +1,6 @@
 ---
 title: Connect to IMS programs on IBM mainframes
-description: Integrate IMS programs with workflows in Azure Logic Apps using the IBM IMS Program Call connector
+description: Integrate IMS programs with workflows in Azure Logic Apps using the IBM IMS connector
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/27/2023
 ---
 
-# Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS Program Call connector
+# Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS connector
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
