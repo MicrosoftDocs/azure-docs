@@ -18,13 +18,7 @@ zone_pivot_groups: resiliency-options
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For container app resiliency, policies are configured as a subresource to a container app. When a container app request fails, the policies associated with the container app being called (callee) determine the resiliency behavior. 
-
-As demonstrated in the diagram, resiliency policies:
-1. Are tailored to the specific requirement of the callee, App B
-1. Determine how retries, timeouts, and other resiliency policies are applied to communication between App A and App B. 
-
-:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
+For container app resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
 
 You can apply resiliency policies to two styles of service-to-service communication: 
 - A request to a container app using its service name, such as:
@@ -33,6 +27,8 @@ You can apply resiliency policies to two styles of service-to-service communicat
 - [Dapr service invocation](./dapr-invoke-resiliency.md). 
 
 This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests using a container app's service name.
+
+:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 
 ## Supported resiliency policies
 
