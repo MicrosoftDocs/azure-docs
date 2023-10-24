@@ -375,13 +375,14 @@ async def main(req: func.HttpRequest, starter: str, message):
 ```
 
 ::: zone-end
-
+::: zone pivot="csharp,javascript,python"
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a client function to know when the entity has processed the operation. Also, the client function can't observe any result values or exceptions. 
 
 ### Example: Client reads an entity state
 
 Client functions can also query the state of an entity, as shown in the following example:
 ::: zone pivot="csharp"  
+::: zone-end  
 #### [In-process](#tab/in-process)
 ```csharp
 [FunctionName("QueryCounter")]
