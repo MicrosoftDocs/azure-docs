@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/17/2023
+ ms.date: 10/24/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -30,7 +30,3 @@ Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra
 
 > [!NOTE]
 > Normally, when you take an incremental snapshot, and there aren't any changes, the size of that snapshot is 0 MiB. Currently, empty snapshots of disks with a 4096 logical sector size instead have a size of 6 MiB, when they'd normally be 0 MiB.
-
-#### Regional availability
-
-Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in every region that Premium SSD v2 and Ultra Disks are available.

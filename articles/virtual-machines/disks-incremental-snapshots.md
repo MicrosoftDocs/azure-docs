@@ -20,6 +20,8 @@ ms.devlang: azurecli
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
+## Create incremental snapshots
+
 # [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to create an incremental snapshot. You need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
@@ -145,9 +147,13 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Check snapshot status
 
-Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed.
 
-You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot.
+You can create Premium SSD v2 and Ultra Disk before the background process copying the data has been completed, and attach them to a running VM. However, until the process completes, you will experience a read performance drop on the disk
+
+You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot. These sections report the `CompletionPercet` property of the disk, which has two possible values, `100` and `0`. `100` means the data is fully copied, and `0` means the copy is ongoing. This property doesn't report real-time progress and has no other possible values.
+
+> [!IMPORTANT]
+> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.
 
 ### CLI
 
@@ -228,7 +234,11 @@ The following command displays the logical sector size of a snapshot:
 az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logicalSectorSize] -o tsv
 ```
 
+## Check disk status
+
 ## Next steps
+
+See the following articles to create disks from your snapshots using the [Azure CLI](scripts/create-managed-disk-from-snapshot.md) or [Azure PowerShell module](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md).
 
 See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
 
