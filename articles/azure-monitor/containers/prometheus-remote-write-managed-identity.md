@@ -7,6 +7,7 @@ ms.date: 11/01/2022
 ---
 
 # Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication
+
 This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. You either use an existing identity created by AKS or [create one of your own](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Both options are described here.
 
 ## Cluster configurations
@@ -16,7 +17,7 @@ This article applies to the following cluster configurations:
 - Azure Arc-enabled Kubernetes cluster
 
 > [!NOTE]
-> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Azure Active Directory](prometheus-remote-write-active-directory.md).
+> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Microsoft Entra ID](prometheus-remote-write-active-directory.md).
 
 ## Prerequisites
 See prerequisites at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
@@ -33,7 +34,7 @@ Get the **Client ID** from the **Overview** page of your [managed identity](../.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot showing client ID on overview page of managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
-Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This article uses the `Kubelet` identity. The name of this identity will be `<AKS-CLUSTER-NAME>-agentpool` and located in the node resource group of the AKS cluster.
+Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This article uses the `Kubelet` identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool` and located in the node resource group of the AKS cluster.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details.png" alt-text="Screenshot showing list of resources in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details.png":::
 
@@ -42,27 +43,27 @@ Instead of creating your own ID, you can use one of the identities created by AK
 ## Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity
 The managed identity requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
 
-1. From the menu of your Azure Monitor Workspace account, click the **Data collection rule** to open the **Overview** page for the data collection rule.
+1. From the menu of your Azure Monitor Workspace account, select the **Data collection rule** to open the **Overview** page for the data collection rule.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png" alt-text="Screenshot showing data collection rule used by Azure Monitor workspace." lightbox="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png":::
 
-2. Click on **Access control (IAM)** in the **Overview** page for the data collection rule.
+2. Select **Access control (IAM)** in the **Overview** page for the data collection rule.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/azure-monitor-account-access-control.png" alt-text="Screenshot showing Access control (IAM) menu item on the data collection rule Overview page." lightbox="media/prometheus-remote-write-managed-identity/azure-monitor-account-access-control.png":::
 
-3. Click **Add** and then **Add role assignment**.
+3. Select **Add** and then **Add role assignment**.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png" alt-text="Screenshot showing adding a role assignment on Access control pages." lightbox="media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png":::
 
-4. Select **Monitoring Metrics Publisher** role and click **Next**.
+4. Select **Monitoring Metrics Publisher** role and select **Next**.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/add-role-assignment.png" alt-text="Screenshot showing list of role assignments." lightbox="media/prometheus-remote-write-managed-identity/add-role-assignment.png":::
 
-5. Select **Managed Identity** and then click **Select members**. Choose the subscription the user assigned identity is located in and then select **User-assigned managed identity**. Select the User Assigned Identity that you're going to use and click **Select**.
+5. Select **Managed Identity** and then select **Select members**. Choose the subscription the user assigned identity is located in and then select **User-assigned managed identity**. Select the User Assigned Identity that you're going to use and click **Select**.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/select-managed-identity.png" alt-text="Screenshot showing selection of managed identity." lightbox="media/prometheus-remote-write-managed-identity/select-managed-identity.png":::
 
-6. Click **Review + assign** to complete the role assignment.
+6. Select **Review + assign** to complete the role assignment.
 
 
 ## Grant AKS cluster access to the identity
@@ -152,7 +153,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | Value | Description |
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br> The remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
@@ -177,5 +178,9 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
-- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)

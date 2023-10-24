@@ -1,6 +1,6 @@
 ---
-title: Manage Azure AD token-based users in Azure confidential ledger
-description: Learn how to manage Azure AD token-based users in Azure confidential ledger
+title: Manage Microsoft Entra token-based users in Azure confidential ledger
+description: Learn how to manage Microsoft Entra token-based users in Azure confidential ledger
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
@@ -9,9 +9,9 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 ms.topic: how-to
 ---
 
-# Manage Azure AD token-based users in Azure confidential ledger
+# Manage Microsoft Entra token-based users in Azure confidential ledger
 
-Azure AD-based users are identified by their Azure AD object ID.
+Microsoft Entra ID-based users are identified by their Microsoft Entra object ID.
 
 Users with Administrator privileges can manage users of the confidential ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
@@ -352,5 +352,5 @@ main().catch((err) => {
 
 ## Next steps
 
-- [Register an ACL app with Azure AD](register-application.md)
+- [Register an ACL app with Microsoft Entra ID](register-application.md)
 - [Manage certificate-based users](manage-certificate-based-users.md)

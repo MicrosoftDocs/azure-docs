@@ -162,4 +162,5 @@ Let's create an application rule to allow access to sports web sites.
 
 ## Next steps
 
+- [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723)
 - [Azure Firewall Premium in the Azure portal](premium-portal.md)

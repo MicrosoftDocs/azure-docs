@@ -7,7 +7,7 @@ ms.date: 08/08/2023
 
 # Security alert correlation
 
-**Episode description**:  In this episode of Defender for Cloud in the Field, Daniel Davrayev joins Yuri Diogenes to talk about security alert correlation capability in Defender for Cloud. Daniel talks about the importance of have a built-in capability to correlate alerts in Defender for Cloud, how this saves time for SOC analysts to investigate alert and respond to potential threats. Daniel also explains how data correlation works and demonstrate how this correlation appears in Defender for Cloud dashboard as a security incident.
+**Episode description**:  In this episode of Defender for Cloud in the Field, Daniel Davrayev joins Yuri Diogenes to talk about security alert correlation capability in Defender for Cloud. Daniel talks about the importance of have a built-in capability to correlate alerts in Defender for Cloud, how this capability saves time for SOC analysts to investigate alert and respond to potential threats. Daniel also explains how data correlation works and demonstrate how this correlation appears in Defender for Cloud dashboard as a security incident.
 
 > [!VIDEO https://aka.ms/docs/player?id=6573561d-70a6-4b4c-ad16-9efe747c9a61]
 
@@ -34,4 +34,4 @@ ms.date: 08/08/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender CSPM support for GCP and more updates](episode-thirty-six.md)

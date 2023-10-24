@@ -3,8 +3,8 @@ title: Deploy Arc for Azure VMware Solution (Preview)
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 04/11/2022
-ms.custom: references_regions
+ms.date: 08/28/2023
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 
@@ -16,7 +16,7 @@ Before you begin checking off the prerequisites, verify the following actions ha
  
 - You deployed an Azure VMware Solution private cluster. 
 - You have a connection to the Azure VMware Solution private cloud through your on-premises environment or your native Azure Virtual Network. 
-- There should be an isolated NSX-T Data Center segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center segment doesn't exist, one will be created.
+- There should be an isolated NSX-T Data Center network segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center network segment doesn't exist, one will be created.
 
 ## Prerequisites 
 
@@ -30,8 +30,8 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - Verify that your vCenter Server version is 6.7 or higher. 
 - A resource pool with minimum-free capacity of 16 GB of RAM, 4 vCPUs. 
 - A datastore with minimum 100 GB of free disk space that is available through the resource pool. 
-- On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server.
-- Please validate the regional support before starting the onboarding. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
+- On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
+- Please validate the regional support before starting the onboarding. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview).
 - The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 [Azure Arc resource bridge (preview) network requirements](../azure-arc/resource-bridge/network-requirements.md)
 
@@ -66,7 +66,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 ## Onboard process to deploy Azure Arc
 
-Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
+Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution (Preview).
 
 1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
@@ -139,7 +139,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
 > [!IMPORTANT]
 > You can't create the resources in a separate resource group. Make sure you use the same resource group from where the Azure VMware Solution private cloud was created to create the resources. 
  
-## Discover and project your VMware infrastructure resources to Azure
+## Discover and project your VMware vSphere infrastructure resources to Azure
 
 When Arc appliance is successfully deployed on your private cloud, you can do the following actions.
 
@@ -177,7 +177,7 @@ After the private cloud is Arc-enabled, vCenter resources should appear under **
 
 ### Manage access to VMware resources through Azure Role-Based Access Control
 
-After your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter Server resources used to configure VMs.
+After your Azure VMware Solution vCenter Server resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter Server resources used to configure VMs.
 
 This section will demonstrate how to use custom roles to manage granular access to VMware vSphere resources through Azure.
 
@@ -309,7 +309,7 @@ When the extension installation steps are completed, they trigger deployment and
 
 ## Change Arc appliance credential
 
-When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store.
+When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
 1. Log in to the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
@@ -391,7 +391,7 @@ When you activate Arc-enabled Azure VMware Solution resources in Azure, a repres
     1. Repeat steps 2, 3 and 4 for **Resourcespools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**.
 1. When the deletion completes, select **Overview**.
     1. Note the Custom location and the Azure Arc Resource bridge resources in the Essentials section.
-1. Select **Remove from Azure** to remove the vCenter resource from Azure.
+1. Select **Remove from Azure** to remove the vCenter Server resource from Azure.
 1. Go to vCenter Server resource in Azure and delete it.
 1. Go to the Custom location resource and select **Delete**.
 1. Go to the Azure Arc Resource bridge resources and select **Delete**. 
@@ -400,32 +400,29 @@ At this point, all of your Arc-enabled VMware vSphere resources have been remove
 
 ## Delete Arc resources from vCenter Server
 
-For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Login to vCenter and delete resource bridge VM and the VM template from inside the arc-folder. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't affect the Azure VMware Solution private cloud for the customer. 
+For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Login to vCenter Server and delete resource bridge VM and the VM template from inside the arc-folder. Once that step is done, Arc won't work on the Azure VMware Solution private cloud. When you delete Arc resources from vCenter Server, it won't affect the Azure VMware Solution private cloud for the customer. 
 
 ## Preview FAQ
 
 **Region support for Azure VMware Solution**
  
-Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
+Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview).
 
 **How does support work?**
 
 Standard support process for Azure VMware Solution has been enabled to support customers.
 
-**Does Arc for Azure VMware Solution support private end point?**
+**Does Arc for Azure VMware Solution support private endpoint?**
 
-Yes. Arc for Azure VMware Solution will support private end point for general audience. However, it's not currently supported.
+Private endpoint is currently not supported.
 
 **Is enabling internet the only option to enable Arc for Azure VMware Solution?**
 
-Yes
+Yes, the Azure VMware Solution private cloud and jumpbox VM must have internet access for Arc to function.
 
 **Is DHCP support available?**
 
-DHCP support isn't available to customers at this time, we only support static IP.
-
->[!NOTE]
-> This is Azure VMware Solution 2.0 only. It's not available for Azure VMware Solution by Cloudsimple.
+DHCP support isn't available to customers at this time, we only support static IP addresses.
 
 ## Debugging tips for known issues
 
@@ -459,7 +456,7 @@ Use the following tips as a self-help guide.
 **I'm unable to install extensions on my virtual machine.**
 
 - Check that **guest management** has been successfully installed.
-- **VMtools** should be installed on the VM.
+- **VMware Tools** should be installed on the VM.
 
 **I'm facing Network related issues during on-boarding.**
 

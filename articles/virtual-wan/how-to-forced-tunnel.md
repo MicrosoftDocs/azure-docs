@@ -5,7 +5,7 @@ description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 08/24/2023
 ms.author: wellee
 
 ---
@@ -209,7 +209,7 @@ An example EAP XML file is the following.
 
 ### IKEv2 with RADIUS server authentication with user certificates (EAP-TLS)
 
-To use certificate-based RADIUS authentication (EAP-TLS) to authenticate remote users, use the sample PowerShell script below. Note that in order to import the contents of the VpnSettings and EAP XML files into PowerShell, you will have to navigate to the appropriate directory before running the **Get-Content** PowerShell command.
+To use certificate-based RADIUS authentication (EAP-TLS) to authenticate remote users, use the sample PowerShell script below. Note that in order to import the contents of the VpnSettings and EAP XML files into PowerShell, you'll have to navigate to the appropriate directory before running the **Get-Content** PowerShell command.
 
 ```azurepowershell-interactive
 # specify the name of the VPN Connection to be installed on the client

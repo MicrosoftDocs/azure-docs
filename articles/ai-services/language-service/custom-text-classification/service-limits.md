@@ -5,9 +5,8 @@ description: Learn about the data and rate limits when using custom text classif
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.date: 08/09/2023
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.date: 08/23/2023
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
@@ -41,39 +40,7 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ## Regional availability 
 
-Custom text classification is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
-
-| Region             | Authoring | Prediction  |
-|--------------------|-----------|-------------|
-| Australia East     | ✓         | ✓           |
-| Brazil South       |           | ✓           |
-| Canada Central     |           | ✓           |
-| Central India      | ✓         | ✓           |
-| Central US         |           | ✓           |
-| East Asia          |           | ✓           |
-| East US            | ✓         | ✓           |
-| East US 2          | ✓         | ✓           |
-| France Central     |           | ✓           |
-| Japan East         |           | ✓           |
-| Japan West         |           | ✓           |
-| Jio India West     |           | ✓           |
-| Korea Central      |           | ✓           |
-| North Central US   |           | ✓           |
-| North Europe       | ✓         | ✓           |
-| Norway East        |           | ✓           |
-| Qatar Central      |           | ✓           |
-| South Africa North |           | ✓           |
-| South Central US   | ✓         | ✓           |
-| Southeast Asia     |           | ✓           |
-| Sweden Central     |           | ✓           |
-| Switzerland North  | ✓         | ✓           |
-| UAE North          |           | ✓           |
-| UK South           | ✓         | ✓           |
-| West Central US    |           | ✓           |
-| West Europe        | ✓         | ✓           |
-| West US            |            | ✓           |
-| West US 2          | ✓         | ✓           |
-| West US 3          | ✓         | ✓           |
+See [Language service regional availability](../concepts/regional-support.md#custom-text-classification).
 
 ## API limits
 

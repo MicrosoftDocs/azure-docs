@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/12/2022
 ms.author: eur
@@ -43,7 +43,7 @@ Before you can do anything, you need to [install the Speech SDK](~/articles/ai-s
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.31.0</version>
+            <version>1.32.1</version>
             </dependency>
         </dependencies>
     </project>
@@ -75,7 +75,7 @@ Follow these steps to build and run the captioning quickstart code example.
     > [!IMPORTANT]
     > Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
     > 
-    > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
+    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
 
 
 ## Check results

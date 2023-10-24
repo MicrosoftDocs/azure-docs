@@ -5,17 +5,16 @@ description: Use this article to find the natural languages supported by Key Phr
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 09/18/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021, ignite-2022
 ---
 
 # Language support for Key Phrase Extraction
 
-Use this article to find the natural languages supported by Key Phrase Analysis. 
+Use this article to find the natural languages supported by Key Phrase Extraction. Both the cloud-based API and [Docker containers](./how-to/use-containers.md) support the same languages.
 
 ## Supported languages 
 
@@ -85,10 +84,10 @@ Total supported language codes: 94
 | Mongolian             |     `mn`      |                2022-10-01                 |                    |
 | Nepali                |     `ne`      |                2022-10-01                 |                    |
 | Norwegian (Bokmål)    |     `no`      |                2020-07-01                 | `nb` also accepted |
-| Oriya                 |     `or`      |                2022-10-01                 |                    |
+| Odia                 |     `or`      |                2022-10-01                 |                    |
 | Oromo                 |     `om`      |                2022-10-01                 |                    |
 | Pashto                |     `ps`      |                2022-10-01                 |                    |
-| Persian (Farsi)       |     `fa`      |                2022-10-01                 |                    |
+| Persian       |     `fa`      |                2022-10-01                 |                    |
 | Polish                |     `pl`      |                2019-10-01                 |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |                2019-10-01                 | `pt` also accepted |

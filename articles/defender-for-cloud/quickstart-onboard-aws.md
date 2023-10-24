@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 06/28/2023
+ms.date: 10/22/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -97,6 +97,17 @@ Make sure the selected Log Analytics workspace has a security solution installed
 
 Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
 
+### Defender CSPM
+
+If you choose the Microsoft Defender CSPM plan, you need:
+
+- a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS accounts](quickstart-onboard-aws.md). 
+- In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+
+Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
+
 ## Connect your AWS account
 
 To connect your AWS to Defender for Cloud by using a native connector:
@@ -140,7 +151,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 1. By default, the **Containers** plan is set to **On**. This setting is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure that you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!NOTE]
-    > Azure Arc-enabled Kubernetes, the Azure Arc extension for Microsoft Defender, and the Azure Arc extension for Azure Policy should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
+    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender agent, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
@@ -208,6 +219,14 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
       ]  
     }  
     ```
+
+    > [!NOTE]
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you may encounter the following error message:
+    > `You must enable organizations access to operate a service managed stack set`
+    >
+    > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
+    >
+    > To remediate this error message, your CloudFormation StackSets page has a prompt with a button that you can select to enable trusted access. After trusted access is enabled, the CloudFormation Stack must be run again.
 
 ## Monitor your AWS resources
 

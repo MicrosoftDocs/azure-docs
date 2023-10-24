@@ -3,7 +3,7 @@ title: Set daily cap on Log Analytics workspace
 description: Set a 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/28/2022
+ms.date: 10/23/2023
 ---
  
 # Set daily cap on Log Analytics workspace
@@ -86,7 +86,7 @@ Until September 18, 2023, the following is true. If a workspace enabled the [Mic
 To set or change the daily cap for a Log Analytics workspace in the Azure portal:  
 
 1. From the **Log Analytics workspaces** menu, select your workspace, and then **Usage and estimated costs**.
-2. Select **Data Cap** at the top of the page. 
+2. Select **Daily Cap** at the top of the page. 
 3. Select **ON** and then set the data volume limit in GB/day.
 
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" lightbox="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics configure data limit":::

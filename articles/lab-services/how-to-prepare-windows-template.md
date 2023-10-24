@@ -3,6 +3,7 @@ title: Prepare Windows lab template
 description: Prepare a Windows-based lab template in Azure Lab Services. Configure commonly used software and OS settings, such as Windows Update, OneDrive, and Microsoft 365.
 services: lab-services
 ms.service: lab-services
+ms.custom: has-azure-ad-ps-ref
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -18,7 +19,7 @@ This article describes best practices and tips for preparing a Windows-based lab
 
 ## Install and configure OneDrive
 
-When a lab user resets a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
+When a lab user reimages a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
 
 ### Install OneDrive
 

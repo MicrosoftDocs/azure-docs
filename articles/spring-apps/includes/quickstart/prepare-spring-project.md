@@ -36,6 +36,6 @@ Use the following steps to prepare the project:
 
 1. Run the sample project locally by using the following command:
 
-   ```bash
+   ```azurecli-interactive
    ./mvnw spring-boot:run
    ```

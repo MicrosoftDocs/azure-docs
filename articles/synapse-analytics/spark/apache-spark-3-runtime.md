@@ -17,7 +17,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > [!IMPORTANT]
 > * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023. 
 > * End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
-> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.1 will be retired and disabled as of January 26, 2024. 
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.1 will be retired and disabled as of January 26, 2024. After the EOL date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
 > * We recommend that you upgrade your Apache Spark 3.1 workloads to version 3.3 at your earliest convenience. 
 
 ## Component versions

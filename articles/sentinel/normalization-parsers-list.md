@@ -38,7 +38,7 @@ To use ASIM authentication parsers, deploy the parsers from the [Microsoft Senti
     - reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
     - `su`, `sudu`, and `sshd` activity reported using Syslog.
     - reported by Microsoft Defender to IoT Endpoint.
-- **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
+- **Microsoft Entra sign-ins**, collected using the Microsoft Entra connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 - **PostgreSQL** sign-in logs.

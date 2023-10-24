@@ -5,9 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 07/10/2023
+ms.date: 10/11/2023
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy23
+ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
@@ -47,7 +47,7 @@ Requirement | Details
 To create a project and register the Azure Migrate appliance, you must have an Azure account that has these permissions:
 
 - Contributor or Owner permissions in the Azure subscription.
-- Permissions to register Azure Active Directory (Azure AD) apps.
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
 
 If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
@@ -74,17 +74,17 @@ To set Contributor or Owner permissions in the Azure subscription:
 
     :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
-To give the account the required permissions to register Azure AD apps:
+To give the account the required permissions to register Microsoft Entra apps:
 
-1. In the portal, go to **Azure Active Directory** > **Users**.
+1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware
 
-On vCenter Server, check that your account has permissions to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these permissions when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
+On vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
-Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have permissions enabled in VMware for VM guest operations.
+Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) enabled in VMware for VM guest operations.
 
 ### Create an account to access vCenter Server
 
@@ -196,7 +196,7 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
 
 #### Create the appliance server
 
@@ -347,6 +347,21 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 1. Select the discovered servers count to review the discovered inventory. You can filter the inventory by selecting the appliance name and selecting one or more vCenter Servers from the **Source** filter.
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
+
+Details such as OS license support status, inventory, database instances, etc are displayed. 
+
+#### View support status
+
+You can gain deeper insights into the support posture of your environment from the **Discovered servers** and **Discovered database instances** sections.
+
+The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+
+The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+ 
 
 ## Next steps
 

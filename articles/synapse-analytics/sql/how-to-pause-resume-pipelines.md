@@ -160,7 +160,7 @@ Evaluate the desired state, Pause or Resume, and the current status, Online, or 
 1. On the Activities tab, select **+ Add Case**.  Add the cases `Paused-Resume` and `Online-Pause`. 
     ![Check status condition of the dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-condition.png)
 
-### Step 5c: Pause or Resume dedicated SQL pools     
+## Step 5c: Pause or Resume dedicated SQL pools     
 
 The final and only relevant step for some requirements, is to initiate the pause or resume of your dedicated SQL pool. This step again uses a Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute). 
 1. Select the activity edit pencil and add a **Web** activity to the State-PauseorResume canvas. 

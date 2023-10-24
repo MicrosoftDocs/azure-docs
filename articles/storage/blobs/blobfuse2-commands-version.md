@@ -2,11 +2,11 @@
 title: How to use the 'blobfuse2 version' command to get the current version and optionally check for a newer one
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 version' command to get the current version and optionally check for a newer one.
-author: jimmart-dev
-ms.service: azure-storage
+author: akashdubey-ms
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 

@@ -30,6 +30,9 @@ highlightedContent:
     - title: Q&A
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
+    - title: Vector Search with Azure Cosmos DB
+      itemType: concept
+      url: vector-search.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md
@@ -39,9 +42,6 @@ highlightedContent:
     - title: Create an Azure Cosmos DB for PostgreSQL account
       itemType: how-to-guide
       url: postgresql/quickstart-create-portal.md
-    - title: Learn more about Azure Cosmos DB
-      itemType: learn
-      url: /training/modules/explore-azure-cosmos-db/
 
 additionalContent:
   sections:

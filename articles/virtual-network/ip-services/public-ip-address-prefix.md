@@ -3,13 +3,13 @@ title: Azure Public IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about what an Azure public IP address prefix is and how it can help you assign public IP addresses to your resources.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-linux
 ms.topic: conceptual
-ms.date: 04/19/2023
-ms.author: allensu
 ---
 
 # Public IP address prefix
@@ -39,6 +39,9 @@ The following public IP prefix sizes are available:
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
 
+>[!NOTE]
+>If you are [deriving a Public IP Prefix from a Custom IP Prefix (BYOIP range)](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix), the prefix size can be as large as the Custom IP Prefix.
+
 There aren't limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Scenarios
@@ -61,9 +64,9 @@ Resource|Scenario|Steps|
 
 ## Limitations
 
-- You can't specify the set of IP addresses for the prefix (though you can specify which IP you want from the prefix). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
+- You can't specify the set of IP addresses for the prefix (though you can [specify which IP you want from the prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 
-- You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](../../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
+- You can create a prefix of up to 16 IP addresses for Microsoft owned prefixes. Review [Network limits increase requests](../../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
 
 - The size of the range can't be modified after the prefix has been created.
 

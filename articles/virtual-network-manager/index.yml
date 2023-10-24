@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page 
   author: mbender-ms 
   ms.author: mbender 
-  ms.date: 01/31/2023
+  ms.date: 08/15/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,7 +33,7 @@ landingContent:
             url: faq.md
           - text: Use cases
             url: concept-use-cases.md
-      - linkListType: training
+      - linkListType: learn
         links:
           - text: Create a hub-spoke network topology with Azure Virtual Network Manager
             url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager
@@ -102,6 +102,8 @@ landingContent:
         links:
           - text: Create a mesh network topology with Azure Virtual Network Manager using Terraform
             url: create-virtual-network-manager-terraform.md
+          - text: Deploy Azure Virtual Network Manager - ARM Template
+            url: create-virtual-network-manager-template.md
           - text: Hub-and-Spoke Deployment with Connected Groups - ARM Template
             url: /samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/
         

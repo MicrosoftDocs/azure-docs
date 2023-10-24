@@ -2,8 +2,8 @@
 title: Create a map with Azure Maps
 titleSuffix: Microsoft Azure Maps
 description: Find out how to add maps to web pages by using the Azure Maps Web SDK. Learn about options for animation, style, the camera, services, and user interactions.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -124,8 +124,8 @@ In the following code, the first code block creates a map and sets the enter and
  <head>
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
   
   
     <script type="text/javascript">

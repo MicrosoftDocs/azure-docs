@@ -255,12 +255,12 @@ cd webpubsub-quickstart-subscriber
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-webpubsub</artifactId>
     <version>1.0.0</version>
-</dependen
+</dependency>
 <dependency>
     <groupId>org.java-websocket</groupId>
     <artifactId>Java-WebSocket</artifactId>
     <version>1.5.1</version>
-</dependen
+</dependency>
 ```
 In Web PubSub, you can connect to the service and subscribe to messages through WebSocket connections. WebSocket is a full-duplex communication channel allowing the service to push messages to your client in real time. You can use any API or library that supports WebSocket. For this sample, we use package [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket). 
 

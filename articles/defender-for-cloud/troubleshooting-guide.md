@@ -37,12 +37,11 @@ Common connector issues:
 - Standards should be assigned on the security connector. To check, go to the **Environment settings** in the Defender for Cloud left menu, select the connector, and select **Settings**. There should be standards assigned. You can select the three dots to check if you have permissions to assign standards.
 - Connector resource should be present in Azure Resource Graph (ARG). Use the following ARG query to check: `resources | where ['type'] =~ "microsoft.security/securityconnectors"`
 - Make sure that sending Kubernetes audit logs is enabled on the AWS or GCP connector so that you can get [threat detection alerts for the control plane](alerts-reference.md#alerts-k8scluster).
-- Make sure that Azure Arc and the Azure Policy Arc extension were installed successfully.
-- Make sure that agents are installed to your Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
-  - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
-  - **GKE clusters should have the Azure Policy extension installed**
+- Make sure that The Defender agent and the Azure Policy for Kubernetes Arc extensions were installed successfully to your Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
   - **EKS clusters should have Microsoft Defender's extension for Azure Arc installed**
   - **GKE clusters should have Microsoft Defender's extension for Azure Arc installed**
+  - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
+  - **GKE clusters should have the Azure Policy extension installed**
 - If you’re experiencing issues with deleting the AWS or GCP connector, check if you have a lock (in this case there might be an error in the Azure Activity log, hinting at the presence of a lock).  
 - Check that workloads exist in the AWS account or GCP project.
 
@@ -58,7 +57,7 @@ GCP connector issues:
 - Make sure that the GCP Cloud Shell script completed successfully.
 - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
 - Make sure that Azure Arc endpoints are in the firewall allowlist. The GCP connector makes API calls to these endpoints to fetch the necessary onboarding files.
-- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Azure AD permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
+- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Microsoft Entra permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
 
 ## Troubleshooting the Log Analytics agent
 
@@ -162,7 +161,7 @@ You should [check which account](https://app.vssps.visualstudio.com/profile/view
 
     :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that is used to select an account.":::
 
-The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you login after that, the page defaults to the logged in account without giving you the chance to select an account.
+The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you log in after that, the page defaults to the logged in account without giving you the chance to select an account.
 
 **To change the default account**:
 

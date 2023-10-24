@@ -1,5 +1,5 @@
 ---
-title: The MedTech service scenario-based mappings samples - Azure Health Data Services
+title: MedTech service scenario-based mappings samples - Azure Health Data Services
 description: Learn about the MedTech service scenario-based mappings samples.
 services: healthcare-apis
 author: msjasteppe
@@ -16,7 +16,7 @@ ms.author: jasteppe
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 
-The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
+The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
 
 ## Sample resources
 
@@ -32,11 +32,11 @@ Each MedTech service scenario-based sample contains the following resources:
 
 ## CalculatedContent
 
-[Conversions using functions](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/calculatedcontent/conversions-using-functions)
+[Conversions using functions](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings/calculatedcontent/conversions-using-functions)
 
 ## IotJsonPathContent
 
-[Single device message into multiple resources](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/iotjsonpathcontent/single-device-message-into-multiple-resources)
+[Single device message into multiple resources](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings/iotjsonpathcontent/single-device-message-into-multiple-resources)
 
 ## Next steps
 

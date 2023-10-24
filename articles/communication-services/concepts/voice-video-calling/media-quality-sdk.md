@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Media Quality metrics
-titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the Azure Communication Services media quality statics SDK.
+title: Azure Communication Services media quality statistics
+titleSuffix: An Azure Communication Services concept article
+description: Get an overview of the Azure Communication Services media quality statics SDK.
 author: sloanster
 ms.author: micahvivion
 manager: nmurav
@@ -14,8 +14,11 @@ ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
-# Media quality statistics 
-To help understand media quality in VoIP and Video calls using Azure Communication Services, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
+# Media quality statistics
+
+To help you understand media quality in VoIP and video calls that use Azure Communication Services, there's a feature called *media quality statistics*. Use it to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
+
+[!INCLUDE [public-preview-notes](../../includes/public-preview-include.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Stats for Web](./includes/media-stats/media-stats-web.md)]

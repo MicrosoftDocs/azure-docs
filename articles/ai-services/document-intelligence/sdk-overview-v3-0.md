@@ -4,13 +4,12 @@ titleSuffix: Azure AI services
 description: Document Intelligence v3.0 software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 09/05/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -23,9 +22,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 
-> [!IMPORTANT]
-> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Document Intelligence SDK (preview)](sdk-preview.md)
-
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
 ## Supported languages
@@ -34,19 +30,19 @@ Document Intelligence SDK supports the following languages and platforms:
 
 | Language → Document Intelligence SDK version | Package| Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|
-| [.NET/C# → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer)|[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[Java → 4.0.6 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6) |[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python → 3.2.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+| [.NET/C# → 4.0.0 (GA)](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer)|[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
+|[Java → 4.0.6 (GA)](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6) |[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
+|[JavaScript → 4.0.0 (GA)](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python → 3.2.0 (GA)](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## Supported Clients
 
 | Language| SDK version | API version | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
-|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (latest GA release)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (GA)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.1.x |  v2.1 (default)</br>v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-| Python| 3.2.x (latest GA release) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
+| Python| 3.2.x (GA) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
 | Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 | Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 
@@ -135,7 +131,7 @@ There are two supported methods for authentication
 
 * Use a [Document Intelligence API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
 
-* Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
+* Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md).
 
 #### Use your API key
 
@@ -185,10 +181,12 @@ async function main() {
 ---
 
 
-#### Use an Azure Active Directory (Azure AD) token credential
+<a name='use-an-azure-active-directory-azure-ad-token-credential'></a>
+
+#### Use a Microsoft Entra token credential
 
 > [!NOTE]
-> Regional endpoints do not support AAD authentication. Create a [custom subdomain](../../ai-services/authentication.md?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
+> Regional endpoints do not support Microsoft Entra authentication. Create a [custom subdomain](../../ai-services/authentication.md?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
 
 Authorization is easiest using the `DefaultAzureCredential`. It provides a default token credential, based upon the running environment, capable of handling most Azure authentication scenarios.
 
@@ -206,11 +204,11 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
         Install-Package Azure.Identity
     ```
 
-1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register a Microsoft Entra application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
-1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
+1. Set the values of the client ID, tenant ID, and client secret in the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
 1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
 
@@ -235,11 +233,11 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
     </dependency>
     ```
 
-1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register a Microsoft Entra application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
+1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
 1. Create your **`DocumentAnalysisClient`** instance and **`TokenCredential`** variable:
 
@@ -263,11 +261,11 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
     npm install @azure/identity
     ```
 
-1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register a Microsoft Entra application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
+1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
 1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
 
@@ -290,11 +288,11 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
     pip install azure-identity
     ```
 
-1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
+1. [Register a Microsoft Entra application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
 1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
+1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
 1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
 

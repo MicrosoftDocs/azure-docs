@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Media Stats (Native)
-titleSuffix: An Azure Communication Services concept document
-description: Provides usage samples of the Media Stats feature for Native.
+title: Azure Communication Services media quality statistics (native)
+titleSuffix: An Azure Communication Services concept article
+description: Get usage samples of the media quality statistics feature for native.
 author: jsaurezle-msft
 ms.author: jsaurezlee
 
@@ -13,85 +13,65 @@ ms.subservice: calling
 ---
 
 ## Best practices
-If you want to collect this data for off-line inspection (after a call ends), it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-### Outgoing Audio metrics
-| Metric Name | Description | Comments |
+If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
+
+### Outgoing audio metrics
+
+| Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| CodecName | codec name | |
-| Bitrate | audio send bitrate (bps) | General values are in the 24 kbps range (36-128 kbps typical) |
-| JitterInMs | packet jitter (milliseconds) | Lower is better. |
-| PacketsPerSecond | packet rate (packets/sec) | |
-| PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It's calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| PairRoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It's similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
-| AvailableBitrate | bandwidth estimation (bps) | |
-| AudioInputLevel | audio volume level from microphone | The value ranges from 0-65536. 0 represents silence |
+| `CodecName` | Codec name | |
+| `Bitrate` | Audio send bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
+| `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
+| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `AvailableBitrate` | Bandwidth estimation (bits per second) | |
 
-### Incoming Audio metrics
-| Metric Name | Description | Comments |
+### Incoming audio metrics
+
+| Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| CodecName | codec name | |
-| Bitrate | audio receive bitrate (bps) | General values are in the 24 kbps range (36-128 kbps typical) |
-| JitterInMs | packet jitter (milliseconds) | Lower is better. |
-| PacketsPerSecond | packet rate (packets/sec) | |
-| PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It's calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| PairRoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
-| AvailableBitrate | bandwidth estimation (bps) | |
-| JitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the samples stay in the jitter buffer. |
-| AudioOutputLevel | audio volume level from receiving stream | The value ranges from 0-65536. 0 represents silence. |
-| HealedRatio | ratio of concealedSamples(except silentConcealedSamples) to total received samples | Information only. |
+| `CodecName` | Codec name | |
+| `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
+| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
 
-### Outgoing Video metrics
-| Metric Name | Description | Comments |
+### Outgoing video metrics
+
+| Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| CodecName | codec name | |
-| Bitrate | video send bitrate (bps) | |
-| JitterInMs | packet jitter (milliseconds) | Lower is better. |
-| PacketsPerSecond | packet rate (packets/sec) | |
-| PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It is calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| PairRoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It is similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
-| AvailableBitrate | bandwidth estimation (bps) | 1.5 Mbps or higher is recommended for high-quality video for upload/download. |
-| FrameRateInput | frame rate originating from the video source (frames/sec) | |
-| FrameWidthInput | frame width of the last frame originating from video source (pixel) | |
-| FrameHeightInput | frame height of the last frame originating from video source (pixel) | |
-| FrameRateEncoded | frame rate successfully encoded for the RTP stream (frames/sec) | |
-| FrameRateSent | frame rate sent on the RTP stream (frames/sec) | |
-| FrameWidthSent | frame width of the encoded frame (pixel) | |
-| FrameHeightSent | frame height of the encoded frame (pixel) | |
-| FramesSent | frames sent on the RTP stream | |
-| FramesEncoded | frames successfully encoded for the RTP stream | |
-| KeyFramesEncoded | key frames successfully encoded for the RTP stream  | |
+| `CodecName` | Codec name | |
+| `Bitrate` | Video send bitrate (bits per second) | |
+| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
+| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `AvailableBitrate` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
+| `FrameRateInput` | Frame rate that originates from the video source (frames per second) | |
+| `FrameWidthInput` | Frame width of the last frame that originates from the video source (pixels) | |
+| `FrameHeightInput` | Frame height of the last frame that originates from the video source (pixels) | |
+| `FrameRateSent` | Frame rate sent on the RTP stream (frames per second) | |
+| `FrameWidthSent` | Frame width of the encoded frame (pixels) | |
+| `FrameHeightSent` | Frame height of the encoded frame (pixels) | |
 
-### Incoming Video metrics
-| Metric Name | Description | Comments |
+### Incoming video metrics
+
+| Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| CodecName | codec name | |
-| Bitrate | video receive bitrate (bps) | |
-| JitterInMs | packet jitter (milliseconds) | Lower is better. |
-| PacketsPerSecond | packet rate (packets/sec) | |
-| PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It is calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| PairRoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. A round trip time of 200 ms or less is recommended. |
-| AvailableBitrate | bandwidth estimation (bps) | 1.5 Mbps or higher is recommended for high-quality video for upload/download. |
-| JitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the frame stay in the jitter buffer. |
-| StreamId | stream id | The streamId value corresponds to id in VideoStreamCommon. It can be used to match the sender. |
-| FrameRateOutput | frame rate output (frames/sec) | |
-| FrameRateDecoded | frame rate correctly decoded for the RTP stream (frames/sec) | |
-| FrameRateReceived | frame rate received on the RTP stream (frames/sec) | |
-| FrameWidthReceived | frame width of the decoded frame (pixel) | |
-| FrameHeightReceived | frame height of the decoded frame (pixel) | |
-| LongestFreezeDurationInMs | longest freeze duration (milliseconds) | |
-| TotalFreezeDurationInMs | total freeze duration (milliseconds) | |
-| FramesReceived | total number of frames received on the RTP stream | |
-| FramesDecoded | total number of frames correctly decoded for the RTP stream | |
-| FramesDropped | total number of frames dropped | |
-| KeyFramesDecoded | total number of key frames correctly decoded for the RTP stream | |
+| `CodecName` | Codec name | |
+| `Bitrate` | Video receive bitrate (bits per second) | |
+| `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
+| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
+| `StreamId` | Stream ID | The `streamId` value corresponds to the ID of the video of the remote participant. It can be used to match the sender. |
+| `FrameRateReceived` | Frame rate received on the RTP stream (frames per second) | |
+| `FrameWidthReceived` | Frame width of the decoded frame (pixels) | |
+| `FrameHeightReceived` | Frame height of the decoded frame (pixels) | |
+| `TotalFreezeDurationInMs` | Total freeze duration (milliseconds) | |
 
-### ScreenShare Send metrics
-Currently stats fields are the same as *Video Send metrics*
+### Screen-share send metrics
 
-### ScreenShare Receive metrics
-Currently stats fields are the same as *Video Receive metrics*
+Currently, statistics fields are the same as *video send metrics*.
+
+### Screen-share receive metrics
+
+Currently, statistics fields are the same as *video receive metrics*.

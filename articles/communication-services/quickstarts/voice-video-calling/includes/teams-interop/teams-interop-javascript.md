@@ -17,11 +17,13 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling web app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- The Minimum Version supported for Teams meetingId and passcode join API : 1.17.1
 
 ## Add the Teams UI controls
 
 Replace code in index.html with following snippet.
-The text box is used to enter the Teams meeting context and the button is used to join the specified meeting:
+Join the Teams meeting via Teams Meeting link or Teams MeetingId and Passcode.
+The text boxes are used to enter the Teams meeting context and the button is used to join the specified meeting:
 
 ```html
 <!DOCTYPE html>
@@ -34,6 +36,10 @@ The text box is used to enter the Teams meeting context and the button is used t
     <h1>Teams meeting join quickstart</h1>
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
+    <p><input id="teams-meetingId-input" type="text" placeholder="Teams meetingId"
+        style="margin-bottom:1em; width: 300px;" /></p>
+    <p><input id="teams-passcode-input" type="text" placeholder="Teams meeting Passcode"
+        style="margin-bottom:1em; width: 300px;" /></p>
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
         <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
@@ -62,6 +68,8 @@ import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 let call;
 let callAgent;
 const meetingLinkInput = document.getElementById('teams-link-input');
+const meetingIdInput = document.getElementById('teams-meetingId-input');
+const meetingPasscodeInput = document.getElementById('teams-passcode-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
@@ -88,6 +96,9 @@ hangUpButton.addEventListener("click", async () => {
 teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+
+   //(or) to join with meetingId and passcode use the below code snippet.
+   //call = callAgent.join({meetingId: meetingIdInput.value, passcode: meetingPasscodeInput.value}, {});
     
     call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
@@ -112,6 +123,11 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+## Get the Teams meeting ID and passcode
+* Graph API: Use Graph API to retrieve information about onlineMeeting resource and check the object in property joinMeetingIdSettings.
+* Teams: In your Teams application go to Calendar app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting.
+* Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
 
 ## Run the code
 

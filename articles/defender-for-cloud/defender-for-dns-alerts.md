@@ -13,13 +13,13 @@ author: dcurwin
 
 When you receive a security alert about suspicious and anomalous activities identified in DNS transactions, we recommend you investigate and respond to the alert as described below. Even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.
 
-## Step 1. Contact
+## Step 1: Contact
 
 1. Contact the resource owner to determine whether the behavior was expected or intentional.
 1. If the activity is expected, dismiss the alert.
 1. If the activity is unexpected, treat the resource as potentially compromised and mitigate as described in the next step.
 
-## Step 2. Immediate mitigation
+## Step 2: Immediate mitigation
 
 1. Isolate the resource from the network to prevent lateral movement.
 1. Run a full antimalware scan on the resource, following any resulting remediation advice.

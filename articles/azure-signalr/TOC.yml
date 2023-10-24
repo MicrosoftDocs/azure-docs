@@ -85,9 +85,9 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
-  - name: Authorization with Azure AD
+  - name: Authorization with Microsoft Entra ID
     items:
-      - name: Overview of Azure AD for Azure SignalR Service
+      - name: Overview of Microsoft Entra ID for Azure SignalR Service
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md

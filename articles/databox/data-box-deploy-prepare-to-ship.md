@@ -2,14 +2,14 @@
 title: Tutorial to ship Azure Data Box
 description: In this tutorial, learn how to prepare to ship Data Box for return.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 07/21/2022
-ms.author: alkohli
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to return a Data Box to upload on-premises data from my server onto Azure.
 ---

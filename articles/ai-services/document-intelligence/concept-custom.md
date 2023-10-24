@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -30,7 +29,7 @@ Custom models now include [custom classification models](./concept-custom-classi
 
 ## Custom document model types
 
-Custom document models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
+Custom document models can be one of two types, [**custom template**](concept-custom-template.md) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
 
 ### Custom extraction models
 
@@ -49,7 +48,7 @@ The custom neural (custom document) model uses deep learning models and  base mo
 
 The custom template or custom form model relies on a consistent visual template to extract the labeled data. Variances in the visual structure of your documents affect the accuracy of your model. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
 
-Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
+Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md).
 
 If the language of your documents and extraction scenarios supports custom neural models, it's recommended that you use custom neural models over template models for higher accuracy.
 
@@ -180,7 +179,7 @@ This table compares the supported data extraction areas:
 *-behaves differently. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in the region is selected.
 
 > [!TIP]
-> When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.
+> When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md) to learn more about custom neural models.
 
 :::moniker-end
 
@@ -477,6 +476,7 @@ The following table lists the supported languages for print text by the most rec
   |Russian|ru|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
+  |Sakha|sah|
   |Samburu|saq|
   |Samoan (Latin)|sm|
   |Sango|sg|
@@ -549,7 +549,6 @@ The following table lists the supported languages for print text by the most rec
   |Western Frisian|fy|
   |Wolof|wo|
   |Xhosa|xh|
-  |Yakut|sah|
   |Yucatec Maya|yua|
   |Zapotec|zap|
   |Zarma|dje|

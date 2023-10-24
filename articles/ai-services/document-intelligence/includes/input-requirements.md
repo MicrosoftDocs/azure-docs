@@ -1,7 +1,6 @@
 ---
 author: laujan
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -12,7 +11,7 @@ ms.author: lajanuar
 
 * Supported file formats: 
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ |   |

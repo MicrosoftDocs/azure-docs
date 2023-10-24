@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/19/2023
 ms.author: greglin
 ---
 
@@ -17,6 +17,14 @@ This document helps set up an example application that uses the following resour
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
 - Create a [BackendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendTLSPolicy) resource that has a client and CA certificate for the backend service referenced in the HTTPRoute.
+
+## Background
+
+Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt communications and identify clients to a service.  This enables backend workloads to further increase its security posture by only trusting connections from authenticated devices.
+
+See the following figure:
+
+[ ![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
 
 ## Prerequisites
 
@@ -84,6 +92,7 @@ RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
 FRONTEND_NAME='frontend'
+az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
 ```
 
 2. Create a Gateway

@@ -283,7 +283,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Burkina Faso                           |                ✓                  |                   |             |
 | Burundi                                |                ✓                  |                   |             |
 | Cameroon                               |                ✓                  |                   |             |
-| Cape Verde                             |                ✓                  |                   |             |
+| Cabo Verde                             |                ✓                  |                   |             |
 | Central African Republic               |                ✓                  |                   |             |
 | Chad                                   |                ✓                  |                   |             |
 | Congo                                  |                ✓                  |                   |             |
@@ -335,7 +335,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Somalia                                |                ✓                  |                   |             |
 | South Africa                           |                ✓                  |         ✓         |      ✓     |
 | South Sudan                            |                ✓                  |                   |             |
-| St. Helena                             |                ✓                  |                   |             |
+| St. Helena, Ascension, and Tristan da Cunha |           ✓                  |                   |             |
 | Sudan                                  |                ✓                  |                   |             |
 | Swaziland                              |                ✓                  |                   |             |
 | Syria                                  |                ✓                  |                   |             |
@@ -343,7 +343,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Togo                                   |                ✓                  |                   |             |
 | Tunisia                                |                ✓                  |                   |             |
 | Uganda                                 |                ✓                  |                   |             |
-| United Arab Emirates                   |                                   |                   |             |
+| United Arab Emirates                   |                ✓                  |         ✓         |             |
 | Yemen                                  |                ✓                  |                   |             |
 | Zambia                                 |                ✓                  |                   |             |
 | Zimbabwe                               |                ✓                  |                   |             |
@@ -408,7 +408,6 @@ The Azure Maps Routing v2 service (preview) contains different levels of geograp
 | Central African Republic               | Major Roads Only    |                       | ✓                 |                            |
 | Chad                                   | Major Roads Only    |                       | ✓                 |                            |
 | Chile                                  | Good                | ✓                     | ✓                 | ✓                         |
-| China                                  | Good                | ✓                     | ✓                 |                            |
 | Christmas Island                       | Good                |                       | ✓                 |                            |
 | Cocos (Keeling) Islands                | Major Roads Only    |                       | ✓                 |                            |
 | Colombia                               | Good                | ✓                     | ✓                 | ✓                         |
@@ -475,7 +474,6 @@ The Azure Maps Routing v2 service (preview) contains different levels of geograp
 | Italy                                  | Good                | ✓                     | ✓                 | ✓                         |
 | Jamaica                                | Good                |                       | ✓                 |                            |
 | Jan Mayen                              | Good                |                       |                   |                            |
-| Japan                                  | Good                | ✓                     |                   |                            |
 | Jersey                                 | Good                | ✓                     | ✓                 |                            |
 | Jordan                                 | Good                |                       | ✓                 |                            |
 | Kazakhstan                             | Good                |                       | ✓                 | ✓                         |

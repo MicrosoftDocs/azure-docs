@@ -2,9 +2,9 @@
 title: What's new in the Azure Virtual Desktop Store app for Windows (preview) - Azure Virtual Desktop
 description: Learn about recent changes to the Azure Virtual Desktop Store app for Windows.
 ms.topic: release-notes
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 08/04/2023
+author: heidilohr
+ms.author: helohr
+ms.date: 08/29/2023
 ---
 
 # What's new in the Azure Virtual Desktop Store app for Windows (preview)
@@ -15,14 +15,29 @@ ms.date: 08/04/2023
 
 In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop](users/client-features-windows-azure-virtual-desktop-app.md).
 
-## Latest client versions
+## Supported client versions
 
-The following table lists the current version available for the public release. To enable Insider releases, see [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
 
 | Release     | Latest version   | Download |
 |-------------|------------------|----------|
 | Public      | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider     | 1.2.4487         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+| Insider     | 1.2.4577         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+
+## Updates for version 1.2.4577 (Insider)
+
+*Date published: August 29, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Accessibility improvements:
+   - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
+   - Narrator now focuses on and announces **Learn more** hyperlinks.
+   - Keyboard focus is now set correctly when a warning dialog loads.
+   - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
+   - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
 
 ## Updates for version 1.2.4487
 

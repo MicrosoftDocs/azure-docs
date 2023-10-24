@@ -195,8 +195,6 @@ The Log Analytics Reader role includes the following Azure actions:
 | Action | `*/read`   | Ability to view all Azure resources and resource configuration.<br>Includes viewing:<br>- Virtual machine extension status.<br>- Configuration of Azure diagnostics on resources.<br>- All properties and settings of all resources.<br><br>For workspaces, allows full unrestricted permissions to read the workspace settings and query data. See more granular options in the preceding list. |
 | Action | `Microsoft.Support/*` | Ability to open support cases. |
 |Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents. This prevents the user from adding new resources to the workspace. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecated. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecated. |
 
 #### Log Analytics Contributor
 
@@ -275,13 +273,13 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 - Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 - Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherits the read action from another role that's assigned to this resource or to the subscription or resource group, they could read all log types. This scenario is also true if they inherit `*/read` that exists, for example, with the Reader or Contributor role.
 
-**Example 5: Grant a user permission to read log data from their resources and all Azure AD sign-in and read Update Management solution log data in the Log Analytics workspace.**
+**Example 5: Grant a user permission to read log data from their resources and all Microsoft Entra sign-in and read Update Management solution log data in the Log Analytics workspace.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users the following permissions on the workspace:
   - `Microsoft.OperationalInsights/workspaces/read`: Required so the user can enumerate the workspace and open the workspace pane in the Azure portal
   - `Microsoft.OperationalInsights/workspaces/query/read`: Required for every user that can execute queries
-  - `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`: To be able to read Azure AD sign-in logs
+  - `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`: To be able to read Microsoft Entra sign-in logs
   - `Microsoft.OperationalInsights/workspaces/query/Update/read`: To be able to read Update Management solution logs
   - `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`: To be able to read Update Management solution logs
   - `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`: To be able to read Update Management logs
@@ -332,9 +330,7 @@ Granting table-level read access involves assigning a user two roles:
 
             ```json
             "Microsoft.OperationalInsights/workspaces/read",
-            "Microsoft.OperationalInsights/workspaces/query/read",
-            "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-            "Microsoft.OperationalInsights/workspaces/search/action"    
+            "Microsoft.OperationalInsights/workspaces/query/read" 
             ```
 
         1. In the `"not actions"` section, add: 

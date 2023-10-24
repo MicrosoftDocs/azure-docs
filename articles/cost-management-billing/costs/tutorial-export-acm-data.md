@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2023
+ms.date: 09/12/2023
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -46,10 +46,7 @@ For Azure Storage accounts:
   Or
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
   Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
-- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
-  >[!NOTE]
-  > Export to storage accounts behind firewall is in preview.  
-
+- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing the From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
@@ -280,9 +277,13 @@ Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
+If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. 
+
+Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
 
 Exports for management groups of other subscription types aren't supported.
+
+Multiple currencies are not supported in management group exports.
 
 1. If you haven't already created a management group, create one group and assign subscriptions to it.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.
