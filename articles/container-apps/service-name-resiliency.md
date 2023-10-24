@@ -16,32 +16,32 @@ zone_pivot_groups: resiliency-options
 
 # Service name resiliency
 
-In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: 
-- Any type of the container app's service name, such as:
-  - Container App name
-  - Container App fully qualified domain name (FQDN)
-- [Dapr service invocation](./dapr-invoke-resiliency.md). 
-
-This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests from one container app to another using either application’s app name or FQDN.
-
-:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency for container apps using an application's app name or fully qualified domain name.":::
-
-## How Azure Container Apps resiliency works
-
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-Resiliency policies are configured as a sub-resource to a container app. When a container app request request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). Thus retries, timeouts, and other resiliency policies are appropriately enforced and tailored to the specific requirement of the requested application. 
+For container app resiliency, policies are configured as a sub-resource to a container app. When a container app request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). 
 
-### Supported resiliency policies
+For example, in the diagram below, the resiliency policies tailored to the specific requirement of the callee, App B, determine how retries, timeouts, and other resiliency policies are applied to both App A and App B. 
 
-- Timeouts
-- Retries (HTTP and TCP)
-- Circuit breakers
-- Connection pools (HTTP and TCP)
+:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
+
+You can apply resiliency policies to two styles of service-to-service communication: 
+- A request to a container app using its service name, such as:
+  - Container app's name
+  - Container app's fully qualified domain name (FQDN) 
+- [Dapr service invocation](./dapr-invoke-resiliency.md). 
+
+This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests using a container app's service name.
+
+## Supported resiliency policies
+
+- [Timeouts](#timeouts)
+- [Retries (HTTP and TCP)](#retries)
+- [Circuit breakers](#circuit-breakers)
+- [Connection pools (HTTP and TCP)](#connection-pools)
 
 ## Creating resiliency policies
 
-Create and apply resiliency policies using Bicep, the CLI, and the Azure portal.
+Create resiliency policies using Bicep, the CLI, and the Azure portal. 
 
 # [Bicep](#tab/bicep)
 
@@ -56,7 +56,6 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
         responseTimeoutInSeconds: 15
         connectionTimeoutInSeconds: 5
     }
-    rateLimitPolicy: {}
     httpRetryPolicy: {
         maxRetries: 5
         retryBackOff: {
@@ -67,9 +66,9 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
             headers: [
                 {
                     headerMatch: {
-                        header: 'X-Content-Type'
+                        header: 'Content-Type'
                         match: { 
-                            prefixMatch: 'GOATS'
+                            prefixMatch: 'application'
                         }
                     }
                 }
@@ -79,9 +78,8 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
                 503
             ]
             errors: [
-                5xx
-                connect-failure
-                reset          
+                'retriable-headers'
+                'retriable-status-codes'
             ]
         }
     } 
@@ -136,9 +134,8 @@ httpRetryPolicy:
     maxIntervalInMilliseconds: 10000
   matches:
     errors:
-      - 5xx
-      - connect-failure
-      - reset
+      - retriable-headers
+      - retriable-status-codes
 tcpRetryPolicy:
   maxConnectAttempts: 3
 circuitBreakerPolicy:
@@ -190,16 +187,16 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Timeout waiting for a response from the upstream container app. | `15` |
-| `connectionTimeoutInSeconds` | Timeout to establish a connection to the upstream container app. | `5` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `responseTimeoutInSeconds` | Y | Timeout waiting for a response from the upstream container app. | `15` |
+| `connectionTimeoutInSeconds` | Y | Timeout to establish a connection to the upstream container app. | `5` |
 
 ### Retries
 
 Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations. The retry policy includes the following configurations.
 
-#### `httpRetryPolicy`
+#### httpRetryPolicy
 
 ```bicep
 properties: {
@@ -225,27 +222,78 @@ properties: {
                 503
             ]
             errors: [
-                5xx
-                connect-failure
-                reset          
+                'retriable-headers'
+                'retriable-status-codes'
             ]
         }
     } 
 }
 ```
 
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `maxRetries` | Y | Maximum retries to be executed for a failed http-request. | `5` |
+| `retryBackOff` | Y | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `retryBackOff.initialDelayInMilliseconds` | Y | Delay between first error and first retry. | `1000` |
+| `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
+| `matches` | Y | Set match values to limit when the app should attempt a retry.  | `headers`, `httpStatusCodes`, `errors` |
+| `matches.headers` | Y* | Retry on any status code defined in retriable headers. *Headers are only required properties if you've specified the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
+| `matches.httpStatusCodes` | Y* | Retry on any status code defined in additional status codes. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
+| `matches.errors` | Y | Only retries when the app returns a specific error message. [Learn more about available errors.](#errors) | `connect-failure`, `reset` |
+
+##### Header matches
+
+If you've specified `retriable-headers` error, you can use any of the following header match properties to retry.
+
+```bicep
+matches: {
+  headers: [
+    { 
+      headerMatch: {
+        header: 'X-Content-Type'
+        match: {
+          prefixMatch: 'application'
+        }
+      }
+    }
+  ]
+}
+```
+
 | Metadata | Description | Example |
 | -------- | ----------- | ------- |
-| `maxRetries` | Maximum retries to be executed for a failed http-request. | `5` |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
-| `retryBackOff.initialDelayInMilliseconds` | Delay between first error and first retry. | `1000` |
-| `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
-| `matches` | Set match values to limit when the app should attempt a retry. | N/A |
-| `matches.headers` | Retry on any status code defined in retriable headers. | `X-Content-Type` |
-| `matches.httpStatusCodes` | Retry on any status code defined in additional status codes, | `502`, `503` |
-| `matches.errors` | Only retries when the app returns a specific error message. | `connect-failure`, `reset` |
+| `prefixMatch` | Retry on matches to the specified prefix. | `application` |
+| `exactMatch` | Retry on exact matches to the header type. | `application/json` |
+| `suffixMatch` | Retry on matches to the specified suffix. | `json` |
+| `regexMatch` | Retry on matches to the regex pattern. | `application/json` |
 
-#### `tcpRetryPolicy`
+##### Errors
+
+You can specify any of the following errors as retriable matches.
+
+```bicep
+matches: {
+  errors: [
+    'retriable-headers'
+    'retriable-status-codes'
+    '5xx'
+    'reset'
+    'connect-failure'
+    'retriabe-4xx'
+  ]
+}
+```
+
+| Metadata | Description |
+| -------- | ----------- |
+| `retriable-headers` | Required if you'd like to retry any matching headers. |
+| `retriable-status-codes` | Required if you'd like to retry any matching status codes. |
+| `5xx` | Retry if upstream server responds with any 5xx response codes. |
+| `reset` | Retry if the upstream server doesn't respond. |
+| `connect-failure` | Retry if request has failed due to a connection failure with the upstream server. |
+| `retriable-4xx` | Retry if upstream server responds with a retriable 4xx respons code, like `409`. |
+
+#### tcpRetryPolicy
 
 ```bicep
 properties: {
@@ -255,9 +303,9 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency policy. | `3` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `maxConnectAttempts` | Y | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency policy. | `3` |
 
 
 ### Circuit breakers
@@ -274,15 +322,15 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `consecutiveErrors` | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Interval between evaluation to eject or restore an upstream container app. | `10` |
-| `maxEjectionPercent` | Maximum percent of failing replicas to eject from load balancing. | `50` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app. | `10` |
+| `maxEjectionPercent` | Y | Maximum percent of failing replicas to eject from load balancing. | `50` |
 
 ### Connection pools
 
-#### `httpConnectionPool`
+#### httpConnectionPool
 
 ```bicep
 properties: {
@@ -293,12 +341,12 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `http1MaxPendingRequests` | Used for http1 requests. Maximum number of open connections to an upstream container app. | `1024` |
-| `http2MaxRequests` | Used for http2 requests. Maximum number of concurrent requests to an upstream container app. | `1024` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `http1MaxPendingRequests` | Y | Used for http1 requests. Maximum number of open connections to an upstream container app. | `1024` |
+| `http2MaxRequests` | Y | Used for http2 requests. Maximum number of concurrent requests to an upstream container app. | `1024` |
 
-#### `tcpConnectionPool`
+#### tcpConnectionPool
 
 ```bicep
 properties: {
@@ -308,9 +356,9 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `maxConnections` | Maximum number of concurrent connections to an upstream container app. | `100` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `maxConnections` | Y | Maximum number of concurrent connections to an upstream container app. | `100` |
 
 ## Resiliency observability
 

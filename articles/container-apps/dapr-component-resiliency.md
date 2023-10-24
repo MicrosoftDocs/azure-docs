@@ -18,7 +18,7 @@ If your container app uses a Dapr component (for example, Azure Service Bus), th
 
 :::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
 
-You can configure resiliecy policies for the following outbound and inbound operation directions via a Dapr component: 
+You can configure resiliency policies for the following outbound and inbound operation directions via a Dapr component: 
 
 - **Outbound operations:** Calls from the sidecar to a component, such as:
    - Persisting or retrieving state
@@ -28,9 +28,18 @@ You can configure resiliecy policies for the following outbound and inbound oper
    - Subscriptions when delivering a message
    - Input bindings delivering an event
 
+## Supported resiliency policies
+
+- [Timeouts](#timeouts)
+- [Retries (HTTP and TCP)](#retries)
+- [Circuit breakers](#circuit-breakers)
+
 ## Creating resiliency policies
 
-Create resiliency policies using Bicep, the CLI, and the Azure portal. Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
+Create resiliency policies using Bicep, the CLI, and the Azure portal. 
+
+> [!IMPORTANT]
+> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
@@ -156,9 +165,9 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `responseTimeoutInSeconds` | Y | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
 
 ### Retries
 
@@ -188,13 +197,12 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `maxRetries` | Maximum retries to be executed for a failed http-request. | `5` |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
-| `retryBackOff.initialDelayInMilliseconds` | Delay between first error and first retry. | `1000` |
-| `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
-
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `maxRetries` | Y | Maximum retries to be executed for a failed http-request. | `5` |
+| `retryBackOff` | Y | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `retryBackOff.initialDelayInMilliseconds` | Y | Delay between first error and first retry. | `1000` |
+| `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
 
 ## Resiliency observability
 

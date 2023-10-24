@@ -16,25 +16,30 @@ zone_pivot_groups: resiliency-options
 
 # Resiliency policies for Dapr service invocation API
 
-In Azure Container Apps, you can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-name-resiliency.md) or Dapr service invocation. This guide focuses on configuring Dapr's resiliency policies when leveraging Dapr’s Service Invocation API for container app-to-container app communication. 
+With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
+
+For container app resiliency, policies are configured as a sub-resource to a container app. When a container app request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). 
+
+For example, in the diagram below, the resiliency policies tailored to the specific requirement of the callee, App B, determine how retries, timeouts, and other resiliency policies are applied to both App A and App B. 
 
 :::image type="content" source="media/dapr-invoke-resiliency/dapr-invoke-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps using Dapr service invocation API.":::
 
-## How Azure Container Apps resiliency works
+You can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-name-resiliency.md) or Dapr service invocation. 
 
-With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
-
-Resiliency policies are configured as a sub-resource to a container app. When a container app request request fails, the resiliency behavior is determined by the policies associated with the container app being called (callee). Thus retries, timeouts, and other resiliency policies are appropriately enforced and tailored to the specific requirement of the requested application. 
+This guide focuses on configuring Dapr's resiliency policies when leveraging Dapr’s Service Invocation API for container app-to-container app communication. 
 
 ## Supported resiliency policies
 
-- Timeouts
-- Retries (HTTP)
-- Circuit breakers
+- [Timeouts](#timeouts)
+- [Retries (HTTP)](#retries)
+- [Circuit breakers](#circuit-breakers)
 
 ## Creating resiliency policies
 
-Create resiliency policies using Bicep, the CLI, and the Azure portal. Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
+Create resiliency policies using Bicep, the CLI, and the Azure portal. 
+
+> [!IMPORTANT]
+> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
@@ -49,7 +54,6 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
         responseTimeoutInSeconds: 15
         connectionTimeoutInSeconds: 5
     }
-    rateLimitPolicy: {}
     httpRetryPolicy: {
         maxRetries: 5
         retryBackOff: {
@@ -128,7 +132,6 @@ Need
 
 ## Policy descriptions
 
-
 ### Timeouts
 
 Timeouts are used to early-terminate long-running operations. The timeout policy includes the following properties.
@@ -142,16 +145,14 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Timeout waiting for a response from the upstream container app. | `15` |
-| `connectionTimeoutInSeconds` | Timeout to establish a connection to the upstream container app. | `5` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `responseTimeoutInSeconds` | Y | Timeout waiting for a response from the upstream container app. | `15` |
+| `connectionTimeoutInSeconds` | Y | Timeout to establish a connection to the upstream container app. | `5` |
 
 ### Retries
 
-Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
-
-#### `httpRetryPolicy`
+Define an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
 
 ```bicep
 properties: {
@@ -165,12 +166,12 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `maxRetries` | Maximum retries to be executed for a failed http-request. | `5` |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
-| `retryBackOff.initialDelayInMilliseconds` | Delay between first error and first retry. | `1000` |
-| `retryBackOff.maxIntervalInMilliseconds` | Maximum delay between retries. | `10000` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `maxRetries` | Y | Maximum retries to be executed for a failed http-request. | `5` |
+| `retryBackOff` | Y | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `retryBackOff.initialDelayInMilliseconds` | Y | Delay between first error and first retry. | `1000` |
+| `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
 
 ### Circuit breakers
 
@@ -186,11 +187,11 @@ properties: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `consecutiveErrors` | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Interval between evaluation to eject or restore an upstream container app. | `10` |
-| `maxEjectionPercent` | Maximum percent of failing replicas to eject from load balancing. | `50` |
+| Metadata | Required? | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app. | `10` |
+| `maxEjectionPercent` | Y | Maximum percent of failing replicas to eject from load balancing. | `50` |
 
 ## Resiliency observability
 
