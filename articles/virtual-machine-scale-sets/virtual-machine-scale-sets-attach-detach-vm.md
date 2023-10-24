@@ -9,7 +9,7 @@ ms.date: 05/05/2023
 ms.reviewer: jushiman
 ---
 
-# Attach VMs to a Virtual Machine Scale Set
+# Attaching a VM to a Virtual Machine Scale Set
 
 > [!IMPORTANT]
 > You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
@@ -67,15 +67,14 @@ New-AzVm `
 
 
 
-### Exceptions to attaching a VM to a Virtual Machine Scale Set
+### Exceptions to attaching a new VM to a Virtual Machine Scale Set
 
 - The VM must be in the same resource group as the scale set.
 - If the scale set is regional (no availability zones specified), the virtual machine must also be regional. 
 - If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
 - The scale set must be in Flexible orchestration mode, and the singlePlacementGroup property must be false.
-- You can't detach a VM from a Virtual Machine Scale Set with a Fault Domain Count greater than 1.
 
-## Attach an existing VM to a Virtual Machine Scale Set
+## Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
 > Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 will incur no downtime. 
 
@@ -131,7 +130,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm `
 - The VM must have a managed disk. 
 - The VM can't be attached to a scale set with `SinglePlacementGroup` set to true. 
 
-## Detach an existing VM from a Virtual Machine Scale Set
+# Detaching a VM from a Virtual Machine Scale Set (Preview)
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
 
 > [!NOTE]
@@ -174,6 +173,24 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm
 ### Limitations for detaching a VM from a scale set
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
+
+# Troubleshooting
+
+## Attach an existing VM to an existing scale set troubleshooting (Preview)
+| Error Message                                                                                                                                                         | Description                                                                                                                                       | Troubleshooting options                                                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VmssDoesNotSupportattachingExistingAvsetVM                                                                                                                            | The VM that an attach to a scale set was attempted on is part of an Availability Set and cannot be attached to a scale set.                       | VMs in an Availability Set cannot be attached to a scale set.                                                                                                                                                                                               |
+| VmssDoesNotSupportAttachingExistingVMMultiFD                                                                                                                          | The attach of the VM failed because the VM was trying to attach to a scale set with a platform fault domain count of more than 1.                 | VMs can only be attached to scale sets with a `platform fault domain count` of 1. Try attaching to a scale set with a platform fault domain count of 1 rather than a scale set with a platform fault domain count of more than 1.                             |
+| VmssDoesNotSupportAttachingExistingVMUnmanagedDisk                                                                                                                    | VMs with unmanaged disks cannot be attached to a scale set.                                                                                       | To attach a VM with a disk to the scale set, ensure that the VM is using a managed disk. To learn about how to migrate from an unmanaged disk to a managed disk, visit the migration documentation.                                                         |
+| VmssDoesNotSupportAttachingPPGVM                                                                                                                                      | The attach of the VM failed because the VM is part of a Proximity Placement Group.                                                                | VMs from a Proximity Placement Group cannot be attached to a scale set. Remove the VM from the Proximity Placement Group and then try to attach to the scale set. See the  documentation to learn about how to move a VM out of a Proximity Placement Group |
+| OperationNotAllowed, Message: This operation is not allowed because referenced Virtual Machine Scale Set '{armId}' does not have orchestration mode set to 'Flexible' | The target scale set is a scale set with Uniform orchestration mode.                                                                              | Only scale sets with Flexible orchestration mode can have VMs attached to them. Please try attaching to a scale set with Flexible orchestration mode.                                                                                                       |
+| PropertyChangeNotAllowed Changing property virtualMachineScaleSet.id is not allowed.                                                                                  | The Virtual Machine Scale Set ID cannot be changed to a different Virtual Machine Scale Set ID without detaching the VM from the scale set first. | Please detach the VM from the Virtual Machine Scale Set, and then attach to the new scale set.                                                                                                                                                              |  |
+
+## Detach a VM from a scale set troubleshooting (Preview)
+| Error Message                                                                        | Description                                                                                                                                       | Troubleshooting options                                                                                                |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| VmssDoesNotSupportDetachNonDeallocatedVM                                             | VMs that are created by the scale set with Flexible Orhcestration Mode must be deallocated before being detached from the scale set               | Deallocate the VM and ensure that the resource is in a `deallocated` power state before retrying the detach operation. |
+| PropertyChangeNotAllowed Changing property virtualMachineScaleSet.id is not allowed. | The Virtual Machine Scale Set ID cannot be changed to a different Virtual Machine Scale Set ID without detaching the VM from the scale set first. | Ensure the `virtualMachineScaleSet.id` is set to the value of `null`. Incorrect values include: `""` and `"null"`.     |
 
 ## What's next
 Learn how to manage updates and maintenance using [Maintenance notification](virtual-machine-scale-sets-maintenance-notifications.md), [Maintenance configurations](../virtual-machines/maintenance-configurations.md), and [Scheduled Events](../virtual-machines/linux/scheduled-events.md)
