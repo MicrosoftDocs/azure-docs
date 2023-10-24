@@ -108,6 +108,26 @@ You can also use the following FQDNs to allow access to the required services fr
 
 5. No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
 
+
+##### Use outbound rules
+
+If the Firewall or NSG settings block the `“management.azure.com”` domain from Azure Virtual Machine, snapshot backups will fail.
+
+To allow the domain name, create the following outbound rule:
+
+- **Source**: IP address of the VM.
+- **Destination**: Service Tag.
+- **Destination Service Tag**: `AzureResourceManager`
+
+:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings."  lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
+
+
+
+
+
+
+
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Enable Cross Region Restore
