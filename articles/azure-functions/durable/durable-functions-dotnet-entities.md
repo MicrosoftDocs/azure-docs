@@ -22,18 +22,19 @@ We currently offer two APIs for defining entities:
 
 - The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
 
-This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
+This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 > [!NOTE]
 > The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
 
 > [!NOTE]
-> Entities are not currently supported in Durable Functions for the dotnet-isolated worker.
+> Durable entities support for the dotnet-isolated worker is currently in **preview**. You can find more samples and provide feedback in the [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet) GitHub repo. 
  
 ## Defining entity classes
 
 The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
 
+### [In-process](#tab/in-process) 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
 public class Counter
@@ -70,10 +71,92 @@ public class Counter
 
 The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
-The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It may reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
+The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It can reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
 
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
+
+### [Isolated worker process](#tab/isolated-process)
+There are two ways of defining an entity as a class in the C# isolated worker model. They produce entities with different state serialization structures. 
+
+With the following approach, the entire object is serialized when defining an entity.  
+```csharp
+public class Counter
+{
+    public int Value { get; set; }
+
+    public void Add(int amount) 
+    {
+        this.Value += amount;
+    }
+
+    public Task Reset() 
+    {
+        this.Value = 0;
+        return Task.CompletedTask;
+    }
+
+    public Task<int> Get() 
+    {
+        return Task.FromResult(this.Value);
+    }
+
+    // Delete is implicitly defined when defining an entity this way
+
+    [Function(nameof(Counter))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<Counter>();
+}
+```
+A `TaskEntity<TState>`-based implementation, which makes it easy to use dependency injection. In this case, state is deserialized to the `State` property, and no other property is serialized/deserialized. 
+
+```csharp
+public class Counter : TaskEntity<int>
+{
+    readonly ILogger logger; 
+
+    public Counter(ILogger<Counter> logger)
+    {
+        this.logger = logger; 
+    }
+
+    public int Add(int amount) 
+    {
+        this.State += amount;
+    }
+
+    public Reset() 
+    {
+        this.State = 0;
+        return Task.CompletedTask;
+    }
+
+    public Task<int> Get() 
+    {
+        return Task.FromResult(this.State);
+    }
+
+    // Delete is implicitly defined when defining an entity this way
+
+    [Function(nameof(Counter))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<Counter>();
+}
+```
+> [!WARNING]
+> When writing entities that derive from `ITaskEntity` or `TaskEntity<TState>`, it is important to **not** name your entity trigger method `RunAsync`. This will cause runtime errors when invoking the entity as there is an ambiguous match with the method name "RunAsync" due to `ITaskEntity` already defining an instance-level "RunAsync".
+
+### Deleting entities in the isolated model
+
+Deleting an entity in the isolated model is accomplished by setting the entity state to `null`. How this is accomplished depends on what entity implementation path is being used.
+
+- When deriving from `ITaskEntity` or using [function based syntax](#function-based-syntax), delete is accomplished by calling `TaskEntityOperation.State.SetState(null)`.
+- When deriving from `TaskEntity<TState>`, delete is implicitly defined. However, it can be overridden by defining a method `Delete` on the entity. State can also be deleted from any operation via `this.State = null`.
+    - To delete via setting state to null will require `TState` to be nullable.
+    - The implicitly defined delete operation will delete non-nullable `TState`.
+- When using a POCO as your state (not deriving from `TaskEntity<TState>`), delete is implicitly defined. It is possible to override the delete operation by defining a method `Delete` on the POCO. However, there is no way to set state to `null` in the POCO route so the implicitly defined delete operation is the only true delete.
+
+---
 
 ### Class Requirements
  
@@ -103,16 +186,30 @@ Operations also have access to functionality provided by the `Entity.Current` co
 
 For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
 
+#### [In-Process](#tab/in-process)
 ```csharp
-    public void Add(int amount) 
+public void Add(int amount) 
+{
+    if (this.Value < 100 && this.Value + amount >= 100)
     {
-        if (this.Value < 100 && this.Value + amount >= 100)
-        {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
-        }
-        this.Value += amount;      
+        Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
     }
+    this.Value += amount;      
+}
 ```
+#### [Isolated worker process](#tab/isolated-process)
+```csharp
+public void Add(int amount, TaskEntityContext context) 
+{
+    if (this.Value < 100 && this.Value + amount >= 100)
+    {
+        context.ScheduleNewOrchestration("MilestoneReached", context.Id);
+    }
+
+    this.Value += amount;      
+}
+```
+---
 
 ## Accessing entities directly
 
@@ -124,7 +221,7 @@ Class-based entities can be accessed directly, using explicit string names for t
 ### Example: client signals entity
 
 The following Azure Http Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
-
+#### [In-process](#tab/in-process)
 ```csharp
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
@@ -137,11 +234,26 @@ public static async Task<HttpResponseMessage> DeleteCounter(
     return req.CreateResponse(HttpStatusCode.Accepted);
 }
 ```
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+[Function("DeleteCounter")]
+public static async Task<HttpResponseData> DeleteCounter(
+    [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestData req,
+    [DurableClient] DurableTaskClient client, string entityKey)
+{
+    var entityId = new EntityInstanceId("Counter", entityKey);
+    await client.Entities.SignalEntityAsync(entityId, "Delete");
+    return req.CreateResponse(HttpStatusCode.Accepted);
+}
+```
+---
 
 ### Example: client reads entity state
 
 The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
 
+#### [In-process](#tab/in-process)
 ```csharp
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
@@ -154,14 +266,32 @@ public static async Task<HttpResponseMessage> GetCounter(
     return req.CreateResponse(state);
 }
 ```
-
 > [!NOTE]
-> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it may be stale, and modifying this object has no effect on the actual entity. 
+> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it can be stale, and modifying this object has no effect on the actual entity. 
+
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+[Function("GetCounter")]
+public static async Task<HttpResponseData> GetCounter(
+    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestData req,
+    [DurableClient] DurableTaskClient client, string entityKey)
+{
+    var entityId = new EntityInstanceId("Counter", entityKey);
+    EntityMetadata<int>? entity = await client.Entities.GetEntityAsync<int>(entityId);
+    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    await response.WriteAsJsonAsync(entity.State);
+
+    return response;
+}
+```
+---
 
 ### Example: orchestration first signals, then calls entity
 
 The following orchestration signals a counter entity to increment it, and then calls the same entity to read its latest value.
 
+#### [In-process](#tab/in-process)
 ```csharp
 [FunctionName("IncrementThenGet")]
 public static async Task<int> Run(
@@ -178,6 +308,25 @@ public static async Task<int> Run(
     return currentValue;
 }
 ```
+
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+[Function("IncrementThenGet")]
+public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var entityId = new EntityInstanceId("Counter", "myCounter");
+
+    // One-way signal to the entity - does not await a response
+    await context.Entities.SignalEntityAsync(entityId, "Add", 1);
+
+    // Two-way call to the entity which returns a value - awaits the response
+    int currentValue = await context.Entities.CallEntityAsync<int>(entityId, "Get");
+
+    return currentValue; 
+}
+```
+---
 
 ## Accessing entities through interfaces
 
@@ -202,10 +351,11 @@ public class Counter : ICounter
 
 Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
 
-Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
+Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity can implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface can be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 
 ### Example: client signals entity through interface
 
+#### [In-Process](#tab/in-process)
 Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. For example:
 
 ```csharp
@@ -227,7 +377,15 @@ In this example, the `proxy` parameter is a dynamically generated instance of `I
 > The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
 For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
 
+#### [Isolated worker process](#tab/isolated-process)
+
+This is currently not supported in the .NET isolated worker. 
+
+---
+
 ### Example: orchestration first signals, then calls entity through proxy
+
+#### [In-Process](#tab/in-process)
 
 To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
 
@@ -250,6 +408,12 @@ public static async Task<int> Run(
 ```
 
 Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. One can change this default behavior, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
+
+#### [Isolated worker process](#tab/isolated-process)
+
+This is currently not supported in the .NET isolated worker. 
+
+---
 
 ### Shorter option for specifying the target
 
@@ -317,7 +481,7 @@ In the example above, we chose to include several attributes to make the underly
 - We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
 -  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
 
-However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
+However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one can use `[DataContract]` attributes, or no attributes at all:
 
 ```csharp
 [DataContract]
@@ -339,7 +503,7 @@ By default, the name of the class is *not* stored as part of the JSON representa
 
 ### Making changes to class definitions
 
-Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+Some care is required when making changes to a class definition after an application has been run, because the stored JSON object can no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
 
 For example, here are some examples of changes and their effect:
 
@@ -359,6 +523,8 @@ Sometimes we want to exert more control over how entity objects are constructed.
 
 Occasionally we need to perform some special initialization before dispatching an operation to an entity that has never been accessed, or that has been deleted. To specify this behavior, one can add a conditional before the `DispatchAsync`:
 
+#### [In-process](#tab/in-process)
+
 ```csharp
 [FunctionName(nameof(Counter))]
 public static Task Run([EntityTrigger] IDurableEntityContext ctx)
@@ -370,12 +536,27 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     return ctx.DispatchAsync<Counter>();
 }
 ```
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+public class Counter : TaskEntity<int>
+{
+    protected override int InitializeState(TaskEntityOperation operation)
+    {
+        // This is called when state is null, giving a chance to customize first-access of entity.
+        return 10;
+    }
+}
+```
+---
 
 ### Bindings in entity classes
 
 Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
 
 The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob-input.md) can be made available to a class-based entity.
+
+#### [In-process](#tab/in-process)
 
 ```csharp
 public class BlobBackedEntity
@@ -401,12 +582,32 @@ public class BlobBackedEntity
     }
 }
 ```
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+public class BlobBackedEntity : TaskEntity<object?>
+{
+    private BlobContainerClient Container { get; set; }
+
+    [Function(nameof(BlobBackedEntity))]
+    public Task DispatchAsync(
+        [EntityTrigger] TaskEntityDispatcher dispatcher, 
+        [BlobInput("my-container")] BlobContainerClient container)
+    {
+        this.Container = container;
+        return dispatcher.DispatchAsync(this);
+    }
+}
+```
+---
 
 For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
 
 ### Dependency injection in entity classes
 
 Entity classes support [Azure Functions Dependency Injection](../functions-dotnet-dependency-injection.md). The following example demonstrates how to register an `IHttpClientFactory` service into a class-based entity.
+
+#### [In-process](#tab/in-process)
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -422,8 +623,32 @@ namespace MyNamespace
     }
 }
 ```
+#### [Isolated worker process](#tab/isolated-process)
+
+The following demonstrates how to configure an `HttpClient` in the `program.cs` file to be imported later in the entity class. 
+
+```csharp
+public class Program
+{
+    public static void Main()
+    {
+        IHost host = new HostBuilder()
+            .ConfigureFunctionsWorkerDefaults((IFunctionsWorkerApplicationBuilder workerApplication) =>
+            {
+                workerApplication.Services.AddHttpClient<HttpEntity>()
+                    .ConfigureHttpClient(client => {/* configure http client here */});
+             })
+            .Build();
+
+        host.Run();
+    }
+}
+```
+---
 
 The following snippet demonstrates how to incorporate the injected service into your entity class.
+
+#### [In-process](#tab/in-process)
 
 ```csharp
 public class HttpEntity
@@ -450,17 +675,44 @@ public class HttpEntity
 }
 ```
 
+#### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+public class HttpEntity : TaskEntity<object?>
+{
+    private readonly HttpClient client;
+
+     public HttpEntity(HttpClient client)
+    {
+        this.client = client;
+    }
+
+    public async Task<int> GetAsync(string url)
+    {
+        using var response = await this.client.GetAsync(url);
+        return (int)response.StatusCode;
+    }
+
+    [Function(nameof(HttpEntity))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<HttpEntity>();
+}
+```
+---
+
 > [!NOTE]
 > To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
 
 > [!NOTE]
-> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
+> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point can cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
 
 ## Function-based syntax
 
-So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
+So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
+
+### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("Counter")]
@@ -510,6 +762,42 @@ Finally, the following members are used to signal other entities, or start new o
 
 * `SignalEntity(EntityId, operation, input)`: sends a one-way message to an entity.
 * `CreateNewOrchestration(orchestratorFunctionName, input)`: starts a new orchestration.
+
+### [Isolated worker process](#tab/isolated-process)
+
+```csharp
+[Function(nameof(Counter))]
+public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync(operation =>
+    {
+        if (operation.State.GetState(typeof(int)) is null)
+        {
+            operation.State.SetState(0);
+        }
+
+        switch (operation.Name.ToLowerInvariant())
+        {
+            case "add":
+                int state = operation.State.GetState<int>();
+                state += operation.GetInput<int>();
+                operation.State.SetState(state);
+                return new(state);
+            case "reset":
+                operation.State.SetState(0);
+                break;
+            case "get":
+                return new(operation.State.GetState<int>());
+            case "delete": 
+                operation.State.SetState(null);
+                break; 
+        }
+
+        return default;
+    });
+}
+```
+---
 
 ## Next steps
 
