@@ -62,7 +62,7 @@ To get started with the Azure AI SDK, try out an example notebook from the [aist
 
 Follow these steps to clone the copilot sample repository into your project's `code` folder:
 
-1. Go to the `code` folder by running `cd ~/code` in the terminal:
+1. Go to the `code` folder by running `cd code` in the terminal:
 
     ```bash
     cd ~/code
