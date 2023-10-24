@@ -6,9 +6,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 09/20/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -31,6 +31,25 @@ monikerRange: '<=doc-intel-3.1.0'
 ::: moniker-end
 
 ## Model overview
+
+The following table shows the available models for each current preview and stable API:
+
+|Model|[2023-10-31-preview](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)|[2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|----------------|-----------|---|--|---|
+|Business Card        | deprecated|✔️|✔️|✔️ |
+|Contract             | ✔️| ✔️| n/a| n/a|
+|Custom               | ✔️| ✔️| ✔️| ✔️|
+|General Document     | deprecated| ✔️| ✔️| n/a|
+|Health Insurance Card| ✔️| ✔️| ✔️| n/a|
+|ID Document          | ✔️| ✔️| ✔️| ✔️|
+|Invoice              | ✔️| ✔️| ✔️| ✔️|
+|Layout               | ✔️| ✔️| ✔️| ✔️|
+|Read                 | ✔️| ✔️| ✔️| n/a|
+|Receipt              | ✔️| ✔️| ✔️| ✔️|
+|US 1098 Tax          | ✔️| ✔️| n/a| n/a|
+|US 1098-E Tax        | ✔️| ✔️| n/a| n/a|
+|US 1098-T Tax        | ✔️| ✔️| n/a| n/a|
+|US W2 Tax            | ✔️| ✔️| ✔️| n/a|
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -234,7 +253,7 @@ Custom extraction model can be one of two types, **custom template** or **custom
 
 :::image type="icon" source="media/studio/custom-classifier.png":::
 
-The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the 2023-02-28-preview. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
+The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the `2023-07-31 (GA)` API. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
 
 > [!div class="nextstepaction"]
 > [Learn more: custom classification model](concept-custom-classifier.md)
@@ -255,18 +274,18 @@ A composed model is created by taking a collection of custom models and assignin
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
-| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
+| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  || ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
 | [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
 | [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 | [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
-| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
+| [Custom](concept-custom.md#compare-model-features) | ✓  ||  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 
@@ -387,7 +406,7 @@ A composed model is created by taking a collection of custom models and assignin
 | [Receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
 | [ID Document](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 | [Business Card](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
-| [Custom Form](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
+| [Custom Form](concept-custom.md#compare-model-features) | ✓  ||  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 

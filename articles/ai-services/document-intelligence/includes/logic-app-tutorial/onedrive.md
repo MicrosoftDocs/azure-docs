@@ -4,7 +4,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/24/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD041 -->

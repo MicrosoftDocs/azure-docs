@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 09/05/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -39,10 +39,10 @@ Document Intelligence SDK supports the following languages and platforms:
 
 | Language| SDK version | API version | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
-|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (GA)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (GA)| v3.0:2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.1.x |  v2.1 (default)</br>v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-| Python| 3.2.x (GA) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
+| Python| 3.2.x (GA) | v3.0:2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
 | Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 | Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 

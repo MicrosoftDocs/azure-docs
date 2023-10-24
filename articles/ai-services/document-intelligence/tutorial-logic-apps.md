@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: bemabonsu
 zone_pivot_groups: cloud-location
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 # Create a Document Intelligence Logic Apps workflow

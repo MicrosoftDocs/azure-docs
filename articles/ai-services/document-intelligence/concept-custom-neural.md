@@ -17,7 +17,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 [!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
-Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -104,18 +104,18 @@ Neural models now support added languages for the ```v3.1``` APIs.
 
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.1.0"
 
-Neural models now support added languages for the ```v3.0``` APIs.
+Neural models now support added languages for the `v3.1` and later APIs.
 
 | Languages | API version |
 |:--:|:--:|
-| English | `2023-07-31` (GA), `2023-07-31` (GA)|
-| German |  `2023-07-31` (GA)|
-| Italian |  `2023-07-31` (GA)|
-| French |  `2023-07-31` (GA)|
-| Spanish |  `2023-07-31` (GA)|
-| Dutch |  `2023-07-31` (GA)|
+| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
+| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
 
 :::moniker-end
 
@@ -156,10 +156,23 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 * US Gov Arizona
 * US Gov Virginia
 
+:::moniker range="doc-intel-4.0.0"
+
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
-> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+> [!TIP]
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3.1:2023-07-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
 
 ## Best practices
 
@@ -193,16 +206,18 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-guide.md).
+Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3.1:2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
+:::moniker range="doc-intel-4.0.0"
+
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10-31-preview
 
 {
   "modelId": "string",
@@ -215,6 +230,27 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
   }
 }
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+```REST
+https://{endpoint}/formrecognizer/documentModels:build?api-version=v3.1:2023-07-31
+
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "neural",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
+```
+
+:::moniker-end
 
 ## Next steps
 

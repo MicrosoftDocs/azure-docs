@@ -9,7 +9,7 @@ ms.topic: whats-new
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -626,7 +626,6 @@ The v3.1 API introduces new and updated capabilities:
   * [Invoice prebuilt model (Spanish)](concept-invoice.md#supported-languages-and-locales) (prebuilt-invoice).
 
 ---
-
 
 ## November 2021
 
