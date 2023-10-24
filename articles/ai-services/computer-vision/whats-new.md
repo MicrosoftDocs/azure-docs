@@ -18,9 +18,11 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## November 2023
 
-## Image Analysis 4.0 GA
+## Analyze Image 4.0 GA
 
-Image Analysis 4.0 API. just Analyze call, not customizatino, segmentation, vectorization.. TBD
+The Analyze 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+
+The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
 
 ## September 2023
 
