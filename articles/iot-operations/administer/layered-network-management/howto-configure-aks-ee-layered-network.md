@@ -34,7 +34,7 @@ address=/.login.microsoft.com/<local network IP of the level 4 machine>
 
 ## Configure level 4 AKS Edge Essentials and Layered Network Management
 
-Follow the instruction in [Setup Level 4 Cluster and Deploy Layered Network Management Service](/docs/e4in/setup-l4-cluster/).
+Complete the steps in [Configure IoT Layered Network Management Level 4 Cluster](./howto-configure-l4-cluster-layered-network.md).
 - Setup the level 4 AKS EE.
 - Proceed with the steps in the same document to deploy the Layered Network Management service.
 
