@@ -2,7 +2,7 @@
 author: laujan
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
