@@ -51,7 +51,7 @@ Migrations are ideally broken down into batches so they can be performed in a sc
 
 1. Identify an optimal sequence for migrating your batches of data.
 
-## Firewall Configuration
+## Firewall configuration
 
 Ensure that your network configuration is correctly configured to perform a migration from your current host to the API for MongoDB vCore.
 
