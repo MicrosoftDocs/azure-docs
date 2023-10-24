@@ -11,7 +11,7 @@
 ---
 ## Create load balancer
 
-In this section, you'll create a load balancer for the virtual machines.
+In this section, you create a load balancer for the virtual machines.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 1. In the **Load balancer** page, select **Create** or the **Create load balancer** button.
