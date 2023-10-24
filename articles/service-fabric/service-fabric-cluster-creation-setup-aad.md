@@ -185,13 +185,9 @@ It may be necessary to 'Grant admin consent' for the 'API permissions' being con
 
 <a name='verifying-azure-ad-configuration'></a>
 
-<<<<<<< HEAD
-Navigate to the Service Fabric Explorer (SFX) URL. This should be the same as the parameter spaApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with the new Azure AD configuration. Verify that the administrator account has read/write access and that the user has read access. Any modification to the cluster, for example, performing an action, is an administrative action.
-=======
 ## Verifying Microsoft Entra Configuration
 
 Navigate to the Service Fabric Explorer (SFX) URL. This should be the same as the parameter spaApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with the new Microsoft Entra configuration. Verify that the administrator account has read/write access and that the user has read access. Any modification to the cluster, for example, performing an action, is an administrative action.
->>>>>>> master
 
 
 <a name='troubleshooting-help-in-setting-up-azure-active-directory'></a>
