@@ -87,4 +87,5 @@ Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 
 - Learn how to enable private access (VNet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
-- Learn how to [configure private link for Azure Database for MySQL flexible server from Azure portal](Flex - Tutorials - Networking - Configure private link using Azure portal.md)
+- Learn how to [configure private link for Azure Database for MySQL flexible server from Azure portal](how-to-networking-private-link-portal.md).
+
