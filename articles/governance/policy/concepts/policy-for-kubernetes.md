@@ -671,7 +671,7 @@ aligns with how the add-on was installed:
   ```bash
   helm uninstall azure-policy-addon
   ```
-## Limtations
+## Limitations
   - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
   - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
   - Maximum number of Non-compliant records per policy per cluster: **500**
