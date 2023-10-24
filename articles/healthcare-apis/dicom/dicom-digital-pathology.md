@@ -37,9 +37,7 @@ Although the [DICOM standard now supports whole-slide images (WSI)](https://dico
 
 Here are some samples open source tools to build your own converter:
 
-- [Orthanc - DICOM Server (orthanc-server.com)](https://www.orthanc-server.com/static.php?page=wsi)
-- [OpenSlide](https://github.com/openslide/openslide)
-
+- [WSIDicomizer](https://github.com/imi-bigpicture/wsidicomizer)
 
 ### Storage
 
@@ -80,9 +78,13 @@ We recommend using any WSI Viewer that can be configured with a DICOMWeb service
 
 Sample open-source viewer
 
-- [Slim (MGB)](https://github.com/herrmannlab/slim)
+- [OHIF Viewer](https://github.com/microsoft/dicom-ohif)
+- [Slim](https://github.com/herrmannlab/slim)
 
 Follow the [CORS guidelines](configure-cross-origin-resource-sharing.md) if the Viewer directly interacts with the DICOM service
+
+
+
 
 
 ## Find an ISV partner

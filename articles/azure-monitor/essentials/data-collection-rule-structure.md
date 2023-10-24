@@ -1,24 +1,24 @@
 ---
-title: Structure of a data collection rule in Azure Monitor (preview)
+title: Structure of a data collection rule in Azure Monitor
 description: Details on the structure of different kinds of data collection rule in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/08/2023
 ms.reviwer: nikeist
-
 ---
 
 # Structure of a data collection rule in Azure Monitor
 [Data collection rules (DCRs)](data-collection-rule-overview.md) are sets of instructions that determine how to collect and process telemetry sent to Azure Monitor. Some DCRs will be created and managed by Azure Monitor. You might create other DCRs to customize data collection for your particular requirements. This article describes the JSON properties of DCRs for creating and editing them in those cases where you need to work with them directly.
 
+
 ## Samples
 For sample DCRs for each scenario, see the following:
 
-- [Azure Monitor agent](../agents/data-collection-rule-sample-agent.md)
-- [Logs ingestion API]()
-- [Event Hubs]()
-- [Workspace transformation DCR]()
+- [Azure Monitor agent](../essentials/data-collection-rule-samples.md#azure-monitor-agent---events-and-performance-data)
+- [Logs ingestion API](../essentials/data-collection-rule-samples.md#logs-ingestion-api)
+- [Event Hubs](../essentials/data-collection-rule-samples.md#event-hubs)
+- [Workspace transformation DCR](../essentials/data-collection-rule-samples.md#workspace-transformation-dcr)
 
 ## `dataCollectionEndpointId` 
 
@@ -98,15 +98,7 @@ Describes which table in the workspace specified under the `destination` propert
 
 
 
-## Workspace transformation DCR
-
-| Section | Description |
-|:---|:---|
-| `destinations` |  |
-| `dataFlows` | |
-
-
-
 ## Next steps
 
 [Overview of data collection rules and methods for creating them](data-collection-rule-overview.md)
+
