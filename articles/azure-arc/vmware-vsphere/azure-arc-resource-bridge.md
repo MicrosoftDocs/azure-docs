@@ -1,5 +1,5 @@
 ---
-title:  Azure Arc Resource Bridge (preview)
+title:  Azure Arc resource bridge (preview)
 description: Learn about Azure Arc resource bridge (preview)
 ms.topic: conceptual
 ms.date: 10/23/2023

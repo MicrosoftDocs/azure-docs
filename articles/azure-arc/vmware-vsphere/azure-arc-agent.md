@@ -17,7 +17,7 @@ The Azure Connected Machine agent enables you to manage your Windows and Linux m
 
 ## Agent components
 
-:::image type="content" source="media/connected-machine-agent-inline.png" alt-text="Azure Connected Machine agent architectural overview." lightbox="media/connected-machine-agent-expanded.png":::
+:::image type="content" source="media/connected-machine-agent-inline.png" alt-text="Screenshot of Azure Connected Machine agent architectural overview." lightbox="media/connected-machine-agent-expanded.png":::
 
 The Azure Connected Machine agent package contains several logical components bundled together:
 

@@ -14,8 +14,6 @@ manager: jsuri
 
 # Custom locations for VMware vSphere
 
-## Overview
-
 As an extension of the Azure location construct, a *custom location* provides a reference as a deployment target which administrators can set up and users can point to when creating an Azure resource. It abstracts the backend infrastructure details from application developers, database admin users, or other users in the organization.
 
 ## Custom location for on-premises vCenter server

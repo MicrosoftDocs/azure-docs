@@ -65,7 +65,7 @@ You have the flexibility to start with either option, and incorporate the other 
 
 ## Supported VMware vSphere versions
 
-Azure Arc-enabled VMware vSphere- (preview) currently works with vCenter Server versions 6.7, 7, and 8. 
+Azure Arc-enabled VMware vSphere (preview) currently works with vCenter Server versions 6.7, 7, and 8. 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere (preview) supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
