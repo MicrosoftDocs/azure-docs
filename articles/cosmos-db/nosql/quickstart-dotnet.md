@@ -118,33 +118,9 @@ Use the Azure CLI (`az`) to create an API for NoSQL account. You can choose to c
 
 1. Navigate to the newly created account by selecting **Open in portal**.
 
-1. Record the account and resource group names for the API for NoSQL account. You use these values in the next step.
-
-1. Create shell variables for **accountName** and **resourceGroupName**.
-
-    ```azurecli
-    # Variable for resource group name
-    resourceGroupName="<resource-group-name>"
-
-    # Variable for account name
-    accountName="<cosmos-db-nosql-account-name>"
-    ```
+1. Record the account and resource group names for the API for NoSQL account. You use these values in later steps.
 
 ### [Azure subscription](#tab/azure-subscription)
-
-1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
-
-    ```azurecli
-    # Variable for resource group name
-    resourceGroupName="msdocs-cosmos-db-quickstart"
-
-    # Variable for location
-    location="westus"
-
-    # Variable for account name with a randomly generated suffix
-    let suffix=$RANDOM*$RANDOM
-    accountName="cosmos-db-nosql-$suffix"
-    ```
 
 1. If you haven't already, sign in to the Azure CLI using the `az login` command.
 
@@ -152,17 +128,17 @@ Use the Azure CLI (`az`) to create an API for NoSQL account. You can choose to c
 
     ```azurecli
     az group create \
-        --name $resourceGroupName \
-        --location $location
+        --name <resource-group-name> \
+        --location <location>
     ```
 
 1. Use the `az cosmosdb create` command to create a new API for NoSQL account with default settings.
 
     ```azurecli
     az cosmosdb create \
-        --resource-group $resourceGroupName \
-        --name $accountName \
-        --locations regionName=$location
+        --resource-group <resource-group-name> \
+        --name <account-name> \
+        --locations regionName=<location>
     ```
 
 ---
@@ -175,8 +151,8 @@ Use the Azure CLI to create the `cosmicworks` database and `products` container 
 
     ```azurecli
     az cosmosdb sql database create \
-        --resource-group $resourceGroupName \
-        --account-name $accountName \
+        --resource-group <resource-group-name> \
+        --account-name <account-name> \
         --name "cosmicworks" \
         --max-throughput 1000
     ```
@@ -185,8 +161,8 @@ Use the Azure CLI to create the `cosmicworks` database and `products` container 
 
     ```azurecli
     az cosmosdb sql container create \
-        --resource-group $resourceGroupName \
-        --account-name $accountName \
+        --resource-group <resource-group-name> \
+        --account-name <account-name> \
         --database-name "cosmicworks" \
         --name "products" \
         --partition-key-path "/category"
@@ -200,8 +176,8 @@ When developing locally with passwordless authentication, make sure the user acc
 
     ```azurecli
     az cosmosdb show \
-        --resource-group $resourceGroupName \
-        --name $accountName \
+        --resource-group <resource-group-name> \
+        --name <account-name> \
         --query "documentEndpoint"
     ```
 
@@ -219,8 +195,8 @@ When developing locally with passwordless authentication, make sure the user acc
 
     ```azurecli
     az cosmosdb sql role definition create \
-        --account-name $accountName \
-        --resource-group $resourceGroupName \
+        --account-name <account-name> \
+        --resource-group <resource-group-name> \
         --body '{
             "RoleName": "Write to Azure Cosmos DB for NoSQL data plane",
             "Type": "CustomRole",
@@ -242,8 +218,8 @@ When developing locally with passwordless authentication, make sure the user acc
     >
     > ```azurecli
     > az cosmosdb sql role definition list \
-    >     --account-name $accountName \
-    >     --resource-group $resourceGroupName \
+    >     --account-name <account-name> \
+    >     --resource-group <resource-group-name> \
     >     --query "[?roleName == \`Write to Azure Cosmos DB for NoSQL data plane\`].id"
     > ```
     >
@@ -258,8 +234,8 @@ When developing locally with passwordless authentication, make sure the user acc
 
     ```azurecli
     az cosmosdb sql role assignment create \
-        --account-name $accountName \
-        --resource-group $resourceGroupName \
+        --account-name <account-name> \
+        --resource-group <resource-group-name> \
         --scope "/" \
         --principal-id "<your-service-principal-id>" \
         --role-definition-id "<your-custom-role-definition-id>"
@@ -371,7 +347,7 @@ azd down
 When you no longer need the API for NoSQL account, you can delete the corresponding resource group. Use the `az group delete` command to delete the resource group.
 
 ```azurecli
-az group delete --name $resourceGroupName
+az group delete --name <resource-group-name>
 ```
 
 ::: zone-end
