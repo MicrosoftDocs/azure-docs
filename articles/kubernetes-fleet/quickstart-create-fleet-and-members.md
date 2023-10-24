@@ -133,18 +133,21 @@ Azure Kubernetes Fleet Manager supports Managed Service Identity (MSI), a Fleet 
 If you are creating a Hub enabled Fleet, the identity configured on the Fleet will also be assigned to the Fleet's Hub cluster.
 
 #### System-Assigned
+
 ```baazurecli-interactivesh
 # The flag '--enable-managed-identity' enables MSI and defaults to an identity type of system-assigned.
 az fleet update -g ${GROUP} -f ${FLEET}  --enable-managed-identity 
 ```
 
 #### User-Assigned
+
 ```azurecli-interactive
 # The parameter '--assign-identity' used in tandem with `--enable-managed-identity` sets the identity type to user-assigned.
 az fleet update -g ${GROUP} -f ${FLEET} --enable-managed-identity --assign-identity ${MSI_RESOURCEID}
 ```
 
 #### Disable MSI
+
 ```azurecli-interactive
 az fleet update -g ${GROUP} -f ${FLEET} --enable-managed-identity "False"
 ```
