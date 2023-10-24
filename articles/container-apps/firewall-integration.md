@@ -22,7 +22,7 @@ In the Consumption only environment, custom user-defined routes (UDRs) and Expre
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules. The specific rules required will depend on your [environment type](./environment.md).
+The following tables describe how to configure a collection of NSG allow rules. The specific rules required will depend on your [environment type](./environment.md#types).
 
 ### Inbound 
 
