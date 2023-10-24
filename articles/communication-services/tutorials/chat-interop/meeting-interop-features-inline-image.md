@@ -26,10 +26,6 @@ The Chat SDK for JavaScript provides `previewUrl` and `url` for each inline imag
 [!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)] 
 ::: zone-end
 
-::: zone pivot="programming-language-python" 
-[!INCLUDE [Teams Inline Image Interop with Python SDK](./includes/meeting-interop-features-inline-image-python.md)] 
-::: zone-end
-
 ::: zone pivot="programming-language-csharp" 
 [!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-csharp.md)] 
 ::: zone-end
