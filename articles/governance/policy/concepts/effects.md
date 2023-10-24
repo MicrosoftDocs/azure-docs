@@ -15,7 +15,7 @@ resource, an updated resource, or an existing resource.
 
 These effects are currently supported in a policy definition:
 
-- [AddToNetworkGroup](#addToNetworkGroup)
+- [AddToNetworkGroup](#addtonetworkgroup)
 - [Append](#append)
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
@@ -25,7 +25,7 @@ These effects are currently supported in a policy definition:
 - [Disabled](#disabled)
 - [Manual](#manual)
 - [Modify](#modify)
-- [Mutate](#mutate)
+- [Mutate](#mutate-preview)
 
 ## Interchanging effects
 
