@@ -68,7 +68,7 @@ The 66 percent saving is based on one Azure Database for MySQL Single Server Mem
 
 You don't need to assign the reservation to a specific database or managed instance. Matching existing deployments that are already running or ones that are newly deployed automatically get the benefit. Hence, by purchasing a reserved capacity, existing resources infrastructure wouldn't be modified and thus no failover/downtime is triggered on existing resources. By purchasing a reservation, you commit to usage for the compute costs for one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates.
 
-For more information, see [Save compute costs with reserved capacity - Azure SQL Database & SQL Managed Instance](/azure/azure-sql/database/reserved-capacity-overview).
+For more information, see [Save compute costs with reserved capacity - Azure SQL Database & SQL Managed Instance](/azure/azure-sql/database/reserved-capacity-overview).
 
 For Azure Database for MySQL, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
