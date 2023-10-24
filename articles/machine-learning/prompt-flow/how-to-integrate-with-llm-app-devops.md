@@ -32,7 +32,7 @@ When developing applications using LLM, it's common to have a standardized appli
 
 For developers experienced in code development who seek a more efficient LLMOps iteration process, the following key features and benefits you can gain from prompt flow code experience:
 
-- **Flow versioning in code repository**. You can define your flow in YAML format, which can stay aligned with the referenced source files in a folder structure. This is also a recommended practice for [**collaboration**](#collaborating-on-prompt-flow-in-repository) among team members.
+- **Flow versioning in code repository**. You can define your flow in YAML format, which can stay aligned with the referenced source files in a folder structure. 
 - **Integrate flow run with CI/CD pipeline**. You can trigger flow runs using the prompt flow CLI or SDK, which can be seamlessly integrated into your CI/CD pipeline and delivery process.
 - **Smooth transition from local to cloud**. You can easily export your flow folder to your local or code repository for version control, local development and sharing. Similarly, the flow folder can be effortlessly imported back to the cloud for further authoring, testing, deployment in cloud resources.
 
@@ -422,24 +422,24 @@ The introduction of the Prompt flow **SDK/CLI** and the **Visual Studio Code Ext
         - This centralized repository enables efficient organization, tracking of all code changes, and collaboration among team members.
     - Once the repository is set up, team members can leverage the VSC extension for local authoring and single input testing of the flow.
         - This standardized integrated development environment fosters collaboration among multiple members working on different aspects of the flow.
-        ![Local development](media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png)
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png" alt-text="Screenshot of local development. " lightbox = "media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png":::
 1. Cloud-based experimental batch testing and evaluation - Prompt flow CLI/SDK and workspace portal UI
     - Following the local development and testing phase, flow developers can use the pfazure CLI or SDK to submit batch runs and evaluation runs from the local flow files to the cloud.
         - This action provides a way for cloud resource consuming, results to be stored persistently and managed efficiently with a portal UI in the Azure Machine Learning workspace. This step allows for cloud resource consumption including compute and storage and further endpoint for deployments.
-        ![pfazure submit run](media/how-to-integrate-with-llm-app-devops/pfazure-run.png)
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/pfazure-run.png" alt-text="Screenshot of pfazure command to submit run to cloud. " lightbox = "media/how-to-integrate-with-llm-app-devops/pfazure-run.png":::
     - Post submissions to cloud, team members can access the cloud portal UI to view the results and manage the experiments efficiently.
         - This cloud workspace provides a centralized location for gathering and managing all the runs history, logs, snapshots, comprehensive results including the instance level inputs and outputs.
-        ![pfazure run snapshot](media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png)
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png" alt-text="Screenshot of cloud run snapshot. " lightbox = "media/how-to-integrate-with-llm-app-devops/pfazure-run-snapshot.png":::
         - In the run list that records all run history from during the development, team members can easily compare the results of different runs, aiding in quality analysis and necessary adjustments.
-        ![Run list on cloud](media/how-to-integrate-with-llm-app-devops/cloud-run-list.png)
-        ![Runs comparison on cloud](media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png)
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/cloud-run-list.png" alt-text="Screenshot of run list in workspace. " lightbox = "media/how-to-integrate-with-llm-app-devops/cloud-run-list.png":::
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png" alt-text="Screenshot of run comparison in workspace. " lightbox = "media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png":::
 1. Local iterative development or one-step UI deployment for production
     - Following the analysis of experiments, team members can return to the code repository for additional development and fine-tuning. Subsequent runs can then be submitted to the cloud in an iterative manner. 
         - This iterative approach ensures consistent enhancement until the team is satisfied with the quality ready for production.
     - Once the team is fully confident in the quality of the flow, it can be seamlessly deployed via a UI wizard as an online endpoint in Azure Machine Learning. Once the team is entirely confident in the flow's quality, it can be seamlessly transitioned into production via a UI deploy wizard as an online endpoint in a robust cloud environment.
         - This deployment on an online endpoint can based on a run snapshot, allowing for stable and secure serving, further resource allocation and usage tracking, and log monitoring in the cloud.
-        ![Deploy flow from a snapshot](media/how-to-integrate-with-llm-app-devops/deploy-from-sanpshot.png)
-        ![Deploy flow wizard](media/how-to-integrate-with-llm-app-devops/deploy-wizard.png)  
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/deploy-from-snapshot.png" alt-text="Screenshot of deploying flow from a run snapshot. " lightbox = "media/how-to-integrate-with-llm-app-devops/deploy-from-snapshot.png":::
+        :::image type="content" source="media/how-to-integrate-with-llm-app-devops/deploy-wizard.png" alt-text="Screenshot of deploy wizard. " lightbox = "media/how-to-integrate-with-llm-app-devops/deploy-wizard.png":::
 
 ### Why we recommend using the code repository for collaborative development
 For iterative development, a combination of a local development environment and a version control system, such as Git, is typically more effective. You can make modifications and test your code locally, then commit the changes to Git. This creates an ongoing record of your changes and offers the ability to revert to earlier versions if necessary.
