@@ -90,7 +90,7 @@ If you installed MQ into a different namespace than `default`, specify the corre
 ```
 ---
 
-You can configure MQ for a specific audience for SAT-based authentication by using the `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource. If you did that,  configure the same audience for OPC UA Broker by using `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the [Prerequisites](#prerequisites) to set SAT audience. 
+You can configure MQ for a specific audience for SAT-based authentication by using the `spec.authenticationMethods[].sat.audiences[]` of `BrokerAuthentication` custom resource. If you did that,  configure the same audience for OPC UA Broker by using `mqttBroker.serviceAccountTokenAudience`. You can find more details on using SAT-based authentication with MQ at [Configure Azure IoT MQ authentication](../administer/mq/howto-configure-authentication.md). You can modify the original deployment of OPC UA Broker from the [Prerequisites](#prerequisites) to set SAT audience. 
 
 The following example shows how to configure OPC UA Broker for the `aio-mq` audience:
 
@@ -129,12 +129,12 @@ To use OPC UA Broker with Mosquitto, specify the following parameters:
 
 Azure IoT MQ supports exposing a TLS-enabled endpoint for communication. There are two documented ways to enable a TLS-enabled endpoint:
 
-- [Configure TLS with automatic certificate management to secure MQTT communication](../administer/howto-configure-tls-auto.md)
-- [Configure TLS with manual certificate management to secure MQTT communication](../administer/howto-configure-tls-manual.md)
+- [Configure TLS with automatic certificate management to secure MQTT communication](../administer/mq/howto-configure-tls-auto.md)
+- [Configure TLS with manual certificate management to secure MQTT communication](../administer/mq/howto-configure-tls-manual.md)
 
 In the automatic steps, if `spec.authenticationEnabled` is set to `true` for `BrokerListener` custom resource, you should create a custom resource of type `BrokerAuthentication`. 
 
-For more details on supported authentication methods, see [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md). 
+For more details on supported authentication methods, see [Configure Azure IoT MQ authentication](../administer/mq/howto-configure-authentication.md). 
 
 For deployment of OPC UA Broker SAT-based authentication should be added when `BrokerAuthentication` class is created manually. SAT-based authentication is enabled with the default deployment of MQ with `--set global.quickstart=true`.
 
