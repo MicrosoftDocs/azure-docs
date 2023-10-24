@@ -218,8 +218,6 @@
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Cloud Controller Manager
-          href: out-of-tree.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
