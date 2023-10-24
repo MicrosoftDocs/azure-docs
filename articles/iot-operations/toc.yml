@@ -56,7 +56,7 @@ items:
       items:
       - name: Overview
         href: pub-sub-mqtt/overview-iot-mq.md
-      - name: Secure communication
+      - name: Secure communication using BrokerListener
         href: pub-sub-mqtt/concept-brokerlistener.md
     - name: Process messages
       items:
@@ -125,10 +125,8 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
-      - name: Configure MQTT bridge
+      - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
-      - name: Connect to Event Grid
-        href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
       - name: Connect to Messaging services
         href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
       - name: Send data to Azure Data Explorer from a pipeline
@@ -177,17 +175,17 @@ items:
       - name: Manage Azure MQ
         items:
         - name: Configure automatic TLS
-          href: administer/howto-configure-tls-auto.md
+          href: administer/mq/howto-configure-tls-auto.md
         - name: Configure manual TLS
-          href: administer/howto-configure-tls-manual.md
+          href: administer/mq/howto-configure-tls-manual.md
         - name: Configure authentication
-          href: administer/howto-configure-authentication.md
+          href: administer/mq/howto-configure-authentication.md
         - name: Configure authorization
-          href: administer/howto-configure-authorization.md
+          href: administer/mq/howto-configure-authorization.md
         - name: Configure availability and scale
-          href: administer/howto-configure-availability-scale.md
+          href: administer/mq/howto-configure-availability-scale.md
         - name: Configure disk buffer
-          href: administer/howto-configure-disk-buffer.md
+          href: administer/mq/howto-configure-disk-buffer.md
 
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md

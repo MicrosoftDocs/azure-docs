@@ -12,7 +12,7 @@ ms.date: 10/02/2023
 
 # Configure Azure IoT MQ authorization
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the *BrokerAuthorization* resource.
@@ -166,11 +166,23 @@ spec:
               - "orders"                                       
 ```
 
-To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
+| Field Name | Required | Description |
+| --- | --- | --- |
+| listenerRef | Yes | The reference to the listener that the authorization policies apply to. |
+| authorizationPolicies | Yes | The authorization policies that apply to the listener. |
+| enableCache | No | Whether to enable caching for the authorization policies. |
+| rules | Yes | The rules that define the authorization policies. |
+| principals | Yes | The principals that the rule applies to, including their attributes. |
+| attributes | Yes | The attributes of the principal, such as their group. |
+| brokerResources | Yes | The broker resources that the rule applies to, including their methods and topics. |
+| method | Yes | The method that the rule applies to, such as Connect or Publish. |
+| topics | No | The topics that the rule applies to, such as odd-numbered-orders or orders. |
+
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../../develop/howto-develop-dapr-apps.md).
 
 ## Key-value Store
 
-Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
+Azure IoT MQ Broker provides a [distributed key-value (KV) store](../../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
 
 To setup authorization for clients that use the key-value store, give it:
 
@@ -208,7 +220,7 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 ## Related content
 
-- About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
+- About [BrokerListener resource](../../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

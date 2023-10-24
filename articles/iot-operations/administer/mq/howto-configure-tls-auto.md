@@ -12,9 +12,9 @@ ms.date: 10/16/2023
 
 # Configure TLS with automatic certificate management to secure MQTT communication
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
-You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
+You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](../../pub-sub-mqtt/concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
 With automatic certificate management, you use cert-manager to manage the TLS server certificate.
 
@@ -294,7 +294,7 @@ Remember to specify authentication methods (username, password, etc.) if needed.
 
 ## Related content
 
-- About [BrokerListener resource](../pub-sub-mqtt/concept-brokerlistener.md)
+- About [BrokerListener resource](../../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
