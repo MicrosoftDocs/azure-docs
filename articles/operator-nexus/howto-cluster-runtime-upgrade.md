@@ -89,14 +89,13 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
 
 ## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
-
-Below is the az cli command that needs to be executed for configuring compute threshold parameters that can be used while performing a runtime upgrade
+The following Azure CLI command is used to configure compute threshold parameters for a runtime upgrade:
 
 ```azurecli
 az networkcloud cluster update --name "<clusterName>" --resource-group "<resourceGroup>" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> wait-time-minutes=<waitTimeBetweenRacks>
 ```
 
-After the command runs successfully, you can find that the values for updateStrategy that you specified above will be set on the cluster
+Upon successful execution of the command, the updateStrategy values specified will be applied to the cluster:
 
 ```
   "updateStrategy": {
@@ -108,12 +107,13 @@ After the command runs successfully, you can find that the values for updateStra
     },
 ```
 
-where,
-  max-unavailable is the maximum number of worker nodes that can be offline, meaning upgraded at a time. Default value is 32767,
-  thresholdType is the selection of how the threshold should be evaluated, applied in the units defined by the strategy. Default value is "PercentSuccess",
-  thresholdValue is the numeric threshold value to be used in order to evaluate an update,
-  waitTimeMinutes is the allowed delay or time to wait before updating a rack. Default value is 15,
-  strategyType is "Rack", which means updates happen rack-by-rack.
+Here's what each parameter means:
+
+maxUnavailable: The maximum number of worker nodes that can be offline, i.e., upgraded rack at a time. The default value is 32767.
+thresholdType: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is "PercentSuccess".
+thresholdValue: The numeric threshold value used to evaluate an update.
+waitTimeMinutes: The delay or waiting period before updating a rack. The default value is 15.
+strategyType: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack.
 
 ## Frequently Asked Questions
 
