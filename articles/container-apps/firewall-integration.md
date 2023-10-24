@@ -34,15 +34,15 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
-| TCP | Your Client IP | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | 30,000-32,676<sup>1</sup> | Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | Your Client IP | \* | Your container app's subnet | 30,000-32,676<sup>1</sup> | Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
 # [Consumption only environment](#tab/consumption-only-env)
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | 30,000-32,676<sup>1</sup> | Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ---
 
@@ -57,25 +57,25 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | Infrastructure subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
-| TCP | Infrastructure subnet address space | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
-| TCP | Infrastructure subnet address space | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-| TCP | Infrastructure subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
-| UDP | Infrastructure subnet address space | \* | \* | `123` | NTP server. |
-| Any | Infrastructure subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
+| TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
+| TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
+| Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 # [Consumption only environment](#tab/consumption-only-env)
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| UDP | Infrastructure Subnet address space | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | Infrastructure Subnet address space | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | Infrastructure Subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
-| TCP | Infrastructure Subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
-| UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
-| TCP | Infrastructure Subnet address space | \* | \* | `5671` | Container Apps control plane. |
-| TCP | Infrastructure Subnet address space | \* | \* | `5672` | Container Apps control plane. |
-| Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| UDP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
+| TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
+| TCP | Your container app's subnet | \* | \* | `5671` | Container Apps control plane. |
+| TCP | Your container app's subnet | \* | \* | `5672` | Container Apps control plane. |
+| Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ---
 
