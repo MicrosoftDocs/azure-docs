@@ -35,7 +35,7 @@ Usually, this problem occurs for one of two reasons:
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
 - To resolve this issue, rerun your query. 
-- Try [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
+- Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - If the issue continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal. 
 

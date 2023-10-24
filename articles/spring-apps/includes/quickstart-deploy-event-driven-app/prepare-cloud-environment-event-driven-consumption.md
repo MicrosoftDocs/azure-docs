@@ -18,7 +18,7 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-consumption-azure-portal.md)]
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-environment-consumption-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -113,7 +113,7 @@ Use the following steps to create the service instance:
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    > [!NOTE]
