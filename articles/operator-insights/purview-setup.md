@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: how-to
-ms.date: 10/22/2023
+ms.date: 10/24/2023
 ---
 
 # Use Microsoft Purview with an Azure Operator Insights Data Product
@@ -32,7 +32,7 @@ To begin to catalog a data product in this account, [create a collection](../pur
 
 Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more information, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-[Using the Microsoft Purview portal](../purview/use-microsoft-purview-governance-portal.md) explains how to use the user interface and navigate the service. Microsoft Purview includes options to scan in data sources, but this option isn't required for integrating Azure Operator Insights Data Products with Microsoft Purview. When you complete this procedure, all Azure services and assets are automatically populated to your Purview catalog.
+[Using the Microsoft Purview compliance portal](../purview/use-microsoft-purview-governance-portal.md) explains how to use the user interface and navigate the service. Microsoft Purview includes options to scan in data sources, but this option isn't required for integrating Azure Operator Insights Data Products with Microsoft Purview. When you complete this procedure, all Azure services and assets are automatically populated to your Purview catalog.
 
 ## Connect Microsoft Purview to your Data Product
 
@@ -48,13 +48,13 @@ Select **Select Purview Account** to provide the required values to populate a P
 
 ### Data Product representation in Microsoft Purview
 
-A Data Product is made up of many Azure Services and Data Assets, which are represented as an asset inside the Microsoft Purview portal of the necessary types. The following asset types are represented.
+A Data Product is made up of many Azure Services and Data Assets, which are represented as an asset inside the Microsoft Purview compliance portal of the necessary types. The following asset types are represented.
 
 #### Data Product
 
 An overall representation of the AOI Data Product
 
-| **Additional Fields** | **Description**                               |
+| **Additional fields** | **Description**                               |
 |-----------------------|-----------------------------------------------|
 | Description           | Brief description of the Data Product         |
 | Owners                | A list of owners of this Data Product         |
@@ -65,7 +65,7 @@ An overall representation of the AOI Data Product
 
 Also known as Azure Data Lake Storage (ADLS)
 
-| **Additional Fields** | **Description**                                    |
+| **Additional fields** | **Description**                                    |
 |-----------------------|----------------------------------------------------|
 | DFS Endpoint Address  | Provides access to Parquet files in AOI Data Lake  |
 
@@ -73,7 +73,7 @@ Also known as Azure Data Lake Storage (ADLS)
 
 Also known as Azure Data Explorer (ADX)
 
-| **Additional Fields** | **Description**                                          |
+| **Additional fields** | **Description**                                          |
 |-----------------------|----------------------------------------------------------|
 | KQL Endpoint Address  | Provides access to AOI tables for exploration using KQL  |
 
@@ -81,7 +81,7 @@ Also known as Azure Data Explorer (ADX)
 
 ADX Tables and Materialized Views
 
-| **Additional Fields** | **Description**                              |
+| **Additional fields** | **Description**                              |
 |-----------------------|----------------------------------------------|
 | Description           | Brief description of each table and view     |
 | Schema                | Contains the table columns and their details |
@@ -90,7 +90,7 @@ ADX Tables and Materialized Views
 
 Each ADX Table is an equivalent Parquet file type
 
-| **Additional Fields** | **Description**                                                   |
+| **Additional fields** | **Description**                                                   |
 |-----------------------|-------------------------------------------------------------------|
 | Path                  | Top-level path for the Parquet file type: container/dataset\_name |
 | Description           | Identical to the equivalent AOI Table                             |
@@ -100,7 +100,7 @@ Each ADX Table is an equivalent Parquet file type
 
 The columns belong to AOI Tables and the equivalent AOI Parquet details
 
-| **Additional Fields** | **Description**                       |
+| **Additional fields** | **Description**                       |
 |-----------------------|---------------------------------------|
 | Type                  | The data type of this column          |
 | Description           | Brief description for this column     |
@@ -151,4 +151,4 @@ The AOI Table and AOI Parquet Details have schemas. Select the **Schema** tab to
 
 ## Related Content
 
-[Use the Microsoft Purview portal](../purview/use-microsoft-purview-governance-portal.md)
+[Use the Microsoft Purview compliance portal](../purview/use-microsoft-purview-governance-portal.md)
