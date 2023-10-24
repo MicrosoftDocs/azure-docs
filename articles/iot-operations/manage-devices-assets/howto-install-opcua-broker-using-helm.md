@@ -362,7 +362,7 @@ When you configure the Secrets Store CSI Driver configuration, you modify the fo
 
 The following table contains parameters you can use with a helm chart. 
 
-
+[!div class="mx-tdBreakAll"]
 | Name                                         | Required | Datatype         | Default                        | Description                                                                                                                                                           |
 | -------------------------------------------- | -------- | ---------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `deployOwnMqttBroker`                        | false    | Boolean          | `false`                                                 | Controls if Mosquitto should be deployed in OPC UA Broker runtime namespace                                                                                  |
