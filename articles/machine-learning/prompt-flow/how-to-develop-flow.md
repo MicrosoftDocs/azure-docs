@@ -18,7 +18,7 @@ Prompt flow is a development tool designed to streamline the entire development 
 With prompt flow, you'll be able to:
 
 * Orchestrate executable flows with LLMs, prompts, and Python tools through a visualized graph.
-* Debug, share, and iterate your flows with ease through team collaboration.
+* Test, debug, and iterate your flows with ease.
 * Create prompt variants and compare their performance.
 
 In this article, you'll learn how to create and develop your first prompt flow in your Azure Machine Learning Studio.
@@ -79,6 +79,17 @@ After you finish composing the prompt or Python script, you can click **Validate
 
 ### Link nodes together
 By referencing the node output, you can link nodes together. For example, you can reference the LLM node output in the Python node input, so the Python node can consume the LLM node output, and in the graph view you can see the the two nodes are linked together.
+
+### Enable conditional control to the flow
+Prompt Flow offers not just a streamlined way to execute the flow, but it also brings in a powerful feature for developers - conditional control, which allows users to set conditions for the execution of any node in a flow.
+
+At its core, conditional control provides the capability to associate each node in a flow with an **activate config**. This configuration is essentially a "when" statement that determine when a node should be executed. The power of this feature is realized when you have complex flows where the execution of certain tasks depends on the outcome of previous tasks. By leveraging the conditional control, you can configure your specific nodes to execute only when the specified conditions are met.
+
+Specifically, you can set the activate config for a node by clicking the **Activate config** button in the node card. You can add "when" statement and set the condition.
+You can set the conditions by referencing the flow input, or node output. For example, you can set the condition `${input.[input name]}` as specific value or `${[node name].output}` as specific value. 
+
+If the condition is not met, the node will be skipped. The node status is shown as "Bypassed".
+![Set activate config to enable conditional control](./media/how-to-develop-flow/conditional-flow.png)
 
 ### Test the flow
 You can test the flow in two ways: run single node or run the whole flow. 
