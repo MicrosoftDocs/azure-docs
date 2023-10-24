@@ -14,11 +14,11 @@ In this article, learn how to deploy Arc for Azure VMware Solution. Once you've 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
 - Permit developers and application teams to use VM operations on-demand with [Role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview).
-- Install the Arc-connected machine agent to [govern,, protect, configure,, and monitor](https://learn.microsoft.com/azure/azure-arc/servers/overview#supported-cloud-operations) them.
+- Install the Arc-connected machine agent to [govern, protect, configure, and monitor](https://learn.microsoft.com/azure/azure-arc/servers/overview#supported-cloud-operations) them.
 - Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
 
 
-## How Arc-enabled VMware vSphere differs from Arc-enabled servers 'Differences between Arc-enabled vSphere and Arc-enabled servers' <possibly new title?>
+## How Arc-enabled VMware vSphere differs from Arc-enabled servers 
 
 You have the flexibility to start with either option, Arc-enabled servers or Arc-enabled VMware vSphere. With both options, you receive the same consistent experience. Regardless of the initial option chosen, you can incorporate the other one later without disruption. The following information helps you understand the difference between both options:
 
