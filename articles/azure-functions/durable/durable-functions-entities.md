@@ -15,9 +15,14 @@ zone_pivot_groups: df-languages
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, the *entity trigger*. Unlike orchestrator functions, entity functions manage the state of an entity explicitly, rather than implicitly representing state via control flow.
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
-
+::: zone pivot="csharp,javascript,python"
 > [!NOTE]
 > Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker ([preview](durable-functions-dotnet-entities.md)), JavaScript, and Python, but not in PowerShell or Java.
+::: zone-end  
+::: zone pivot="powershell,java"  
+>[!IMPORTANT]
+>Entity functions aren't currently supported in PowerShell and Java.
+::: zone-end  
 
 ## General concepts
 
@@ -35,7 +40,7 @@ Entities are accessed via a unique identifier, the *entity ID*. An entity ID is 
 * **Entity key**, which is a string that uniquely identifies the entity among all other entities of the same name. An example is a GUID.
 
 For example, a `Counter` entity function might be used for keeping score in an online game. Each instance of the game has a unique entity ID, such as `@Counter@Game1` and `@Counter@Game2`. All operations that target a particular entity require specifying an entity ID as a parameter.
-
+::: zone pivot="csharp,javascript,python"
 ### Entity operations ###
 
 To invoke an operation on an entity, specify the:
@@ -50,9 +55,6 @@ Operations can return a result value or an error result, such as a JavaScript er
 An entity operation can also create, read, update, and delete the state of the entity. The state of the entity is always durably persisted in storage.
 
 ## Define entities
-::: zone pivot="powershell,java"
->[!IMPORTANT]
->Entity functions aren't currently supported in PowerShell and Java.
 ::: zone-end
 ::: zone pivot="javascript,python"
 You define entities using a function-based syntax, where entities are represented as functions and operations are explicitly dispatched by the application. 
@@ -295,7 +297,7 @@ def entity_function(context: df.DurableEntityContext):
 main = df.Entity.create(entity_function)
 ```
 ::: zone-end
-
+::: zone pivot="csharp,javascript,python"
 ## Access entities
 
 Entities can be accessed using one-way or two-way communication. The following terminology distinguishes the two forms of communication: 
@@ -314,6 +316,7 @@ The following examples illustrate these various ways of accessing entities.
 ### Example: Client signals an entity
 
 To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+::: zone-end
 ::: zone pivot="csharp"  
 #### [In-process](#tab/in-process)
 
@@ -442,11 +445,13 @@ async def main(req: func.HttpRequest, starter: str, message):
     return func.HttpResponse(entity_state)
 ```
 ::: zone-end  
+::: zone pivot="csharp,javascript,python"
 Entity state queries are sent to the Durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, that is, it's never a temporary intermediate state assumed in the middle of executing an operation. However, it's possible that this state is stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
 
 ### Example: Orchestration signals and calls an entity
 
 Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
+::: zone-end
 ::: zone pivot="csharp"  
 #### [In-process](#tab/in-process)
 ```csharp
@@ -516,6 +521,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     return state
 ```
 ::: zone-end  
+::: zone pivot="csharp,javascript,python"  
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
 
 > [!NOTE]
@@ -525,6 +531,7 @@ Only orchestrations are capable of calling entities and getting a response, whic
 
 An entity function can send signals to other entities, or even itself, while it executes an operation.
 For example, we can modify the previous `Counter` entity example so that it sends a "milestone-reached" signal to some monitor entity when the counter reaches the value 100.
+::: zone-end  
 ::: zone pivot="csharp"  
 #### [In-process](#tab/in-process)
 ```csharp
@@ -657,6 +664,7 @@ Unlike low-level locking primitives in most programming languages, critical sect
 
 Any violations of these rules cause a runtime error, such as `LockingRulesViolationException` in .NET, which includes a message that explains what rule was broken.
 ::: zone-end  
+::: zone pivot="csharp,javascript,python"  
 ## Comparison with virtual actors
 
 Many of the durable entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you're already familiar with actors, you might recognize many of the concepts described in this article. Durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/), or grains, as popularized by the [Orleans project](http://dotnet.github.io/orleans/). For example:
@@ -674,7 +682,7 @@ There are some important differences that are worth noting:
 * Request-response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as signaling) is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities don't deadlock. In Orleans, deadlocks can occur and don't resolve until messages time out.
 * Durable entities can be used with durable orchestrations and support distributed locking mechanisms. 
-
+::: zone-end 
 ## Next steps
 
 > [!div class="nextstepaction"]
