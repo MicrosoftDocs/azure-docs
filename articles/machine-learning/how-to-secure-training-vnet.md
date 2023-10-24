@@ -280,7 +280,7 @@ PUT CODE HERE
 
 # [Studio](#tab/azure-studio)
 
-You can only enable serverless compute with no public IP address using Azure CLI or the Python SDK.
+Enable serverless compute with no public IP address using Azure CLI or the Python SDK.
 
 ---
 
@@ -414,7 +414,7 @@ PUT CODE HERE
 
 # [Studio](#tab/azure-studio)
 
-You can only enable serverless compute with a public IP address in the VNet using Azure CLI or the Python SDK.
+Enable serverless compute with a public IP address in the VNet using Azure CLI or the Python SDK.
 
 ---
 
