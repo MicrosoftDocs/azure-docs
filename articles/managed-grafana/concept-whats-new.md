@@ -17,7 +17,7 @@ ms.date: 10/23/2023
 
 * Plugin management is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
 
-* Azure Monitor workspaces integration is available in preview. This feature allows users to link their Grafana dashboard to Azure Monitor Workspaces. This feature simplifies the process of connecting AKS clusters to an Azure Managed Grafana workspace and collecting metrics.
+* Azure Monitor workspaces integration is available in preview. This feature allows you to link your Grafana dashboard to Azure Monitor workspaces. This integration simplifies the process of connecting AKS clusters to an Azure Managed Grafana workspace and collecting metrics.
 
 ## May 2023
 
