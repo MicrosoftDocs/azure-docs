@@ -210,7 +210,7 @@ properties: {
                     headerMatch: {
                         header: 'X-Content-Type'
                         match: { 
-                            prefixMatch: 'GOATS'
+                            prefixMatch: 'application'
                         }
                     }
                 }
