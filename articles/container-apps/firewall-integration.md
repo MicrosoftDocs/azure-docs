@@ -26,11 +26,14 @@ The following tables describe how to configure a collection of NSG allow rules. 
 >[!NOTE]
 > The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment, a `/27` or larger is required.
 
-### Workload Profile Environments
+### Inbound 
+
+>[!Note]
+> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
+
+# [Workload profile environment](#tab/workload-profile-env)
 
 The following rules are required when using NSGs with workload profile environments.
-
-#### Inbound
 
 >[!Note]
 > Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
@@ -43,7 +46,24 @@ The following rules are required when using NSGs with workload profile environme
 
 * The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
 
-#### Outbound
+# [Consumption only environment](#tab/consumption-only-env)
+
+The following rules are required when using NSGs with Consumption only environments.
+
+>[!Note]
+> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
+
+| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+|--|--|--|--|--|--|
+| TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
+| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+
+* The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
+---
+
+### Outbound 
+
+# [Workload profile environment](#tab/workload-profile-env)
 
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
@@ -57,23 +77,7 @@ The following rules are required when using NSGs with workload profile environme
 | UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
 | Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
-#### Consumption only environments
-
-The following rules are required when using NSGs with Consumption only environments.
-
-#### Inbound
-
->[!Note]
-> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
-
-| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
-|--|--|--|--|--|--|
-| TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-
-* The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
-
-#### Outbound
+# [Consumption only environment](#tab/consumption-only-env)
 
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
@@ -88,6 +92,8 @@ The following rules are required when using NSGs with Consumption only environme
 | TCP | Infrastructure Subnet address space | \* | \* | `5671` | Container Apps control plane. |
 | TCP | Infrastructure Subnet address space | \* | \* | `5672` | Container Apps control plane. |
 | Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+
+---
 
 #### Considerations
 
