@@ -5,8 +5,7 @@ description: This article presents Speech service phonetic alphabet and Internat
 services: cognitive-services
 author: jiajzhan
 manager: junwg
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.author: jiajzhan

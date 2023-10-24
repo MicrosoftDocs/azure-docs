@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 06/28/2023
+ms.date: 10/22/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -96,6 +96,17 @@ Make sure the selected Log Analytics workspace has a security solution installed
 [Learn more about monitoring components](monitoring-components.md) for Defender for Cloud.
 
 Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
+
+### Defender CSPM
+
+If you choose the Microsoft Defender CSPM plan, you need:
+
+- a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS accounts](quickstart-onboard-aws.md). 
+- In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+
+Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
 
 ## Connect your AWS account
 
@@ -208,6 +219,14 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
       ]  
     }  
     ```
+
+    > [!NOTE]
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you may encounter the following error message:
+    > `You must enable organizations access to operate a service managed stack set`
+    >
+    > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
+    >
+    > To remediate this error message, your CloudFormation StackSets page has a prompt with a button that you can select to enable trusted access. After trusted access is enabled, the CloudFormation Stack must be run again.
 
 ## Monitor your AWS resources
 

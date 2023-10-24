@@ -20,7 +20,7 @@ The sections below will explain how to use `AzureClient` in your own application
 
 ## Connecting to the service
 
-To connect to an Azure Fluid Relay instance, you first need to create an `AzureClient`. You must provide some configuration parameters including the tenant ID, service URL, and a token provider to generate the JSON Web Token (JWT) that will be used to authorize the current user against the service. The [@fluidframework/test-client-utils](https://fluidframework.com/docs/apis/test-client-utils/) package provides an InsecureTokenProvider that can be used for development purposes.
+To connect to an Azure Fluid Relay instance, you first need to create an `AzureClient`. You must provide some configuration parameters including the tenant ID, service URL, and a token provider to generate the JSON Web Token (JWT) that will be used to authorize the current user against the service. The **@fluidframework/test-client-utils** package provides an InsecureTokenProvider that can be used for development purposes.
 
 > [!CAUTION]
 > The `InsecureTokenProvider` should only be used for development purposes because **using it exposes the tenant key secret in your client-side code bundle.** This must be replaced with an implementation of [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface/) that fetches the token from your own backend service that is responsible for signing it with the tenant key. An example implementation is [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class). For more information, see [How to: Write a TokenProvider with an Azure Function](../how-tos/azure-function-token-provider.md). Note that the `id` and `name` fields are arbitrary.

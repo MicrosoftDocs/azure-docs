@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
-In most cases, customers with Azure subscriptions locations that match the country of the Number offer are able to buy the Number. See here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
+In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer are able to buy the Number. See here for details on [in-country/region and cross-country/region purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
 All prices shown below are in USD.
 
@@ -316,9 +316,26 @@ All prices shown below are in USD.
 |Number type  |To make calls*             |To receive calls|
 |-------------|---------------------------|----------------|
 |Geographic   |Starting at USD 0.0240/min |USD 0.0100/min  |
-|Toll-free    |Starting at USD 0.0240/min |USD 0.1750/min  |
+|Toll-free    |Starting at USD 0.0240/min |USD 0.0500/min  |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Japan telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|National      |USD 4.50/mo  |
+|Toll-Free     |USD 25.00/mo  |
+
+### Usage charges
+|Number type  |To make calls*             |To receive calls|
+|-------------|---------------------------|----------------|
+|Geographic   |Starting at USD 0.061/min |USD 0.0100/min  |
+|Toll-free    |Starting at USD 0.061/min |USD 0.2780/min  |
+
+\* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 
 ## China telephony offers
 
@@ -344,7 +361,7 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |Starting at USD 0.1888/min   |
 
-## Hong Kong telephony offers
+## Hong Kong SAR telephony offers
 
 ### Phone number leasing charges
 |Number type   |Monthly fee   |

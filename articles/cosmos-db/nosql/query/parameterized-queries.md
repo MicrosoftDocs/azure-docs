@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -69,7 +69,7 @@ Here are examples for parameterized queries in each Azure Cosmos DB for NoSQL SD
 - [Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts#L58-L79)
 - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78)
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [``WHERE`` clause](where.md)

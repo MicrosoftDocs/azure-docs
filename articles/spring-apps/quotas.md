@@ -31,15 +31,19 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 | Azure Spring Apps service instances | per region per subscription            | 10                 | 10                                              | 10                                              | 10                                              | 10                                                    |
 | Total app instances                 | per Azure Spring Apps service instance | 25                 | 500                                             | 1000                                            | 400                                             | 1000                                                  |
 | Custom Domains for app              | per Azure Spring Apps service instance | 0                  | 500                                             | 500                                             | 500                                             | 500                                                   |
+| Custom Domains for app              | per app instance                       | 0                  | 5                                               | 5                                               | 5                                               | 5                                                     |
 | Custom Domains for Tanzu Component  | per Tanzu Component                    | N/A                | N/A                                             | 5                                               | N/A                                             | N/A                                                   |
 | Persistent volumes                  | per Azure Spring Apps service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps                             | 50 GB/app x 10 apps                             | Not applicable                                  | Not applicable                                        |
 | Inbound Public Endpoints            | per Azure Spring Apps service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                       |
 | Outbound Public IPs                 | per Azure Spring Apps service instance | 1 <sup>2</sup>     | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup>       |
 | User-assigned managed identities    | per app instance                       | 20                 | 20                                              | 20                                              | Not available during preview                    | Not available during preview                          |
+| Requests per second/Throughput      | per Azure Spring Apps service instance | 5000 <sup>3</sup>  | 10000 <sup>3</sup>                              | 20000 <sup>3</sup>                              | Not applicable                                  | Not applicable                                        |
 
 <sup>1</sup> You can increase this limit via support request to a maximum of 1 per app.
 
 <sup>2</sup> You can increase this limit via support request to a maximum of 10.
+
+<sup>3</sup> This limit only applies to customers without an Enterprise Agreement subscription. You can increase this limit based on your workload size via raising a support ticket. For customers with an Enterprise Agreement subscription, Azure Spring Apps automatically adjusts underlying resource to support application traffic.
 
 > [!TIP]
 > Limits listed apply for apps and deployments in any state, including apps in a stopped state. These limits include total app instances and per service instances. Be sure to delete apps and deployments that aren't being used.

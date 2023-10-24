@@ -7,16 +7,42 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/31/2023
-
+ms.date: 09/29/2023
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## October 2023
+
+### Flush data operation for Basic, Standard and Premium Caches (preview)
+
+Basic, Standard, and Premium tier caches now support a built-in _flush_ operation that can be started at the control plane level. Use the _flush_ operation with your cache executing the `FLUSH ALL` command through Portal Console or _redis-cli_.
+
+For more information, see [flush data operation](cache-administration.md#flush-data-preview).
+
+### Update channel for Basic, Standard and Premium Caches (preview)
+
+With Basic, Standard or Premium tier caches, you can choose to receive early updates by configuring the "Preview" or the "Stable" update channel.
+
+For more information, see [update channels](cache-administration.md#update-channel-and-schedule-updates).
+
+## September 2023
+
+### Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
+
+To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of TLS 1.2 in October 2024.
+
+As a part of this effort, you can expect the following changes to Azure Cache for Redis:
+
+- _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for MinimumTLSVersion setting for new cache creates. Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
+- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting October 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we update the MinimumTLSVerion for all caches to 1.2.
+
+For more information, see [Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis](cache-remove-tls-10-11.md).
+
 ## June 2023
 
-Azure Active Directory for authentication and role-based access control are available across regions that support Azure Cache for Redis.
+Azure Active Directory for authentication and role-based access control is available across regions that support Azure Cache for Redis.
 
 ## May 2023
 
@@ -36,7 +62,7 @@ For more information, see [Configure clustering for Azure Cache for Redis instan
 
 ### 99th percentile latency metric (preview)
 
-A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance. 
+A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
 For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md#list-of-metrics).
 

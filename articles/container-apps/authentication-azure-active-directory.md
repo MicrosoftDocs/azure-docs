@@ -1,6 +1,6 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps with Azure Active Directory
-description: Learn to use the built-in Azure Active Directory authentication provider in Azure Container Apps.
+title: Enable authentication and authorization in Azure Container Apps with Microsoft Entra ID
+description: Learn to use the built-in Microsoft Entra authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,16 +10,16 @@ ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps with Azure Active Directory
+# Enable authentication and authorization in Azure Container Apps with Microsoft Entra ID
 
-This article shows you how to configure authentication for Azure Container Apps so that your app signs in users with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) (Azure AD) as the authentication provider.
+This article shows you how to configure authentication for Azure Container Apps so that your app signs in users with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) as the authentication provider.
 
 The Container Apps Authentication feature can automatically create an app registration with the Microsoft identity platform. You can also use a registration that you or a directory admin creates separately.
 
-- [Create a new app registration automatically](#aad-express)
-- [Use an existing registration created separately](#aad-advanced)
+- [Create a new app registration automatically](#entra-id-express)
+- [Use an existing registration created separately](#entra-id-advanced)
 
-## <a name="aad-express"> </a> Option 1: Create a new app registration automatically
+## <a name="entra-id-express"> </a> Option 1: Create a new app registration automatically
 
 This option is designed to make enabling authentication simple and requires just a few steps.
 
@@ -38,11 +38,11 @@ This option is designed to make enabling authentication simple and requires just
 
 You're now ready to use the Microsoft identity platform for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
-## <a name="aad-advanced"> </a>Option 2: Use an existing registration created separately
+## <a name="entra-id-advanced"> </a>Option 2: Use an existing registration created separately
 
-You can also manually register your application for the Microsoft identity platform, customizing the registration and configuring Container Apps Authentication with the registration details. This approach is useful if you want to use an app registration from a different Azure AD tenant other than the one your application is defined.
+You can also manually register your application for the Microsoft identity platform, customizing the registration and configuring Container Apps Authentication with the registration details. This approach is useful if you want to use an app registration from a different Microsoft Entra tenant other than the one your application is defined.
 
-### <a name="aad-register"> </a>Create an app registration in Azure AD for your container app
+### <a name="entra-id-register"> </a>Create an app registration in Microsoft Entra ID for your container app
 
 First, you'll create your app registration. As you do so, collect the following information that you'll need later when you configure the authentication in the container app:
 
@@ -53,8 +53,8 @@ First, you'll create your app registration. As you do so, collect the following 
 
 To register the app, perform the following steps:
 
-1. Sign in to the [Azure portal], search for and select **Container Apps**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
-1. From the portal menu, select **Azure Active Directory**, then go to the **App registrations** tab and select **New registration**.
+1. Sign in to the [Azure portal], search for and select **Container Apps**, and then select your app. Note your app's **URL**. You'll use it to configure your Microsoft Entra app registration.
+1. From the portal menu, select **Microsoft Entra ID**, then go to the **App registrations** tab and select **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://<hostname>.azurecontainerapps.io/.auth/login/aad/callback`.
 1. Select **Register**.
@@ -75,7 +75,7 @@ To register the app, perform the following steps:
 1. (Optional) To create a client secret, select **Certificates & secrets** > **Client secrets** > **New client secret**.  Enter a description and expiration and select **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
-### <a name="aad-secrets"> </a>Enable Azure Active Directory in your container app
+### <a name="entra-id-secrets"> </a>Enable Microsoft Entra ID in your container app
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
@@ -86,7 +86,7 @@ To register the app, perform the following steps:
     |-|-|
     |Application (client) ID| Use the **Application (client) ID** of the app registration. |
     |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the Container Apps will return access and refresh tokens. When the client secret isn't set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the EasyAuth token store.|
-    |Issuer Url| Use `<authentication-endpoint>/<TENANT-ID>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (for example, "https://login.microsoftonline.com" for global Azure), also replacing *\<TENANT-ID>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, and to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
+    |Issuer Url| Use `<authentication-endpoint>/<TENANT-ID>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (for example, "https://login.microsoftonline.com" for global Azure), also replacing *\<TENANT-ID>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Microsoft Entra tenant, and to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
     |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If this value refers to a cloud or server app and you want to accept authentication tokens from a client container app (the authentication token can be retrieved in the `X-MS-TOKEN-AAD-ID-TOKEN` header), add the **Application (client) ID** of the client app here. |
 
     The client secret will be stored as [secrets](manage-secrets.md) in your container app.
@@ -116,7 +116,7 @@ You can register native clients to request access your container app's APIs on b
 1. Select **Create**.
 1. After the app registration is created, copy the value of **Application (client) ID**.
 1. Select **API permissions** > **Add a permission** > **My APIs**.
-1. Select the app registration you created earlier for your container app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Azure AD for your container app](#aad-register).
+1. Select the app registration you created earlier for your container app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Microsoft Entra ID for your container app](#entra-id-register).
 1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
 You've now configured a native client application that can request access your container app on behalf of a user.
@@ -134,7 +134,7 @@ Your application can acquire a token to call a Web API hosted in your container 
 
 You can now [request an access token using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) by setting the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token), and Container Apps Authentication / Authorization will validate and use the token as usual to now indicate that the caller (an application in this case, not a user) is authenticated.
 
-This process allows _any_ client application in your Azure AD tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must adjust the configuration.
+This process allows _any_ client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must adjust the configuration.
 
 1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration representing the container app you want to protect.
 1. On the app registration representing the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.

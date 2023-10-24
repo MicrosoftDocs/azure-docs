@@ -1,11 +1,11 @@
 ---
 title: Import document format guidelines - QnA Maker
 description: Use these guidelines for importing documents to get the best results for your content.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ms.custom: ignite-fall-2021

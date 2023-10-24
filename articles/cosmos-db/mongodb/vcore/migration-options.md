@@ -8,25 +8,25 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 09/12/2023
 ---
 
 # Options to migrate data from MongoDB to Azure Cosmos DB for MongoDB vCore
 
-This document describes the various options to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore-based offering.
+This document describes the various options to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore offering.
 
 ## Premigration assessment
 
 Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
 
-The [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
+The [Azure Cosmos DB Migration for MongoDB extension](/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
 
 > [!TIP]
 > We recommend you to go through [the supported features and syntax](./compatibility.md) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ## Native MongoDB tools (Offline)
 
-You can use the native MongoDB tools such as *mongodump/mongorestore*, *mongoexport/mongoimport* to migrate datasets offline (without replicating live changes) to Azure Cosmos DB for MongoDB vCore-based offering.
+You can use the native MongoDB tools such as *mongodump/mongorestore*, *mongoexport/mongoimport* to migrate datasets offline (without replicating live changes) to Azure Cosmos DB for MongoDB vCore offering.
 
 | Scenario | MongoDB native tool |
 | --- | --- |

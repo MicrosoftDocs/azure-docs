@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint sample, the
 following steps must be taken:
 

@@ -21,11 +21,11 @@ This article helps you understand managed identity (formerly known as Managed Se
 
 ## Overview
 
-Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Azure AD tokens.
+Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Microsoft Entra authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra tokens.
 
 There are two types of supported managed identities: 
 
-- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you.  
+- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Microsoft Entra tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID. So when the resource is deleted, Azure automatically deletes the identity for you.  
 - **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 Managed identity provides the below benefits:
@@ -203,7 +203,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-You can get the application ID by copying above principal ID, then running below Azure Active Directory command with principal ID as parameter.
+You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
 
 ```powershell
 PS C:\> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -272,7 +272,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## User-assigned managed identity
 
-You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer to [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+You can create, delete, manage user-assigned managed identities in Microsoft Entra ID. For more details refer to [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 In order to use a user-assigned managed identity, you must first [create credentials](credentials.md) in your service instance for the UAMI.
 

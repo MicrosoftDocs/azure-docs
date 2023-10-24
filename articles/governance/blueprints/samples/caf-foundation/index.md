@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint deploys a set of core
 infrastructure resources and policy controls required for your first production grade Azure
 application. This foundation blueprint is based on the recommended pattern found in CAF.

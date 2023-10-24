@@ -25,6 +25,8 @@ This tutorial shows you  how to create and manage routing configuration for an A
 
 You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
 
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Configure, update, and delete Microsoft peering for a circuit

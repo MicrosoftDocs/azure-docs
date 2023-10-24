@@ -11,7 +11,7 @@ This article describes the security configuration and considerations you should 
 
 ## Using a managed identity
 
-By default, an Azure Active Directory system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
+By default, a Microsoft Entra system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
 
 ## Identity and access control
 

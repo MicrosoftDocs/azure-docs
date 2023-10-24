@@ -264,7 +264,7 @@ This section provides guidance for cluster administrators who want to create one
 |volumeAttributes.MSIEndpoint | Specify the MSI endpoint. |  | No ||
 |volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID. |  | No ||
 |volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID. |  | No ||
-|volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (Azure AD) endpoint. |  | No ||
+|volumeAttributes.AzureStorageAADEndpoint | Specify the Microsoft Entra endpoint. |  | No ||
 |--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
 |volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name. | {vault-name}.vault.azure.net | No ||
 |volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name. | Existing Azure Key Vault secret name. | No ||
@@ -515,6 +515,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubernets-secret]: https://kubernetes.io/docs/concepts/configuration/secret
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -526,3 +527,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md
 [storage-account-private-endpoint]: ../storage/common/storage-private-endpoints.md
+[manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

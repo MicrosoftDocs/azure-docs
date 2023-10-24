@@ -110,7 +110,7 @@ As you add more nodes to an agent pool, the Azure platform automatically distrib
 
 With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
- ```bash
+```bash
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 

@@ -4,7 +4,7 @@ description: In this quickstart, you deploy an Azure Firewall and a firewall pol
 services: firewall-manager
 author: vhorne
 ms.author: victorh
-ms.date: 02/17/2021
+ms.date: 09/28/2023
 ms.topic: quickstart
 ms.service: firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -24,7 +24,7 @@ For information about Azure Firewall, see [What is Azure Firewall?](../firewall/
 
 For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/ip-groups.md).
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
 

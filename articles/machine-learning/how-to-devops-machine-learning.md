@@ -33,13 +33,7 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 * Complete the [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
-* Azure Machine Learning extension (preview) for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
-
-    > [!TIP]
-    >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
-
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
+* Azure Machine Learning extension for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
 
 ## Step 1: Get the code
 

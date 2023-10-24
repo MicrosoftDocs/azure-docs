@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # UK OFFICIAL and UK NHS blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 The UK OFFICIAL and UK NHS blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
 [UK OFFICIAL and UK NHS](https://www.gov.uk/government/publications/government-security-classifications)

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Automate invoice data extraction with Document Intelligence's invoice model to extract accounts payable data including invoice line items.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: lajanuar
@@ -193,7 +192,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Albanian (`sq`) | Albania (`al`)|
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant)) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|

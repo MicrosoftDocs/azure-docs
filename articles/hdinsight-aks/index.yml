@@ -1,0 +1,157 @@
+### YamlMime:Landing
+
+title: Azure HDInsight on AKS documentation (Preview)
+summary: HDInsight on AKS, a new HDInsight version, provides enterprise-ready managed cluster service with emerging open-source analytics.
+metadata:
+  title: Azure HDInsight on AKS (Preview) # Required; page title displayed in search results. Include the brand.
+  description: HDInsight on AKS, a new HDInsight version in preview, provides enterprise-ready managed cluster service with emerging open-source analytics projects like Apache Flink (for Streaming), Trino (for adhoc analytics and BI), and Spark.
+  ms.service: hdinsight-aks #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: sairamyeturi  #Required; your GitHub user alias, with correct capitalization.
+  ms.author: v-sreiyer #Required; microsoft alias of author; optional team alias.
+  ms.date: 08/29/2023 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About HDInsight on AKS
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is HDInsight on AKS?
+            url: overview.md
+          - text: Version management
+            url: versions.md   
+          - text: Security
+            url: concept-security.md
+          - text: Azure Monitor integration
+            url: concept-azure-monitor-integration.md
+          - text: Release notes
+            url: overview.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Resource prerequisites
+            url: prerequisites-resources.md
+          - text: Get started with one click deployment
+            url: get-started.md  
+          - text: Create a cluster pool
+            url: quickstart-create-cluster.md#create-a-cluster-pool
+          - text: Create a cluster
+            url: quickstart-create-cluster.md
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create cluster pools and clusters
+            url: quickstart-create-cluster.md
+          - text: Manage cluster pools
+            url: manage-cluster-pool.md
+          - text: Manage clusters
+            url: manage-cluster.md
+          - text: Manual scale
+            url: manual-scale.md
+          - text: Auto scale
+            url: hdinsight-on-aks-autoscale-clusters.md
+          - text: Service configuration
+            url: service-configuration.md
+          - text: Service health
+            url: service-health.md
+          - text: Azure Monitor integration
+            url: how-to-azure-monitor-integration.md
+          - text: Use cluster storage
+            url: cluster-storage.md
+  - title: Trino
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Trino?
+            url: ./trino/trino-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Trino cluster
+            url: ./trino/trino-create-cluster.md
+      - linkListType: tutorial
+        links:
+          - text: Connect to a Hive metastore
+            url: ./trino/trino-connect-to-metastore.md
+          - text: Add catalogs
+            url: ./trino/trino-add-catalogs.md
+          - text: Custom plugins
+            url: ./trino/trino-custom-plugins.md 
+          - text: Query logging
+            url: ./trino/trino-query-logging.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configuration
+            url: ./trino/trino-service-configuration.md
+          - text: CLI
+            url: ./trino/trino-ui-command-line-interface.md
+          - text: Trino UI
+            url: ./trino/trino-ui.md
+          - text: JDBC Driver
+            url: ./trino/trino-ui-jdbc-driver.md
+          - text: Delta Lake Tables in Synapse or external locations
+            url: ./trino/trino-create-delta-lake-tables-synapse.md
+          - text: Configure caching
+            url: ./trino/trino-caching.md
+  - title: Apache Flink
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Apache Flink?
+            url: ./flink/flink-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Apache Flink cluster
+            url: ./flink/flink-create-cluster-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Configuration management
+            url: ./flink/flink-configuration-management.md
+          - text: Flink job management
+            url: ./flink/flink-job-management.md
+          - text: Hive dialect in Flink
+            url: ./flink/hive-dialect-flink.md    
+          - text: Table API and SQL
+            url: ./flink/flink-table-api-and-sql.md
+      - linkListType: how-to-guide
+        links:
+          - text: ADLS Gen2 - Write with Flink DataStream API
+            url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
+          - text: Delta Lake Tables with Apache Flink
+            url: ./flink/use-flink-delta-connector.md
+          - text: Hive Catalog and FlinkSQL
+            url: ./flink/use-hive-catalog.md
+          - text: Kafka table on FlinkSQL
+            url: ./flink/create-kafka-table-flink-kafka-sql-connector.md  
+          
+  - title: Apache Spark
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Spark?
+            url: ./spark/hdinsight-on-aks-spark-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Spark cluster
+            url: ./spark/create-spark-cluster.md
+      - linkListType: how-to-guide
+        links:
+          - text: Submit and manage jobs
+            url: ./spark/submit-manage-jobs.md
+          - text: Library management
+            url: ./spark/library-management.md
+          - text: Use ML notebook on Spark
+            url: ./spark/use-machine-learning-notebook-on-spark.md
+          - text: Use Hive metastore
+            url: ./spark/use-hive-metastore.md
+  - title: Resources
+    linkLists:
+      - linkListType: learn
+        links:
+         - text: FAQ
+           url: faq.md
+         - text: Troubleshooting
+           url: create-cluster-error-dictionary.md
