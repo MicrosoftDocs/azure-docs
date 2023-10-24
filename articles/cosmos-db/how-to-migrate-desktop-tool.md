@@ -255,7 +255,3 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     Using JSON Source
     Using Cosmos-nosql Sink
     ```
-
-## Next steps
-
-- Review [options for migrating data to Azure Cosmos DB](migration-choices.md).
