@@ -366,7 +366,11 @@ drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
 
 #### Auxiliary/supplemental group limitations with NFS
 
-NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16 and for AUTH_GSS (Kerberos) it is 32. This is a known protocol limitation of NFS. 
+NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16. For AUTH_GSS (Kerberos), the maximum is 32. This is a known protocol limitation of NFS. 
 
 Azure NetApp Files provides the ability to increase the maximum number of auxiliary groups to 1,024. This is performed by avoiding truncation of the group list in the NFS packet by prefetching the requesting user’s group from a name service, such as LDAP.
+
+##### How it works 
+
+The options to extend the group limitation work just the way that the manage-gids option for other NFS servers works. Basically, rather than dumping the entire list of auxiliary GIDs a user belongs to, the option does a lookup for the GID on the file or folder and returns that value instead.
 
