@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 recommendations: false
 ---
 
@@ -67,8 +67,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 There are three different sources of data that you can use with Azure OpenAI on your data. 
 * Blobs in an Azure storage container that you provide
-* Local files uploaded using the Azure OpenAI Studio 
-* URLs/web addresses. 
+* Local files uploaded using the Azure OpenAI Studio
 
 Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
 
@@ -84,10 +83,6 @@ Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-
 **Data ingestion from local files**
 
 Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
-
-**Data ingestion from URLs** 
-
-A crawling component first crawls the provided URL and stores its contents to an Azure Storage Container. The service then performs ingestion from the container. 
 
 ### Troubleshooting failed ingestion jobs
 
@@ -154,8 +149,6 @@ Additionally, data ingestion has the following configuration support:
 ### Azure OpenAI resources
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
-> [!NOTE]
-> If you disable public network access for your Azure OpenAI resources, you can call the `/extensions/chat/completions` API or chat with your existing index in Azure OpenAI Studio. However, vector search and blob/file ingestion in the studio is not supported.
 
 ### Azure Cognitive Search resources
 
@@ -169,7 +162,24 @@ After you approve the request in your search service, you can start using the [c
 
 ### Storage accounts
 
-Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks, firewalls, and private endpoints are supported by Azure OpenAI on your data. To use a storage account in a private network:
+
+1. Ensure you have the system assigned managed identity principal enabled for your Azure OpenAI and Azure Cognitive Search resources.
+    1. Using the Azure portal, navigate to your resource, and select **Identity** from the navigation menu on the left side of the screen.
+    1. Set **Status** to **On**.
+    1. Perform these steps for both of your Azure OpenAI and Azure Cognitive Search resources.
+
+    :::image type="content" source="../media/use-your-data/managed-identity.png" alt-text="A screenshot showing managed identity settings in the Azure portal." lightbox="../media/use-your-data/managed-identity.png":::
+
+1. Navigate back to your storage account. Select **Access Control (IAM)** for your resource. Select **Add**, then **Add role assignment**. In the window that appears, add the **Storage Data Contributor** role to the storage resource for your Azure OpenAI and search resource's managed identity. 
+    1. Assign access to **Managed Identity**.
+    1. If you have multiple search resources, Perform this step for each search resource.
+
+    :::image type="content" source="../media/use-your-data/add-role-assignment.png" alt-text="A screenshot showing the role assignment option in the Azure portal." lightbox="../media/use-your-data/add-role-assignment.png":::
+
+1. If your storage account hasn't already been network restricted, go to networking tab and select **Enabled from selected virtual networks and IP addresses**.
+
+    :::image type="content" source="../media/use-your-data/enable-virtual-network.png" alt-text="A screenshot showing the option for enabling virtual networks in the Azure portal." lightbox="../media/use-your-data/enable-virtual-network.png":::
 
 ## Azure Role-based access controls (Azure RBAC)
 

@@ -135,6 +135,9 @@ The following table lists the extra firewall configuration required for managed 
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
 
 
+## Troubleshooting
+If you have registered your cluster and/or configured HCI Insights before November, 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel may not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
+
 ## Next steps
 
 See the following articles for specific steps to enable Container insights on different cluster configurations.

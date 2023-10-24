@@ -48,8 +48,26 @@ More details on eligible subscription types are as follows:
 |Portugal|
 |United States*|
 
-\*Alphanumeric Sender ID only
-
+## Azure subscription billing locations where Portugal alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 ## Find information about other countries/regions
 
