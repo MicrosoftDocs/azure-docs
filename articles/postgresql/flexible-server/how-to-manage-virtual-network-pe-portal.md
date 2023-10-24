@@ -24,7 +24,34 @@ In this article, we will focus on creation of PostgreSQL server with **Public ac
 ## Prerequisites
 
 To add a flexible server to the  virtual network using Private Link, you need:
-- A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
-    > [!Note]
-    > -  The virtual network and subnet should be in the same region and subscription as your flexible server.
-    > -  The virtual network should not have any resource lock set at the VNET or subnet level, as locks may interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before creating the server in a virtual network, and you can set it back after server creation.
+- A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your flexible server.The virtual network should not have any resource lock set at the VNET or subnet level, as locks may interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before adding  server to a virtual network, and you can set it back after server creation.
+   
+
+## Create an Azure Database for PostgreSQL - Flexible Server with Private Endpoint\
+
+To create an Azure Database for PostgreSQL server, take the following steps:
+
+1. Select Create a resource **(+)** in the upper-left corner of the portal.
+
+2. Select **Databases > Azure Database for PostgreSQL**.
+
+3. Select the **Flexible server** deployment option.
+
+4. Fill out the Basics form with the pertinent information. tHis includes Azure subscription, resource group, Azure region location, server name, server administrative credentials. 
+
+| **Setting** | **Value**|
+|---------|------|
+|Subscription| Select your subscription|
+|Resource group| Select your resource group|
+|Server name| Enter unique server name|
+|Admin username |Enter an administrator name of your choosing|
+|Password|Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements|
+|Location|Select an Azure region where you want to want your PostgreSQL Server to reside, example  **West Europe**|
+|Version|Select the database version of the PostgreSQL server that is required|
+|Compute + Storage|Select the pricing tier that is needed for the server based on the workload|
+
+5. Select **Next:Networking**
+6. Choose **"Public access (allowed IP addresses) and Private endpoint"** checkbox checked as Connectivity method.
+7. Click **"Add Private Endpoint"** in Private Endpoint section
+:::image type="content" source="./media/concepts-networking/pe-button.png" alt-text="Private Endpoint Button on Networking Blade":::
+8. In Create Private Endpoint Screen enter following:
