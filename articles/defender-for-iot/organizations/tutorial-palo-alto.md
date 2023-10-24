@@ -11,7 +11,7 @@ This article describes how to integrate Palo Alto with Microsoft Defender for Io
 
 Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
-## Cloud integrations (recommended)
+## Cloud integrations
 
 If you're integrating a cloud-connected OT sensor with Palo Alto we recommend that you connect Defender for IoT to [Microsoft Sentinel](concept-sentinel-integration.md).
 
@@ -32,7 +32,7 @@ For more information, see:
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 
-## On-premises integrations (recommended)
+## On-premises integrations
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Palo Alto information in the same place.
 
@@ -50,8 +50,8 @@ This section describes how to integrate and use Palo Alto with Microsoft Defende
 > [!IMPORTANT]
 > The legacy Palo Alto Panorama integration is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using the legacy integration, we recommend moving to one of the following methods:
 > 
-> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-integrations-recommended). 
-> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations-recommended).
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-integrations). 
+> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations).
 >
 
 The following table shows which incidents this integration is intended for:

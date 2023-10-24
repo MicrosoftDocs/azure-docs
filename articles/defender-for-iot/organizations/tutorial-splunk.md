@@ -12,7 +12,7 @@ This article describes how to integrate Splunk with Microsoft Defender for IoT, 
 
 Viewing both Defender for IoT and Splunk information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
-## Cloud integrations (recommended)
+## Cloud integrations
 
 If you're integrating a cloud-connected OT sensor with Splunk, we recommend that you use Splunk's own [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see:
 
@@ -20,7 +20,7 @@ If you're integrating a cloud-connected OT sensor with Splunk, we recommend that
 - [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
 
 
-## On-premises integrations (recommended)
+## On-premises integrations
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Splunk information in the same place.
 
@@ -40,8 +40,8 @@ This section describes how to integrate Defender for IoT and Splunk using the le
 > [!IMPORTANT]
 > The legacy Splunk integration is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using the legacy integration, we recommend moving to one of the following methods:
 >
-> - If you're integrating your security solution with cloud-based systems, we recommend that you use the [OT Security Add-on for Splunk](#cloud-integrations-recommended).
-> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations-recommended).
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use the [OT Security Add-on for Splunk](#cloud-integrations).
+> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations).
 
 Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 
