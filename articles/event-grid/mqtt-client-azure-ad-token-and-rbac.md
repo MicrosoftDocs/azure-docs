@@ -8,7 +8,9 @@ ms.author: veyaddan
 ---
 
 # Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages
-You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topicspaces.
+
+You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces.
+
 
 > [!IMPORTANT]
 > This feature is supported only when using MQTT v5 protocol version
@@ -49,9 +51,8 @@ A client using Microsoft Entra ID based JWT authentication needs to be authorize
 
 You can use these roles to provide permissions at subscription, resource group, Event Grid namespace or Event Grid topicspace scope.
 
-<a name='assign-the-custom-role-to-your-azure-ad-identity'></a>
-
 ## Assigning the publisher role to your Microsoft Entra identity at topicspace scope
+
 1. In the Azure portal, navigate to your Event Grid namespace
 1. Navigate to the topicspace to which you want to authorize access.
 1. Go to the Access control (IAM) page of the topicspace

@@ -4,7 +4,7 @@ description: This tutorial describes how to register data assets in your Azure D
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 12/08/2022
-# Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
+# Customer intent: As a Microsoft Entra owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
 ---
 # Tutorial: Register data assets in Azure Data Catalog
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* You need to have your own [Microsoft Entra tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 * An [Azure Data Catalog](data-catalog-get-started.md)
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.

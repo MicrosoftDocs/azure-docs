@@ -224,7 +224,7 @@
         href: search-security-api-keys.md
       - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Configure apps for Azure AD
+      - name: Configure apps for Microsoft Entra ID
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -254,7 +254,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Azure AD
+      - name: Security filters with Microsoft Entra ID
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
@@ -278,20 +278,16 @@
       href: search-how-to-create-search-index.md
     - name: Load an index
       href: search-how-to-load-search-index.md
+    - name: Index large data sets
+      href: search-howto-large-index.md
     - name: Drop and rebuild an index
       href: search-howto-reindex.md
     - name: Create an index alias
       href: search-how-to-alias.md
+    - name: Create a suggester for typeahead
+      href: index-add-suggesters.md
     - name: Create a multi-language index
       href: search-language-support.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Synonyms
-      items:
-      - name: Add synonyms
-        href: search-synonyms.md
-      - name: Synonyms C# example
-        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
@@ -302,6 +298,12 @@
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
       href: index-add-custom-analyzers.md
+  - name: Synonyms
+    items:
+    - name: Add synonyms
+      href: search-synonyms.md
+    - name: Synonyms C# example
+      href: search-synonyms-tutorial-sdk.md
   - name: Indexers
     items:
     - name: Create an indexer
@@ -422,33 +424,31 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Query vector fields
+    - name: Create a vector query
       href: vector-search-how-to-query.md
+    - name: Create a hybrid query
+      href: hybrid-search-how-to-query.md
   - name: Queries
     items:
-    - name: Create a basic query
+    - name: Full text query
       href: search-query-create.md
+    - name: Typeahead query
+      href: search-add-autocomplete-suggestions.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
-    - name: Autocomplete "Search-as-you-type"
-      items:
-      - name: Create a suggester
-        href: index-add-suggesters.md
-      - name: Add autocomplete and suggestions
-        href: search-add-autocomplete-suggestions.md
     - name: Filters
       items:
       - name: Filter overview
         href: search-filters.md
       - name: Add faceted navigation
         href: search-faceted-navigation.md
-      - name: Troubleshoot collection filters
-        href: search-query-troubleshoot-collection-filters.md
       - name: Understand collection filters
         href: search-query-understand-collection-filters.md
-      - name: Normalize text
+      - name: Troubleshoot collection filters
+        href: search-query-troubleshoot-collection-filters.md
+      - name: Normalize text for filters
         href: search-normalizers.md
     - name: Search results 
       items:

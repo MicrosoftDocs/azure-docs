@@ -200,7 +200,7 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
 
 1. Enter a name for your application in the **Name** field - for example, *Todo*. Users of your app might see this name, and you can change it later.
 
-1. For **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**.
+1. For **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts**.
 
 1. Select **Register** to create the application.
 
@@ -225,7 +225,7 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
 
 ### Update the application configuration
 
-Use the following steps to update the YAML file to use your Microsoft Entra ID registered application information to establish a relationship with the RESTful API application:
+Use the following steps to update the YAML file to use your Microsoft Entra registered application information to establish a relationship with the RESTful API application:
 
 1. Use the following YAML to update the `spring.cloud.azure.active-directory` configuration in the configuration file. Be sure to replace the placeholders with your own values that you created previously.
 

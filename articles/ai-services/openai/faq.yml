@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 10/06/2023
+  ms.date: 10/16/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -82,7 +82,10 @@ sections:
           If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
-
+      - question: |
+          Where do I access pricing information for legacy models which are no longer available for new deployments? 
+        answer: | 
+          Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
 
           
   - name: Getting access to Azure OpenAI Service
@@ -124,6 +127,10 @@ sections:
           Where can I find out what region a model is available in?
         answer: |
           Consult the Azure OpenAI [model availability guide](./concepts/models.md#model-summary-table-and-region-availability) for region availability.
+      - question: |
+          How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio.  
+        answer: |
+          In order to successfully access fine-tuning you need Cognitive Services OpenAI Contributor assigned. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
       - question: |
           What is the difference between a base model and a fine-tuned model?
         answer:
@@ -183,7 +190,7 @@ sections:
       - question: | 
           How can I update my index?
         answer:
-          You can upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
@@ -193,11 +200,15 @@ sections:
         answer:
           Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
-          Is there a token limit on the system message?
+          Is there a token limit on the system message? 
         answer: 
-          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored.
+          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored. This limitation only applies to the Azure OpenAI [on your data feature](/azure/ai-services/openai/concepts/use-your-data).
       - question: |
-          Do the query language and the data source language need to be the same?
+          Does Azure OpenAI on your data support function calling?
+        answer:
+          Azure OpenAI on your data currently doesn't support function calling. 
+      - question: |
+          Does the query language and the data source language need to be the same?
         answer:
           You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
       - question: |
@@ -212,7 +223,7 @@ sections:
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
-          Index creation may fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
+          Index creation can fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
 
 additionalContent: |
 

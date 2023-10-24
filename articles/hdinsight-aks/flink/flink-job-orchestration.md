@@ -1,12 +1,12 @@
 ---
 title: Azure data factory managed airflow - HDInsight on AKS
-description: Learn Flink job orchestration using Azure Data Factory managed airflow
+description: Learn how to perform Flink job orchestration using Azure Data Factory managed airflow
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/23/2023
+ms.date: 10/11/2023
 ---
 
-# Azure data factory managed airflow
+# Flink job orchestration using Azure Data Factory managed airflow
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -30,7 +30,7 @@ It is recommended to rotate access keys or secrets periodically.
 
 1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal/) in case, if you don't have one. 
 
-1. Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
+1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
 
     ```
     az ad sp create-for-rbac -n <sp name> --role “Key Vault Secrets Officer” --scopes <key vault Resource ID> 
@@ -60,7 +60,7 @@ It is recommended to rotate access keys or secrets periodically.
       :::image type="content" source="./media/flink-job-orchestration/airflow-configuration-environment-variable.png" alt-text="Screenshot shows airflow configuration and environment variables." lightbox="./media/flink-job-orchestration/airflow-configuration-environment-variable.png":::
 
  
-1. Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response. 
+1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response. 
 
     `az ad sp create-for-rbac -n <sp name> --role Contributor --scopes <Flink Cluster Resource ID>` 
 
@@ -183,4 +183,3 @@ The DAG expects to have setup for the Service Principal, as described during the
 
  Refer to the [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code).
    
-

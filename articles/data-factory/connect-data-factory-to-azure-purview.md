@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 
 # Connect Data Factory to Microsoft Purview
@@ -77,7 +77,7 @@ Once you connect the data factory to a Microsoft Purview account, you see the fo
 
 :::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Data Factory and Microsoft Purview.":::
 
-For **Data Lineage - Pipeline**, you may see one of below status:
+For **Data Lineage - Pipeline**, you might see one of below status:
 
 - **Connected**: The data factory is successfully connected to the Microsoft Purview account. Note this indicates data factory is associated with a Microsoft Purview account and has permission to push lineage to it. If your Microsoft Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Microsoft Purview account. Learn more from [Access a secured Microsoft Purview account from Azure Data Factory](how-to-access-secured-purview-account.md).
 - **Disconnected**: The data factory cannot push lineage to Microsoft Purview because Microsoft Purview Data Curator role is not granted to data factory's managed identity. To fix this issue, go to your Microsoft Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.

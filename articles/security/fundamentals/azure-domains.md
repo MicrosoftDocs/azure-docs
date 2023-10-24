@@ -24,7 +24,7 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |Service  |Subdomain  |
 |---------|---------|
 |[Azure Access Control Service](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (retired)|*.accesscontrol.windows.net|
-|[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|*.graph.windows.net / *.onmicrosoft.com|
+|[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)|*.graph.windows.net / *.onmicrosoft.com|
 |[Azure API Management](https://azure.microsoft.com/services/api-management/)|*.azure-api.net|
 |[Azure BizTalk Services](https://azure.microsoft.com/pricing/details/biztalk-services/) (retired)|*.biztalk.windows.net|
 |[Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md)|*.blob.core.windows.net|
