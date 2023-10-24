@@ -103,7 +103,7 @@ Open and run the sample QnA notebook to create, evaluate, and deploy a chatbot b
 1. Optionally, you can check the contents of the shared folder to see the generated prompt flow files:
 
     ```bash
-    ls ~/shared/Users/{user-name}/promptflow
+    ls /shared/Users/{user-name}/promptflow
     ```
 
 1. Open your project in [Azure AI Studio](https://aka.ms/AzureAIStudio) to view the generated indexes, evaluation runs, and endpoints.
