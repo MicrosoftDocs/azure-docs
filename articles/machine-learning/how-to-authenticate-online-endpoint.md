@@ -1,7 +1,7 @@
 ---
-title: Authenticate for online endpoints
+title: Authenticate clients for online endpoints
 titleSuffix: Azure Machine Learning
-description: Learn to authenticate clients to an Azure Machine Learning online endpoint
+description: Learn to authenticate clients for an Azure Machine Learning online endpoint.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -15,8 +15,7 @@ ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 
 # Authenticate clients for online endpoints
 
-This article will focus on the authentication for data plane operations. See [Authentication for managed online endpoint](concept-endpoints-online-auth.md) for more information on authentication in general.
-
+This article covers how to authenticate clients to perform data plane operations on online endpoints. Data plane operations use data to interact with online endpoints without changing the endpoints. For example, a data plane operation could consist of sending a scoring request to an online endpoint and getting a response.
 
 ## Prepare a user identity
 
@@ -184,6 +183,7 @@ Refer to [Get a token using the Azure identity client library](/active-directory
 
 Studio doesn't expose the Entra token.
 
+---
 
 ## Create an endpoint
 
@@ -590,5 +590,6 @@ If the diagnostic setting is enabled, you can check `AmlOnlineEndpointTrafficLog
 
 ## Next steps
 
+* [Authentication for managed online endpoint](concept-endpoints-online-auth.md)
 * [Deploy a machine learning model using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
