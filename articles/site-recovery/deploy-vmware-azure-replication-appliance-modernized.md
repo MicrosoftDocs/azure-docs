@@ -135,15 +135,19 @@ If there are any organizational restrictions, you can manually set up the Site R
 
 2. Ensure the [required URLs](./replication-appliance-support-matrix.md#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
-3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. After saving the details, proceed to choose the appliance connectivity.
+3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. 
 
-4. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
+4. After saving the details, proceed to choose the appliance connectivity. Either FQDN or a NAT IP can be selected to define how the communication with the appliance would happen. 
+
+    :::image type="Select appliance connectivity" source="./media/deploy-vmware-azure-replication-appliance-modernized/select-connectivity-type.png" alt-text="Screenshot showing appliance connectivity options.":::
+
+4. After saving connectivity details, select **Continue** to proceed to registration with Microsoft Azure.
 
 5. Ensure the [prerequisites](./replication-appliance-support-matrix.md#pre-requisites) are met, proceed with registration.
 
     :::image type="Register appliance" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png" alt-text="Screenshot showing register appliance.":::
 
-  - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+  - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure. This name cannot be changed once set. 
 
   - **Azure Site Recovery replication appliance key**: Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **Site Recovery** > **VMware to Azure: Prepare Infrastructure**.
 

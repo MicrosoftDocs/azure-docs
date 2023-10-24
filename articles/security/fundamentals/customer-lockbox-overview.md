@@ -1,6 +1,6 @@
 ---
 title: Customer Lockbox for Microsoft Azure
-description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
+description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft might need to access customer data.
 author: msmbaldwin
 ms.service: information-protection
 ms.subservice: aiplabels
@@ -14,9 +14,53 @@ ms.date: 08/14/2023
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. Microsoft Azure services that have the potential to access customer data are required to onboard to Customer Lockbox for Microsoft Azure.
+Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. 
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
+
+## Supported services
+
+The following services are currently supported for Customer Lockbox:
+
+- Azure API Management
+- Azure App Service
+- Azure Cognitive Search
+- Azure Cognitive Services
+- Azure Container Registry
+- Azure Data Box
+- Azure Data Explorer
+- Azure Data Factory
+- Azure Data Manager for Energy
+- Azure Database for MySQL
+- Azure Database for MySQL Flexible Server
+- Azure Database for PostgreSQL
+- Azure Databricks
+- Azure Edge Zone Platform Storage
+- Azure Energy
+- Azure Functions
+- Azure HDInsight
+- Azure Health Bot
+- Azure Intelligent Recommendations
+- Azure Kubernetes Service
+- Azure Load Testing (CloudNative Testing)
+- Azure Logic Apps
+- Azure Monitor
+- Azure Red Hat OpenShift
+- Azure Spring Apps
+- Azure SQL Database
+- Azure SQL Managed Instance
+- Azure Storage
+- Azure Subscription Transfers
+- Azure Synapse Analytics
+- Commerce AI (Intelligent Recommendations)
+- DevCenter / DevBox
+- ElasticSan
+- Kusto (Dashboards)
+- Microsoft Azure Attestation
+- OpenAI
+- Spring Cloud
+- Unified Vision Service
+- Virtual Machines in Azure
 
 ## Enable Customer Lockbox
 
@@ -37,7 +81,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     - The scope of the resource
     - Whether the requester is an isolated identity or using multifactor authentication
     - Permissions levels
-    Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
+    Based on the JIT rule, this request might also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
     
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.

@@ -40,13 +40,13 @@ The following changes will trigger components of the packet core software to res
   - Static UE IP pool prefixes
   - Network address and port translation parameters
   - DNS addresses
+- Changing the UE Maximum Transmission Unit (MTU) signaled by the packet core.
 
 The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 - Changing the N2, N3 or N6 interface configuration on an attached data network.
-- Changing the UE Maximum Transmission Unit (MTU).
 
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 

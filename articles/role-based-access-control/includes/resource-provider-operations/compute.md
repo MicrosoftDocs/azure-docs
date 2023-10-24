@@ -20,6 +20,7 @@ Azure service: [Azure Container Apps](../../../container-apps/index.yml)
 > | --- | --- |
 > | microsoft.app/register/action | Register microsoft.app resource provider for the subscription |
 > | microsoft.app/unregister/action | Unregister microsoft.app resource provider for the subscription |
+> | microsoft.app/jobs/start/action | To start a job in a specific Container App |
 > | microsoft.app/containerapps/write | Create or update a Container App |
 > | microsoft.app/containerapps/delete | Delete a Container App |
 > | microsoft.app/containerapps/read | Get a Container App |
