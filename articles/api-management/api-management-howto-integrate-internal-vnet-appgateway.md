@@ -261,9 +261,6 @@ To set up custom domain names in API Management:
     Set-AzApiManagement -InputObject $apimService
     ```
 
-> [!NOTE]
-> To configure connectivity to the legacy developer portal, you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
-
 ## Configure a private zone for DNS resolution in the virtual network
 
 To configure a private DNS zone for DNS resolution in the virtual network:
