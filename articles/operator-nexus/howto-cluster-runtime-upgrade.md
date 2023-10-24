@@ -88,7 +88,7 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
 
-## Using azure cli to set updateStrategy
+## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
 
 Below is the az cli command that needs to be executed for configuring compute threshold parameters that can be used while performing a runtime upgrade
 
