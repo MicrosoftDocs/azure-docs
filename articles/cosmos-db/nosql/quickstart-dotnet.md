@@ -337,9 +337,9 @@ Then, use a combination of `while` and `foreach` loops to retrieve pages of resu
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="parse_results":::
 
-::: zone pivot="azd"
-
 ## Clean up resources
+
+::: zone pivot="azd"
 
 When you no longer need the sample application or resources, remove the corresponding deployment and all resources.
 
@@ -351,11 +351,23 @@ azd down
 
 ::: zone pivot="local"
 
+### [Try Azure Cosmos DB free](#tab/try-free)
+
+1. Navigate to the **Try Azure Cosmos DB free** homepage again: <https://cosmos.azure.com/try/>
+
+1. Sign-in using your Microsoft account.
+
+1. Select **Delete your account**.
+
+### [Azure subscription](#tab/azure-subscription)
+
 When you no longer need the API for NoSQL account, you can delete the corresponding resource group. Use the `az group delete` command to delete the resource group.
 
 ```azurecli
 az group delete --name <resource-group-name>
 ```
+
+---
 
 ::: zone-end
 
