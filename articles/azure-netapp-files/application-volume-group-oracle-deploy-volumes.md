@@ -30,13 +30,13 @@ Azure NetApp Files application volume group for Oracle is currently in preview. 
 1. Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName {{{***---->>NEED AFEC FLAG<<----***}}} 
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOracleVolumeGroup 
     ```
 
 2. Check the status of the feature registration: 
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName {{{***---->>NEED AFEC FLAG<<----***}}}
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOracleVolumeGroup
     ```
     > [!NOTE]
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
