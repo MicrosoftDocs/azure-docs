@@ -27,7 +27,7 @@ You can use the same identity that you use for control plane operations (that is
 
 ## Assign permissions to the identity
 
-In this section, you assign permissions to the user identity that you'll use for accessing the endpoint. You begin by using a built-in role or by creating a custom role, and then you assign the role to your user identity.
+In this section, you assign permissions to the user identity that you use for accessing the endpoint. You begin by using a built-in role or by creating a custom role, and then you assign the role to your user identity.
 
 ### Use a built-in role
 
@@ -101,10 +101,8 @@ You can skip this step if you're using built-in roles or other pre-made custom r
     az role definition create --role-definition custom-role-for-scoring.json --subscription <subscriptionId>
     ```
 
-    @seokjin please clarify note
-    
     > [!NOTE]
-    > You need either owner or user access administrator role, or a custom role that allows `Microsoft.Authorization/roleDefinitions/write` permission to be able to create/delete/update custom roles and `Microsoft.Authorization/roleDefinitions/read` to view custom roles. See [Azure custom roles](https://learn.microsoft.com/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role) for more.
+    > You need one of three roles: owner, user access administrator, or a custom role with `Microsoft.Authorization/roleDefinitions/write` permission (to be able to create/delete/update custom roles) and `Microsoft.Authorization/roleDefinitions/read` permission (to view custom roles). For more information on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role).
     
 1. Check the role definition to verify it:
 
@@ -135,10 +133,8 @@ You can skip this step if you're using built-in roles or other pre-made custom r
     az role assignment create --assignee <identityId> --role "Custom role for scoring - online endpoint" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
     ```
 
-@seokjin please clarify note
-
-> [!NOTE]
-> You will need either Owner or User Access Administrator role, or a custom role that allows `Microsoft.Authorization/roleAssignments/write` permission to be able to assign custom roles and `Microsoft.Authorization/roleAssignments/read` to view role assignments. See [Azure roles](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) and [Assigning Azure roles using Azure Portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more.
+    > [!NOTE]
+    > You need one of three roles: owner, user access administrator, or a custom role that allows `Microsoft.Authorization/roleAssignments/write` permission (to be able to assign custom roles) and `Microsoft.Authorization/roleAssignments/read` (to view role assignments). For more information on the different Azure roles and their permissions, see [Azure roles](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) and [Assigning Azure roles using Azure Portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 1. Confirm the role assignment:
 
@@ -148,12 +144,9 @@ You can skip this step if you're using built-in roles or other pre-made custom r
 
 ## Get Microsoft Entra token for control plane operations
 
-You need this step only if you plan to perform control plane operations with REST API, which will use the token. If you plan to use Azure Machine Learning CLI (v2) or Python SDK (v2) or studio, you don't need to manually get the Microsoft Entra token because your user identity would already be authenticated during sign in, and the token would automatically be retrieved and passed for you.
+You need this step only if you plan to perform control plane operations with REST API, which will use the token. If you plan to use Azure Machine Learning CLI (v2), or Python SDK (v2), or studio, you don't need to get the Microsoft Entra token manually because your user identity would already be authenticated during sign in, and the token would automatically be retrieved and passed for you.
 
 Microsoft Entra token for control plane operations can be retrieved from the Azure resource endpoint: `https://management.azure.com`.
-
-@seokjin is this line needed?
-To retrieve the token via REST API, see [Invoke the endpoint to score data with your model](how-to-deploy-with-rest.md#invoke-the-endpoint-to-score-data-with-your-model)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -267,7 +260,6 @@ response=$(curl --location --request PUT "https://management.azure.com/subscript
 echo $response
 ```
 
-@seokjin `aml_token` or `AMLToken`?
 Replace `authMode` with `key` for key auth, or `AMLToken` for Azure Machine Learning token auth.
 
 The REST API call requires you to explicitly provide the control plane token.
@@ -371,12 +363,11 @@ For more information on deploying online endpoints, see [Deploy an ML model with
 
 ---
 
-
-## Get scoring URI for the endpoint
+## Get the scoring URI for the endpoint
 
 # [Azure CLI](#tab/azure-cli)
 
-If you plan to use CLI to invoke the endpoint, you are not required to get the scoring URI explicitly. CLI will handle it for you. But you can still use CLI to get the scoring URI so that you can use it with other channels such as REST API.
+If you plan to use the CLI to invoke the endpoint, you're not required to get the scoring URI explicitly, as the CLI handles it for you. However, you can still use the CLI to get the scoring URI so that you can use it with other channels such as REST API.
 
 ```CLI
 scoringUri=$(az ml online-endpoint show -n my-endpoint --query "scoring_uri")
@@ -401,7 +392,7 @@ echo $scoringUri
 
 # [Python](#tab/python)
 
-If you plan to use SDK to invoke the endpoint, you are not required to get the scoring URI explicitly. SDK will handle it for you. But you can still use SDK to get the scoring URI so that you can use it with other channels such as REST API.
+If you plan to use the Python SDK to invoke the endpoint, you're not required to get the scoring URI explicitly, as the SDK handles it for you. However, you can still use the SDK to get the scoring URI so that you can use it with other channels such as REST API.
 
 ```Python
 scoring_uri = ml_client.online_endpoints.get(name=endpoint_name).scoring_uri
@@ -409,46 +400,45 @@ scoring_uri = ml_client.online_endpoints.get(name=endpoint_name).scoring_uri
 
 # [Studio](#tab/studio)
 
-If you plan to use Studio to invoke the endpoint, you are not required to get the scoring URI explicitly. Studio will handle it for you. But you can still use Studio to get the scoring URI so that you can use it with other channels such as REST API.
+If you plan to use the studio to invoke the endpoint, you're not required to get the scoring URI explicitly, as the studio handles it for you. However, you can still use the studio to get the scoring URI so that you can use it with other channels such as REST API.
 
-You can find the scoring URI on the `Details` tab on the endpoint detail page.
+You can find the scoring URI on the `Details` tab on the endpoint's details page.
 
 ---
 
+## Get the key or token for data plane operations
 
-## Get the key or token for data plane operation
-
-Remember that retrieving key or token requires the right role assigned to the identity as described earlier.
+Remember that retrieving the key or token requires that the right role is assigned to the identity as described earlier.
 
 # [Azure CLI](#tab/azure-cli)
 
 ### Key or Azure Machine Learning token
 
-If you plan to use CLI to invoke the endpoint and if the endpoint is set to use auth mode of key or Azure Machine Learning token (`aml_token`), you are **not** required to get the data plane token explicitly. CLI will handle it for you. But you can still use CLI to get the data plane token so that you can use it with other channels such as REST API.
+If you plan to use the CLI to invoke the endpoint, and if the endpoint is set to use an auth mode of key or Azure Machine Learning token (`aml_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels such as REST API.
 
-To get the key or Azure Machine Learning token (`aml_token`), use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or Azure Machine Learning token.
+To get the key or Azure Machine Learning token (`aml_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the key or Azure Machine Learning token.
 
-__Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
+__Keys__ are returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
 ```
 
-__Azure Machine Learning Tokens__ will be returned in the `accessToken` field:
+__Azure Machine Learning Tokens__ are returned in the `accessToken` field:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
 ```
 
-Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
+Also, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times.
 
 ### Microsoft Entra token
 
-If you plan to use CLI to invoke the endpoint and if the endpoint is set to use Microsoft Entra token (`aad_token`), you will need to get the Microsoft Entra token explicitly. Currently CLI doesn't support invoke with Microsoft Entra token. You can use REST API instead.
+If you plan to use the CLI to invoke the endpoint, and if the endpoint is set to use Microsoft Entra token (`aad_token`), __you will__ need to get the Microsoft Entra token explicitly. Currently, the CLI doesn't support invoking with Microsoft Entra token. You can use REST API instead.
 
-To get the Microsoft Entra token (`aad_token`), use [az account get-access-token](/cli/azure/account#az-account-get-access-token). This command returns a JSON document that contains the Microsoft Entra token.
+To get the Microsoft Entra token (`aad_token`), use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. This command returns a JSON document that contains the Microsoft Entra token.
 
-__Microsoft Entra token__ will be returned in the `accessToken` field:
+__Microsoft Entra token__ is returned in the `accessToken` field:
 
 ```bash
 export DATA_PLANE_TOKEN=`(az account get-access-token --resource https://ml.azure.com --query accessToken | tr -d '"')`
@@ -469,43 +459,45 @@ export DATA_PLANE_TOKEN=$(echo $response | jq -r '.accessToken')
 
 ### Microsoft Entra token
 
-To get the Microsoft Entra token (`aad_token`) for the data plane operation, get the token from Azure resource endpoint of `ml.azure.com` from an environment with managed identity:
+To get the Microsoft Entra token (`aad_token`) for the data plane operation, get the token from Azure resource endpoint `ml.azure.com` from an environment with managed identity:
 
 ```bash
 export DATA_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s)`
 ```
 
-Refer to [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) for more.
+For more information, see [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
 
 # [Python](#tab/python)
 
 ### Key or Azure Machine Learning token
 
-If you plan to use SDK to invoke the endpoint and if the endpoint is set to use auth mode of key or Azure Machine Learning token (`aml_token`), you are **not** required to get the data plane token explicitly. SDK will handle it for you. But you can still use SDK to get the data plane token so that you can use it with other channels such as REST API.
+If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use an auth mode of key or Azure Machine Learning token (`aml_token`), you're not required to get the data plane token explicitly, as the SDK handles it for you. However, you can still use the SDK to get the data plane token so that you can use it with other channels such as REST API.
 
 To get the key or Azure Machine Learning token (`aml_token`), use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` Class.
 
-__Keys__ will be returned in the `primary_key` and `secondary_key` fields:
+__Keys__ are returned in the `primary_key` and `secondary_key` fields:
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).primary_key
 ```
 
-__Azure Machine Learning Tokens__ will be returned in the `accessToken` field:
+__Azure Machine Learning Tokens__ are returned in the `accessToken` field:
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
 ```
 
-Additionally, the `expiry_time_utc` and `refresh_after_time_utc` fields contain the token expiration and refresh times. 
+Also, the `expiry_time_utc` and `refresh_after_time_utc` fields contain the token expiration and refresh times.
 
 For example, to get the `expiry_time_utc`:
+
 ```Python
 print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
 ```
+
 ### Microsoft Entra token
 
-If you plan to use SDK to invoke the endpoint and if the endpoint is set to use Microsoft Entra token (`aad_token`), you will need to get the Microsoft Entra token explicitly. Currently SDK doesn't support invoke with Microsoft Entra token. You can use REST API instead.
+If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use Microsoft Entra token (`aad_token`), __you will__ need to get the Microsoft Entra token explicitly. Currently, the SDK doesn't support invoking with the Microsoft Entra token. You can use REST API instead.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
@@ -525,7 +517,7 @@ Refer to [Get a token using the Azure identity client library](/active-directory
 
 # [Studio](#tab/studio)
 
-You can find the key or token on the `Consume` tab on the endpoint detail page.
+You can find the key or token on the __Consume__ tab of the endpoint's details page.
 
 ---
 
@@ -533,17 +525,17 @@ You can find the key or token on the `Consume` tab on the endpoint detail page.
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use `az ml online-endpoint invoke` for endpoints with key or Azure Machine Learning token today. CLI handles the key or Azure Machine Learing token automatically so you don't need to pass it explicitly.
+You can use `az ml online-endpoint invoke` for endpoints with a key or Azure Machine Learning token. The CLI handles the key or Azure Machine Learning token automatically so you don't need to pass it explicitly.
 
 ```CLI
 az ml online-endpoint invoke -n my-endpoint -r request.json
 ```
- 
-For endpoints with Microsoft Entra token, use REST API instead and use the scoring URI above to invoke the endpoint. If you need to switch to REST API sample, make sure all environment variables are set correctly.
+
+For endpoints with Microsoft Entra token, use REST API instead, and use the endpoint's scoring URI to invoke the endpoint. If you need to switch to a REST API sample, make sure all environment variables are set correctly.
 
 # [REST](#tab/rest)
 
-When invoking the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key/token:
+When invoking the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key or token:
 
 ```bash
 curl --request POST "$scoringUri" --header "Authorization: Bearer $DATA_PLANE_TOKEN" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
@@ -551,7 +543,7 @@ curl --request POST "$scoringUri" --header "Authorization: Bearer $DATA_PLANE_TO
 
 # [Python](#tab/python)
 
-When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key/token in Python. In the example, replace the `api_key` variable with your key/token you obtained.
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key or token in Python. In the example, replace the `api_key` variable with your key or token.
 
 ```Python
 import urllib.request
@@ -584,22 +576,22 @@ except urllib.error.HTTPError as error:
     print(error.read().decode("utf8", 'ignore'))
 ```
 
-For endpoints with key or Azure Machine Learning token, alternative option is to use Azure Machine Learning Python SDK with `ml_client.online_endpoints.invoke()`. For endpoints with Microsoft Entra token, `ml_client.online_endpoints.invoke()` is not supported. Instead, use generic Python SDK to send the POST request to the scoring URI as described above.
+For an endpoint with a key or an Azure Machine Learning token, an alternative option is to use the Azure Machine Learning Python SDK with `ml_client.online_endpoints.invoke()`. For endpoints with a Microsoft Entra token, `ml_client.online_endpoints.invoke()` isn't supported. Instead, use a generic Python SDK to send the POST request to the scoring URI as described previously.
 
 # [Studio](#tab/studio)
 
-Studio is not supported at this moment.
+The studio doesn't support scoring data using the key or token.
 
 ---
 
-## Telemetry
+## Log and monitor traffic
 
-Enable traffic log in diagnostics settings for the endpoint, by following [How to enable/disable logs](how-to-monitor-online-endpoints.md#how-to-enabledisable-logs).
+To enable traffic logging in the diagnostics settings for the endpoint, follow the steps in [How to enable/disable logs](how-to-monitor-online-endpoints.md#how-to-enabledisable-logs).
 
-If the diagnostic setting is enabled, you can check `AmlOnlineEndpointTrafficLogs` table to check the auth mode and user identity.
+If the diagnostic setting is enabled, you can check the `AmlOnlineEndpointTrafficLogs` table to see the auth mode and user identity.
 
 
-## Next steps
+## Related content
 
 * [Authentication for managed online endpoint](concept-endpoints-online-auth.md)
 * [Deploy a machine learning model using an online endpoint](how-to-deploy-online-endpoints.md)
