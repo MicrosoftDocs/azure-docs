@@ -61,8 +61,74 @@ After you complete the steps above, you can use this user for integrating the in
 Defender for Cloud.
 
 ### Create ServiceNow Integration with MDC
+
 1. Use the following URL to login to Azure portal and navigate to Microsoft Defender for Cloud, Environment 
 settings: https://aka.ms/integrations
-2. Click on ‘Integrations’ to connect your environment to 3rd party ticketing system (ServiceNow in the current 
+1. Click on ‘Integrations’ to connect your environment to 3rd party ticketing system (ServiceNow in the current 
 scenario)
+1. Select ‘Add Integration’ and provide General information along with the ServiceNow information (Instance 
+URL, Username, Password, ClientID, ClientSecret) that you generated in the previous exercise.
+NOTE: You can create ‘Integration’ on (based on the relevant permissions): 
+- Management group
+- Subscription (API only, to reduce subscription level onboardings)
+- Master connector
+- Connector 
+We recommend creating the integration on the higher scope based on the user permissions for ease. For example, if 
+you have permission for a Management Group, you could create a single integration on a management group 
+instead of creating integrations in each one of the subscriptions. 
+1. Select and choose the ‘Default’ / ‘Customized’ option based on your requirement.
 
+The default option will create Title, Description and Short description in the backend.
+Customized option will let you choose additional fields like ‘Incident data’, ‘problems data’ and ‘Changes data’.
+
+Clicking on the drop down, you’d notice by default the ‘Assigned to’, ‘caller’, ‘Short Description’ is grayed out because 
+those are necessary fields, you’ll have options to choose more fields like ‘Assignment group’, ‘description’, ‘Impact’, 
+‘Urgency’ for customized option.
+
+Notice the successful creation of integration. 
+
+You can review the integrations in ARG both on the individual integration or on all integrations. The toolbar on the 
+Integrations page includes an ‘Open in ARG’ button to explore the details in [Azure Resource Graph (ARG)](/azure/governance/resource-graph/), an Azure 
+service that gives you the ability to query – across multiple subscriptions.
+
+## Create a new ticket from Microsoft Defender for Cloud recommendation to ServiceNow
+
+- Security admins can now create and assign tickets directly from the Microsoft Defender for Cloud portal.
+- Navigate to Microsoft Defender for Cloud > Recommendations > Select any recommendation with 
+unhealthy resources that you want to create a ServiceNow ticket and assign an owner to 
+- Click on the resource/s from the unhealthy resources and click on ‘Create Assignment.’
+
+- When you click on ‘Create assignment’ a new context blade will appear to fill Assignment type and 
+Assignment details. 
+- Fill in the information below. 
+  - Assignment Type – Choose ServiceNow from the dropdown.
+  - Integration Instance – Select the Integration instance you want to assign this recommendation to.
+  - ServiceNow ticket type – incident or change_request or problem.
+
+NOTE: In ServiceNow, there are several types of tickets that can be used to manage and track different types of 
+incidents, requests, and tasks. Only Incidents, Change Request and Problem are supported with this Integration. 
+
+- To assign an affected recommendation to an owner who resides in ServiceNow, we provide new unified 
+experience for all platforms. 
+  Under Assignment details section, fill in the details below - 
+  - Assigned to: Choose the owner you would like to assign the affected recommendation to 
+  - Caller: Represents the user defining the assignment 
+  - Description and Short Description: As part of the default selection in the earlier step, description 
+and short description is automatically filled out 
+  - Remediation timeframe: Choose the remediation timeframe to desired deadline the 
+recommendation to be remediated. 
+  - Apply Grace Period: You can apply grace period so that the resources that’s given a due date don’t 
+affect your secure score until they’re overdue.
+  - Set Email Notifications: Ability for additional notifications to the owners and/or owner’s direct 
+manager as reminder
+
+
+On a successful creation, you’d notice a Ticket ID assigned to this affected resource. The Ticket ID represents the 
+ticket created in the ServiceNow portal.
+
+Clicking on the Ticket ID will directly lead you to the ServiceNow portal, to the newly created incident.
+
+NOTE: When integration is deleted, all the assignments will be deleted. It could take up to 24hrs. 
+Assignment is resolved (as well as the task) when the assessment is resolved.
+The background job will listen to the assessment changes, and in case assessment is resolved, the assignment in 
+Microsoft Defender for Cloud will be deleted. In this case, the linked ticket will be resolved as well.
