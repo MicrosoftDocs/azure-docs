@@ -37,7 +37,7 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Traffic] | Yes | One request = 1 transaction (except tiles)<br>15 tiles = 1 transaction | <ul><li>Location Insights Traffic (Gen2 pricing)</li><li>Standard S1 Traffic Transactions (Gen1 S1 pricing)</li><li>Standard Geolocation Transactions (Gen1 S0 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li></ul> |
 | [Weather] | Yes | One request = 1 transaction | <ul><li>Location Insights Weather (Gen2 pricing)</li><li>Standard S1 Weather Transactions (Gen1 S1 pricing)</li><li>Standard Weather Transactions (Gen1 S0 pricing)</li></ul> |
 
-<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry service] by 9/16/24. For more information, see [How to create data registry].
+<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry] service by 9/16/24. For more information, see [How to create data registry].
 
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
@@ -85,7 +85,6 @@ The following table summarizes the Azure Maps services that generate transaction
 [Data registry]: /rest/api/maps/data-registry
 [v1]: /rest/api/maps/data
 [v2]: /rest/api/maps/data-v2
-[Data Registry service]: /rest/api/maps/data-registry
 [How to create data registry]: how-to-create-data-registries.md
 [Dataset]: /rest/api/maps/v2/dataset
 [Feature State]: /rest/api/maps/v2/feature-state

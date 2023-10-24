@@ -38,6 +38,12 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
 
 ## Reconfigure Azure VM
 
+> [!NOTE]
+> For windows, set the environment variable to override the ARC on an Azure VM installation.
+> ```powershell
+> [System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
+> ```
+
 1. Remove any VM extensions on the Azure VM.
 
    In the Azure portal, navigate to your Azure VM resource and from the left-hand pane, select  **Extensions**. If there are any extensions installed on the VM, select each extension individually and then select **Uninstall**. Wait for all extensions to finish uninstalling before proceeding to step 2.

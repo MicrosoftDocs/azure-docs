@@ -287,4 +287,4 @@ For additional information, review the following articles:
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-- [TransmitSecurity/azure-ad-b2c-bindid-integration](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration
+- [`TransmitSecurity/azure-ad-b2c-bindid-integration`](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration

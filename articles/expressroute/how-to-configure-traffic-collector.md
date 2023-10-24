@@ -6,7 +6,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 10/09/2023
 ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
 ---
@@ -19,13 +19,13 @@ This article helps you deploy an ExpressRoute Traffic Collector using the Azure 
 
 - An ExpressRoute Direct circuit with Private or Microsoft peering configured.
 - A Log Analytics workspace (Create new or use existing workspace).
+- For ExpressRoute provider support contact ErTCasks@microsoft.com.
 
 ## Limitations
 
 - ExpressRoute Traffic Collector supports a maximum ExpressRoute Direct circuit size of 100 Gbps.
 - You can associate up to 20 ExpressRoute Direct circuits with ExpressRoute Traffic Collector. The total circuit bandwidth can't exceed 100 Gbps.
 - The ExpressRoute Direct circuit, Traffic Collector and the Log Analytics workspace must be in the same geo-political region. Cross geo-political resource association isn't supported.  
-- The ExpressRoute Direct circuit and Traffic Collector must be deployed in the same subscription. Cross subscription deployments aren't available. 
 
 > [!NOTE]
 > - Log Analytics and ExpressRoute Traffic Collector can be deployed in a different subscription.
@@ -61,7 +61,7 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. On the **Select ExpressRoute circuit** tab, select **+ Add ExpressRoute Circuits**. 
 
-1. On the **Add Circuits** page, select the checkbox next to the circuit you would like Traffic Collector to monitor and then select **Add**. Select **Next** to configure where logs gets forwarded to.
+1. On the **Add Circuits** page, select the checkbox next to the circuit you would like Traffic Collector to monitor and then select **Add**. Select **Next** to configure where logs get forwarded to.
 
     :::image type="content" source="./media/how-to-configure-traffic-collector/select-circuits.png" alt-text="Screenshot of the select ExpressRoute circuits tab and add circuits page.":::
 

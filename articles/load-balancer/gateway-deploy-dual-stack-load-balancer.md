@@ -6,9 +6,9 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/15/2023
+ms.date: 09/25/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a dual-stack Azure Gateway Load Balancer
@@ -39,6 +39,7 @@ Along with the Gateway Load Balancer, this scenario includes the following alrea
 
 ## Add IPv6 address ranges to an existing subnet
 
+This article assumes you already have a Gateway Load Balancer configured for IPv4 traffic, with a corresponding VNET and subnet. In this step, you add IPv6 ranges to your Gateway Load Balancer's VNET and subnet. This range is need when creating an IPv6 frontend configuration for your Gateway Load Balancer using a private IP address from this subnet/VNET.
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
@@ -79,6 +80,8 @@ az network vnet subnet update
 
 ## Add an IPv6 frontend to gateway load balancer
 
+Now that you've added IPv6 prefix ranges to your Gateway Load Balancer's subnet and VNET, we can create a new IPv6 frontend configuration on the Gateway Load Balancer, with an IPv6 address from your subnet's range.
+
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
@@ -106,12 +109,14 @@ az network lb frontend-ip create --lb-name myGatewayLoadBalancer
 --resource-group myResourceGroup                          
 --private-ip-address-version IPv6 
 --vnet-name myVNet
---subnet myGWS 
+--subnet myGWSubnet
 
 ```
 ---
 
 ## Add an IPv6 backend pool to gateway load balancer
+
+In order to distribute IPv6 traffic, you need a backend pool containing instances with IPv6 addresses. First, you create a backend pool on the Gateway Load Balancer. In the following step, you create IPv6 configurations to your existing backend NICs for IPv4 traffic, and attach them to this backend pool.
 
 # [PowerShell](#tab/powershell)
 
@@ -196,6 +201,8 @@ az network nic ip-config create \
 
 ## Add a load balancing rule for IPv6 traffic
 
+Load balancing rules determine how traffic is routed to your backend instances. For Gateway Load Balancer, you create a load balancing rule with HA ports enabled, so that you can inspect traffic of all protocols, arriving on all ports.
+
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
@@ -237,6 +244,8 @@ az network lb rule create \
 ---
 
 ## Chain the IPv6 load balancer frontend to gateway load balancer
+
+In this final step, you'll chain your existing Standard Load Balancer's IPv6 frontend to the Gateway Load Balancer's IPv6 frontend. Now, all IPv6 traffic headed to your Standard Load Balancer's frontend is forwarded to your Gateway Load Balancer for inspection by the configured NVAs before reaching your application.
 
 # [PowerShell](#tab/powershell)
 
@@ -297,4 +306,4 @@ feid=$(az network lb frontend-ip show \
 
 ## Next steps
 
-- Learn more about [Azure Gateway Load Balancer partners](./gateway-partners.md) for deploying network appliances.
+- Learn more about [Azure Gateway Load Balancer partners](./gateway-partners.md) for deploying network virtual appliances.

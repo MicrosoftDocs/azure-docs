@@ -123,7 +123,7 @@ resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connec
 
 #### Deployment Script
 
-In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit` PowerShell command. In addition to the Deployment Script, a User Assigned Identity is created and granted the 'Contributor' role on the target resources group. 
+In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep template creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
 ```bicep
 @description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')

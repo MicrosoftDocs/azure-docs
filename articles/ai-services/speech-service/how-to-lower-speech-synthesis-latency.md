@@ -5,8 +5,7 @@ description: How to lower speech synthesis latency using Speech SDK, including s
 services: cognitive-services
 author: yulin-li
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: yulili

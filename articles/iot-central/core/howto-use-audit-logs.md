@@ -42,7 +42,7 @@ The log records changes made by the following types of user:
 
 - IoT Central user - the log shows the user's email.
 - API token - the log shows the token name.
-- Azure Active Directory user - the log shows the user email or ID.
+- Microsoft Entra user - the log shows the user email or ID.
 - Service principal - the log shows the service principal name.
 
 The log stores data for 30 days, after which it's no longer available.
