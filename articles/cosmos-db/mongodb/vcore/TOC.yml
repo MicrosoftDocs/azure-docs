@@ -53,7 +53,7 @@
     - name: Migrate data
       items:
         - name: Premigration assessment
-          href: how-to-assess-migration-readiness.md
+          href: how-to-assess-plan-migration-readiness.md
         - name: Native tools
           href: how-to-migrate-native-tools.md
         - name: Azure Data Studio
