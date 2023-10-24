@@ -381,8 +381,8 @@ The term *signal* means that the entity API invocation is one-way and asynchrono
 ### Example: Client reads an entity state
 
 Client functions can also query the state of an entity, as shown in the following example:
-::: zone pivot="csharp"  
 ::: zone-end  
+::: zone pivot="csharp"  
 #### [In-process](#tab/in-process)
 ```csharp
 [FunctionName("QueryCounter")]
@@ -418,7 +418,7 @@ public static async Task<HttpResponseData> Run(
 ```
 
 --- 
-::: zone-end  
+::: zone-end
 ::: zone pivot="javascript"  
 ```javascript
 const df = require("durable-functions");
