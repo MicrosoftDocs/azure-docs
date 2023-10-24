@@ -25,7 +25,7 @@ Azure IoT Operations Preview:
 
 ## Architecture overview
 
-:::image type="content" source="media/azure-iot-operations-architecture.png" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/azure-iot-operations-architecture.png":::
+:::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/azure-iot-operations-architecture.svg" border="false":::
 
 There are two core elements in the Azure IoT Operations Preview architecture:
 
