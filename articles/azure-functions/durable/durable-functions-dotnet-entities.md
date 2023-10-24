@@ -71,7 +71,7 @@ public class Counter
 
 The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
-The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It can reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function will not be recognized by the latest runtime.
+The `EntityTrigger` Function, `Run` in this sample, doesn't need to reside within the Entity class itself. It can reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function won't be recognized by the latest runtime.
 
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
@@ -152,9 +152,9 @@ Deleting an entity in the isolated model is accomplished by setting the entity s
 
 - When deriving from `ITaskEntity` or using [function based syntax](#function-based-syntax), delete is accomplished by calling `TaskEntityOperation.State.SetState(null)`.
 - When deriving from `TaskEntity<TState>`, delete is implicitly defined. However, it can be overridden by defining a method `Delete` on the entity. State can also be deleted from any operation via `this.State = null`.
-    - To delete via setting state to null will require `TState` to be nullable.
-    - The implicitly defined delete operation will delete non-nullable `TState`.
-- When using a POCO as your state (not deriving from `TaskEntity<TState>`), delete is implicitly defined. It is possible to override the delete operation by defining a method `Delete` on the POCO. However, there is no way to set state to `null` in the POCO route so the implicitly defined delete operation is the only true delete.
+    - To delete by setting state to null requires `TState` to be nullable.
+    - The implicitly defined delete operation deletes non-nullable `TState`.
+- When using a POCO as your state (not deriving from `TaskEntity<TState>`), delete is implicitly defined. It's possible to override the delete operation by defining a method `Delete` on the POCO. However, there's no way to set state to `null` in the POCO route so the implicitly defined delete operation is the only true delete.
 
 ---
 
@@ -165,7 +165,7 @@ Entity classes are POCOs (plain old CLR objects) that require no special supercl
 - The class must be constructible (see [Entity construction](#entity-construction)).
 - The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
 
-Also, any method that is intended to be invoked as an operation must satisfy additional requirements:
+Also, any method that is intended to be invoked as an operation must satisfy other requirements:
 
 - An operation must have at most one argument, and must not have any overloads or generic type arguments.
 - An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
@@ -213,10 +213,10 @@ public void Add(int amount, TaskEntityContext context)
 
 ## Accessing entities directly
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
+Class-based entities can be accessed directly, using explicit string names for the entity and its operations. This section provides examples. For a deeper explanation of the underlying concepts (such as signals vs. calls), see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
-> Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
+> Where possible, you should [accesses entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
 
 ### Example: client signals entity
 
@@ -287,7 +287,7 @@ public static async Task<HttpResponseData> GetCounter(
 ```
 ---
 
-### Example: orchestration first signals, then calls entity
+### Example: orchestration first signals then calls entity
 
 The following orchestration signals a counter entity to increment it, and then calls the same entity to read its latest value.
 
@@ -383,7 +383,7 @@ This is currently not supported in the .NET isolated worker.
 
 ---
 
-### Example: orchestration first signals, then calls entity through proxy
+### Example: orchestration first signals then calls entity through proxy
 
 #### [In-process](#tab/in-process)
 
@@ -430,7 +430,7 @@ If only the entity key is specified and a unique implementation can't be found a
 
 As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
 
-We also enforce some additional rules:
+We also enforce some more rules:
 * Entity interfaces must be defined in the same assembly as the entity class.
 * Entity interfaces must only define methods.
 * Entity interfaces must not contain generic parameters.
@@ -444,7 +444,7 @@ If any of these rules are violated, an `InvalidOperationException` is thrown at 
 
 ## Entity serialization
 
-Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
+Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
 
 For example, Json.NET can easily serialize and deserialize the following class:
 
@@ -499,21 +499,21 @@ public class Counter
 }
 ```
 
-By default, the name of the class is *not* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
+By default, the name of the class isn't* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
 
 ### Making changes to class definitions
 
-Some care is required when making changes to a class definition after an application has been run, because the stored JSON object can no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+Some care is required when making changes to a class definition after an application has been run, because the stored JSON object can no longer match the new class definition. Still, it's often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
 
 For example, here are some examples of changes and their effect:
 
-1. If a new property is added, which is not present in the stored JSON, it assumes its default value.
-1. If a property is removed, which is present in the stored JSON, the previous content is lost.
-1. If a property is renamed, the effect is as if removing the old one and adding a new one.
-1. If the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
-1. If the type of a property is changed, but it can still be deserialized from the stored JSON, it will do so.
+* When a new property is added, which isn't present in the stored JSON, it assumes its default value.
+* When a property is removed, which is present in the stored JSON, the previous content is lost.
+* When a property is renamed, the effect is as if removing the old one and adding a new one.
+* When the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
+* When the type of a property is changed, but it can still be deserialized from the stored JSON, it does so.
 
-There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
+There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that isn't present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It's also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
 
 ## Entity construction
 
@@ -552,7 +552,7 @@ public class Counter : TaskEntity<int>
 
 ### Bindings in entity classes
 
-Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
+Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` is passed automatically to the entity class constructor as an argument.
 
 The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob-input.md) can be made available to a class-based entity.
 
@@ -752,11 +752,11 @@ The following members provide information about the current operation, and allow
 The following members manage the state of the entity (create, read, update, delete). 
 
 * `HasState`: whether the entity exists, that is, has some state. 
-* `GetState<TState>()`: gets the current state of the entity. If it does not already exist, it is created.
+* `GetState<TState>()`: gets the current state of the entity. If it doesn't already exist, it's created.
 * `SetState(arg)`: creates or updates the state of the entity.
 * `DeleteState()`: deletes the state of the entity, if it exists. 
 
-If the state returned by `GetState` is an object, it can be directly modified by the application code. There is no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
+If the state returned by `GetState` is an object, it can be directly modified by the application code. There's no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
 
 Finally, the following members are used to signal other entities, or start new orchestrations:
 

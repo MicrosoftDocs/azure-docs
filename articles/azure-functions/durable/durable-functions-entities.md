@@ -45,7 +45,7 @@ To invoke an operation on an entity, specify the:
 * **Operation input**, which is an optional input parameter for the operation. For example, the add operation can take an integer amount as the input.
 * **Scheduled time**, which is an optional parameter for specifying the delivery time of the operation. For example, an operation can be reliably scheduled to run several days in the future.
 
-Operations can return a result value or an error result, such as a JavaScript error or a .NET exception. This result or error can be observed by orchestrations that called the operation.
+Operations can return a result value or an error result, such as a JavaScript error or a .NET exception. This result or error occurs in orchestrations that called the operation.
 
 An entity operation can also create, read, update, and delete the state of the entity. The state of the entity is always durably persisted in storage.
 
@@ -62,11 +62,11 @@ Currently, there are two distinct APIs for defining entities in .NET:
 
 ### [Function-based syntax](#tab/function-based)
 
-Using a function-based syntax, entities are represented as functions and operations are explicitly dispatched by the application. This syntax works well for entities with simple state, few operations, or a dynamic set of operations like in application frameworks. This syntax can be tedious to maintain because it doesn't catch type errors at compile time.
+When you use a function-based syntax, entities are represented as functions and operations are explicitly dispatched by the application. This syntax works well for entities with simple state, few operations, or a dynamic set of operations like in application frameworks. This syntax can be tedious to maintain because it doesn't catch type errors at compile time.
 
 ### [Class-based syntax](#tab/class-based) 
 
-Using a class-based syntax, entities and operations are represented by .NET classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+When you use a class-based syntax, .NET classes and methods represent entities and operations. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
 
 --- 
 
@@ -627,7 +627,7 @@ public static async Task<bool> TransferFundsAsync(
 
 In .NET, `LockAsync` returns `IDisposable`, which ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section.
 
-In the preceding example, an orchestrator function transferred funds from a source entity to a destination entity. The `LockAsync` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the critical section at the end of the `using` statement. This behavior prevents the possibility of overdrafting from the source account.
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the critical section at the end of the `using` statement. This behavior prevents the possibility of overdrafting from the source account.
 
 > [!NOTE] 
 > When an orchestration terminates, either normally or with an error, any critical sections in progress are implicitly ended and all locks are released.
@@ -643,7 +643,7 @@ No operations from other clients are allowed on an entity while it's in a locked
 
 Locks on entities are durable, so they persist even if the executing process is recycled. Locks are internally persisted as part of an entity's durable state.
 
-Unlike transactions, critical sections don't automatically roll back changes in the case of errors. Instead, any error handling, such as roll-back or retry, must be explicitly coded, for example by catching errors or exceptions. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
+Unlike transactions, critical sections don't automatically roll back changes when errors occur. Instead, any error handling, such as roll-back or retry, must be explicitly coded, for example by catching errors or exceptions. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
 
 ### Critical section rules
 
@@ -659,12 +659,12 @@ Any violations of these rules cause a runtime error, such as `LockingRulesViolat
 ::: zone-end  
 ## Comparison with virtual actors
 
-Many of the durable entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you're already familiar with actors, you might recognize many of the concepts described in this article. Durable entities are particularly similar to [virtual actors](https://research.microsoft.com/projects/orleans/), or grains, as popularized by the [Orleans project](http://dotnet.github.io/orleans/). For example:
+Many of the durable entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you're already familiar with actors, you might recognize many of the concepts described in this article. Durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/), or grains, as popularized by the [Orleans project](http://dotnet.github.io/orleans/). For example:
 
 * Durable entities are addressable via an entity ID.
 * Durable entity operations execute serially, one at a time, to prevent race conditions.
 * Durable entities are created implicitly when they're called or signaled.
-* When not executing operations, durable entities are silently unloaded from memory.
+* Durable entities are silently unloaded from memory when not executing operations.
 
 There are some important differences that are worth noting:
 
@@ -673,7 +673,7 @@ There are some important differences that are worth noting:
 * Messages sent between entities are delivered reliably and in order. In Orleans, reliable or ordered delivery is supported for content sent through streams, but isn't guaranteed for all messages between grains.
 * Request-response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as signaling) is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities don't deadlock. In Orleans, deadlocks can occur and don't resolve until messages time out.
-* Durable entities can be used in conjunction with durable orchestrations and support distributed locking mechanisms. 
+* Durable entities can be used with durable orchestrations and support distributed locking mechanisms. 
 
 ## Next steps
 
