@@ -31,7 +31,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
-| [Defender for Cloud plan and strategy for the Log Analytics agent deprecation]
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
@@ -139,7 +138,7 @@ Customers will have until November 14, 2023 to resolve this issue. After this da
 
 **Estimated date for change: November 2023**
 
-The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property wil be removed and additional properties will be added.
+The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property will be removed and additional properties will be added.
 
 ## Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
