@@ -37,7 +37,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that Standard Load Balancer is zone-redundant**
 
-In a region that supports availability zones, Standard Load Balancer should be deployed with zone-redundancy. A zone-redundant Load Balancer allows traffic to be served by a single frontend IP address that can survive zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members regardless of zone. If an availability zone fails, the data path can  survive as long as the remaining zones in the region remain healthy.
+In a region that supports availability zones, Standard Load Balancer should be deployed with zone-redundancy. A zone-redundant Load Balancer allows traffic to be served by a single frontend IP address that can survive zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members regardless of zone. If an availability zone fails, the data path can  survive as long as the remaining zones in the region remain healthy. For more information, see [Zone-redundant load balancer](#zone-redundant-load-balancer).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -90,9 +90,9 @@ Standard SKU Load Balancer supports availability zones and zone resiliency, whil
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Load Balancer supports availability zones scenarios. You can use Load Balancer to increase availability throughout your scenario by aligning resources with, and distribution across zones. 
+Azure Load Balancer supports availability zones scenarios. You can use Standard Load Balancer to increase availability throughout your scenario by aligning resources with, and distribution across zones. Review this document to understand these concepts and fundamental scenario design guidance.
 
-A Load Balancer can be deployed as zone redundant, zonal, or non-zonal. To configure Load Balancer for availability zones, you'll need to select the appropriate type of Frontend IP Configuration.
+Although it's recommended that you deploy Load Balancer with zone-redundancy, a Load Balancer can either be **zone redundant, zonal, or non-zonal**. The load balancer's availability zone selection is synonymous with its frontend IP's zone selection. For public load balancers, if the public IP in the Load balancer's frontend is zone redundant then the load balancer is also zone-redundant. If the public IP in the load balancer's frontend is zonal, then the load balancer will also be designated to the same zone. To configure the zone-related properties for your load balancer, select the appropriate type of frontend needed.
 
 
 > [!NOTE]
@@ -100,7 +100,7 @@ A Load Balancer can be deployed as zone redundant, zonal, or non-zonal. To confi
 
 ### Prerequisites
 
-- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones.  To review which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones.  To see which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
 
 - Use Standard SKU for load balancer and Public IP for availability zones support.
 
@@ -108,40 +108,45 @@ A Load Balancer can be deployed as zone redundant, zonal, or non-zonal. To confi
 
 - To create your resource, you need to have Network Contributor role or higher.
 
-### Zone redundant Frontend IP Configuration
 
-When the resources (VMs, NICs, IP addresses, etc.) inside a backend pool are distributed across zones, then it's recommended that you create a zone-redundant frontend. 
+### Limitations
 
-A zone-redundant frontend survives zone failure by using dedicated infrastructure in all the zones simultaneously. One or more availability zones can fail, and the data path survives as long as one zone in the region remains healthy. 
+- Zones can't be changed, updated, or created for the resource after creation.
+- Resources can't be updated from zonal to zone-redundant or vice versa after creation.
 
-To deploy a zone-redundant load balancer, you'll need to select a single frontend IP that will be used to reach all backend pool members that are in healthy zones. 
+### Zone redundant load balancer
 
-When one or more availability zones fail, the data path survives as long as one zone in the region remains healthy. The frontend's IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones. Any retries or reestablishment will succeed in the zones that aren't affected by the zone failure.
+
+In a region with availability zones, a Standard Load Balancer can be zone-redundant with traffic served by a single IP address. A single frontend IP address survives zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members no matter the zone. Up to one availability zone can fail and the data path survives as long as the remaining zones in the region remain healthy.
+
+The frontend's IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones. Any retries or reestablishment will succeed in other zones not affected by the zone failure.
 
 :::image type="content" source="../load-balancer/media/az-zonal/zone-redundant-lb-1.svg" alt-text="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration.":::
 
 Members in the backend pool of a load balancer are normally associated with a single zone such as with zonal virtual machines. A common design for production workloads would be to have multiple zonal resources. For example, placing virtual machines from zone 1, 2, and 3 in the backend of a load balancer with a zone-redundant frontend meets this design principle.
 
 
-### Zonal Frontend IP Configuration
+### Zonal load balancer
 
-It's recommended that you create a zonal frontend when the backend is concentrated in a particular zone. For example, if backend instances are pinned to availability zone 2, then it makes sense to create Frontend IP configuration in availability zone 2.
 
-To deploy a zonal load balancer, you'll need to select a frontend guaranteed to a single zone that serves all inbound or outbound flow.  Unlike zone-redundant deployment, your frontend IP will be unavailable if the zone should fail. However, the data path is unaffected by failures in zones other than where it is guaranteed. You can use zonal frontends to expose an IP address per availability zone.  
+You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal*.  With this scenario,  a single zone in a region serves all inbound or outbound flow.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
 
-You can also use zonal frontends directly for load-balanced endpoints within each zone. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name.
+Additionally, the use of zonal frontends directly for load-balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name.
 
 
 :::image type="content" source="../load-balancer/media/az-zonal/zonal-lb-1.svg" alt-text="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration.":::
 
 
-### Non-Zonal IP Configuration
+For a public load balancer frontend, you add a **zones** parameter to the public IP. This public IP is referenced by the frontend IP configuration used by the respective rule.
+
+For an internal load balancer frontend, add a **zones** parameter to the internal load balancer frontend IP configuration. A zonal frontend guarantees an IP address in a subnet to a specific zone.
+
+### Non-zonal load balancer
 
 Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend. In these scenarios, a public load balancer would use a public IP or public IP prefix, an internal load balancer would use a private IP.  This option doesn't give a guarantee of redundancy. 
 
 >[!NOTE]
 >All public IP addresses that are upgraded from Basic SKU to Standard SKU will be of type "no-zone". Learn how to [Upgrade a public IP address in the Azure portal](../virtual-network/ip-services/public-ip-upgrade-portal.md).
-
 
 
 ### SLA improvements
@@ -173,7 +178,7 @@ Traffic flows using a zone at the time of zone failure may be affected but appli
 
 Review Azure cloud design patterns to improve the resiliency of your application to failure scenarios.
 
-#### Zone outage preparation and recovery
+#### Multiple frontends
 
 Using multiple frontends allow you to load balance traffic on more than one port and/or IP address. When designing your architecture, ensure you account for how zone redundancy interacts with multiple frontends. If your goal is to always have every frontend resilient to failure, then all IP addresses assigned as frontends must be zone-redundant. If a set of frontends is intended to be associated with a single zone, then every IP address for that set must be associated with that specific zone. A load balancer isn't required in each zone. Instead, each zonal front end, or set of zonal frontends, could be associated with virtual machines in the backend pool that are part of that specific availability zone.
 
@@ -185,7 +190,7 @@ Review [Azure cloud design patterns](/azure/architecture/patterns/) to improve t
 
 ### Migrate to availability zone support
 
-To learn how to migrate a VM to availability zone support, see [Migrate Load Balancer to availability zone support](./migrate-load-balancer.md).
+In the case where a region is augmented to have availability zones, any existing IPs would remain non-zonal like IPs used for load balancer frontends. To ensure your architecture can take advantage of the new zones, it's recommended that you create a new frontend IP. Once created, you can replace the existing non-zonal frontend with a new zone-redundant frontend. To learn how to migrate a VM to availability zone support, see [Migrate Load Balancer to availability zone support](./migrate-load-balancer.md).
 
 
 ## Cross-region disaster recovery and business continuity
