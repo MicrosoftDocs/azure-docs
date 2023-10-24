@@ -41,10 +41,10 @@ The following rules are required when using NSGs with workload profile environme
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure Subnet address space | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
-| TCP | Your Client IP | \* | Infrastructure Subnet address space | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | AzureLoadBalancer | \* | Infrastructure Subnet address space | 30,000-32,676<sup>*</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | Your Client IP | \* | Infrastructure Subnet address space | 30,000-32,676<sup>*</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
-* The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
+<sup>*</sup>The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
 
 # [Consumption only environment](#tab/consumption-only-env)
 
