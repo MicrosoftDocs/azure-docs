@@ -227,5 +227,5 @@ Every effort is made to ensure all log data is sent correctly to your destinatio
 ## Next steps
 
 - [Review how to work with diagnostic settings in Azure Monitor](./diagnostic-settings.md)
-
+- [Migrate diagnostic settings storage retention to Azure Storage lifecycle management](./migrate-to-azure-storage-lifecycle-policy.md)
 - [Read more about Azure platform logs](./platform-logs-overview.md)
