@@ -18,7 +18,9 @@ ms.service: azure-operator-service-manager
 ## Permissions
 
 In order to complete these prerequisites for Operator and Containerized Network Function, you 
-need an Azure subscription where you have the Contributor role (in order to create a Resource Group), or you need an existing Resource Group where you have the Contributor Role. 
+need an Azure subscription where you have the *Contributor* role (in order to create a Resource Group) and you need to be able to attain the *Owner* or *User Access Administrator* role over this Resource Group. Alternatively, you need an existing Resource Group where you have the ‘Owner’ or ‘User Access Administrator’ Role.
+
+You also need the *Owner* or *User Access Administrator* role in the Network Function Definition Publisher Resource Group. The Network Function Definition Publisher Resource Group was created in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md) and named nginx-publisher-rg in the input.json file.
 
 ## Set environment variables
 
@@ -131,6 +133,91 @@ Search for the name of the Custom location (customLocationId) in the Azure porta
 > [!TIP]
 > The full Resource ID has a format of: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.extendedlocation/customlocation/{customLocationName}
 
+## Create User Assigned Managed Identity for the Site Network Service
+
+1. Save the following Bicep script locally as *prerequisites.bicep*.
+
+    ```azurecli
+    param location string = resourceGroup().location
+    param identityName string = 'identity-for-nginx-sns'
+    
+    
+    resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
+      name: identityName
+      location: location
+    }
+    output managedIdentityId string = managedIdentity.id
+    ```
+
+1. Start the deployment of the User Assigned Managed Identity by issuing the following command.
+
+     ```azurecli
+     az deployment group create --name prerequisites --resource-group ${resourceGroup}  --template-file prerequisites.bicep
+     ```
+
+1. The script creates a managed identity.  
+
+## Retrieve Resource ID for managed identity
+
+1. Run the following command to find the resource ID of the created managed identity.
+
+    ```azurecli
+    az deployment group list -g ${resourceGroup} | jq -r --arg Deployment prerequisites '.[] | select(.name == $Deployment).properties.outputs.managedIdentityId.value'
+    ```
+
+1. Copy and save the output, which is the resource identity. You need this output when you create the Site Network Service.
+
+## Update Site Network Service (SNS) permissions
+
+To perform these tasks, you need either the 'Owner' or 'User Access Administrator' role in both the operator and the Network Function Definition Publisher Resource Groups. You created the operator Resource Group in prior tasks. The Network Function Definition Publisher Resource Group was created in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md) and named nginx-publisher-rg in the input.json file.
+
+In prior steps, you created a Managed Identity labeled identity-for-nginx-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Follow the steps in the next sections to grant the identity the 'Contributor' role over the Publisher Resource Group and the Managed Identity Operator role over itself. Through this identity, the Site Network Service (SNS) attains the required permissions.
+
+### Grant Contributor role over published Resource Group to Managed Identity
+
+1. Access the Azure portal and open the Publisher Resource Group created when publishing the Network Function Definition.
+
+1. In the side menu of the Resource Group, select **Access Control (IAM)**.
+
+1. Choose Add **Role Assignment**.
+
+    :::image type="content" source="media/add-role-assignment-publisher-resource-group-containerized.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
+
+1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
+
+    :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected.":::
+
+1. Select **Managed identity**.
+
+1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-nginx-sns**.
+
+    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+
+### Grant Managed Identity Operator role to itself
+
+1. Go to the Azure portal and search for **Managed Identities**.
+
+1. Select *identity-for-nginx-sns* from the list of **Managed Identities**.
+
+1. On the side menu, select **Access Control (IAM)**.
+
+1. Choose **Add Role Assignment**.
+
+    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx sns add role assignment.":::
+
+1. Select the **Managed Identity Operator** role then proceed with **Next**.
+
+    :::image type="content" source="media/add-role-assignment-managed-identity-operator-containerized.png" alt-text="Screenshot showing add role assignment with managed identity operator selected.":::
+
+1. Select **Managed identity**.
+
+1. Select **+ Select members** and navigate to the user-assigned managed identity called *identity-for-nginx-sns* and proceed with the assignment.
+
+    :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+
+1. Select **Review and assign**.
+
+Completion of all the tasks outlined in these articles ensure that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
 ## Next steps
 
