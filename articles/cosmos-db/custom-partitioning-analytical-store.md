@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB
-[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
