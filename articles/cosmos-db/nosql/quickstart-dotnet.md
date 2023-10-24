@@ -118,16 +118,13 @@ Use the Azure CLI (`az`) to create an API for NoSQL account. You can choose to c
 
 1. Navigate to the newly created account by selecting **Open in portal**.
 
-1. Record the unique name, resource group name, and location of the API for NoSQL account. You use these values in the next step.
+1. Record the account and resource group names for the API for NoSQL account. You use these values in the next step.
 
-1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
+1. Create shell variables for **accountName** and **resourceGroupName**.
 
     ```azurecli
     # Variable for resource group name
     resourceGroupName="<resource-group-name>"
-
-    # Variable for location
-    location="<target-location>"
 
     # Variable for account name
     accountName="<cosmos-db-nosql-account-name>"
