@@ -71,7 +71,7 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
     environment="<Prod>" #First letter should be capitalized
     servicePrincipalName="Azure-ARM-${environment}-${projectName}"
     # Verify the ID of the active subscription
-    echo "Using subscription ID $subscriptionID"
+    echo "Using subscription ID $subscriptionId"
     echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes     /subscriptions/$subscriptionId"
     az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --sdk-auth 
     echo "Please ensure that the information created here is properly save for future use."

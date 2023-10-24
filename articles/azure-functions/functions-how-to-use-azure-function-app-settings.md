@@ -389,7 +389,7 @@ When you configure the **Allowed origins** list for your function app, the `Acce
 
 ![Configure function app's CORS list](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-When the wildcard (`*`) is used, all other domains are ignored. 
+The wildcard (\*) is ignored if there is another domain entry.
 
 Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
