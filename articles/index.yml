@@ -49,7 +49,7 @@ productDirectory:
     # Card
     - title: Azure AI services
       summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
-      imageSrc: ai-services/media/service-icons/cognitive-services.svg
+      imageSrc: ai-services/media/service-icons/ai-services.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -58,7 +58,7 @@ productDirectory:
     # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to a variety of use cases
-      imageSrc: ai-services/openai/media/icon/azure-openai-dark.svg
+      imageSrc: ai-services/media/service-icons/azure-openai.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -127,9 +127,9 @@ productDirectory:
         - ai-machine-learning
       url: ./ai-services/document-intelligence/index.yml
     # Card
-    - title: Azure Cognitive Search
+    - title: Azure AI Search
       summary: AI-powered cloud search service for mobile and web app development
-      imageSrc: ai-services/media/service-icons/cognitive-search.svg
+      imageSrc: ai-services/media/service-icons/search.svg
       azureCategories:
         - ai-machine-learning
         - mobile
