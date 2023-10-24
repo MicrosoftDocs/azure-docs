@@ -136,7 +136,7 @@ Azure NetApp Files performance of each volume can be adjusted at runtime.  As su
 
 Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, the backup volumes are placed on a different storage location inside the region that has sufficient space and throughput available.
 
-### What is the relationship between AVset, VM, PPG and ANF volumes? 
+### What is the relationship between AVset, VM, PPG, and Azure NetApp Files volumes? 
 
 A PPG needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to AVG to search for Azure NetApp Files resources in the very same data center. This setting only works when at least ONE VM in the PPG is started. Typically, you can add your database servers to the PPG.
 
