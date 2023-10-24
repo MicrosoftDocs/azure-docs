@@ -19,8 +19,6 @@ Included among these solutions are Kubernetes application-based container offers
 - Deploy the application on your AKS cluster.
 - Monitor usage and billing information.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Limitations
 
 This feature is currently supported only in the following regions:
@@ -101,6 +99,8 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 ```
 
 
+
+
 ---
 
 ## Manage the offer lifecycle
@@ -136,6 +136,8 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 ```
 
 
+
+
 ---
 
 ## Monitor billing and usage information
@@ -165,6 +167,8 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 ```
 
 
+
+
 ---
 
 ## Troubleshooting
@@ -185,4 +189,5 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
 
