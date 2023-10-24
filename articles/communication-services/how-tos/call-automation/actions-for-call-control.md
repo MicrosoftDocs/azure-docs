@@ -357,15 +357,22 @@ When your application answers a call or places an outbound call to an endpoint, 
 
 ```csharp
 var transferDestination = new CommunicationUserIdentifier("<user_id>"); 
-var transferOption = new TransferToParticipantOptions(transferDestination);   
+var transferOption = new TransferToParticipantOptions(transferDestination) {
+    OperationContext = "<Your_context>",
+    OperationCallbackUri = new Uri("<uri_endpoint>") // Sending event to a non-default endpoint.
+};
+
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
 
 # [Java](#tab/java)
 
 ```java
-CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>"); 
-TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination); 
+CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>"); // Sending event to a non-default endpoint.
+
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
 
@@ -373,7 +380,10 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 
 ```javascript
 const transferDestination = { communicationUserId: "<user_id>" };
-const result = await callConnection.transferCallToParticipant(transferDestination);
+const result = await callConnection.transferCallToParticipant(transferDestination, {
+                operationContext: "<operation_context>",
+                operationCallbackUrl: "<url_endpoint>"
+});
 ```
 
 # [Python](#tab/python)
@@ -382,7 +392,9 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 transfer_destination = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
 result = call_connection_client.transfer_call_to_participant(
-    target_participant=transfer_destination
+    target_participant=transfer_destination,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
 )
 ```
 -----
@@ -402,6 +414,7 @@ transferOption.CustomContext.Add(new VoipHeader("customVoipHeader1", "customVoip
 transferOption.CustomContext.Add(new VoipHeader("customVoipHeader2", "customVoipHeaderValue2"));
 
 transferOption.OperationContext = "<Your_context>";
+transferOption.OperationCallbackUri = new Uri("<uri_endpoint>");
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 
 // Transfer PSTN User
@@ -415,6 +428,10 @@ transferOption.CustomContext.Add(new SIPUUIHeader("uuivalue"));
 transferOption.CustomContext.Add(new SIPCustomHeader("header1", "headerValue"));
 
 transferOption.OperationContext = "<Your_context>";
+
+// Sending event to a non-default endpoint.
+transferOption.OperationCallbackUri = new Uri("<uri_endpoint>");
+
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
 
@@ -424,9 +441,10 @@ TransferCallToParticipantResult result = await callConnection.TransferCallToPart
 // Transfer ACS User
 CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
 CommunicationIdentifier transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
-TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination);
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.setTransferee(transferee);
 options.setOperationContext("<Your_context>");
+options.setOperationCallbackUrl("<url_endpoint>");
 
 // set customContext
 options.getCustomContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
@@ -436,9 +454,10 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 // Transfer Pstn User
 CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
 CommunicationIdentifier transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
-TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination);
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.setTransferee(transferee);
 options.setOperationContext("<Your_context>");
+options.setOperationCallbackUrl("<url_endpoint>");
 
 // set customContext
 options.getCustomContext().addOrUpdate(new SIPUUIHeader("UUIvalue"));
@@ -453,7 +472,7 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 // Transfer Acs User
 const transferDestination = { communicationUserId: "<user_id>" };
 const transferee = { communicationUserId: "<transferee_user_id>" };
-const options = { transferee: transferee, operationContext: "<Your_context>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 
 // adding customeContext
 const customContext = new CustomContext({}, {}); 
@@ -467,7 +486,7 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
 const transferee = { phoneNumber: "<transferee_phoneNumber>" };
-const options = { transferee: transferee, operationContext: "<Your_context>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 
 // adding customeContext
 const customContext = new CustomContext({}, {}); 
@@ -496,7 +515,8 @@ result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     custom_context=custom_context,
-    opration_context="Your context"
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
 )
 
 # Transfer to PSTN user
@@ -513,7 +533,8 @@ result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     custom_context=custom_context,
-    opration_context="Your context"
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
 )
 ```
 -----
@@ -542,7 +563,16 @@ var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), ca
 // add custom context
 addThisPerson.CustomContext.Add(new SIPUUIHeader("value"));
 addThisPerson.CustomContext.Add(new SIPCustomHeader("header1", "customSipHeaderValue1"));
-AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson); 
+
+// Use option bag to set optional parameters
+var addParticipantOptions = new AddParticipantOptions(new CallInvite(addThisPerson))
+{
+    InvitationTimeoutInSeconds = 60,
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+};
+
+AddParticipantsResult result = await callConnection.AddParticipantAsync(addParticipantOptions); 
 ```
 
 # [Java](#tab/java)
@@ -552,7 +582,9 @@ AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisP
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 // add custom context
 callInvite.getCustomContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
-AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 
 // Add PSTN user
@@ -561,7 +593,9 @@ CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567")
 // add custom context
 callInvite.getCustomContext().addOrUpdate(new SIPUUIHeader("value"));
 callInvite.getCustomContext().addOrUpdate(new SIPCustomHeader("header1", "customSipHeaderValue1"));
-AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
 
@@ -577,7 +611,10 @@ const addThisPerson = {
     targetParticipant: { communicationUserId: "<acs_user_id>" },
     customContext: customContext,
 };
-const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+const addParticipantResult = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 
 // Add PSTN user
 const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
@@ -592,7 +629,10 @@ const addThisPerson = {
     sourceCallIdNumber: callerIdNumber,
     customContext: customContext,
 };
-const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+const addParticipantResult = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 ```
 
 # [Python](#tab/python)
@@ -608,7 +648,7 @@ call_invite = CallInvite(
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite)
+result = call_connection_client.add_participant(call_invite, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 
 # Add PSTN user
 caller_id_number = PhoneNumberIdentifier(
@@ -625,7 +665,7 @@ call_invite = CallInvite(
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite)
+result = call_connection_client.add_participant(call_invite, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 -----
@@ -644,8 +684,13 @@ AddParticipant publishes a `AddParticipantSucceeded` or `AddParticipantFailed` e
 var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 var addParticipantResponse = await callConnection.AddParticipantAsync(addThisPerson);
 
-// cancel the request
-await callConnection.CancelAddParticipantAsync(addParticipantResponse.InvitationId);
+// cancel the request with optional parameters
+var cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResponse.InvitationId)
+{
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+}
+await callConnection.CancelAddParticipantAsync(cancelAddParticipantOptions);
 ```
 
 # [Java](#tab/java)
@@ -657,7 +702,9 @@ AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvi
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 
 // cancel the request
-CancelAddParticipantOptions cancelAddParticipantOptions(addParticipantResultResponse.invitationId);
+CancelAddParticipantOptions cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResultResponse.invitationId)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
 callConnectionAsync.cancelAddParticipantWithResponse(cancelAddParticipantOptions).block();
 ```
 
@@ -668,7 +715,10 @@ callConnectionAsync.cancelAddParticipantWithResponse(cancelAddParticipantOptions
 const addThisPerson = {
     targetParticipant: { communicationUserId: "<acs_user_id>" },
 };
-const { invitationId } = await callConnection.addParticipant(addThisPerson);
+const { invitationId } = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 
 // cancel the request
 await callConnection.cancelAddParticipant(invitationId);
@@ -687,7 +737,7 @@ call_connection_client = call_automation_client.get_call_connection(
 result = call_connection_client.add_participant(call_invite)
 
 # cancel the request
-call_connection_client.cancel_add_participant(result.invitation_id)
+call_connection_client.cancel_add_participant(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 ## Remove a participant from a call
@@ -696,22 +746,35 @@ call_connection_client.cancel_add_participant(result.invitation_id)
 
 ```csharp
 var removeThisUser = new CommunicationUserIdentifier("<user_id>"); 
-RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeThisUser);
+
+// remove a participant from the call with optional parameters
+var removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
+{
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+}
+
+RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeParticipantOptions);
 ```
 
 # [Java](#tab/java)
 
 ```java
 CommunicationIdentifier removeThisUser = new CommunicationUserIdentifier("<user_id>");
-RemoveParticipantOptions removeParticipantOptions = new RemoveParticipantOptions(removeThisUser); 
-Response<RemoveParticipantResult> removeParticipantResultResponse = callConnectionAsync.removeParticipantWithResponse(removeThisUser).block();
+RemoveParticipantOptions removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
+Response<RemoveParticipantResult> removeParticipantResultResponse = callConnectionAsync.removeParticipantWithResponse(removeParticipantOptions).block();
 ```
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
 const removeThisUser = { communicationUserId: "<user_id>" };
-const removeParticipantResult = await callConnection.removeParticipant(removeThisUser);
+const removeParticipantResult = await callConnection.removeParticipant(removeThisUser, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 ```
 
 # [Python](#tab/python)
@@ -721,7 +784,7 @@ remove_this_user = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.remove_participant(remove_this_user)
+result = call_connection_client.remove_participant(remove_this_user, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 -----
