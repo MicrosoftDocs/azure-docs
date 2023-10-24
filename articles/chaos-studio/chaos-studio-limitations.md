@@ -15,7 +15,7 @@ The following are known limitations in Chaos Studio.
 
 ## Limitations
 
-- **Supported regions** - The target resources must be in [one of the regions supported by the Azure Chaos Studio Preview](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio).
+- **Supported regions** - The target resources must be in [one of the regions supported by the Azure Chaos Studio](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio).
 - **Resource Move not supported** - Azure Chaos Studio tracked resources (for example, Experiments) currently do NOT support Resource Move. Experiments can be easily copied (by copying Experiment JSON) for use in other subscriptions, resource groups, or regions. Experiments can also already target resources across regions. Extension resources (Targets and Capabilities) do support Resource Move. 
 - **VMs require network access to Chaos studio** - For agent-based faults, the virtual machine must have outbound network access to the Chaos Studio agent service:
     - Regional endpoints to allowlist are listed in [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md#network-security).

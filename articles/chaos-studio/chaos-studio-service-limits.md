@@ -10,7 +10,7 @@ ms.custom:
 ---
 
 # Azure Chaos Studio service limits
-This article provides service limits for Azure Chaos Studio Preview. For more information about Azure-wide service limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+This article provides service limits for Azure Chaos Studio. For more information about Azure-wide service limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Experiment and target limits
 

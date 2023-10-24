@@ -76,7 +76,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' existing = {
 }
 
 // Deploy the Chaos Studio target resource to the Virtual Machine
-resource chaosTarget 'Microsoft.Chaos/targets@2022-10-01-preview' = {
+resource chaosTarget 'Microsoft.Chaos/targets@2023-11-01' = {
   name: 'Microsoft-VirtualMachine'
   location: location
   scope: vm
@@ -107,7 +107,7 @@ resource chaosRoleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01
 }
 
 // Deploy the Chaos Studio experiment resource
-resource chaosExperiment 'Microsoft.Chaos/experiments@2022-10-01-preview' = {
+resource chaosExperiment 'Microsoft.Chaos/experiments@2023-11-01' = {
   name: experimentName
   location: location // Doesn't need to be the same as the Targets & Capabilities location
   identity: {

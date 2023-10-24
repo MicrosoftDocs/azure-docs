@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common Azure Chaos Studio problems
-description: Learn to troubleshoot common problems when you use Azure Chaos Studio Preview.
+description: Learn to troubleshoot common problems when you use Azure Chaos Studio.
 author: c-ashton
 ms.service: chaos-studio
 ms.author: cashton
@@ -9,9 +9,9 @@ ms.date: 11/10/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
 ---
 
-# Troubleshoot issues with Azure Chaos Studio Preview
+# Troubleshoot issues with Azure Chaos Studio
 
-As you use Azure Chaos Studio Preview, you might occasionally encounter some problems. This article explains common problems and troubleshooting steps.
+As you use Azure Chaos Studio, you might occasionally encounter some problems. This article explains common problems and troubleshooting steps.
 
 ## General troubleshooting tips
 
