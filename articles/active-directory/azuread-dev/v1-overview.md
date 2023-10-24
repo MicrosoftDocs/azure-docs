@@ -47,5 +47,3 @@ The following articles provide detailed information about APIs, protocol message
 ## Videos
 
 See [Azure Active Directory developer platform videos](videos.md) for help migrating to the new Microsoft identity platform.
-
-[!INCLUDE [Help and support](../develop/includes/error-handling-and-tips/help-support-include.md)]

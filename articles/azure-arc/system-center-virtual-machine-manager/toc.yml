@@ -10,9 +10,18 @@
   items:
   - name: Connect a System Center Virtual Machine Manager management server to Azure Arc (preview)
     href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
+- name: Tutorials
+  items:
   - name: Create a virtual machine on SCVMM Management server
     href: create-virtual-machine.md
-
+- name: Concepts
+  items:
+  - name: Custom locations
+    href: custom-locations.md
+  - name: Azure Arc Resource Bridge
+    href: azure-arc-resource-bridge.md
+  - name: Azure Arc agent
+    href: agent-overview-scvmm.md
 - name: How-to guides
   items:
   - name: Deploy
