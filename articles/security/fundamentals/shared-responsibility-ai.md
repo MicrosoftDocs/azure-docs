@@ -1,5 +1,5 @@
 ---
-title: Artificial Intelligence (AI) shared responsibility model      
+title: AI shared responsibility model - Microsoft Azure
 description: "Understand the shared responsibility model and which tasks are handled by the AI platform or application provider, and which tasks are handled by you."
 services: security
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 10/23/2023
 ms.author: terrylan
 
 ---
-# Artificial Intelligence (AI) shared responsibility model
+# Artificial intelligence (AI) shared responsibility model
 
 As you consider and evaluate AI enabled integration, it's critical to understand the shared responsibility model and which tasks the AI platform or application provider handle and which tasks you handle. The workload responsibilities vary depending on whether the AI integration is based on Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS).
 
@@ -29,12 +29,12 @@ The following diagram illustrates the areas of responsibility between you and Mi
 :::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram showing AI responsibility zones." border="false":::
 
 ## AI layer overview
-An AI enabled application consists of three layers of functionality that group together tasks, which you or an AI provider perform. The security responsibilities generally reside with whoever performs the tasks, but an AI provider may choose to expose security or other controls as a configuration option to you as appropriate. These three layers include:
+An AI enabled application consists of three layers of functionality that group together tasks, which you or an AI provider perform. The security responsibilities generally reside with whoever performs the tasks, but an AI provider might choose to expose security or other controls as a configuration option to you as appropriate. These three layers include:
 
 ### AI platform
 The AI platform layer provides the AI capabilities to the applications. At the platform layer, there's a need to build and safeguard the infrastructure that runs the AI model, training data, and specific configurations that change the behavior of the model, such as weights and biases. This layer provides access to functionality via APIs, which pass text known as a *Metaprompt* to the AI model for processing, then return the generated outcome, known as a *Prompt-Response*.
 
-**AI platform security considerations** - To protect the AI platform from malicious inputs, a safety system must be built to filter out the potentially harmful instructions sent to the AI model (inputs). As AI models are generative, there's also a potential that some harmful content may be generated and returned to the user (outputs). Any safety system must first protect against potentially harmful inputs and outputs of many classifications including hate, jailbreaks, and others. These classifications will likely evolve over time based on model knowledge, locale, and industry.
+**AI platform security considerations** - To protect the AI platform from malicious inputs, a safety system must be built to filter out the potentially harmful instructions sent to the AI model (inputs). As AI models are generative, there's also a potential that some harmful content might be generated and returned to the user (outputs). Any safety system must first protect against potentially harmful inputs and outputs of many classifications including hate, jailbreaks, and others. These classifications will likely evolve over time based on model knowledge, locale, and industry.
 
 Microsoft has built-in safety systems for both PaaS and SaaS offerings:
 
@@ -42,7 +42,7 @@ Microsoft has built-in safety systems for both PaaS and SaaS offerings:
 - SaaS - [Microsoft Security Copilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot)
 
 ### AI application
-The AI application accesses the AI capabilities and provides the service or interface that the user consumes. The components in this layer can vary from relatively simple to highly complex, depending on the application. The simplest standalone AI applications act as an interface to a set of APIs taking a text-based user-prompt and passing that data to the model for a response. More complex AI applications include the ability to ground the user-prompt with extra context, including a persistence layer, semantic index, or via plugins to allow access to more data sources. Advanced AI applications may also interface with existing applications and systems. Existing applications and systems may work across text, audio, and images to generate various types of content.
+The AI application accesses the AI capabilities and provides the service or interface that the user consumes. The components in this layer can vary from relatively simple to highly complex, depending on the application. The simplest standalone AI applications act as an interface to a set of APIs taking a text-based user-prompt and passing that data to the model for a response. More complex AI applications include the ability to ground the user-prompt with extra context, including a persistence layer, semantic index, or via plugins to allow access to more data sources. Advanced AI applications might also interface with existing applications and systems. Existing applications and systems might work across text, audio, and images to generate various types of content.
 
 **AI application security considerations** - An application safety system must be built to protect the AI application from malicious activities. The safety system provides deep inspection of the content being used in the Metaprompt sent to the AI model. The safety system also inspects the interactions with any plugins, data connectors, and other AI applications (known as AI Orchestration). One way you can incorporate this in your own IaaS/PaaS based AI application is to use the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) service. Other capabilities are available depending on your needs.
 
