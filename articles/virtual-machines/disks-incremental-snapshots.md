@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 10/24/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
@@ -235,6 +235,18 @@ az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logi
 ```
 
 ## Check disk status
+
+Currently, you can only get the status of the background copy of a disk from a snapshot with the Azure CLI.
+
+Use the following commands to find the status of the background copy of a disk from snapshot.
+
+```azurecli
+subscriptionId=yourSubscriptionID
+resourceGroupName=yourResourceGroupName
+diskName=yourDiskName
+az account set --subscription $subscriptionId
+az disk show -n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
+```
 
 ## Next steps
 
