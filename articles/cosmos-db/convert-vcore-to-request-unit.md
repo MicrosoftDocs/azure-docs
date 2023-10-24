@@ -47,7 +47,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (12 vCores) / (3) = 2,400 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (12 vCores) / (3) = 4,000 RU/s
@@ -67,7 +67,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
@@ -87,7 +87,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
