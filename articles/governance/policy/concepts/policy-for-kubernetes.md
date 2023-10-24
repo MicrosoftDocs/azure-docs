@@ -671,6 +671,18 @@ aligns with how the add-on was installed:
   ```bash
   helm uninstall azure-policy-addon
   ```
+## Limtations
+  - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
+  - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
+  - Maximum number of Non-compliant records per policy per cluster: **500**
+  - Maximum number of Non-compliant records per subscription: **1 million**
+  - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
+  - [Reasons for non-compliance](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Use [Component details](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#component-details-for-resource-provider-modes).
+ - Component-level [exemptions](https://learn.microsoft.com/azure/governance/policy/concepts/exemption-structure) aren’t supported for [Resource Provider modes](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
+
+The following limitations apply only to the Azure Policy Add-on for AKS:
+•	[AKS Pod security policy](https://learn.microsoft.com/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](https://learn.microsoft.com/azure/aks/use-azure-policy).
+•	Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.
 
 ## Frequently asked questions
 
@@ -685,20 +697,6 @@ The following are estimates to help you plan:
 
 ### Can Azure Policy for Kubernetes definitions be applied on Windows pods?
 Windows pods [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods). Thus, some of the Azure Policy definitions, such as disallowing root privileges, can't be escalated in Windows pods and only apply to Linux pods.
-
-### What are the limitations for Azure Policy for Kubernetes? 
-  - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-  - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
-  - Maximum number of Non-compliant records per policy per cluster: **500**
-  - Maximum number of Non-compliant records per subscription: **1 million**
-  - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
-  - [Reasons for non-compliance](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Use [Component details](https://learn.microsoft.com/azure/governance/policy/how-to/determine-non-compliance#component-details-for-resource-provider-modes).
- - Component-level [exemptions](https://learn.microsoft.com/azure/governance/policy/concepts/exemption-structure) aren’t supported for [Resource Provider modes](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
-
-The following limitations apply only to the Azure Policy Add-on for AKS:
-•	[AKS Pod security policy](https://learn.microsoft.com/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](https://learn.microsoft.com/azure/aks/use-azure-policy).
-•	Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.
-
 
 ### What type of diagnostic data gets collected by Azure Policy Add-on?
 The Azure Policy Add-on for Kubernetes collects limited cluster diagnostic data. This diagnostic
