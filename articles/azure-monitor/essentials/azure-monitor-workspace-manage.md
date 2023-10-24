@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 03/28/2023
 ---
 

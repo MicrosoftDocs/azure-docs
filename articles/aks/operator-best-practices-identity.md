@@ -18,37 +18,39 @@ In this article, we discuss what recommended practices a cluster operator can fo
 
 > [!div class="checklist"]
 >
-> * Authenticate AKS cluster users with Azure Active Directory (Azure AD).
+> * Authenticate AKS cluster users with Microsoft Entra ID.
 > * Control access to resources with Kubernetes role-based access control (Kubernetes RBAC).
 > * Use Azure RBAC to granularly control access to the AKS resource, the Kubernetes API at scale, and the `kubeconfig`.
 > * Use a [managed identity][managed-identities] to authenticate pods with other services.
 
-## Use Azure Active Directory (Azure AD)
+<a name='use-azure-active-directory-azure-ad'></a>
+
+## Use Microsoft Entra ID
 
 > **Best practice guidance**
 >
-> Deploy AKS clusters with [Azure AD integration][azure-ad-integration]. Using Azure AD centralizes the identity management layer. Any change in user account or group status is automatically updated in access to the AKS cluster. Scope users or groups to the minimum permissions amount using [Roles, ClusterRoles, or Bindings](#use-kubernetes-role-based-access-control-kubernetes-rbac).
+> Deploy AKS clusters with [Microsoft Entra integration][azure-ad-integration]. Using Microsoft Entra ID centralizes the identity management layer. Any change in user account or group status is automatically updated in access to the AKS cluster. Scope users or groups to the minimum permissions amount using [Roles, ClusterRoles, or Bindings](#use-kubernetes-role-based-access-control-kubernetes-rbac).
 
-Your Kubernetes cluster developers and application owners need access to different resources. Kubernetes lacks an identity management solution for you to control the resources with which users can interact. Instead, you can integrate your cluster with an existing identity solution like Azure AD, an enterprise-ready identity management solution.
+Your Kubernetes cluster developers and application owners need access to different resources. Kubernetes lacks an identity management solution for you to control the resources with which users can interact. Instead, you can integrate your cluster with an existing identity solution like Microsoft Entra ID, an enterprise-ready identity management solution.
 
-With Azure AD-integrated clusters in AKS, you create *Roles* or *ClusterRoles* defining access permissions to resources. You then *bind* the roles to users or groups from Azure AD. Learn more about these Kubernetes RBAC in [the next section](#use-kubernetes-role-based-access-control-kubernetes-rbac). Azure AD integration and how you control access to resources can be seen in the following diagram:
+With Microsoft Entra integrated clusters in AKS, you create *Roles* or *ClusterRoles* defining access permissions to resources. You then *bind* the roles to users or groups from Microsoft Entra ID. Learn more about these Kubernetes RBAC in [the next section](#use-kubernetes-role-based-access-control-kubernetes-rbac). Microsoft Entra integration and how you control access to resources can be seen in the following diagram:
 
-![Cluster-level authentication for Azure Active Directory integration with AKS](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
+![Cluster-level authentication for Microsoft Entra integration with AKS](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 
-1. Developer authenticates with Azure AD.
-1. The Azure AD token issuance endpoint issues the access token.
-1. The developer performs an action using the Azure AD token, such as `kubectl create pod`.
-1. Kubernetes validates the token with Azure AD and fetches the developer's group memberships.
+1. Developer authenticates with Microsoft Entra ID.
+1. The Microsoft Entra token issuance endpoint issues the access token.
+1. The developer performs an action using the Microsoft Entra token, such as `kubectl create pod`.
+1. Kubernetes validates the token with Microsoft Entra ID and fetches the developer's group memberships.
 1. Kubernetes RBAC and cluster policies are applied.
-1. The developer's request is successful based on previous validation of Azure AD group membership and Kubernetes RBAC and policies.
+1. The developer's request is successful based on previous validation of Microsoft Entra group membership and Kubernetes RBAC and policies.
 
-To create an AKS cluster that uses Azure AD, see [Integrate Azure Active Directory with AKS][aks-aad].
+To create an AKS cluster that uses Microsoft Entra ID, see [Integrate Microsoft Entra ID with AKS][aks-aad].
 
 ## Use Kubernetes role-based access control (Kubernetes RBAC)
 
 > **Best practice guidance**
 >
-> Define user or group permissions to cluster resources with Kubernetes RBAC. Create roles and bindings that assign the least amount of permissions required. Integrate with Azure AD to automatically update any user status or group membership change and keep access to cluster resources current.
+> Define user or group permissions to cluster resources with Kubernetes RBAC. Create roles and bindings that assign the least amount of permissions required. Integrate with Microsoft Entra ID to automatically update any user status or group membership change and keep access to cluster resources current.
 
 In Kubernetes, you provide granular access control to cluster resources. You define permissions at the cluster level, or to specific namespaces. You determine what resources can be managed and with what permissions. You then apply these roles to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
@@ -66,7 +68,7 @@ rules:
   verbs: ["*"]
 ```
 
-You then create a *RoleBinding* and bind the Azure AD user *developer1\@contoso.com* to it, as shown in the following YAML manifest:
+You then create a *RoleBinding* and bind the Microsoft Entra user *developer1\@contoso.com* to it, as shown in the following YAML manifest:
 
 ```yaml
 kind: RoleBinding
@@ -84,9 +86,9 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-When *developer1\@contoso.com* is authenticated against the AKS cluster, they have full permissions to resources in the *finance-app* namespace. In this way, you logically separate and control access to resources. Use Kubernetes RBAC with Azure AD-integration.
+When *developer1\@contoso.com* is authenticated against the AKS cluster, they have full permissions to resources in the *finance-app* namespace. In this way, you logically separate and control access to resources. Use Kubernetes RBAC with Microsoft Entra ID-integration.
 
-To learn how to use Azure AD groups to control access to Kubernetes resources using Kubernetes RBAC, see [Control access to cluster resources using role-based access control and Azure Active Directory identities in AKS][azure-ad-rbac].
+To learn how to use Microsoft Entra groups to control access to Kubernetes resources using Kubernetes RBAC, see [Control access to cluster resources using role-based access control and Microsoft Entra identities in AKS][azure-ad-rbac].
 
 ## Use Azure RBAC
 
@@ -116,36 +118,36 @@ There are two levels of access needed to fully operate an AKS cluster:
 
 ## Use pod-managed identities
 
-Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Azure AD.
+Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Microsoft Entra ID.
 
 > [!NOTE]
 > Pod identities are intended for use with Linux pods and container images only. Pod-managed identities (preview) support for Windows containers is coming soon.
 
 To access other Azure resources, like Azure Cosmos DB, Key Vault, or Blob storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
 
-With pod-managed identities (preview) for Azure resources, you automatically request access to services through Azure AD. Pod-managed identities is currently in preview for AKS. Refer to the [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](./use-azure-ad-pod-identity.md) documentation to get started.
+With pod-managed identities (preview) for Azure resources, you automatically request access to services through Microsoft Entra ID. Pod-managed identities is currently in preview for AKS. Refer to the [Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)](./use-azure-ad-pod-identity.md) documentation to get started.
 
 > [!NOTE]
-> If you have enabled [Azure AD pod-managed identity][aad-pod-identity] on your AKS cluster or are considering implementing it,
+> If you have enabled [Microsoft Entra pod-managed identity][aad-pod-identity] on your AKS cluster or are considering implementing it,
 > we recommend you first review the [workload identity overview][workload-identity-overview] article to understand our
-> recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
+> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
-Azure Active Directory pod-managed identity (preview) supports two modes of operation:
+Microsoft Entra pod-managed identity (preview) supports two modes of operation:
 
 * **Standard** mode: In this mode, the following 2 components are deployed to the AKS cluster:
 
     * [Managed Identity Controller(MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): A Kubernetes controller that watches for changes to pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) through the Kubernetes API Server. When it detects a relevant change, the MIC adds or deletes [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) as needed. Specifically, when a pod is scheduled, the MIC assigns the managed identity on Azure to the underlying virtual machine scale set  used by the node pool during the creation phase. When all pods using the identity are deleted, it removes the identity from the virtual machine scale set of the node pool, unless the same managed identity is used by other pods. The MIC takes similar actions when AzureIdentity or AzureIdentityBinding are created or deleted.
 
-    * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): is a pod that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) on each node. It redirects requests to itself and validates if the pod has access to the identity it's requesting a token for, and fetch the token from the Azure Active Directory tenant on behalf of the application.
+    * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): is a pod that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) on each node. It redirects requests to itself and validates if the pod has access to the identity it's requesting a token for, and fetch the token from the Microsoft Entra tenant on behalf of the application.
 
 * **Managed** mode: In this mode, there's only NMI. The identity needs to be manually assigned and managed by the user. For more information, see [Pod Identity in Managed Mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/). In this mode, when you use the [az aks pod-identity add](/cli/azure/aks/pod-identity#az-aks-pod-identity-add) command to add a pod identity to an Azure Kubernetes Service (AKS) cluster, it creates the [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) in the namespace specified by the `--namespace` parameter, while the AKS resource provider assigns the managed identity specified by the `--identity-resource-id` parameter to virtual machine scale set of each node pool in the AKS cluster.
 
 > [!NOTE]
-> If you instead decide to install the Azure Active Directory pod-managed identity using the [AKS cluster add-on](./use-azure-ad-pod-identity.md), setup uses the `managed` mode.
+> If you instead decide to install the Microsoft Entra pod-managed identity using the [AKS cluster add-on](./use-azure-ad-pod-identity.md), setup uses the `managed` mode.
 
 The `managed` mode provides the following advantages over the `standard`:
 
@@ -157,7 +159,7 @@ Instead of manually defining credentials for pods, pod-managed identities reques
 * **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster. The NMI server listens for pod requests to Azure services.
 * **The Azure Resource Provider** queries the Kubernetes API server and checks for an Azure identity mapping that corresponds to a pod.
 
-When pods request a security token from Azure Active Directory to access to an Azure resource, network rules redirect the traffic to the NMI server.
+When pods request a security token from Microsoft Entra ID to access to an Azure resource, network rules redirect the traffic to the NMI server.
 
 1. The NMI server:
 
@@ -165,8 +167,8 @@ When pods request a security token from Azure Active Directory to access to an A
     * Queries the Azure Resource Provider.
 
 1. The Azure Resource Provider checks for Azure identity mappings in the AKS cluster.
-1. The NMI server requests an access token from Azure AD based on the pod's identity mapping.
-1. Azure AD provides access to the NMI server, which is returned to the pod.
+1. The NMI server requests an access token from Microsoft Entra ID based on the pod's identity mapping.
+1. Microsoft Entra ID provides access to the NMI server, which is returned to the pod.
     * This access token can be used by the pod to then request access to resources in Azure.
 
 In the following example, a developer creates a pod that uses a managed identity to request access to Azure SQL Database:
@@ -174,18 +176,18 @@ In the following example, a developer creates a pod that uses a managed identity
 ![Pod identities allow a pod to automatically request access to other resources.](media/operator-best-practices-identity/pod-identities.png)
 
 1. Cluster operator creates a service account to map identities when pods request access to resources.
-1. The NMI server is deployed to relay any pod requests, along with the Azure Resource Provider, for access tokens to Azure AD.
+1. The NMI server is deployed to relay any pod requests, along with the Azure Resource Provider, for access tokens to Microsoft Entra ID.
 1. A developer deploys a pod with a managed identity that requests an access token through the NMI server.
 1. The token is returned to the pod and used to access Azure SQL Database
 
-To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (preview)](use-azure-ad-pod-identity.md).
+To use Pod-managed identities, see [Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (preview)](use-azure-ad-pod-identity.md).
 
 ## Next steps
 
 This best practices article focused on authentication and authorization for your cluster and resources. To implement some of these best practices, see the following articles:
 
-* [Integrate Azure Active Directory with AKS][aks-aad]
-* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (preview)](use-azure-ad-pod-identity.md)
+* [Integrate Microsoft Entra ID with AKS][aks-aad]
+* [Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (preview)](use-azure-ad-pod-identity.md)
 
 For more information about cluster operations in AKS, see the following best practices:
 

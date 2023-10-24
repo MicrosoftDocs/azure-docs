@@ -39,9 +39,9 @@ You must assign this role on individual resource pool (or cluster or host), netw
 
 6. Select **Azure Arc VMware Private Cloud User** role and select **Next**.
 
-7. Select **Select members** and search for the Azure Active Directory (Azure AD) user or group that you want to provide access.
+7. Select **Select members** and search for the Microsoft Entra user or group that you want to provide access.
 
-8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
+8. Select the Microsoft Entra user or group name. Repeat this for each user or group to which you want to grant this permission.
 
 9. Select **Review + assign** to complete the role assignment. 
 
@@ -67,9 +67,9 @@ The **Azure Arc VMware VM Contributor** role is a built-in role that provides pe
 
 5. Select **Azure Arc VMware VM Contributor** role and select **Next**.
 
-6. Select the option **Select members**, and search for the Azure Active Directory (Azure AD) user or group that you want to provide access.
+6. Select the option **Select members**, and search for the Microsoft Entra user or group that you want to provide access.
 
-8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
+8. Select the Microsoft Entra user or group name. Repeat this for each user or group to which you want to grant this permission.
 
 9. Select on **Review + assign** to complete the role assignment. 
 

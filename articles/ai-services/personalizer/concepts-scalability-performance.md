@@ -11,6 +11,8 @@ ms.date: 10/24/2019
 ---
 # Scalability and Performance
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 High-performance and high-traffic websites and applications have two main factors to consider with Personalizer for scalability and performance:
 
 * Keeping low latency when making Rank API calls

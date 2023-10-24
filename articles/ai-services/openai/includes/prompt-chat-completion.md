@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to work with the Chat Completion API for prompt engineering
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 04/03/2023
 manager: nitinme

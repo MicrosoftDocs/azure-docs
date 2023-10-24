@@ -336,5 +336,8 @@ The following example shows the schema of a key-value modified event:
 
 ---
 
+## Contact us
+If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+
 ## Next steps
 See [Subscribe to Azure Resource Notifications - Health Resources events](subscribe-to-resource-notifications-health-resources-events.md).

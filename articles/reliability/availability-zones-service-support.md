@@ -121,7 +121,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure API Management](migrate-api-mgt.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service](migrate-app-service.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -193,7 +193,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| Azure Active Directory  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Entra ID  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Defender for Identity  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
@@ -242,5 +242,3 @@ You can access Azure availability zones by using your Azure subscription. To lea
 
 > [!div class="nextstepaction"]
 > [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)
-
-

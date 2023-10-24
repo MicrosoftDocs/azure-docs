@@ -6,12 +6,12 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.custom: subject-reliability
 ms.service: virtual-machines
-ms.date: 10/03/2023
+ms.date: 10/24/2023
 ---
 
 # Reliability in Load Balancer
 
-This article contains [specific reliability recommendations](#reliability-recommendations) for [Load Balancer](/azure/load-balancer/load-balancer-overview), as well as detailed information on regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article contains [specific reliability recommendations](#reliability-recommendations) for [Load Balancer](/azure/load-balancer/load-balancer-overview), as well as detailed information on Load Balancer regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
@@ -25,24 +25,27 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Use Standard Load Balancer SKU](#use-standard-load-balancer-sku) |
-||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Ensure that the backend pool contains at least two instances](#ensure-that-the-backend-pool-contains-at-least-two-instances) | 
-||:::image type="icon" source="media/icon-recommendation-medium.svg":::|[Use NAT Gateway instead of outbound rules for production workloads](#use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | 
+|[**Availability**](#availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::|[Ensure that Standard Load Balancer is zone-redundant](#-use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | 
+| |:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Ensure that the backend pool contains at least two instances](#-ensure-that-the-backend-pool-contains-at-least-two-instances) | 
+|[**System Efficiency**](#system-efficiency) |:::image type="icon" source="media/icon-recommendation-medium.svg":::|[Use NAT Gateway instead of outbound rules for production workloads](#-use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | 
+| |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Use Standard Load Balancer SKU](#-use-standard-load-balancer-sku) |
 
-### High availability
+
+### Availability
  
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Use Standard Load Balancer SKU**
 
-Standard SKU Load Balancer supports availability zones and zone resiliency, while the Basic SKU doesn't. When a zone goes down, your zone-redundant Standard Load Balancer will not be impacted and your deployments are able to withstand zone failures within a region. In addition, Standard Load Balancer supports cross region load balancing to ensure that your application isn't impacted by region failures. 
 
->[!NOTE]
-> Basic load balancers don’t have a Service Level Agreement (SLA).
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that Standard Load Balancer is zone-redundant**
+
+In a region that supports availability zones, Standard Load Balancer should be deployed with zone-redundancy. A zone-redundant Load Balancer allows traffic to be served by a single frontend IP address that can survive zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members regardless of zone. If an availability zone fails, the data path can  survive as long as the remaining zones in the region remain healthy.
+
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-1/lb-1.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-4/lb-4.kql":::
 
 ----
+
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that the backend pool contains at least two instances**
 
@@ -55,6 +58,8 @@ Deploy Load Balancer with at least two instances in the backend. A single instan
 
 ----
 
+
+
 #### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Use NAT Gateway instead of outbound rules for production workloads**
 
 Outbound rules ensure that you're not faced with connection failures as a result of SNAT port exhaustion. While outbound rules help improve the solution for small to mid size deployments, for production workloads, it's recommended that you couple Standard Load Balancer or any subnet deployment with VNet NAT.
@@ -66,6 +71,20 @@ Outbound rules ensure that you're not faced with connection failures as a result
 
 ----
 
+
+
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Use Standard Load Balancer SKU**
+
+Standard SKU Load Balancer supports availability zones and zone resiliency, while the Basic SKU doesn't. When a zone goes down, your zone-redundant Standard Load Balancer will not be impacted and your deployments are able to withstand zone failures within a region. In addition, Standard Load Balancer supports cross region load balancing to ensure that your application isn't impacted by region failures. 
+
+>[!NOTE]
+> Basic load balancers don’t have a Service Level Agreement (SLA).
+
+# [Azure Resource Graph](#tab/graph)
+
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-1/lb-1.kql":::
+
+----
 
 ## Availability zone support
 

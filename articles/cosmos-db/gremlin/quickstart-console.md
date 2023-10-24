@@ -7,6 +7,7 @@ ms.author: mansha
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 09/27/2023
 # CustomerIntent: As a developer, I want to use the Gremlin console so that I can manually create and traverse vertices and edges.

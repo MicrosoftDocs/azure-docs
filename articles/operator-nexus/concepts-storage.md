@@ -38,7 +38,7 @@ spec:
     requests:
       storage: 107Mi
   storageClassName: nexus-volume
-  volumeMode: Filesystem
+  volumeMode: Block
   volumeName: testVolume
 status:
   accessModes:

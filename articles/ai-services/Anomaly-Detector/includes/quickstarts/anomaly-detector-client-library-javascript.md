@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
 ms.date: 03/14/2023
 ms.author: mbullwin

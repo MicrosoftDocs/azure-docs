@@ -41,7 +41,7 @@ Preserve unmatched path allows you to append the remaining path after the source
 | Preserve unmatched path | Source pattern | Destination | Incoming request | Content served from origin |
 |--|--|--|--|--|
 | Yes | / | /foo/ | contoso.com/sub/1.jpg | /foo/sub/1.jpg |
-| Yes | /sub/ | /foo/ | contoso.com/sub/image/1.jpg | /foo/image/1.jpg` |
+| Yes | /sub/ | /foo/ | contoso.com/sub/image/1.jpg | /foo/image/1.jpg |
 | No | /sub/ | /foo/2.jpg | contoso.com/sub/image/1.jpg | /foo/2.jpg |
 
 ::: zone-end
