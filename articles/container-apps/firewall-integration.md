@@ -85,8 +85,8 @@ The following rules are required when using NSGs with Consumption only environme
 | TCP | Infrastructure Subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
 | TCP | Infrastructure Subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
 | UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
-| TCP | Infrastructure Subnet address space | \* | `5671` | Container Apps control plane. |
-| TCP | Infrastructure Subnet address space | \* | `5672` | Container Apps control plane. |
+| TCP | Infrastructure Subnet address space | \* | \* | `5671` | Container Apps control plane. |
+| TCP | Infrastructure Subnet address space | \* | \* | `5672` | Container Apps control plane. |
 | Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
