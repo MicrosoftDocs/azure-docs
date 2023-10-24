@@ -112,7 +112,7 @@ json
     ]
 }
 ```
-## Details of the supported model versions for each language:
+## Details of the supported container tags:
 
 
 | Language Code       |  Featured Tag | Specific Tag |
