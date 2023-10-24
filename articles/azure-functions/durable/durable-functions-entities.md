@@ -27,7 +27,7 @@ Entities provide a means for scaling out applications by distributing the work a
 ## General concepts
 
 Entities behave a bit like tiny services that communicate via messages. Each entity has a unique identity and an internal state (if it exists). Like services or objects, entities perform operations when prompted to do so. When an operation executes, it might update the internal state of the entity. It might also call external services and wait for a response. Entities communicate with other entities, orchestrations, and clients by using messages that are implicitly sent via reliable queues. 
-
+::: zone pivot="csharp,javascript,python"  
 To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another.
 
 > [!NOTE]
@@ -40,8 +40,8 @@ Entities are accessed via a unique identifier, the *entity ID*. An entity ID is 
 * **Entity key**, which is a string that uniquely identifies the entity among all other entities of the same name. An example is a GUID.
 
 For example, a `Counter` entity function might be used for keeping score in an online game. Each instance of the game has a unique entity ID, such as `@Counter@Game1` and `@Counter@Game2`. All operations that target a particular entity require specifying an entity ID as a parameter.
-::: zone pivot="csharp,javascript,python"
-### Entity operations ###
+
+### Entity operations
 
 To invoke an operation on an entity, specify the:
 
