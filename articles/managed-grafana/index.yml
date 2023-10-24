@@ -48,14 +48,16 @@ landingContent:
         links:
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
-          - text: Microsoft Entra gruops
+          - text: Microsoft Entra groups
             url: how-to-sync-teams-with-azure-ad-groups.md
           - text: Set up authentication and permissions
             url: how-to-authentication-permissions.md
           - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Connect to a data source privately
-            url: how-to-private-link.md
+            url: how-to-connect-to-data-source-privately.md
+          - text: Set up private access
+            url: how-to-set-up-private-access.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 
