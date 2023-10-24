@@ -653,10 +653,13 @@ items:
     - name: Best practices
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-best-practices.md
+    - name: Create and edit
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-create-edit.md
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Edit a data collection rule
+    - name: Edit tutorial
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
   - name: Transformations
@@ -1487,9 +1490,7 @@ items:
   - name: Alerts 
     href: alerts/alerts-payload-samples.md
   - name: Data collection rules
-    items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
+    href: essentials/data-collection-rule-samples.md
     - name: Custom logs
       href: logs/data-collection-rule-sample-custom-logs.md
   - name: Monitor Logs in Azure CLI
