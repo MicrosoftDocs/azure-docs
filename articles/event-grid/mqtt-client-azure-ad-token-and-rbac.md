@@ -66,7 +66,7 @@ You can use these roles to provide permissions at subscription, resource group, 
 1. Select **Review + assign** on the Review + assign tab.
 
 > [!NOTE]
-> You can follow similar steps to assign the built-in EventGrid TopicSpaces Subscriber role at topicspace scope.
+> You can follow similar steps to assign the built-in EventGrid TopicSpaces Subscriber role at topicspace scope. 
 
 ## Next steps
 - See [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)
