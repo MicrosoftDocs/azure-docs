@@ -53,5 +53,5 @@ Users with Edit permissions on dashboards can make changes.
 
 ## Related content
 
-- For more information on dashboards and how to create your own, see [Visualize data with Azure Data Explorer dashboards](../data-explorer/azure-data-explorer-dashboards.md)
+- For more information on dashboards and how to create your own, see [Visualize data with Azure Data Explorer dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 - For general information on data querying in the Data Product, see [Query data in the Data Product](data-query.md)
