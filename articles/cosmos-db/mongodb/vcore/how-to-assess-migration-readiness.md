@@ -6,7 +6,7 @@ author: sandnair
 ms.author: sandnair
 ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.subservice: mongodb
+ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 10/24/2023
 # CustomerIntent: As a database owner, I want to assess my existing MongoDB database so that I can ensure that I can migrate to Azure Cosmos DB for MongoDB vCore.
