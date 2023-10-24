@@ -4,7 +4,7 @@ description: Custom partitioning enables you to partition the analytical store d
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 10/24/2023
 ms.author: rosouz
 ms.custom: ignite-fall-2021, ignite-2022
 ---
