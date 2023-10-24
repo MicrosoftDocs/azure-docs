@@ -14,9 +14,9 @@ ms.custom: ignite-fall-2023
 
 # Dapr component resiliency
 
-If your container app uses a Dapr component (for example, Azure Service Bus), the Dapr sidecar determines how to apply timeout and retry policies to your API calls.
+With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
+If your container app is leveraging Dapr to integrate with an external technology (for example, Azure Service Bus) you can apply resiliency policies to your Dapr components.
 
 You can configure resiliency policies for the following outbound and inbound operation directions via a Dapr component: 
 
@@ -28,28 +28,30 @@ You can configure resiliency policies for the following outbound and inbound ope
    - Subscriptions when delivering a message
    - Input bindings delivering an event
 
+:::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
+
 ## Supported resiliency policies
 
 - [Timeouts](#timeouts)
-- [Retries (HTTP and TCP)](#retries)
+- [Retries (HTTP)](#retries)
 
 ## Creating resiliency policies
 
 Create resiliency policies using Bicep, the CLI, and the Azure portal. 
 
 > [!IMPORTANT]
-> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
+> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications. All of the applications that load or use that component.
 
 # [Bicep](#tab/bicep)
 
 You can create your resiliency policies in Bicep. The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
-  name: 'myResiliencyPolicy'
-  parent: '${appName}'
+resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-08-01-preview' = {
+  name: 'my-component-resiliency-policies'
+  parent: '${componentName}'
   properties: {
-    outbound: {
+    outboundPolicy: {
       timeoutPolicy: {
           responseTimeoutInSeconds: 15
       }
@@ -61,7 +63,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
           }
       } 
     }, 
-    inbound: {
+    inboundPolicy: {
       timeoutPolicy: {
         responseTimeoutInSeconds: 15
       }

@@ -46,8 +46,8 @@ Create resiliency policies using Bicep, the CLI, and the Azure portal.
 You can create your resiliency policy in Bicep. The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
-  name: 'myResiliencyPolicy'
+resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-preview' = {
+  name: 'my-app-resiliency-policies'
   parent: '${appName}'
   properties: {
     timeoutPolicy: {
@@ -64,7 +64,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
             headers: [
                 {
                     headerMatch: {
-                        header: 'Content-Type'
+                        header: 'X-Content-Type'
                         match: { 
                             prefixMatch: 'application'
                         }
