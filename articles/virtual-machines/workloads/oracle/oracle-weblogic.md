@@ -32,7 +32,7 @@ The solution templates support a range of operating system, Java, and WLS versio
 
 If you prefer step-by-step guidance for going from zero to a WLS cluster without any solution templates or base images, see [Install Oracle WebLogic Server on Azure Virtual Machines manually](/azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json).
 
-_If you are interested in working closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ on the [marketplace offer overview page](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
+_If you're interested in working closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ on the [marketplace offer overview page](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
 
 ## Oracle WebLogic Server with Admin Server
 
@@ -46,7 +46,7 @@ The solutions enable a wide range of production-ready deployment architectures w
 
 :::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
-After resources are automatically provisioned by the solutions, you have complete flexibility to customize your deployments further. It is likely on top of deploying applications you will integrate further Azure resources with your deployments. You are encouraged to [connect with the development team](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) and provide feedback on further improving the solutions.
+After resources are automatically provisioned by the solutions, you have complete flexibility to customize your deployments further. It is likely on top of deploying applications you'll integrate further Azure resources with your deployments. You are encouraged to [connect with the development team](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) and provide feedback on further improving the solutions.
 
 ## Next steps
 
