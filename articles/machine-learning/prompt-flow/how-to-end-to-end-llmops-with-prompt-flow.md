@@ -146,7 +146,7 @@ In this guide, we will use a runtime to run your prompt flow. You need to create
 
 Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then follow the instruction to create your own connections
 
-## Setup variables with for prompt flow and GitHub Actions
+## Setup variables for prompt flow and GitHub Actions
 
 Clone repo to your local machine.
 

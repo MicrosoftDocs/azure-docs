@@ -51,7 +51,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 1. Make sure you're using the Microsoft Entra tenant that contains your subscription: 
 
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
+    1. In the Azure portal toolbar, select the **Directories + subscriptions** icon.
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory that contains your subscription in the **Directory name** list, and then select **Switch** button next to it.
         
@@ -99,7 +99,7 @@ Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as lon
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
 
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
+    1. In the Azure portal toolbar, select the **Directories + subscriptions** icon.
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select the **Switch** button next to it.
     
@@ -116,7 +116,7 @@ Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as lon
 ## Select your B2C tenant directory
 
 To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant:
-1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::).
+1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon.
 1. On the **All Directories** tab, find the directory that contains your Azure AD B2C tenant and then select the **Switch** button next to it.
 
 If at first you don't see your new Azure B2C tenant in the list, refresh your browser window or sign out and sign back in. Then in the Azure portal toolbar, select the **Directories + subscriptions** filter again.
