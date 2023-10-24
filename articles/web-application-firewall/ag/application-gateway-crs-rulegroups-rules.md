@@ -100,7 +100,7 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
-### DRS 2.1 (preview) 
+### DRS 2.1 
 
 DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes additional rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
@@ -230,7 +230,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [DRS 2.1](#tab/drs21)
 
-## <a name="drs21"></a> 2.1 rule sets (preview)
+## <a name="drs21"></a> 2.1 rule sets 
 
 ### <a name="general-21"></a> General
 |RuleId|Description|

@@ -51,7 +51,7 @@
     - name: Authorizing data operations
       href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
       items:
-      - name: Authorize with Azure AD
+      - name: Authorize with Microsoft Entra ID
         items:
         - name: Authorize with Azure roles
           href: authorize-access-azure-active-directory.md
@@ -59,7 +59,7 @@
           href: queues-auth-abac.md
         - name: Actions and attributes for conditions
           href: queues-auth-abac-attributes.md
-    - name: Authenticate and authorize with Azure AD
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:

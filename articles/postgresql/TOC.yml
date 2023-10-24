@@ -112,7 +112,7 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
-    - name: Azure AD Authentication
+    - name: Microsoft Entra authentication
       href: flexible-server/concepts-azure-ad-authentication.md
     - name: Major Version Upgrade 
       href: flexible-server/concepts-major-version-upgrade.md
@@ -182,7 +182,6 @@
           href: flexible-server/concepts-connectivity.md
         - name: Connection Pooling Best Practices
           href: flexible-server/concepts-connection-pooling-best-practices.md
-
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -199,7 +198,9 @@
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+      - name: Canceling statement due to conflict with recovery
+        href: flexible-server/troubleshoot-canceling-statement-due-to-conflict-with-recovery.md
     - name: Performance troubleshooting
       items:
       - name: Troubleshoot high CPU utilization
@@ -260,8 +261,10 @@
           href: flexible-server/how-to-restore-dropped-server.md
       - name: Cross subscription and cross resource group restore
         items:
-        - name: Cross subscription and cross resource group restore
+        - name: Azure portal
           href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
+        - name: Azure REST API
+          href: flexible-server/howto-restore-different-subscription-resource-group-api.md 
       - name: Restart a server
         items:
         - name: Azure portal
@@ -316,12 +319,12 @@
         displayName: application development, server parameters
     - name: Enable Authentication
       items:
-      - name: Configure Azure AD integration
+      - name: Configure Microsoft Entra integration
         href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName: application development, azure ad, active directory
       - name: Connect with Managed Identity
         href: flexible-server/how-to-connect-with-managed-identity.md
-      - name: Manage Azure AD users
+      - name: Manage Microsoft Entra users
         href: flexible-server/how-to-manage-azure-ad-users.md
       - name: Connect with SCRAM authentication
         href: flexible-server/how-to-connect-scram.md
@@ -479,7 +482,7 @@
       - name: Threat protection with Microsoft Defender for Cloud
         href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
         displayName: security, azure ad, active directory
       - name: Data encryption
@@ -611,7 +614,7 @@
         - name: Create users
           href: single-server/how-to-create-users.md
           displayName: non-admin user, application development
-        - name: Configure Azure AD integration
+        - name: Configure Microsoft Entra integration
           href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
           displayName: application development, azure ad, active directory
         - name: Connect with Managed Identity

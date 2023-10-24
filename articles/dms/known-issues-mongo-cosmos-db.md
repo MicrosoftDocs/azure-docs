@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - kr2b-contr-experiment
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Known issues with migrations from MongoDB to Azure Cosmos DB

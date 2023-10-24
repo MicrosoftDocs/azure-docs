@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 - If you need to build the **IoT Central Solution Builder** tool instead of using one of the prebuilt binaries, you need a local Git installation.
 - Text editor. If you want to edit the configuration file to customize your solution.
 
-In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
+In this tutorial, you use the Azure CLI to create an app registration in Microsoft Entra ID:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -47,7 +47,7 @@ In this tutorial, you use the Azure CLI to create an app registration in Azure A
 
 Complete the following tasks to prepare the tool to deploy your solution:
 
-- Create an Azure Active Directory app registration
+- Create a Microsoft Entra app registration
 - Install the **IoT Central Solution Builder** tool
 - Configure the **IoT Central Solution Builder** tool
 

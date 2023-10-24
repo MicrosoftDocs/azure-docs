@@ -2,7 +2,7 @@
 title: Telemetry processors (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/11/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -407,7 +407,7 @@ This section lists some common span attributes that telemetry processors can use
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [Semantic Conventions for database operations](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|

@@ -79,7 +79,7 @@ landingContent:
             url: relay-authentication-and-authorization.md
           - text: Authenticate with managed identities (Preview)
             url: authenticate-managed-identity.md
-          - text: Authenticate an application using Azure Active Directory (preview)
+          - text: Authenticate an application using Microsoft Entra ID (preview)
             url: authenticate-application.md
           - text: Network security
             url: network-security.md

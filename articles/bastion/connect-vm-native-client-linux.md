@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 # Connect to a VM using Bastion and a Linux native client
 
-This article helps you connect via Azure Bastion to a VM in VNet using the native client on your local Linux computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
+This article helps you connect via Azure Bastion to a VM in VNet using the native client on your local Linux computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
@@ -42,7 +42,7 @@ When you connect using this command, file transfers aren't supported. If you wan
 This command lets you do the following:
 
 * Connect to a Linux VM using SSH.
-* Authenticate via Azure Active Directory
+* Authenticate via Microsoft Entra ID
 * Connect to concurrent VM sessions within the virtual network.
 
 To sign in, use one of the following examples. Once you sign in to your target VM, the native client on your computer opens up with your VM session.
@@ -55,9 +55,9 @@ To sign in to your VM using an SSH key pair, use the following example.
 az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
 ```
 
-**Azure AD authentication**
+**Microsoft Entra authentication**
 
-If you’re signing in to an Azure AD login-enabled VM, use the following example. For more information, see [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+If you’re signing in to a Microsoft Entra login-enabled VM, use the following example. For more information, see [Azure Linux VMs and Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
 ```azurecli
 az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "AAD"
@@ -73,7 +73,7 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 
 #### <a name="VM-IP"></a>SSH to a Linux VM IP address
 
-You can connect to a VM private IP address instead of the resource ID. Be aware that Azure AD authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
+You can connect to a VM private IP address instead of the resource ID. Be aware that Microsoft Entra authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
 
 Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM. The following example uses --ssh-key for the authentication method.
 

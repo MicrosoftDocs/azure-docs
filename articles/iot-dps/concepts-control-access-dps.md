@@ -1,7 +1,7 @@
 ---
 title:  Access control and security for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
-description: Overview on controlling access to Azure IoT Hub Device Provisioning Service, links to articles on Azure Active Directory integration and SAS options.
+description: Overview on controlling access to Azure IoT Hub Device Provisioning Service, links to articles on Microsoft Entra integration and SAS options.
 author: jesusbar
 
 ms.author: jesusbar
@@ -18,9 +18,9 @@ This article describes the available options for securing your Azure IoT Hub Dev
 There are two different ways for controlling access to DPS:
 
 - **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. To learn more, see [Control access to DPS with shared access signatures and security tokens](how-to-control-access.md).
-- **Azure Active Directory (Azure AD) integration (public preview)** for service APIs. Azure provides identity-based authentication with Azure Active Directory and fine-grained authorization with Azure role-based access control (Azure RBAC). Azure AD and RBAC integration is supported for DPS service APIs only. To learn more, see [Control access to DPS with Azure Active Directory (Public Preview)](concepts-control-access-dps-azure-ad.md).
+- **Microsoft Entra integration (public preview)** for service APIs. Azure provides identity-based authentication with Microsoft Entra ID and fine-grained authorization with Azure role-based access control (Azure RBAC). Microsoft Entra ID and RBAC integration is supported for DPS service APIs only. To learn more, see [Control access to DPS with Microsoft Entra ID (Public Preview)](concepts-control-access-dps-azure-ad.md).
 
 ## Next steps
 
 - [Control access to DPS with shared access signatures and security tokens](how-to-control-access.md)
-- [Control access to DPS with Azure Active Directory (public preview)](concepts-control-access-dps-azure-ad.md)
+- [Control access to DPS with Microsoft Entra ID (public preview)](concepts-control-access-dps-azure-ad.md)
