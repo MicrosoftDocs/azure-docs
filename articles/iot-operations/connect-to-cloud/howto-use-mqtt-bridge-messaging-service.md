@@ -142,11 +142,6 @@ After the Connector is successfully deployed, observe messages from a new topic 
 
 The messages being received on the `cloud-updates` topic are cloud-to-device messages. They're created in the cloud by the Container App (noted in the `processed-by` field) in response to incoming messages from the edge (on the `odd-numbered-orders` topic).
 
-You're seeing bi-directional cloud-edge communication in real-time.
-
-[Visualize data flow]
-
-
 ## Related content
 
 - [Publish and subscribe MQTT messages using Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)

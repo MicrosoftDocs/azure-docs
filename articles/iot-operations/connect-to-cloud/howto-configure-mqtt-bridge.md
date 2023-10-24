@@ -24,7 +24,7 @@ To bridge to another broker, Azure IoT MQ must know the remote broker endpoint U
 
 1. Create a YAML file that defines [MqttBridgeConnector](#configure-mqttbridgeconnector) resource. You can use the YAML provided as an example, but make sure to change the `namespace` to match the one that has Azure IoT MQ deployed, and the `remoteBrokerConnection.endpoint` to match your remote broker endpoint URL.
 
-1. Create a YAML file that defines [MqttBridgeTopicMap](#configure-mqttbridgetopicmap) resource. You can use the YAML provided as an example, but make sure to change the `namespace` to match the one that has Azure IoT MQ deployed, and the `mqttBridgeConnectorRef` to match the name of the MqttBridgeConnector resource you created in the ealier step.
+1. Create a YAML file that defines [MqttBridgeTopicMap](#configure-mqttbridgetopicmap) resource. You can use the YAML provided as an example, but make sure to change the `namespace` to match the one that has Azure IoT MQ deployed, and the `mqttBridgeConnectorRef` to match the name of the MqttBridgeConnector resource you created in the earlier step.
 
 1. Deploy the MQTT bridge connector and topic map with `kubectl apply -f <filename>`.
 
@@ -523,7 +523,7 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
 
 1. At the Event Grid resource, [assign](/azure/role-based-access-control/role-assignments-portal) the roles to the Azure IoT MQ Arc extension managed identity. Choose **User, group, or service principal** when searching for the extension identity. Verify the object ID matches the ID from earlier.
 
-<!--  ![Screenshot of Azure Portal role assignment page](rbac.png) -->
+  <!--  ![Screenshot of Azure Portal role assignment page](rbac.png) -->
 
 1. Create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method
 
