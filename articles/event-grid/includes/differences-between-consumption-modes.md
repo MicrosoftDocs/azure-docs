@@ -12,7 +12,10 @@
 
 ## Push and pull delivery
 
-Using HTTP, Event Grid supports push and pull event delivery. With push delivery, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With pull delivery, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
+Using HTTP, Event Grid supports push and pull event delivery. With push delivery, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. With pull delivery, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
+
+> [!IMPORTANT]
+> In namespace topics, Event Hubs is supported as a destination. In coming releases, Event Grid Namespaces will support all destinations currently available in Event Grid Basic along with additional destinations.
 
 :::image type="content" source="./media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" border="false":::
 
