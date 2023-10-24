@@ -26,8 +26,8 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-- Added a links to the troubleshooting documentation to error messages to enable users to resolve some issues without support of IT Admins. 
-- Improved ergonomics on the connection bar. 
+- Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
+- Improved the connection bar user interface (UI). 
 - Fixed an issue that caused the client to stop responding when a user tries to resize the client window during a Teams video call. 
 - Fixed a bug that prevented the client from loading more than 255 workspaces.  
 - Fixed an authentication issue that allowed users to choose a different account whenever the client required more interaction. 
