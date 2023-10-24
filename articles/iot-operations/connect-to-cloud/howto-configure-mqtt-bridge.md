@@ -523,8 +523,6 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
 
 1. At the Event Grid resource, [assign](/azure/role-based-access-control/role-assignments-portal) the roles to the Azure IoT MQ Arc extension managed identity. Choose **User, group, or service principal** when searching for the extension identity. Verify the object ID matches the ID from earlier.
 
-  <!--  ![Screenshot of Azure Portal role assignment page](rbac.png) -->
-
 1. Create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method
 
 1. Create MqttBridgeTopicMaps and deploy the MQTT bridge with `kubectl`.
