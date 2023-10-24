@@ -32,7 +32,6 @@ You can configure resiliency policies for the following outbound and inbound ope
 
 - [Timeouts](#timeouts)
 - [Retries (HTTP and TCP)](#retries)
-- [Circuit breakers](#circuit-breakers)
 
 ## Creating resiliency policies
 
