@@ -32,11 +32,14 @@ The following rules are required when using NSGs with workload profile environme
 
 #### Inbound
 
+>[!Note]
+> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
+
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
-| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| TCP | <Your Client IP> | \* |Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | <Your Client IP> | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
+| TCP | AzureLoadBalancer | \* | Infrastructure Subnet address space | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | Not sure. Need to doublecheck Vincent. Is this future proofing or is this required today? Not blocker for PR though
+| TCP | <Your Client IP> | \* | Infrastructure Subnet address space | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
 * The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
 
@@ -47,29 +50,25 @@ The following rules are required when using NSGs with workload profile environme
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | \* | 
-
-| Protocol | Port | ServiceTag | Description
-|--|--|--|--|
-| TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
-| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
-| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | Should this be Azure cloud? for service tag?
-| UDP | `123` | \* | NTP server. |
-| TCP | `5671` | \* | Container Apps control plane. | ?
-| TCP | `5672` | \* | Container Apps control plane. | ?
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | Infrastructure Subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
+| TCP | Infrastructure Subnet address space | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
+| TCP | Infrastructure Subnet address space | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| TCP | Infrastructure Subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
+| Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Consumption only environments
 
 The following rules are required when using NSGs with Consumption only environments.
 
-
 #### Inbound
+
+>[!Note]
+> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | <Your Client IP> | \* | Azure Container Apps staticIP? | 443 | description |
+| TCP | <Your Client IP> | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
 | TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676* | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 * The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
@@ -79,16 +78,16 @@ The following rules are required when using NSGs with Consumption only environme
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
 
-| Protocol | Port | ServiceTag | Description
-|--|--|--|--|
-| UDP | `1194` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
-| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | Should this be Azure cloud? for service tag?
-| UDP | `123` | \* | NTP server. |
-| TCP | `5671` | \* | Container Apps control plane. | ?
-| TCP | `5672` | \* | Container Apps control plane. | ?
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+|--|--|--|--|--|--|
+| UDP | Infrastructure Subnet address space | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Infrastructure Subnet address space | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Infrastructure Subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
+| TCP | Infrastructure Subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
+| TCP | Infrastructure Subnet address space | \* | `5671` | Container Apps control plane. |
+| TCP | Infrastructure Subnet address space | \* | `5672` | Container Apps control plane. |
+| Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
 
