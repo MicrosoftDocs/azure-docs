@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -15,12 +15,23 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence general document model
 
+:::moniker range="doc-intel-4.0.0"
+
+> [!IMPORTANT]
+> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+|Layout model with **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
+:::moniker-end
+
 [!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
-The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-1-migration-guide.md).
+The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information on using the v3.0 API, see our [migration guide](v3-1-migration-guide.md).
 
 > [!NOTE]
-> The ```2023-07-31``` (GA) version of the general document model adds support for **normalized keys**.
+> The ```2023-07-31``` (GA) and later versions of the general document model adds support for **normalized keys**.
 
 ## General document features
 
@@ -30,7 +41,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 
 * The general document model supports structured, semi-structured, and unstructured documents.
 
-* Key names are spans of text within the document that are associated with a value. With the ```2023-07-31```(GA) API version, key names are normalized where applicable.
+* Key names are spans of text within the document that are associated with a value. With the ```2023-07-31```(GA) and later versions, key names are normalized where applicable.
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
 
@@ -44,11 +55,23 @@ The general document API supports most form types and analyzes your documents an
 
 ## Development options
 
-Document Intelligence v3.0 supports the following tools:
+::: moniker range="doc-intel-3.1.0"
 
-| Feature | Resources | Model ID
-|----------|----------|---------------|
-| **General document model**|<ul ><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**General document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-document**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**General document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-document**|
+::: moniker-end
 
 ## Input requirements
 
@@ -62,7 +85,7 @@ You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -92,7 +115,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 | --- | :---: |:---:| :---: | :---: | :---: |
 |General document  | ✓  |  ✓ | ✓  | ✓  | ✓* |
 
-✓* - Only available in the ``2023-07-31`` (v3.1 GA) API version.
+✓* - Only available in the ``2023-07-31`` (v3.1 GA) and later API versions.
 
 ## Supported languages and locales
 

@@ -6,10 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: vikurpad
 ms.custom: references_regions
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -25,7 +25,7 @@ This article highlights the best methods for labeling custom model datasets in t
 
 * Here, we examine best practices for labeling your selected documents. With semantically relevant and consistent labeling, you should see an improvement in model performance.</br></br>
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB ]
+  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB]
 
 ## Search
 

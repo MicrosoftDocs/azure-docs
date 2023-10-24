@@ -6,15 +6,15 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 # Document Intelligence custom models
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0, v3.1, and v3.0](includes/applies-to-v4-v3-1-v3.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -23,7 +23,7 @@ monikerRange: '<=doc-intel-3.1.0'
 
 Document Intelligence uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-02-28-preview``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
+Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -39,7 +39,7 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
-> Starting with version 3.1 (2023-07-31 API version), custom neural models only require one sample labeled document to train a model.
+ > Starting with version 3.1—2023-07-31(GA) API, custom neural models only require one sample labeled document to train a model.
 >
 
 The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
@@ -93,24 +93,24 @@ The following table compares custom template and custom neural features:
 
 ## Custom model tools
 
-Document Intelligence v3.0 supports the following tools:
+Document Intelligence v3.1 and later models support the following tools, applications, and libraries, programs, and libraries:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|***custom-model-id***|
+|Custom model| &bullet; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</br>&bullet; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet; [C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet; [Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|***custom-model-id***|
 
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 > [!NOTE]
 > Custom model types [custom neural](concept-custom-neural.md) and [custom template](concept-custom-template.md) are available with Document Intelligence version v3.1 and v3.0 APIs.
 
 | Feature | Resources |
 |---|---|
-|Custom model| <ul><li>[Document Intelligence labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&tabs=windows&pivots=programming-language-rest-api&preserve-view=true)</li><li>[Client library SDK](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[Document Intelligence Docker container](containers/install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|Custom model| &bullet; [Document Intelligence labeling tool](https://fott-2-1.azurewebsites.net)</br>&bullet; [REST API](how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&tabs=windows&pivots=programming-language-rest-api&preserve-view=true)</br>&bullet; [Client library SDK](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet; [Document Intelligence Docker container](containers/install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)|
 
 :::moniker-end
 
@@ -119,7 +119,7 @@ Document Intelligence v2.1 supports the following tools:
 Extract data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
@@ -189,10 +189,9 @@ The following table describes the features available with the associated tools a
 
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
+| Custom template v 4.0 v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural v4.0 v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 | Custom form v2.1 | [Document Intelligence 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
-| Custom template v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom neural v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
-
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
 
@@ -651,7 +650,7 @@ The following table lists the supported languages for print text by the most rec
 
 ### Try signature detection
 
-* **Custom model v 3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
+* **Custom model v4.0, v3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
 * [Document Intelligence v3.1 migration guide](v3-1-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
 * [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
 

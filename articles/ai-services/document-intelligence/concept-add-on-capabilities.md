@@ -11,9 +11,6 @@ ms.author: lajanuar
 monikerRange: 'doc-intel-3.1.0'
 ---
 
-
-
-
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence add-on capabilities
@@ -27,8 +24,6 @@ monikerRange: 'doc-intel-3.1.0'
 > Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
 
 Document Intelligence supports more sophisticated analysis capabilities. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
-
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 

@@ -6,7 +6,7 @@ ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ---
 
-**This article applies to:** ![Document Intelligence v3.1 checkmark](../media/yes-icon.png) **Document Intelligence v3.1**
+**This article applies to:** ![checkmark](../media/yes-icon.png) **Document Intelligence v3.1:2023-07-31 (GA)**

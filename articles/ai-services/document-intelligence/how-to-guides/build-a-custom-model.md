@@ -6,9 +6,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -50,7 +50,7 @@ Once you've put together the set of forms or documents for training, you need to
 
 * Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
+  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
 ## Create a project in the Document Intelligence Studio
 

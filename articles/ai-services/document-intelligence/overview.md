@@ -6,9 +6,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: overview
-ms.date: 09/20/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -347,7 +347,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/ComposeDocumentModel)</br>&#9679; [**C# SDK**](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.startcreatecomposedmodel)</br>&#9679; [**Java SDK**](/java/api/com.azure.ai.formrecognizer.training.formtrainingclient.begincreatecomposedmodel)</br>&#9679; [**JavaScript SDK**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
+|[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/ComposeDocumentModel)</br>&#9679; [**C# SDK**](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.startcreatecomposedmodel)</br>&#9679; [**Java SDK**](/java/api/com.azure.ai.formrecognizer.training.formtrainingclient.begincreatecomposedmodel)</br>&#9679; [**JavaScript SDK**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
@@ -358,12 +358,22 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Composed classification model**](concept-custom-classifier.md)| Custom classification models combine layout and language features to detect, identify, and classify documents within an input file.|&#9679; A loan application packaged containing application form, payslip, and, bank statement.</br>&#9679; A collection of scanned invoices. |&#9679; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/BuildDocumentClassifier)</br>
+|[**Composed classification model**](concept-custom-classifier.md)| Custom classification models combine layout and language features to detect, identify, and classify documents within an input file.|&#9679; A loan application packaged containing application form, payslip, and, bank statement.</br>&#9679; A collection of scanned invoices. |&#9679; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentClassifier)</br>
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
 ## Add-on capabilities
+
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
+
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
+
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
+
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
 Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
 

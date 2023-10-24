@@ -6,16 +6,16 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: 'doc-intel-4.0.0 || <=doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence custom template model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -57,13 +57,40 @@ Template models rely on a defined visual template, changes to the template resul
 
 ## Training a model
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range=">=doc-intel-4.0.0"
 
-Custom template models are generally available with the [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
+Custom template models are generally available with the [v4.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template  | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template  | [v3.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/BuildDocumentModel)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+
+With the v3.0 and later APIs, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
+
+```REST
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10-31-preview
+
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "template",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
+```
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+Custom template models are generally available with the [v3.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
+
+| Model | REST API | SDK | Label and Test Models|
+|--|--|--|--|
+| Custom template  | [v3.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
 
 With the v3.0 and later APIs, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
@@ -82,7 +109,11 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
 }
 ```
 
+::: moniker-end
+
 ## Supported languages and locales
+
+::: moniker range=">=doc-intel-3.1.0"
 
 The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
 

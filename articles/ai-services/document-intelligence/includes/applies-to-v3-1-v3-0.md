@@ -6,7 +6,7 @@ ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ---
 
-**This article applies to:**![Document Intelligence v3.1 checkmark](../media/yes-icon.png) [**Document Intelligence v3.1**](?view=doc-intel-3.1.0&preserve-view=true) ![Document Intelligence v3.0 checkmark](../media/yes-icon.png) [**Document Intelligence v3.0**](?view=doc-intel-3.0.0&preserve-view=true) **Earlier version:** [Document Intelligence v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+**This article applies to:**![checkmark](../media/yes-icon.png) [**Document Intelligence v3.1:2023-07/31 (GA)**](?view=doc-intel-3.1.0&preserve-view=true) ![checkmark](../media/yes-icon.png) [**Document Intelligence v3.0:2022-08-31 (GA)**](?view=doc-intel-3.0.0&preserve-view=true) **Earlier version:** [v2.1](?view=doc-intel-2.1.0&preserve-view=true)

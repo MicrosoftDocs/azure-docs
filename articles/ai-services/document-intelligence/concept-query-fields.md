@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: nitinme
 monikerRange: 'doc-intel-3.0.0'
 ---
@@ -19,7 +19,7 @@ Document Intelligence now supports query field extractions using Azure OpenAI ca
 
 > [!NOTE]
 >
-> Document Intelligence Studio query field extraction is currently available with the general document model starting with the `2023-02-28-preview`  and later releases.
+> Document Intelligence Studio query field extraction is currently available with the general document model starting with the `2023-07-31 (GA)` API and later releases.
 
 ## Select query fields
 

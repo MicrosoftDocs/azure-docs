@@ -6,21 +6,18 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence custom classification model
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [GA SDK](sdk-overview-v3-1.md) supported by Document Intelligence REST API version [2023-07-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)**.
-
-> [!IMPORTANT]
->
-> Custom classification model is now generally available!
->
+::: moniker range=">=doc-intel-3.1.0"
+[!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v4-0-v3-1.md)]
+::: moniker-end
 
 Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
@@ -34,9 +31,9 @@ Custom classification models can analyze a single- or multi-file documents to id
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
-Training a custom classifier requires at least two distinct classes and a minimum of five samples per class. The model response contains the page ranges for each of the classes of documents identified. 
+Training a custom classifier requires at least two distinct classes and a minimum of five samples per class. The model response contains the page ranges for each of the classes of documents identified.
 
-The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application. 
+The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application.
 
 ### Compare custom classification and composed models
 
@@ -58,9 +55,46 @@ Custom classification models require a minimum of five samples per class to trai
 
 ## Training a model
 
-Custom classification models are only available in the [v3.1 API](v3-1-migration-guide.md) version ```2023-07-31```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
 When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
+
+:::moniker range="doc-intel-4.0.0"
+
+```rest
+
+https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+
+{
+  "classifierId": "demo2.1",
+  "description": "",
+  "docTypes": {
+    "car-maint": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/car-maint/"
+            }
+    },
+    "cc-auth": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/cc-auth/"
+            }
+    },
+    "deed-of-trust": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/deed-of-trust/"
+            }
+    }
+  }
+}
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 
 ```rest
 https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-31
@@ -91,6 +125,8 @@ https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-
 }
 
 ```
+
+:::moniker-end
 
 Alternatively, if you have a flat list of files or only plan to use a few select files within each folder to train the model, you can use the ```azureBlobFileListSource``` property to train the model. This step requires a ```file list``` in [JSON Lines](https://jsonlines.org/) format. For each class, add a new file with a list of files to be submitted for training.
 
@@ -136,9 +172,21 @@ File list `car-maint.jsonl` contains the following files.
 
 Analyze an input file with the document classification model
 
+:::moniker range="doc-intel-4.0.0"
+
+```rest
+https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
 ```rest
 https://{service-endpoint}/formrecognizer/documentClassifiers/{classifier}:analyze?api-version=2023-07-31
 ```
+
+:::moniker-end
 
 The response contains the identified documents with the associated page ranges in the documents section of the response.
 
