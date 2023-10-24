@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Create virtual machines
 
-In this section, you'll create two availability groups with two virtual machines per group. These machines will be added to the backend pool of the load balancer during creation. 
+In this section, you create two availability groups with two virtual machines per group. These machines are added to the backend pool of the load balancer during creation. 
 
 ### Create first set of VMs
 
@@ -162,7 +162,7 @@ In this section, you'll create two availability groups with two virtual machines
 
 ## Install IIS
 
-In this section, you'll use the Azure Bastion host you created previously to connect to the virtual machines and install IIS.
+In this section, you use the Azure Bastion host you created previously to connect to the virtual machines and install IIS.
 
 1. In the search box at the top of the portal, enter **Virtual machine**.
 1. Select **Virtual machines** in the search results.
@@ -192,7 +192,7 @@ In this section, you'll use the Azure Bastion host you created previously to con
 
 ## Test the load balancer
 
-In this section, you'll discover the public IP address of the load balancer. You'll use the IP address to test the operation of the load balancer.
+In this section, you discover the public IP address of the load balancer. You use the IP address to test the operation of the load balancer.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 1. Select **Public IP addresses** in the search results.
