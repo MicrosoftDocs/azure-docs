@@ -89,7 +89,7 @@ order by c_w_id;
     :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs":::
  
 
-8. Select the time range were 90% CPU Utilization was found.
+8. Select the time range where 90% CPU Utilization was found.
    
    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange":::
 
@@ -205,7 +205,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
 8. Select the time range where 90% CPU Utilization was found.
    
-   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Time range.":::
 
 
 9. Execute the below query to retrieve the explain analyze output of the query identified. 
