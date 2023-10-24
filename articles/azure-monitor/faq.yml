@@ -389,7 +389,7 @@ sections:
       - question: |
           Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
         answer: |
-          Yes they can, but with certain considerations. Read more [about agent coexistence](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
+          Yes. If you're migrating to Azure Monitor Agent, you might consider installing Azure Monitor Agent together with a legacy agent for a transition period, but you must be mindful of certain considerations. Read more about agent coexistence considerations in the [Azure Monitor Agent migration guidance](agents/azure-monitor-agent-migration#migration-guidance).
           
       - question: |
           Will I duplicate events if I use Azure Monitor Agent and the Log Analytics agent on the same machine? 
