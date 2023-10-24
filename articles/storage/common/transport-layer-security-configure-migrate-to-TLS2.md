@@ -17,13 +17,19 @@ ms.devlang: csharp
 
 On **Nov 1, 2024**, Azure Blob Storage will stop supporting versions 1.0 and 1.1 of Transport Layer Security (TLS). TLS 1.2 will become the new minimum TLS version. This change impacts all existing and new blob storage accounts, using TLS 1.0 and 1.1 in all clouds. Storage accounts already using TLS 1.2 aren't impacted by this change.
 
-To avoid disruptions to applications that connect to your storage account, you must ensure that your account requires clients to send and receive data by using TLS **1.2**, and remove dependencies on TLS version 1.0 and 1.1. This article helps you do that.
+To avoid disruptions to applications that connect to your storage account, you must ensure that your account requires clients to send and receive data by using TLS **1.2**, and remove dependencies on TLS version 1.0 and 1.1.
 
-Transport Layer Security (TLS) is an internet security protocol that establishes encryption channels over networks to encrypt communication between your applications and servers. When storage data is accessed via HTTPS connections, communication between client applications and the storage account is encrypted using TLS. TLS encrypts data sent over the internet to prevent malicious users from accessing private, sensitive information. The client and server perform a TLS handshake to verify each other's identity and determine how they'll communicate. During the handshake, each party identifies which TLS versions they use. The client and server can communicate if they both support a common version. 
+## About Transport Layer Security
+
+Transport Layer Security (TLS) is an internet security protocol that establishes encryption channels over networks to encrypt communication between your applications and servers. When storage data is accessed via HTTPS connections, communication between client applications and the storage account is encrypted using TLS. 
+
+TLS encrypts data sent over the internet to prevent malicious users from accessing private, sensitive information. The client and server perform a TLS handshake to verify each other's identity and determine how they'll communicate. During the handshake, each party identifies which TLS versions they use. The client and server can communicate if they both support a common version. 
 
 ## Why migrate to TLS 1.2?
 
-Azure Blob Storage currently supports TLS 1.0 and 1.1 (for backward compatibility) and TLS 1.2 on public HTTPS endpoints. We're recommending that customers secure their infrastructure by using TLS 1.2 with Azure Storage. The older TLS versions (1.0 and 1.1) are being deprecated and removed to meet evolving technology and regulatory standards (FedRamp, NIST), and provide improved security for our customers. TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support modern cryptographic algorithms and cipher suites. While many customers using Azure storage are already using TLS 1.2, we're sharing further guidance to accelerate this transition for customers that are still using TLS 1.0 or 1.1.
+We're recommending that customers secure their infrastructure by using TLS 1.2 with Azure Storage. The older TLS versions (1.0 and 1.1) are being deprecated and removed to meet evolving technology and regulatory standards (FedRamp, NIST), and provide improved security for our customers. 
+
+TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support modern cryptographic algorithms and cipher suites. While many customers using Azure storage are already using TLS 1.2, we're sharing further guidance to accelerate this transition for customers that are still using TLS 1.0 or 1.1.
 
 ## Prepare for migration to TLS 1.2
 
