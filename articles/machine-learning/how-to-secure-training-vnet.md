@@ -284,7 +284,7 @@ You can only enable serverless compute with no public IP address using Azure CLI
 
 ---
 
-## Compute instance/cluster or serverless compute with public IP
+## <a name="compute-instancecluster-with-public-ip"></a>Compute instance/cluster or serverless compute with public IP
 
 > [!IMPORTANT]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
