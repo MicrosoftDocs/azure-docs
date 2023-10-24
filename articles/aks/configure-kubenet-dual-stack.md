@@ -33,7 +33,7 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 ## Prerequisites
 
 * All prerequisites from [configure kubenet networking](configure-kubenet.md) apply.
-* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended to take advantage of the [out-of-tree cloud controller manager][aks-out-of-tree], which is the default on v1.22 and up.
+* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended.
 * If using Azure Resource Manager templates, schema version 2021-10-01 is required.
 
 ## Overview of dual-stack networking in Kubernetes
