@@ -208,7 +208,6 @@ Since you validated the application's functionality, you can stop and remove the
 In this tutorial, you created a sample application, created container images for the application, and then tested the application. You learned how to:
 
 > [!div class="checklist"]
-
 > * Clone a sample application source from GitHub.
 > * Create a container image from the sample application source.
 > * Test the multi-container application in a local Docker environment.

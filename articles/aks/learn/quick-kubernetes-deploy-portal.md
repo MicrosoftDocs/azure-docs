@@ -18,7 +18,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
 
 ## Before you begin
 
@@ -48,11 +48,11 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
     - **Primary node pool**:
         * Leave the default values selected.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information." lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
 
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
-    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
+    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options." lightbox="media/quick-kubernetes-deploy-portal/cluster-preset-options.png":::
 
 1. Select **Next: Node pools** when complete.
 1. On the **Node pools** page, leave the default options and then select **Next: Access**.
@@ -78,7 +78,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Screenshot of Open the Azure Cloud Shell in the portal option.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Screenshot of Open the Azure Cloud Shell in the portal option." lightbox="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png":::
 
     > [!NOTE]
     > To perform these operations in a local shell installation:
@@ -132,9 +132,9 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ## Deploy the application
 
-To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
+To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A Kubernetes manifest file defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture.":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
 
 * **Store front**: Web application for customers to view products and place orders.
 * **Product service**: Shows product information.
@@ -427,7 +427,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of AKS Store sample application.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
 
 ## Delete the cluster
 

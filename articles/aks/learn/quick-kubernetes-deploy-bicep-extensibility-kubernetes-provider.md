@@ -17,7 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png":::
 
 > [!IMPORTANT]
 > The Bicep Kubernetes provider is currently in preview. You can enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features) by adding:
@@ -72,7 +72,7 @@ Save a copy of the file as `main.bicep` to your local computer.
 
 To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture.":::
+:::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-architecture.png":::
 
 * **Store front**: Web application for customers to view products and place orders.
 * **Product service**: Shows product information.
@@ -319,7 +319,7 @@ To deploy the application, you use a manifest file to create all the objects req
 3. Press <kbd>Ctrl+Shift+P</kbd> to open **Command Palette**.
 4. Search for **bicep**, and then select **Bicep: Import Kubernetes Manifest**.
 
-    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest.":::
+    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest." lightbox="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png":::
 
 5. Select `aks-store-quickstart.yaml` from the prompt. This process creates an `aks-store-quickstart.bicep` file in the same folder.
 6. Open `main.bicep` and add the following Bicep at the end of the file to reference the newly created `aks-store-quickstart.bicep` module:
@@ -384,7 +384,7 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster successfu
 4. Find the **store-front** service and copy the value for **External IP**.
 5. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of AKS Store sample application.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png":::
 
 ## Delete the cluster
 

@@ -17,7 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy/bicep/aks-store-application.png":::
 
 ## Before you begin
 
@@ -174,7 +174,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture.":::
+:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-architecture.png":::
 
 * **Store front**: Web application for customers to view products and place orders.
 * **Product service**: Shows product information.
@@ -466,7 +466,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of AKS Store sample application.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
 
 ## Delete the cluster
 

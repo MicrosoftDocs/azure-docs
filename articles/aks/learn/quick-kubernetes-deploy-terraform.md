@@ -19,15 +19,14 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application.":::'
+:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
 
 ## Before you begin
 
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-cli.md).
-* [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-  * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+* [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 * [Download kubectl](https://kubernetes.io/releases/download/).
 * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
@@ -138,7 +137,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture.":::
+:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png":::
 
 * **Store front**: Web application for customers to view products and place orders.
 * **Product service**: Shows product information.
@@ -430,7 +429,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of AKS Store sample application.":::
+    :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
 
 ## Clean up resources
 
