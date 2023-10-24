@@ -90,9 +90,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 1. Go to Prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the drop-down menu. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-1.png":::
 1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
 > [!NOTE]
 > - You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.

@@ -86,8 +86,6 @@ To run a single node, select the **Run** icon on node in flatten view. Once runn
 
 To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, and the results of flow outputs defined in the flow. You can always change the flow input value and run the flow again.
 
-![View flow output](./media/flow-output.png)
-
 
 ## Develop your prompt flow locally with code experience
 

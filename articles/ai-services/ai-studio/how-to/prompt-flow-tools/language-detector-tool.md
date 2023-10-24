@@ -12,7 +12,7 @@ ms.author: eur
 
 # Azure Language Detector tool for flows in Azure AI Studio
 
-Azure Language Detector tool can detect and identify the language of input text. The Azure Language Detector tool uses the [Azure AI Translator](../../../translator/) service. For more information, see the [Azure AI Translator: Detect API](../../../translator/translator/reference/v3-0-detect.md).
+Azure Language Detector tool can detect and identify the language of input text. The Azure Language Detector tool uses the [Azure AI Translator](/azure/ai-services/translator/) service. For more information, see the [Azure AI Translator: Detect API](../../../translator/reference/v3-0-detect.md).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The following are available input parameters:
 | ---- | ---- | ----------- | -------- |
 | input_text | string | Identify the language of the input text. | Yes |
 
-For more information, see to [Translator 3.0: Detect](../../../cognitive-services/translator/reference/v3-0-detect.md)
+For more information, see to [Translator 3.0: Detect](../../../translator/reference/v3-0-detect.md)
 
 
 ## Outputs

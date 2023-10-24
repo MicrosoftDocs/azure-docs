@@ -12,7 +12,7 @@ ms.author: eur
 
 # Azure Translator tool for flows in Azure AI Studio
 
-Azure Translator tool can detect and identify the language of input text. The Azure Translator tool uses the [Azure AI Translator](../../../translator/) service. 
+Azure Translator tool can detect and identify the language of input text. The Azure Translator tool uses the [Azure AI Translator](/azure/ai-services/translator/) service. 
 
 ## Prerequisites
 

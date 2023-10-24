@@ -80,7 +80,7 @@ Within a flow, nodes take center stage, representing specific tools with unique 
 
 To facilitate node configuration and fine-tuning, a visual representation of the workflow structure is provided through a DAG (Directed Acyclic Graph) graph. This graph showcases the connectivity and dependencies between nodes, providing a clear overview of the entire workflow.
 
-:::image type="content" source="../media/prompt-flow/dag-graph-options.png" alt-text="Screenshot of an example directed acyclic graph in prompt flow editor" lightbox="../media/prompt-flow/dag-graph-options.png":::
+:::image type="content" source="../media/prompt-flow/dag-graph-example.png" alt-text="Screenshot of an example directed acyclic graph in prompt flow editor" lightbox="../media/prompt-flow/dag-graph-example.png":::
 
 With the flow feature in Prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
 

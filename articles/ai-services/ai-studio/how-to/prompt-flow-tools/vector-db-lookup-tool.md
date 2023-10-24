@@ -25,7 +25,7 @@ The prompt flow *Vector DB Lookup* tool is a vector search tool that allows user
 The tool searches data from a third-party vector database. To use it, you should create resources in advance and establish connection between the tool and the resource.
 
 **Azure AI Search:**
-- Create resource [Azure AI Search](../../../search/search-create-service-portal.md).
+- Create resource [Azure AI Search](../../../../search/search-create-service-portal.md).
 - Add "Cognitive search" connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "API base" field with the URL, the URL format is `https://{your_serive_name}.search.windows.net`.
 
 **Qdrant:**

@@ -30,7 +30,7 @@ Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites)
 
 1. Select the connection to one of your provisioned resources. For example, select **Default_AzureOpenAI**.
 1. From the **Api** drop-down list, select *chat* or *completion*. 
-1. Enter values for the LLM tool input parameters described [here](#inputs). If you selected the *chat* API, see [chat inputs](#chat). If you selected the *completion* API, see [text completion inputs](#text-completion). For information about how to prepare the prompt input, see [prerequisites](#prerequisites).
+1. Enter values for the LLM tool input parameters described [here](#inputs). If you selected the *chat* API, see [chat inputs](#chat-inputs). If you selected the *completion* API, see [text completion inputs](#text-completion-inputs). For information about how to prepare the prompt input, see [prerequisites](#prerequisites).
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
 1. The outputs are described [here](#outputs).
 
