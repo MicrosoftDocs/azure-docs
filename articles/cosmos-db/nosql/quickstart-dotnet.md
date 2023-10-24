@@ -173,16 +173,10 @@ When developing locally with passwordless authentication, make sure the user acc
         --query "documentEndpoint"
     ```
 
-1. Change your current directory to the `src/web` directory where the application project resides.
-
-    ```bash
-    cd src/web
-    ```
-
 1. Set the `AZURE_COSMOS_DB_NOSQL_ENDPOINT` environment variable using the .NET secret manager (`dotnet user-secrets`). Set the value to the API for NoSQL account endpoint recorded in the previous step.
 
     ```bash
-    dotnet user-secrets set "AZURE_COSMOS_DB_NOSQL_ENDPOINT" "<cosmos-db-nosql-endpoint>"
+    dotnet user-secrets set "AZURE_COSMOS_DB_NOSQL_ENDPOINT" "<cosmos-db-nosql-endpoint>" --project ./src/web/Cosmos.Samples.NoSQL.Quickstart.Web.csproj
     ```
 
 1. Create a role using the `az role definition create` command. Name the role PasswordlessReadWrite with permissions to read and write items in Cosmos DB containers. Name the role `Write to Azure Cosmos DB for NoSQL data plane` and ensure the role is scoped to the account level using `/`. Include the following permissions:
@@ -242,7 +236,7 @@ When developing locally with passwordless authentication, make sure the user acc
 1. Run the .NET web application.
 
     ```bash
-    dotnet run
+    dotnet run --project ./src/web/Cosmos.Samples.NoSQL.Quickstart.Web.csproj
     ```
 
 1. Use the link in the console to navigate to your web application in the browser.
