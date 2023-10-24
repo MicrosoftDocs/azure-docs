@@ -27,6 +27,10 @@ The Azure Developer CLI is a command line utility that provisions all the Azure 
 
 When that is complete you'll have all the Azure resources you need provisioned to the Azure portal.
 
+If you have any issues with the deployment due to permissions, then you can try to run the sample using key based auth instead of role based auth.  Here's how:
+
+1. Run `azd env set AZURE_AUTH_TYPE key`
+1. Run `azd provision`
 
 ### [Azure portal](#tab/manual)
 
