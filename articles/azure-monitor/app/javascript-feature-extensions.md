@@ -158,9 +158,19 @@ The `name` column of the `customEvent` is populated based on the following rules
   1. If the `data-id` or `data-*-id` attribute doesn't exist and if [`useDefaultContentNameOrId`](#icustomdatatags) is set to `true`, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
   1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`. We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
-#### `img` and `area` HTML elements
+### `contentName`
 
-If `data-id`, `data-*-id`, or `id` isn’t present within these HTML elements, the value of the `alt` attribute is used as the `customEvent` name when the element is clicked. 
+If you have the [`contentName` callback function](#ivaluecallback) in advanced configuration defined, the `contentName` column of the `customEvent` is populated based on the following rules:
+
+- For a clicked HTML `<a>` element, the plugin attempts to collect the value of its innerText (text) attribute. If the plugin can't find this attribute, it attempts to collect the value of its innerHtml attribute.
+- For a clicked HTML `<img>` or `<area>` element, the plugin collects the value of its `alt` attribute.
+- For all other clicked HTML elements, `contentName` is populated based on the following rules, which are listed in order of precedence:
+
+   1. The value of the `value` attribute for the element
+   1. The value of the `name` attribute for the element
+   1. The value of the `alt` attribute for the element
+   1. The value of the innerText attribute for the element
+   1. The value of the `id` attribute for the element
 
 ### `parentId` key
 
