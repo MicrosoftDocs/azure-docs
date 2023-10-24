@@ -63,6 +63,7 @@ The data object has the following properties:
 | `key` | string | The key of the key-value that was modified or deleted. |
 | `label` | string | The label, if any, of the key-value that was modified or deleted. |
 | `etag` | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
+| `syncToken` | string | The sync token representing the server state after the key-value event. |
 
 # [Snapshot event](#tab/snapshot-event-data-object)
 
