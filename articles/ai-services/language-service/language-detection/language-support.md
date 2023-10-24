@@ -14,11 +14,11 @@ ms.custom: language-service-language-detection, ignite-fall-2021
 
 # Language support for Language Detection
 
-Use this article to learn which natural languages are supported by Language Detection.
+Use this article to learn which natural languages that language detection supports.
 
 The Language Detection feature can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. The returned language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 
-If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
+If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that can't be detected is `unknown`.
 
 ## Languages supported by Language Detection
 
