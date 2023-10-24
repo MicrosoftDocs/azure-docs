@@ -354,7 +354,7 @@
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
-    - name: AI Search
+    - name: Azure AI Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Academic Knowledge
