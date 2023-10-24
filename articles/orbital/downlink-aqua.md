@@ -1,45 +1,58 @@
 ---
-title: Downlink data from NASA's Aqua satellite by using Azure Orbital Ground Station
-description: Learn how to schedule a contact with NASA's Aqua public satellite by using the Azure Orbital Ground Station service.
+title: Azure Orbital Ground Station - downlink data from public satellites 
+description: Learn how to schedule a contact with public satellites by using the Azure Orbital Ground Station service.
 author: apoorvanori
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
 ms.author: apoorvanori
-# Customer intent: As a satellite operator, I want to ingest data from NASA's Aqua public satellite into Azure.
+# Customer intent: As a satellite operator, I want to ingest data from NASA's public satellites into Azure.
 ---
 
-# Tutorial: Downlink data from NASA's Aqua public satellite
+# Tutorial: Downlink data from public satellites
 
-You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink data, you can process and analyze it in Azure. In this guide, you'll learn how to:
+You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink data, you can process and analyze it in Azure. 
+
+In this guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create and authorize a spacecraft for the Aqua public satellite.
-> * Prepare a virtual machine (VM) to receive downlinked Aqua data.
-> * Configure a contact profile for an Aqua downlink mission.
-> * Schedule a contact with Aqua by using Azure Orbital and save the downlinked data.
+> * Create and authorize a spacecraft for select public satellites.
+> * Prepare a virtual machine (VM) to receive downlinked data.
+> * Configure a contact profile for a downlink mission.
+> * Schedule a contact with a supported public satellite using Azure Orbital Ground Station and save the downlinked data.
+
+Azure Orbital Ground Station supports several public satellites including [Aqua](https://aqua.nasa.gov/content/about-aqua), [Suomi NPP](https://eospso.nasa.gov/missions/suomi-national-polar-orbiting-partnership), [JPSS-1/NOAA-20](https://eospso.nasa.gov/missions/joint-polar-satellite-system-1), and [Terra](https://terra.nasa.gov/about).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
+- [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/portal).
+Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
-> [!NOTE]
-> For all the procedures in this tutorial, follow the steps exactly as shown, or you won't be able to find the resources. Use the preceding link to sign in directly to the Azure Orbital Preview page.
+## Create a spacecraft resource
 
-## Create a spacecraft resource for Aqua
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
+2. On the **Spacecrafts** page, select **Create**.
+3. Choose which public satellite to contact: Aqua, Suomi NPP, JPSS-1/NOAA-20, or Terra. The table below outlines the NORAD ID, center frequency, bandwidth, and link direction and polarization for each satellite. Refer to this information in the following steps.
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. On the **Spacecraft** page, select **Create**.
-3. Get an up-to-date Two-Line Element (TLE) for Aqua by checking [CelesTrak](https://celestrak.com/NORAD/elements/active.txt).
+ | **Spacecraft Title** | **NORAD ID** | **centerFrequencyMhz** | **bandwidthMhz** | **direction** | **polarization** |
+ | :---                 | :----:      | :----:                 | :----:           | :----:        | :----:           |
+ | Aqua                 | 27424       | 8160                   | 15               | Downlink      | RHCP             |
+ | Suomi NPP            | 37849       | 7812                   | 30               | Downlink      | RHCP             | 
+ | JPSS-1/NOAA-20       | 43013       | 7812                   | 30               | Downlink      | RHCP             |
+ | Terra                | 25994       | 8212.5                 | 45               | Downlink      | RHCP             |  
+ 
+5. Search for your desired public satellite in [CelesTrak](https://celestrak.com/NORAD/elements/active.txt) and identify its current Two-Line Element (TLE).
    
    > [!NOTE]
-   > Be sure to update this TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
+   > Be sure to update this TLE to the most current value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
+   >
+   > [Read more about TLE values](spacecraft-object.md#ephemeris).
 
 4. In **Create spacecraft resource**, on the **Basics** tab, enter or select this information:
 
@@ -47,67 +60,76 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | --- | --- |
    | **Subscription** | Select your subscription. |
    | **Resource Group** | Select your resource group. |
-   | **Name** | Enter **AQUA**. |
+   | **Name** | Enter the **name** of the public spacecraft. |
    | **Region** | Select **West US 2**. |
-   | **NORAD ID** | Enter **27424**. |
-   | **TLE title line** | Enter **AQUA**. |
+   | **NORAD ID** | Enter the **NORAD ID** from the table above. |
+   | **TLE title line** | Enter **AQUA**, **SUOMI NPP**, **NOAA 20**, or **TERRA**. |
    | **TLE line 1** | Enter TLE line 1 from CelesTrak. |
    | **TLE line 2** | Enter TLE line 2 from CelesTrak. |
 
-5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page. Then, enter or select this information:
+5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page. Then, select **Add new link** and enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
+   | **Name** | Enter **Downlink**. |
    | **Direction** | Select **Downlink**. |
-   | **Center Frequency** | Enter **8160**. |
-   | **Bandwidth** | Enter **15**. |
+   | **Center Frequency** | Enter the **center frequency** from the table above. |
+   | **Bandwidth** | Enter the **bandwidth** from the table above. |
    | **Polarization** | Select **RHCP**. |
 
 7. Select the **Review + create** tab, or select the **Next: Review + create** button.
 8. Select **Create**.
 
-## Request authorization of the new Aqua spacecraft resource
+## Request authorization of the new public spacecraft resource
 
-1. Go to the overview page for the newly created spacecraft resource.
-2. On the left pane, in the **Support + troubleshooting** section, select **New support request**.
+1. Navigate to the overview page for the newly created spacecraft resource within your resource group.
+2. On the left pane, navigate to **Support + Troubleshooting** then select **Diagnose and solve problems**. Under Spacecraft Management and Setup, select **Troubleshoot**, then select **Create a support request**.
    
    > [!NOTE]
    > A [Basic support plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
-3. On the **New support request** page, on the **Basics** tab, enter or select this information:
+3. On the **New support request** page, under the **Problem description** tab, enter or select this information:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Summary** | Enter **Request authorization for AQUA**. |
    | **Issue type** |	Select **Technical**. |
    | **Subscription** |	Select the subscription in which you created the spacecraft resource. |
    | **Service** |	Select **My services**. |
    | **Service type** |	Search for and select **Azure Orbital**. |
+   | **Resource** | Select the spacecraft resource you created. |
+   | **Summary** | Enter **Request authorization for [insert name of public satellite]**. |
    | **Problem type** |	Select **Spacecraft Management and Setup**. |
    | **Problem subtype** |	Select **Spacecraft Registration**. |
 
-4. Select the **Details** tab at the top of the page. In the **Problem details** section, enter this information:
+5. Select **Next**. If a Solutions page pops up, click **Return to support request**. Select **Next** to move to the **Additional details** tab.
+6. Under the **Additional details** tab, enter the following information:
 
    | **Field** | **Value** |
    | --- | --- |
    | **When did the problem start?** |	Select the current date and time. |
-   | **Description** |	List Aqua's center frequency (**8160**) and the desired ground stations. |
-   | **File upload** |	Upload any pertinent licensing material, if applicable. |
+   | **Select Ground Stations** | Select the desired ground stations. |
+   | **Supplemental Terms** | Select **Yes** to accept and acknowledge the Azure Orbital [supplemental terms](https://azure.microsoft.com/products/orbital/#overview). |
+   | **Description** |	Enter the satellite's **center frequency** from the table above. |
+   | **File upload** |	No additional files are required. |
 
-6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
-7. Select the **Review + create** tab, or select the **Next: Review + create** button.
-8. Select **Create**.
+8. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
+9. Select **Next** to move to the **Review + create** tab.
+10. Select **Create**.
+
+Your spacecraft authorization request is reviewed by the Azure Orbital Ground Station team. Requests for supported public satellites should not take long to approve.
 
    > [!NOTE]
-   > You can confirm that your spacecraft resource for Aqua is authorized by checking that the **Authorization status** shows **Allowed** on the spacecraft's overview page.
+   > You can confirm that your spacecraft resource is authorized by checking that the **Authorization status** shows **Allowed** on the spacecraft's overview page.
 
-## Prepare your virtual machine and network to receive Aqua data
+## Prepare your virtual machine and network to receive public satellite data
 
-1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint VM.
-2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created. Ensure that this VM has the following specifications:
-   - The operating system is Linux (Ubuntu 20.04 or later).
-   - The size is at least 32 GiB of RAM.
-   - The VM has internet access for downloading tools by having one standard public IP address.
+1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint VM using the same subscription and resource group where your spacecraft resource is located.
+2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created using the same subscription and resource group where your spacecraft resource is located. Ensure that this VM has the following specifications:
+   - Under the Basics tab:
+      - **Image**: the operating system is Linux (**Ubuntu 20.04** or later).
+      - **Size** the VM has at least **32 GiB** of RAM.
+   - Under the Networking tab:
+      - **Public IP**: the VM has internet access for downloading tools by having one standard public IP address.
 
    > [!TIP]
    > The public IP address here is only for internet connectivity, not contact data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
