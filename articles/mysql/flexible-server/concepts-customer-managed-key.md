@@ -24,7 +24,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL - Flexib
 - Full control over the key lifecycle, including rotation of the key to aligning with corporate policies
 - Central management and organization of keys in Azure Key Vault
 - Ability to implement separation of duties between security officers, DBA, and system administrators
--
+
 ## How does data encryption with a customer-managed key work?
 
 Managed identities in Microsoft Entra ID provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Microsoft Entra authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
@@ -137,3 +137,5 @@ To avoid issues while setting up customer-managed data encryption during restore
 - [Data encryption with Azure portal](how-to-data-encryption-portal.md)
 - [Security in encryption rest](../../security/fundamentals/encryption-atrest.md)
 - [Active Directory authentication](concepts-azure-ad-authentication.md)
+
+

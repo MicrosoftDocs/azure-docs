@@ -14,16 +14,13 @@ ms.date: 09/28/2023
 This guide walks you through the following:
 
 1. How to enable diagnostics logs and metrics for the Managed Airflow.
-
-2. How to view logs and metrics.
-
-3. How to run a query.
-
-4. How to monitor metrics and set the alert system in Dag failure.
+2. How to view logs and metrics.
+3. How to run a query.
+4. How to monitor metrics and set the alert system in Dag failure.
 
 ## How to enable Diagnostics logs and metrics for the Managed Airflow
 
-1. Open your Azure Data Factory resource -> Select **Diagnostic settings** on the left navigation pane -> Select “Add Diagnostic setting.”
+1. Open your Azure Data Factory resource -> Select **Diagnostic settings** on the left navigation pane -> Select “Add Diagnostic setting.”
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where diagnostic logs tab is located in data factory." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png":::
 
@@ -38,11 +35,11 @@ This guide walks you through the following:
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-category-and-all-metrics.png" alt-text="Screenshot that shows which logs to select for Airflow environment." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-category-and-all-metrics.png":::
 
-3. Select the destination details, Log Analytics workspace:
+3. Select the destination details, Log Analytics workspace:
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-analytics-workspace.png" alt-text="Screenshot that shows select log analytics workspace as destination for diagnostic logs." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-analytics-workspace.png":::
 
-4. Click on Save.
+4. Click on Save.
 
 ## How to view logs
 
@@ -58,20 +55,16 @@ This guide walks you through the following:
 Other useful links for the schema:
 
 1. [Azure Monitor Logs reference - ADFAirflowSchedulerLogs | Microsoft Learn](/azure/azure-monitor/reference/tables/ADFAirflowSchedulerLogs)
-
 2. [Azure Monitor Logs reference - ADFAirflowTaskLogs | Microsoft Learn](/azure/azure-monitor/reference/tables/adfairflowtasklogs)
-
 3. [Azure Monitor Logs reference - ADFAirflowWebLogs | Microsoft Learn](/azure/azure-monitor/reference/tables/adfairflowweblogs)
-
 4. [Azure Monitor Logs reference - ADFAirflowWorkerLogs | Microsoft Learn](/azure/azure-monitor/reference/tables/adfairflowworkerlogs)
-
 5. [Azure Monitor Logs reference - AirflowDagProcessingLogs | Microsoft Learn](/azure/azure-monitor/reference/tables/AirflowDagProcessingLogs)
 
 ## How to write a query
 
 1. Let’s start with simplest query that returns all the records in the ADFAirflowTaskLogs.
    You can double click on the table name to add it to query window, or you can directly type table name in window.
-   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png" alt-text="Screenshot that shows kusto query to retrieve all logs." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png":::
+:::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png" alt-text="Screenshot that shows kusto query to retrieve all logs." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png":::
 
 2. To narrow down your search results, such as filtering them based on a specific task ID, you can use the following query:
 
