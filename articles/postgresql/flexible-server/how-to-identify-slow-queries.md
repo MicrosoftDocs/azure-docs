@@ -54,17 +54,17 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
 2.    Select High CPU Usage tab from the page opened. The high CPU Utilization troubleshooting guide opens.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides menu.":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides menu - tabs ":::
 
 3.    Select time range of the reported CPU spike using the time range drop-down.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-timerange.png" alt-text="Screenshot of troubleshooting guides menu.":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-timerange.png" alt-text="Screenshot of troubleshooting guides menu - CPU tab":::
 
 4.    Select Top CPU Consuming Queries tab. 
       
       The tab shares details of all the queries that ran in the interval where 90% CPU utilization was seen. From the snapshot it looks like query with slowest average execution time during the time interval was ~2.6 minutes and the query ran for 22 times during the interval. This is most likely the cause of CPU spikes.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-query.png" alt-text="Screenshot of troubleshooting guides menu.":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-query.png" alt-text="Screenshot of troubleshooting guides menu - Top CPU consuming queries tab.":::
 
 5.    Connect to azure_sys database and execute the query to retrieve actual query text using the below script 
 
@@ -86,12 +86,12 @@ order by c_w_id;
 
 7. To understand what exact explain plan was generated use Postgres logs. Auto explain extension would have logged an entry in the logs every time the query execution completed during the interval. Select Logs section from the `Monitoring` tab from the Flexible server portal overview blade.
 
-    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu.":::
+    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs":::
  
 
 8. Select the time range were 90% CPU Utilization was found.
    
-   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange":::
 
 
 9. Execute the below query to retrieve the explain analyze output of the query identified. 
@@ -201,11 +201,11 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
 7. To understand what exact explain plans were generated for the queries that are part of the stored procedure, use Postgres logs. Auto explain extension would have logged an entry in the logs every time the query execution completed during the interval. Select Logs section from the `Monitoring` tab from the Flexible server portal overview blade.
 
-    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu.":::
+    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs.":::
 
 8. Select the time range where 90% CPU Utilization was found.
    
-   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange.":::
 
 
 9. Execute the below query to retrieve the explain analyze output of the query identified. 
