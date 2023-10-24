@@ -28,13 +28,13 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `image` for image attachments.
 
-```js
-<TODO>
+```c#
+INSERT CODE HERE
 ```
 
 As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
 
-```js
+```json
 "attachments": [
     {
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
@@ -57,13 +57,13 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 
 Now let's go back to event handler we have created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `attachmentType` of `file`: 
 
-```js
-
-<TODO>
+```C#
+INSERT CODE HERE
 ```
 
 Let's make sure we add some CSS for the attachment card as well:
 
+INSERT FORMATTING HERE
 
 That's it all we need for handling file attachments. Next let's run the code.
 
