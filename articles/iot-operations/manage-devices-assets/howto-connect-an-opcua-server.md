@@ -365,7 +365,7 @@ kubectl create secret generic own-certs `
 ```
 ---
 
-##### Deploy the 'aio-opcplc-connector' helm chart
+##### Deploy the `aio-opcplc-connector` helm chart
 In this section, you use the `opcUaConnector.settings.transportAuthentication.ownCertReference` and `opcUaConnector.settings.transportAuthentication.ownCertThumbprint` settings to 
 indicate to OPC UA Connector to load the application certificate and its private key from the Kubernetes Secret. The OPC UA Broker runtime dereferences the `<secret-name>` references. The OPC UA Broker runtime also maps the contents of the secret into the OPC UA Connector's filesystem for the OPC UA stack to use at runtime.
 
@@ -499,7 +499,7 @@ kubectl apply -f aio-opc-ua-broker-client-certificate.yaml --namespace opcuabrok
 ```
 ---
 
-##### Deploy the 'aio-opcplc-connector' helm chart
+##### Deploy the `aio-opcplc-connector` helm chart
 In this section, you use the `opcUaConnector.settings.transportAuthentication.ownCertReference` and `opcUaConnector.settings.transportAuthentication.ownCertThumbprint` settings to 
 indicate to OPC UA Connector to load the application certificate and its private key from the `aio-opc-ua-broker-client-certificate` `SecretProviderClass` instance. The OPC UA Broker runtime dereferences the `<secret-name>` references. The OPC UA Broker runtime also maps the contents of the secret into the OPC UA Connector's filesystem for the OPC UA stack to use at runtime.
 
@@ -566,7 +566,7 @@ The following table contains parameters you can use with a helm chart.
 > | `opcUaConnector.settings.maxItemsPerSubscription`                   | false     | Unsigned Integer | `1000`                    | Maximum amount of OPC UA nodes with same OPC UA PublishingInterval that should be monitored as part of the same OPC UA subscription                                                                                                                                                                                           |
 > | `opcUaConnector.settings.autoAcceptUntrustedCertificates`           | false     | Boolean          | `false`                   | Auto-accept any OPC UA Server certificate.                                                                                                                                                                                                                                                                                    |
 > | `opcUaConnector.settings.sessionTimeout`                            | false     | Unsigned Integer | `600000`                  | Timeout when creating an OPC UA session in milliseconds                                                                                                                                                                                                                                                                       |
-> | `opcUaConnector.settings.transportAuthentication.ownCertReference`  | false     | String           | `null`                    | Reference to Kubernetes Secret (in <secret-name> format) that contains private keys to be used by the application and X.509 v3 certificates associated with them.                                                                                                                                                             |
+> | `opcUaConnector.settings.transportAuthentication.ownCertReference`  | false     | String           | `null`                    | Reference to Kubernetes Secret (in `<secret-name>` format) that contains private keys to be used by the application and X.509 v3 certificates associated with them.                                                                                                                                                             |
 > | `opcUaConnector.settings.transportAuthentication.ownCertThumbprint` | false     | String           | `null`                    | Thumbprint of application certificate.                                                                                                                                                                                                            |
 
 ## Next step
