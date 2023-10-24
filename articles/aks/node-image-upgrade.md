@@ -162,10 +162,10 @@ az aks nodepool show \
 [kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 
 <!-- LINKS - internal -->
-[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster]: upgrade-aks-cluster.md
 [github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: create-node-pools.md
-[max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
+[max-surge]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 [auto-upgrade-node-image]: auto-upgrade-node-image.md
 [az-aks-nodepool-get-upgrades]: /cli/azure/aks/nodepool#az_aks_nodepool_get_upgrades
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
