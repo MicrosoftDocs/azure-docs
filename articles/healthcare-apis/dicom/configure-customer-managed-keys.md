@@ -1,5 +1,5 @@
 ---
-title: Configure customer-managed Keys (CMK) - Azure Health Data Services
+title: Set up customer-managed keys (CMK) for the DICOM service in Azure Health Data Services
 description: Learn how to use customer-managed keys (CMK) with Azure Key Vault to encrypt and decrypt data stored by the DICOM service in Azure Health Data Services. Follow the steps to create a key, enable a managed identity, and update the encryption key.
 author: mmitrik
 ms.service: healthcare-apis
@@ -31,7 +31,7 @@ Before you set up keys, you need to enable a managed identity for the DICOM serv
 
 2. On the **Identity** page, select the **System assigned** tab, and then set the **Status** field to **On**. Choose **Save**.
 
-:::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/system-assigned-managed-identity.png"::
+:::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/system-assigned-managed-identity.png":::
 
 #### User-assigned managed identity
 
@@ -39,11 +39,11 @@ Instead of a system-assigned managed identity, you can use a user-assigned manag
 
 ## Assign the Key Vault Crypto Officer role
 
-The system-assigned managed identity needs the [Key Vault Crypto Officer](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role to access keys and use them to encrypt and decrypt data.  
+The system-assigned managed identity needs the [Key Vault Crypto Officer](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
 
 1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
 
-2. On the **Access control (IAM)** page select **Add role assignment**.
+2. On the **Access control (IAM)** page, select **Add role assignment**.
 
 :::image type="content" source="media/kv-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/kv-access-control.png":::
 
@@ -53,7 +53,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 4. On the Members tab, select **Managed Identity** and then **Select members**.
 
-5. On the Select managed identities panel, select **DICOM Service** from the Managed identity drop down, then select your DICOM service from the list, then choose **Select**. 
+5. On the Select managed identities panel, select **DICOM Service** from the Managed identity drop-down list, then select your DICOM service from the list, then choose **Select**. 
 
 :::image type="content" source="media/kv-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/kv-add-role-assignment.png":::
 
@@ -71,7 +71,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 2. Select the key version and copy the **Key Identifier**.  You need the Key Url for the next step.
 
-:::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of the key version details and the copy action forthe Key Identifier." lightbox="media/kv-key-url.png":::
+:::image type="content" source="media/kv-key-url.png" alt-text="Screenshot of the key version details and the copy action for the Key Identifier." lightbox="media/kv-key-url.png":::
 
 3. Use the Azure portal to **Deploy a custom template** and use following ARM template to update the key.  
 
@@ -136,3 +136,9 @@ In any scenario where the DICOM service can't access the key, API requests retur
 If key access is lost for less than 30 minutes, 
 
 ## Rotate the key
+
+
+
+
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
