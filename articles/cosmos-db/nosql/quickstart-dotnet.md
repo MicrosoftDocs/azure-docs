@@ -120,6 +120,13 @@ Use the Azure CLI (`az`) to create an API for NoSQL account. You can choose to c
 
 1. Record the account and resource group names for the API for NoSQL account. You use these values in later steps.
 
+> [!IMPORTANT]
+> If you are using a free account, you might need to change the default subscription in Azure CLI to the subscription ID used for the free account.
+>
+> ```azurecli
+> az account set --subscription <subscription-id>
+> ```
+
 ### [Azure subscription](#tab/azure-subscription)
 
 1. If you haven't already, sign in to the Azure CLI using the `az login` command.
