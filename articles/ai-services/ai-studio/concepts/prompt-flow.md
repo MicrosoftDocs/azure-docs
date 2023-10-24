@@ -1,0 +1,126 @@
+---
+title: Prompt flow in Azure AI Studio
+titleSuffix: Azure AI services
+description: This article introduces prompt flow in Azure AI Studio.
+author: eric-urban
+manager: nitinme
+ms.service: azure-ai-services
+ms.topic: conceptual
+ms.date: 10/1/2023
+ms.author: eur
+---
+
+# Prompt flow in Azure AI Studio
+
+Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). As the momentum for LLM-based AI applications continues to grow across the globe, prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+
+Definitions:
+- *Prompt flow* is a feature that can be used to generate, customize, or run a flow.
+- A *flow* is an executable instruction set that can implement the AI logic.​​ Flows can be created or run via multiple tools, like a pre-built canvas, LangChain, etc. Iterations of a flow can be saved as assets; once deployed a flow becomes an API. Not all flows are prompt flows; rather, prompt flow is one way to create a flow. 
+- A *prompt* is a package of input sent to a model, consisting of the user input, system message, and any examples. User input is text submitted in the chat window. System message is a set of instructions to the model scoping its behaviors and functionality.
+- A *sample flow* is a simple, prebuilt orchestration flow that shows how flows work, and can be customized and saved by the user. 
+- A *sample prompt* is a defined prompt for a specific scenario that can be copied from a library and used as-is or modified in prompt design. 
+
+Prompt flow is available as an open-source project on [GitHub](https://github.com/microsoft/promptflow), as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow), and as a feature within both [Azure AI Studio](https://aka.ms/AzureAIStudio) and [Azure Machine Learning Studio](https://aka.ms/AzureAIStudio). This set of documentation focuses on prompt flow in Azure AI Studio.
+
+With prompt flow in Azure AI Studio, you'll be able to:
+
+- Orchestrate executable flows with LLMs, prompts, and Python tools through a visualized graph.
+- Debug, share, and iterate your flows with ease through team collaboration.
+- Create prompt variants and compare their performance.
+
+## Prompt engineering agility
+
+- Interactive authoring experience: Prompt flow provides a visual representation of the flow's structure, allowing users to easily understand and navigate their projects. It also offers a notebook-like coding experience for efficient flow development and debugging.
+- Variants for prompt tuning: Users can create and compare multiple prompt variants, facilitating an iterative refinement process.
+- Evaluation: Built-in evaluation flows enable users to assess the quality and effectiveness of their prompts and flows.
+- Comprehensive resources: Prompt flow includes a library of built-in tools, samples, and templates that serve as a starting point for development, inspiring creativity and accelerating the process.
+
+## Enterprise readiness
+
+- Collaboration: Prompt flow supports team collaboration, allowing multiple users to work together on prompt engineering projects, share knowledge, and maintain version control.
+- All-in-one platform: Prompt flow streamlines the entire prompt engineering process, from development and evaluation to deployment and monitoring. Users can effortlessly deploy their flows as Azure AI endpoints and monitor their performance in real-time, ensuring optimal operation and continuous improvement.
+- Enterprise Readiness Solutions: Prompt flow leverages robust Azure AI enterprise readiness solutions, providing a secure, scalable, and reliable foundation for the development, experimentation, and deployment of flows.
+
+With prompt flow in Azure AI Studio, users can unleash their prompt engineering agility, collaborate effectively, and leverage enterprise-grade solutions for successful LLM-based application development and deployment.
+
+## Flow development lifecycle
+
+Prompt flow offers a well-defined process that facilitates the seamless development of AI applications. By leveraging it, you can effectively progress through the stages of developing, testing, tuning, and deploying flows, ultimately resulting in the creation of fully fledged AI applications.
+
+The lifecycle consists of the following stages:
+
+- Initialization: Identify the business use case, collect sample data, learn to build a basic prompt, and develop a flow that extends its capabilities.
+- Experimentation: Run the flow against sample data, evaluate the prompt's performance, and iterate on the flow if necessary. Continuously experiment until satisfied with the results.
+- Evaluation & Refinement: Assess the flow's performance by running it against a larger dataset, evaluate the prompt's effectiveness, and refine as needed. Proceed to the next stage if the results meet the desired criteria.
+- Production: Optimize the flow for efficiency and effectiveness, deploy it, monitor performance in a production environment, and gather usage data and feedback. Use this information to improve the flow and contribute to earlier stages for further iterations.
+
+By following this structured and methodical approach, prompt flow empowers you to develop, rigorously test, fine-tune, and deploy flows with confidence, resulting in the creation of robust and sophisticated AI applications.
+
+
+
+## Flows
+
+A flow in Prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+
+Within a flow, nodes take center stage, representing specific tools with unique capabilities. These nodes handle data processing, task execution, and algorithmic operations, with inputs and outputs. By connecting nodes, you establish a seamless chain of operations that guides the flow of data through your application.
+
+To facilitate node configuration and fine-tuning, our user interface offers a notebook-like authoring experience. This intuitive interface allows you to effortlessly modify settings and edit code snippets within nodes. Additionally, a visual representation of the workflow structure is provided through a DAG (Directed Acyclic Graph) graph. This graph showcases the connectivity and dependencies between nodes, providing a clear overview of the entire workflow.
+
+With the flow feature in Prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
+
+## Flow types
+
+Azure Machine Learning prompt flow offers three different flow types to cater to various user scenarios:
+
+- **Standard flow**: Designed for general application development, the standard flow allows users to create a flow using a wide range of built-in tools for developing LLM-based applications. It provides flexibility and versatility for developing applications across different domains.
+- **Chat flow**: Specifically tailored for conversational application development, the Chat flow builds upon the capabilities of the standard flow and provides enhanced support for chat inputs/outputs and chat history management. With native conversation mode and built-in features, users can seamlessly develop and debug their applications within a conversational context.
+- **Evaluation flow**: Designed for evaluation scenarios, the evaluation flow enables users to create a flow that takes the outputs of previous flow runs as inputs. This flow type allows users to evaluate the performance of previous run results and output relevant metrics, facilitating the assessment and improvement of their models or applications.
+
+## Tools in Prompt flow
+
+Tools are the fundamental building blocks of a flow in Azure Machine Learning prompt flow.
+
+Each tool is a simple, executable unit with a specific function, allowing users to perform various tasks.
+By combining different tools, users can create a flow that accomplishes a wide range of goals.
+
+One of the key benefit of Prompt flow tools is their seamless integration with third-party APIs and python open source packages.
+This not only improves the functionality of large language models but also makes the development process more efficient for developers.
+
+Prompt flow provides different kinds of tools:
+- LLM tool: The LLM tool allows you to write custom prompts and leverage large language models to achieve specific goals, such as summarizing articles, generating customer support responses, and more.
+- Python tool: The Python tool enables you to write custom Python functions to perform various tasks, such as fetching web pages, processing intermediate data, calling third-party APIs, and more.
+- Prompt tool: The Prompt tool allows you to prepare a prompt as a string for more complex use cases or for use in conjunction with other prompt tools or python tools.
+
+
+## Variants in Prompt flow
+
+With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the Prompt flow variants concept.
+
+## Variants
+
+A variant refers to a specific version of a tool node that has distinct settings. Currently, variants are supported only in the LLM tool. For example, in the LLM tool, a new variant can represent either a different prompt content or different connection settings.
+
+Suppose you want to generate a summary of a news article. You can set different variants of prompts and settings like this:
+
+| Variants  | Prompt                                                       | Connection settings |
+| --------- | ------------------------------------------------------------ | ------------------- |
+| Variant 0 | `Summary: {{input sentences}}`                               | Temperature = 1     |
+| Variant 1 | `Summary: {{input sentences}}`                               | Temperature = 0.7   |
+| Variant 2 | `What is the main point of this article? {{input sentences}}` | Temperature = 1     |
+| Variant 3 | `What is the main point of this article? {{input sentences}}` | Temperature = 0.7   |
+
+By utilizing different variants of prompts and settings, you can explore how the model responds to various inputs and outputs, enabling you to discover the most suitable combination for your requirements.
+
+Benefits of using variants include:
+
+- **Enhance the quality of your LLM generation**: By creating multiple variants of the same LLM node with diverse prompts and configurations, you can identify the optimal combination that produces high-quality content aligned with your needs.
+- **Save time and effort**: Even slight modifications to a prompt can yield significantly different results. It's crucial to track and compare the performance of each prompt version. With variants, you can easily manage the historical versions of your LLM nodes, facilitating updates based on any variant without the risk of forgetting previous iterations. This saves you time and effort in managing prompt tuning history.
+- **Boost productivity**: Variants streamline the optimization process for LLM nodes, making it simpler to create and manage multiple variations. You can achieve improved results in less time, thereby increasing your overall productivity.
+- **Facilitate easy comparison**: You can effortlessly compare the results obtained from different variants side by side, enabling you to make data-driven decisions regarding the variant that generates the best outcomes.
+
+
+## Next steps
+
+- [Build with prompt flow in Azure AI Studio](../how-to/prompt-flow-build.md)
+- [Get started with prompt flow in VS Code](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html)

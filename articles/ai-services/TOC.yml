@@ -22,8 +22,40 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: Prompt flow
+    href: ai-studio/concepts/prompt-flow.md
 - name: How-to
   items:
+  - name: Build apps with prompt flow
+    items:
+    - name: Create a flow
+      href: ai-studio/how-to/flow-build.md
+    - name: Use prompt flow tools
+      items:
+      - name: LLM tool
+        href: ai-studio/how-to/prompt-flow-tools/llm-tool.md
+      - name: Prompt tool
+        href: ai-studio/how-to/prompt-flow-tools/prompt-tool.md
+      - name: Python tool
+        href: ai-studio/how-to/prompt-flow-tools/python-tool.md
+      - name: Content Safety tool
+        href: ai-studio/how-to/prompt-flow-tools/content-safety-tool.md
+      - name: Translator tool
+        href: ai-studio/how-to/prompt-flow-tools/translator-tool.md
+      - name: Language Detector tool
+        href: ai-studio/how-to/prompt-flow-tools/language-detector-tool.md
+      - name: Vector DB Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-db-lookup-tool.md
+      - name: Embedding tool
+        href: ai-studio/how-to/prompt-flow-tools/embedding-tool.md
+      - name: Faiss Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/faiss-index-lookup-tool.md
+      - name: Vector Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-index-lookup-tool.md
+      - name: Serp API tool
+        href: ai-studio/how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Deploy flows
+      href: ai-studio/how-to/flow-deploy.md
   - name: Create multi-service resources
     items:
     - name: Create a multi-service resource
