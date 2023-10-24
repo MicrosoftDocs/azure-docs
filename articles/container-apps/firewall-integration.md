@@ -34,15 +34,15 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure Subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
-| TCP | Your Client IP | \* | Infrastructure Subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | AzureLoadBalancer | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
+| TCP | Your Client IP | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
 # [Consumption only environment](#tab/consumption-only-env)
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | AzureLoadBalancer | \* | Infrastructure subnet address space | 30,000-32,676<sup>1</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ---
 
@@ -57,12 +57,12 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | Infrastructure Subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
-| TCP | Infrastructure Subnet address space | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
-| TCP | Infrastructure Subnet address space | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-| TCP | Infrastructure Subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
-| UDP | Infrastructure Subnet address space | \* | \* | `123` | NTP server. |
-| Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+| TCP | Infrastructure subnet address space | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
+| TCP | Infrastructure subnet address space | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
+| TCP | Infrastructure subnet address space | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| TCP | Infrastructure subnet address space | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Infrastructure subnet address space | \* | \* | `123` | NTP server. |
+| Any | Infrastructure subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 # [Consumption only environment](#tab/consumption-only-env)
 
