@@ -74,7 +74,7 @@ Clients that use AMQP connections over TCP require ports 5671 and 5672 to be ope
 
 A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connection string, which forces the clients to communicate with the remote service over port 5671.
 
-The AMQP **WebSockets** binding creates a tunnel over TCP port 443 that's equivalent to AMQP 5671 connections. Use AMQP WebSockets if you are behind a firewall that blocks TCP connections over ports 5671, 5672 but allows TCP connections over port 443 (https).
+The AMQP **WebSocket binding** provides a mechanism for tunneling an AMQP connection over a WebSocket transport. This binding creates a tunnel over the TCP port 443, which is equivalent to AMQP 5671 connections. Use AMQP WebSockets if you are behind a firewall that blocks TCP connections over ports 5671, 5672 but allows TCP connections over port 443 (https).
 
 
 ### Links
