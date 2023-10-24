@@ -56,7 +56,7 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `E4K output` |
+| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | URL | String | The Microsoft Fabric URL | Yes | - | |
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
