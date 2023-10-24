@@ -32,7 +32,6 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 
 ### Availability
- 
 
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that Standard Load Balancer is zone-redundant**
@@ -58,6 +57,7 @@ Deploy Load Balancer with at least two instances in the backend. A single instan
 
 ----
 
+### System Efficiency
 
 
 #### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Use NAT Gateway instead of outbound rules for production workloads**
@@ -244,7 +244,7 @@ Azure cross-region load balancer uses geo-proximity load-balancing algorithm for
 
 The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.  
 
-For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
+For more information, see [Configure the distribution mode for Azure Load Balancer](../load-balancer/load-balancer-distribution-mode.md).
 
 Egress traffic follows the routing preference set on the regional load balancers.
 
@@ -262,7 +262,7 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 
 #### Floating IP
 
-Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
+Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](../load-balancer/load-balancer-multivip-overview.md)
 
 It is important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
 
@@ -347,6 +347,6 @@ Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/
 
 ## Next steps
 - [Reliability in Azure](/azure/reliability/availability-zones-overview)
-- See [Tutorial: Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md) to create a cross-region load balancer.
+- See [Tutorial: Create a cross-region load balancer using the Azure portal](../load-balancer/tutorial-cross-region-portal.md) to create a cross-region load balancer.
 - Learn more about [cross-region load balancer](https://www.youtube.com/watch?v=3awUwUIv950).
-- Learn more about [Azure Load Balancer](load-balancer-overview.md).
+- Learn more about [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
