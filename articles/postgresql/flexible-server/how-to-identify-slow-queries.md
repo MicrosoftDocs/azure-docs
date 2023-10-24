@@ -144,7 +144,7 @@ To enable auto explain extension follow the steps below:
 
 1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters blade on Flexible server portal
 
-   :::image type="content" source="./media/how-to-identify-slow-queries/shared_preload_library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/shared_preload_library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter - Procedure":::
 
 > [!NOTE]
 > Please note that making this change will require a server restart.
@@ -152,7 +152,7 @@ To enable auto explain extension follow the steps below:
 2. After the auto_explain extension is added to shared preload libraries and server has restarted, change the below highlighted auto_explain server parameters to `ON` from server parameters blade on Flexible server portal and leave the remaining ones
    with default values as shown below.
 
-   :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png" alt-text="Screenshot of server parameters blade with auto_explain parameters.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png" alt-text="Screenshot of server parameters blade with auto_explain parameters - Procedure":::
 
 > [!NOTE]
 > 1.    Updating `auto_explain.log_min_duration` parameter to 0 will start logging all queries being executed on the server. This may impact performance of the database. Proper due diligence must be made to come to a value which is considered slow on the server. Example if 30 seconds is considered threshold and all queries being run below 30 seconds is acceptable for application then it is advised to update the parameter to 30000 milliseconds. This would then log any query which is executed more than 30 seconds on the server.
