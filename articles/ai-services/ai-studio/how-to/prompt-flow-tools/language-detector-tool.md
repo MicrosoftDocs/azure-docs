@@ -27,7 +27,7 @@ Create an Azure AI Translator connection:
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
 1. Select **+ More tools** > **Azure Language Detector** to add the Azure Language Detector tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/language-detector-tool.png" alt-text="Screenshot of the playground page of the Azure AI Studio with python sample code in view" lightbox="../../media/prompt-flow/language-detector-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/language-detector-tool.png" alt-text="Screenshot of the Azure Language Detector tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/language-detector-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **AzureAITranslatorConnection**. For example, select **AzureAITranslatorConnection** if you created a connection with that name. See [Prerequisites](#prerequisites) for more information.
 1. Enter values for the Azure Language Detector tool input parameters described [here](#inputs).

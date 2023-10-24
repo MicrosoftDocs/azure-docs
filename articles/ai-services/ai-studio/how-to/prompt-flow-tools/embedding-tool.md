@@ -22,7 +22,7 @@ Use the embedding tool (as described in this document) to convert text into dens
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
 1. Select **+ More tools** > **Embedding** to add the Embedding tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/embedding-tool.png" alt-text="Screenshot of the playground page of the Azure AI Studio with python sample code in view" lightbox="../../media/prompt-flow/embedding-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/embedding-tool.png" alt-text="Screenshot of the Embedding tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/embedding-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **Default_AzureOpenAI**.
 1. Enter values for the Embedding tool input parameters described [here](#inputs).
