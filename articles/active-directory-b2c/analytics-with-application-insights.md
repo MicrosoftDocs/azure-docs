@@ -323,6 +323,6 @@ To disable Application Insights logs, change the `DisableTelemetry` metadata to 
 
 ## Next steps
 
-Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/tutorial-app-dashboards.md).
+Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
 
 ::: zone-end

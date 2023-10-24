@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 author: miwithro
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 02/28/2023
+ms.date: 07/18/2023
 ms.author: miwithro
 ---
 
@@ -26,7 +26,7 @@ This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it's important to conduct static analysis of image builds before they're promoted down the pipeline, which includes vulnerability and compliance assessment. It's not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
+As the entry point for the supply chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
 
 ## Registry Security
 
@@ -50,9 +50,9 @@ AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
 > [!NOTE]
-> AKS clusters using:
-> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
-> * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
+> AKS clusters running:
+> * Kubernetes version 1.19 and higher - Linux node pools use `containerd` as its container runtime. Windows Server 2019 node pools use `containerd` as its container runtime, which is currently in preview. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> * Kubernetes version 1.19 and earlier - Linux node pools use Docker as its container runtime. Windows Server 2019 node pools use Docker for the default container runtime.
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
 
@@ -62,7 +62,7 @@ Node authorization is a special-purpose authorization mode that specifically aut
 
 ### Node deployment
 
-Nodes are deployed into a private virtual network subnet with no public IP addresses assigned. SSH is enabled by default for troubleshooting and management purposes and is only accessible using the internal IP address.
+Nodes are deployed onto a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address. Disabling SSH is during cluster and node pool creation, or for an existing cluster or node pool is in preview. See [Manage SSH access][manage-ssh-access] for more information. 
 
 ### Node storage
 
@@ -150,31 +150,26 @@ For more information on core Kubernetes and AKS concepts, see:
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- LINKS - External -->
-[kured]: https://github.com/kubereboot/kured
-[kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
-[aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
-[aks-add-np-containerd]: /azure/aks/create-node-pools
+[aks-add-np-containerd]: create-node-pools.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
-[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
-[node-image-upgrade]: node-image-upgrade.md
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
+[manage-ssh-access]: manage-ssh-node-access.md

@@ -1,12 +1,12 @@
 ---
-title: Use Windows Local Administrator Password Solution (LAPS) with Microsoft Entra ID (preview)
+title: Use Windows Local Administrator Password Solution (LAPS) with Microsoft Entra ID
 description: Manage your device's local administrator password with Microsoft Entra LAPS.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 10/23/2023
 
 ms.author: sandeo
 author: sandeo-MSFT
@@ -15,11 +15,7 @@ ms.custom: references_regions
 
 ms.collection: M365-identity-device-management
 ---
-# Windows Local Administrator Password Solution in Microsoft Entra ID (preview)
-
-> [!IMPORTANT]
-> Microsoft Entra ID support for Windows Local Administrator Password Solution is currently in preview.
-> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
+# Windows Local Administrator Password Solution in Microsoft Entra ID
 
 Every Windows device comes with a built-in local administrator account that you must secure and protect to mitigate any Pass-the-Hash (PtH) and lateral traversal attacks. Many customers have been using our standalone, on-premises [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) product for local administrator password management of their domain joined Windows machines. With Microsoft Entra ID support for Windows LAPS, we're providing a consistent experience for both Microsoft Entra joined and Microsoft Entra hybrid joined devices.
 
@@ -75,11 +71,11 @@ LAPS is available to all customers with Microsoft Entra ID Free or higher licens
 
 ### Required roles or permission
 
-Other than the built-in Microsoft Entra roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Microsoft Entra custom roles](/azure/active-directory/roles/custom-create) or administrative units to authorize local administrator password recovery. For example,
+Other than the built-in Microsoft Entra roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Microsoft Entra custom roles](../roles/custom-create.md) or administrative units to authorize local administrator password recovery. For example,
 
-- Custom roles must be assigned the *microsoft.directory/deviceLocalCredentials/password/read* permission to authorize local administrator password recovery. During the preview, you must create a custom role and grant permissions using the [Microsoft Graph API](/azure/active-directory/roles/custom-create#create-a-role-with-the-microsoft-graph-api) or [PowerShell](/azure/active-directory/roles/custom-create#create-a-role-using-powershell). Once you have created the custom role, you can assign it to users.
+- Custom roles must be assigned the *microsoft.directory/deviceLocalCredentials/password/read* permission to authorize local administrator password recovery. You can create a custom role and grant permissions using the Microsoft Entra portal, [Microsoft Graph API](../roles/custom-create.md#create-a-role-with-the-microsoft-graph-api) or [PowerShell](../roles/custom-create.md#create-a-role-using-powershell). Once you have created the custom role, you can assign it to users.
 
-- You can also create a Microsoft Entra ID [administrative unit](/azure/active-directory/roles/administrative-units), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
+- You can also create a Microsoft Entra ID [administrative unit](../roles/administrative-units.md), add devices, and assign the Cloud Device Administrator role scoped to the administrative unit to authorize local administrator password recovery.
 
 <a name='enabling-windows-laps-with-azure-ad'></a>
 
@@ -119,7 +115,7 @@ You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/
 
 ## List all Windows LAPS enable devices
 
-To list all Windows LAPS enabled devices, you can browse to  **Identity** > **Devices** > **Overview** > **Local administrator password recovery (Preview)** or use the Microsoft Graph API.
+To list all Windows LAPS enabled devices, you can browse to  **Identity** > **Devices** > **Overview** > **Local administrator password recovery** or use the Microsoft Graph API.
 
 ## Auditing local administrator password update and recovery
 

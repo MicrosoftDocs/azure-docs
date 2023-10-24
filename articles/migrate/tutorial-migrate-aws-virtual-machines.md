@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 12/14/2022
+ms.date: 10/23/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -215,12 +215,12 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 
 2. Run the installer script:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -d <Install Location> -q -c CSLegacy
     ```  
 
 3. Register the agent with the replication appliance:
     ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
     ```
 
 ## Enable replication for AWS VMs
