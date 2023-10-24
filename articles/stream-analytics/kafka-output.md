@@ -42,7 +42,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
 
-### Connect to Confluent Cloud Using API Key
+### Connect to Confluent Cloud using API key
 
 The ASA Kafka adapter is a librdkafka-based client, and to connect to confluent cloud, you will need TLS certificates that confluent cloud uses for server auth.
 Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA)
@@ -54,7 +54,7 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
  | Username | Key/ Username from API Key |
  | Password | Secret/ Password from API key |
  | KeyVault | Name of Azure Key vault with Uploaded certificate from Let’s Encrypt |
- | Certificate | Certificate uploaded to KeyVault downloaded from Let’s Encrypt ( You can download the ISRG Root X1 Self-sign cert in PEM format) |
+ | Certificate | Certificate uploaded to KeyVault downloaded from Let’s Encrypt (You can download the ISRG Root X1 Self-sign cert in PEM format) |
 
 
 ## Key vault integration
@@ -91,7 +91,7 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 
 
 ### VNET integration
-When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you may have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.           
+When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you might have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.           
 
 
 ### Limitations
