@@ -23,9 +23,9 @@ Azure Orbital Ground Station uses three types of Azure resources:
 
 You need to create each of these resources before you can successfully contact your satellite.
 
-A spacecraft object is a representation of your satellite in Azure and stores links, ephemeris, and licensing information. A contact profile stores pass requirements such as links, channels, and network endpoint details.
+A spacecraft resource is a representation of your satellite in Azure and stores links, ephemeris, and licensing information. A contact profile resource stores pass requirements such as links, channels, and network endpoint details.
 
-Contacts are scheduled at a designated time for a particular combination of a spacecraft and contact profile. When you schedule a contact for a spacecraft, a contact object is created under your spacecraft object in your resource group.
+Contacts are scheduled at a designated time for a particular combination of a spacecraft and contact profile. When you schedule a contact for a spacecraft, a contact resource is created under your spacecraft resource in your resource group.
 
 ## Register a spacecraft
 

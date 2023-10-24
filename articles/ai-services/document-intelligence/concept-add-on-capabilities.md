@@ -11,9 +11,6 @@ ms.author: lajanuar
 monikerRange: 'doc-intel-3.1.0'
 ---
 
-
-
-
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence add-on capabilities
