@@ -31,10 +31,10 @@ The following features are supported for installing OPC UA Broker:
 
 | Feature                              | Supported | Symbol      |
 | ------------------------------------ | --------- | :---------: |
-| Anonymous authentication             | Supported | ``✅`` |
-| Server Account Token authentication  | Supported | ``✅`` |
-| AMD64 Support                        | Supported | ``✅`` |
-| ARM64 Support                        | Supported | ``✅`` |
+| Anonymous authentication             | Supported |     ✅     |
+| Server Account Token authentication  | Supported |     ✅     |
+| AMD64 Support                        | Supported |     ✅     |
+| ARM64 Support                        | Supported |     ✅     |
 
 ## Install OPC UA Broker
 
