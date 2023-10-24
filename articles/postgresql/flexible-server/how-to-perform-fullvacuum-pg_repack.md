@@ -12,13 +12,13 @@ ms.date: 08/03/2022
 
 # Optimize Azure Database for PostgreSQL Flexible Server by using pg_repack 
 
-In this article, you will learn how to use pg_repack to remove bloat and to improve performance in your Azure Database for PostgreSQL Flexible Server. Bloat is the unnecessary data that accumulates in tables and indexes due to frequent updates and deletes. Bloat can cause the database size to grow larger than expected and can also affect the query performance. By using pg_repack, you can reclaim the wasted space and reorganize the data in a more efficient way.
+In this article, you'll learn how to use pg_repack to remove bloat and to improve performance in your Azure Database for PostgreSQL Flexible Server. Bloat is the unnecessary data that accumulates in tables and indexes due to frequent updates and deletes. Bloat can cause the database size to grow larger than expected and can also affect the query performance. By using pg_repack, you can reclaim the wasted space and reorganize the data in a more efficient way.
 
 ## What is pg_repack? 
-pg_repack is a PostgreSQL extension that enables you to remove bloat from tables and indexes and reorganize them in a more efficient manner. pg_repack works by creating a new copy of the target table or index, applying any changes that occurred during the process, and then swapping the old and new versions atomically. pg_repack does not require any downtime or exclusive locks on the target table or index, except for a brief period at the beginning and end of the operation. You can use pg_repack to optimize any table or index in your PostgreSQL database, except for the default database named postgres. 
+pg_repack is a PostgreSQL extension that enables you to remove bloat from tables and indexes and reorganize them in a more efficient manner. pg_repack works by creating a new copy of the target table or index, applying any changes that occurred during the process, and then swapping the old and new versions atomically. pg_repack doesn't require any downtime or exclusive locks on the target table or index, except for a brief period at the beginning and end of the operation. You can use pg_repack to optimize any table or index in your PostgreSQL database, except for the default database named postgres. 
 
 ### How to use pg_repack? 
-To use pg_repack, you will need to install the extension in your PostgreSQL database and then run the pg_repack command, specifying the name of the table or index that you want to optimize. The extension will acquire locks on the table or index to prevent other operations from being performed while the optimization is in progress. It will then remove the bloat and reorganize the data in a more efficient manner.
+To use pg_repack, you need to install the extension in your PostgreSQL database and then run the pg_repack command, specifying the name of the table or index that you want to optimize. The extension acquires locks on the table or index to prevent other operations from being performed while the optimization is in progress. It will then remove the bloat and reorganize the data in a more efficient manner.
 
 ### How full table repack works
 
@@ -38,14 +38,13 @@ During these steps, pg_repack will only hold an ACCESS EXCLUSIVE lock for a shor
 
 pg_repack has some limitations that you should be aware of before using it: 
 
--    The pg_repack extension cannot be used to repack the default database named postgres. This is due to pg_repack not having the necessary permissions to operate against extensions installed by default on this database. The extension can be created in 
-     this database, but it will not be able to run.
+-    The pg_repack extension cannot be used to repack the default database named postgres. This is due to pg_repack not having the necessary permissions to operate against extensions installed by default on this database. The extension can be created in postgres database, but it will not be able to run.
 -    The target table must have either a PRIMARY KEY or a UNIQUE index on a NOT NULL column for the operation to be successful. 
 -    While pg_repack is running, you will not be able to perform any DDL commands on the target table(s) except for VACUUM or ANALYZE. To ensure that these restrictions are enforced, pg_repack will hold an ACCESS SHARE lock on the target table during a
      full table repack.
 
 ## Setup 
-Using the extension requires a client with psql and pg_repack installed. All examples in this document are using an ubuntu VM with Postgres 11 to 15.
+Using the extension requires a client with psql and pg_repack installed. All examples in this document are using a ubuntu VM with Postgres 11 to 15.
 
 ### Install the packages for Ubuntu virtual machine: 
 
@@ -114,11 +113,11 @@ Useful pg_repack options for production workloads:
 -    -j, --jobs 
     Create the specified number of extra connections to PostgreSQL and use these extra connections to parallelize the rebuild of indexes on each table. Parallel index builds are only supported for full-table repacks, not
 
--    --index or --only-indexes options
+-    --index or --only indexes options
     If your PostgreSQL server has extra cores and disk I/O available, this can be a useful way to speed up pg_repack. 
 
 -    -D, --no-kill-backend
-    Skip to repack table if the lock cannot be taken for duration specified --wait-timeout default 60 sec, instead of cancelling conflicting queries. The default is false. 
+    Skip to repack table if the lock cannot be taken for duration specified --wait-timeout default 60 sec, instead of canceling conflicting queries. The default is false. 
 
 -    -E LEVEL, --elevel=LEVEL
     Choose the output message level from DEBUG, INFO, NOTICE, WARNING, ERROR, LOG, FATAL, and PANIC. The default is INFO. 
