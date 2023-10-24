@@ -237,7 +237,7 @@ When developing locally with passwordless authentication, make sure the user acc
     > az cosmosdb sql role definition list \
     >     --resource-group <resource-group-name> \
     >     --account-name <account-name> \
-    >     --query "[?roleName == \`Write to Azure Cosmos DB for NoSQL data plane\`].id"
+    >     --query "[?roleName == 'Write to Azure Cosmos DB for NoSQL data plane'].id"
     > ```
     >
 
