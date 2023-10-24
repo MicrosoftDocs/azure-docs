@@ -3,7 +3,7 @@ author: jianleishen
 ms.service: data-factory
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 08/23/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
