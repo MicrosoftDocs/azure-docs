@@ -43,12 +43,12 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Select  **+Create**.
 1. On the **Basics tab**,  enter or select the following information:
 
-|Setting  |Value  |
-|---------|---------|
-|**Subscription**     | Select the **Subscription**.        |
-|**Resource Group**     |   Select **OperatorResourceGroup**.      |
-|**Name**     |   Enter *ubuntu-vm-site*.  This name should be unique in your subscription to avoid confusion when you create the SNS later.     |
-|**Region**     |    Select the location you used for your prerequisite resource.     |
+    |Setting  |Value  |
+    |---------|---------|
+    |**Subscription**     | Select the **Subscription**.        |
+    |**Resource Group**     |   Select **OperatorResourceGroup**.      |
+    |**Name**     |   Enter *ubuntu-vm-site*.  This name should be unique in your subscription to avoid confusion when you create the SNS later.     |
+    |**Region**     |    Select the location you used for your prerequisite resource.     |
 
    :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
 
