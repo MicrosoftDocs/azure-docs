@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 09/20/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
