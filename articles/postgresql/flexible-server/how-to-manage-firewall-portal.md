@@ -15,7 +15,7 @@ ms.date: 11/30/2021
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-* Public access (allowed IP addresses)
+* Public access (allowed IP addresses). That method can be further secured by using [Private Link](./concepts-networking-private-link.md) based networking with Azure Database for PostgreSQL - Flexible Server in Preview. 
 * Private access (VNet Integration)
 
 In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of Flexible Server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).

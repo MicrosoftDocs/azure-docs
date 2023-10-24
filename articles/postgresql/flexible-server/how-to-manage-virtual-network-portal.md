@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
+# Create and manage virtual networks (VNET Integration) for Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-* Public access (allowed IP addresses)
+* Public access (allowed IP addresses). That method can be further secured by using [Private Link](./concepts-networking-private-link.md) based networking with Azure Database for PostgreSQL - Flexible Server in Preview. 
 * Private access (VNet Integration)
 
-In this article, we focus on creation of PostgreSQL server with **Private access (VNet integration)** using Azure portal. With Private access (VNet Integration), you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure Virtual Networks provide private and secure network communication. With private access, connections to the PostgreSQL server are restricted to your virtual network. To learn more about it, refer to [Private access (VNet Integration)](./concepts-networking.md#private-access-vnet-integration).
+In this article, we focus on creation of PostgreSQL server with **Private access (VNet integration)** using Azure portal. With Private access (VNet Integration), you can deploy your flexible server integrated into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure Virtual Networks provide private and secure network communication. With private access, connections to the PostgreSQL server are restricted to your virtual network. To learn more about it, refer to [Private access (VNet Integration)](./concepts-networking.md#private-access-vnet-integration).
 
 You can deploy your flexible server into a virtual network and subnet during server creation. After the flexible server is deployed, you cannot move it into another virtual network, subnet or to *Public access (allowed IP addresses)*.
 
