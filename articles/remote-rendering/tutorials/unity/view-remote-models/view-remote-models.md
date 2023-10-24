@@ -211,19 +211,19 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     [Header("Development Account Credentials")]
     [SerializeField]
-    private string accountId = "<enter your account id here>";
-    public string AccountId {
-        get => accountId.Trim();
-        set => accountId = value;
-    }
-
-    [SerializeField]
     private string accountDomain = "<enter your account domain here>";
     public string AccountDomain
     {
         get => accountDomain.Trim();
         set => accountDomain = value;
-    }    
+    }
+
+    [SerializeField]
+    private string accountId = "<enter your account id here>";
+    public string AccountId {
+        get => accountId.Trim();
+        set => accountId = value;
+    }
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
