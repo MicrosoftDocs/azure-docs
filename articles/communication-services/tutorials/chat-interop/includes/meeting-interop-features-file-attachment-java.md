@@ -9,32 +9,51 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for <TODO>.
 
-## Sample code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
-
 ## Prerequisites 
 
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for <TODO> (@azure/communication-chat <TODO>) X.X.X or the latest. See [here](<TODO>).
+* You're using the Chat SDK for Java azure-communication-chat 1.4.0 or the latest. See [here](https://central.sonatype.com/artifact/com.azure/azure-communication-chat).
 
 ## Goal
 
 1. Be able to render file attachment in the message thread. Each file attachment card has an "Open" button.
-2. Be able to render image attachments as inline images.
+1. Be able to render image attachments as inline images.
 
 ## Handle file attachments
 
-The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `image` for image attachments.
+The Chat SDK will return `AttachmentType` of `file` for regular files and `image` for image attachments.
 
-```js
-<TODO>
+```java
+public final class AttachmentType extends ExpandableStringEnum<AttachmentType> {
+    public static final AttachmentType IMAGE = fromString("image");
+    public static final AttachmentType FILE = fromString("file");
+    public AttachmentType()
+    public static AttachmentType fromString(String name) 
+    public static Collection<AttachmentType> values() 
+}
+
+public final class ChatAttachment {
+    public ChatAttachment()
+    public AttachmentType getAttachmentType() 
+    public ChatAttachment setAttachmentType(AttachmentType attachmentType) 
+    public String getExtension() 
+    public ChatAttachment setExtension(String extension) 
+    public String getId() 
+    public ChatAttachment setId(String id) 
+    public String getName() 
+    public ChatAttachment setName(String name) 
+    public String getPreviewUrl() 
+    public ChatAttachment setPreviewUrl(String previewUrl) 
+    public String getUrl() 
+    public ChatAttachment setUrl(String url) 
+}
 ```
 
 As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
 
-```js
+```json
 "attachments": [
     {
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
