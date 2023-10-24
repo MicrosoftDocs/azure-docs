@@ -1,16 +1,16 @@
 ---
-title: Container Apps ARM template API specification
-description: Explore the available properties in the Container Apps ARM template.
+title: Container Apps ARM and YAML template specification
+description: Explore the available properties in the Container Apps ARM and YAML templates.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: reference
-ms.date: 10/23/2023
+ms.date: 10/24/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
 
-# Container Apps ARM template API specification
+# ontainer Apps ARM and YAML template specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
@@ -127,18 +127,7 @@ The following tables describe the commonly used properties in the container app 
 
 ### Resource 
 
-A container app resource of the ARM template includes the following properties:
-
-| Property | Description | Data type |
-|---|---|--|
-| `name` | The Container Apps application name. | string |
-| `location` | The Azure region where the Container Apps instance is deployed. | string |
-| `tags` | Collection of Azure tags associated with the container app. | array |
-| `type` | `Microsoft.App/containerApps` – the ARM resource type  | string |
-
-#### `properties`
-
-A resource's `properties` object has the following properties:
+A container app resource's `properties` object includes the following properties:
 
 | Property | Description | Data type | Read only |
 |---|---|---|---|
@@ -157,7 +146,7 @@ In this example, you put your values in place of the placeholder tokens surround
 
 #### `properties.configuration`
 
-A resource's `properties.configuration` object has the following properties:
+A resource's `properties.configuration` object includes the following properties:
 
 | Property | Description | Data type |
 |---|---|---|
@@ -171,7 +160,7 @@ Changes made to the `configuration` section are [application-scope changes](revi
 
 #### `properties.template`
 
-A resource's `properties.template` object has the following properties:
+A resource's `properties.template` object includes the following properties:
 
 | Property | Description | Data type |
 |---|---|---|
@@ -441,6 +430,160 @@ properties:
     serviceBinds:
     - serviceId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
       name: redisService
+```
+
+---
+
+## Container Apps job
+
+The following tables describe the commonly used properties in the Container Apps job resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/jobs/get?tabs=HTTP).
+
+### Resource 
+
+A Container Apps job resource's `properties` object includes the following properties:
+
+| Property | Description | Data type | Read only |
+|---|---|---|---|
+| `environmentId` | The environment ID for your container app. **This is a required property to create a container app.** If you're using YAML, you can specify the environment ID using the `--environment` option in the Azure CLI instead. | string | No |
+
+The `environmentId` value takes the following form:
+
+```console
+/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/environmentId/<ENVIRONMENT_NAME>
+```
+
+In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
+
+#### `properties.configuration`
+
+A resource's `properties.configuration` object includes the following properties:
+
+| Property | Description | Data type |
+|---|---|---|
+| `triggerType` | The type of trigger for a Container Apps job. For specific configuration for each trigger type, see [Jobs trigger types](jobs.md?tabs=azure-resource-manager#job-trigger-types) | string |
+| `replicaTimeout` | The timeout in seconds for a Container Apps job. | integer |
+| `replicaRetryLimit` | The number of times to retry a Container Apps job. | integer |
+
+#### `properties.template`
+
+A resource's `properties.template` object includes the following properties:
+
+| Property | Description | Data type |
+|---|---|---|
+| `containers` | Configuration object that defines what container images are included in the container app. | object |
+| `scale` | Configuration object that defines scale rules for the container app. | object |
+
+Changes made to the `template` section are [revision-scope changes](revisions.md#revision-scope-changes), which triggers a new revision.
+
+### <a name="job-examples"></a>Examples
+
+# [ARM template](#tab/arm-template)
+
+The following example ARM template snippet deploys a Container Apps job.
+
+```json
+{
+  "location": "East US",
+  "properties": {
+    "environmentId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    "configuration": {
+      "replicaTimeout": 10,
+      "replicaRetryLimit": 10,
+      "manualTriggerConfig": {
+        "replicaCompletionCount": 1,
+        "parallelism": 4
+      },
+      "triggerType": "Manual"
+    },
+    "template": {
+      "containers": [
+        {
+          "image": "repo/testcontainerAppsJob0:v1",
+          "name": "testcontainerAppsJob0",
+          "probes": [
+            {
+              "type": "Liveness",
+              "httpGet": {
+                "path": "/health",
+                "port": 8080,
+                "httpHeaders": [
+                  {
+                    "name": "Custom-Header",
+                    "value": "Awesome"
+                  }
+                ]
+              },
+              "initialDelaySeconds": 5,
+              "periodSeconds": 3
+            }
+          ]
+        }
+      ],
+      "initContainers": [
+        {
+          "image": "repo/testcontainerAppsJob0:v4",
+          "name": "testinitcontainerAppsJob0",
+          "resources": {
+            "cpu": 0.2,
+            "memory": "100Mi"
+          },
+          "command": [
+            "/bin/sh"
+          ],
+          "args": [
+            "-c",
+            "while true; do echo hello; sleep 10;done"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+# [YAML](#tab/yaml)
+
+The following example YAML configuration deploys a Container Apps job when used with the `--yaml` parameter in the following Azure CLI commands:
+
+- [`az containerapp job create`](/cli/azure/containerapp/job?view=azure-cli-latest&preserve-view=true#az-containerapp-job-create)
+- [`az containerapp job update`](/cli/azure/containerapp/job?view=azure-cli-latest&preserve-view=true#az-containerapp-job-update)
+
+```yaml
+location: East US
+properties:
+  environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube"
+  configuration:
+    replicaTimeout: 10
+    replicaRetryLimit: 10
+    manualTriggerConfig:
+      replicaCompletionCount: 1
+      parallelism: 4
+    triggerType: Manual
+  template:
+    containers:
+    - image: repo/testcontainerAppsJob0:v1
+      name: testcontainerAppsJob0
+      probes:
+      - type: Liveness
+        httpGet:
+          path: "/health"
+          port: 8080
+          httpHeaders:
+          - name: Custom-Header
+            value: Awesome
+        initialDelaySeconds: 5
+        periodSeconds: 3
+    initContainers:
+    - image: repo/testcontainerAppsJob0:v4
+      name: testinitcontainerAppsJob0
+      resources:
+        cpu: 0.2
+        memory: 100Mi
+      command:
+      - "/bin/sh"
+      args:
+      - "-c"
+      - while true; do echo hello; sleep 10;done
 ```
 
 ---
