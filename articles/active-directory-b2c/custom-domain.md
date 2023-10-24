@@ -23,7 +23,7 @@ zone_pivot_groups: b2c-policy-type
 This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). By using a verified custom domain, you've benefits such as: 
 
 - It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
--  Staying in the same domain for application and login can mitigate the impact of [third-party cookie blocking](azure/active-directory/develop/reference-third-party-cookies-spas) on an end user's authentication experience. 
+-  Staying in the same domain for application and login can mitigate the impact of [third-party cookie blocking](/azure/active-directory/develop/reference-third-party-cookies-spas) on an end user's authentication experience. 
 
 - You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
