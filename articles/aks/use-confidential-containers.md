@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/23/2023
+ms.date: 10/24/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -95,22 +95,32 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace "Microsoft.ContainerService"
 ```
 
-## Limitations
+## What to consider
 
-The following are constraints with this preview of Confidential Containers (preview):
+The following are considrations with this preview of Confidential Containers (preview):
 
 * You'll notice an increase in pod startup time compared to runc pods and kernel-isolated pods.
 * Resource requests from pod manifests are being ignored by the Kata container. It's not recommended to specify resource requests.
-* Private container registry is not supported in this release.
-* Config-maps and secrets values cannot be changed if setting using the environment variable method after the pod is deployed.
+* Pulling container images from a private container registry or referencing container images originating from a private container registry in a Confidential Containers pod manifest is not supported in this release.
+* ConfigMaps and secrets values cannot be changed if setting using the environment variable method after the pod is deployed.
+* Updates to secrets and ConfigMaps are not reflected in the guest.
 * Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. This includes `exec` in container
 log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
-* Cronjob deployment type is not supported.
-* Due to container measurements being encoded in the security policy, it's not recommended to use the `latest` tag when specifying containers.
+* Cronjob deployment type is not supported by the policy generator tool.
+* Due to container measurements being encoded in the security policy, it's not recommended to use the `latest` tag when specifying containers. This is also a restriction with the policy generator tool.
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
 * Version 1 container images are not supported.
+* Resource requests from pod YAML manifest are ignored by the Kata container. Containerd does not pass requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
+* The local container filesystem is backed by VM memory. Writing to the container filesystem (including logging) can fill up the memory provided to the pod. This can result in potential pod crashes.
+* v1 container images are not supported.
+* Pod termination logs are not supported. While pods may write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file are not reflected on the host.
+
+It's important you understand the memory and processor resource allocation behavior in this release.
+
+* CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
+* Memory: The Kata-CC handler uses 2GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2GB VM when no limit is given, w/o implicit memory for containers). The Kata handler uses 256MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added (resulting in a 2GB VM when no limit is given, with 1,792 MB implicit memory for containers).
 
 ## Deploy a new cluster
 
@@ -125,7 +135,7 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
    az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
+   After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
 
 2. When the cluster is ready, get the cluster credentials using the [az aks get-credentials][az-aks-get-credentials] command.
 
@@ -240,6 +250,36 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
                 memory: "512Mi"
                 cpu: "60m"
     ```
+
+## Create the security policy
+
+The Security Policy document describes all the calls to agent’s ttrpc APIs that are expected for creating and managing a Confidential pod. The *genpolicy* application/tool can be used to generate the policy data for the pod, together with the common rules and the default values – in a Rego format text document.
+
+The main input to genpolicy is a standard Kubernetes (K8s) YAML file, that is provided by you. The tool has support for automatic Policy generation based on K8s DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
+
+```bash
+genpolicy -y my-pod.yaml 
+```
+
+To see other command line options, run the command with the `--help` argument.
+
+You can adjust the behavior of this app by making changes to the `genpolicy-settings.json` file.
+
+On successful execution, genpolicy creates the Policy document, encodes it in *base64* format, and adds it to the YAML file as an annotation, similar to:
+
+```output
+io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
+```
+
+To print out information about the actions undertaken by the application while it computes the Policy, set genpolicy’s RUST_LOG environment variable by running the following command:
+
+```bash
+RUST_LOG=info genpolicy -y my-pod.yaml 
+```
+
+For example, the app downloads the container image layers for each of the containers specified by the input YAML file, and calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
+
+## Complete the configuration
 
 1. Generate the deployment policy by running the following command. Replace `<path to pod yaml>` with the name of the manifest saved in the previous step.
 
