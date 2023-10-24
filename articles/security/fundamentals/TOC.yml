@@ -7,8 +7,13 @@
     href: overview.md
   - name: End-to-end security
     href: end-to-end.md
+
+- name: Shared responsibility
+  items:
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
+  - name: AI shared responsibility model
+    href: shared-responsibility-ai.md
 
 - name: Security posture management
   items:
