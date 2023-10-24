@@ -47,18 +47,20 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 ### Choose Network Service Design
 
-On the **Choose a Network Service Design** page, select the Publisher, Network Service Design Resource and Network Service Design Version that you published earlier.
+1. On the **Choose a Network Service Design** page, select the Publisher, Network Service Design Resource and Network Service Design Version that you published earlier.
 
 
-|Setting|Value| 
-|---|---| 
-|**Publisher Offering Location**| Select **UK South**| 
-|**Publisher**| Select **ubuntu-publisher**| 
-|**Network Service Design resource**| Select **ubuntu-nsdg**| 
-|**Network Service Design version**| Select **1.0.0**| 
+    |Setting|Value| 
+    |---|---| 
+    |**Publisher Offering Location**| Select **UK South**| 
+    |**Publisher**| Select **ubuntu-publisher**| 
+    |**Network Service Design resource**| Select **ubuntu-nsdg**| 
+    |**Network Service Design version**| Select **1.0.0**| 
+    
+    
+    :::image type="content" source="media/choose-network-service-design-virtual-network-function.png" alt-text="Screenshot showing the Choose a Network Service Design tab and Network Service Design resource.":::
 
-
-:::image type="content" source="media/choose-network-service-design-virtual-network-function.png" alt-text="Screenshot showing the Choose a Network Service Design tab and Network Service Design resource.":::
+1. Select **Next**.
 
 ### Set initial configuration
 

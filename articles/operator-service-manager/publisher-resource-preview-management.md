@@ -56,7 +56,7 @@ The following table provides Network Function Definition (NFD) and Network Servi
 ## Artifact Manifest state machine
 
  - Uploading means the state is mutable and the artifacts within the manifest can be altered.
- - 
+ 
  - Uploaded means the state is immutable and the artifacts within the manifest can't be altered.
  
 Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager ensures consistency, reliability and security of its artifacts across different environments and platforms. Network Function Definition Versions and Network Service Design Versions with versionState Active are enforced to deploy immutable artifacts.  
