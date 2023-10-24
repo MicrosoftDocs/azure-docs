@@ -31,12 +31,9 @@ The following tables describe how to configure a collection of NSG allow rules. 
 >[!Note]
 > Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
 
-# [Workload profile environment](#tab/workload-profile-env)
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 The following rules are required when using NSGs with workload profile environments.
-
->[!Note]
-> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
@@ -44,29 +41,25 @@ The following rules are required when using NSGs with workload profile environme
 | TCP | AzureLoadBalancer | \* | Infrastructure Subnet address space | 30,000-32,676<sup>*</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 | TCP | Your Client IP | \* | Infrastructure Subnet address space | 30,000-32,676<sup>*</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. | 
 
-<sup>*</sup>The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
-
 # [Consumption only environment](#tab/consumption-only-env)
 
 The following rules are required when using NSGs with Consumption only environments.
-
->[!Note]
-> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
 | TCP | AzureLoadBalancer | \* | Infrastructure Subnet | 30,000-32,676<sup>*</sup> | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
-<sup>*</sup>The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules to reflect this once created.
 ---
+
+<sup>*</sup>The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated on create. Once created, the required ports will be 2 static values, and you can update your NSG rules once created.
 
 ### Outbound 
 
-# [Workload profile environment](#tab/workload-profile-env)
-
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
@@ -78,9 +71,6 @@ The following rules are required when using NSGs with Consumption only environme
 | Any | Infrastructure Subnet address space | \* | Infrastructure subnet address space | \* |  Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 # [Consumption only environment](#tab/consumption-only-env)
-
->[!Note]
-> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
