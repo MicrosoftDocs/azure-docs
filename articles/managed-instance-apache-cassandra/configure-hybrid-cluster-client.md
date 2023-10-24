@@ -34,7 +34,7 @@ UPDATE system.local SET cluster_name = 'managed_cluster-name' where key='local';
 
 ## Installation
 
-* Download and navigate into the [client configurator folder](https://aka.ms/TOBECREATED).
+* Download and navigate into the [client configurator folder](https://github.com/Azure-Samples/cassandra-mi-client-configurator/tree/main).
 * Set up a virtual environment to run the python script:
 
 ```bash
