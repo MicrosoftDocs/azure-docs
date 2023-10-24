@@ -196,7 +196,7 @@ You'll create a virtual machine in this section. During creation, you'll add it 
     | Subnet | **backend-subnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Leave the default of **vm-NSG**. This may be different if you choose a different name for you VM. |
+    | Configure network security group | Leave the default of **vm-NSG**. This might be different if you choose a different name for your VM. |
 
 1. Under **Load balancing**, select the following:
 
