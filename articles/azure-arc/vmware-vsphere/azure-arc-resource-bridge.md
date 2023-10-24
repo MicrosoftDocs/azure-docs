@@ -38,7 +38,7 @@ This complex system is composed of three layers:
 
 - The solution layer for each service supported by Arc resource bridge (that is, the different type of VMs). 
 
-:::image type="VM Inventory view" source="media/azure-arc-resource-bridge-architecture-inline.png" alt-text="Screenshot shows the architecture of Azure Arc resource bridge (preview)." lightbox="media/azure-arc-resource-bridge-architecture-expanded.png":::
+:::image type="VM Inventory view" source="media/azure-arc-resource-bridge-architecture-inline.png" alt-text="Diagram shows the architecture of Azure Arc resource bridge (preview)." lightbox="media/azure-arc-resource-bridge-architecture-expanded.png":::
 
 Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 
