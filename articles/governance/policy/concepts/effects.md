@@ -15,6 +15,7 @@ resource, an updated resource, or an existing resource.
 
 These effects are currently supported in a policy definition:
 
+- [AddToNetworkGroup](#addToNetworkGroup)
 - [Append](#append)
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
@@ -24,6 +25,7 @@ These effects are currently supported in a policy definition:
 - [Disabled](#disabled)
 - [Manual](#manual)
 - [Modify](#modify)
+- [Mutate](#mutate)
 
 ## Interchanging effects
 
@@ -63,6 +65,14 @@ logging or action is required.
 
 `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
 policies containing conditions that inspect `tags` related fields.
+
+## AddToNetworkGroup
+
+AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes) definitions only.
+
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
+
+To learn more, visit [Configuring Azure Policy with network groups in Azure Virtual Network Manager](https://learn.microsoft.com/azure/virtual-network-manager/concept-azure-policy-integration).
 
 ## Append
 
@@ -187,14 +197,6 @@ definitions as `constraintTemplate` is deprecated.
     - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
     - If _PublicURL_, paired with property `url` to provide location of the constraint. The location must be publicly accessible.
 
-      > [!WARNING]
-      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
-- **mutationInfo** (optional)
-  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
-  - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
-  - **sourceType** (required)
-    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
-    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
       > [!WARNING]
       > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
 - **namespaces** (optional)
@@ -999,6 +1001,22 @@ is applied only when evaluating requests with API version greater or equals to `
     }
 }
 ```
+## Mutate (preview)
+
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components (such as pods). This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes) definitions only.
+
+To learn more, visit [Understand Azure Policy for Kubernetes clusters](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes).
+
+### Mutate properties
+- **mutationInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Cannot be parameterized.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
 
 ## Layering policy definitions
 
