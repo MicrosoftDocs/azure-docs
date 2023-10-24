@@ -16,7 +16,7 @@ ms.date: 08/30/2023
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-This article explains how to add a Kubernetes secret to pull a custom image from a private container registry with Managed Airflow in Data Factory for Microsoft Fabric.
+This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within Azure Data Factory's Managed Airflow environment.
 
 ## Prerequisites
 
