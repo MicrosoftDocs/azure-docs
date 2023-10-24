@@ -161,7 +161,7 @@ The `systemAssignedManagedIdentity` field includes the following fields:
 
 If Azure IoT MQ is deployed as an Azure Arc extension, it gets a [system-assignment managed identity](/azure/active-directory/managed-identities-azure-resources/overview) by default. It's the recommended way for Azure IoT MQ to interact with Azure resources, including Event Grid MQTT broker, because it allows you to avoid credential management and retain high availability.
 
-To use managed identity for authentication with Azure resources, first [assign](/azure/role-based-access-control/role-assignments-portal) an appropriate Azure RBAC role like [MQTT Broker Publisher](#recommended-for-arc-connected-clusters-system-assigned-managed-identity) to Azure IoT MQ's managed identity provided by Arc.
+To use managed identity for authentication with Azure resources, first [assign](/azure/role-based-access-control/role-assignments-portal) an appropriate Azure RBAC role like [MQTT Broker Publisher](#system-assigned-managed-identity) to Azure IoT MQ's managed identity provided by Arc.
 
 Then, specify and *MQTTBridgeConnector* with managed identity as the authentication method:
 
@@ -597,4 +597,4 @@ Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with 
 
 ## Related content
 
-TODO: Add your next step link(s)
+- [Publish and subscribe MQTT messages using Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)

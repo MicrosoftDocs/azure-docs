@@ -5,7 +5,7 @@ description: Configure standard MQTT clients to connect to Azure IoT MQ to demon
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 10/24/2023
 
 #CustomerIntent: As an architect, I want to understand how to connect standard MQTT clients to Azure IoT MQ.
 ---
@@ -22,22 +22,20 @@ You can connect standard MQTT clients to Azure IoT MQ distributed MQTT Broker de
 
 ## Publish
 
-Azure IoT MQ's distributed MQTT Broker is targeted to be MQTT v3.1.1 and v5 standards-compliant. Put that to the test by using off-the-shelf MQTT tools.
+Azure IoT MQ's distributed MQTT broker is targeted to be MQTT v3.1.1 and v5 standards-compliant. You can test connecting to the MQTT broker using standards-based MQTT tools.
 
-First, use the popular `mosquitto_pub` client to connect to the MQTT Broker and publish a series of test messages from a file to a topic named `orders`:
+For example, you can use the popular `mosquitto_pub` client to connect to the MQTT broker and publish a series of test messages from a file to a topic named `orders`:
 
 ```bash
 while read -r line; do echo "$line"; sleep 2; done < quickstart/test_msgs \
 | mosquitto_pub -h localhost -t "orders" -l -d -q 1 -i "publisher1" 
 ```
 
-> Ensure you're running this command from the `/workspaces/e4k-playground` directory.
-
-You should see terminal messages indicating successful publishes every two seconds. In total, 1000 JSON test messages will be published before the command exits. You can hit CTRL+C in the terminal to stop the command at any time, but let it continue publishing test messages for now.
+You should see terminal messages indicating successful publishes every two seconds. In total, 1,000 JSON test messages are published before the command exits. You can use Ctrl+C in the terminal to stop the command at any time, but let it continue publishing test messages for now.
 
 ## Subscribe
 
-Subscribe to the `orders` topic from another MQTT client. Create a new terminal in the Codespace using the `+` button on the top right, while ensuring the current terminal window is continuing to publish test messages.
+Subscribe to the `orders` topic from another MQTT client. Create a new terminal while ensuring the current terminal window is continuing to publish test messages.
 
 <!-- ![](new-terminal.png) -->
 
@@ -47,7 +45,7 @@ Monitor the messages received by the subscriber in real-time using a terminal UI
 mqttui -b mqtt://localhost:1883
 ```
 
-> Use down arrow key or *j* key to select the `orders` topic; you can click in the UI to select as well. *q* key quits the UI.
+Use down arrow key or *j* key to select the `orders` topic; you can click in the UI to select as well. *q* key quits the UI.
 
 <!-- ![](sub.png) -->
 
@@ -55,4 +53,4 @@ Azure IoT MQ's MQTT Broker is compliant with both MQTT v5 and v3.1.1 standards. 
 
 ## Related content
 
-Deploy workloads
+- [Publish and subscribe MQTT messages using Azure IoT MQ](overview-iot-mq.md)

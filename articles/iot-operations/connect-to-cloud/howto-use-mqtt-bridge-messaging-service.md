@@ -22,12 +22,14 @@ ms.date: 10/18/2023
 
 ## Deploy cloud resources
 
-After ensuring the environment variables in the previous exercise are set in your terminal instance, deploy cloud resources to create a bi-directional cloud/edge messaging pipeline by executing the command below.
+After ensuring the environment variables in the previous exercise are set in your terminal instance, deploy cloud resources to create a bi-directional cloud/edge messaging pipeline by executing the command below:
 
 
 ```bash
 /workspaces/e4k-playground/quickstart/createCloudResAndAssignRoles.sh
 ```
+
+This script deploys the following resources to your Azure subscription:
 
 - Two Event Hubs - one for device-to-cloud (D2C) messages and another for cloud-to-device (C2D) messages.
 - One Azure Container App that processes incoming messages on the D2C Event Hub, unpacks each message, stamps as processed, and sends it to the C2D Event Hub.
@@ -41,16 +43,14 @@ Review the Bicep file at the location below for details:
 
 ## Azure RBAC roles for the Arc extension
 
-A key benefit of Azure Arc integration is that Azure IoT MQ's Kakfa connector can use a **system-assigned managed identity** to connect to the Azure Event Hub Namespace resources.
+A key benefit of Azure Arc integration is that Azure IoT MQ's Kakfa connector can use a **system-assigned managed identity** to connect to the Azure Event Hub Namespace resources. No keys or manual credential management is necessary.
 
->**No keys or manual credential management necessary!**
-
-The helper script above also assigns the required RBAC roles to the Azure IoT MQ extension. Review the Bicep file below for details:
+The helper script assigns the required RBAC roles to the Azure IoT MQ extension. Review the Bicep file below for details:
 
 
 [Review role assignment Bicep template](https://github.com/microsoft/e4k-playground/blob/bicep/quickstart/assignRolesWithAzureRBAC.bicep)
 
-After successfully running the script, copy the command to manually set the Event Hub name environment variable shown at the end, and execute it in the terminal window.
+After successfully running the script, copy the command to manually set the Event Hub name environment variable. Run the command in the terminal window.
 
 ## Deploy the Kafka connector and observe data flow
 
@@ -119,27 +119,19 @@ kubectl apply -f - || \
 echo "Error: EVENTHUB_NAMESPACE_NAME is not defined"
 ```
 
-Ensure all the components from the previous exercise are running.
-
-
-MQTT client is publishing test messages
-Switch to the terminal that was publishing test messages from the previous exercise and hit CTRL+C to stop it. Restart the test message generation on the `orders` topic using the same command you previously used:
+Switch to the terminal that was publishing test messages from the ealier step and use Ctrl+C to stop it. Restart the test message generation on the `orders` topic using the same command you previously used:
 
 ```bash
 while read -r line; do echo "$line"; sleep 2; done < quickstart/test_msgs \
 | mosquitto_pub -h localhost -t "orders" -l -d -q 1 -i "publisher1" -u client1 -P password
 ```
 
-
 `mqttui` is subscribed to all topics
-Switch to the terminal running the `mqttui` tool that was subscribed to all topics. If that window is not available, restart it using the command below in new terminal:
+Switch to the terminal running the `mqttui` tool that was subscribed to all topics. If that window isn't available, restart it using the command below in new terminal:
 
 ```bash
 mqttui -b mqtt://localhost:1883
 ```
-
-
-Dapr workload is healthy
 
 ```console
 $ kubectl rollout status deployment/dapr-workload -w
@@ -147,7 +139,6 @@ deployment "dapr-workload" successfully rolled out
 ```
 
 After the Connector is successfully deployed, observe messages from a new topic called `cloud-updates` being received in terminal running `mqttui`
-
 
 The messages being received on the `cloud-updates` topic are cloud-to-device messages. They are created in the cloud by the Container App (noted in the `processed-by` field) in response to incoming messages from the edge (on the `odd-numbered-orders` topic).
 
@@ -158,3 +149,4 @@ You're seeing bi-directional cloud-edge communication in real-time.
 
 ## Related content
 
+- [Publish and subscribe MQTT messages using Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)
