@@ -16,7 +16,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, JavaScript, and Python, but not in .NET isolated worker, PowerShell, or Java.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker ([preview](durable-functions-dotnet-entities.md)), JavaScript, and Python, but not in PowerShell or Java.
 
 ## General concepts
 
@@ -56,7 +56,7 @@ Currently, the two distinct APIs for defining entities are:
 
 **Class-based syntax (.NET only)**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
 
-# [C#](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 ### Example: Function-based syntax - C#
 
@@ -109,6 +109,97 @@ public class Counter
 The state of this entity is an object of type `Counter`, which contains a field that stores the current value of the counter. To persist this object in storage, it's serialized and deserialized by the [Json.NET](https://www.newtonsoft.com/json) library. 
 
 For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+# [C# (Isolated)](#tab/isolated-process)
+### Example: Function-based syntax - C#
+
+```csharp
+[Function(nameof(Counter))]
+public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync(operation =>
+    {
+        if (operation.State.GetState(typeof(int)) is null)
+        {
+            operation.State.SetState(0);
+        }
+
+        switch (operation.Name.ToLowerInvariant())
+        {
+            case "add":
+                int state = operation.State.GetState<int>();
+                state += operation.GetInput<int>();
+                operation.State.SetState(state);
+                return new(state);
+            case "reset":
+                operation.State.SetState(0);
+                break;
+            case "get":
+                return new(operation.State.GetState<int>());
+            case "delete": 
+                operation.State.SetState(null);
+                break; 
+        }
+
+        return default;
+    });
+}
+```
+
+### Example: Class-based syntax - C# 
+The following example shows the implementation of the `Counter` entity using classes and methods. 
+```csharp
+public class Counter
+{
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [Function(nameof(Counter))]
+    public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+    {
+        return dispatcher.DispatchAsync<Counter>();
+    }
+}
+
+```
+The following example implements a `Counter` entity by directly implementing `TaskEntity<TState>`, which gives the added benefit of being able to use Dependency Injection. 
+
+```csharp
+public class Counter : TaskEntity<int>
+{
+    readonly ILogger logger;
+
+    public Counter(ILogger<Counter> logger)
+    {
+        this.logger = logger; 
+    }
+
+    public void Add(int amount) => this.State += amount;
+
+    public void Reset() => this.State = 0;
+
+    public int Get() => this.State;
+
+    [Function(nameof(Counter))]
+    public Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+    {
+        return dispatcher.DispatchAsync(this);
+    }
+}
+```
+You can also dispatch by using a static method.
+```csharp
+[Function(nameof(Counter))]
+public static Task RunEntityStaticAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync<Counter>();
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -212,7 +303,7 @@ The following examples illustrate these various ways of accessing entities.
 
 To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
 
-# [C#](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 > [!NOTE]
 > For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
@@ -227,6 +318,20 @@ public static Task Run(
     var entityId = new EntityId(nameof(Counter), "myCounter");
     int amount = int.Parse(input);
     return client.SignalEntityAsync(entityId, "Add", amount);
+}
+```
+
+# [C# (Isolated)](#tab/isolated-process)
+
+```csharp
+[Function("AddFromQueue")]
+public static Task Run(
+    [QueueTrigger("durable-function-trigger")] string input, [DurableClient] DurableTaskClient client)
+{
+    // Entity operation input comes from the queue message content. 
+    var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
+    int amount = int.Parse(input);
+    return client.Entities.SignalEntityAsync(entityId, "Add", amount);
 }
 ```
 
@@ -263,7 +368,7 @@ The term *signal* means that the entity API invocation is one-way and asynchrono
 
 Client functions can also query the state of an entity, as shown in the following example:
 
-# [C#](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -274,6 +379,27 @@ public static async Task<HttpResponseMessage> Run(
     var entityId = new EntityId(nameof(Counter), "myCounter");
     EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
     return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
+}
+```
+# [C# (Isolated)](#tab/isolated-process)
+```csharp
+[Function("QueryCounter")]
+public static async Task<HttpResponseData> Run(
+    [HttpTrigger(AuthorizationLevel.Function)] HttpRequestData req,
+    [DurableClient] DurableTaskClient client)
+{
+    var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
+    EntityMetadata<int>? entity = await client.Entities.GetEntityAsync<int>(entityId);
+
+    if (entity is null)
+    {
+        return request.CreateResponse(HttpStatusCode.NotFound);
+    }
+    
+    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    await response.WriteAsJsonAsync(entity);
+
+    return response;
 }
 ```
 
@@ -314,7 +440,7 @@ Entity state queries are sent to the Durable tracking store and return the entit
 
 Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
 
-# [C#](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -329,6 +455,25 @@ public static async Task Run(
     {
         // One-way signal to the entity which updates the value - does not await a response
         context.SignalEntity(entityId, "Add", 1);
+    }
+}
+```
+
+# [C# (Isolated)](#tab/isolated-process)
+
+```csharp
+[Function("CounterOrchestration")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var entityId = new EntityInstanceId(nameof(Counter), "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    int currentValue = await context.Entities.CallEntityAsync<int>(entityId, "Get");
+
+    if (currentValue < 10)
+    {
+        // One-way signal to the entity which updates the value - does not await a response
+        await context.Entities.SignalEntityAsync(entityId, "Add", 1);
     }
 }
 ```
@@ -376,7 +521,7 @@ Only orchestrations are capable of calling entities and getting a response, whic
 An entity function can send signals to other entities, or even itself, while it executes an operation.
 For example, we can modify the previous `Counter` entity example so that it sends a "milestone-reached" signal to some monitor entity when the counter reaches the value 100.
 
-# [C#](#tab/csharp)
+# [C# (In-proc)](#tab/in-process)
 
 ```csharp
    case "add":
@@ -389,6 +534,21 @@ For example, we can modify the previous `Counter` entity example so that it send
 
         ctx.SetState(currentValue + amount);
         break;
+```
+
+# [C# (Isolated)](#tab/isolated-process)
+
+```csharp
+case "add":
+    var currentValue = operation.State.GetState<int>();
+    var amount = operation.GetInput<int>();
+    if (currentValue < 100 && currentValue + amount >= 100)
+    {
+        operation.Context.SignalEntity(new EntityInstanceId("MonitorEntity", ""), "milestone-reached", operation.Context.EntityInstanceId);
+    }
+
+    operation.State.SetState(currentValue + amount);
+    break;
 ```
 
 # [JavaScript](#tab/javascript)
