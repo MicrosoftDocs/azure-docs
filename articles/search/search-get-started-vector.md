@@ -7,17 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/13/2023
+ms.date: 10/24/2023
 ---
 
 # Quickstart: Vector search using REST APIs
 
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+Get started with vector search in Azure Cognitive Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
 
-Get started with vector search in Azure Cognitive Search using the **2023-10-01-Preview** REST APIs that create, load, and query a search index. 
-
-Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
+Search indexes ca have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 > [!NOTE]
 > This quickstart has been updated to use the fictitious hotels sample data set. Looking for the previous quickstart that used Azure product descriptions? See this [Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection) and review the example queries in [Create a vector query](vector-search-how-to-query.md) and [Create a hybrid query](hybrid-search-how-to-query.md).
@@ -32,7 +29,7 @@ Search indexes now support vector fields in the fields collection. When querying
 
   For the optional [semantic ranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-10-01-preview** API version of Azure Cognitive Search.
++ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure Cognitive Search.
 
 + Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. To send this request, you need [Azure OpenAI](https://aka.ms/oai/access) with a deployment of **text-embedding-ada-002**. For this request only, provide your Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
 
@@ -58,7 +55,7 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
 
 1. [Fork or clone the azure-search-postman-samples repository](https://github.com/Azure-Samples/azure-search-postman-samples).
 
-1. Start Postman and import the `AzureSearchQuickstartVectors 2023-10-01-Preview.postman_collection.json` collection.
+1. Start Postman and import the `AzureSearchQuickstartVectors 2023-11-01.postman_collection.json` collection.
 
 1. Right-click the collection name and select **Edit** to set the collection's variables to valid values for Azure Cognitive Search and Azure OpenAI.
 
@@ -68,7 +65,7 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
     |----------|---------------|
     | index-name | *index names are lower-case, no spaces, and can't start or end with dashes* |
     | search-service-name | *from Azure portal, get just the name of the service, not the full URL* |
-    | search-api-version | 2023-10-01-Preview |
+    | search-api-version | 2023-11-01 |
     | search-api-key | *provide an admin key* |
     | openai-api-key | *optional. Set this value if you want to generate embeddings. Find this value in Azure portal.* |
     | openai-service-name | *optional. Set this value if you want to generate embeddings. Find this value in Azure portal.* |
@@ -81,7 +78,7 @@ You're now ready to send the requests to your search service. For each request, 
 
 ## Create an index
 
-Use the [Create or Update Index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST API for this request.
+Use the [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) REST API for this request.
 
 The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking. 
 
@@ -235,7 +232,7 @@ You should get a status HTTP 201 success.
 
 + The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
-+ Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) for property descriptions.
++ Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) for property descriptions.
 
 + The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
 
@@ -243,7 +240,7 @@ You should get a status HTTP 201 success.
 
 ## Upload documents
 
-Use the [Index Documents](/rest/api/searchservice/2023-10-01-preview/documents/) REST API for this request.
+Use the [Index Documents](/rest/api/searchservice/2023-11-01/documents/) REST API for this request.
 
 For readability, the following excerpt shows just the fields used in queries, minus the vector values associated with `DescriptionVector`. Each vector field contains 1536 embeddings, so those values are omitted for readability.
 
@@ -385,7 +382,7 @@ api-key: {{admin-api-key}}
 
 ## Run queries
 
-Use the [Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post) REST API for query request. Public preview has specific requirements for using POST on the queries. Also, the API version must be 2023-10-01-Preview if you want vector filters and profiles.
+Use the [Search POST](/rest/api/searchservice/2023-11-01/documents/search-post) REST API for query request.
 
 There are several queries to demonstrate various patterns. 
 
@@ -408,7 +405,7 @@ In this vector query, which is shortened for brevity, the `"value"` contains the
 The vector query string is *"classic lodging near running trails, eateries, retail"* - vectorized into 1536 embeddings for this query.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -432,7 +429,7 @@ The response for the vector equivalent of "classic lodging near running trails, 
 
 ```http
 {
-    "@odata.context": "https://heidist-srch-eastus.search.windows.net/indexes('hotels-vector-quickstart')/$metadata#docs(*)",
+    "@odata.context": "https://my-demo-search.search.windows.net/indexes('hotels-vector-quickstart')/$metadata#docs(*)",
     "@odata.count": 7,
     "value": [
         {
@@ -478,10 +475,10 @@ The response for the vector equivalent of "classic lodging near running trails, 
 
 You can add filters, but the filters are applied to the non-vector content in your index. In this example, the filter applies to the `"Tags"` field, filtering out any hotels that don't provide free WIFI.
 
-This example sets `vectorFilterMode` to pre-query filtering, which is the default, so you don't need to set it. It's listed here for awareness because it's new in 2023-10-01-Preview.
+This example sets `vectorFilterMode` to pre-query filtering, which is the default, so you don't need to set it. It's listed here for awareness because it's a newer feature.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -550,7 +547,7 @@ Hybrid search consists of keyword queries and vector queries in a single search 
 + vector query string (vectorized into a mathematical representation): *"classic lodging near running trails, eateries, retail"*
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -691,7 +688,7 @@ In the vector-only query using HNSW for finding matches, Sublime Cliff Hotel dro
 Here's the last query in the collection: a hybrid query, with semantic ranking, filtered to show just those hotels within a 500-kilometer radius of Washington D.C. `vectorFilterMode` can be set to null, which is equivalent to the default (`preFilter` for newer indexes, `postFilter` for older ones).
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
