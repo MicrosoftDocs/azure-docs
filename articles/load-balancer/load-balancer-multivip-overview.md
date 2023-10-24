@@ -18,7 +18,7 @@ Azure Load Balancer allows you to load balance services on multiple ports, multi
 
 This article describes the fundamentals of  load balancing across multiple IP addresses using the same port and protocol. If you only intend to expose services on one IP address, you can find simplified instructions for [public](./quickstart-load-balancer-standard-public-portal.md) or [internal](./quickstart-load-balancer-standard-internal-portal.md) load balancer configurations. Adding multiple frontends is incremental to a single frontend configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
 
-When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined by a three-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations (part of the NIC resource) which reference the Load Balancer backend pool. 
+When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined using a three-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations (part of the NIC resource) which reference the Load Balancer backend pool. 
 
 The following table contains some example frontend configurations:
 
@@ -36,10 +36,10 @@ Azure Load Balancer provides flexibility in defining the load balancing rules. A
 1. The default rule with no backend port reuse.
 2. The Floating IP rule where backend ports are reused.
 
-Azure Load Balancer allows you to mix both rule types on the same load balancer configuration. The load balancer can use them simultaneously for a given VM, or any combination, if you abide by the constraints of the rule. The rule type you choose depends on the requirements of your application and the complexity of supporting that configuration. You should evaluate which rule types are best for your scenario. We'll explore these scenarios further by starting with the default behavior.
+Azure Load Balancer allows you to mix both rule types on the same load balancer configuration. The load balancer can use them simultaneously for a given VM, or any combination, if you abide by the constraints of the rule. The rule type you choose depends on the requirements of your application and the complexity of supporting that configuration. You should evaluate which rule types are best for your scenario. We explore these scenarios further by starting with the default behavior.
 
 ## Rule type #1: No backend port reuse
-:::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip.png" alt-text="Diagram of Load Balancer traffice with no backend port reuse.":::
+:::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip.png" alt-text="Diagram of Load Balancer traffic with no backend port reuse.":::
 
 In this scenario, the frontends are configured as follows:
 
@@ -76,7 +76,7 @@ If you want to reuse the backend port across multiple rules, you must enable Flo
 
 *Floating IP* is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts: a flow topology and an IP address mapping scheme. At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. 
 
-With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. Enabling Floating IP changes the IP address mapping scheme to allow for more flexibility as explained below. 
+With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. Enabling Floating IP changes the IP address mapping scheme to allow for more flexibility. 
 
 :::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
 

@@ -54,7 +54,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 ## Next steps
 
-[Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
+[Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview)](how-to-use-pipelines-prompt-flow.md)
 
 [How to create vector index in Azure Machine Learning prompt flow (preview).](how-to-create-vector-index.md)
 

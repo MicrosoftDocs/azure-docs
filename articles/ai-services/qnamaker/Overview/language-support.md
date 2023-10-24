@@ -6,8 +6,8 @@ services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
 ms.custom: ignite-fall-2021

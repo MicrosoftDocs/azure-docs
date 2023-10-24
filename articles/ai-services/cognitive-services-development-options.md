@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 10/28/2021
 ---

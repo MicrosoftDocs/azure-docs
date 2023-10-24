@@ -61,11 +61,11 @@ Artifact Cache currently supports the following upstream registries:
 
 | Upstream registries         | Support                                                      | Availability            |
 | --------------------------- | ------------------------------------------------------------ | ----------------------- |
-| Docker                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Docker Hub                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Nivida                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Nvidia                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 | Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 

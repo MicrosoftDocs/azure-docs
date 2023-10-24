@@ -68,7 +68,7 @@ For information about the different page layout versions, see the [Page layout v
 To specify a page layout version for your custom policy pages:
 
 1. Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
-1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
+1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: *urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version*.
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
@@ -155,6 +155,7 @@ Follow these guidelines when you customize the interface of your application usi
 - Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.
 - To customize the Azure AD B2C error message, use localization in a policy.
 - If anything can be achieved by using a policy, generally it's the recommended way.
+- We recommend that you use our existing UI controls, such as buttons, rather than hiding them and implementing click bindings on your own UI controls. This approach ensures that your user experience continues to function properly even when we release new page contract upgrades.
 
 ## JavaScript samples
 

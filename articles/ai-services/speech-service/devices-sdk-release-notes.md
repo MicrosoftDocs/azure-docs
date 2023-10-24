@@ -5,8 +5,7 @@ description: The release notes provide a log of updates, enhancements, bug fixes
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: release-notes
 ms.date: 02/12/2022
 ms.author: eur

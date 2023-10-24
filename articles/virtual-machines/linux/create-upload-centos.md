@@ -29,14 +29,14 @@ This article assumes that you've already installed a CentOS (or similar derivati
 * For more tips on preparing Linux for Azure, see [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes).
 * The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet. If you're using VirtualBox, this means selecting **Fixed size** as opposed to the default dynamically allocated when creating the disk.
 * The vfat kernel module must be enabled in the kernel
-* When installing the Linux system it's **recommended** that you use standard partitions rather than LVM (often the default for many installations). This avoids LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
+* When installing the Linux system, we **recommend** that you use standard partitions rather than LVM (often the default for many installations). This avoids LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
 * **Kernel support for mounting UDF file systems is necessary.** At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent or cloud-init  must mount the UDF file system to read its configuration and provision the VM.
-* Linux kernel versions below 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Centos 2.6.32 kernel, and was fixed in Centos 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Linux kernel versions below 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Centos 2.6.32 kernel and was fixed in Centos 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37 or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Don't configure a swap partition on the OS disk.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 > [!NOTE]
-> **(_Cloud-init >= 21.2 removes the udf requirement._)** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied. A workaround for this would be to apply custom data using user data however, unlike custom data user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+> **_Cloud-init >= 21.2 removes the udf requirement_**. However, without the udf module enabled, the cdrom won't mount during provisioning, preventing custom data from being applied. A workaround for this is to apply custom data using user data. However, unlike custom data, user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
 ## CentOS 6.x
@@ -152,7 +152,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
     sudo yum clean all
     ```
 
-    Unless you're creating an image for an older version of CentOS, it's recommended to update all the packages to the latest:
+    Unless you're creating an image for an older version of CentOS, we recommend to update all the packages to the latest:
 
     ```bash
     sudo yum -y update
@@ -191,7 +191,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
     This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
 
-    In addition to the above, it's recommended to *remove* the following parameters:
+    In addition to the above, we recommend to *remove* the following parameters:
 
     ```config
     rhgb quiet crashkernel=auto
@@ -206,7 +206,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 15. Don't create swap space on the OS disk.
 
-    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
     ```config
     ResourceDisk.Format=y
@@ -233,9 +233,9 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 **Changes in CentOS 7 (and similar derivatives)**
 
-Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however there are several important differences worth noting:
+Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however there are several significant differences worth noting:
 
-* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it'sn't removed.
+* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default, and we recommend that it's not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.
 * Since CentOS 8 Stream and newer no longer include `network.service` by default, you need to install it manually:
@@ -328,13 +328,14 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     sudo yum clean all
     ```
 
-    Unless you're creating an image for an older version of CentOS, it's recommended to update all the packages to the latest:
+    Unless you're creating an image for an older version of CentOS, we recommend to update all the packages to the latest:
+
 
     ```bash
     sudo yum -y update
     ```
 
-    A reboot maybe required after running this command.
+    A reboot may be required after running this command.
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
 
@@ -342,7 +343,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it's recommended to *remove* the following parameters:
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, we recommend to *remove* the following parameters:
 
     ```config
     rhgb quiet crashkernel=auto
@@ -359,7 +360,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 > [!NOTE]
 > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`.  Also, the vfat kernel module must be enabled in the kernel otherwise provisioning will fail.
 >
-> Make sure the **'udf'** module is enable. Blocklisting or removing it will cause a provisioning failure. **(_Cloud-init >= 21.2 removes the udf requirement. Read top of document for more detail)**
+> Make sure the **'udf'** module is enabled. Removing/disabling them will cause a provisioning/boot failure. **(_Cloud-init >= 21.2 removes the udf requirement. Read top of document for more detail.)**
 
 
 10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
@@ -410,10 +411,10 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
             apply_network_config: False
     EOF
 
-    if [[ -f /mnt/resource/swapfile ]]; then
+    if [[ -f /mnt/swapfile ]]; then
     echo Removing swapfile - RHEL uses a swapfile by default
-    swapoff /mnt/resource/swapfile
-    rm /mnt/resource/swapfile -f
+    swapoff /mnt/swapfile
+    rm /mnt/swapfile -f
     fi
 
     echo "Add console log file"
@@ -438,7 +439,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-    If you want mount, format and create swap you can either:
+    If you want mount, format, and create swap, you can either:
     * Pass this in as a cloud-init config every time you create a VM
     * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
@@ -458,7 +459,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt/resource"]
+          - ["ephemeral0.1", "/mnt"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```

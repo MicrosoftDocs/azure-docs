@@ -5,8 +5,7 @@ description: Learn how to use Bring your own storage (BYOS) Speech resource with
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: alexeyo 
@@ -86,7 +85,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
@@ -118,7 +117,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
@@ -159,7 +158,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 

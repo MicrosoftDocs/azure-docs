@@ -22,7 +22,8 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) w
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription 
 
@@ -59,7 +60,7 @@ After you create a Jumio account, use it to configure Azure AD B2C.
 From [samples/Jumio/API/Jumio.Api/](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api), deploy the code to an Azure service. You can publish the code from Visual Studio.
 
 >[!NOTE]
->To configure Azure AD, you'll need the deployed service URL.
+>To configure Microsoft Entra ID, you'll need the deployed service URL.
 
 ### Deploy the client certificate
 

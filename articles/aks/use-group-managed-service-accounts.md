@@ -12,7 +12,7 @@ ms.date: 08/30/2023
 
 ## Prerequisites
 
-* Kubernetes 1.19 or greater. To check your version, see [Check for available upgrades](./upgrade-cluster.md#check-for-available-aks-cluster-upgrades). To upgrade your version, see [Upgrade AKS cluster](./upgrade-cluster.md#upgrade-an-aks-cluster).
+* Kubernetes 1.19 or greater. To check your version, see [Check for available upgrades](./upgrade-aks-cluster.md#check-for-available-aks-cluster-upgrades). To upgrade your version, see [Upgrade AKS cluster](./upgrade-aks-cluster.md).
 * Azure CLI version 2.35.0 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * [Managed identities][aks-managed-id] enabled on your AKS cluster.
 * Permissions to create or update an Azure Key Vault.
@@ -27,7 +27,7 @@ ms.date: 08/30/2023
 To use GMSA with AKS, you need a standard domain user credential to access the GMSA credential configured on your domain controller. To configure GMSA on your domain controller, see [Get started with Group Managed Service Accounts][gmsa-getting-started]. For the standard domain user credential, you can use an existing user or create a new one, as long as it has access to the GMSA credential.
 
 > [!IMPORTANT]
-> You must use either Active Directory Domain Service or on-premises Active Directory. At this time, you can't use Azure Active Directory to configure GMSA with an AKS cluster.
+> You must use either Active Directory Domain Service or on-premises Active Directory. At this time, you can't use Microsoft Entra ID to configure GMSA with an AKS cluster.
 
 ## Store the standard domain user credentials in Azure Key Vault
 
@@ -357,6 +357,19 @@ You can either [grant access to your key vault for the identity after cluster cr
 
 5. Open a web browser to the external IP address of the `gmsa-demo` service.
 6. Authenticate with the `$NETBIOS_DOMAIN_NAME\$AD_USERNAME` and password and confirm you see `Authenticated as $NETBIOS_DOMAIN_NAME\$AD_USERNAME, Type of Authentication: Negotiate`.
+
+### Disable GMSA on an existing cluster
+
+* Disable GMSA on an existing cluster with Windows Server nodes using the [`az aks update`][az-aks-update] command.
+
+    ```azurecli-interactive
+    az aks update \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --disable-windows-gmsa 
+    ```
+> [!NOTE]
+> You can re-enable GMSA on an existing cluster by using the [az aks update][az-aks-update] command.
 
 ## Troubleshooting
 

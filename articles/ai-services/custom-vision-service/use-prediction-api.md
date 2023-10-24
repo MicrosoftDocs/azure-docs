@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 12/27/2022
 ms.author: pafarley

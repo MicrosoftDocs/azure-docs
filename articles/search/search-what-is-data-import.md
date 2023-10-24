@@ -78,7 +78,7 @@ Indexers connect an index to a data source (usually a table, view, or equivalent
 
 ### How to pull data into an Azure Cognitive Search index
 
-Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/Indexer-operations), and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
+Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/create-indexer), and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
 An advantage to using the portal is that Azure Cognitive Search can usually generate a default index schema by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes affect the schema itself, you would need to rebuild the index. 
 

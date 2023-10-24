@@ -1,11 +1,11 @@
 ---
 title: Limits and boundaries - QnA Maker
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
