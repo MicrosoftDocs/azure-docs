@@ -41,7 +41,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your Client IP | \* | Azure Container Apps Environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
+| TCP | Your Client IP | \* | Azure Container Apps environment `staticIP` | 443 | This is the staticIP used by the load balancer for Azure Container Apps. |
 | TCP | AzureLoadBalancer | \* | Your container app's subnet | 30,000-32,676<sup>1</sup> | Allow communication between IPs in your container app's subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ---
