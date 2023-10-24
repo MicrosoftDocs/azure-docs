@@ -39,24 +39,24 @@ In this section, you'll create a load balancer for the virtual machines.
 1. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
-1. Select **Create new** in **Public IP address**.
-1. In **Add a public IP address**, enter **lb-public-IP** for **Name**.
-1. Select **Zone-redundant** in **Availability zone**.
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../articles/virtual-network/ip-services/public-ip-address-prefix.md).
+2. Select **Create new** in **Public IP address**.
+3. In **Add a public IP address**, enter **lb-public-IP** for **Name**.
+4. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=azure-cli#availability-zones) ., you have the option to select no zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview?tabs=azure-cli).
 
-1. Select **OK**.
-1. Select **Add**.
-1. Select the **Next: Backend pools>** button at the bottom of the page.
-1. In the **Backend pools** tab, select **+ Add a backend pool**.
-1. Enter **lb-backend-pool** for **Name** in **Add backend pool**.
-1. Select **lb-VNet** in **Virtual network**.
-1. Select **IP Address** for **Backend Pool Configuration** and select **Save**.
-1. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
-1. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
-1. In **Add load balancing rule**, enter or select the following information:
+5. Select **OK**.
+6. Select **Add**.
+7. Select the **Next: Backend pools>** button at the bottom of the page.
+8. In the **Backend pools** tab, select **+ Add a backend pool**.
+9. Enter **lb-backend-pool** for **Name** in **Add backend pool**.
+10. Select **lb-VNet** in **Virtual network**.
+11. Select **IP Address** for **Backend Pool Configuration** and select **Save**.
+12. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
+13. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+14. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -74,10 +74,10 @@ In this section, you'll create a load balancer for the virtual machines.
     | Enable Floating IP | Select checkbox. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-1. Select **Save**.
-1. Select the blue **Review + create** button at the bottom of the page.
-1. Select **Create**.
+15. Select **Save**.
+16. Select the blue **Review + create** button at the bottom of the page.
+17. Select **Create**.
 
     > [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
-    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
+    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](/azure/nat-gateway/nat-overview)
+    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections).
