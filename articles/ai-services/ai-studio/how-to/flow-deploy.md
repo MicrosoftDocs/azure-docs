@@ -13,22 +13,19 @@ ms.author: eur
 
 # How to deploy flows from an Azure AI Studio project
 
-> [!IMPORTANT]
-> TODO_PUBLIC_PREVIEW
-> Porting from private preview insiders documentation
-> PG POC: TBD
+This article provides instructions on how to deploy flows from an Azure AI Studio project.
 
-## Prompt flows
+## Prerequisites
 
-In order to make the chat playground to respond to your query, you must grant permissions to the endpoint entity after the promptflow deployment is created. This is a subscription owner level action, so if needed, ask your subscription owner to do it for you. [Learn more about promptflow deployment](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?view=azureml-api-2#endpoint). 
+In order to make the chat playground to respond to your query, you must grant permissions to the endpoint entity after the promptflow deployment is created. This is a subscription owner level action, so if needed, ask your subscription owner to do it for you. 
 
-### If you are using AI Studio UI:
+### If you're using AI Studio UI:
 1. Follow [the promptflow instruction](https://github.com/Azure/azureai-insiders/blob/aistudio-preview/previews/aistudio/how-to/build_with_promptflow.md) to create a promptflow.
 2. Select **Deploy** on the flow editor.
-3. Once you are redirected to the deployment details page, **look for the endpoint name** in URL (`EndpointName.region.inference.ml.azure.com/score`). You'll need this for step 9 (enabling access to secrets).
+3. Once you're redirected to the deployment details page, **look for the endpoint name** in URL (`EndpointName.region.inference.ml.azure.com/score`). You need this for step 9 (enabling access to secrets).
 4. Go to Project details page (`Projects` > `Details`).
 5. Select the **YourResourceGroupName** link on the Details page.
-6. Once you are redirected to the Azure Resource Group page, Select **Access control (IAM)** on the left navigation menu.
+6. Once you're redirected to the Azure Resource Group page, Select **Access control (IAM)** on the left navigation menu.
 7. Select **Add role assignment**.
 8. Select **Azure ML Data Scientist** and select **Next**.
 9. Select **+ select members** and search for your endpoint name. Tip: use your project name as a search keyword to find the endpoint quickly. 
@@ -78,7 +75,7 @@ print(response)
 
 ## SDK
 
-Azure AI SDK is not supporting open source model deployment at this time. 
+Azure AI SDK isn't supporting open source model deployment at this time. 
 
 If you want to deploy using SDK, there are two options that are currently supported:
 

@@ -31,7 +31,7 @@ The prompt flow *Python* tool offers customized code snippets as self-contained 
         return 'hello ' + message
     ```
 
-    See [Python code input requirements](#python-code-input-requirements) for more information.
+    For more information, see [Python code input requirements](#python-code-input-requirements).
 
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
 1. The outputs are described [here](#outputs). Given the previous example Python code input, if the input message is "world", the output is `hello world`.
@@ -39,7 +39,7 @@ The prompt flow *Python* tool offers customized code snippets as self-contained 
 
 ## Inputs
 
-The list of inputs will change based on the arguments of the tool function, after you save the code. Adding type to arguments and return values will help the tool show the types properly.
+The list of inputs will change based on the arguments of the tool function, after you save the code. Adding type to arguments and return values help the tool show the types properly.
 
 | Name   | Type   | Description                                          | Required |
 |--------|--------|------------------------------------------------------|---------|
@@ -68,7 +68,7 @@ This section describes requirements of the Python code input for the Python tool
 - Python Tool Code should consist of a complete Python code, including any necessary module imports.
 - Python Tool Code must contain a function decorated with `@tool` (tool function), serving as the entry point for execution. The `@tool` decorator should be applied only once within the snippet.
 - Python tool function parameters must be assigned in 'Inputs' section
-- Python tool function shall have a return statement and value, which will be the output of the tool.
+- Python tool function shall have a return statement and value, which is the output of the tool.
 
 The following Python code is an example of best practices:
 
@@ -82,7 +82,7 @@ def my_python_tool(message: str) -> str:
 
 ## Consume custom connection in the Python tool
 
-If you are developing a python tool that requires calling external services with authentication, you can use the custom connection in prompt flow. It allows you to securely store the access key and then retrieve it in your python code.
+If you're developing a python tool that requires calling external services with authentication, you can use the custom connection in prompt flow. It allows you to securely store the access key and then retrieve it in your python code.
 
 ### Create a custom connection
 

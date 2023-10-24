@@ -31,7 +31,7 @@ Create an Azure Content Safety connection:
 
     :::image type="content" source="../../media/prompt-flow/content-safety-tool.png" alt-text="Screenshot of the Content Safety tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/content-safety-tool.png":::
 
-1. Select the connection to one of your provisioned resources. For example, select **AzureAIContentSafetyConnection** if you created a connection with that name. See [Prerequisites](#prerequisites) for more information.
+1. Select the connection to one of your provisioned resources. For example, select **AzureAIContentSafetyConnection** if you created a connection with that name. For more information, see [Prerequisites](#prerequisites).
 1. Enter values for the Content Safety tool input parameters described [here](#inputs).
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
 1. The outputs are described [here](#outputs).
@@ -50,7 +50,7 @@ The following are available input parameters:
 
 ## Outputs
 
-The following is an example JSON format response returned by the tool:
+The following JSON format response is an example returned by the tool:
 
 ```json
 {

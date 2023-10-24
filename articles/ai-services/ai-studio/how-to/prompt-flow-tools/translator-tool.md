@@ -20,7 +20,7 @@ Create an Azure AI Translator connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
 1. Go to **Settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog box to create a custom connection to your [Azure AI Translator resource](../../../translator/create-translator-resource.md). Specify a connection name such as  **AzureAITranslatorConnection** that will be used in the flow.
+1. Complete all steps in the **Create a new connection** dialog box to create a custom connection to your [Azure AI Translator resource](../../../translator/create-translator-resource.md). Specify a connection name such as  **AzureAITranslatorConnection** that is used later in the flow.
 
 ## Build with the Azure Translator tool
 
@@ -29,7 +29,7 @@ Create an Azure AI Translator connection:
 
     :::image type="content" source="../../media/prompt-flow/translator-tool.png" alt-text="Screenshot of the Azure Translator tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/translator-tool.png":::
 
-1. Select the connection to one of your provisioned resources. For example, select **AzureAITranslatorConnection**. For example, select **AzureAITranslatorConnection** if you created a connection with that name. See [Prerequisites](#prerequisites) for more information.
+1. Select the connection to one of your provisioned resources. For example, select **AzureAITranslatorConnection**. For example, select **AzureAITranslatorConnection** if you created a connection with that name. For more information, see [Prerequisites](#prerequisites).
 1. Enter values for the Azure Translator tool input parameters described [here](#inputs).
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
 1. The outputs are described [here](#outputs).
@@ -48,16 +48,19 @@ For more information, please refer to [Translator 3.0: Translate](../../../trans
 
 ## Outputs
 
-The following is an example output returned by the tool:
+Given the following input parameters:
 
+```
 input_text = "Is this a leap year?"
 source_language = "en"
 target_language = "hi"
-
-```
-क्या यह एक छलांग वर्ष है?
 ```
 
+If the target language (`hi`) is detected, the output will resemble the following in Hindi:
+
+```
+क्या यह साल एक लीप ईयर है?
+```
 
 ## Next steps
 

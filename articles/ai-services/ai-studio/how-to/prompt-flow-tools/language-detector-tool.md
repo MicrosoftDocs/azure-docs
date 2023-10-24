@@ -20,7 +20,7 @@ Create an Azure AI Translator connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
 1. Go to **Settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog box to create a custom connection to your [Azure AI Translator resource](../../../translator/create-translator-resource.md). Specify a connection name such as  **AzureAITranslatorConnection** that will be used in the flow.
+1. Complete all steps in the **Create a new connection** dialog box to create a custom connection to your [Azure AI Translator resource](../../../translator/create-translator-resource.md). Specify a connection name such as  **AzureAITranslatorConnection** that is used later in the flow.
 
 ## Build with the Azure Language Detector tool
 
@@ -29,7 +29,7 @@ Create an Azure AI Translator connection:
 
     :::image type="content" source="../../media/prompt-flow/language-detector-tool.png" alt-text="Screenshot of the Azure Language Detector tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/language-detector-tool.png":::
 
-1. Select the connection to one of your provisioned resources. For example, select **AzureAITranslatorConnection**. For example, select **AzureAITranslatorConnection** if you created a connection with that name. See [Prerequisites](#prerequisites) for more information.
+1. Select the connection to one of your provisioned resources. For example, select **AzureAITranslatorConnection**. For example, select **AzureAITranslatorConnection** if you created a connection with that name. For more information, see [Prerequisites](#prerequisites).
 1. Enter values for the Azure Language Detector tool input parameters described [here](#inputs).
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
 1. The outputs are described [here](#outputs).
@@ -47,7 +47,7 @@ For more information, see to [Translator 3.0: Detect](../../../cognitive-service
 
 ## Outputs
 
-For example, if the input text is "Is this a leap year?", the output is `en` (English).
+For example, if the input text is "Is this year a leap year?", the output is `en` (English).
 
 ```
 en

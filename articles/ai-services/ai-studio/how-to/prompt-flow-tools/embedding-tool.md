@@ -12,10 +12,10 @@ ms.author: eur
 
 # Embedding tool for flows in Azure AI Studio
 
-The prompt flow *Embedding* tool enables you to leverage widely used large language models (LLM) for natural language processing.
+The prompt flow *Embedding* tool enables you to convert text into dense vector representations for various natural language processing tasks
 
-Use the embedding tool (as described in this document) to convert text into dense vector representations for various natural language processing tasks. For chat and completion tools, see [LLM tool](llm-tool.md).
-
+> [!NOTE]
+> For chat and completion tools, check out the [LLM tool](llm-tool.md).
 
 ## Build with the Embedding tool
 

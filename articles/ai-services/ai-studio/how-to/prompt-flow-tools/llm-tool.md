@@ -12,9 +12,10 @@ ms.author: eur
 
 # LLM tool for flows in Azure AI Studio
 
-The prompt flow *LLM* tool enables you to leverage widely used large language models (LLM) for natural language processing.
+The prompt flow *LLM* tool enables you to use large language models (LLM) for natural language processing.
 
-Use the LLM tool (as described in this document) for chat and completion tasks. For embeddings to convert text into dense vector representations for various natural language processing tasks, see [Embedding tool](embedding-tool.md).
+> [!NOTE]
+> For embeddings to convert text into dense vector representations for various natural language processing tasks, see [Embedding tool](embedding-tool.md).
 
 ## Prerequisites
 
@@ -42,7 +43,7 @@ The following are available input parameters:
 
 | Name                   | Type        | Description                                                                             | Required |
 |------------------------|-------------|-----------------------------------------------------------------------------------------|----------|
-| prompt                 | string      | text prompt that the language model will complete                                       | Yes      |
+| prompt                 | string      | text prompt for the language model to complete                                       | Yes      |
 | model, deployment_name | string      | the language model to use                                                               | Yes      |
 | max\_tokens            | integer     | the maximum number of tokens to generate in the completion. Default is 16.              | No       |
 | temperature            | float       | the randomness of the generated text. Default is 1.                                     | No       |
@@ -51,28 +52,25 @@ The following are available input parameters:
 | top_p                  | float       | the probability of using the top choice from the generated tokens. Default is 1.        | No       |
 | logprobs               | integer     | the number of log probabilities to generate. Default is null.                           | No       |
 | echo                   | boolean     | value that indicates whether to echo back the prompt in the response. Default is false. | No       |
-| presence\_penalty      | float       | value that controls the model's behavior with regard to repeating phrases. Default is 0.  | No       |
-| frequency\_penalty     | float       | value that controls the model's behavior with regard to generating rare phrases. Default is 0. | No       |
+| presence\_penalty      | float       | value that controls the model's behavior regarding repeating phrases. Default is 0.  | No       |
+| frequency\_penalty     | float       | value that controls the model's behavior regarding generating rare phrases. Default is 0. | No       |
 | best\_of               | integer     | the number of best completions to generate. Default is 1.                               | No       |
 | logit\_bias            | dictionary  | the logit bias for the language model. Default is empty dictionary.                     | No       |
 
 
 ### Chat inputs
 
-
 | Name                   | Type        | Description                                                                                    | Required |
 |------------------------|-------------|------------------------------------------------------------------------------------------------|----------|
-| prompt                 | string      | text prompt that the language model will response                                              | Yes      |
+| prompt                 | string      | text prompt that the language model should reply to                                              | Yes      |
 | model, deployment_name | string      | the language model to use                                                                      | Yes      |
 | max\_tokens            | integer     | the maximum number of tokens to generate in the response. Default is inf.                      | No       |
 | temperature            | float       | the randomness of the generated text. Default is 1.                                            | No       |
 | stop                   | list        | the stopping sequence for the generated text. Default is null.                                 | No       |
 | top_p                  | float       | the probability of using the top choice from the generated tokens. Default is 1.               | No       |
-| presence\_penalty      | float       | value that controls the model's behavior with regard to repeating phrases. Default is 0.      | No       |
-| frequency\_penalty     | float       | value that controls the model's behavior with regard to generating rare phrases. Default is 0. | No       |
+| presence\_penalty      | float       | value that controls the model's behavior regarding repeating phrases. Default is 0.      | No       |
+| frequency\_penalty     | float       | value that controls the model's behavior regarding generating rare phrases. Default is 0. | No       |
 | logit\_bias            | dictionary  | the logit bias for the language model. Default is empty dictionary.                            | No       |
-
-
 
 ## Outputs
 
@@ -82,7 +80,6 @@ The output varies depending on the API you selected for inputs.
 |------------|-------------|------------------------------------------|
 | Completion | string      | The text of one predicted completion     |
 | Chat       | string      | The text of one response of conversation |
-
 
 ## Next steps
 
