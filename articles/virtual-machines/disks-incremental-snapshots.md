@@ -147,10 +147,9 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Check snapshot status
 
+Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed.	
 
-You can create Premium SSD v2 and Ultra Disk before the background process copying the data has been completed, and attach them to a running VM. However, until the process completes, you will experience a read performance drop on the disk
-
-You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot. These sections report the `CompletionPercet` property of the disk, which has two possible values, `100` and `0`. `100` means the data is fully copied, and `0` means the copy is ongoing. This property doesn't report real-time progress and has no other possible values.
+You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot.
 
 > [!IMPORTANT]
 > You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.
@@ -232,20 +231,6 @@ The following command displays the logical sector size of a snapshot:
 
 ```azurecli
 az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logicalSectorSize] -o tsv
-```
-
-## Check disk status
-
-Currently, you can only get the status of the background copy of a disk from a snapshot with the Azure CLI.
-
-Use the following commands to find the status of the background copy of a disk from snapshot.
-
-```azurecli
-subscriptionId=yourSubscriptionID
-resourceGroupName=yourResourceGroupName
-diskName=yourDiskName
-az account set --subscription $subscriptionId
-az disk show -n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
 ```
 
 ## Next steps
