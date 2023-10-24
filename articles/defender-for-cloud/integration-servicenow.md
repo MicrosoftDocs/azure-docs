@@ -56,11 +56,10 @@ After you complete these steps, you can use this user for integrating the instan
 
 ### Create ServiceNow Integration with MDC
 
-1. Use the following URL to login to Azure portal and navigate to Microsoft Defender for Cloud, Environment 
-settings: https://aka.ms/integrations
-1. Click on ‘Integrations’ to connect your environment to 3rd party ticketing system (ServiceNow in the current 
-scenario)
-1. Select ‘Add Integration’ and provide General information along with the ServiceNow information (Instance 
+1. Sign in to [the Azure portal](https://aka.ms/integrations) and navigate to **Microsoft Defender for Cloud** > **Environment 
+settings**.
+1. Click **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
+1. Select **Add integration** > **ServiceNow**, and provide General information along with the ServiceNow information (Instance 
 URL, Username, Password, ClientID, ClientSecret) that you generated in the previous exercise.
 NOTE: You can create ‘Integration’ on (based on the relevant permissions): 
 - Management group
