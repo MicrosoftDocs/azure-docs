@@ -214,7 +214,7 @@ To assign new `Asset` instances to Connector deployments, note the following rul
 
 - If there's a Connector deployment that handles less than 70% of the configured `maxDataPointsPerSecond`, new Assets are still assigned to this Connector deployment.
 
-- If all Connector deployments have less than 30% capacity left and a new asset is created, a new Connector deployment is created and the new Asset is assigned to it.
+- If all Connector deployments have less than 30% capacity and a new asset is created, a new Connector deployment is created and the new Asset is assigned to it.
 
 - If the maximum number of deployments configured by `opcUaConnector.maxNumberOfDeployments` is reached, no new Connector deployments are created.
 

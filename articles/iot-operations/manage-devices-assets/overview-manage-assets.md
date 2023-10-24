@@ -25,7 +25,7 @@ Azure IoT Operations includes several services that let you perform key tasks re
 
 The following diagram shows the high-level architecture of Azure IoT Operations. The services that you use to manage assets are highlighted in red. 
 
-:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.png" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png":::
+:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.svg":::
 
 - **Azure IoT Operations Experience (preview)**.  The Operations Experience portal is a web app that lets you create and manage assets, and configure data processing pipelines. The portal simplifies the task of managing assets. Operations Experience is the recommended service to manage assets. 
 - **Azure Device Registry (preview)**.  The Device Registry is a service that projects industrial assets as Azure resources. It works together with the Operations Experience to streamline the process of managing assets. Device Registry lets you manage all your assets in the cloud, as true Azure resources contained in a single unified registry. 
