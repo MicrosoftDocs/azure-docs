@@ -106,13 +106,42 @@ Use the Azure Developer CLI (`azd`) to get the application code. The sample appl
 
 ## Create the API for NoSQL account
 
-Use the Azure CLI (`az`) to create an API for NoSQL account. Here, you also create the `cosmicworks` database and `products` container for the quickstart.
+Use the Azure CLI (`az`) to create an API for NoSQL account. You can choose to create an account in your existing subscription, or try a free Azure Cosmos DB account.
+
+### [Try Azure Cosmos DB free](#tab/try-free)
+
+1. Navigate to the **Try Azure Cosmos DB free** homepage: <https://cosmos.azure.com/try/>
+
+1. Sign-in using your Microsoft account.
+
+1. In the list of APIs, select the **Create** button for the **API for NoSQL**.
+
+1. Navigate to the newly created account by selecting **Open in portal**.
+
+1. Record the unique name, resource group name, and location of the API for NoSQL account. You use these values in the next step.
+
+1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
+
+    ```azurecli
+    # Variable for resource group name
+    resourceGroupName="<resource-group-name>"
+
+    # Variable for location
+    location="<target-location>"
+
+    # Variable for account name
+    accountName="<cosmos-db-nosql-account-name>"
+    ```
+
+### [Azure subscription](#tab/azure-subscription)
 
 1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
 
     ```azurecli
     # Variable for resource group name
     resourceGroupName="msdocs-cosmos-db-quickstart"
+
+    # Variable for location
     location="westus"
 
     # Variable for account name with a randomly generated suffix
@@ -138,6 +167,12 @@ Use the Azure CLI (`az`) to create an API for NoSQL account. Here, you also crea
         --name $accountName \
         --locations regionName=$location
     ```
+
+---
+
+## Create the database and container
+
+Use the Azure CLI to create the `cosmicworks` database and `products` container for the quickstart.
 
 1. Create a new database with `az cosmosdb sql database create`. Set the name of the database to `comsicworks` and use autoscale throughput with a maximum of **1,000** RU/s.
 
