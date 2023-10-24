@@ -12,11 +12,11 @@ ms.author: jacadd
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
 
 Within ACS you can send and receive reactions when on a group call:
-- Like ![Like reaction](media/reaction-like.png)
-- Love ![Love reaction](media/reaction-love.png)
-- Applause ![Applause reaction](media/reaction-applause.png)
-- Laugh ![Laugh reaction](media/reaction-laugh.png)
-- Surprise ![Surprise reaction](media/reaction-surprise.png)
+- Like :::image type="icon" source="media/reaction-like.png":::
+- Love :::image type="icon" source="media/reaction-love.png":::
+- Applause :::image type="icon" source="media/reaction-applause.png":::
+- Laugh :::image type="icon" source="media/reaction-laugh.png":::
+- Surprise :::image type="icon" source="media/reaction-surprise.png":::
 
 To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message will be built with Type `ReactionMessage` that uses `Reaction` enums as an attribute. 
 
