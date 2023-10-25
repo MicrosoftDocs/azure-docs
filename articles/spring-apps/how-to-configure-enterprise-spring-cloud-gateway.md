@@ -466,7 +466,7 @@ To enable APM monitoring in your Spring Cloud Gateway, you can create APM config
 
 Use the following steps to set up APM by using the Azure portal:
 
-1. Configure APM on the service instance level with APM name, type and properties as shown in [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-APMs-on-the-service-instance-level)
+1. Configure APM on the service instance level with APM name, type and properties as shown in [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended)
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
 
@@ -478,7 +478,7 @@ Use the following steps to set up APM by using the Azure portal:
 
 Use the following command to set up APM in Spring Cloud Gateway by using the Azure CLI:
 
-1. Configure APM on the service instance level with APM name, type and properties as shows in [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-APMs-on-the-service-instance-level)
+1. Configure APM on the service instance level with APM name, type and properties as shows in [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended)
 
 1. Update gateway with APM reference names
 ```azurecli
@@ -493,6 +493,7 @@ The values for `--apms` are space-separated list of APM reference names which ar
 > [!NOTE]
 > APM types in Spring Cloud Gateway is deprecating, please use APM reference names to configure APM in gateway.
 
+---
 
 #### Manage APM in VMware Spring Cloud Gateway (deprecated)
 
