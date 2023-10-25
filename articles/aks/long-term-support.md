@@ -55,23 +55,25 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|
 ```
 
 ## Long Term Support, Addons and Features
-The AKS team currently maintains the Kubernetes 1.27 codebase, but once it leaves Community Support, we rely on Open Source projects for managed add-ons provided to customers. Due to various external factors, some add-ons and features may not support Kubernetes versions within the upstream Community Support windows.
+The AKS team currently tracks add-on versions where Kubernetes community support exists. Once a version leaves leaves Community Support, we rely on Open Source projects for managed add-ons to continue that support. Due to various external factors, some add-ons and features may not support Kubernetes versions outside these upstream Community Support windows.
 
 As the list of managed add-ons is large, we list the addons / features that aren't supported and the reason why.
 
 |  Add On / Feature | Reason it is unsupported |
 ---|---|
-| Istio |  The Istio support cycle is short (six months), and there will not be maintenance releases for K8S 1.27 |
+| Istio |  The Istio support cycle is short (six months), and there will not be maintenance releases for Kubernetes 1.27 |
 | Keda | Unable to guarantee future version compatibility with Kubernetes 1.27 |
 | Calico  |  Requires Calico Enterprise agreement past Community Support |
 | Cillium  |  Requires Cillium Enterprise agreement past Community Support |
 | Azure Linux | Support timeframe for Azure Linux 2 ends during this LTS cycle |
 | Key Management Service (KMS) | KMSv2 replaces KMS during this LTS cycle |
 | Dapr | AKS extensions are not supported |
+| Application Gateway Ingress Controller | Migration to App Gateway for Containers will happen during LTS period |
+| Open Service Mesh | OSM will be deprecated|
+| AAD Pod Identity  | Deprecated in place of Workload Identity |
 
 
 > [!NOTE]
-You can't move your cluster to Long Term support if any of these add-ons or features are enabled.  
 
 You can't move a cluster to Long Term support if any of these add-ons / features are enabled in your cluster.  
 
@@ -81,7 +83,6 @@ Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to i
 Versions of Kubernetes LTS are available for two years from General Availability, we'll mark a later version of Kubernetes as LTS based on the following criteria:
 * Sufficient time for customers to migrate from the prior LTS version to the current has passed
 * The previous version has had a two year support window
-* Sufficient time for customers to migrate from the prior LTS version to the current
 
 Read the AKS release notes to stay informed of when you're able to plan your migration.
 
@@ -107,7 +108,7 @@ There are approximately two years between one LTS version and the next.  In lieu
 ### Migrating from LTS to the next LTS release
 The upstream Kubernetes community supports a two minor version upgrade path.  The process migrates the objects in your Kubernetes cluster as part of the upgrade process, and provides a tested, and accredited migration path.
 
-For customers that wish to carry out an in-place migration, the AKS service attempts to migrate your control plane from the previous LTS version to the latest, and then migrate your data plane.
+For customers that wish to carry out an in-place migration, the AKS service will migrate your control plane from the previous LTS version to the latest, and then migrate your data plane.
 
 To carry out an in-place upgrade to the latest LTS version, you need to specify an LTS enabled Kubernetes version as the upgrade target.
 
@@ -117,7 +118,3 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 > [!NOTE]
 > Kubernetes 1.30.2 is used as an example here, please check for available releases in the portal or using the get-version parameter in the azure CLI.
-
-
-
-[add-ons]: integrations.md#add-ons
