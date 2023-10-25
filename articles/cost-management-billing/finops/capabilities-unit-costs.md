@@ -23,7 +23,7 @@ Identify what a single unit is for your business – like a sale transaction for
 
 Measuring unit costs provides insights into profitability and allows organizations to make data-driven business decisions regarding cloud investments. Unit economics is what ties the cloud to measurable business value.
 
-Unit Economics only works when factoring in the whole picture of your business and it's a derivative of Activity Based Costing methodology. This summary article only discusses capturing Batch or online activity. However, there are manual processes and steps outside of the cloud that might be critical for calculating units that are critical for your business rather than only cloud-related aspects.
+The ultimate goal of unit economics, as a derivative of activity-based costing methodology, is to factor in the whole picture of your business's cost. This article focuses on capturing how you can factor your Microsoft Cloud costs into those efforts. As your FinOps practice matures, consider the manual processes and steps outside of the cloud that might be important for calculating units that are critical for your business to track the most accurate cost per unit.
 
 ## Before you begin
 
