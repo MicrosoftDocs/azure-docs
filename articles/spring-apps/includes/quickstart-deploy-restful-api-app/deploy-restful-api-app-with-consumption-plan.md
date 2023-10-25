@@ -109,9 +109,9 @@ Use the following steps to create a service instance:
    | **Plan**             | **Consumption** | The pricing plan determines the resources and cost associated with your instance.           |
    | **Zone Redundant**   | Disabled        | The option to create your Container Apps Environment service in an Azure availability zone. |
 
-1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
+1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. 
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. 
 
 1. Select **Go to resource** to open the service's **Overview** page.
 

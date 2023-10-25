@@ -45,6 +45,6 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
     - For **State**, keep it enabled.
     - Select **Add scope**.
 
-1. Repeat the previous step to add the two other scopes: *ToDo.Write* and *ToDo.Delete*.
+1. Repeat the previous steps to add the other two scopes: *ToDo.Write* and *ToDo.Delete*.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Screenshot of the Azure portal that shows the Expose an API page of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
