@@ -162,7 +162,7 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $prin
 
 ## Create an event subscription
 
-1. [TEXT-PLACEHOLDER]
+1. Create a new push delivery event subscription.
 
     ```console
     $event_subscription="<your_event_subscription_name>"
