@@ -33,70 +33,71 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    | **Field** | **Value** |
    | --- | --- |
-   | Subscription | Select a subscription |
-   | Resource group | Select a resource group |
-   | Name | Enter the contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink_Downlink_1* |
-   | Region | Select a region |
-   | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. Like *PT1M* |
-   | Minimum elevation | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show you available time slots to communicate with your spacecraft. Using higher value can reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |
-   | Auto track configuration | Select the frequency band to be used for autotracking during the contact. X band, S band, or Disabled. |
-   | Event Hubs Namespace | Select an Event Hubs Namespace to which you'll send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
-   | Event Hubs Instance | Select an Event Hubs Instance that belongs to the previously selected Namespace. *This field will only appear if an Event Hubs Namespace is selected first*. |
-   | Virtual Network | Select a Virtual Network according to the instructions on the page. |
+   | **Subscription** | Select a subscription. |
+   | **Resource group** | Select a resource group. |
+   | **Name** | Enter a contact profile name. Specify the antenna provider and mission information here, e.g. *Microsoft_Aqua_Uplink_Downlink_1*. |
+   | **Region** | Select a region. |
+   | **Minimum viable contact duration** | Define the minimum duration of the contact as a prerequisite to show available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't be in the list of available options. Provide minimum contact duration in ISO 8601 format, e.g. *PT1M*. |
+   | **Minimum elevation** | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show available time slots to communicate with your spacecraft. Using a higher value may reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |
+   | **Auto track configuration** | Select the frequency band to be used for autotracking during the contact: X band, S band, or Disabled. |
+   | **Event Hubs Namespace** | Select an Event Hubs Namespace to which you'll send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
+   | **Event Hubs Instance** | Select an Event Hubs Instance that belongs to the previously selected Namespace. _This field will only appear if an Event Hubs Namespace is selected first_. |
+   | **Virtual Network** | Select a Virtual Network according to the instructions on the page. |
+   | **Subnet** | Select your subnet. _This field appears only if you select a virtual network first_. |
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
 
-4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-5. In the **Links** page, select **Add new Link**.
-6. In the **Add Link** page, enter or select this information per link direction:
+5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
+6. In the **Links** page, select **Add new Link**.
+7. In the **Add Link** page, enter or select this information per link direction:
 
    | **Field** | **Value** |
    | --- | --- |
-   | Name | Provide a name for the link |
-   | Direction | Select the link direction |
-   | Gain/Temperature (Downlink only) | Enter the gain to noise temperature in db/K |
-   | EIRP in dBW (Uplink only) | Enter the effective isotropic radiated power in dBW |
-   | Polarization | Select RHCP, LHCP, Dual, or Linear Vertical |
+   | **Name** | Provide a name for the link |
+   | **Direction** | Select the link direction |
+   | **Gain/Temperature** (Downlink only) | Enter the gain to noise temperature in db/K |
+   | **EIRP in dBW** (Uplink only) | Enter the effective isotropic radiated power in dBW |
+   | **Polarization** | Select RHCP, LHCP, Dual, or Linear Vertical |
 
-7. Select the **Add Channel** button.  
-8. In the **Add Channel** page, enter or select this information per channel:
+8. Select the **Add Channel** button.  
+9. In the **Add Channel** page, enter or select this information per channel:
 
    | **Field** | **Value** |
    | --- | --- |
-   | Name | Enter the name for the channel |
-   | Center Frequency | Enter the center frequency in MHz |
-   | Bandwidth MHz | Enter the bandwidth in MHz |
-   | Endpoint name | Enter the name of the data delivery endpoint |
-   | IP Address | Specify the IP Address for data retrieval/delivery |
-   | Port | Specify the Port for data retrieval/delivery |
-   | Protocol | Select TCP or UDP protocol for data retrieval/delivery |
-   | Demodulation Configuration Type (Downlink only) | Select type |
-   | Demodulation Configuration (Downlink only) | Refer to [configure the modem chain](modem-chain.md) for options. |
-   | Decoding Configuration (Downlink only)| If applicable, paste your decoding configuration |
-   | Modulation Configuration (Uplink only) | Refer to [configure the modem chain](modem-chain.md) for options. |
-   | Encoding Configuration (Uplink only)| If applicable, paste your encoding configuration |
+   | **Name** | Enter the name for the channel |
+   | **Center Frequency** (MHz) | Enter the center frequency in MHz |
+   | **Bandwidth** (MHz) | Enter the bandwidth in MHz |
+   | **Endpoint name** | Enter the name of the data delivery endpoint |
+   | **IP Address** | Specify the IP Address for data retrieval/delivery |
+   | **Port** | Specify the Port for data retrieval/delivery |
+   | **Protocol** | Select TCP or UDP protocol for data retrieval/delivery |
+   | **Demodulation Configuration Type** (_downlink only_) | Select type. |
+   | **Demodulation Configuration** (_downlink only_) | Refer to [configure the modem chain](modem-chain.md) for options. |
+   | **Decoding Configuration** (_downlink only_)| If applicable, paste your decoding configuration. |
+   | **Modulation Configuration** (_uplink only_) | Refer to [configure the modem chain](modem-chain.md) for options. |
+   | **Encoding Configuration** (_uplink only_)| If applicable, paste your encoding configuration. |
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
 7. Select the **Submit** button to add the channel.
 8. After adding all channels, select the **Submit** button to add the link.  
 
-9. If a mission requires third-party providers, select the **Third-Party Configuration** tab, or select the **Next: Third-Party Configurations** button at the bottom of the page.
-
+9. If a mission requires third-party providers, select the **Third-Party Configuration** tab.
+   
    > [!NOTE] 
-   > Mission configurations are agreed upon with third-party providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the discussed mission configuration.
+   > Mission configurations are agreed upon with partner network providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the appropriate mission configuration.
 
-10. In the **Third-Party Configurations** page, select **Add new Configuration**.
-11. In the **Mission Configuration** page, enter this information:
+11. In the **Third-Party Configurations** page, select **Add new Configuration**.
+12. In the **Mission Configuration** page, enter this information:
    
     | **Field** | **Value** |
     | --- | --- |
-    | Provider Name | Enter the name of the provider |
-    | Mission Configuration | Enter the mission configuration from the provider |
+    | **Provider Name** | Enter the name of the provider. |
+    | **Mission Configuration** | Enter the mission configuration from the provider. |
 
 13. Select the **Submit** button to add the mission configuration.
-14. Select the **Review + create** tab or select the **Review + create** button at the bottom of the page.
-15. Select the **Create** button.
+14. Select **Review + create**.
+15. After the validation is complete, select **Create**.
 
 ## Next steps
 
