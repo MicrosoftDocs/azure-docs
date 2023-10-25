@@ -29,7 +29,7 @@ The following features are supported for actions:
 ## Call an action
 Each action has a request and a response. To call an action, the MQTT request message requires a defined `response-topic`, and the name of the action (`actionName`) as a `user-property`. This message is sent to the following topic: `<app-id>/actions/<module-type>/<module-purpose>/invoke`.  There are two types of actions you can call with OPC UA Broker:  **Explore** actions and **Write** actions. 
 
-Action responses typically contain multiple response messages, the {{<oub-product-name>}} runtime adds a `state` as a `user-property` to indicate if all responses were sent. The following states are supported:
+Action responses typically contain multiple response messages, the OPC UA Broker runtime adds a `state` as a `user-property` to indicate if all responses were sent. The following states are supported:
 
 | Action State | Meaning                                                  |
 | ------------ | -------------------------------------------------------- |
