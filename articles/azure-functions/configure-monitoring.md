@@ -39,9 +39,9 @@ When custom application logs are sent directly, the host no longer be emits them
 
 The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. 
 
-Category names are assigned differently in Functions compared to other .NET frameworks. For example, when using `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
+Category names are assigned differently in Functions compared to other .NET frameworks. For example, when you use `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
  
-+ Entries related to the execution of a function are assigned a category of `Function.<FUNCTION_NAME>`.
++ Entries related to running a function are assigned a category of `Function.<FUNCTION_NAME>`.
 + Entries created by user code inside the function, such as when calling `logger.LogInformation()`, are assigned a category of `Function.<FUNCTION_NAME>.User`.
 
 The following chart describes the main categories of logs that the runtime creates:
@@ -85,7 +85,7 @@ The examples below define logging based on the following rules:
 
 + The default logging level is set to `Warning` to prevent [excessive logging](#solutions-with-high-volume-of-telemetry) for unanticipated categories.
 + `Host.Aggregator` and `Host.Results` are set to lower levels. Setting these to too high a level (especially higher than `Information`) can result in loss of metrics and performance data.
-+ Logging for function executions is set to `Information`. This can be [overridden](functions-host-json.md#override-hostjson-values) in local development to `Debug` or `Trace`, when needed.
++ Logging for function runs is set to `Information`. This can be [overridden](functions-host-json.md#override-hostjson-values) in local development to `Debug` or `Trace`, when needed.
 
 # [v2.x+](#tab/v2)
 
