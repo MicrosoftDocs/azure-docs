@@ -208,6 +208,13 @@ If the DNS resolution is incorrect, follow these steps:
 
 After you’ve verified the connectivity, retry the registration process.
 
+### Validate private endpoint network connectivity 
+You can use the tnc command in PowerShell to check if the port is reachable from the appliance to the private endpoint. 
+
+![vault network connectivity](./media/troubleshoot-network-connectivity/vault_network_connectivity_test.png)
+
+![vault network connectivity](./media/troubleshoot-network-connectivity/storage_network_connectivity_test.png)
+
 ### Start Discovery fails with the error AgentNotConnected
 The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Migrate service endpoint: <_URLname_> in Azure.
 
