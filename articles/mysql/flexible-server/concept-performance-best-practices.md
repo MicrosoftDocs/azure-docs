@@ -2,7 +2,7 @@
 title: Performance best practices - Azure Database for MySQL
 description: This article describes some recommendations to monitor and tune performance for your Azure Database for MySQL.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd 
 ms.author: sisawant
@@ -98,7 +98,7 @@ Vertically split load by functionally sharding the database - moving separate ap
 
 An Azure Database for MySQL performance best practice is to allocate enough RAM so that your working set resides almost completely in memory.
 
-- Check if the memory percentage being used in reaching the [limits](./concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md).
+- Check if the memory percentage being used in reaching the [limits](../single-server/concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md).
 - Set up alerts on such numbers to ensure that as the server reaches limits, you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU—either to higher compute size or to better pricing tier, which results in a dramatic increase in performance. 
 - Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](./concepts-monitoring.md#metrics).
 
@@ -117,10 +117,10 @@ We recommend testing and monitor the restart time to ensure the start-up/restart
 To save the state of the buffer pool at server shutdown, set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the effect on start-up/restart time by lowering and fine-tuning the value of server parameter `innodb_buffer_pool_dump_pct`. By default, this parameter is set to `25`.
 
 > [!NOTE]
-> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. For more information, see [Azure Database for MySQL storage options](./concepts-pricing-tiers.md#storage).
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. For more information, see [Azure Database for MySQL storage options](../single-server/concepts-pricing-tiers.md#storage).
 
 ## Next steps
 
 - [Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
 - [Best practice for monitoring your Azure Database for MySQL](concept-monitoring-best-practices.md)
-- [Get started with Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Get started with Azure Database for MySQL](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)

@@ -11,6 +11,8 @@ ms.date: 12/15/2022
 
 # Tutorial: Create a Logic app with Azure Database for MySQL - Flexible Server
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 [!INCLUDE [logic-apps-sku-consumption](../../../includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create an automated workflow using Azure Logic Apps with Azure Database for MySQL Connector (Preview). 

@@ -2,7 +2,7 @@
 title: Troubleshooting best practices - Azure Database for MySQL
 description: This article describes some recommendations for troubleshooting your Azure Database for MySQL server.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd 
 ms.author: sisawant

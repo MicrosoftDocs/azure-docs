@@ -6,11 +6,11 @@
   - name: What is Azure DB for MySQL?
     href: single-server/overview.md
   - name: Select the right MySQL deployment type
-    href: single-server/select-right-deployment-type.md
+    href: select-right-deployment-type.md
   - name: Try Flexible Server for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Prepay for reserved capacity
-    href: single-server/concept-reserved-pricing.md
+    href: flexible-server/concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -23,7 +23,7 @@
     - name: What's new in Flexible Server?
       href: flexible-server/whats-new.md
     - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+      href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
     expanded: true
     items:
@@ -74,7 +74,7 @@
             href: flexible-server/how-to-configure-server-parameters-cli.md
             displayName: server parameters, cli
       - name: Create databases and users
-        href: single-server/how-to-create-users.md
+        href: how-to-create-users.md
         displayName: users
   - name: Concepts
     items:
@@ -159,7 +159,7 @@
     - name: Azure Cognitive Search
       href: ../search/search-howto-index-mysql.md
     - name: Azure Advisor
-      href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
+      href: flexible-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
@@ -183,7 +183,7 @@
       - name: Database deployment
         items:
         - name: GitHub Actions
-          href: single-server/quickstart-mysql-github-actions.md
+          href: flexible-server/quickstart-mysql-github-actions.md
         - name: Azure Pipelines
           href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Server Management
@@ -402,7 +402,7 @@
     - name: Configure Firewall rules
       items:
       - name: Concepts
-        href: concepts-firewall-rules.md
+        href: single-server/concepts-firewall-rules.md
       - name: Configure Firewall rules using Azure portal
         href: single-server/how-to-manage-firewall-using-portal.md
         displayName: firewall
@@ -421,7 +421,7 @@
         href: single-server/how-to-configure-server-parameters-using-powershell.md
         displayName: server parameters, powershell
     - name: Create databases and users
-      href: single-server/how-to-create-users.md
+      href: how-to-create-users.md
       displayName: users
     - name: Monitor Server
       items:
@@ -716,7 +716,7 @@
   - name: In-place auto-migration for MySQL - Single Server to Flexible Server
     href: migrate/migrate-single-flexible-in-place-auto-migration.md
   - name: Migrate data with mysqldump or phpmyadmin
-    href: single-server/concepts-migrate-dump-restore.md
+    href: flexible-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
   - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
     href: migrate/concepts-migrate-mydumper-myloader.md
@@ -731,16 +731,16 @@
     href: single-server/how-to-migrate-rds-mysql-workbench.md
     displayName: migrate, rds, workbench
   - name: Migrate RDS MySQL data using Data-in replication
-    href: single-server/how-to-migrate-rds-mysql-data-in-replication.md
+    href: flexible-server/how-to-migrate-rds-mysql-data-in-replication.md
     displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
     href: migrate/how-to-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS (classic)
-    href: single-server/how-to-migrate-online.md
+    href: flexible-server/how-to-migrate-online.md
     displayName: migrate, dms, database migration service
   - name: Troubleshoot common errors
-    href: single-server/how-to-troubleshoot-common-errors.md
+    href: flexible-server/how-to-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied
 - name: Troubleshooting
   items:
@@ -750,16 +750,16 @@
   - name: Query performance
     items:
     - name: Troubleshoot query performance
-      href: single-server/how-to-troubleshoot-query-performance-new.md
+      href: flexible-server/how-to-troubleshoot-query-performance-new.md
       displayName: debug, performance issues, query performance
     - name: Profile query performance
-      href: single-server/how-to-troubleshoot-query-performance.md
+      href: flexible-server/how-to-troubleshoot-query-performance.md
       displayName: debug, performance issues, query performance
   - name: Troubleshoot low memory issues
-    href: single-server/how-to-troubleshoot-low-memory-issues.md
+    href: flexible-server/how-to-troubleshoot-low-memory-issues.md
     displayName: low memory, performance issues
   - name: Troubleshoot high CPU utilization
-    href: single-server/how-to-troubleshoot-high-cpu-utilization.md
+    href: flexible-server/how-to-troubleshoot-high-cpu-utilization.md
     displayName: cpu utilization, performance issues
   - name: Troubleshoot data encryption
     href: single-server/how-to-data-encryption-troubleshoot.md
@@ -771,25 +771,25 @@
     href: single-server/how-to-fix-corrupt-database.md
     displayName: corrupt data
   - name: Troubleshoot connectivity issues
-    href: single-server/how-to-troubleshoot-connectivity-issues.md
+    href: flexible-server/how-to-troubleshoot-connectivity-issues.md
   - name: Tune performance using the sys_schema
-    href: single-server/how-to-troubleshoot-sys-schema.md
+    href: flexible-server/how-to-troubleshoot-sys-schema.md
     displayName: sys schema, views
   - name: Troubleshooting best practices
-    href: single-server/concepts-troubleshooting-best-practices.md
+    href: flexible-server/concepts-troubleshooting-best-practices.md
 - name: Best Practices
   items:
   - name: Monitoring best practices
-    href: single-server/concept-monitoring-best-practices.md
+    href: flexible-server/concept-monitoring-best-practices.md
   - name: Performance best practices
-    href: single-server/concept-performance-best-practices.md
+    href: flexible-server/concept-performance-best-practices.md
   - name: Performance benchmark best practices
-    href: single-server/concept-perf-benchmark-best-practices.md
+    href: flexible-server/concept-perf-benchmark-best-practices.md
   - name: Application Development best practices
-    href: single-server/app-development-best-practices.md
+    href: app-development-best-practices.md
     displayName: application
   - name: Operational best practices
-    href: single-server/concept-operation-excellence-best-practices.md
+    href: flexible-server/concept-operation-excellence-best-practices.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -834,6 +834,6 @@
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
   - name: Partners
-    href: single-server/partners-migration-mysql.md
+    href: flexible-server/partners-migration-mysql.md
   - name: Database Migration Guide
     href: /data-migration/

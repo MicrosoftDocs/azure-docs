@@ -12,7 +12,7 @@ ms.date: 8/28/2022
 
 # Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server
 
-[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Article tested with the following Terraform and Terraform provider versions:
 

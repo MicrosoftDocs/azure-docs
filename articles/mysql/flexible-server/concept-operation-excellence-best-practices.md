@@ -2,7 +2,7 @@
 title: MySQL server operational best practices - Azure Database for MySQL
 description: This article describes the best practices to operate your MySQL database on Azure.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: mksuni 
 ms.author: sumuth
@@ -25,17 +25,17 @@ The following are operational guidelines that should be followed when working wi
 
 * **Monitor your memory, CPU, and storage usage**: You can [setup alerts](how-to-alert-on-metric.md) to notify you when usage patterns change or when you approach the capacity of your deployment, so that you can maintain system performance and availability. 
 
-* **Scale up your DB instance**: You can [scale up](how-to-create-manage-server-portal.md) when you are approaching storage capacity limits. You should have some buffer in storage and memory to accommodate unforeseen increases in demand from your applications. You can also [enable the storage autogrow](how-to-auto-grow-storage-portal.md) feature 'ON' just to ensure that the service automatically scales the storage as it nears the storage limits. 
+* **Scale up your DB instance**: You can [scale up](../single-server/how-to-create-manage-server-portal.md) when you are approaching storage capacity limits. You should have some buffer in storage and memory to accommodate unforeseen increases in demand from your applications. You can also [enable the storage autogrow](../single-server/how-to-auto-grow-storage-portal.md) feature 'ON' just to ensure that the service automatically scales the storage as it nears the storage limits. 
 
-* **Configure backups**: Enable [local or geo-redundant backups](how-to-restore-server-portal.md#set-backup-configuration) based on the requirement of the business. Also, you modify the retention period on how long the backups are available for business continuity. 
+* **Configure backups**: Enable [local or geo-redundant backups](how-to-restore-server-portal.md) based on the requirement of the business. Also, you modify the retention period on how long the backups are available for business continuity. 
 
 * **Increase I/O capacity**: If your database workload requires more I/O than you have provisioned, recovery or other transactional operations for your database will be slow. To increase the I/O capacity of a server instance, do any or all of the following: 
 
-    * Azure database for MySQL provides IOPS scaling at the rate of three IOPS per GB storage provisioned. [Increase the provisioned storage](how-to-create-manage-server-portal.md#scale-storage-up) to scale the IOPS for better performance. 
+    * Azure database for MySQL provides IOPS scaling at the rate of three IOPS per GB storage provisioned. [Increase the provisioned storage](../single-server/how-to-create-manage-server-portal.md#scale-storage-up) to scale the IOPS for better performance. 
 
-    * If you are already using Provisioned IOPS storage, provision [additional throughput capacity](how-to-create-manage-server-portal.md#scale-storage-up). 
+    * If you are already using Provisioned IOPS storage, provision [additional throughput capacity](../single-server/how-to-create-manage-server-portal.md#scale-storage-up). 
 
-* **Scale compute**: Database workload can also be limited due to CPU or memory and this can have serious impact on the transaction processing. Note that compute (pricing tier) can be scaled up or down between [General Purpose or Memory Optimized](concepts-pricing-tiers.md) tiers only. 
+* **Scale compute**: Database workload can also be limited due to CPU or memory and this can have serious impact on the transaction processing. Note that compute (pricing tier) can be scaled up or down between [General Purpose or Memory Optimized](../single-server/concepts-pricing-tiers.md) tiers only. 
 
 * **Test for failover**: Manually test failover for your server instance to understand how long the process takes for your use case and to ensure that the application that accesses your server instance can automatically connect to the new server instance after failover.
 
@@ -47,7 +47,7 @@ The following are operational guidelines that should be followed when working wi
 
 * If you are using replica, use [ProxySQL to balance off load](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/scaling-an-azure-database-for-mysql-workload-running-on/ba-p/1105847) between the primary server and the readable secondary replica server. See the setup steps here. </br> 
 
-* When provisioning the resource, make sure you [enabled the autogrow](how-to-auto-grow-storage-portal.md) for your Azure Database for MySQL. This does not add any additional cost and will protect the database from any storage bottlenecks that you might run into. </br> 
+* When provisioning the resource, make sure you [enabled the autogrow](../single-server/how-to-auto-grow-storage-portal.md) for your Azure Database for MySQL. This does not add any additional cost and will protect the database from any storage bottlenecks that you might run into. </br> 
 
 
 ### Using InnoDB with Azure Database for MySQL
