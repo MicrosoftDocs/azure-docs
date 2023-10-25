@@ -12,13 +12,13 @@ ms.author: v-abhmallick
 
 This article describes how to create a backup and replication policy that can be used for backups with Azure Backup and replication with Azure Site Recovery. 
 
-A backup policy defines when backups are taken, and how long they're retained. [Learn more](./guidance-best-practices.md#backup-policy-considerations) on the guidelines when creating a backup policy. 
+A backup policy defines when backups are taken, and how long they're retained. [Learn more](../backup/guidance-best-practices.md#backup-policy-considerations) on the guidelines when creating a backup policy. 
 
 Replication policy defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, [Site Recovery](../site-recovery/site-recovery-overview.md) creates a new replication policy with default settings of 24 hours for recovery point retention.  
 
 ## Prerequisites
 
-- [Review](./guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
+- [Review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
 
 ## Create policy
 

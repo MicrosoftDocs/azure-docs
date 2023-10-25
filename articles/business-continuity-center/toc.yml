@@ -5,7 +5,7 @@
 - name: Tutorials
   items:
   - name: View protection summary
-    href: 
+    href: tutorial-view-protection-summary.md
   - name: View protectable resources
     href: tutorial-view-protectable-resources.md
   - name: Configure protection for datasources
