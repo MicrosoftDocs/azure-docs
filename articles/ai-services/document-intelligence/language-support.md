@@ -13,6 +13,10 @@ ms.date: 11/15/2023
 
 # Language detection and extraction support
 
+::: moniker range="<=doc-intel-4.0.0"
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker-end
+
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->

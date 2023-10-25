@@ -23,7 +23,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 ::: moniker range="doc-intel-3.1.0"
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** [v3.0](?view=doc-intel-3.0.0&preserve-view=true) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** [v3.0](?view=doc-intel-3.0.0&preserve-view=true) &#9679; [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 * Get started with Azure AI Document Intelligence latest GA version (v3.1).
 

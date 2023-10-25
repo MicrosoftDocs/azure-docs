@@ -18,7 +18,7 @@ ms.author: lajanuar
 # Document processing models
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)] **Earlier version:** [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

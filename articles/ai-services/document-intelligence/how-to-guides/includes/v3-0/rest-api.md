@@ -9,9 +9,9 @@ ms.date: 08/21/2023
 ms.author: lajanuar
 ---
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This project targets Azure AI Document Intelligence API version 3.1 using cURL to execute REST API calls.
+> This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
 
 [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 

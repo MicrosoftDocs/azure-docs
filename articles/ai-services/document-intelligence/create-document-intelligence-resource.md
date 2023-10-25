@@ -13,6 +13,10 @@ ms.author: bemabonsu
 
 # Create a Document Intelligence resource
 
+::: moniker range="<=doc-intel-4.0.0"
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker-end
+
 Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Document Intelligence resource in the Azure portal.
 
 ## Visit the Azure portal

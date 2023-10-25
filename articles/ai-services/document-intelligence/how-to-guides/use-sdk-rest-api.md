@@ -18,7 +18,7 @@ monikerRange: '<=doc-intel-4.0.0'
 # Use Document Intelligence models
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v31-v30.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
