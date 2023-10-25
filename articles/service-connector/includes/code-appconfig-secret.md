@@ -60,7 +60,7 @@ ms.author: wchi
 
 ### [NodeJS](#tab/nodejs)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     npm install @azure/app-configuration
     ```

@@ -13,7 +13,7 @@ ms.author: wchi
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     dotnet add package Azure.Identity
     ```
-1. Authenticate via `Azure.Identity`. Get Azure App Configuration endpoint from environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `Azure.Identity` and get Azure App Configuration endpoint from environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```csharp
     using Azure.Identity;
@@ -57,7 +57,8 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate via `azure-identity`. Get Azure App Configuration endpoint from environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `azure-identity` and get Azure App Configuration endpoint from environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```java
     // Uncomment the following lines according to the authentication type.
     // for system managed identity
@@ -90,7 +91,7 @@ ms.author: wchi
     pip install azure-appconfiguration
     pip install azure-identity
     ```
-1. Authenticate via `azure-identity`. Get Azure App Configuration endpoint from environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `azure-identity` and get Azure App Configuration endpoint from environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     import os
     from azure.appconfiguration import AzureAppConfigurationClient
@@ -117,12 +118,12 @@ ms.author: wchi
 
 ### [NodeJS](#tab/nodejs)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     npm install --save @azure/identity
     npm install @azure/app-configuration
     ```
-1. Authenticate via `@azure/identity`. Get Azure App Configuration endpoint from environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `@azure/identity` and get Azure App Configuration endpoint from environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
