@@ -20,7 +20,7 @@ monikerRange: '<=doc-intel-4.0.0'
 <!-- markdownlint-disable MD004 -->
 <!-- markdownlint-disable MD032 -->
 :::moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]
 
 :::moniker-end
 

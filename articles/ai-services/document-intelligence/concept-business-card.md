@@ -25,7 +25,7 @@ ms.author: lajanuar
 :::moniker-end
 
 ::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

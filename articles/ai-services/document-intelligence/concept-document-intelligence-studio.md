@@ -14,7 +14,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence Studio
 
-[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v4-v3-1-v3.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
 
 [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
