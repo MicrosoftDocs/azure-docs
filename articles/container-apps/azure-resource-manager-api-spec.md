@@ -85,7 +85,7 @@ The following example ARM template snippet deploys a Container Apps environment.
     },
     "zoneRedundant": true,
     "vnetConfiguration": {
-      "infrastructureSubnetId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1"
+      "infrastructureSubnetId": "/subscriptions/<subscription_id>/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1"
     },
     "customDomainConfiguration": {
       "dnsSuffix": "www.my-name.com",
@@ -180,9 +180,15 @@ The following example ARM template snippet deploys a container app.
 
 ```json
 {
-  "location": "East US",
+  "identity": {
+    "userAssignedIdentities": {
+      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
+      }
+    },
+    "type": "UserAssigned"
+  },
   "properties": {
-    "environmentId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    "environmentId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
     "workloadProfileName": "My-GP-01",
     "configuration": {
       "ingress": {
@@ -192,12 +198,12 @@ The following example ARM template snippet deploys a container app.
           {
             "name": "www.my-name.com",
             "bindingType": "SniEnabled",
-            "certificateId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com"
+            "certificateId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com"
           },
           {
             "name": "www.my-other-name.com",
             "bindingType": "SniEnabled",
-            "certificateId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com"
+            "certificateId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com"
           }
         ],
         "traffic": [
@@ -318,7 +324,7 @@ The following example ARM template snippet deploys a container app.
       },
       "serviceBinds": [
         {
-          "serviceId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService",
+          "serviceId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService",
           "name": "redisService"
         }
       ]
@@ -336,9 +342,12 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
-location: East US
+identity:
+  userAssignedIdentities:
+    "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+  type: UserAssigned
 properties:
-  environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube"
+  environmentId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube"
   workloadProfileName: My-GP-01
   configuration:
     ingress:
@@ -347,10 +356,10 @@ properties:
       customDomains:
       - name: www.my-name.com
         bindingType: SniEnabled
-        certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com"
+        certificateId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com"
       - name: www.my-other-name.com
         bindingType: SniEnabled
-        certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com"
+        certificateId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com"
       traffic:
       - weight: 100
         revisionName: testcontainerApp0-ab1234
@@ -428,7 +437,7 @@ properties:
           metadata:
             concurrentRequests: '50'
     serviceBinds:
-    - serviceId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
+    - serviceId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
       name: redisService
 ```
 
@@ -483,9 +492,15 @@ The following example ARM template snippet deploys a Container Apps job.
 
 ```json
 {
-  "location": "East US",
+  "identity": {
+    "userAssignedIdentities": {
+      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
+      }
+    },
+    "type": "UserAssigned"
+  },
   "properties": {
-    "environmentId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    "environmentId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
     "configuration": {
       "replicaTimeout": 10,
       "replicaRetryLimit": 10,
@@ -549,9 +564,12 @@ The following example YAML configuration deploys a Container Apps job when used 
 - [`az containerapp job update`](/cli/azure/containerapp/job?view=azure-cli-latest&preserve-view=true#az-containerapp-job-update)
 
 ```yaml
-location: East US
+identity:
+  userAssignedIdentities:
+    "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+  type: UserAssigned
 properties:
-  environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube"
+  environmentId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube"
   configuration:
     replicaTimeout: 10
     replicaRetryLimit: 10
