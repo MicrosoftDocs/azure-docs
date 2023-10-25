@@ -10,13 +10,13 @@ ms.author: v-abhmallick
 
 # View protected items and perform actions
 
-This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Azure Business Continuity center.
+This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Azure Business Continuity center (ABC center).
 
 ## Prerequisites
 
 Before you start this tutorial:
 
-- Review supported regions for ABC center. [Add link]()
+- Review supported regions for ABC center.
 - You need to have permission on the resources to view them in ABC center.
 
 ## View protected items
