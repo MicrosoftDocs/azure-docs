@@ -1,11 +1,11 @@
 ---
 title: Prerequisites for Azure Virtual Desktop
 description: Find what prerequisites you need to complete to successfully connect your users to their Windows desktops and applications.
-author: dknappettmsft
 ms.topic: overview
-ms.date: 05/03/2023
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+author: dknappettmsft
 ms.author: daknappe
-manager: femila
+ms.date: 10/25/2023
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -198,10 +198,10 @@ Also consider the following:
 
 - To help secure your Azure Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your session hosts. Azure Virtual Desktop doesn't require an open inbound port to be open. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md). We also recommend you don't assign a public IP address to your session hosts.
 
+To learn more, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+
 > [!NOTE]
 > To keep Azure Virtual Desktop reliable and scalable, we aggregate traffic patterns and usage to check the health and performance of the infrastructure control plane. We aggregate this information from all locations where the service infrastructure is, then send it to the US region. The data sent to the US region includes scrubbed data, but not customer data. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
-
-To learn more, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
 
 ## Session host management
 
@@ -214,6 +214,39 @@ Consider the following when managing session hosts:
 - If you're joining session hosts to a Microsoft Entra Domain Services domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
 
 - If you're using Microsoft Entra join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use Microsoft Entra hybrid join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
+
+## Azure regions
+
+You can deploy session hosts in any Azure region to use with Azure Virtual Desktop. For host pools, workspaces, and application groups, you can deploy them in the following Azure regions:
+
+:::row:::
+    :::column:::
+       - Australia East
+       - Canada Central
+       - Canada East
+       - Central India
+       - Central US
+       - East US
+       - East US 2
+       - Japan East
+       - North Central US
+    :::column-end:::
+    :::column:::
+       - North Europe
+       - South Central US
+       - UK South
+       - UK West
+       - West Central US
+       - West Europe
+       - West US
+       - West US 2
+       - West US 3
+    :::column-end:::
+:::row-end:::
+
+This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
+
+To learn more about the architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience).
 
 ## Remote Desktop clients
 

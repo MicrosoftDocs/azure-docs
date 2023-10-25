@@ -1,17 +1,17 @@
 ---
-title: Tutorial to create and connect to a Windows 11 desktop with Azure Virtual Desktop - Azure Virtual Desktop
-description: This tutorial shows you how to deploy Azure Virtual Desktop with a Windows 11 desktop and Microsoft 365 apps preinstalled by using the Azure portal.
+title: "Tutorial: Try Azure Virtual Desktop with Windows 11"
+description: This tutorial shows you how deploy Azure Virtual Desktop with a Windows 11 desktop in a sample infrastructure with the Azure portal.
 ms.topic: tutorial
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/14/2023
+ms.date: 10/25/2023
 ---
 
-# Tutorial: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
+# Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop
 
-Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud. This tutorial shows you how to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it. To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+Azure Virtual Desktop enables you to access desktops and applications from virtually anywhere. This tutorial shows you how to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it. To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md) and [What is Azure Virtual Desktop?](overview.md)
 
-You will deploy a sample infrastructure by:
+You'll deploy a sample infrastructure by:
 
 > [!div class="checklist"]
 > * Creating a personal host pool.
@@ -21,7 +21,7 @@ You will deploy a sample infrastructure by:
 > * Connecting to the desktop.
 
 > [!TIP]
-> This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options or using more [restrictive permissions](/security/zero-trust/azure-infrastructure-avd). For more advanced scenarios or some suggestions of what else you can configure, see some of the articles we list in [Next steps](#next-steps).
+> This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options or using more [restrictive permissions](/security/zero-trust/azure-infrastructure-avd). For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md), or for suggestions of what else you can configure, see the articles we list in [Next steps](#next-steps).
 
 ## Prerequisites
 
@@ -29,7 +29,14 @@ You'll need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- The account must be assigned the *Owner* or *Contributor* built-in role-based access control (RBAC) role on the subscription, or on an resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+- The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role(s) |
+   |--|--|
+   | Host pool<br />Workspace<br />Application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively if you already have the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) RBAC role, you're already able to create all of these resource types.
 
 - A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to.
 
@@ -196,18 +203,24 @@ Select the relevant tab below and follow the steps, depending on which Remote De
 
 ## Next steps
 
-Now that you've created and connected to a Windows 11 desktop with Azure Virtual Desktop there's much more you can do. For suggestions of more advanced scenarios, see:
+Now that you've created and connected to a Windows 11 desktop with Azure Virtual Desktop there's much more you can do. For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md), or for suggestions of what else you can configure, see:
 
-- Deploy Azure Virtual Desktop:
-   - [Create a host pool](create-host-pool.md), where if you select a pooled host pool, multiple users can connect to the same session host at the same time, and you can publish a desktop and publish applications with RemoteApp at the same time.
-   - [Create an application group, a workspace, and assign users](create-application-group-workspace.md).
-   - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
-   - [Publish applications](manage-app-groups.md).
+- [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+- [Publish applications](manage-app-groups.md).
+
 - Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.md).
+
 - [Understand network connectivity](network-connectivity.md).
+
 - Learn about [supported identities and authentication methods](authentication.md)
+
 - [Set up email discovery to subscribe to Azure Virtual Desktop](/windows-server/remote/remote-desktop-services/rds-email-discovery?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
+
 - [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+
 - Learn about [session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
+
 - [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
+
 - [Monitor your deployment with Azure Virtual Desktop Insights](azure-monitor.md).

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Virtual Desktop with the getting started feature
+title: Use the getting started feature to create a sample infrastructure - Azure Virtual Desktop
 description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
 author: dknappettmsft
 ms.topic: quickstart
@@ -9,7 +9,7 @@ manager: femila
 ms.custom: mode-portal
 ---
 
-# Deploy Azure Virtual Desktop with the getting started feature
+# Use the getting started feature to create a sample infrastructure
 
 You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services deployments, or it can deploy Microsoft Entra Domain Services for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
