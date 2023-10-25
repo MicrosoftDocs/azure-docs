@@ -90,11 +90,11 @@ Use the following steps to connect your service instances:
 
 1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
-### 3.5 Expose RESTful APIs
+### 3.5. Expose RESTful APIs
 
 [!INCLUDE [expose-restful-apis](expose-restful-apis.md)]
 
-### 3.6 Update the application configuration
+### 3.6. Update the application configuration
 
 [!INCLUDE [provision-postgresql-flexible](update-application-configuration.md)]
 

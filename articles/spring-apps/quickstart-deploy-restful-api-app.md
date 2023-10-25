@@ -84,7 +84,7 @@ The following diagram shows the architecture of the system:
 
 Now, you can access the RESTful API to see if it works.
 
-### 5.1 Request an access token
+### 5.1. Request an access token
 
 The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
 
@@ -157,7 +157,7 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 After completing the sign in with the previous user, you're returned to the **Available authorizations** window.
 
-### 5.2 Access the RESTful APIs
+### 5.2. Access the RESTful APIs
 
 Use the following steps to access the RESTful APIs of the `ToDo` app in the Swagger UI:
 

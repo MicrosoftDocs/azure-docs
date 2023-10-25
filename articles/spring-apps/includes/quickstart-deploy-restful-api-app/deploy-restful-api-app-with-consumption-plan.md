@@ -150,17 +150,17 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab with all the values for the PostgreSQL connection." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png":::
 
-### 3.5 Expose RESTful APIs
+### 3.5. Expose RESTful APIs
 
 [!INCLUDE [expose-restful-apis](expose-restful-apis.md)]
 
-### 3.6 Update the application configuration
+### 3.6. Update the application configuration
 
 [!INCLUDE [provision-postgresql-flexible](expose-restful-apis.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-### 3.1 Prepare the Azure resources
+### 3.1. Prepare the Azure resources
 
 1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
 
@@ -196,11 +196,11 @@ Use the following steps to connect your service instances:
    > [!NOTE]
    > This command might take a while to complete. You see a progress indicator as it provisions Azure resources.
 
-### 3.2 Expose RESTful APIs
+### 3.2. Expose RESTful APIs
 
 [!INCLUDE [expose-restful-apis](expose-restful-apis.md)]
 
-### 3.3 Update the application configuration
+### 3.3. Update the application configuration
 
 [!INCLUDE [provision-postgresql-flexible](expose-restful-apis.md)]
 
