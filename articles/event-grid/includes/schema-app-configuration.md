@@ -56,7 +56,7 @@ An event has the following top-level data:
 
 The data object has the following properties:
 
-# [Key-value event](#tab/key-value-event-data-object)
+### Key-value event
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -65,7 +65,7 @@ The data object has the following properties:
 | `etag` | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
 | `syncToken` | string | The sync token representing the server state after the key-value event. |
 
-# [Snapshot event](#tab/snapshot-event-data-object)
+### Snapshot event
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
