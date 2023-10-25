@@ -26,6 +26,13 @@ Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
 
 ## Handle inline images for new messages
 
+In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
+
+```js
+<TODO>
+```
+From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it's all we need to render inline images in our UI:
+
 ```c#
 public class ChatAttachment
 {
@@ -41,21 +48,8 @@ public class ChatAttachment
 public struct AttachmentType : System.IEquatable<AttachmentType>
 {
     public AttachmentType(string value)
-    public static Azure.Communication.Chat.AttachmentType File { get }
     public static Azure.Communication.Chat.AttachmentType Image { get }
 }
-```
-
-
-In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
-
-```js
-<TODO>
-```
-From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it's all we need to render inline images in our UI:
-
-```js
-<TODO>
 ```
 
 Now let's go back to the previous code to add some extra logic like the following code snippets: 
