@@ -65,7 +65,7 @@ After downloading and installing the HIS Designer for Logic Apps, follow the ste
 To be able to use the HIDX file, you will need to conduct the following steps:
 
 1. Go to the directory where you saved the HIDX file and copy it.
-1. Sign in to the Azure portal, and find your integration account.
+1. Sign in to the Azure portal, and find your logic app.
 1. Add your HIDX file as a map to your logic app, under artifacts then maps.
 
 Later in this topic, when you add an IBM IMS action to your logic app for the first time, you're prompted to create a connection between your logic app and the mainframe server by providing connection information, such as the names for your host server and IMS system configuration information. After you create the connection, you can select your previously added HIDX file, the method to run, and the parameters to use.
