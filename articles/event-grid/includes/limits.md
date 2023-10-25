@@ -65,8 +65,8 @@ The following limits apply to events in Azure Event Grid namespace resource.
 |-------------------------------------------------------|------------------------------------------------------------------------------------|
 | Namespace topics                                      | 100 per TU                                                                         |
 | Event ingress (publish APIs)                          | Up to 1,000 events per second or 1 MB per second per TU (whichever comes first)    |
-| Event egress  (receive APIs)                          | Up to 2,000 events per second or 2 MB per second per TU                            |
-| Event egress  (completion APIs)                       | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event egress  (push and pull APIs)                          | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event egress  (acknowledge, release, reject, and renew lock APIs)                       | Up to 2,000 events per second or 2 MB per second per TU                            |
 | Event retention period in topic                       | 7 days                                                                             |
 | Subscriptions per topic                               | 500                                                                                |
 | Maximum event size                                    | 1 MB                                                                               |
