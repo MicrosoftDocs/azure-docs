@@ -1367,7 +1367,7 @@
     href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
-    - name: Enable incremental snapshots
+    - name: Create incremental snapshots
       href: disks-incremental-snapshots.md
     - name: Copy incremental snapshots across regions
       href: disks-copy-incremental-snapshot-across-regions.md

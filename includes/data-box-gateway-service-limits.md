@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 - The storage account should be physically closest to the region where the device is deployed (it can be different from where the service is deployed).
