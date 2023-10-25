@@ -10,7 +10,7 @@ ms.date: 10/18/2023
 
 The Product names, other names, logos and other material used on Azure HDInsight on AKS learn pages may include registered trademarks of various entities including, but not limited to, the following trademark owners and names:
 
-- The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.
+- The [Trino Software Foundation](https://trino.io/foundation.html) owns and manages the Trino brand and trademarks. The use of these marks does not imply endorsement by The Trino Software Foundation.
 - Apache Spark, Spark and the Spark logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 - Apache, Apache Kafka, Kafka and the Kafka logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 - Apache, Apache Flink, Flink and the Flink logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
