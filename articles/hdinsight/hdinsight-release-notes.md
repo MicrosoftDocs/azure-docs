@@ -39,7 +39,7 @@ For workload specific versions, see
 
 ## What's new
 
-* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of supported software. This comes with all the improvements made in [open-source versions](./hdinsight-component-versioning.md) and the integrations from Microsoft. 
+* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of [supported software](./open-source-software.md). This comes with all the improvements made in [open-source versions](./hdinsight-component-versioning.md) and the integrations from Microsoft. 
     * Latest Version – [HDInsight 5.1 comes](./hdinsight-5x-component-versioning) with the latest stable [open-source version](./hdinsight-component-versioning.md) available. Customers can benefit from all latest features, improvements, and Bug fixes. 
     * Secure – The new versions come with more secure controls and fixes. Open-source security fixes are part of this release as well the improvements in security by Microsoft. 
     * Lower TCO – new version is better in performance. Customers can leverage performance improvements to reduce the operating cost.
@@ -51,7 +51,7 @@ For workload specific versions, see
   * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer can face creation failures if this check is not enabled.
     
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
-  * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
+     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
