@@ -58,13 +58,13 @@ After creation, you would be able to view/edit your replica on the portal by cli
 Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
 
 ```bicep
-@description('The name for your Web PubSub service.')
+@description('The name for your Web PubSub service')
 param primaryName string = 'contoso'
 
-@description('The region in which to create the webpubsub instance')
+@description('The region in which to create your Web Pubsub service')
 param primaryLocation string = 'eastus'
 
-@description('Unit count')
+@description('Unit count of your Web PubSub service')
 param primaryCapacity int = 1
 
 resource primary 'Microsoft.SignalRService/webpubsub@2023-08-01-preview' = {
@@ -78,13 +78,13 @@ resource primary 'Microsoft.SignalRService/webpubsub@2023-08-01-preview' = {
   }
 }
 
-@description('The name for your Web PubSub replica.')
+@description('The name for your Web PubSub replica')
 param replicaName string = 'contoso-westus'
 
-@description('The region in which to create the replica')
+@description('The region in which to create the Web PubSub replica')
 param replicaLocation string = 'westus'
 
-@description('Unit count of the replica')
+@description('Unit count of the Web PubSub replica')
 param replicaCapacity int = 1
 
 @description('Whether to enable region endpoint for the replica')
@@ -109,9 +109,9 @@ Deploy the Bicep file using Azure CLI
    az group create --name MyResourceGroup --location eastus
    az deployment group create --resource-group MyResourceGroup --template-file main.bicep
    ```
-   
+
 # [CLI](#tab/CLI)
-[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
+[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run:
    ```azurecli
   az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
@@ -132,7 +132,7 @@ To delete a replica in the Azure portal:
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
 # [CLI](#tab/CLI)
-[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
+[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run:
    ```azurecli
     az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
