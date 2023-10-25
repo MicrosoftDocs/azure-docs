@@ -53,14 +53,6 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 ![Screenshot of overview blade of Azure Web PubSub replica resource. ](./media/howto-enable-geo-replication/web-pubsub-replica-overview.svg "Replica Overview")
 
-
-
-# [CLI](#tab/CLI)
-[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
-   ```azurecli
-  az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
-   ```
-For more details ,refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
 # [Bicep](#tab/Bicep)
 
 Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
@@ -117,7 +109,13 @@ Deploy the Bicep file using Azure CLI
    az group create --name MyResourceGroup --location eastus
    az deployment group create --resource-group MyResourceGroup --template-file main.bicep
    ```
-
+   
+# [CLI](#tab/CLI)
+[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
+   ```azurecli
+  az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
+   ```
+For more details ,refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
