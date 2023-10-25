@@ -78,7 +78,7 @@ Software updates | The availability of new software updates, and information abo
 
 In **Error summary**, monitor currently active error symptoms that might impact replication of servers in the vault, and monitor the number of impacted machines.
 
-- Errors impacting on-premises infrastructure components are shown are the beginning of the section. For example, non-receipt of a heartbeat from the Azure Site Recovery Provider on the on-premises configuration server, or Hyper-V host.
+- Errors impacting on-premises infrastructure components are shown at the beginning of the section. For example, non-receipt of a heartbeat from the Azure Site Recovery Provider on the on-premises configuration server, or Hyper-V host.
 - Next, replication error symptoms impacting replicated servers are shown.
 - The table entries are sorted by decreasing order of the error severity, and then by decreasing count order of the impacted machines.
 - The impacted server count is a useful way to understand whether a single underlying issue might impact multiple machines. For example, a network glitch could potentially impact all machines that replicate to Azure. 
@@ -149,7 +149,7 @@ Monitor jobs as follows:
    - **Recovery points**: Latest available recovery points for the machine.
    - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
    - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
-   - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
+   - **Events**: A chronological list of recent events impacting the machine. Error details show the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
    - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
 
    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png" alt-text="Screenshot displays Site Recovery virtual machines items list view." lightbox="./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png":::
