@@ -21,29 +21,15 @@ With prompt flow, you can:
 - Debug, share, and iterate your flows with ease through team collaboration.
 - Create prompt variants and compare their performance.
 
-In this article, you learn how to create and develop your first prompt flow in your Azure AI Studio project.
+In this article, you learn how to create and develop your first prompt flow in your Azure AI Studio project. For more information about prompt flow, see [Prompt flow concepts](../concepts/prompt-flow.md).
 
-## Prompt flow tools
+## Prerequisites
 
-Tools are the fundamental building blocks of prompt flow in Azure AI Studio. Each tool is a simple, executable unit with a specific function. By combining different tools, you can create a flow that accomplishes a wide range of goals.
+- Create an Azure AI Studio project
+- Create a compute instance
+- Create a runtime. Runtime serves as the compute resource required to run the prompt flow, which includes a Docker image that contains all necessary dependency packages. 
 
-Prompt flow tools have seamless integration with third-party APIs and Python open source packages. Tools improve the functionality of large language models and make the development process more efficient.
-
-Prompt flow provides different kinds of tools:
-
-- LLM tool: The LLM tool allows you to write custom prompts and use large language models to achieve specific goals, such as summarizing articles, generating customer support responses, and more.
-- Python tool: The Python tool enables you to write custom Python functions to perform various tasks, such as fetching web pages, processing intermediate data, calling third-party APIs, and more.
-- Prompt tool: The Prompt tool allows you to prepare a prompt as a string for more complex use cases or for use with other prompt tools or python tools.
-
-
-## Runtime: Select existing runtime or create a new one
-
-Before you start authoring, you should first select a runtime. Runtime serves as the compute resource required to run the prompt flow, which includes a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
-
-You can select an existing runtime from the dropdown or select the **Add runtime** button. This action opens up a runtime creation wizard. Select an existing compute instance from the dropdown or create a new one. Then you select an environment to create the runtime. We recommend using default environment to get started quickly. 
-
-
-## Create and develop your Prompt flow
+## Build your flow
 
 On your **Project** page, select **Flows** tab in the left navigation bar. Once you are in the **Flows**, select **Create** to create your first Prompt flow. You can create a flow by either cloning the samples available in the gallery or creating a flow from scratch. 
 
@@ -64,20 +50,6 @@ Flow input is the data passed into the flow as a whole. Define the input schema 
 
 Flow output is the data produced by the flow as a whole, which summarizes the results of the flow execution. You can view and export the output table after the flow run or batch run is completed.  Define flow output value by referencing the flow single node output using syntax `${[node name].output}` or `${[node name].output.[field name]}`.
 
-### Develop the flow using different tools
-
-In a flow, you can consume different kinds of tools, for example, LLM, Python, Serp API, Content Safety, Vector Search and etc.
-
-By selecting a tool, you add a new node to flow. You should specify the node name, and set necessary configurations for the node. For example, for LLM node, you need to select a connection, select a deployment, set the prompt, etc. For Python node, you need to set the Python script, set the input value, etc. 
-
-LLM and Prompt tool supports you to use **Jinja** as templating language to dynamically generate the prompt. For example, you can use `{{}}` to enclose your input name, instead of fixed text, so it can be replaced on the fly.
-
-To use Python tool, you should define a Python function with inputs and outputs.
-
-After you set the prompt or Python script, you can select **Validate and parse input** so the system will automatically parse the node input for you based on the prompt template and python function input.The node input value can be set in following ways:
-* Set the value directly in the input box
-* Reference the flow input using `${input.[input name]}` syntax
-* Reference the node output using `${[node name].output}` or `${[node name].output.[field name]}` syntax
 
 ### Test the flow
 You can test the flow in two ways: run single node or run the whole flow. 
@@ -85,7 +57,6 @@ You can test the flow in two ways: run single node or run the whole flow.
 To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check output in node output section.
 
 To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, and the results of flow outputs defined in the flow. You can always change the flow input value and run the flow again.
-
 
 ## Develop your prompt flow locally with code experience
 
@@ -101,7 +72,7 @@ git clone https://github.com/microsoft/promptflow.git
 ```
 For more instructions, please refer to [prompt flow local development guides](https://github.com/microsoft/promptflow/tree/main/docs/how-to-guides).
 
-## Resources
+## Next steps
 
 - [Prompt flow concepts](../concepts/prompt-flow.md)
 - [Prompt flow GitHub repository for local development](https://github.com/microsoft/promptflow/tree/main/docs)

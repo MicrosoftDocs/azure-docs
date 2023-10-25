@@ -96,6 +96,8 @@ Each tool is a simple, executable unit with a specific function. By combining di
 
 One of the key benefit of Prompt flow tools is their seamless integration with third-party APIs and python open source packages. This not only improves the functionality of large language models but also makes the development process more efficient for developers.
 
+If the prompt flow tools in Azure AI Studio don't meet your requirements, you can follow [this guide](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. To discover more custom tools developed by the open source community, visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html).
+
 ## Variants in Prompt flow
 
 With prompt flow, you can use variants to tune your prompt. A variant refers to a specific version of a tool node that has distinct settings. Currently, variants are supported only in the LLM tool. For example, in the LLM tool, a new variant can represent either a different prompt content or different connection settings.
