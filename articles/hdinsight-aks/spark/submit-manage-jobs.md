@@ -1,12 +1,12 @@
 ---
-title: How to submit and manage jobs on a Spark cluster in Azure HDInsight on AKS
-description: Learn how to submit and manage jobs on a Spark cluster in HDInsight on AKS
+title: How to submit and manage jobs on an Apache Spark™ cluster in Azure HDInsight on AKS
+description: Learn how to submit and manage jobs on an Apache Spark cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
-# Submit and manage jobs on a Spark cluster in HDInsight on AKS
+# Submit and manage jobs on an Apache Spark cluster in HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -19,13 +19,13 @@ Once the cluster is created, user can use various interfaces to submit and manag
 ## Using Jupyter
 
 ### Prerequisites
-An Apache Spark cluster on HDInsight on AKS. For more information, see [Create an Apache Spark cluster](./create-spark-cluster.md).
+An Apache Spark™ cluster on HDInsight on AKS. For more information, see [Create an Apache Spark cluster](./create-spark-cluster.md).
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages.
 
 ### Create a Jupyter Notebook
 
-1. Navigate to the Spark cluster page and open the **Overview** tab. Click on Jupyter, it asks you to authenticate and open the Jupyter web page.
+1. Navigate to the Apache Spark cluster page and open the **Overview** tab. Click on Jupyter, it asks you to authenticate and open the Jupyter web page.
 
     :::image type="content" source="./media/submit-manage-jobs/select-jupyter-notebook.png" alt-text="Screenshot of how to select Jupyter notebook." border="true" lightbox="./media/submit-manage-jobs/select-jupyter-notebook.png":::
 
@@ -112,7 +112,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 #### Launch an Apache Zeppelin notebook
 
-1.	Navigate to the Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
+1.	Navigate to the Apache Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
 
     :::image type="content" source="./media/submit-manage-jobs/select-zeppelin.png" alt-text="Screenshot of how to select Zeppelin." lightbox="./media/submit-manage-jobs/select-zeppelin.png":::
 
@@ -227,7 +227,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
     :::image type="content" source="./media/submit-manage-jobs/run-spark-submit-job.png" alt-text="Screenshot showing how to run Spark submit job." lightbox="./media/submit-manage-jobs/view-vim-file.png":::
 
-## Monitor queries on a Spark cluster in HDInsight on AKS
+## Monitor queries on an Apache Spark cluster in HDInsight on AKS
 
 #### Spark History UI
 
