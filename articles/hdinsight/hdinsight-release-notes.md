@@ -40,7 +40,7 @@ For workload specific versions, see
 ## What's new
 
 * HDInsight announces the General availability of HDInsight 5.1 starting October 26, 2023. This release brings in a full stack refresh to the [open source components](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) and the integrations from Microsoft. 
-    * Latest Open Source Versions – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-component-versioning.md#open-source-components-available-with-hdinsight-5x) available. Customers can benefit from all latest open source features, Microsoft performance improvements, and Bug fixes. 
+    * Latest Open Source Versions – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) available. Customers can benefit from all latest open source features, Microsoft performance improvements, and Bug fixes. 
     * Secure – The latest versions come with the most recent security fixes, both open-source security fixes and security improvements by Microsoft. 
     * Lower TCO – With performance enhancements customers can lower the operating cost, along with [enhanced autoscale](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271).
    
