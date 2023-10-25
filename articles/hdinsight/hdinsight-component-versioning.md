@@ -19,7 +19,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |Feb 27, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |
 | [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 18.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced | Not announced |Yes |
 
-**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You may not be able to create clusters from the Azure portal.
+**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal.
 
 **Retirement** means that existing clusters of an HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
 
@@ -88,10 +88,10 @@ Microsoft doesn't encourage creating analytics pipelines or solutions on cluster
 For extra release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
 
 ## Versioning considerations
-- Once a cluster deployed with an image, that cluster can't automatically upgrade to newer image version. When you create new clusters, most recent image version deployed.
+- Once a cluster deployed with an image, that cluster can't automatically upgrade to newer image version. When you create new clusters, the most recent image version is deployed.
 - Customers should test and validate that applications run properly when using new HDInsight version.
 - HDInsight reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight version when you create your clusters.
-- HDInsight may retire an OSS component version before retiring the HDInsight version.
+- HDInsight might retire an OSS component version before retiring the HDInsight version.
 
 ## Next steps
 
