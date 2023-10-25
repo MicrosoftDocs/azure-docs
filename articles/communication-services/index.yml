@@ -33,7 +33,7 @@ highlightedContent:
     - title: Rest API references
       itemType: reference
       url: /rest/api/communication/
-   # - title: ACS UI Library
+   # - title: Azure Communication Services UI Library
    #   itemType: concept
    #   url: ./concepts/ui-library/ui-library-overview.md
 #------------------------------------------------------------------
