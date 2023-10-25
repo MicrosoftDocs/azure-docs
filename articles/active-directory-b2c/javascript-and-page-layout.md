@@ -22,7 +22,7 @@ zone_pivot_groups: b2c-policy-type
 
 With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons but the `<script>` tag should be added in the `<head>` tag.
 
-The `<script>` tag should be added in the `<head>` tag in three ways:  
+The `<script>` tag should be added in the `<head>` tag in two ways:  
 
 1. Adding the `defer` attribute, which specifies that the script is downloaded in parallel to parsing the page, then the script is executed after the page has finished parsing:
 
@@ -36,16 +36,6 @@ The `<script>` tag should be added in the `<head>` tag in three ways:
 	 ```javascript
 	<script src="my-script.js" async></script>	
 	```
-
-3. Using `addEventListener()` method that attaches an event handler to a document:
-   
-        ```javascript
-  	<script>
-	    document.addEventListener("DOMContentLoaded", function () {
-	    	// Your JavaScript code here
-	    });
-	</script>
- 	```
 
 To enable JavaScript and advance HTML tags and attributes:
 
