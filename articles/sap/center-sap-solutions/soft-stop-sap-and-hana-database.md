@@ -11,7 +11,7 @@ author: kalyaninamuduri
 ---
 # Soft stop SAP systems, application server instances and HANA database
 
-In this how-to guide, you'll learn to soft stop your SAP systems, individual instances and HANA database through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions. You would want to soft stop systems to ensure existing user connections, batch processes running on the system etc. are drained and then stop the system gracefully.
+In this how-to guide, you'll learn to soft stop your SAP systems, individual instances and HANA database through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions. You can stop your system smoothly by making sure that existing user connections, batch processes, etc. are drained first. 
 
 Using the [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/workloads/sap-virtual-instance) and [REST API](/rest/api/workloads) interfaces, you can:
 
