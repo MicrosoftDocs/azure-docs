@@ -121,11 +121,17 @@ Parameters are case-sensitive.
 }
 ```
 
-## Example for integrated vectorization (preview)
+## Example for chunking and vectorization
 
-This example is for integrated vectorization, currently in preview. It adds preview-only parameters to the sample definition, and shows the resulting output. Overlapping text is useful in data chunking because it preserves continuity between chunks. Limits on page intake help you stay under the maximum input limits of the embedding models providing the vectorization.
+This example is for integrated vectorization, currently in preview. It adds preview-only parameters to the sample definition, and shows the resulting output. 
 
-### Sample definition adds `pageOverlapLength` and `maximumPagesToTake`
++ Overlapping text is useful in [data chunking](vector-search-how-to-chunk-documents.md) because it preserves continuity in chunks generated from the same document. 
+
++ Limits on page intake help you stay under the maximum input limits of the embedding models providing the vectorization.
+
+### Sample definition
+
+This definition adds `pageOverlapLength` and `maximumPagesToTake`.
 
 ```json
 {
