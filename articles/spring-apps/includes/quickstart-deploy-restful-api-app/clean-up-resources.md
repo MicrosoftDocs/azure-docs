@@ -31,7 +31,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-1. Locate your resource group in the Azure portal. 
+1. Locate your resource group in the Azure portal.
 
 1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 

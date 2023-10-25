@@ -48,7 +48,7 @@ Use the following steps to initialize the web application from Azure Developer C
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
    - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that's created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
@@ -76,7 +76,7 @@ The main resources required to run this sample app are an Azure Spring Apps inst
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -88,7 +88,7 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
 
-1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.   
+1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.
 
    | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
    |--------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,17 +97,17 @@ Use the following steps to create a service instance:
    | **Name**                       | *myasa*                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
    | **Region**                     | The region closest to your users.              | The location that's closest to your users.                                                                                                                                                                                                                                                         |
-   | **Container Apps Environment** | *myenvironment*                                | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
+   | **Container Apps Environment** | *myenvironment*                                | The option to select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                |
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
 
    Use the following table as a guide for the Container Apps Environment creation:
 
-   | Setting              | Suggested value | Description                                                                              |
-   |----------------------|-----------------|------------------------------------------------------------------------------------------|
-   | **Environment name** | *myenvironment* | A unique name that identifies your Azure Container Apps Environment service.             |
-   | **Plan**             | **Consumption** | The pricing plan determines the resources and cost associated with your instance.        |
-   | **Zone Redundant**   | Disabled        | Whether to create your Container Apps Environment service in an Azure availability zone. |
+   | Setting              | Suggested value | Description                                                                                 |
+   |----------------------|-----------------|---------------------------------------------------------------------------------------------|
+   | **Environment name** | *myenvironment* | A unique name that identifies your Azure Container Apps Environment service.                |
+   | **Plan**             | **Consumption** | The pricing plan determines the resources and cost associated with your instance.           |
+   | **Zone Redundant**   | Disabled        | The option to create your Container Apps Environment service in an Azure availability zone. |
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
@@ -136,9 +136,9 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view the details.
 
-1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
+1. Go to the app you created in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
 
-1. Go to the created app, expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
+1. Go to the app you created, expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
 
 1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values that you created previously.
 
@@ -149,7 +149,6 @@ Use the following steps to connect your service instances:
    | `SPRING_DATASOURCE_PASSWORD` | `<your-PostgreSQL-admin-password>`                                                     |
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab with all the values for the PostgreSQL connection." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-environment-variables.png":::
-
 
 ### 3.5 Expose RESTful APIs
 

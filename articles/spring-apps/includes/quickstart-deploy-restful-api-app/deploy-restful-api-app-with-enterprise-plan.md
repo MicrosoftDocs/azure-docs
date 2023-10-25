@@ -1,4 +1,4 @@
----
+ ---
 author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
@@ -38,7 +38,7 @@ The main resources required to run this sample app are an Azure Spring Apps inst
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -60,16 +60,16 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view the details.
 
-1. Go to the created app in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
+1. Go to the app you created in the Azure portal. On the **Overview** page, select **Assign endpoint** to expose the public endpoint for the app. Save the URL for accessing the app after deployment.
 
-1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+1. Select **Service Connector** from the navigation pane, then select **Create** to create a new service connection.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/restful-api-app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/restful-api-app-service-connector-enterprise.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
     - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Connection name**: An automatically generated name is populated, which can also be modified.
     - **Subscription**: Select your subscription.
     - **PostgreSQL flexible server**: *my-demo-pgsql*
     - **PostgreSQL database**: Select the database you created.
