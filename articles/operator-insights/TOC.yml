@@ -24,6 +24,8 @@
 - name: How-to
   expanded: true
   items:
+  - name: Use Microsoft Purview with a Data Product
+    href: purview-setup.md
   - name: Use Azure Operator Insights Data Product dashboards
     href: dashboards-use.md
   - name: Query data in the Azure Operator Insights Data Product
