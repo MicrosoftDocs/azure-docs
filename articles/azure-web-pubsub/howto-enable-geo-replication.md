@@ -111,11 +111,10 @@ Deploy the Bicep file using Azure CLI
    ```
 
 # [CLI](#tab/CLI)
-[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run:
+Update **webpubsub** extension to the latest version, then run:
    ```azurecli
   az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
-For more details, refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
@@ -124,20 +123,17 @@ Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/detai
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
 ## Delete a replica
-# [Portal](#tab/Portal)
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 
 
 To delete a replica in the Azure portal:
 
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
-# [CLI](#tab/CLI)
-[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run:
+
+To delete a replica using the Azure CLI to
    ```azurecli
     az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
-For more details, refer to [az webpubsub replica delete](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-delete)
-   
 
 ## Understand how the geo-replication feature works
 
