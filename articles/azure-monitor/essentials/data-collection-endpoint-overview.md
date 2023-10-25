@@ -28,7 +28,7 @@ This table describes the components and related regionality considerations:
 |:---|:---|:---|
 | Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules (DCRs).<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Same region as the monitored resources.|
 | Logs ingestion endpoint | The endpoint used to ingest logs to the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Log Analytics workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Same region as the destination Log Analytics workspace. |
-| Network access control lists | Network access control rules for the endpoints. |Same region as the destination Log Analytics workspace. |
+| Network access control lists | Network access control rules for the endpoints. ||
 
 ## How to set up data collection endpoints based on your deployment
 
