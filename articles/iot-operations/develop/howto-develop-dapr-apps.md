@@ -30,7 +30,7 @@ The following features are supported for using Dapr:
 |---------| :--------:| :----: |
 | Component for pub sub | Supported | ✅ |
 | Component for state management (concurrency*) | Supported | ✅ |
-| [Pluggable components](https://docs.dapr.io/operations/components/pluggable-components/) | Supported | ✅ |
+| [Pluggable components](https://docs.dapr.io/operations/components/pluggable-components-registration/) | Supported | ✅ |
 
 > [!NOTE]
 > *Concurrency is *strong consistency*. The MQTT broker modifies the state and then returns the success message.
@@ -225,11 +225,11 @@ After you have the Dapr application written, build it and package into a Docker 
 
 To package the application into a container, run the following command:
 
-    ```bash
-    cd /path/to/app/src
-    docker build -t my-dapr-app .
-    # Push it to docker hub or Azure Container Registry
-    ```
+```bash
+cd /path/to/app/src
+docker build -t my-dapr-app .
+# Push it to docker hub or Azure Container Registry
+```
 
 > [!TIP]
 > For convenience, the code sample mentioned in this section is packaged and published to a container registry at `alicesprings.azurecr.io/quickstart-sample`.  You can use this container to follow along even if you haven't built your own image.
@@ -243,7 +243,7 @@ To start, you create a yaml file that uses the following component definitions:
 > [!div class="mx-tdBreakAll"]
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
-> | `dapr-components-sockets``  | Referenced several times, which facilitates the communication between all parties.       |
+> | `dapr-components-sockets`  | Referenced several times, which facilitates the communication between all parties.       |
 > | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
 > | `mqtt-client`   |  Lines containing this deal with SAT authentication which aren't strictly mandatory if a different authentication method is chosen.       |
 
