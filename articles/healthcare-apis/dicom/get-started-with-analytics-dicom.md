@@ -30,7 +30,7 @@ Before you get started, ensure that you've done the following steps:
 
 ## Configure a Data Factory pipeline for the DICOM service
 
-In this example, a Data Factory [pipeline](../../data-factory/concepts-pipelines-activities.md) is used to write DICOM attributes for instances, series, and studies into a storage account in a [delta table](https://delta.io/) format.
+In this example, a Data Factory [pipeline](../../data-factory/concepts-pipelines-activities.md) is used to write DICOM attributes for instances, series, and studies into a storage account in a [Delta table](https://delta.io/) format.
 
 From the Azure portal, open the Data Factory instance and select **Launch studio** to begin.
 
@@ -88,7 +88,7 @@ The pipeline in this example reads data from a DICOM service and writes its outp
 
 ### Create a pipeline for DICOM data
 
-Data Factory pipelines are a collection of _activities_ that perform a task, like copying DICOM metadata to delta tables. This section details the creation of a pipeline that regularly synchronizes DICOM data to delta tables as data is added to, updated in, and deleted from a DICOM service.
+Data Factory pipelines are a collection of _activities_ that perform a task, like copying DICOM metadata to Delta tables. This section details the creation of a pipeline that regularly synchronizes DICOM data to Delta tables as data is added to, updated in, and deleted from a DICOM service.
 
 1. Select **Author** from the menu on the left. In the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Template gallery** from the menu.
 
@@ -142,11 +142,11 @@ Triggers define when to run a pipeline. They also include [parameters](../../dat
 | ApiVersion        | The API version for the Azure DICOM service (minimum 2) | `2` |
 | StartTime         | The inclusive start time for DICOM changes | `0001-01-01T00:00:00Z` | 
 | EndTime           | The exclusive end time for DICOM changes | `9999-12-31T23:59:59Z` | 
-| ContainerName     | The container name for the resulting delta tables | `dicom` | 
-| InstanceTablePath | The path that contains the delta table for DICOM SOP instances within the container| `instance` | 
-| SeriesTablePath   | The path that contains the delta table for DICOM series within the container | `series` | 
-| StudyTablePath    | The path that contains the delta table for DICOM studies within the container | `study` | 
-| RetentionHours    | The maximum retention in hours for data in the delta tables | `720` | 
+| ContainerName     | The container name for the resulting Delta tables | `dicom` | 
+| InstanceTablePath | The path that contains the Delta table for DICOM SOP instances within the container| `instance` | 
+| SeriesTablePath   | The path that contains the Delta table for DICOM series within the container | `series` | 
+| StudyTablePath    | The path that contains the Delta table for DICOM studies within the container | `study` | 
+| RetentionHours    | The maximum retention in hours for data in the Delta tables | `720` | 
 
 1. On the **Trigger Run Parameters** pane, enter the **ContainerName** value that matches the name of the storage container created in the prerequisites.
 
@@ -206,13 +206,13 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
 1. Select **Next**.
 
-1. Enter a **Shortcut Name** that represents the data created by the Data Factory pipeline. For example, for the `instance` delta table, the shortcut name should probably be **instance**.
+1. Enter a **Shortcut Name** that represents the data created by the Data Factory pipeline. For example, for the `instance` Delta table, the shortcut name should probably be **instance**.
 
-1. Enter the **Sub Path** that matches the `ContainerName` parameter from [run parameters](#configure-trigger-run-parameters) configuration and the name of the table for the shortcut. For example, use `/dicom/instance` for the delta table with the path `instance` in the `dicom` container.
+1. Enter the **Sub Path** that matches the `ContainerName` parameter from [run parameters](#configure-trigger-run-parameters) configuration and the name of the table for the shortcut. For example, use `/dicom/instance` for the Delta table with the path `instance` in the `dicom` container.
 
 1. Select **Create** to create the shortcut.
 
-1. Repeat steps 2 to 9 to add the remaining shortcuts to the other delta tables in the storage account (for example, `series` and `study`).
+1. Repeat steps 2 to 9 to add the remaining shortcuts to the other Delta tables in the storage account (for example, `series` and `study`).
 
 After you've created the shortcuts, expand a table to show the names and types of the columns.
 
