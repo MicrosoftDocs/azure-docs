@@ -270,7 +270,7 @@ colocationid                |
 
 ### Distributed schemas view
 
-Citus 12.0 intoduced the concept of [schema-based sharding](concepts-sharding-models.md#schema-based-sharding) and with it the `citus_schemas`` view, which shows which schemas have been distributed in the system. The view only lists distributed schemas, local schemas aren't displayed.
+Citus 12.0 introduced the concept of [schema-based sharding](concepts-sharding-models.md#schema-based-sharding) and with it the `citus_schemas`` view, which shows which schemas have been distributed in the system. The view only lists distributed schemas, local schemas aren't displayed.
 
 | Name                        | Type         | Description                                                  |
 |-----------------------------|--------------|--------------------------------------------------------------|
@@ -354,7 +354,7 @@ the same distribution column values will be placed on the same worker nodes.
 Colocation enables join optimizations, certain distributed rollups, and foreign
 key support. Shard colocation is inferred when the shard counts, replication
 factors, and partition column types all match between two tables; however, a
-custom colocation group may be specified when creating a distributed table, if
+custom colocation group can be specified when creating a distributed table, if
 so desired.
 
 | Name                   | Type | Description                                                                   |
@@ -383,7 +383,7 @@ can use to determine where to move shards.
 | default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
 | shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
 | node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
-| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL may store the shard on the node |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL can store the shard on the node |
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
@@ -484,7 +484,7 @@ with) the
 [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html)
 view in PostgreSQL, which tracks statistics about query speed.
 
-This view can trace queries to originating tenants in a multi-tenant
+This view can trace queries to originating tenants in a multitenant
 application, which helps for deciding when to do tenant isolation.
 
 | Name          | Type   | Description                                                                      |

@@ -15,7 +15,7 @@ ms.date: 10/01/2023
 
 ## Finding which node contains data for a specific tenant
 
-In the multi-tenant use case, we can determine which worker node contains the
+In the multitenant use case, we can determine which worker node contains the
 rows for a specific tenant.  Azure Cosmos DB for PostgreSQL groups the rows of distributed
 tables into shards, and places each shard on a worker node in the cluster. 
 
@@ -91,7 +91,7 @@ Each distributed table has a "distribution column." (For
 more information, see [Distributed Data
 Modeling](howto-choose-distribution-column.md).) It can be
 important to know which column it is. For instance, when joining or filtering
-tables, you may see error messages with hints like, "add a filter to the
+tables, you might see error messages with hints like, "add a filter to the
 distribution column."
 
 The `pg_dist_*` tables on the coordinator node contain diverse metadata about

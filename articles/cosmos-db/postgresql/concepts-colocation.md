@@ -24,7 +24,7 @@ In Azure Cosmos DB for PostgreSQL, a row is stored in a shard if the hash of the
 
 ## A practical example of colocation
 
-Consider the following tables that might be part of a multi-tenant web
+Consider the following tables that might be part of a multitenant web
 analytics SaaS:
 
 ```sql
@@ -153,4 +153,4 @@ In some cases, queries and table schemas must be changed to include the tenant I
 
 ## Next steps
 
-- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-multi-tenant.md).
+- See how tenant data is colocated in the [multitenant tutorial](tutorial-design-database-multi-tenant.md).
