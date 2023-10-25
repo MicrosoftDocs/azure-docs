@@ -20,7 +20,7 @@ ms.custom: "include file"
 > [!NOTE]
 > Bulk delete is a an operation to be used with caution. Resources in FHIR service once deleted cannot be reverted.
 
-Bulk delete operation is currently in public preview. Review disclaimer below for details.
+Bulk delete operation is currently in public preview. Review disclaimer for details.
 [!INCLUDE [public preview disclaimer](../includes/common-publicpreview-disclaimer.md)]
 
 
@@ -55,7 +55,7 @@ Request:
   ```
   {{fhir_url}}/_operations/bulk-delete/<id>
   ```
-Response: Below is sample response of successfully completed delete job. 
+Sample response of successfully completed delete job. 
 ```
 {
     "resourceType": "Parameters",
