@@ -23,7 +23,7 @@ Using the [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/
 ## Prerequisites
 
 - An SAP system that you've [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
-- Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the Virtual Instance for SAP solutions resources. You can learn more about the granular permissions that govern Start and Stop actions on the VIS, individual SAP instances and HANA Database [in this article](manage-with-azure-rbac.md#start-sap-system).
+- Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the Virtual Instance for SAP solutions resources. For more information, see [how to use granular permissions that govern start and stop actions on the VIS, individual SAP instances and HANA databases](manage-with-azure-rbac.md#start-sap-system).
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
 - For HANA Database, Stop operation is initiated only when the cluster maintenance mode is in **Disabled** status.
 
