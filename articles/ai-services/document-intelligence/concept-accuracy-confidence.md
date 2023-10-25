@@ -16,7 +16,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Custom models: accuracy and confidence scores
 
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 > [!NOTE]
 >

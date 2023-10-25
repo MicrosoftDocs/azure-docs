@@ -29,7 +29,7 @@ monikerRange: '<=doc-intel-4.0.0'
 > * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
 ::: moniker range=">=doc-intel-3.0.0"
- [!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -401,7 +401,7 @@ Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-serv
 
 ::: moniker range="doc-intel-2.1.0"
 
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 
 ## Document Intelligence models and development options
 

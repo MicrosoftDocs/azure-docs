@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.1.0'
 # Document Intelligence custom model lifecycle
 
 ::: moniker range=">=doc-intel-3.1.0"
-[!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v4-0-v3-1.md)]
+[!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v40-v31.md)]
 ::: moniker-end
 
 With the v3.1:2023-07-31 (GA) and later APIs, custom models introduce a expirationDateTime property that is set for each model trained with the 3.1 API or later.  Custom models are dependent on the API version of the Layout API version and the API version of the model build operation. For best results, continue to use the API version the model was trained with for all analyze requests. The guidance applies to all Document Intelligence custom models including extraction and classification models.

@@ -16,7 +16,7 @@ monikerRange: '>=doc-intel-3.1.0'
 # Document Intelligence custom classification model
 
 ::: moniker range=">=doc-intel-3.1.0"
-[!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v4-0-v3-1.md)]
+[!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v40-v31.md)]
 ::: moniker-end
 
 Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.

@@ -18,11 +18,11 @@ monikerRange: '<=doc-intel-4.0.0'
 <!-- markdownlint-disable MD024 -->
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v4-v3-1-v3.md)]
 ::: moniker-end
 
 :::moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -280,7 +280,7 @@ Try one of our Document Intelligence quickstarts:
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

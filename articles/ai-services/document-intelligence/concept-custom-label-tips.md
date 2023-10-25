@@ -15,7 +15,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Tips for building labeled datasets
 
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 This article highlights the best methods for labeling custom model datasets in the Document Intelligence Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
 

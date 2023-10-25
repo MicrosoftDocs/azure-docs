@@ -14,7 +14,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence read model
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v4-v3-1-v3.md)]
 
 > [!NOTE]
 >

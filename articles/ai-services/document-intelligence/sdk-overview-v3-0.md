@@ -20,7 +20,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Document Intelligence SDK v3.0 (GA)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v30-v21.md)]
 
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 

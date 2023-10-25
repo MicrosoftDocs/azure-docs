@@ -8,14 +8,14 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 08/25/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence add-on capabilities
 
-[!INCLUDE [applies to v3.1](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1](includes/applies-to-v40-v31.md)]
 
 > [!NOTE]
 >

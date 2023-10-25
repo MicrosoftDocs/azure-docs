@@ -14,7 +14,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Check usage and estimate costs
 
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](../includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](../includes/applies-to-v40-v31-v30-v21.md)]
 
  In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure AI Document Intelligence. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
 

@@ -16,7 +16,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Get started with Document Intelligence
 
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v4-v3-1-v3.md)]
 
 > [!IMPORTANT]
 >
@@ -106,7 +106,7 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

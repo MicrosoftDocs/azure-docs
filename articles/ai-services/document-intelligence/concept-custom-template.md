@@ -19,7 +19,7 @@ monikerRange: 'doc-intel-4.0.0 || <=doc-intel-3.1.0'
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 Custom template (formerly custom form) is an easy-to-train document model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.

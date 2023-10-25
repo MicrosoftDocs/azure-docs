@@ -16,7 +16,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Analyze document API response
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
 
 In this article, let's examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
 

@@ -16,11 +16,11 @@ monikerRange: '<=doc-intel-4.0.0'
 <!-- markdownlint-disable MD051 -->
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ## Microsoft container registry (MCR)
