@@ -86,6 +86,7 @@ az vmss create
 --resource-group myResourceGroup 
 --name myVMSS 
 --location eastus 
+--orchestration-mode Uniform
 --vm-sku Standard_Ds1_v2 
 --image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
@@ -105,6 +106,7 @@ New-AzVmss
 -VMScaleSetName $vmssName
 -ResourceGroupName "myResourceGroup"
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
+-OrchestrationMode "Uniform"
 -PlatformFaultDomainCount 2
 ```
 
