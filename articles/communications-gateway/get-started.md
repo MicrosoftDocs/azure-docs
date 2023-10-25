@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 01/08/2024
 
 #CustomerIntent: As someone setting up Azure Communications Gateway, I want to understand the steps I need to carry out to have live traffic through my deployment.
 ---
@@ -26,7 +26,8 @@ This article summarizes the steps and documentation that you need.
 Read the following articles to learn about Azure Communications Gateway.
 
 - [Your network and Azure Communications Gateway](role-in-network.md), to learn how Azure Communications Gateway fits into your network.
-- [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to Operator Connect or Teams Phone Mobile and the support we can provide.
+- [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to your chosen communications services and the support we can provide.
+- [Lab Azure Communications Gateway overview](lab.md), to learn about when and how you could use a lab deployment.
 - [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
 - [Provisioning API for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
