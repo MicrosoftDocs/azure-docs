@@ -3,7 +3,7 @@ title: "ISC Bind connector for Microsoft Sentinel"
 description: "Learn how to install the connector ISC Bind to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -56,7 +56,7 @@ To integrate with ISC Bind make sure you have:
 ## Vendor installation instructions
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias ISCBind and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ISC%20Bind/Parsers/ISCBind.txt).The function usually takes 10-15 minutes to activate after solution installation/update.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias ISCBind and load the function code or click [here](https://aka.ms/sentinel-iscbind-parser).The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 
