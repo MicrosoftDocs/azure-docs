@@ -21,4 +21,12 @@
     href: concept-data-quality-monitoring.md
   - name: Data types
     href: concept-data-types.md
-
+- name: How-to
+  expanded: true
+  items:
+  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
+    href: purview-setup.md
+  - name: Use Azure Operator Insights Data Product dashboards
+    href: dashboards-use.md
+  - name: Query data in the Azure Operator Insights Data Product
+    href: data-query.md
