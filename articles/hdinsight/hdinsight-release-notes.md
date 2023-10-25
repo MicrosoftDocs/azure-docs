@@ -39,8 +39,8 @@ For workload specific versions, see
 
 ## What's new
 
-* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of supported software. This comes with all the improvements made in open-source versions and the integrations from Microsoft. 
-    * Latest Version – HDInsight 5.1 comes with the latest stable open-source version available. Customers can benefit from all latest features, improvements, and Bug fixes. 
+* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of supported software. This comes with all the improvements made in [open-source versions](./hdinsight-component-versioning.md) and the integrations from Microsoft. 
+    * Latest Version – [HDInsight 5.1 comes](./hdinsight-5x-component-versioning) with the latest stable [open-source version](./hdinsight-component-versioning.md) available. Customers can benefit from all latest features, improvements, and Bug fixes. 
     * Secure – The new versions come with more secure controls and fixes. Open-source security fixes are part of this release as well the improvements in security by Microsoft. 
     * Lower TCO – new version is better in performance. Customers can leverage performance improvements to reduce the operating cost.
    
