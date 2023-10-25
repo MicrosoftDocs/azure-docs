@@ -1,6 +1,6 @@
 ---
-title: How to send events to Azure monitor alerts
-description: This article describes how to deliver Azure Key Vault events as Azure Monitor alerts. 
+title: How to send Event Grid events to Azure monitor alerts
+description: This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
 ms.topic: conceptual
 ms.date: 10/16/2023
 author: robece
@@ -9,16 +9,16 @@ ms.author: robece
 
 # How to send events to Azure monitor alerts (Preview)
 
-This article describes how to deliver Azure Key Vault events as Azure Monitor alerts.
+This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
 
 > [!IMPORTANT]
-> Azure Monitor alert as a destination in Event Grid event subscriptions is currently available only for [Azure Key Vault](event-schema-key-vault.md) system events.
+> Azure Monitor alerts as a destination in Event Grid event subscriptions is currently available only for [Azure Key Vault](event-schema-key-vault.md) system events.
 
 ## Overview
 
 Azure Monitor alerts as a destination in Event Grid event subscriptions allow you to receive notification of critical events via Short Message Service (SMS), email, push notification, and more. You can leverage on the low latency event delivery of Event Grid with the flexibility and direct-to-customer notifications of Azure Monitor alerts.
 
-Azure Monitor alerts notify you when a resource is updated after processing the resource telemetry. For example, you can create an alert rule with the condition: “If this system topic experiences more than 100 Delivery Failed events in the last 6 hours, fire an alert.” You can then choose how they want to be notified of this alert, such as via an email or a text.
+Azure Monitor alerts notify you when a resource is updated after processing the resource telemetry. For example, you can create an alert rule with the condition: “If this system topic experiences more than 100 Delivery Failed events in the last 6 hours, fire an alert.” You can then choose how the concerned people want to be notified of this alert, such as via an email or a text.
 
 The main difference between Event Grid events and Azure Monitor alerts is that alerts are fired as a result of processing telemetry, while Event Grid events are published by the source resource after the event has occurred with no need for processing. With this integration between Event Grid events and Azure Monitor alerts, you can get immediate notifications or alerts from Event Grid events.
 
@@ -46,8 +46,6 @@ Create a Key Vault resource by following instructions from [Create a key vault u
 
 ### Create and configure the event subscription
 
-:::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::
-
 When creating an event subscription, follow these steps:
 
 1. Enter a **name** for event subscription.
@@ -63,6 +61,8 @@ When creating an event subscription, follow these steps:
     1. Select the **action group** (optional), see [Create an action group in the Azure portal](../azure-monitor/alerts/action-groups.md).
     1. Enter a **description** for the alert.
     1. Select **Confirm Selection**.
+    
+        :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Screenshot that shows Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::   
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. For detailed steps, see [subscribe to events through portal](subscribe-through-portal.md).
 
 ## Next steps
