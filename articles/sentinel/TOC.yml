@@ -900,27 +900,7 @@
     href: hunting.md
   - name: Conduct end-to-end hunts
     href: hunts.md
-  - name: Hunt with bookmarks
-    href: bookmarks.md
-  - name: Hunt with livestream
-    href: livestream.md
-  - name: Jupyter Notebooks
-    items:
-    - name: Overview
-      href: notebooks.md
-    - name: Get started with notebooks and MSTICPy
-      href: notebook-get-started.md
-    - name: Launch Jupyter notebook
-      href: notebooks-hunt.md      
-    - name: Advanced MSTICPy settings for Jupyter notebooks
-      href: notebooks-msticpy-advanced.md
-    - name: Configure big data analytics settings
-      href: notebooks-with-synapse.md
-    - name: Export and transform historical log data
-      href: notebooks-with-synapse-export-data.md
-    - name: Hunt on large historical datasets
-      href: notebooks-with-synapse-hunt.md
-  - name: Analyze logs with Kusto Query Language
+  - name: Hunt with Kusto Query Language
     items:
     - name: Overview
       href: kusto-overview.md
@@ -933,7 +913,27 @@
     - name: KQL quick reference
       href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
-      href: kusto-resources.md  
+      href: kusto-resources.md 
+  - name: Hunt with bookmarks
+    href: bookmarks.md
+  - name: Hunt with livestream
+    href: livestream.md
+  - name: Hunt with notebooks
+    items:
+    - name: Overview
+      href: notebooks.md
+    - name: Get started with notebooks and MSTICPy
+      href: notebook-get-started.md
+    - name: Launch Jupyter notebook
+      href: notebooks-hunt.md      
+    - name: Configure advanced MSTICPy settings
+      href: notebooks-msticpy-advanced.md
+    - name: Configure big data analytics settings
+      href: notebooks-with-synapse.md
+    - name: Export and transform historical log data
+      href: notebooks-with-synapse-export-data.md
+    - name: Hunt on large historical datasets
+      href: notebooks-with-synapse-hunt.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -962,8 +962,6 @@
     items:
     - name: Overview
       href: investigate-large-datasets.md
-    - name: Basic logs best practices
-      href: basic-logs-use-cases.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -1026,6 +1024,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
+    - name: Basic logs best practices
+      href: basic-logs-use-cases.md
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
