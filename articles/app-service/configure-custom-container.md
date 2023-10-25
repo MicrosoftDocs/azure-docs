@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 10/12/2023
+ms.date: 10/25/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -268,7 +268,7 @@ App Service logs actions by the Docker host as well as activities from within t
 There are several ways to access Docker logs:
 
 - [In the Azure portal](#in-azure-portal)
-- [From the Kudu console](#from-the-kudu-console)
+- [From Kudu](#from-kudu)
 - [With the Kudu API](#with-the-kudu-api)
 - [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
@@ -276,11 +276,11 @@ There are several ways to access Docker logs:
 
 Docker logs are displayed in the portal, in the **Container Settings** page of your app. The logs are truncated, but you can download all the logs clicking **Download**. 
 
-### From the Kudu console
+### From Kudu
 
 Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and click the **LogFiles** folder to see the individual log files. To download the entire **LogFiles** directory, click the **Download** icon to the left of the directory name. You can also access this folder using an FTP client.
 
-In the console terminal, you can't access the `C:\home\LogFiles` folder by default because persistent shared storage is not enabled. To enable this behavior in the console terminal, [enable persistent shared storage](#use-persistent-shared-storage).
+In the SSH terminal, you can't access the `C:\home\LogFiles` folder by default because persistent shared storage is not enabled. To enable this behavior in the console terminal, [enable persistent shared storage](#use-persistent-shared-storage).
 
 If you try to download the Docker log that is currently in use by using an FTP client, you might get an error because of a file lock.
 
@@ -336,7 +336,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 > [!NOTE]
 > Updating the app setting triggers automatic restart, causing minimal downtime. For a production app, consider swapping it into a staging slot, change the app setting in the staging slot, and then swap it back into production.
 
-Verify your adjusted number by going to the Kudu Console (`https://<app-name>.scm.azurewebsites.net`) and typing in the following commands using PowerShell. Each command outputs a number.
+Verify your adjusted number by opening an SSH session from the portal or via the Kudu portal (`https://<app-name>.scm.azurewebsites.net/webssh/host`) and typing in the following commands using PowerShell. Each command outputs a number.
 
 ```PowerShell
 Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logical processors. Disabled processors are excluded.
