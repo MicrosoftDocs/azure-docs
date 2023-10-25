@@ -9,11 +9,13 @@ ms.author: kesheth
 ms.custom: "include file"
 ---
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. 
-  * System level This endpoint enables to delete FHIR resources across all the resource types in FHIR server. 
+  * System level: Execution of the operation at system-level enables deletion of FHIR resources across all the resource types in FHIR server.
+    
     ```http
       DELETE  /$bulkDelete
     ```
-  * Individual resource type: This endpoint allows to delete FHIR resources mapping to resource type mentioned in the url
+  * Individual resource type: Execution of the operation at individual resource types allows deletion of FHIR resources mapping to specified resource type in the url.
+    
     ```http
       DELETE /<Resource Type>/$bulkDelete
     ```
