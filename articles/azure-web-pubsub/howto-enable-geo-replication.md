@@ -57,7 +57,7 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 # [CLI](#tab/CLI)
    ```azurecli
-   az signalr replica create -g MyGroup --signalr-name mySignalRName --replica-name myReplicaName -l myReplicaLocation
+  az signalr replica create --sku Premium_P1 -l eastus --replica-name MyReplica --signalr-name MySignalR -g MyResourceGroup
    ```
 
 # [Bicep](#tab/Bicep)
@@ -113,8 +113,8 @@ resource replica 'Microsoft.SignalRService/webpubsub/replicas@2023-08-01-preview
 
 Deploy the Bicep file using Azure CLI 
    ```azurecli
-   az group create --name exampleRG --location eastus
-   az deployment group create --resource-group exampleRG --template-file main.bicep
+   az group create --name MyResourceGroup --location eastus
+   az deployment group create --resource-group MyResourceGroup --template-file main.bicep
    ```
 
 ## Pricing and resource unit
@@ -134,7 +134,7 @@ To delete a replica in the Azure portal:
 2. Click Delete button on the replica overview blade.
 # [CLI](#tab/CLI)
    ```azurecli
-   az signalr replica delete -g MyGroup --signalr-name mySignalRName --replica-name myReplicaName
+    az signalr replica delete --replica-name MyReplica --signalr-name MySignalR -g MyResourceGroup
    ```
 
 ## Understand how the geo-replication feature works
