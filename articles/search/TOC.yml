@@ -171,8 +171,10 @@
       href: cognitive-search-debug-session.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
-    - name: Projections
+    - name: Knowledge store projections
       href: knowledge-store-projection-overview.md
+    - name: Index projections
+      href: index-projections-concept-intro.md
   - name: Security
     items:
     - name: Security overview
