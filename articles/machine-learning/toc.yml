@@ -616,6 +616,8 @@
               href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
+        - name: Prompt flow Ecosystem
+          href: ./prompt-flow/community-ecosystem.md
         - name: Set up infrastructure
           items:
             - name: Create and manage runtime
@@ -648,8 +650,6 @@
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
         - name: "Code first: Dev to Prod"
           items:
-            - name: Community Ecosystem
-              href: ./prompt-flow/community-ecosystem.md
             - name: Integrate Prompt Flow with LLM-based application DevOps 
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
