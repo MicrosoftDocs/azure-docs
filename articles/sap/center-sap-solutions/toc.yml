@@ -57,7 +57,7 @@ items:
         href: start-stop-sap-systems.md
       - name: Soft stop SAP instances and HANA database
         href: soft-stop-sap-and-hana-database.md
-      - name: Start and stop SAP, HANA database and its VMs
+      - name: Start and stop SAP systems and VMs
         href: stop-start-sap-and-underlying-vm.md
       - name: Get quality checks and insights
         href: get-quality-checks-insights.md
