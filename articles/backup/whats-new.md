@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Backup
-description: Learn about the new features in Azure Backup.
+description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.service: backup

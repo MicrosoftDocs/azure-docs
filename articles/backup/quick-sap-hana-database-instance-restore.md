@@ -14,7 +14,7 @@ ms.author: v-abhmallick
 
 This quickstart describes how to restore the entire SAP HANA to a snapshot restore point using the Azure portal.
 
-Azure Backup now allows you to restore the HANA snapshot and storage snapshot as disks by selecting Attach and then mount them to the target machine.
+Azure Backup now allows you to restore the SAP HANA snapshot and storage snapshot as disks by selecting Attach and then mount them to the target machine.
 
 >[!Note]
 >Currently, Azure Backup doesn't automatically restore the HANA system to the required point.
