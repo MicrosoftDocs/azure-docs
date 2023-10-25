@@ -34,7 +34,7 @@ landingContent:
           - text: MQTT Messaging
             url: mqtt-overview.md
  # Card
-  - title: MQTT messaging in Namespaces
+  - title: MQTT broker in Namespaces
     linkLists:
       - linkListType: overview
         links:
@@ -102,14 +102,18 @@ landingContent:
             url: onboard-partner.md
 
  # Card
-  - title: Pull delivery in Namespaces
+  - title: Pull & Push delivery in Namespaces
     linkLists:
       - linkListType: concept
         links:
           - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: Concepts
+          - text: Concepts (Pull delivery)
             url: concepts-pull-delivery.md
+          - text: Push delivery
+            url: namespace-push-delivery-overview.md
+          - text: Concepts (Push delivery)
+            url: concepts-namespace-push-delivery.md
       - linkListType: quickstart
         links:
           - text: Publish and subscribe to events using namespace topics
