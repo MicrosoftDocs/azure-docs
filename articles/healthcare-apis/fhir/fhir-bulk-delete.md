@@ -1,6 +1,6 @@
 ---
-title: Bulk-delete operation for Azure Health Data Services FHIR service
-description: This article describes the bulk-delete operation for the FHIR service.
+title: Bulk-delete operation for Azure Health Data Services FHIR service.
+description: This article describes the bulk-delete operation for the AHDS FHIR service.
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 10/22/2022
 ms.author: kesheth
 ---
 
-# Bulk Delete operation
+# Bulk Delete 
 
 [!INCLUDE [bulk-delete operation details](../includes/fhir-bulk-delete-operation.md)]
 
