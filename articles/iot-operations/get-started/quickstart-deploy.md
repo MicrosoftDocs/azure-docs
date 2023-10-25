@@ -9,7 +9,6 @@ ms.date: 10/10/2023
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-
 # Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
@@ -20,13 +19,14 @@ The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md)
 * [Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)
-* [Azure IoT OPC UA broker](../manage-devices-assets/concept-opcua-broker-overview.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri](../manage-devices-assets/concept-akri-overview.md)
 * [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management](../administer/concept-layered-network-management.md)
-<!--* [Observability](/docs/observability/)-->
+* A simulated thermostat asset to start generating data
 
+<!--* [Observability](/docs/observability/)-->
+<!-- * [Azure IoT OPC UA broker](../manage-devices-assets/concept-opcua-broker-overview.md) with simulated thermostat asset to start generating data -->
 
 ## Prerequisites
 
@@ -36,39 +36,9 @@ The services deployed in this quickstart include:
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-
-<!-- 6. Open Azure Cloud Shell ------------------------------------------------------------------------------
-If you want to refer to using the Cloud Shell, place the instructions after the
-Prerequisites to keep the prerequisites as the first H2.
-
-However, only include the Cloud Shell if ALL commands can be run in the cloud shell.
-
-
-## Open Azure Cloud Shell
-TODO: add your instructions
---->
-
-<!-- Use this exact H2 -->
 ## What problem will we solve?
-TODO: Write a brief description of the problem and how the product or service solves that problem. Include one or more diagrams when appropriate to show the solution architecture and/or the dataflow.
 
-<!-- 
-
-Present the demonstration in a series of H2s.
-
-Each H2 should describe either what they'll do in the step or which part of the problem the step solves.
-
-* Each H2 should be a major step in the demonstration
-* The H2 title should describe either what they'll do in the step or which part of the problem the step solves
-* Phrase each H2 title as "<verb> * <noun>".
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context
-* Provide a numbered list of procedural steps as applicable
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-
--->
+Azure IoT Operations is a suite of data services that run on Arc-enabled Kubernetes clusters, and those services need to be managed remotely. Orchestrator is the service that helps you define, deploy, and manage these application workloads.
 
 ## Configure secrets and certificates
 
@@ -114,7 +84,7 @@ Azure IoT Operations supports Azure Key Vault for storing secrets and certificat
 
    | Field | Value |
    | ----- | ----- |
-   | **Name** | Call your secret `AIOSecret`. |
+   | **Name** | Call your secret `PlaceholderSecret`. |
    | **Secret value** | Provide any value for your secret. |
 
 1. Select **Create**.
@@ -122,6 +92,8 @@ Azure IoT Operations supports Azure Key Vault for storing secrets and certificat
 ### Create a service principal
 
 Create a service principal that the secrets store in Azure IoT Operations will use to authenticate to your key vault.
+
+First, register an application with Microsoft Entra ID.
 
 1. In the Azure portal search bar, search for and select **Microsoft Entra ID**.
 
@@ -135,14 +107,15 @@ Create a service principal that the secrets store in Azure IoT Operations will u
    | ----- | ----- |
    | **Name** | Call your application `AIO-app`. |
    | **Supported account types** | Ensure that **Accounts in this organizational directory only (<YOUR_TENANT_NAME> only - Single tenant)** is selected. |
-   | **Redirect URL** | Select **Web** as the platform. |
-   <!-- TODO: Web address value? -->
+   | **Redirect URI** | Select **Web** as the platform. You can leave the web address empty. |
 
 1. Select **Register**.
 
    When your application is created, you are directed to its resource page.
 
-1. Select **API permissions** from the **Manage** section of the app menu.
+Next, give your application permissions for your key vault.
+
+1. On the resource page for your app, select **API permissions** from the **Manage** section of the app menu.
 
 1. Select **Add a permission**.
 
@@ -154,40 +127,89 @@ Create a service principal that the secrets store in Azure IoT Operations will u
 
 1. Select **Add permissions**.
 
+Create a client secret that will be added to your Kubernetes cluster to authenticate to your key vault.
 
+1. On the resource page for your app, select **Certificates & secrets** from the **Manage** section of the app menu.
 
+1. Select **New client secret**.
 
+1. Provide an optional description for the secret, then select **Add**.
 
+1. Copy the **Value** and **Secret ID** from your new secret. You'll use these values later in the quickstart.
 
+Finally, return to your key vault to grant an access policy for the service principal.
 
-<!-- Use this exact H2 -->
+1. In the Azure portal, navigate to the key vault that you created in the previous section.
+
+1. Select **Access policies** from the key vault menu.
+
+1. Select **Create**.
+
+1. On the **Permissions** tab of the **Create an access policy** page, scroll to the **Secret permissions** section. Select the **Get** and **List** permissions.
+
+1. Select **Next**.
+
+1. On the **Principal** tab, search for and select the app that you registered at the beginning of this section, `AIO-app`.
+
+1. Select **Next**.
+
+1. On the **Application (optional)** tab, there's no action to take. Select **Next**.
+
+1. Select **Create**.
+
+### Run the cluster setup script
+
+Now that your Azure resources and permissions are configured, you need to add this information to the Kubernetes cluster where you're going to deploy Azure IoT Operations. We've provided a setup script that runs these steps for you.
+
+1. Download or copy the [setup-cluster.sh](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-cluster/setup-cluster.sh) and save the file locally.
+
+1. Open the file in the text editor of your choice and update the following variables:
+
+   | Variable | Value |
+   | -------- | ----- |
+   | **Subscription** | Your Azure subscription ID. |
+   | **RESOURCE_GROUP** | The resource group where your Arc-enabled cluster is located. |
+   | **CLUSTER_NAME** | The name of your Arc-enabled cluster. |
+   | **TENANT_ID** | Your Azure directory ID. You can find this value in the Azure portal settings page. |
+   | **AKV_SP_CLIENTID** | The client secret ID that you copied in the previous section. |
+   | **AKV_SP_CLIENTSECRET** | The client secret value that you copied in the previous section. |
+   | **AKV_NAME** | The name of your key vault. |
+   | **PLACEHOLDER_SECRET** | (Optional) If you named your secret something other than `PlaceholderSecret`, replace the default value of this parameter. |
+
+   >[!WARNING]
+   >Do not change the names or namespaces of the **SecretProviderClass** objects.
+
+1. Save your changes to `setup-cluster.sh`.
+
+1. Open your preferred terminal application and run the script.
+
+   #### [Bash](#tab/bash)
+
+   ```bash
+   <FILE_PATH>/setup-cluster.sh
+   ```
+
+   #### [PowerShell](#tab/powershell)
+
+   ```powershell
+   bash <FILE_PATH>\setup-cluster.sh
+   ```
+
+   ---
+
+## Deploy Azure IoT Operations
+
+Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+
 ## How did we solve the problem?
-TODO: End the demonstration with a few paragraphs of analysis to make it clear that the product or service was a good choice to solve the customer problem.
 
-<!-- 8. Clean up resources ------------------------------------------------------------------------
+In this quickstart, you configured your Arc-enabled Kubernetes cluster so that it could communicate securely with your Azure IoT Operations components. Then, you deployed those components to your cluster. For this test scenario, you have a single Kubernetes cluster that's probably running locally on your machine. In a production scenario, however, you can use the same steps to deploy workloads to many clusters across many sites.
 
-Required: To avoid any costs associated with following the Quickstart procedure, a Clean up resources (H2) should come just before Next step or Related content (H2)
-
-If there is a follow-on Quickstart that uses the same resources, make that option clear so that a reader doesn't need to recreate those resources. 
-
--->
-
-<!-- Use this exact H2 -->
 ## Clean up resources
 
-If you're not going to continue to use this application, delete \<resources\> with the following steps:
+If you're not going to continue to use this deployment, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+## Next steps
 
-<!-- 9. Next step/Related content ------------------------------------------------------------------------ 
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
-
-## Next step
-
-Continue to the next quickstart, [Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
