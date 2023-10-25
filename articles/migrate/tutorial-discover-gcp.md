@@ -108,15 +108,13 @@ Set up a new project.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Screenshot to enter project name and region.](./media/tutorial-discover-gcp/new-project.png)
-
 6. Select **Create**.
 7. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
 ![Page showing Server Assessment tool added by default.](./media/tutorial-discover-gcp/added-tool.png)
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project).
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
 
 ## Set up the appliance
 

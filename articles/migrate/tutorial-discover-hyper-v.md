@@ -139,7 +139,7 @@ Set up a new project.
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
+    :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project)
@@ -252,6 +252,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
         > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
