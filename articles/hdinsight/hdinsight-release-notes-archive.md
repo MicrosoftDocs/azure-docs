@@ -34,10 +34,10 @@ For workload specific versions, see
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image **2308221128**. Customers are advised to plan accordingly. 
 
-|CVE | Severity| CVE Title| Remark |
-|-|-|-|-|
-|[CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156)|	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on 2308221128 image |
-|[CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters |
+| CVE | Severity| CVE Title| Remark |
+| - | - | - | - | 
+| [CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156) |	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on 2308221128 image |
+| [CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters |
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
@@ -87,13 +87,13 @@ For workload specific versions, see
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on August 8, 2023. The action is to update to the latest image **2307201242**. Customers are advised to plan accordingly. 
 
-|CVE | Severity| CVE Title|
-|-|-|-|
-|[CVE-2023-35393](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35393)|	Important|Azure Apache Hive Spoofing Vulnerability|
-|[CVE-2023-35394](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35394)|	Important|Azure HDInsight Jupyter Notebook Spoofing Vulnerability|
-|[CVE-2023-36877](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36877)|	Important|Azure Apache Oozie Spoofing Vulnerability|
-|[CVE-2023-36881](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36881)|	Important|Azure Apache Ambari Spoofing Vulnerability|
-|[CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188)|	Important|Azure Apache Hadoop Spoofing Vulnerability|
+| CVE | Severity| CVE Title|
+| - | - | - |
+| [CVE-2023-35393](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35393) |	Important|Azure Apache Hive Spoofing Vulnerability |
+| [CVE-2023-35394](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35394) |	Important|Azure HDInsight Jupyter Notebook Spoofing Vulnerability |
+| [CVE-2023-36877](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36877) |	Important|Azure Apache Oozie Spoofing Vulnerability |
+| [CVE-2023-36881](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36881) |	Important|Azure Apache Ambari Spoofing Vulnerability |
+| [CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188) |	Important|Azure Apache Hadoop Spoofing Vulnerability |
  
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
