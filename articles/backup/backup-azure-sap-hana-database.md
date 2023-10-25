@@ -113,7 +113,7 @@ You can also use the following FQDNs to allow access to the required services fr
 
 If the Firewall or NSG settings block the `“management.azure.com”` domain from Azure Virtual Machine, snapshot backups will fail.
 
-To allow the domain name, create the following outbound rule:
+Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&amp%3Btabs=ipaddress%2Cpublic&tabs=ipaddress%2Cpublic).
 
 - **Source**: IP address of the VM.
 - **Destination**: Service Tag.
