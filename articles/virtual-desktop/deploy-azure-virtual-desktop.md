@@ -11,8 +11,7 @@ ms.date: 10/25/2023
 
 This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. When using the Azure portal, you can optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings in the same process, but you can also do this separately.
 
-The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Try Azure Virtual Desktop with Windows 11](tutorial-try-azure-virtual-desktop-windows-11
-.md) or use the [getting started feature](getting-started-feature.md).
+The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-azure-virtual-desktop-windows-11.md) or use the [getting started feature](getting-started-feature.md).
 
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 

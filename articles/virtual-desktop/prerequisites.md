@@ -267,7 +267,6 @@ To learn which URLs clients use to connect and that you must allow through firew
 
 ## Next steps
 
-Get started with Azure Virtual Desktop by creating a host pool. Head to the following tutorial to find out more.
+- For a simple way to get started with Azure Virtual Desktop by creating a sample infrastructure, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-create-connect-personal-desktop.md).
 
-> [!div class="nextstepaction"]
-> [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md)
+- For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](create-host-pool.md).
