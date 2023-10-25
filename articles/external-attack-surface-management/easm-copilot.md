@@ -104,7 +104,7 @@ Get details on **CVEs that are applicable to your inventory**.
 - Get assets affected by high priority CVSS's in my attack surface.
 - How many assets have critical CVSS's for my organization? 
 
-### Domaim and SSL certificate posture
+### Domain and SSL certificate posture
 
 Get information about **domain and SSL certificate posture**, like expire domains and usage of SHA1 certificates.
 
