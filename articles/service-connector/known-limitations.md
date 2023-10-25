@@ -25,9 +25,9 @@ If you run into any issues when using Service Connector, [file an issue with us]
 We suggest the following solutions:
 
 - Reference [how to build connections with IaC tools](how-to-build-connections-with-iac-tools.md) to build your infrastructure or translate your existing infrastructure to IaC templates.
-- If your CI/CD pipelines contain templates of source compute or backing services, suggested flow is: reapplying the templates, adding sanity check or smoke tests to make sure the application is up and running, then allowing live traffic to the application. The flow adds verification step before allowing live traffic.
+- If your CI/CD pipelines contain templates of source compute or backing services, suggested flow is: reapplying the templates, adding sanity check or smoke tests to make sure the application is up and running, then allowing live traffic to the application. The flow adds a verification step before allowing live traffic.
 - When automating Azure Container App code deployments with Service Connector, we recommend the use of [multiple revision mode](../container-apps/revisions.md#revision-modes) to avoid routing traffic to a temporarily nonfunctional app before Service connector can reapply connections.
-- The order in which automation operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. So Service Connector can configure both the compute service and the backing service appropriately.
+- The order in which automation operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. This way, Service Connector can configure both the compute service and the backing service appropriately.
 
 ## Next steps
 
