@@ -30,7 +30,7 @@ Using the [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/
 
 ## Soft stop SAP system
 
-Currently, soft stop operation can be initiated using Azure PowerShell, CLI and REST API interfaces only. You must use the stop operation along with a soft stop timeout value in seconds to initiate a soft stop. 
+Currently, you can initiate a soft stop operation from the Azure PowerShell, Azure Command-Line Interface (Azure CLI) and REST API interfaces. You must use the stop operation along with a soft stop timeout value in seconds to initiate a soft stop. 
 
 > [!NOTE]
 > When attempting to soft stop an SAP system or applicaton server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
