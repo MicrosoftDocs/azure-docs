@@ -52,8 +52,6 @@ Parameters are case-sensitive.
     "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
     "textSplitMode" : "pages", 
     "maximumPageLength": 1000,
-    "pageOverlapLength": 100,
-    "maximumPagesToTake": 1,
     "defaultLanguageCode": "en",
     "inputs": [
         {
@@ -106,8 +104,8 @@ Parameters are case-sensitive.
             "recordId": "1",
             "data": {
                 "textItems": [
-                    "This is the loan...Here is the overlap part...",
-                    "Here is the overlap part...On the second page we..."
+                    "This is the loan…",
+                    "On the second page we…"
                 ]
             }
         },
@@ -115,8 +113,8 @@ Parameters are case-sensitive.
             "recordId": "2",
             "data": {
                 "textItems": [
-                    "This is the second document...Here is the overlap part...",
-                    "Here is the overlap part...On the second page of the second doc..."
+                    "This is the second document...",
+                    "On the second page of the second doc…"
                 ]
             }
         }
@@ -125,8 +123,12 @@ Parameters are case-sensitive.
 ```
 
 ## Error cases
+<<<<<<< HEAD
 
 If a language isn't supported, a warning is generated.
+=======
+If a language is not supported, a warning is generated.
+>>>>>>> bcb80c40fa26e07aec1ba197d5dcc57bd58aeafb
 
 ## See also
 
