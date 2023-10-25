@@ -18,8 +18,8 @@ This quickstart shows you how to connect Azure Functions to other Cloud resource
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- This quickstart assumes that you already have an Azure Function. If you don't have, [create one](../azure-functions/create-first-function-cli-python.md).
-- This quickstart assumes that you already have an Azure Storage. If you don't have, [create one](../storage/common/storage-account-create.md).
+- This quickstart assumes that you already have an Azure Function. If you don't have one yet, [create an Azure Function](../azure-functions/create-first-function-cli-python.md).
+- This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create a Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Initial set-up
 
@@ -59,7 +59,7 @@ az functionapp connection create storage-blob --secret
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
+> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
 
 Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a system-assigned managed identity, providing the following information:
 

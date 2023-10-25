@@ -13,7 +13,7 @@ In this tutorial, you learn how to configure a Python function with Storage Queu
 
 1. Use Visual Studio Code to create a Python function project.
 1. Use Visual Studio Code to run the function locally.
-1. Use Azure CLI to create Service Connector connection between Azure Function and Storage Queue.
+1. Use the Azure CLI to create a connection between Azure Function and Storage Queue with Service Connector.
 1. Use Visual Studio to deploy your function.
 
 An overview of the function project components in this tutorial:
@@ -29,7 +29,7 @@ An overview of the function project components in this tutorial:
 ## Prerequisites
 
 - Install [Visual Studio Code](https://code.visualstudio.com) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
+- The Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
 - An Azure Function with Python as runtime stack. If you don't have an Azure Function, [create one](../azure-functions/create-first-function-cli-python.md).
 - An Azure Storage Account and a storage queue. If you don't have an Azure Storage, [create one](../storage/common/storage-account-create.md).
 - This guide assumes you know [Functions developer guide](../azure-functions/functions-reference.md) and [how to connect to services in Functions](../azure-functions/add-bindings-existing-function.md).
@@ -46,22 +46,22 @@ Follow the [tutorial to create your local project](../azure-functions/create-fir
 | **Provide a function name**                                     | Enter `QueueStorageTriggerFunc`.                                                                                                           |
 | **Select setting from "local.settings.json"**                   | Choose `Create new local app settings`, which lets you select your Storage Account and provide your queue name that works as the trigger. |
 
-The steps help you create a Python function project with Azure Storage Queue as trigger. And it also helps the local project connect to Azure Storage by saving its connection string into the `local.settings.json` file. Finally, the `main` function in `__init__.py` file of the function can consume the connection string with the help of Function Binding defined in `function.json` file.
+You have created a Python function project with Azure Storage Queue as trigger. The local project connects to Azure Storage using the connection string saved into the `local.settings.json` file. Finally, the `main` function in `__init__.py` file of the function can consume the connection string with the help of the Function Binding defined in the `function.json` file.
 
 ## Run the function locally
 
 Follow the [tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#run-the-function-locally) to run the function locally and verify the trigger.
 
-1. Choose the same Storage Account as you choose when creating the Azure Function resource if you're prompted to connect to Storage. It is for Azure Function runtime's internal use, and isn't necessarily the same with the one you use for trigger.
-2. To start the function locally, press `<kbd>`F5 `</kbd>` or the **Run and Debug** icon in the left-hand side Activity bar.
-3. To verify the trigger works properly, keep the function running locally and open the Storage Queue blade in Azure Portal, click the **Add message** button and provide a test message. You should see the function is triggered and processed a queue item in your Visual Studio Code terminal.
+1. Select the storage account as you chose when creating the Azure Function resource if you're prompted to connect to storage. This value is used for Azure Function's runtime, and it isn't necessarily the same as the storage account you use for the trigger.
+2. To start the function locally, press `<kbd>`F5 `</kbd>` or select the **Run and Debug** icon in the left-hand side Activity bar.
+3. To verify the trigger works properly, keep the function running locally and open the Storage Queue blade in Azure Portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your Visual Studio Code terminal.
 
-## Create connection using Service Connector
+## Create a connection using Service Connector
 
-In last step, you verified the function project locally. And now you'll learn how to configure the connection between the Azure Function and Azure Storage Queue in cloud, so that your function can be triggered by the storage queue after being deployed to cloud.
+In last step, you verified the function project locally. Now you'll learn how to configure the connection between the Azure Function and Azure Storage Queue in the cloud, so that your function can be triggered by the storage queue after being deployed to the cloud.
 
-1. Open `function.json` file in your local project, change the value of the `connection` property in `bindings` to be `AZURE_STORAGEQUEUE_CONNECTIONSTRING`.
-2. Run the following Azure CLI command to create a connection between your Azure Function and your Azure Storage.
+1. Open the `function.json` file in your local project, change the value of the `connection` property in `bindings` to be `AZURE_STORAGEQUEUE_CONNECTIONSTRING`.
+2. Run the following Azure CLI command to create a connection between your Azure Function and your Azure storage account.
 
 ```azurecli
 az functionapp connection create storage-queue --source-id "<your-function-resource-id>" --target-id "<your-storage-queue-resource-id>" --secret
@@ -70,22 +70,22 @@ az functionapp connection create storage-queue --source-id "<your-function-resou
 * `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/queueServices/default`
 
-The steps help create a Service Connector resource that configures an `AZURE_STORAGEQUEUE_CONNECTIONSTRING` variable in the function's App Settings. And the function binding runtime uses it to connect to the storage, so that the function can accept triggers from the storage queue. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
+This steps creates a Service Connector resource that configures an `AZURE_STORAGEQUEUE_CONNECTIONSTRING` variable in the function's App Settings. The function binding runtime uses it to connect to the storage, so that the function can accept triggers from the storage queue. For more information, go to [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
 
 ## Deploy your function to Azure
 
 Now you can deploy your function to Azure and verify the storage queue trigger works.
 
-1. Follow the [tutorial ](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#deploy-the-project-to-azure)to deploy your function to Azure.
-2. Open the Storage Queue blade in Azure Portal, click the **Add message** button and provide a test message. You should see the function is triggered and processed a queue item in your function logs.
+1. Follow this [Azure Functions tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#deploy-the-project-to-azure) to deploy your function to Azure.
+2. Open the Storage Queue blade in the Azure Portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your function logs.
 
 ## Troubleshoot
 
-If there are any errors related with storage host, such as `No such host is known (<acount-name>.queue.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
+If there are any errors related with the storage host, such as `No such host is known (<acount-name>.queue.core.windows.net:443)`, check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage in the Azure portal, copy the connection string from the `Access keys` blade, and replace the values.
 
-If it happens when you start the project locally, check the `local.settings.json` file.
+If this error happens when you start the project locally, check the `local.settings.json` file.
 
-If it happens when you deploy your function to cloud (in this case, Function deployment usually fails on `Syncing triggers` ), check your Function's App Settings.
+If this error happens when you deploy your function to cloud (in this case, Function deployment usually fails on `Syncing triggers` ), check your Function's App Settings.
 
 ## Next steps
 
@@ -95,4 +95,4 @@ Read the articles below to learn more about Service Connector concepts and how i
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)
 
 > [!div class="nextstepaction"]
-> [Learn about how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md)
+> [Use Service Connector to connect Azure Functions to other cloud services](./how-to-use-service-connector-in-function.md)

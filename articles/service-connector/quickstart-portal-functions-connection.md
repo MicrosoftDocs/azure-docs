@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Create a service connection in Function App from the Azure portal
-description: Quickstart showing how to create a service connection in Function App from the Azure portal
+title: Quickstart - Create a service connection in a function app from the Azure portal
+description: Quickstart showing how to create a service connection in a function app from the Azure portal
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 09/18/2023
 ---
-# Quickstart: Create a service connection in Function App from the Azure portal
+# Quickstart: Create a service connection in a function app from the Azure portal
 
-Get started with Service Connector by using the Azure portal to create a new service connection in Azure Function App.
+Get started with Service Connector by using the Azure portal to create a new service connection for Azure Functions in a function app.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. To create a new service connection in Function App, select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type ***Function App***, and select **Function App**.
 
    :::image type="content" source="./media/function-app-quickstart/select-function-app.png" alt-text="Screenshot of the Azure portal, selecting Function App.":::
-2. Select the Azure Function App resource you want to connect to a target resource.
+2. Select the Function App resource you want to connect to a target resource.
 3. Select **Service Connector** from the left table of contents. Then select **Create**.
 
    :::image type="content" source="./media/function-app-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
@@ -33,7 +33,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
    | Setting                   | Example                                 | Description                                                                                                                                                                                |
    | ------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | **Service type**    | Storage -  Blob                         | The target service type. If you don't have a Microsoft Blob Storage, you can[create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
+   | **Service type**    | Storage -  Blob                         | The target service type. If you don't have a Microsoft Blob Storage, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
    | **Subscription**    | My subscription                         | The subscription for your target service (the service you want to connect to). The default value is the subscription for this Function App resource.                                       |
    | **Connection name** | *my_connection*                       | The connection name that identifies the connection between your Function App and target service. Use the connection name provided by Service Connector or choose your own connection name. |
    | **Storage account** | *my_storage_account*                  | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                    |
@@ -60,7 +60,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## View service connections in Function App
 
-1. The **Service Connector** tab displays existing Function App connections.
+1. The **Service Connector** tab displays existing function app connections.
 2. Select **Validate** to check your connection. You can see the connection validation details in the panel on the right.
 
    :::image type="content" source="./media/function-app-quickstart/list-and-validate.png" alt-text="Screenshot of the Azure portal, listing and validating the connection.":::

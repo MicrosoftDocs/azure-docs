@@ -32,7 +32,7 @@ Function binding supports both secret/connection string and identity based authe
 
 ### Service Connector
 
-Service Connector is an Azure service that helps developers easily connect compute services to target backing services. Azure Functions is one of the [compute services supported by Service Connector](./overview.md#what-services-are-supported-in-service-connector).
+Service Connector is an Azure service that helps developers easily connect compute services to target backing services. Azure Functions is one of the [compute services supported by Service Connector](./overview.md#what-services-are-supported-by-service-connector).
 
 Compared to a function binding, which is more like a logically abstracted concept, Service Connector is an Azure service that you can directly operate on. It provides APIs for the whole lifecycle of a connection, like `create`, `delete`, `validate` health and `list configurations`.
 
