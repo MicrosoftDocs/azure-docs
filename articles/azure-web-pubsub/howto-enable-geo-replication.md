@@ -130,7 +130,7 @@ To delete a replica in the Azure portal:
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
 
-To delete a replica using the Azure CLI to
+To delete a replica using the Azure CLI:
    ```azurecli
     az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
