@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 10/23/2023
+ms.date: 10/25/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -106,7 +106,11 @@ clusterName="myOverlayCluster"
 resourceGroup="myResourceGroup"
 location="westcentralus"
 
-az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
+az aks create -n $clusterName -g $resourceGroup \
+  --location $location \
+  --network-plugin azure \
+  --network-plugin-mode overlay \
+  --pod-cidr 192.168.0.0/16
 ```
 
 ## Upgrade an existing cluster to CNI Overlay
@@ -150,6 +154,12 @@ You can deploy your AKS clusters in a dual-stack mode when using Overlay network
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
+### Prerequisites
+
+  - You must have Azure CLI 2.48.0 or later installed.
+  - You must register the `AKS-OutBoundTypeMigrationPreview` feature flag.
+  - Kubernetes version 1.26.3 or greater.
+
 ### Limitations
 
 The following features aren't supported with dual-stack networking:
@@ -161,18 +171,17 @@ The following features aren't supported with dual-stack networking:
 
 ## Deploy a dual-stack AKS cluster
 
-### Install the `aks-preview` Azure CLI extension
+The following attributes are provided to support dual-stack clusters:
 
-`aks-preview` version 0.5.113 is required.
-
-* Install and update the `aks-preview` extension.
-
-```azurecli
-# Install aks-preview extension
-az extension add --name aks-preview
-# Update aks-preview extension
-az extension update --name aks-preview
-```
+* **`--ip-families`**: Takes a comma-separated list of IP families to enable on the cluster.
+  * Only `ipv4` or `ipv4,ipv6` are supported.
+* **`--pod-cidrs`**: Takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
+  * If no values are supplied, the default value `10.244.0.0/16,fd12:3456:789a::/64` is used.
+* **`--service-cidrs`**: Takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
+  * If no values are supplied, the default value `10.0.0.0/16,fd12:3456:789a:1::/108` is used.
+  * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
 
 ### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
 
@@ -205,7 +214,10 @@ az provider register --namespace Microsoft.ContainerService
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create -l <region> -g <resourceGroupName> -n <clusterName> --ip-families ipv4,ipv6
+    az aks create -l <region> -g <resourceGroupName> -n <clusterName> \
+      --network-plugin azure \
+      --network-plugin-mode overlay \
+      --ip-families ipv4,ipv6
     ```
 
 ## Next steps
