@@ -21,6 +21,8 @@
     href: concept-data-quality-monitoring.md
   - name: Data types
     href: concept-data-types.md
+  - name: MCC Data Product
+    href: concept-mcc-data-product.md
 - name: How-to
   expanded: true
   items:

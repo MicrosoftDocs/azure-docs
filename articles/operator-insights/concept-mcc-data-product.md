@@ -1,11 +1,11 @@
 ---
-title: Mobile Content Cloud (MCC) Data Products
+title: Mobile Content Cloud (MCC) Data Product - Azure Operator Insights
 description: This article provides an overview of the MCC Data Product for Azure Operator Insights
 author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: concept-article
-ms.date: 10/22/2023
+ms.date: 10/25/2023
 
 #CustomerIntent: As an MCC operator, I want to understand the capabilities of the MCC Data Product so that I can use it to provide insights to my network.
 ---
@@ -22,18 +22,10 @@ The Affirmed Networks Mobile Content Cloud (MCC) is a virtualized Evolved Packet
 - Packet Data Network Gateway (PGW) provides interconnect between the core network and external IP networks.
 - Gi-LAN Gateway (GIGW) provides subscriber-aware or subscriber-unaware value-added services (VAS) without enabling MCC gateway services, allowing operators to take advantage of VAS while still using their incumbent gateway.
 - Gateway GPRS support node (GGSN) provides interworking between the GPRS network and external packet switched networks.
+- Serving GPRS support node and MME (SGSN/MME) is responsible for the delivery of data packets to and from the mobile stations within its geographical service area.
 - Control and User Plane Separation (CUPS), an LTE enhancement that separates control and user plane function to allow independent scaling of functions.
 
-The data produced by the MCC varies according to the functionality, which leads to variation in the data digested and in the enrichments and visualizations required.
-
-## MCC variants
-
-Multiple MCC Data Products support the range of function provided by the MCC. These Data Products share the same underlying infrastructure and data analysis capabilities, but provide enrichment and visualizations specific to each MCC variant.
-
-- MCC Serving Gateway (SGW) Data Product
-- MCC Packet Data Network Gateway (PGW) Data Product
-- MCC Gi-LAN Gateway (GIGW) Data Product
-- MCC Gateway GPRS Support Node (GGSN) Data Product
+The data produced by the MCC varies according to the functionality, which leads to variation in the data digested and in the enrichments and visualizations that are relevant.
 
 ## Data types
 
