@@ -128,7 +128,6 @@ az group create --name myResourceGroup --location eastus
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
-   --orchestration-mode flexible \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --specialized
 ```
