@@ -63,10 +63,11 @@ Settings relevant to the Azure Container Apps environment API resource.
 
 ## Policies
 
-Azure Container Apps environments will be automatically deleted if one of the following conditions is detected:
-- The Azure Container Apps environment is idle for more than 90 days
-- The Azure Container Apps environment is in a failed state due to VNET or Azure Policy configuration for more than 90 days
-- The Azure Container Apps environment blocks infrastructure updates due to VNET or Azure Policy configuration for more than 90 days
+Azure Container Apps environments are automatically deleted if one of the following conditions is detected for longer than 90 days:
+
+- In an idle state
+- In a failed state due to VNet or Azure Policy configuration
+- Blocks infrastructure updates due to VNet or Azure Policy configuration
 
 ## Next steps
 
