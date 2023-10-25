@@ -1,0 +1,19 @@
+---
+title: Trademarks
+description: The Trademark and Brand Guidelines detail how you can help us protect Microsoft’s brand assets.
+ms.service: hdinsight-aks
+ms.topic: legal
+ms.date: 10/18/2023
+---
+
+# Trademarks
+
+The Product names, other names, logos and other material used on Azure HDInsight on AKS learn pages may include registered trademarks of various entities including, but not limited to, the following trademark owners and names:
+
+- The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.
+- Apache Spark, Spark and the Spark logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Kafka, Kafka and the Kafka logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Flink, Flink and the Flink logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache HBase, HBase and the HBase logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache®, Apache Spark™, Apache HBase®, Apache Kafka®, and Apache Flink® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
