@@ -47,17 +47,7 @@ The following tables describe commonly used properties available in the Containe
 
 ### Resource
 
-A Container Apps resource includes the following properties:
-
-| Property | Description | Data type |
-|---|---|--|
-| `name` | The Container Apps environment name. | string |
-| `location` | The Azure region where the Container Apps environment is deployed. | string |
-| `type` | `Microsoft.App/managedEnvironments` – the ARM resource type | string |
-
-#### `properties`
-
-A resource's `properties` object has the following properties:
+A Container Apps environment resource includes the following properties:
 
 | Property | Description | Data type | Read only |
 |---|---|---|---|
