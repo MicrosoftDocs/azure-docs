@@ -53,7 +53,7 @@ Learn about the [SAP HANA instance snapshot restore architecture](azure-backup-a
 
 ### Establish network connectivity
 
-[Learn about](sap-hana-database-instances-backup.md#permissions-required-for-backup) the network configurations required for HANA instance snapshot.
+[Learn about](backup-azure-sap-hana-database.md#establish-network-connectivity) the network configurations required for HANA instance snapshot.
 
 ## Restore the entire system to a snapshot restore point
 

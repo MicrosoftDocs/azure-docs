@@ -59,7 +59,7 @@ Learn about the [permissions required for snapshot restore](sap-hana-database-in
 
 ### Establish network connectivity
 
-[Learn about](sap-hana-database-instances-backup.md#permissions-required-for-backup) the network configurations required for HANA instance snapshot.
+[Learn about](backup-azure-sap-hana-database.md#establish-network-connectivity) the network configurations required for HANA instance snapshot.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
