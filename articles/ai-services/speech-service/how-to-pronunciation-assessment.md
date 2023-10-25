@@ -39,7 +39,7 @@ You can get pronunciation assessment scores for:
 > Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide, but you must select another programming language for implementation details. 
 ::: zone-end
 
-You must create a `PronunciationAssessmentConfig` object. You need to configure the `PronunciationAssessmentConfig` object to enable prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm, providing insights into the naturalness and expressiveness of your speech. For content assessment, you also need to configure the `PronunciationAssessmentConfig` object. By providing a topic description, you can enhance the assessment's understanding of the specific topic being spoken about, resulting in more precise content assessment scores.
+You must create a `PronunciationAssessmentConfig` object. You need to configure the `PronunciationAssessmentConfig` object to enable prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm, providing insights into the naturalness and expressiveness of your speech. For a content assessment (part of the [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario), you also need to configure the `PronunciationAssessmentConfig` object. By providing a topic description, you can enhance the assessment's understanding of the specific topic being spoken about, resulting in more precise content assessment scores.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -49,6 +49,8 @@ var pronunciationAssessmentConfig = new PronunciationAssessmentConfig(
     gradingSystem: GradingSystem.HundredMark, 
     granularity: Granularity.Phoneme, 
     enableMiscue: true);
+pronunciationAssessmentConfig.EnableProsodyAssessment();
+pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");
 ```
    
 ::: zone-end  
@@ -57,6 +59,8 @@ var pronunciationAssessmentConfig = new PronunciationAssessmentConfig(
 
 ```cpp
 auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
+pronunciationAssessmentConfig->EnableProsodyAssessment();
+pronunciationAssessmentConfig->EnableContentAssessmentWithTopic("greeting");
 ```
 
 ::: zone-end
@@ -65,6 +69,8 @@ auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJs
 
 ```Java
 PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
+pronunciationAssessmentConfig.enableProsodyAssessment();
+pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greetings");
 ```
 
 ::: zone-end
@@ -73,6 +79,8 @@ PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAsses
 
 ```Python
 pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true}")
+pronunciation_assessment_config.enable_prosody_assessment()
+pronunciation_assessment_config.enable_content_assessment_with_topic("greeting")
 ```
 
 ::: zone-end
@@ -80,7 +88,7 @@ pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_s
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
-var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true}");
+var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true,\"contentAssessmentWithTopic\":\"greeting\",\"enableProsodyAssessment\":true}");
 ```
 
 ::: zone-end
@@ -92,7 +100,9 @@ SPXPronunciationAssessmentConfiguration *pronunciationAssessmentConfig =
 [[SPXPronunciationAssessmentConfiguration alloc] init:@"good morning"
                             gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark
                             granularity:SPXPronunciationAssessmentGranularity_Phoneme
-                            enableMiscue:true];
+                            enableMiscue:true
+                            contentAssessmentWithTopic:@"greeting"
+                            enableProsodyAssessment:true];
 ```
 
 ::: zone-end
@@ -103,7 +113,7 @@ SPXPronunciationAssessmentConfiguration *pronunciationAssessmentConfig =
 ```swift
 var pronunciationAssessmentConfig: SPXPronunciationAssessmentConfiguration?
 do {
-    try pronunciationAssessmentConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true)
+    try pronunciationAssessmentConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true, contentAssessmentWithTopic: "greeting", enableProsodyAssessment: true)
 } catch {
     print("error \(error) happened")
     pronunciationAssessmentConfig = nil
@@ -116,6 +126,7 @@ do {
 ::: zone pivot="programming-language-go"
 
 ::: zone-end
+
 
 This table lists some of the key configuration parameters for pronunciation assessment.
 
@@ -655,7 +666,7 @@ This table lists some of the key pronunciation assessment results for the script
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
 | `ProsodyScore`       | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |Full Text level|
-| `ErrorType`          | This value indicates whether a word is omitted, inserted, badly pronounced, improperly inserted with a break, missing a break at punctuation, or monotonically rising, falling, or flat on the utterance, compared to the ReferenceText. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
+| `ErrorType`          | This value indicates whether a word is omitted, inserted, improperly inserted with a break, or missing a break at punctuation compared to the reference text. It also indicates whether a word is badly pronounced, or monotonically rising, falling, or flat on the utterance. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
 
 #### Unscripted assessment results
 
@@ -669,7 +680,7 @@ This table lists some of the key pronunciation assessment results for the unscri
 | `AccuracyScore`     | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives. | Phoneme level，<br>Syllable level (en-US only)，<br>Word level，<br>Full Text level|
 | `FluencyScore`       | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. | Full Text level|
 | `ProsodyScore`       | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
-| `VocabularyScore`    | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, as well as the level of lexical complexity. | Full Text level|
+| `VocabularyScore`    | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity. | Full Text level|
 | `GrammarScore`       | Correctness in using grammar and variety of sentence patterns. Grammatical errors are jointly evaluated by lexical accuracy, grammatical accuracy, and diversity of sentence structures. | Full Text level|
 | `TopicScore`         | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
 | `PronScore`          | Overall score indicating the pronunciation quality of the given speech. This is aggregated from AccuracyScore, FluencyScore, and CompletenessScore with weight. | Full Text level|
@@ -682,12 +693,12 @@ The following table describes the prosody assessment results in more detail:
 | `ProsodyScore`            | Prosody score of the entire utterance.                                                            |
 | `Feedback`                | Feedback on the word level, including Break and Intonation.                                         |
 |`Break`    |                                                                                           |
-| `ErrorTypes`     | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. In the current version, we don’t provide the break error type. You need to set thresholds on the following fields “UnexpectedBreak – Confidence” and “MissingBreak – confidence”, respectively to decide whether there is an unexpected break or missing break before the word. |
+| `ErrorTypes`     | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. In the current version, we don’t provide the break error type. You need to set thresholds on the following fields “UnexpectedBreak – Confidence” and “MissingBreak – confidence”, respectively to decide whether there's an unexpected break or missing break before the word. |
 | `UnexpectedBreak` | Indicates an unexpected break before the word.                                                        |
 | `MissingBreak`    | Indicates a missing break before the word.                                                           |
 | `Thresholds`  | Suggested thresholds on both confidence scores are 0.75. That means, if the value of ‘UnexpectedBreak – Confidence’ is larger than 0.75, it can be decided to have an unexpected break. If the value of ‘MissingBreak – confidence’ is larger than 0.75, it can be decided to have a missing break. If you want to have variable detection sensitivity on these two breaks, it’s suggested to assign different thresholds to the 'UnexpectedBreak - Confidence' and 'MissingBreak - Confidence' fields. |
-|`Intonation`|                                                                                      |
-| `ErrorTypes`  | Error types related to intonation, currently supporting only Monotone. If the ‘Monotone’ exists in the field ‘ErrorTypes’, the utterance is detected to be monotonic. Note that monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
+|`Intonation`| Indicates intonation in speech. |
+| `ErrorTypes`  | Error types related to intonation, currently supporting only Monotone. If the ‘Monotone’ exists in the field ‘ErrorTypes’, the utterance is detected to be monotonic. Monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
 | `Monotone`   | Indicates monotonic speech.                                                                         |
 | `Thresholds (Monotone Confidence)` | The fields 'Monotone - SyllablePitchDeltaConfidence' are reserved for user-customized monotone detection. If you're unsatisfied with the provided monotone decision, you can adjust the thresholds on these fields to customize the detection according to your preferences. |
 
