@@ -34,5 +34,5 @@ This table provides an index of more tools. If existing tools can't meet your re
 
 You can also visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html) to discover more custom tools that developed by the open source community.
 
-For the tools that should be utilized in the custom environment, please follow [this guidance](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime, so that the tool can appear in the tool list.
+For the tools that should be utilized in the custom environment, please follow [this guidance](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
 
