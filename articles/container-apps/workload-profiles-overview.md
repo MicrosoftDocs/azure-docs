@@ -33,6 +33,9 @@ For each Dedicated workload profile in your environment, you can:
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying microservices where each app can run on the appropriate compute infrastructure.
 
+> [!NOTE]
+> You can only apply a GPU workload profile to an environment as the environment is created.
+
 ## Profile types
 
 There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a consumption profile, but you can also add any of the following profiles:
