@@ -27,41 +27,23 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure Business Continuity center support matrix
-            url: backup-support-matrix.md
-          - text: Azure Backup architecture
-            url: backup-architecture.md
-          - text: Azure Backup security
-            url: security-overview.md
-
+            url: business-continuity-center-support-matrix.md
+          
   # Card (optional)
-  - title: Get started with Azure Backup
+  - title: Monitor protection
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to
         links:
-          - text: Back up a VM with the Azure portal
-            url: quick-backup-vm-portal.md
-          - text: Back up a VM with PowerShell
-            url: quick-backup-vm-powershell.md
-          - text: Back up a VM with Azure CLI
-            url: quick-backup-vm-cli.md
-          - text: Back up a VM with Resource Manager template
-            url: quick-backup-vm-template.md
-      - linkListType: tutorial
-        links:
-          - text: Back up Azure VMs
-            url: tutorial-backup-vm-at-scale.md
-          - text: Backup SQL Server on Azure VM
-            url: tutorial-sql-backup.md
-          - text: Backup files and folders on Windows Server
-            url: tutorial-backup-windows-server-to-azure.md
-          - text: Back up SAP HANA databases in an Azure VM
-            url: tutorial-backup-sap-hana-db.md
+          - text: Monitor protection summary
+            url: tutorial-monitor-protection-summary.md
+          
+
   # Card
   - title: Learn about the latest features in Azure Backup
     linkLists:
-      - linkListType: whats-new
+      - linkListType: security
         links:
-          - text: Multiple backups per day for Azure VMs
-            url: backup-azure-vms-enhanced-policy.md
+          - text:  Overview on Security levels
+            url: security-levels-concept.md
 
   
