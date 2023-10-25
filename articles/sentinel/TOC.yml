@@ -559,6 +559,8 @@
         href: data-connectors/exchange-security-insights-online-collector-using-azure-functions.md
       - name: F5 BIG-IP
         href: data-connectors/f5-big-ip.md
+      - name: Feedly
+        href: data-connectors/feedly.md
       - name: Flare
         href: data-connectors/flare.md
       - name: Forcepoint DLP
@@ -619,6 +621,8 @@
         href: data-connectors/lookout-using-azure-function.md
       - name: Lookout Cloud Security for Microsoft Sentinel (using Azure Functions)
         href: data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md
+      - name: MailGuard 365
+        href: data-connectors/mailguard-365.md
       - name: MailRisk by Secure Practice (using Azure Functions)
         href: data-connectors/mailrisk-by-secure-practice-using-azure-functions.md
       - name: MarkLogic Audit
