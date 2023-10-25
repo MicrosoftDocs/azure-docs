@@ -46,7 +46,7 @@ Once you have reviewed and saved the template file named ```virtual-machine-bice
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup.md)]
+[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup-cli.md)]
 
 ## Next steps
 
