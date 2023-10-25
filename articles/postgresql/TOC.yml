@@ -742,10 +742,6 @@
         href: single-server/how-to-migrate-using-dump-and-restore.md
       - name: Upgrade/Migrate data with pg_dump and psql
         href: single-server/how-to-migrate-using-export-and-import.md
-- name: Hyperscale (Citus)
-  items:
-  - name: Where is Hyperscale (Citus)?
-    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples
