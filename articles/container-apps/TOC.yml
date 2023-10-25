@@ -179,9 +179,9 @@
           href: managed-identity-image-pull.md
 - name: Resiliency
   items:
-    - name: Container app resiliency
+    - name: Application resiliency
       items:
-      - name: Service name
+      - name: ACA service discovery
         href: service-name-resiliency.md
       - name: Dapr service invocation API
         href: dapr-invoke-resiliency.md
