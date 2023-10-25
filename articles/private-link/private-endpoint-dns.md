@@ -43,7 +43,7 @@ For Azure services, use the recommended zone names as described in the following
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
-| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
+| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook <br> DSCAndHybridWorker | privatelink.azure-automation.net | {regionCode}.azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
 | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
@@ -118,6 +118,7 @@ For Azure services, use the recommended zone names as described in the following
 >In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >
 > - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+> - [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
 >
 > **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
 
@@ -150,7 +151,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.us | azure-devices-provisioning.us |
 | Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net  | servicebus.usgovcloudapi.net  |
 | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.	oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
 | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 | Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
@@ -159,8 +160,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection  | privatelink.wvd.azure.us | wvd.azure.us  |
 
 >[!Note]
->In the above text, `{region}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
+>In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+>- [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
 >
 > **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
 

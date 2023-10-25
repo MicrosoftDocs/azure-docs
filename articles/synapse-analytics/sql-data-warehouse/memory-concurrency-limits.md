@@ -85,8 +85,8 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
-| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
@@ -104,7 +104,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 **Dynamic resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across service level DW1000c to DW30000c. For memory allocation under DW1000c, please refer to the document [dynamic resource class](resource-classes-for-workload-management.md).
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
