@@ -17,8 +17,8 @@ ms.date: 10/24/2023
 
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more.  Azure IoT MQ Preview supports two of these building blocks:
 
-1. Pub/sub, powered by the MQ distributed MQTT broker
-2. State management, powered by the [MQ state store](concept-about-state-store.md)
+- Pub/sub, powered by the MQ distributed MQTT broker
+- State management, powered by the [MQ state store](concept-about-state-store.md)
 
 To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and E4K pluggable components.
 
