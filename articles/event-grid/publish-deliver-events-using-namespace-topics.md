@@ -35,7 +35,7 @@ The article provides step-by-step instructions to publish events to Azure Event 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!IMPORTANT]
-> Commands provided in this article are supported by Azure CLI running in a PowerShell terminal. Make sure you are not using a Bash terminal during the execution of the commands.
+> Commands provided in this article are ready to run in a PowerShell terminal using Azure CLI. Make sure you are not using a Bash terminal during the execution of the commands.
 
 ## Install Event Grid preview extension
 
