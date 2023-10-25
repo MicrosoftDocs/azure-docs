@@ -92,7 +92,7 @@ This issue might occur if:
   
 ### FQDN doesn’t match the contents of CN or SAN in the provided certificate
 
-This issue occurs if a wildcard doesn't match a lower-level subdomain. For example, the wildcard `\*\.contoso.com` would match `sbc1.contoso.com`, but not `sbc.acs.contoso.com`. You can't have multiple levels of subdomains under a wildcard. If the FQDN doesn’t match the Common Name (CN) or Subject Alternate Name (SAN) in the provided certificate, request a new certificate that matches your domain names.
+This issue occurs if a wildcard doesn't match a lower-level subdomain. For example, the wildcard `\*\.contoso.com` would match `sbc1.contoso.com`, but not `sbc.Azure Communication Services.contoso.com`. You can't have multiple levels of subdomains under a wildcard. If the FQDN doesn’t match the Common Name (CN) or Subject Alternate Name (SAN) in the provided certificate, request a new certificate that matches your domain names.
 
 For more information about certificates, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
