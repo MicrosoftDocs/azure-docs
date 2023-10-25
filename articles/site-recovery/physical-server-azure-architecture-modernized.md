@@ -81,8 +81,10 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 ## Failover and failback process
 
-After you set up replication and run a disaster recovery drill (test failover) to check that everything's working as expected, you can run proceed to failover as needed. For physical servers, failback is not supported
+After you set up replication and run a disaster recovery drill (test failover) to check that everything's working as expected, you can run proceed to failover as needed. 
 
+> [!NOTE]
+> For physical servers, failback is not supported
 
 1. You can run failover for a single machine or create a recovery plan to failover multiple servers simultaneously. The advantage of a recovery plan rather than single machine failover include:
     - You can model app-dependencies by including all the servers across the app in a single recovery plan.
