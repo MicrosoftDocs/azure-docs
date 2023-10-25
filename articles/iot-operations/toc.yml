@@ -40,8 +40,6 @@ items:
           items:
           - name: Install OPC UA Broker using helm
             href: manage-devices-assets/howto-install-opcua-broker-using-helm.md
-          - name: Uninstall OPC UA Broker using helm
-            href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md
           - name: Connect an OPC UA server
             href: manage-devices-assets/howto-connect-an-opcua-server.md
           - name: Define OPC UA assets
@@ -51,7 +49,9 @@ items:
           - name: Process telemetry using OPC UA Broker
             href: manage-devices-assets/howto-process-telemetry-using-opcua-broker.md
           - name: Use OPC UA Broker actions
-            href: manage-devices-assets/howto-use-opcua-broker-actions.md         
+            href: manage-devices-assets/howto-use-opcua-broker-actions.md
+          - name: Uninstall OPC UA Broker using helm
+            href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md    
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
