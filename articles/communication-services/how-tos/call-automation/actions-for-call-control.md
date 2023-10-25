@@ -508,13 +508,12 @@ transferee = CommnunicationUserIdentifer("transferee_user_id")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
 
 # create custom context
-custom_context = CustomContext(sip_headers={}, voip_headers={})
-custom_context.add(VoipHeader("customVoipHeader1", "customVoipHeaderValue1"))
+voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
 
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
-    custom_context=custom_context,
+    voip_headers=voip_headers,
     opration_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
@@ -524,15 +523,15 @@ transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
 transferee = PhoneNumberIdentifer("transferee_phoneNumber")
 
 # create custom context
-custom_context = CustomContext(sip_headers={}, voip_headers={})
-custom_context.add(SIPCustomHeader("headerName", "headerValue"))
-custom_context.add(SIPUserToUserHeader("uuivale"))
+sip_headers={}
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers.add("User-To-User","uuivale")
 
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
-    custom_context=custom_context,
+    sip_headers=sip_headers,
     opration_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
@@ -639,33 +638,38 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson, 
 
 ```python
 # Add ACS user
-custom_context = CustomContext(sip_headers={}, voip_headers={})
-custom_context.add(VoipHeader("voipHeaderName", "voipHeaderValue"))
-call_invite = CallInvite(
-    target=CommunicationUserIdentifier("<acs_user_id>"),
-    custom_context=custom_context,
-)
+voip_headers = {"voipHeaderName", "voipHeaderValue"}
+target = CommunicationUserIdentifier("<acs_user_id>")
+
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+result = call_connection_client.add_participant(
+    target,
+    voip_headers=voip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
 
 # Add PSTN user
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
 ) # This is the ACS provisioned phone number for the caller
-custom_context = CustomContext(sip_headers={}, voip_headers={})
-custom_context.add(SIPUserToUserHeader("value"))
-custom_context.add(SIPCustomHeader("headerName", "headerValue"))
-call_invite = CallInvite(
-    target=PhoneNumberIdentifier("+18008008800"),
-    source_caller_id_number=caller_id_number,
-    custom_context=custom_context,
-)
+sip_headers = {}
+sip_headers.add("User-To-User", "value")
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+target = PhoneNumberIdentifier("+18008008800"),
+
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+result = call_connection_client.add_participant(
+    target,
+    sip_headers=sip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>",
+    source_caller_id_number=caller_id_number
+)
 ```
 
 -----
@@ -728,13 +732,12 @@ await callConnection.cancelAddParticipant(invitationId);
 
 ```python
 # Add ACS user
-call_invite = CallInvite(
-    target=CommunicationUserIdentifier("<acs_user_id>")
-)
+target = CommunicationUserIdentifier("<acs_user_id>")
+
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite)
+result = call_connection_client.add_participant(target)
 
 # cancel the request
 call_connection_client.cancel_add_participant(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
