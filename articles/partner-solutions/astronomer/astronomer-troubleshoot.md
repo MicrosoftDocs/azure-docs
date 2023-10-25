@@ -7,7 +7,6 @@ ms.author: franlanglois
 ms.topic: how-to
 ms.date: 11/13/2023
 
-ms.custom: ignite-2023-metadata-update
 ---
 
 # Troubleshooting Astro integration with Azure
