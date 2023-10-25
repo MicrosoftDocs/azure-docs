@@ -10,7 +10,19 @@ ms.custom: references_regions
 ---
 
 # Data collection rules in Azure Monitor
-Data collection rules (DCRs) are sets of instructions that define the [data collection process in Azure Monitor](../essentials/data-collection.md). DCRs specify what data should be collected, how to transform that data, and where to send that data. Some DCRs will be created and managed by Azure Monitor to collect a specific set of data to enable insights and visualizations. You might also create your own DCRs to define the set of data required for other scenarios.
+Data collection rules (DCRs) are sets of instructions that define [data collection workflows in Azure Monitor](../essentials/data-collection.md). DCRs specify what data should be collected, how to transform that data, and where to send that data. Some DCRs will be created and managed by Azure Monitor to collect a specific set of data to enable insights and visualizations. You might also create your own DCRs to define the set of data required for other scenarios.
+
+
+## Concept
+DCRs are stored in Azure so that you can centrally manage them. Different components of a data collection workflow will access the DCR for particular information that it requires.
+
+The following diagram illustrates data collection for the Azure Monitor agent. When the agent is installed, it connect to Azure to retrieve any DCRs that are associated with it. It then references the data sources section of each DCR to determine what data to collect from the machine. When the agent delivers this data to Azure Monitor, the pipeline references other sections of the DCR to determine whether a transformation should be applied to then the workspace and table to send it to.
+
+:::image type="content" source="media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram that shows ingestion-time transformation for Azure Monitor Agent." border="false":::
+
+Another example is the Logs Ingestion API that allows you to send custom data to Azure Monitor. In this case, the API call that sends the data also specifies a DCR to use. Azure Monitor references this DCR to understand the structure of the incoming data, determine whether a transformation should be applied to then the workspace and table to send it to.
+
+:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram that shows ingestion-time transformation for custom application by using logs ingestion API." border="false":::
 
 ## View data collection rules
 To view your DCRs in the Azure portal, select **Data Collection Rules** under **Settings** on the **Monitor** menu.

@@ -36,11 +36,7 @@ This article describes the different methods for creating and editing a DCR. For
 
 
 
-## [CLI](#tab/cli)
 
-```dotnetcli
-az monitor data-collection rule create --resource-group "myResourceGroup" --location "eastus" --name "myCollectionRule" --data-flows destinations="centralWorkspace" streams="Microsoft-Perf" streams="Microsoft-Syslog" streams="Microsoft-WindowsEvent" --log-analytics name="centralWorkspace" resource-id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace" --performance-counters name="cloudTeamCoreCounters" counter-specifiers="\\Processor(_Total)\\% Processor Time" counter-specifiers="\\Memory\\Committed Bytes" counter-specifiers="\\LogicalDisk(_Total)\\Free Megabytes" counter-specifiers="\\PhysicalDisk(_Total)\\Avg. Disk Queue Length" sampling-frequency=15 transfer-period="PT1M" streams="Microsoft-Perf" --performance-counters name="appTeamExtraCounters" counter-specifiers="\\Process(_Total)\\Thread Count" sampling-frequency=30 transfer-period="PT5M" streams="Microsoft-Perf" --syslog name="cronSyslog" facility-names="cron" log-levels="Debug" log-levels="Critical" log-levels="Emergency" streams="Microsoft-Syslog" --syslog name="syslogBase" facility-names="syslog" log-levels="Alert" log-levels="Critical" log-levels="Emergency" streams="Microsoft-Syslog" --windows-event-logs name="cloudSecurityTeamEvents" transfer-period="PT1M" streams="Microsoft-WindowsEvent" x-path-queries="Security!" --windows-event-logs name="appTeam1AppEvents" transfer-period="PT5M" streams="Microsoft-WindowsEvent" x-path-queries="System![System[(Level = 1 or Level = 2 or Level = 3)]]" x-path-queries="Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
-```
 
 
 ## [PowerShell](#tab/powershell)

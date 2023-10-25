@@ -145,75 +145,78 @@ The sample data collection rule below is used to collect [text logs using Azure 
 
 ```json
 {
-    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
-    "streamDeclarations": {
-        "Custom-MyLogFileFormat": {
-            "columns": [
+    "location": "eastus",
+    "properties": {
+        "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+        "streamDeclarations": {
+            "Custom-MyLogFileFormat": {
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "RawData",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "dataSources": {
+            "logFiles": [
                 {
-                    "name": "TimeGenerated",
-                    "type": "datetime"
+                    "streams": [
+                        "Custom-MyLogFileFormat"
+                    ],
+                    "filePatterns": [
+                        "C:\\JavaLogs\\*.log"
+                    ],
+                    "format": "text",
+                    "settings": {
+                        "text": {
+                            "recordStartTimestampFormat": "ISO 8601"
+                        }
+                    },
+                    "name": "myLogFileFormat-Windows"
                 },
                 {
-                    "name": "RawData",
-                    "type": "string"
+                    "streams": [
+                        "Custom-MyLogFileFormat" 
+                    ],
+                    "filePatterns": [
+                        "//var//*.log"
+                    ],
+                    "format": "text",
+                    "settings": {
+                        "text": {
+                            "recordStartTimestampFormat": "ISO 8601"
+                        }
+                    },
+                    "name": "myLogFileFormat-Linux"
                 }
             ]
-        }
-    },
-    "dataSources": {
-        "logFiles": [
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                    "name": "[parameters('workspaceName')]"
+                }
+            ]
+        },
+        "dataFlows": [
             {
                 "streams": [
                     "Custom-MyLogFileFormat"
                 ],
-                "filePatterns": [
-                    "C:\\JavaLogs\\*.log"
+                "destinations": [
+                    "[parameters('workspaceName')]"
                 ],
-                "format": "text",
-                "settings": {
-                    "text": {
-                        "recordStartTimestampFormat": "ISO 8601"
-                    }
-                },
-                "name": "myLogFileFormat-Windows"
-            },
-            {
-                "streams": [
-                    "Custom-MyLogFileFormat" 
-                ],
-                "filePatterns": [
-                    "//var//*.log"
-                ],
-                "format": "text",
-                "settings": {
-                    "text": {
-                        "recordStartTimestampFormat": "ISO 8601"
-                    }
-                },
-                "name": "myLogFileFormat-Linux"
+                "transformKql": "source",
+                "outputStream": "Custom-MyTable_CL"
             }
         ]
-    },
-    "destinations": {
-        "logAnalytics": [
-            {
-                "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                "name": "[parameters('workspaceName')]"
-            }
-        ]
-    },
-    "dataFlows": [
-        {
-            "streams": [
-                "Custom-MyLogFileFormat"
-            ],
-            "destinations": [
-                "[parameters('workspaceName')]"
-            ],
-            "transformKql": "source",
-            "outputStream": "Custom-MyTable_CL"
-        }
-    ]
+    }
 }
 ```
 
@@ -222,54 +225,57 @@ The sample data collection rule below is used to collect [text logs using Azure 
 
 ```json
 {
-    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
-    "streamDeclarations": {
-        "Custom-MyEventHubStream": {
-            "columns": [
+    "location": "eastus",
+    "properties": {
+        "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+        "streamDeclarations": {
+            "Custom-MyEventHubStream": {
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "RawData",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Properties",
+                        "type": "dynamic"
+                    }
+                ]
+            }
+        },
+        "dataSources": {
+            "dataImports": {
+                "eventHub": {
+                            "consumerGroup": "[parameters('consumerGroup')]",
+                            "stream": "Custom-MyEventHubStream",
+                            "name": "myEventHubDataSource1"
+                            }
+                }
+        },
+        "destinations": {
+            "logAnalytics": [
                 {
-                    "name": "TimeGenerated",
-                    "type": "datetime"
-                },
-                {
-                    "name": "RawData",
-                    "type": "string"
-                },
-                {
-                    "name": "Properties",
-                    "type": "dynamic"
+                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                    "name": "MyDestination"
                 }
             ]
-        }
-    },
-    "dataSources": {
-        "dataImports": {
-            "eventHub": {
-                        "consumerGroup": "[parameters('consumerGroup')]",
-                        "stream": "Custom-MyEventHubStream",
-                        "name": "myEventHubDataSource1"
-                        }
-            }
-    },
-    "destinations": {
-        "logAnalytics": [
+        },
+        "dataFlows": [
             {
-                "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                "name": "MyDestination"
+                "streams": [
+                    "Custom-MyEventHubStream"
+                ],
+                "destinations": [
+                    "MyDestination"
+                ],
+                "transformKql": "source",
+                "outputStream": "[concat('Custom-', parameters('tableName'))]"
             }
         ]
-    },
-    "dataFlows": [
-        {
-            "streams": [
-                "Custom-MyEventHubStream"
-            ],
-            "destinations": [
-                "MyDestination"
-            ],
-            "transformKql": "source",
-            "outputStream": "[concat('Custom-', parameters('tableName'))]"
-        }
-    ]
+    }
 }
 ```
 
@@ -282,45 +288,48 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ```json
 {
-    "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
-    "streamDeclarations": {
-        "Custom-MyTableRawData": {
-            "columns": [
+    "location": "eastus",
+    "properties": {
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
+        "streamDeclarations": {
+            "Custom-MyTable": {
+                "columns": [
+                    {
+                        "name": "Time",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "Computer",
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdditionalContext",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "destinations": {
+            "logAnalytics": [
                 {
-                    "name": "Time",
-                    "type": "datetime"
-                },
-                {
-                    "name": "Computer",
-                    "type": "string"
-                },
-                {
-                    "name": "AdditionalContext",
-                    "type": "string"
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cefingestion/providers/microsoft.operationalinsights/workspaces/my-workspace",
+                    "name": "LogAnalyticsDest"
                 }
             ]
-        }
-    },
-    "destinations": {
-        "logAnalytics": [
+        },
+        "dataFlows": [
             {
-                "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cefingestion/providers/microsoft.operationalinsights/workspaces/my-workspace",
-                "name": "LogAnalyticsDest"
+                "streams": [
+                    "Custom-MyTable"
+                ],
+                "destinations": [
+                    "LogAnalyticsDest"
+                ],
+                "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)",
+                "outputStream": "Custom-MyTable_CL"
             }
         ]
-    },
-    "dataFlows": [
-        {
-            "streams": [
-                "Custom-MyTableRawData"
-            ],
-            "destinations": [
-                "LogAnalyticsDest"
-            ],
-            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)",
-            "outputStream": "Custom-MyTable_CL"
-        }
-    ]
+    }
 }
 ```
 
@@ -330,27 +339,29 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ```json
 {
-    "destinations": {
-        "logAnalytics": [
+    "location": "eastus",
+    "properties": {
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                    "name": "clv2ws1"
+                }
+            ]
+        },
+        "dataFlows": [
             {
-                "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                "name": "clv2ws1"
+                "streams": [
+                    "Microsoft-Table-LAQueryLogs"
+                ],
+                "destinations": [
+                    "clv2ws1"
+                ],
+                "transformKql": "source |where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''"
             }
         ]
-    },
-    "dataFlows": [
-        {
-            "streams": [
-                "Microsoft-Table-LAQueryLogs"
-            ],
-            "destinations": [
-                "clv2ws1"
-            ],
-            "transformKql": "source |where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''"
-        }
-    ]
+    }
 }
-
 ```
 
 
