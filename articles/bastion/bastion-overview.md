@@ -37,7 +37,7 @@ Azure Bastion offers multiple SKU tiers. The following table shows features and 
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU, see the [Configuration settings](configuration-settings.md#skus) article.
+For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU (currently in Preview), see the [Configuration settings](configuration-settings.md#skus) article.
 
 ## <a name="architecture"></a>Architecture
 
