@@ -31,9 +31,9 @@ You need:
 
 - The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you want to assign the roles to a resource group, you need to create this first.
 
-   | Resource type | RBAC role(s) |
+   | Resource type | RBAC role |
    |--|--|
-   | Host pool<br />Workspace<br />Application group | <br />[Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
    Alternatively if you already have the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) RBAC role, you're already able to create all of these resource types.
