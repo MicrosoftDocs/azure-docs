@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 10/25/2023
 ---
 # Integrate Azure App Configuration with Service Connector
 

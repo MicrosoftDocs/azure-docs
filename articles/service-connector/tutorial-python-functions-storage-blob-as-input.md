@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 09/18/2023
+ms.date: 10/25/2023
 ---
 # Tutorial: Python function with Azure Blob Storage as input
 
@@ -59,7 +59,7 @@ Binding attributes are defined in the *function.json* file for a given function.
 | **Select binding with direction...**                                      | `Azure Blob Storage`            | The binding is an Azure Storage blob binding.                                                                                                                                                                      |
 | **The name used to identify this binding in your code**                   | `inputBlob`                     | Name that identifies the binding parameter referenced in your code.                                                                                                                                                |
 | **The path within your storage account from which the blob will be read** | `testcontainer/test.txt`        | The blob path your function read as input. Prepare a file named `test.txt`, with a `Hello, World!` as the file content. Create a container named   `testcontainer `, and upload the file to the container. |
-| **Select setting from "local.setting.json"**                              | `Create new local app settings` | Select the Storage Account your function reads as input. Visual Studio Code retrieves its connection string for local project connection.                                                               |
+| **Select setting from "local.setting.json"**                              | `Create new local app settings` | Select the Storage Account your function reads as input. Visual Studio Code retrieves its connection string for local project connection.                                                                      |
 
 To check the binding was added successfully,
 

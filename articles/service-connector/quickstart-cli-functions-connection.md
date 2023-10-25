@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 09/12/2023
+ms.date: 10/25/2023
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---

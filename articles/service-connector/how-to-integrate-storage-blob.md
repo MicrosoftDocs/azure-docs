@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/25/2023
 ---
 # Integrate Azure Blob Storage with Service Connector
 
@@ -46,7 +46,6 @@ For default environment variables and sample code of other authentication type, 
 | Default environment variable name  | Description           | Example value                                             |
 | ---------------------------------- | --------------------- | --------------------------------------------------------- |
 | AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
-
 
 #### Sample code
 

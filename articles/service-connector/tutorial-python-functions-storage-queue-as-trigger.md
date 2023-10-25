@@ -5,16 +5,16 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 09/18/2023
+ms.date: 10/25/2023
 ---
 # Tutorial: Python function with Azure Queue Storage as trigger
 
 In this tutorial, you learn how to configure a Python function with Storage Queue as trigger by completing the following tasks:
 
 1. Use Visual Studio Code to create a Python function project.
-1. Use Visual Studio Code to run the function locally.
-1. Use the Azure CLI to create a connection between Azure Function and Storage Queue with Service Connector.
-1. Use Visual Studio to deploy your function.
+2. Use Visual Studio Code to run the function locally.
+3. Use the Azure CLI to create a connection between Azure Function and Storage Queue with Service Connector.
+4. Use Visual Studio to deploy your function.
 
 An overview of the function project components in this tutorial:
 
@@ -38,12 +38,12 @@ An overview of the function project components in this tutorial:
 
 Follow the [tutorial to create your local project](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#create-an-azure-functions-project), and provide the following information at the prompts:
 
-| Prompt                                                                | Selection                                                                                                                                    |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Select a language**                                           | Choose `Python`. (v1 programming language model)                                                                                           |
-| **Select a Python interpreter to create a virtual environment** | Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.                             |
-| **Select a template for your project's first function**         | Choose `Azure Queue Storage trigger`.                                                                                                      |
-| **Provide a function name**                                     | Enter `QueueStorageTriggerFunc`.                                                                                                           |
+| Prompt                                                                | Selection                                                                                                                                   |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Select a language**                                           | Choose `Python`. (v1 programming language model)                                                                                          |
+| **Select a Python interpreter to create a virtual environment** | Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.                            |
+| **Select a template for your project's first function**         | Choose `Azure Queue Storage trigger`.                                                                                                     |
+| **Provide a function name**                                     | Enter `QueueStorageTriggerFunc`.                                                                                                          |
 | **Select setting from "local.settings.json"**                   | Choose `Create new local app settings`, which lets you select your Storage Account and provide your queue name that works as the trigger. |
 
 You have created a Python function project with Azure Storage Queue as trigger. The local project connects to Azure Storage using the connection string saved into the `local.settings.json` file. Finally, the `main` function in `__init__.py` file of the function can consume the connection string with the help of the Function Binding defined in the `function.json` file.

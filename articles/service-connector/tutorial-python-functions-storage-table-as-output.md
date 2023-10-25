@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 09/18/2023
+ms.date: 10/25/2023
 ---
 # Tutorial: Python function with Azure Table Storage as output
 
@@ -53,12 +53,12 @@ You have created a Python function project with an HTTP trigger.
 
 Binding attributes are defined in the *function.json* file for a given function. To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your function folder and choose  **Add binding...** . Follow the prompts to define the following binding properties for the new binding:
 
-| Prompt                                                             | Value                             | Description                                                                                                                                            |
-| ------------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Select binding direction**                                 | `out`                           | The binding is an output binding.                                                                                                                      |
-| **Select binding with direction...**                         | `Azure Table Storage`           | The binding is an Azure Storage table binding.                                                                                                         |
-| **The name used to identify this binding in your code**      | `outMessage`                    | Name that identifies the binding parameter referenced in your code.                                                                                    |
-| **Table name in storage account where data will be written** | `testTable`                     | The table name your function writes as output. Create a table named `testTable` in your storage account if it doesn't exist.                        |
+| Prompt                                                             | Value                             | Description                                                                                                                                     |
+| ------------------------------------------------------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Select binding direction**                                 | `out`                           | The binding is an output binding.                                                                                                               |
+| **Select binding with direction...**                         | `Azure Table Storage`           | The binding is an Azure Storage table binding.                                                                                                  |
+| **The name used to identify this binding in your code**      | `outMessage`                    | Name that identifies the binding parameter referenced in your code.                                                                             |
+| **Table name in storage account where data will be written** | `testTable`                     | The table name your function writes as output. Create a table named `testTable` in your storage account if it doesn't exist.                 |
 | **Select setting from "local.setting.json"**                 | `Create new local app settings` | Select the Storage Account your function writes as output. Visual Studio Code retrieves its connection string for local project connection. |
 
 To check the binding was added successfully:

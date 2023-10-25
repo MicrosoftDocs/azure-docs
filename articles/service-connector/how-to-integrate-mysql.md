@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/25/2023
 ms.custom: event-tier1-build-2022, engagement-fy23
 ---
 # Integrate Azure Database for MySQL with Service Connector
@@ -126,6 +126,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
 ### User-assigned Managed Identity
+
 #### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                        |

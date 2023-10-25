@@ -5,10 +5,9 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/25/2023
 ms.custom: event-tier1-build-2022, ignite-2022
 ---
-
 # Integrate Azure Cosmos DB for Cassandra with Service Connector
 
 This page shows the supported authentication types and client types for the Azure Cosmos DB for Apache Cassandra using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
@@ -24,8 +23,8 @@ This page shows the supported authentication types and client types for the Azur
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
+| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
@@ -78,31 +77,30 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra us
 
 #### SpringBoot client type
 
-| Default environment variable name      | Description                 | Example value                                          |
-|----------------------------------------|-----------------------------|--------------------------------------------------------|
+| Default environment variable name      | Description                                        | Example value                                            |
+| -------------------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | spring.data.cassandra.contact-points   | Azure Cosmos DB for Apache Cassandra contact point | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com` |
-| spring.data.cassandra.port             | Cassandra connection port   | 10350                                                  |
-| spring.data.cassandra.keyspace-name    | Cassandra keyspace          | `<keyspace>`                                           |
-| spring.data.cassandra.username         | Cassandra username          | `<username>`                                           |
-| spring.data.cassandra.password         | Cassandra password          | `<password>`                                           |
-| spring.data.cassandra.local-datacenter | Azure Region                | `<Azure-region>`                                       |
-| spring.data.cassandra.ssl              | SSL status                  | true                                                   |
+| spring.data.cassandra.port             | Cassandra connection port                          | 10350                                                    |
+| spring.data.cassandra.keyspace-name    | Cassandra keyspace                                 | `<keyspace>`                                           |
+| spring.data.cassandra.username         | Cassandra username                                 | `<username>`                                           |
+| spring.data.cassandra.password         | Cassandra password                                 | `<password>`                                           |
+| spring.data.cassandra.local-datacenter | Azure Region                                       | `<Azure-region>`                                       |
+| spring.data.cassandra.ssl              | SSL status                                         | true                                                     |
 
 #### Other client types
 
-| Default environment variable name | Description                 | Example value                                  |
-|-----------------------------------|-----------------------------|------------------------------------------------|
+| Default environment variable name | Description                                        | Example value                                            |
+| --------------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | AZURE_COSMOS_CONTACTPOINT         | Azure Cosmos DB for Apache Cassandra contact point | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com` |
-| AZURE_COSMOS_PORT                 | Cassandra connection port   | 10350                                          |
-| AZURE_COSMOS_KEYSPACE             | Cassandra keyspace          | `<keyspace>`                                   |
-| AZURE_COSMOS_USERNAME             | Cassandra username          | `<username>`                                   |
-| AZURE_COSMOS_PASSWORD             | Cassandra password          | `<password>`                                   |
+| AZURE_COSMOS_PORT                 | Cassandra connection port                          | 10350                                                    |
+| AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                                 | `<keyspace>`                                           |
+| AZURE_COSMOS_USERNAME             | Cassandra username                                 | `<username>`                                           |
+| AZURE_COSMOS_PASSWORD             | Cassandra password                                 | `<password>`                                           |
 
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a connection string.
 [!INCLUDE [code sample for blob](./includes/code-cosmoscassandra-secret.md)]
-
 
 #### Service principal
 

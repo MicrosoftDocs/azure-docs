@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 10/25/2023
 ---
 # Integrate Service Bus with Service Connector
 
