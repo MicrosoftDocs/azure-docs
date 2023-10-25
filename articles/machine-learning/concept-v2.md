@@ -18,13 +18,13 @@ ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 introduce a consistency of features and terminology across the interfaces. To create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
+Azure Machine Learning CLI v2 (CLI v2) and Azure Machine Learning Python SDK v2 (SDK v2) introduce a consistency of features and terminology across the interfaces. To create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
 
 There are no differences in functionality between CLI v2 and SDK v2. The command line-based CLI might be more convenient in CI/CD MLOps type of scenarios, while the SDK might be more convenient for development.
 
 ## Azure Machine Learning CLI v2
 
-Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](/cli/azure/what-is-azure-cli). CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Machine Learning assets and workflows. The assets or workflows themselves are defined by using a YAML file. The YAML file defines the configuration of the asset or workflow. For example, what is it, and where should it run?
+Azure Machine Learning CLI v2 is the latest extension for the [Azure CLI](/cli/azure/what-is-azure-cli). CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Machine Learning assets and workflows. The assets or workflows themselves are defined by using a YAML file. The YAML file defines the configuration of the asset or workflow. For example, what is it, and where should it run?
 
 A few examples of CLI v2 commands:
 
@@ -39,7 +39,7 @@ CLI v2 is useful in the following scenarios:
 
 * On board to Machine Learning without the need to learn a specific programming language.
 
-    The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on. Any custom logic or IP used, say data preparation, model training, and model scoring, can remain in script files. These files are referred to in the YAML but aren't part of the YAML itself. Machine Learning supports script files in Python, R, Java, Julia, or C#. All you need to learn is YAML format and command lines to use Machine Learning. You can stick with script files of your choice.
+    The YAML file defines the configuration of the asset or workflow, such as what is it and where should it run? Any custom logic or IP used, say data preparation, model training, and model scoring, can remain in script files. These files are referred to in the YAML but aren't part of the YAML itself. Machine Learning supports script files in Python, R, Java, Julia, or C#. All you need to learn is YAML format and command lines to use Machine Learning. You can stick with script files of your choice.
 
 * Take advantage of ease of deployment and automation.
 
@@ -92,7 +92,7 @@ SDK v2 is useful in the following scenarios:
 
 ## Should I use v1 or v2?
 
-Here are points to consider to help you decide.
+Here are some points to consider to help you decide.
 
 ### CLI v2
 
@@ -110,7 +110,7 @@ Azure Machine Learning CLI v1 has been deprecated. We recommend that you use CLI
 Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date. If you have significant investments in Python SDK v1 and don't need any new features offered by SDK v2, you can continue to use SDK v1. However, you should consider using SDK v2 if:
 
 * You want to use new features like reusable components and managed inferencing.
-* You're starting a new workflow or pipeline. Sll new features and future investments will be introduced in v2.
+* You're starting a new workflow or pipeline. All new features and future investments will be introduced in v2.
 * You want to take advantage of the improved usability of the Python SDK v2 ability to compose jobs and pipelines by using Python functions, with easy evolution from simple to complex tasks.
 
 ## Next steps
