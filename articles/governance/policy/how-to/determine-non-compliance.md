@@ -164,7 +164,7 @@ in the policy definition:
 | ConstraintTemplateConflicts      | The Template has a conflict with one or more policy definitions using the same Template name with different source.                                                            |
 | ConstraintStatusStale            | There is an existing 'Audit' status, but Gatekeeper has not performed an audit within the last hour.                                                                           |
 | ConstraintNotProcessed           | There is no status and Gatekeeper has not performed an audit within the last hour.                                                                                             |
-| InvalidConstraint/Template       | The resource was rejected because of one of the following reasons: invalid constraint template rego, invalid YAML, or a parameter type mismatch between constraint and constraint template (i.e. providing a string value when an integer was expected).                  |
+| InvalidConstraint/Template       | The resource was rejected because of one of the following reasons: invalid constraint template Rego, invalid YAML, or a parameter type mismatch between constraint and constraint template (i.e. providing a string value when an integer was expected).                  |
 
 > [!NOTE]
 > For existing policy assignments and constraint templates already on the cluster, if that
