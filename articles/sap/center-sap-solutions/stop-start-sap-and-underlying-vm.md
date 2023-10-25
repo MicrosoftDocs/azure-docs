@@ -34,7 +34,7 @@ Using the [REST API](/rest/api/workloads) interfaces, you can:
 The following scenarios are not currently supported when using the Start and Stop of SAP, individual SAP instances, HANA database and their underlying VMs:
 
 - Starting and stopping systems when multiple SIDs on the same set of Virtual Machines
-- Starting and stopping HANA databases with MCOS architecture, where multiple HANA instances run on the same set of virtual machines.
+- Starting and stopping HANA databases with MCOS (Multiple Components in One System) architecture, where multiple HANA instances run on the same set of virtual machines.
 - Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of same SID run on the same virtual machine.
 
 ## Start and Stop SAP system and underlying Virtual machines
