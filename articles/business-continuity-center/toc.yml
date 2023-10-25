@@ -11,11 +11,11 @@
   - name: Configure protection for datasources
     href: tutorial-configure-protection-datasource.md
   - name: Recover item
-    href:
+    href: 
   - name: View protected items and perform actions
     href: tutorial-view-protected-items-and-perform-actions.md
   - name: Review security posture
-    href: 
+    href: tutorial-review-security-posture.md
   - name: Monitor and operate
     href: tutorial-monitor-operate.md
   - name: Monitoring protection summary
