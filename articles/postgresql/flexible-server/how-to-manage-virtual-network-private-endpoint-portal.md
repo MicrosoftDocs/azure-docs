@@ -24,7 +24,7 @@ In this article, we'll focus on creation of PostgreSQL server with **Public acce
 ## Prerequisites
 
 To add a flexible server to the  virtual network using Private Link, you need:
-- A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your flexible server. The virtual network shouldn't have any resource lock set at the virtual network or subnet level, as locks may interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your virtual network and all subnets before adding  server to a virtual network, and you can set it back after server creation.
+- A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your flexible server. The virtual network shouldn't have any resource lock set at the virtual network or subnet level, as locks might interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your virtual network and all subnets before adding  server to a virtual network, and you can set it back after server creation.
    
 
 ## Create an Azure Database for PostgreSQL - Flexible Server with Private Endpoint
@@ -53,7 +53,6 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 5. Select **Next:Networking**
 6. Choose **"Public access (allowed IP addresses) and Private endpoint"** checkbox checked as Connectivity method.
 7. Select **"Add Private Endpoint"** in Private Endpoint section
-:::image type="content" source="./media/concepts-networking/pe-button.png" alt-text="Private Endpoint Button on Networking Blade":::
 8. In Create Private Endpoint Screen enter following:
 
 | **Setting** | **Value**|
@@ -80,14 +79,12 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 With separation of duties, common in many enterprises today, creation of cloud networking infrastructure, such as Azure Private Link services, are done by network administrator, whereas database servers are commonly created and managed by database administrator (DBA).
 Once the network administrator creates the private endpoint (PE), the PostgreSQL database administrator (DBA) can manage the **Private Endpoint Connection (PEC)** to Azure Database for PostgreSQL. 
 1. Navigate to the Azure Database for PostgreSQL - Flexible Server resource in the Azure portal.
-    - Select **Networking** in the left pane
-    - Shows a list of all **Private Endpoint Connections (PECs)**
-    - Corresponding **Private Endpoint (PE)** created
-    - Select an individual **PEC** from the list by selecting it
-    - The PostgreSQL server admin can choose to **approve** or **reject a PEC** and optionally add a short text response
-    - After approval or rejection, the list will reflect the appropriate state along with the response text
-
-
+    - Select **Networking** in the left pane.
+    - Shows a list of all **Private Endpoint Connections (PECs)**.
+    - Corresponding **Private Endpoint (PE)** created.
+    - Select an individual **PEC** from the list by selecting it.
+    - The PostgreSQL server admin can choose to **approve** or **reject a PEC** and optionally add a short text response.
+    - After approval or rejection, the list will reflect the appropriate state along with the response text.
 
 ## Next steps
 - Learn more about [networking in Azure Database for PostgreSQL - Flexible Server using Private Link](./concepts-networking-private-link.md).

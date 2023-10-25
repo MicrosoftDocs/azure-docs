@@ -27,7 +27,7 @@ Private Link is exposed to users through two  Azure resource types:
 A **Private Endpoint** adds a network interface to a resource, providing it with a private IP address assigned from your VNET (Virtual Network). Once applied, you can communicate with this resource exclusively via the virtual network (VNET).
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/private-link-overview.md). A **private endpoint** is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
-The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Azure Active Directory (AAD) tenants) or if they have overlapping address spaces.
+The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Azure Entra tenants) or if they have overlapping address spaces.
 
 ## Key Benefits of Azure Private Link
 
