@@ -20,4 +20,11 @@
   - name: Data quality and data monitoring
     href: concept-data-quality-monitoring.md
   - name: Data visualization in Data Products
-    href: concept-data-visualization.md
+    href: concept-data-visualization.
+- name: How-to
+  expanded: true
+  items:
+  - name: Use Azure Operator Insights Data Product dashboards
+    href: dashboards-use.md
+  - name: Query data in the Azure Operator Insights Data Product
+    href: data-query.md

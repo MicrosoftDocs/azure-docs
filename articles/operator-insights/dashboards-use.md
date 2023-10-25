@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 10/24/2023
 
 #CustomerIntent: As a Data Product user, I want to access dashboards so that I can view my data.
 ---
@@ -30,8 +30,8 @@ Access to the dashboards is controlled by role-based access control (RBAC).
 
 Each dashboard is split into pages with a set of filters at the top of the page.
 
-1. View different pages in the dashboard by selecting the tabs on the left.
-1. Filter data by using the drop-down or free text fields at the top of the page.
+- View different pages in the dashboard by selecting the tabs on the left.
+- Filter data by using the drop-down or free text fields at the top of the page.
     You can enter multiple values in the free text fields by separating the inputs with a comma and no spaces, for example: `London,Paris`.
 
 Some tiles report `UNDETECTED` for any filters with an empty entry. You can't filter these undetected entries.
