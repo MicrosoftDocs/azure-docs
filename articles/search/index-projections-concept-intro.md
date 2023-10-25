@@ -22,20 +22,20 @@ If you've used cognitive skills in the past, you already know that *skillsets* c
 
 Index projections are defined inside a skillset definition, and are primarily defined as an array of **selectors**, where each selector corresponds to a different target index on the search service. Each selector requires the following parameters as part of its definition:
 
-1. `targetIndexName`: The name of the index on the search service that the index projection data index into. 
-2. `parentKeyFieldName`: The name of the field in the target index that contains the value of the key for the parent document.
-3. `sourceContext`: The enrichment annotation that defines the granularity at which to map data into individual search documents. For more information, see [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
-4. `mappings`: An array of mappings of enriched data to fields in the search index. Each mapping consists of:
-    1. `name`: The name of the field in the search index that the data should be indexed into,
-    2. `source`: The enrichment annotation path that the data should be pulled from.
+- `targetIndexName`: The name of the index on the search service that the index projection data index into. 
+- `parentKeyFieldName`: The name of the field in the target index that contains the value of the key for the parent document.
+- `sourceContext`: The enrichment annotation that defines the granularity at which to map data into individual search documents. For more information, see [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
+- `mappings`: An array of mappings of enriched data to fields in the search index. Each mapping consists of:
+    - `name`: The name of the field in the search index that the data should be indexed into,
+    - `source`: The enrichment annotation path that the data should be pulled from.
 
 Each `mapping` can also recursively define data with an optional `sourceContext` and `inputs` field, similar to the [knowledge store](knowledge-store-concept-intro.md) or [Shaper Skill](cognitive-search-skill-shaper.md). These parameters allow you to shape data to be indexed into fields of type `Edm.ComplexType` in the search index.
 
 The index defined in the `targetIndexName` parameter has the following requirements:
-1. Must already have been created on the search service before the skillset containing the index projections definition is created.
-2. Must contain a field with the name defined in the `parentKeyFieldName` parameter. This field must be of type `Edm.String`, can't be the key field, and must have filterable set to true.
-3. The key field must have searchable set to true and be defined with the `keyword` analyzer.
-4. Must have fields defined for each of the `name`s defined in `mappings`, none of which can be the key field.
+- Must already have been created on the search service before the skillset containing the index projections definition is created.
+- Must contain a field with the name defined in the `parentKeyFieldName` parameter. This field must be of type `Edm.String`, can't be the key field, and must have filterable set to true.
+- The key field must have searchable set to true and be defined with the `keyword` analyzer.
+- Must have fields defined for each of the `name`s defined in `mappings`, none of which can be the key field.
 
 Here's an example payload for an index projections definition that you might use to project individual pages output by the [Split skill](cognitive-search-skill-textsplit.md) as their own documents in the search index.
 
@@ -61,9 +61,9 @@ Here's an example payload for an index projections definition that you might use
 
 Because index projections effectively generate "child" documents for each "parent" document that runs through a skillset, you also have the following choices as to how to handle the indexing of the "parent" documents.
 
-1. To keep parent and child documents in separate indexes, you would just ensure that the `targetIndexName` for your indexer definition is different from the `targetIndexName` defined in your index projection selector.
-2. To index parent and child documents into the same index, you need to make sure that the schema for the target index works with both your defined `fieldMappings` and `outputFieldMappings` in your indexer definition and the `mappings` in your index projection selector. You would then just provide the same `targetIndexName` for your indexer definition and your index projection selector.
-3. To ignore parent documents and only index child documents, you still need to provide a `targetIndexName` in your indexer definition (you can just provide the same one that you do for the index projection selector). Then define a separate `parameters` object next to your `selectors` definition with a `projectionMode` key set to `skipIndexingParentDocuments`, as shown here:
+- To keep parent and child documents in separate indexes, you would just ensure that the `targetIndexName` for your indexer definition is different from the `targetIndexName` defined in your index projection selector.
+- To index parent and child documents into the same index, you need to make sure that the schema for the target index works with both your defined `fieldMappings` and `outputFieldMappings` in your indexer definition and the `mappings` in your index projection selector. You would then just provide the same `targetIndexName` for your indexer definition and your index projection selector.
+- To ignore parent documents and only index child documents, you still need to provide a `targetIndexName` in your indexer definition (you can just provide the same one that you do for the index projection selector). Then define a separate `parameters` object next to your `selectors` definition with a `projectionMode` key set to `skipIndexingParentDocuments`, as shown here:
 
     ```json
     "indexProjections": {
@@ -100,9 +100,9 @@ Each time you run the indexer and skillset, the index projections are updated if
 
 Each index projection document contains a unique identifying key that the indexer generates in order to ensure uniqueness and allow for change and deletion tracking to work correctly. This key contains the following segments:
 
-1. A random hash to guarantee uniqueness. This hash changes if the parent document is updated across indexer runs.
-2. The parent document's key.
-3. The enrichment annotation path that identifies the context that that document was generated from.
+- A random hash to guarantee uniqueness. This hash changes if the parent document is updated across indexer runs.
+- The parent document's key.
+- The enrichment annotation path that identifies the context that that document was generated from.
 
 For example, if you split a parent document with key value "123" into four pages, and then each of those pages is projected as its own document via index projections, the key for the third page of text would look something like "01f07abfe7ed_123_pages_2". If the parent document is then updated to add a fifth page, the new key for the third page might, for example, be "9d800bdacc0e_123_pages_2", since the random hash value changes between indexer runs even though the rest of the projection data didn't change.
 
@@ -120,6 +120,4 @@ If a parent document is changed such that a child document generated by index pr
 
 If a parent document is completely deleted from the datasource, the corresponding child documents only get deleted if the deletion is detected by a `dataDeletionDetectionPolicy` defined on the datasource definition. If you don't have a `dataDeletionDetectionPolicy` configured and need to delete a parent document from the datasource, then you should manually delete the child documents if they're no longer wanted. 
 
-## Next steps
-
-<!-- TODO link to BYOE documentation -->
+<!-- TODO Next steps heading with link to BYOE documentation -->
