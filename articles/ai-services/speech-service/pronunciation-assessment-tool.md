@@ -47,16 +47,16 @@ The pronunciation assessment feature also offers additional scores that are not 
 
 Here's a table of available pronunciation assessment scores, whether it's available in the [scripted](#conduct-a-scripted-assessment) or [unscripted](#conduct-an-unscripted-assessment) assessments, and whether it's included in the baseline speech to text price or the add-on price.
 
-| Score | Scripted or unscripted | Included in baseline speech to text price? | Included in add-on speech to text price?| 
-| --- | --- | --- |--- |
-| Accuracy | Scripted and unscripted | Yes | No   |
-| Fluency | Scripted and unscripted | Yes |    No   |
-| Completeness | Scripted | Yes |   No   |
-| Miscue | Scripted and unscripted | Yes |   No  |
-| Prosody | Scripted and unscripted | No |  Yes   |
-| Grammar | Unscripted only | No |  Yes   |
-| Topic | Unscripted only | No |   Yes   |
-| Vocabulary | Unscripted only | No |   Yes  |
+| Score | Scripted or unscripted | Included in baseline speech to text price? |
+| --- | --- | --- |
+| Accuracy | Scripted and unscripted | Yes |
+| Fluency | Scripted and unscripted | Yes |
+| Completeness | Scripted | Yes |
+| Miscue | Scripted and unscripted | Yes |
+| Prosody | Scripted and unscripted | No |
+| Grammar | Unscripted only | No |
+| Topic | Unscripted only | No |
+| Vocabulary | Unscripted only | No |
 
 
 ## Try out pronunciation assessment
