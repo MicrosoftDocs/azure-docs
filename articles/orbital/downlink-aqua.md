@@ -191,6 +191,9 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
 
 3. Navigate to the newly created VM. Follow the instructions linked in Step 2 to connect to the VM. At the bash prompt for your VM, enter the following commands to create a temporary file system (*tmpfs*) on the VM. This VM is where the data will be written to avoid slow writes to disk.
 
+   > [!NOTE]
+   > This command references Aqua. Edit the command to reflect the public spacecraft you're using.
+
    ```console
    sudo mkdir /media/aqua
    sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
@@ -214,26 +217,32 @@ When preparing the endpoints, enter the following command in your VM to set the 
    > Check [public satellite schedules](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=14) to understand if there may be public broadcast outages. Azure Orbital Ground Station does not control the public satellites and cannot guarantee availability of data during the pass.
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. On the **Spacecraft** page, select **AQUA**.
+2. On the **Spacecraft** page, select your public spacecraft resource.
 3. Select **Schedule contact** on the top bar of the spacecraft's overview.
-4. On the **Schedule contact** page, specify this information:
+4. On the **Schedule contact** page, specify the following information:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Contact profile** | Select **AQUA_Downlink**. |
-   | **Ground station** | Select **Quincy**. |
+   | **Contact profile** | Select the contact profile you previously created. |
+   | **Ground station** | Select **Microsoft_Quincy**. |
    | **Start time** | Identify a start time for the contact availability window. |
    | **End time** | Identify an end time for the contact availability window. |
 
 5. Select **Search** to view available contact times.
 6. Select one or more contact windows, and then select **Schedule**.
-7. View the scheduled contact by selecting the **AQUA** spacecraft and going to **Contacts**.
+7. View the scheduled contact by selecting the public spacecraft resource, navigating to Configurations on the left panel, and selecting **Contacts**.
 8. Shortly before you start running the contact, start listening on port 56001 and output the data received in the file: 
+
+   > [!NOTE]
+   > This command references Aqua. Edit the command to reflect the public spacecraft you're using.
 
    ```console
    socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
    ```
 9. After you run your contact, copy the output file from *tmpfs* into your home directory, to avoid overwriting the file when you run another contact:
+
+   > [!NOTE]
+   > This command references Aqua. Edit the command to reflect the public spacecraft you're using.
 
    ```console
    mkdir ~/aquadata
