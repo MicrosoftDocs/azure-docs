@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022, build-2023
 author: dem108
 ms.author: sehan
-ms.date: 01/24/2023
+ms.date: 10/19/2023
 ms.reviewer: mopeakande
 ---
 
@@ -52,7 +52,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `request_timeout_ms` | integer | The scoring timeout in milliseconds. Note that the maximum value allowed is `90000` milliseconds. See [Managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) for more. | `5000` |
+| `request_timeout_ms` | integer | The scoring timeout in milliseconds. Note that the maximum value allowed is `180000` milliseconds. See [Managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) for more. | `5000` |
 | `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. <br><br> **Note:** If you're using [Azure Machine Learning Inference Server](how-to-inference-server-http.md) or [Azure Machine Learning Inference Images](concept-prebuilt-docker-images-inference.md), your model must be configured to handle concurrent requests. To do so, pass `WORKER_COUNT: <int>` as an environment variable. For more information about `WORKER_COUNT`, see [Azure Machine Learning Inference Server Parameters](how-to-inference-server-http.md#server-parameters) <br><br> **Note:** Set to the number of requests that your model can process concurrently on a single node. Setting this value higher than your model's actual concurrency can lead to higher latencies. Setting this value too low may lead to under utilized nodes. Setting too low may also result in requests being rejected with a 429 HTTP status code, as the system will opt to fail fast. For more information, see [Troubleshooting online endpoints: HTTP status codes](how-to-troubleshoot-online-endpoints.md#http-status-codes). | `1` |
 | `max_queue_wait_ms` | integer | The maximum amount of time in milliseconds a request will stay in the queue. | `500` |
 
