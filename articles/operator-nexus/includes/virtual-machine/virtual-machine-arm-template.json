@@ -163,7 +163,7 @@
     "resources": [
         {
             "type": "Microsoft.NetworkCloud/virtualMachines",
-            "apiVersion": "2023-05-01-preview",
+            "apiVersion": "2023-07-01",
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
             "extendedLocation": {

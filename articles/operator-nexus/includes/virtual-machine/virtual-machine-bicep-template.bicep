@@ -89,7 +89,7 @@ param vmImageRepositoryCredentials object
 // registryUrl: "string"
 // username: "string"
 
-resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-05-01-preview' = {
+resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-07-01' = {
   name: vmName
   location: location
   extendedLocation: {
