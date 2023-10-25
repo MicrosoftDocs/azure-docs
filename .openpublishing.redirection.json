@@ -24512,12 +24512,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-nexus/articles/operator-nexus/quickstarts-tenant-workload-deployment.md",
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment.md",
             "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-nexus/articles/operator-nexus/quickstarts-tenant-workload-deployment-ps.md",
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment-ps.md",
             "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-ps",
             "redirect_document_id": false
         },
