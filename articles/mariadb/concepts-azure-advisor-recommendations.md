@@ -2,12 +2,15 @@
 title: Azure Advisor for MariaDB
 description: Learn about Azure Advisor recommendations for MariaDB.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.date: 06/24/2022
 ---
+
 # Azure Advisor for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Learn about how Azure Advisor is applied to Azure Database for MariaDB and get answers to common questions.
 ## What is Azure Advisor for MariaDB?

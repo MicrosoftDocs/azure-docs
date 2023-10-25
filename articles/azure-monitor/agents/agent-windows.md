@@ -6,7 +6,6 @@ ms.date: 06/01/2023
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: JeffWo
-
 ---
 
 # Install Log Analytics agent on Windows computers
@@ -71,10 +70,13 @@ Configure .NET Framework 4.6 or later to support secure cryptography because by 
 
 Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then in the **Settings** section, select **Agents**.
 
-[![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
+:::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 > [!NOTE]
 > You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
+
+>[!NOTE]
+>While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Install the agent 
 
@@ -93,7 +95,9 @@ The following steps install and configure the Log Analytics agent in Azure and A
 6. On the **Azure Log Analytics** page, perform the following:
    1. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier.  If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.  
    2. If the computer needs to communicate through a proxy server to the Log Analytics service, click **Advanced** and provide the URL and port number of the proxy server.  If your proxy server requires authentication, type the username and password to authenticate with the proxy server and then click **Next**.  
-7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Click **Next** once you have completed providing the necessary configuration settings.
+   <!-- convertborder later -->
+   :::image type="content" source="media/agent-windows/log-analytics-mma-setup-laworkspace.png" lightbox="media/agent-windows/log-analytics-mma-setup-laworkspace.png" alt-text="paste Workspace ID and Primary Key" border="false":::<br><br>
 8. On the **Ready to Install** page, review your choices and then click **Install**.
 9. On the **Configuration completed successfully** page, click **Finish**.
 
@@ -114,7 +118,7 @@ The following table highlights the specific parameters supported by setup for th
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configure the agent to report to a workspace.               |
 |OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add.                   |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace. |
-|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located. <br> 0 = Azure commercial cloud (default). <br> 1 = Azure Government. <br> 2 = Azure China cloud. |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located. <br> 0 = Azure commercial cloud (default). <br> 1 = Azure Government. <br> 2 = Azure operated by 21Vianet cloud. |
 |OPINSIGHTS_PROXY_URL               | URI for the proxy to use. Example: OPINSIGHTS_PROXY_URL=IPAddress:Port or OPINSIGHTS_PROXY_URL=FQDN:Port |
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy. |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy. |
@@ -132,7 +136,7 @@ The following table highlights the specific parameters supported by setup for th
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     
-   Or to configure the agent to report to Azure China cloud, enter:
+   Or to configure the agent to report to Microsoft Azure operated by 21Vianet cloud, enter:
 
     ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=2 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
@@ -201,13 +205,16 @@ To retrieve the product code from the agent install package directly, you can us
 1. [Import the MMAgent.ps1 configuration script](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) into your Automation account.
 1. [Assign a Windows computer or node](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
+
 ---
 
 ## Verify agent connectivity to Azure Monitor
 
 After installation of the agent is finished, you can verify that it's successfully connected and reporting in two ways.
 
-From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*<br><br> ![Screenshot that shows the MMA connection status to Log Analytics message.](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*
+<!-- convertborder later -->
+:::image type="content" source="media/agent-windows/log-analytics-mma-laworkspace-status.png" lightbox="media/agent-windows/log-analytics-mma-laworkspace-status.png" alt-text="Screenshot that shows the MMA connection status to Log Analytics message." border="false":::
 
 You can also perform a log query in the Azure portal:
 
@@ -233,3 +240,4 @@ The default cache size is 50 MB, but it can be configured between a minimum of 5
 
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 - Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while you install or manage the agent.
+

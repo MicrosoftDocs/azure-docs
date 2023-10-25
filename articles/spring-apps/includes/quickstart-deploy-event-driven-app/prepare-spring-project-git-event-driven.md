@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project with Git.
 
-[!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-git-event-driven.md)]
+[!INCLUDE [prepare-spring-project-event-driven](prepare-spring-project-git-event-driven.md)]
 
 -->
 

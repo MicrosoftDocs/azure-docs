@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -55,7 +55,7 @@ The following example uses various combinations of the arguments to create date 
 
 - If the specified integers would create an invalid date and time, the function returns `undefined`.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`DateTimePart`](datetimepart.md)

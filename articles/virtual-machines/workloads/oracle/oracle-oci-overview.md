@@ -1,5 +1,5 @@
 ---
-title: Integrate Microsoft Azure with Oracle Cloud Infrastructure | Microsoft Docs
+title: Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 description: Learn about solutions that integrate Oracle apps running on Microsoft Azure with databases in Oracle Cloud Infrastructure (OCI).
 author: jjaygbay1
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.date: 04/11/2023
 ms.author: jacobjaygbay
  
 ---
-# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
+# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure 
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -73,9 +73,9 @@ The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a netwo
 
 ## Identity
 
-Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is Microsoft's cloud-based identity and access management service. Your users can sign in and access various resources with help from Azure AD. Azure AD also allows you to manage your users and their permissions.
+Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Microsoft Entra ID](../../../active-directory/index.yml) (Microsoft Entra ID). Microsoft Entra ID is Microsoft's cloud-based identity and access management service. Your users can sign in and access various resources with help from Microsoft Entra ID. Microsoft Entra ID also allows you to manage your users and their permissions.
 
-Currently, this integration allows you to manage in one central location. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
+Currently, this integration allows you to manage in one central location. Microsoft Entra ID synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
 

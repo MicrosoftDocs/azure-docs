@@ -23,7 +23,7 @@ Use following two components:
 
 ## Setting up Azure Kubernetes Metric Adapter
 
-1. First, create an Azure AD service principal and assign it `Monitoring Reader` access over Application Gateway's resource group. 
+1. First, create a Microsoft Entra service principal and assign it `Monitoring Reader` access over Application Gateway's resource group. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -31,7 +31,7 @@ Use following two components:
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
-1. Now, deploy the [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) using the Azure AD service principal created previously.
+1. Now, deploy the [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) using the Microsoft Entra service principal created previously.
 
     ```bash
     kubectl create namespace custom-metrics
@@ -100,7 +100,7 @@ metadata:
   name: deployment-scaler
 spec:
   scaleTargetRef:
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Deployment
     name: aspnet # replace with your deployment's name
   minReplicas: 1

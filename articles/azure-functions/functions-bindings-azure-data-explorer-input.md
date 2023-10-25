@@ -18,9 +18,83 @@ The Azure Data Explorer input binding retrieves data from a database.
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+More samples for the Azure Data Explorer input binding (out of process) are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
+
+This section contains the following examples:
+
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c-oop)
+* [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c-oop)
+
+The examples refer to a `Product` class and the Products table, both of which are defined in the previous sections.
+
+<a id="http-trigger-look-up-id-from-query-string-c-oop"></a>
+
+### HTTP trigger, get row by ID from query string
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `Product` record with the specified query.
+
+> [!NOTE]
+> The HTTP query string parameter is case sensitive.
+>
+
+```cs
+using System.Text.Json.Nodes;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBindingSamples
+{
+    public static class GetProductsQuery
+    {
+        [Function("GetProductsQuery")]
+        public static JsonArray Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproductsquery")] HttpRequestData req,
+            [KustoInput(Database: "productsdb",
+            KqlCommand = "declare query_parameters (productId:long);Products | where ProductID == productId",
+            KqlParameters = "@productId={Query.productId}",Connection = "KustoConnectionString")] JsonArray products)
+        {
+            return products;
+        }
+    }
+}
+```
+
+<a id="http-trigger-get-multiple-items-from-route-data-c-oop"></a>
+
+### HTTP trigger, get multiple rows from route parameter
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves records returned by the query (based on the name of the product, in this case). The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
+
+```cs
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBindingSamples
+{
+    public static class GetProductsFunction
+    {
+        [Function("GetProductsFunction")]
+        public static IEnumerable<Product> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproductsfn/{name}")] HttpRequestData req,
+            [KustoInput(Database: "productsdb",
+            KqlCommand = "declare query_parameters (name:string);GetProductsByName(name)",
+            KqlParameters = "@name={name}",Connection = "KustoConnectionString")] IEnumerable<Product> products)
+        {
+            return products;
+        }
+    }
+}
+```
+
+# [In-process model](#tab/in-process)
 
 More samples for the Azure Data Explorer input binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/blob/main/samples/samples-csharp).
 
@@ -135,84 +209,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.InputBindingSamples
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
-
-More samples for the Azure Data Explorer input binding (out of process) are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
-
-This section contains the following examples:
-
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c-oop)
-* [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c-oop)
-
-The examples refer to a `Product` class and the Products table, both of which are defined in the previous sections.
-
-<a id="http-trigger-look-up-id-from-query-string-c-oop"></a>
-
-### HTTP trigger, get row by ID from query string
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `Product` record with the specified query.
-
-> [!NOTE]
-> The HTTP query string parameter is case sensitive.
->
-
-```cs
-using System.Text.Json.Nodes;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBindingSamples
-{
-    public static class GetProductsQuery
-    {
-        [Function("GetProductsQuery")]
-        public static JsonArray Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproductsquery")] HttpRequestData req,
-            [KustoInput(Database: "productsdb",
-            KqlCommand = "declare query_parameters (productId:long);Products | where ProductID == productId",
-            KqlParameters = "@productId={Query.productId}",Connection = "KustoConnectionString")] JsonArray products)
-        {
-            return products;
-        }
-    }
-}
-```
-
-<a id="http-trigger-get-multiple-items-from-route-data-c-oop"></a>
-
-### HTTP trigger, get multiple rows from route parameter
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves records returned by the query (based on the name of the product, in this case). The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
-
-```cs
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBindingSamples
-{
-    public static class GetProductsFunction
-    {
-        [Function("GetProductsFunction")]
-        public static IEnumerable<Product> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproductsfn/{name}")] HttpRequestData req,
-            [KustoInput(Database: "productsdb",
-            KqlCommand = "declare query_parameters (name:string);GetProductsByName(name)",
-            KqlParameters = "@name={name}",Connection = "KustoConnectionString")] IEnumerable<Product> products)
-        {
-            return products;
-        }
-    }
-}
-```
-
-<!-- Uncomment to support C# script examples.
-# [C# Script](#tab/csharp-script)
-
--->
 ---
 
 ::: zone-end

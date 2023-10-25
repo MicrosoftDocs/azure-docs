@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 10/13/2023
 ---
 
 # Quickstart: Connect an STMicroelectronics B-U585I-IOT02A Discovery kit to IoT Hub
@@ -158,39 +158,39 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-    
-    
+
+
     Initializing WiFi
-    	SSID: ***********
-    	Password: ***********
+        SSID: ***********
+        Password: ***********
     SUCCESS: WiFi initialized
-    
+
     Connecting WiFi
-    	FW: V2.1.11
-    	MAC address: ***********
-    	Connecting to SSID '***********'
-    	Attempt 1...
+        FW: V2.1.11
+        MAC address: ***********
+        Connecting to SSID '***********'
+        Attempt 1...
     SUCCESS: WiFi connected
-    
+
     Initializing DHCP
-    	IP address: 192.168.0.67
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        IP address: 192.168.0.67
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address: 192.168.0.1
+        DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP time update: Feb 24, 2023 21:20:23.71 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP time update: Feb 24, 2023 21:20:23.71 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: ***********.azure-devices.net
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsg;2
+        Hub hostname: ***********.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;2
     SUCCESS: Connected to IoT Hub
     ```
     > [!IMPORTANT]
@@ -201,7 +201,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -228,7 +228,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -236,7 +236,7 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
@@ -326,7 +326,7 @@ To use Azure CLI to call a method:
     {
         "payload": {},
         "status": 200
-    }    
+    }
     ```
 
 1. Check your device to confirm the LED state.
@@ -352,7 +352,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You connected the STM DevKit to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)

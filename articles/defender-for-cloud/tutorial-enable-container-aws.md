@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
+# Protect your Amazon Web Service (AWS) containers with Defender for Containers
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
@@ -19,9 +19,9 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md#connect-your-aws-account)
 
-- Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
+- Validate the following domains only if you're using a relevant OS.
 
     | Domain                     | Port | Host operating systems |
     | -------------------------- | ---- |--|
@@ -62,9 +62,12 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
 1. Select **Update**.
 
-## Deploy the Defender extension in Azure
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
-Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
+## Deploy the Defender agent in EKS clusters
+
+Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
 
 - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 

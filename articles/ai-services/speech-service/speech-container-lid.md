@@ -5,11 +5,10 @@ description: Install and run language identification containers with Docker to p
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/28/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
@@ -20,8 +19,6 @@ keywords: on-premises, Docker, container
 The Speech language identification container detects the language spoken in audio files. You can get real-time speech or batch audio recordings with intermediate results. In this article, you'll learn how to download, install, and run a language identification container.
 
 > [!NOTE]
-> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container.
->
 > The Speech language identification container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
 
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
@@ -40,7 +37,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 | Version | Path |
 |-----------|------------|
 | Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
-| 1.11.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:1.11.0-amd64-preview` |
+| 1.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:1.12.0-amd64-preview` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
 
@@ -56,6 +53,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
   "tags": [
     "1.1.0-amd64-preview",
     "1.11.0-amd64-preview",
+    "1.12.0-amd64-preview",
     "1.3.0-amd64-preview",
     "1.5.0-amd64-preview",
     <--redacted for brevity-->
@@ -128,4 +126,4 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure AI services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

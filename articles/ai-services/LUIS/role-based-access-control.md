@@ -5,8 +5,8 @@ description: Use this article to learn how to add access control to your LUIS re
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 08/23/2022
 ms.topic: conceptual
 ---
@@ -18,9 +18,11 @@ ms.topic: conceptual
 
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
-## Enable Azure Active Directory authentication 
+<a name='enable-azure-active-directory-authentication'></a>
 
-To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
+## Enable Microsoft Entra authentication 
+
+To use Azure RBAC, you must enable Microsoft Entra authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
 ## Add role assignment to Language Understanding Authoring resource
 
@@ -47,11 +49,11 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 
 > [!NOTE]
 > * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
-> * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
+> * Microsoft Entra ID (Azure Microsoft Entra ID) is only used with custom LUIS roles.
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
 
 
-### Cognitive Services LUIS reader
+### Cognitive Services LUIS Reader
 
 A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entities) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
 
@@ -85,7 +87,7 @@ A user that should only be validating and reviewing LUIS applications, typically
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services LUIS writer
+### Cognitive Services LUIS Writer
 
 A user that is responsible for building and modifying LUIS application, as a collaborator in a larger team. The collaborator can modify the LUIS application in any way, train those changes, and validate/test those changes in the portal. However, this user wouldn't have access to deploying this application to the runtime, as they may accidentally reflect their changes in a production environment. They also wouldn't be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in a production environment. They may also create new applications under this resource, but with the restrictions mentioned.
 
@@ -124,7 +126,7 @@ A user that is responsible for building and modifying LUIS application, as a col
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services LUIS owner
+### Cognitive Services LUIS Owner
 
 > [!NOTE]
 > * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.

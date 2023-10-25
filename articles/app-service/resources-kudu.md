@@ -1,6 +1,8 @@
 ---
 title: Kudu service overview
 description: Learn about the engine that powers continuous deployment in App Service and its features.
+author: msangapu-msft
+ms.author: msangapu
 ms.date: 03/17/2021
 ms.topic: reference
 ---
@@ -38,7 +40,7 @@ It also provides other features, such as:
 - Allows access with [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
 
 ## RBAC permissions required to access Kudu
-To access Kudu in the browser with Azure Active Directory authentication, you need to be a member of a built-in or custom role.
+To access Kudu in the browser with Microsoft Entra authentication, you need to be a member of a built-in or custom role.
 
 - If using a built-in role, you must be a member of Website Contributor, Contributor, or Owner.
 - If using a custom role, you need the resource provider operation: `Microsoft.Web/sites/publish/Action`.
@@ -46,4 +48,3 @@ To access Kudu in the browser with Azure Active Directory authentication, you ne
 ## More Resources
 
 Kudu is an [open source project](https://github.com/projectkudu/kudu), and has its documentation at [Kudu Wiki](https://github.com/projectkudu/kudu/wiki).
-

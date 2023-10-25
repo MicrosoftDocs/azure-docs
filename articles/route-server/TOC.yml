@@ -25,6 +25,8 @@
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
+  - name: Routing preference
+    href: hub-routing-preference.md
   - name: Next Hop IP support
     href: next-hop-ip.md
   - name: ExpressRoute and Azure VPN support
@@ -35,8 +37,6 @@
     href: path-selection.md
   - name: Multi-region design
     href: multiregion.md
-  - name: Injecting routes to AVS
-    href: vmware-solution-default-route.md
   - name: Default route injection in spoke VNets
     href: route-injection-in-spokes.md
   - name: IP anycast
@@ -47,6 +47,14 @@
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
+  - name: Routing preference
+    items:
+    - name: Azure portal
+      href: hub-routing-preference-portal.md
+    - name: Azure PowerShell
+      href: hub-routing-preference-powershell.md
+    - name: Azure CLI
+      href: hub-routing-preference-cli.md
 - name: Reference
   items:
   - name: Azure PowerShell

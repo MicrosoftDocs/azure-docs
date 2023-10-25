@@ -20,7 +20,7 @@ Azure Communication Services Job Router is a robust tool designed to optimize th
 
 At its core, Job Router operates on a set of key concepts that together create a seamless and efficient communication management system. These include Job, Worker, Queue, Channel, Offer, and Distribution Policy. Whether it's managing high volumes of customer interactions in a contact center, routing customer queries to the right department in a large organization, or efficiently handling customer service requests in a retail business, Job Router can do it all. It ensures that every customer interaction is handled by the most suitable agent or automated service, leading to business efficiency.
 
-:::image type="content" source="./media/acs-router-architecture-diagram.png" alt-text="Diagram that shows the Job Router Architecture." lightbox="./media/acs-router-architecture-diagram.png":::
+:::image type="content" source="./media/acs-router-architecture-diagram-1.png" alt-text="Diagram that shows the Job Router Architecture." lightbox="./media/acs-router-architecture-diagram.png":::
 
 Job Router is agnostic to any Azure Communication Services channel primitive helping developers to build a comprehensive omnichannel communication solution. With Job Router, businesses can ensure that every customer interaction is handled efficiently, at the right time and in the right channel.
 

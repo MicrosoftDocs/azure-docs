@@ -19,12 +19,16 @@ items:
     items:
       - name: Hierarchy model
         href: concepts-hierarchy-model.md
+      - name: Farm Machinery data ingestion
+        href: concepts-farm-operations-data.md  
       - name: Satellite data ingestion
         href: concepts-ingest-satellite-imagery.md
       - name: Weather data ingestion
         href: concepts-ingest-weather-data.md
       - name: Sensor data ingestion
         href: concepts-ingest-sensor-data.md
+      - name: Using ISV solutions
+        href: concepts-isv-solutions.md
       - name: Understanding throttling
         href: concepts-understanding-throttling.md
       - name: Using your license keys
@@ -43,6 +47,10 @@ items:
         items:
             - name: Set up private links
               href: how-to-set-up-private-links.md
+      - name: Integrate with Farm Machinery data provider
+        href: how-to-integrate-with-farm-ops-data-provider.md
+      - name: Ingest and egress Farm Machinery data
+        href: how-to-ingest-and-egress-farm-operations-data.md
       - name: Use ISV solutions
         href: how-to-set-up-isv-solution.md
       - name: Set up sensors as a customer
@@ -59,6 +67,10 @@ items:
       items:
       - name: Overview
         href: /rest/api/data-manager-for-agri/
+    - name: SDKs
+      items:
+      - name: Overview
+        href: reference-sdk.md
 
   - name: Resources
     items:
@@ -68,3 +80,5 @@ items:
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
     - name: Sample events
       href: sample-events.md
+    - name: FAQs
+      href: faq-agriculture-data-services.md

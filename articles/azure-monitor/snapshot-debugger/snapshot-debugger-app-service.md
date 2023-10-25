@@ -54,7 +54,7 @@ If you're running a different type of Azure service, here are instructions for e
   
 ## Enable Snapshot Debugger for other clouds
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide) through the Application Insights Connection String.
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide) through the Application Insights Connection String.
 
 |Connection String Property    | US Government Cloud | China Cloud |  
 |---------------|---------------------|-------------|
@@ -62,13 +62,15 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 
 For more information about other connection overrides, see [Application Insights documentation](../app/sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
-## Enable Azure Active Directory authentication for snapshot ingestion
+<a name='enable-azure-active-directory-authentication-for-snapshot-ingestion'></a>
 
-Application Insights Snapshot Debugger supports Azure AD authentication for snapshot ingestion. This means, for all snapshots of your application to be ingested, your application must be authenticated and provide the required application settings to the Snapshot Debugger agent.
+## Enable Microsoft Entra authentication for snapshot ingestion
 
-As of today, Snapshot Debugger only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
+Application Insights Snapshot Debugger supports Microsoft Entra authentication for snapshot ingestion. This means, for all snapshots of your application to be ingested, your application must be authenticated and provide the required application settings to the Snapshot Debugger agent.
 
-To turn-on Azure AD for snapshot ingestion:
+As of today, Snapshot Debugger only supports Microsoft Entra authentication when you reference and configure Microsoft Entra ID using the Application Insights SDK in your application.
+
+To turn-on Microsoft Entra ID for snapshot ingestion:
 
 1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
 
@@ -76,7 +78,7 @@ To turn-on Azure AD for snapshot ingestion:
 
     1. For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity).
 
-1. Configure and turn on Azure AD in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication)
+1. Configure and turn on Microsoft Entra ID in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication)
 1. Add the following application setting, used to let Snapshot Debugger agent know which managed identity to use:
 
 For System-Assigned Identity:

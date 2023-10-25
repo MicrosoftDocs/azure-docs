@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/20/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -21,7 +21,7 @@ Rounds the numeric expression's value down to a multiple of specified bin size.
 ## Syntax
 
 ```sql
-NumericBin(<numeric_expr> [, <bin_size>])
+NumberBin(<numeric_expr> [, <bin_size>])
 ```
 
 ## Arguments

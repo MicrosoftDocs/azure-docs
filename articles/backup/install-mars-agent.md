@@ -1,8 +1,8 @@
 ---
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
-ms.topic: conceptual
-ms.date: 11/15/2022
+ms.topic: how-to
+ms.date: 08/18/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -62,6 +62,12 @@ To modify the storage replication type:
 > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
 >
 
+## Configure Recovery Services vault to save passphrase to Recovery Services vault (preview)
+
+Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Azure Key Vault.
+
+We recommend you to create a Key Vault and provide permissions to your Recovery Services vault to save the passphrase to the Key Vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
+
 ### Verify internet access
 
 [!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
@@ -120,6 +126,10 @@ If you've already installed the agent on any machines, ensure you're running the
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.
 
+   The MARS agent can automatically save the passphrase securely to Azure Key Vault. So, we recommend you create a Key Vault and grant permissions to your Recovery Services vault to save the passphrase to the Key Vault before registering your first MARS agent to the vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+   After granting the required permissions, you can save the passphrase to the Key Vault by copying the *Key Vault URI* from the Azure portal and to the Register Server Wizard.
+
    :::image type="content" source="./media/backup-configure-vault/encryption-settings-passphrase-to-encrypt-decrypt-backups.png" alt-text="Screenshot showing to specify a passphrase to be used to encrypt and decrypt backups for machines.":::
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
@@ -127,7 +137,7 @@ If you've already installed the agent on any machines, ensure you're running the
    If you are running into issues during vault registration, see the [troubleshooting guide](backup-azure-mars-troubleshoot.md#invalid-vault-credentials-provided).
 
    >[!Note]
-   >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](../key-vault/secrets/quick-create-portal.md) how to store a secret in a key vault.
+   >We recommend to save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](save-backup-passphrase-securely-in-azure-key-vault.md) how to store a secret in a Key Vault.
 
 ## Next steps
 

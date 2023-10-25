@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 08/21/2022
+ms.date: 10/23/2023
 ---
 
 # Create custom APIs you can call from Azure Logic Apps
@@ -60,9 +60,6 @@ easy API hosting.
 > * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
->
-> For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -81,7 +78,7 @@ like custom APIs but also have these attributes:
 * Registered as Logic Apps Connector resources in Azure.
 * Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
 * Available only to the connectors' authors and logic app resource users who have the same 
-Azure Active Directory tenant and Azure subscription in the region where the 
+Microsoft Entra tenant and Azure subscription in the region where the 
 logic apps are deployed.
 
 You can also nominate registered connectors for Microsoft certification. 
@@ -134,9 +131,6 @@ The polling pattern mirrors the behavior where you call the
 bakery every 20 minutes to check whether the cake is ready. 
 The webhook pattern mirrors the behavior where the bakery asks you 
 for your phone number so they can call you when the cake is ready.
-
-For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
-Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 
@@ -194,7 +188,7 @@ accepted the request payload (data input), and is now processing.
    * *Optional*: A `retry-after` header that specifies the number of seconds 
    that the engine should wait before checking the `location` URL for job status. 
 
-     By default, the engine checks every 20 seconds. To specify a different interval, 
+     By default, the engine polls the `location` URL after one second. To specify a different interval, 
      include the `retry-after` header and the number of seconds until the next poll.
 
 2. After the specified time passes, the Azure Logic Apps engine polls 

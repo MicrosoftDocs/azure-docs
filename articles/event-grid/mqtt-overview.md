@@ -48,7 +48,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT v3.1.1 features: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
--  Event Grid is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
+-  Event Grid is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
  
 [Learn more about Event Grid’s MQTT support and current limitations.](mqtt-support.md) 
 
@@ -91,6 +91,10 @@ Event Grid allows you to route your MQTT messages to Azure services or webhooks 
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
+### MQTT Clients Life Cycle Events 
+
+Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers.Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
+
 ## Next steps
 
 Use the following articles to learn more about the MQTT support in Event Grid and its main concepts.
@@ -107,3 +111,4 @@ Use the following articles to learn more about the MQTT support in Event Grid an
 - [Access control](mqtt-access-control.md) 
 - [MQTT support](mqtt-support.md) 
 - [Routing MQTT messages](mqtt-routing.md) 
+- [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).

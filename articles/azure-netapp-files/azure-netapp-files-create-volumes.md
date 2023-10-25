@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/28/2023
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -35,8 +35,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * Security  
   Support for UNIX mode bits (read, write, and execute) is available for NFSv3 and NFSv4.1. Root-level access is required on the NFS client to mount NFS volumes.
 
-* Local user/group and LDAP support for NFSv4.1  
-  Currently, NFSv4.1 supports root access to volumes only. See [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
+* User ID mapping in NFSv4.1 for LDAP-enabled and non-LDAP volumes  
+  To avoid permission issues, including access for a root user, when using NFSv4.1, the ID domain configuration on the NFS client and Azure NetApp Files must match. User ID mapping can use centralized user management with LDAP or use local users for non-LDAP volumes. To configure the ID Domain in Azure NetApp Files for non-LDAP volumes, see [Configure NFSv4.1 ID domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## Best practice
 
@@ -75,6 +75,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
@@ -85,8 +88,6 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

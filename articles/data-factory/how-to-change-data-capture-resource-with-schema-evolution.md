@@ -1,6 +1,6 @@
 ---
-title: Capture changed data with schema evolution using change data capture resource
-description: This tutorial provides step-by-step instructions on how to capture changed data with schema evolution from Azure SQL DB to Delta sink using a change data capture resource.
+title: Capture changed data with schema evolution by using a change data capture resource
+description: Get step-by-step instructions on how to capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture (CDC) resource.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.reviewer: 
@@ -11,154 +11,162 @@ ms.custom:
 ms.date: 07/21/2023
 ---
 
-# How to capture changed data with schema evolution from Azure SQL DB to Delta sink using a Change Data Capture (CDC) resource
+# Capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture resource
+
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you will use the Azure Data Factory user interface (UI) to create a new Change Data Capture (CDC) resource that picks up changed data from an Azure SQL Database source to Delta Lake stored in Azure Data Lake Storage (ADLS) Gen2 in real-time showcasing the support of schema evolution. The configuration pattern in this tutorial can be modified and expanded upon.
+In this article, you use the Azure Data Factory user interface to create a change data capture (CDC) resource. The resource picks up changed data from an Azure SQL Database source and adds it to Delta Lake stored in Azure Data Lake Storage Gen2, in real time. This activity showcases the support of schema evolution by using a CDC resource between source and sink.
 
-In this tutorial, you follow these steps:
-* Create a Change Data Capture resource.
-* Make dynamic schema changes to source table.
-* Validate schema changes at target Delta sink.
+In this article, you learn how to:
+
+* Create a CDC resource.
+* Make dynamic schema changes to a source table.
+* Validate schema changes at the target Delta sink.
+
+You can modify and expand the configuration pattern in this article.
 
 ## Prerequisites
 
-* **Azure subscription.** If you don't have an Azure subscription, create a free Azure account before you begin.
-* **Azure SQL Database.** You use Azure SQL DB as a source data store. If you don’t have an Azure SQL DB, create one in the Azure portal first before continuing the tutorial. 
-* **Azure storage account.** You use delta lake stored in ADLS Gen 2 storage as a target data store. If you don't have a storage account, see Create an Azure storage account for steps to create one.
+Before you begin the procedures in this article, make sure that you have these resources:
 
-## Create a change data capture artifact
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free).
+* **SQL database**. You use Azure SQL Database as a source data store. If you don't have a SQL database, create one in the Azure portal.
+* **Storage account**. You use Delta Lake stored in Azure Data Lake Storage Gen2 as a target data store. If you don't have a storage account, see [Create a storage account](/azure/storage/common/storage-account-create) for the steps to create one.
 
+## Create a CDC artifact
 
-1.	Navigate to the **Author** blade in your data factory. You see a new top-level artifact below **Pipelines** called **Change Data Capture (preview)**.
+1. Go to the **Author** pane in your data factory. Below **Pipelines**, a new top-level artifact called **Change Data Capture (preview)** appears.
   
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-100.png" alt-text="Screenshot of new top level artifact shown under Factory resources panel." lightbox="media/adf-cdc/change-data-capture-resource-100.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-100.png" alt-text="Screenshot of a new top-level artifact for change data capture on the Factory Resources pane." lightbox="media/adf-cdc/change-data-capture-resource-100.png":::
   
-2.	To create a new **Change Data Capture**, hover over **Change Data Capture (preview)** until you see 3 dots appear. Select on the **Change Data Capture (preview) Actions**.
+1. Hover over **Change Data Capture (preview)** until three dots appear. Then select **Change Data Capture (preview) Actions**.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-101.png" alt-text="Screenshot of Change Data Capture (preview) Actions after hovering on the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-101.png" alt-text="Screenshot of the button for change data capture actions appearing over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
 
-3.	Select **New CDC (preview)**. This opens a flyout to begin the guided process. 
+1. Select **New CDC (preview)**. This step opens a flyout to begin the guided process.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-102.png" alt-text="Screenshot of a list of Change Data Capture actions." lightbox="media/adf-cdc/change-data-capture-resource-102.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-102.png" alt-text="Screenshot of a list of change data capture actions." lightbox="media/adf-cdc/change-data-capture-resource-102.png":::
   
-4.	You are prompted to name your CDC resource. By default, the name is set to “adfcdc” and continue to increment up by 1. You can replace this default name with your own. 
+1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with a name that you choose.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-103.png" alt-text="Screenshot of the text box to update the name of the resource.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-103.png" alt-text="Screenshot of the text box to update the name of a resource.":::
   
-5.	 Use the drop-down selection list to choose your data source. For this tutorial, we use **Azure SQL Database**. 
+1. Use the dropdown list to choose your data source. For this article, select **Azure SQL Database**.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-104.png" alt-text="Screenshot of the guided process flyout with source options in a drop-down selection menu."::: 
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-104.png" alt-text="Screenshot of the guided process flyout with source options in a dropdown list.":::
 
-6.	You will then be prompted to select a linked service. Create a new linked service or select an existing one. 
+1. You're prompted to select a linked service. Create a new linked service or select an existing one.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-105.png" alt-text="Screenshot of the selection box to choose or create a new linked service.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-105.png" alt-text="Screenshot of the box to choose or create a linked service.":::
 
-7.	Once the linked service is selected, you will be prompted for selection of the source table. Use the checkbox to select the source table(s) then select the **Incremental column** using the drop-down selection. 
+1. After you select a linked service, you're prompted to select source tables. Use the checkboxes to select the source tables, and then select the **Incremental column** value by using the dropdown list.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-106.png" alt-text="Screenshot of the selection box to choose source table(s) and selection of incremental column.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-106.png" alt-text="Screenshot that shows selection of a source table and an incremental column.":::
 
-> [!NOTE]
-> Only table(s) with supported incremental column data types are listed here.
+   The pane lists only tables that have supported incremental column data types.
 
-> [!NOTE]
-> To enable Change Data Capture (CDC) with schema evolution in SQL Azure Database source, we should choose watermark column-based tables rather than native SQL CDC enabled tables.
+   > [!NOTE]
+   > To enable CDC with schema evolution in an Azure SQL Database source, choose tables based on watermark columns rather than tables that are native SQL CDC enabled.
 
-8.	Once you’ve selected the source table(s), select **Continue** to set your data target.
-   
-     :::image type="content" source="media/adf-cdc/change-data-capture-resource-107.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
+1. After you select the source tables, select **Continue** to set your data target.
 
-9.	Then, select a **Target type** using the drop-down selection. For this tutorial, we select **Delta**. 
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-107.png" alt-text="Screenshot of the Continue button in the guided process to select a data target.":::
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-108.png" alt-text="Screenshot of a drop-down selection menu of all data target types.":::
+1. Select a **Target type** value by using the dropdown list. For this article, select **Delta**.
 
-10.	You are prompted to select a linked service. Create a new linked service or select an existing one. 
- 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-109.png" alt-text="Screenshot of the selection box to choose or create a new linked service to your data target.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-108.png" alt-text="Screenshot of a dropdown menu of all data target types.":::
 
-11. Use the **Browse** button to select your target data folder.
-    
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-110.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
+1. You're prompted to select a linked service. Create a new linked service or select an existing one.
 
-> [!NOTE]
-> You can either use **Browse** button under Target base path which helps you to auto-populate the browse path for all the new table(s) selected for source (or) use **Browse** button outside to individually select the folder path.
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-109.png" alt-text="Screenshot of the box to choose or create a linked service to your data target.":::
 
-12.	Once you’ve selected a folder path, select **Continue** button.
+1. Select your target data folder. You can use either:
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-111.png" alt-text="Screenshot of the continue button in the guided process to proceed to next step.":::
+   * The **Browse** button under **Target base path**, which helps you automatically populate the browse path for all the new tables selected for a source.
+   * The **Browse** button outside to individually select the folder path.
 
-13.	You automatically land in a new change data capture tab, where you can configure your new resource. 
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-110.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-112.png" alt-text="Screenshot of the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-112.png":::
+1. After you select a folder path, select the **Continue** button.
+
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-111.png" alt-text="Screenshot of the Continue button in the guided process to proceed to the next step.":::
+
+1. A new tab for capturing change data appears. This tab is the CDC studio, where you can configure your new resource.
+
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-112.png" alt-text="Screenshot of the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-112.png":::
   
-14.	A new mapping will automatically be created for you. You can update the **Source** and **Target** selections for your mapping by using the drop-down selection lists. 
+   A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-113.png" alt-text="Screenshot of the source to target mapping in the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-113.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-113.png" alt-text="Screenshot of the source-to-target mapping in the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-113.png":::
 
-15.	Once you’ve selected your tables, you should see that their columns are auto mapped by default with the **Auto map** toggle on. Auto map automatically maps the columns by name in the sink, picks up new column changes when source schema evolves and flows this to the supported sink types.
+1. After you select your tables, their columns are mapped by default with the **Auto map** toggle turned on. **Auto map** automatically maps the columns by name in the sink, picks up new column changes when the source schema evolves, and flows this information to the supported sink types.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-114.png" alt-text="Screenshot of default Auto map toggle set to on." lightbox="media/adf-cdc/change-data-capture-resource-114.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-114.png" alt-text="Screenshot of the toggle for automatic mapping turned on." lightbox="media/adf-cdc/change-data-capture-resource-114.png":::
 
-> [!NOTE]
-> Schema evolution works with Auto map toggle set to on only. If you want to know how to edit column mappings or include transformations, please refer [Capture changed data with a change data capture resource](how-to-change-data-capture-resource.md)
+   > [!NOTE]
+   > Schema evolution works only when the **Auto map** toggle is turned on. To learn how to edit column mappings or include transformations, see [Capture changed data with a change data capture resource](how-to-change-data-capture-resource.md).
 
-16.	You can click the **Keys** link and select the Keys column to be used for tracking the delete operations.
+1. Select the **Keys** link, and then select the **Keys** column to be used for tracking the delete operations.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-115.png" alt-text="Screenshot of Keys link to enable Keys column selection." lightbox="media/adf-cdc/change-data-capture-resource-115.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-115.png" alt-text="Screenshot of the link to enable Keys column selection." lightbox="media/adf-cdc/change-data-capture-resource-115.png":::
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-116.png" alt-text="Screenshot of selecting a Keys column for the selected source.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-116.png" alt-text="Screenshot of selecting a Keys column for the selected source.":::
 
-17. Once your mappings are complete, set your CDC latency using the **Set Latency** button. 
+1. After your mappings are complete, set your CDC latency by using the **Set Latency** button.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-117.png" alt-text="Screenshot of the set frequency button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-117.png":::
-   
-18.	Select the latency of your CDC and select **Apply** to make the changes. By default, it is set to **15 minutes**. For this tutorial, we select the **Real-time** latency. Real-time latency will continuously keep picking up changes in your source data in a less than 1-minute interval.
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-117.png" alt-text="Screenshot of the Set Latency button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-117.png":::
 
-    For other latencies, say if you select 15 minutes, every 15 minutes, your change data capture will process your source data and pick up any changed data since the last processed time.
+1. Select the latency of your CDC, and then select **Apply** to make the changes.
 
-:::image type="content" source="media/adf-cdc/change-data-capture-resource-118.png" alt-text="Screenshot of the set frequency selection menu.":::
+   By default, latency is set to **15 minute**. The example in this article uses the **Real-time** option for latency. Real-time latency continuously picks up changes in your source data in intervals of less than 1 minute.
 
-19.	Once everything has been finalized, select the **Publish All** to publish your changes. 
+   For other latencies (for example, if you select 15 minutes), your change data capture will process your source data and pick up any changed data since the last processed time.
 
-:::image type="content" source="media/adf-cdc/change-data-capture-resource-119.png" alt-text="Screenshot of the publish button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-119.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-118.png" alt-text="Screenshot of the options for setting latency.":::
 
-> [!NOTE] 
-> If you do not publish your changes, you will not be able to start your CDC resource. The start button will be greyed out. 
+1. After you finish configuring your CDC, select **Publish all** to publish your changes.
 
-20.	Select **Start** to start running your **Change Data Capture**. 
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-119.png" alt-text="Screenshot of the publish button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-119.png":::
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-120.png" alt-text="Screenshot of the start button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-120.png":::
+   > [!NOTE]
+   > If you don't publish your changes, you won't be able to start your CDC resource. The **Start** button in the next step will be unavailable.
 
-21. Using monitoring page, you can see how many changes (insert/update/delete) were read and written and other diagnostic information. 
+1. Select **Start** to start running your change data capture.
+
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-120.png" alt-text="Screenshot of the Start button at the top of the canvas." lightbox="media/adf-cdc/change-data-capture-resource-120.png":::
+
+Now that your change data capture is running, you can:
+
+* Use the monitoring page to see how many changes (insert, update, or delete) were read and written, along with other diagnostic information.
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-121.png" alt-text="Screenshot of the monitoring page of a selected change data capture." lightbox="media/adf-cdc/change-data-capture-resource-121.png":::
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-122.png" alt-text="Screenshot of the monitoring page of a selected change data capture with detailed view." lightbox="media/adf-cdc/change-data-capture-resource-122.png":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-122.png" alt-text="Screenshot of the monitoring page of a selected change data capture with a detailed view." lightbox="media/adf-cdc/change-data-capture-resource-122.png":::
 
-22.	You can validate that the change data has landed onto the Delta Lake stored in Azure Data Lake Storage (ADLS) Gen2 in delta format
+* Validate that the change data arrived in Delta Lake stored in Azure Data Lake Storage Gen2, in Delta format.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-123.png" alt-text="Screenshot of the target delta folder." lightbox="media/adf-cdc/change-data-capture-resource-123.png":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-123.png" alt-text="Screenshot of a target Delta folder." lightbox="media/adf-cdc/change-data-capture-resource-123.png":::
   
-23. You can validate schema of the change data that has landed. 
+* Validate the schema of the change data that arrived.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-124.png" alt-text="Screenshot of actual delta file." lightbox="media/adf-cdc/change-data-capture-resource-124.png":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-124.png" alt-text="Screenshot of a Delta file." lightbox="media/adf-cdc/change-data-capture-resource-124.png":::
 
-## Make dynamic schema changes at source
+## Make dynamic schema-level changes to the source tables
 
-1.	Now you can proceed to make schema level changes to the source tables. For this tutorial, we will use the Alter table T-SQL to add a new column "PersonalEmail" to the source table.  
+1. Add a new **PersonalEmail** column to the source table by using an `ALTER TABLE` T-SQL statement, as shown in the following example.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-125.png" alt-text="Screenshot of Alter command in Azure Data Studio.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-125.png" alt-text="Screenshot of the ALTER command in Azure Data Studio.":::
 
-2.	You can validate that the new column "PersonalEmail" has been added to the existing table. 
+1. Validate that the new **PersonalEmail** column appears in the existing table.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-126.png" alt-text="Screenshot of the new table design.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-126.png" alt-text="Screenshot of a new table design with a column added for personal email.":::
   
-## Validate schema changes at target Delta
+## Validate schema changes at the Delta sink
 
-1.	Validate change data with schema changes have landed at the Delta sink. For this tutorial, you can see the new column "PersonalEmail" has been added to the sink. 
+Confirm that the new column **PersonalEmail** appears in the Delta sink. You now know that change data with schema changes arrived at the target.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of actual Delta file with schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
+:::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of a Delta file with a schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
 
 ## Next steps
-- [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
-  
+
+* [Learn more about the CDC resource](concepts-change-data-capture-resource.md)

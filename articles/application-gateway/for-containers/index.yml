@@ -28,6 +28,12 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
+          - text: Components
+            url: application-gateway-for-containers-components.md
+          - text: TLS policy
+            url: tls-policy.md
+          - text: Backend health and metrics
+            url: alb-controller-backend-health-metrics.md
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new
@@ -74,3 +80,15 @@ landingContent:
             url: troubleshooting-guide.md
           - text: Diagnostic Logs
             url: diagnostics.md
+
+  # Card
+  - title: Gateway API
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Multiple site hosting
+            url: how-to-multiple-site-hosting-gateway-api.md
+          - text: Path, header, and query string routing
+            url: how-to-path-header-query-string-routing-gateway-api.md
+          - text: Traffic splitting
+            url: how-to-traffic-splitting-gateway-api.md

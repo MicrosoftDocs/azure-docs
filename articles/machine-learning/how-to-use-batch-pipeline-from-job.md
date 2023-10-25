@@ -185,7 +185,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     Notice now how we use the property `job_definition` instead of `component`:
     
     ```python
-    deployment = BatchPipelineComponentDeployment(
+    deployment = PipelineComponentBatchDeployment(
         name="hello-batch-from-job",
         description="A hello world deployment with a single step. This deployment is created from a pipeline job.",
         endpoint_name=endpoint.name,

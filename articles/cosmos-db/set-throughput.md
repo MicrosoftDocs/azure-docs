@@ -103,11 +103,7 @@ The response of those methods also contains the [minimum provisioned throughput]
 * [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) on the .NET SDK.
 * [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) on the Java SDK.
 
-The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
-
-* 400 RU/s 
-* Current storage in GB * 1 RU/s
-* Highest RU/s ever provisioned on the database or container / 100
+The actual minimum RU/s may vary depending on your account configuration. For more information, see [the autoscale FAQ](autoscale-faq.yml).
 
 ### Changing the provisioned throughput
 

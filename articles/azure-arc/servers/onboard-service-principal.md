@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 You can enable Azure Arc-enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to execute this script manually with an account that has elevated permissions on the target machine and in Azure.
 
-One method to connect the machines to Azure Arc-enabled servers is to use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md). This service principal method can be used instead of your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that has only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This method is safer than using a higher privileged account like a Tenant Administrator and follows our access control security best practices. **The service principal is used only during onboarding; it is not used for any other purpose.**
+One method to connect the machines to Azure Arc-enabled servers is to use a Microsoft Entra [service principal](../../active-directory/develop/app-objects-and-service-principals.md). This service principal method can be used instead of your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that has only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This method is safer than using a higher privileged account like a Tenant Administrator and follows our access control security best practices. **The service principal is used only during onboarding; it is not used for any other purpose.**
 
 Before you start connecting your machines, review the following requirements:
 
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You can create a service principal in the Azure portal or by using Azure PowerShell.
 
 > [!NOTE]
-> To create a service principal, your Azure Active Directory tenant needs to allow users to register applications. If it does not, your account must be a member of the **Application Administrator** or **Cloud Application Administrator** administrative role. See [Delegate app registration permissions in Azure Active Directory](../../active-directory/roles/delegate-app-roles.md) for more information about tenant-level requirements. To assign Arc-enabled server roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding.
+> To create a service principal, your Microsoft Entra tenant needs to allow users to register applications. If it does not, your account must be a member of the **Application Administrator** or **Cloud Application Administrator** administrative role. See [Delegate app registration permissions in Microsoft Entra ID](../../active-directory/roles/delegate-app-roles.md) for more information about tenant-level requirements. To assign Arc-enabled server roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding.
 
 ### Azure portal
 
@@ -123,7 +123,7 @@ The following are the settings that you configure the `azcmagent` command to use
 
 - `service-principal-id` : The unique identifier (GUID) that represents the application ID of the service principal.
 - `service-principal-secret` | The service principal password.
-- `tenant-id` : The unique identifier (GUID) that represents your dedicated instance of Azure AD.
+- `tenant-id` : The unique identifier (GUID) that represents your dedicated instance of Microsoft Entra ID.
 - `subscription-id` : The subscription ID (GUID) of your Azure subscription that you want the machines in.
 - `resource-group` : The resource group name where you want your connected machines to belong to.
 - `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.

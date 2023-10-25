@@ -30,15 +30,15 @@ AKS uses the following rules for applying updates to installed add-ons:
 
 | Name | Description | More details |
 |---|---|---|
-| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster. | [HTTP application routing add-on on Azure Kubernetes Service (AKS)][http-app-routing] |
-| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] |
-| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] |
-| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] |
-| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
-| open-service-mesh | Use Open Service Mesh with your AKS cluster. | [Open Service Mesh AKS add-on][osm] |
-| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
 | web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] |
+| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
 | keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda]|
+| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] |
+| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] |
+| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
+| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] |
+| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster (retired). | [HTTP application routing add-on on Azure Kubernetes Service (AKS) (retired)][http-app-routing] |
+| open-service-mesh | Use Open Service Mesh with your AKS cluster (retired). | [Open Service Mesh AKS add-on (retired)][osm] |
 
 ## Extensions
 
@@ -74,6 +74,12 @@ There are many open-source and third-party integrations you can install on your 
 | [Linkerd][linkerd] | An open-source service mesh. | [Linkerd Getting Started][linkerd-install] |
 | [Consul][consul] | An open-source, identity-based networking solution. | [Getting Started with Consul Service Mesh for Kubernetes][consul-install] |
 
+### Third-party integrations for Windows containers
+
+Microsoft has collaborated with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Windows containers on AKS.
+
+For more details, see [Windows AKS partner solutions][windows-aks-partner-solutions].
+
 <!-- LINKS -->
 [http-app-routing]: http-application-routing.md
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
@@ -89,7 +95,7 @@ There are many open-source and third-party integrations you can install on your 
 [helm-qs]: quickstart-helm.md
 [prometheus]: https://prometheus.io/
 [prometheus-helm-chart]: https://github.com/prometheus-community/helm-charts#usage
-[prometheus-az-monitor]: monitor-aks.md#container-insights
+[prometheus-az-monitor]: monitor-aks.md#integrations
 [istio]: https://istio.io/
 [istio-install]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/
@@ -99,16 +105,17 @@ There are many open-source and third-party integrations you can install on your 
 [grafana]: https://grafana.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/kubernetes/
 [couchdb]: https://www.couchbase.com/
-[couchdb-install]: https://docs.couchbase.com/operator/current/tutorial-aks.html
+[couchdb-install]: https://docs.couchbase.com/operator/2.4/tutorial-aks.html
 [open-faas]: https://www.openfaas.com/
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
 [spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [managed-grafana]: ../managed-grafana/overview.md
 [keda]: keda-about.md
-[web-app-routing]: web-app-routing.md
+[app-routing]: app-routing.md
 [maintenance-windows]: planned-maintenance.md
 [release-tracker]: release-tracker.md
 [github-actions]: /azure/developer/github/github-actions
 [github-actions-aks]: kubernetes-action.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[windows-aks-partner-solutions]: windows-aks-partner-solutions.md

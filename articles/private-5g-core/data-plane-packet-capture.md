@@ -1,20 +1,20 @@
 ---
-title: Perform data plane packet capture for a packet core instance
+title: Perform data plane packet capture on a packet core instance
 titleSuffix: Azure Private 5G Core
-description: In this how-to guide, you'll learn how to perform data plane packet capture for a packet core instance. 
+description: In this how-to guide, you'll learn how to perform data plane packet capture on a packet core instance. 
 author: James-Green-Microsoft
 ms.author: jamesgreen
 ms.service: private-5g-core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2022
 ms.custom: template-how-to
 ---
 
-# Perform data plane packet capture for a packet core instance
+# Perform data plane packet capture on a packet core instance
 
 Packet capture for data plane packets is performed using the **UPF Trace (UPFT)** tool. UPFT is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface. You can use this tool to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device.
 
-Data plane packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform data plane packet capture for a packet core instance.
+Data plane packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform data plane packet capture on a packet core instance.
 
 > [!IMPORTANT]
 > Performing packet capture will reduce the performance of your system and the throughput of your data plane. It is therefore only recommended to use this tool at low scale during initial testing.
@@ -22,8 +22,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 ## Prerequisites
 
 - Identify the **Kubernetes - Azure Arc** resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
-- Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the **Kubernetes - Azure Arc** resource.
-- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## Performing packet capture
 
@@ -33,10 +32,19 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
     kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash
     ```
 
-1. View the list of interfaces that can be monitored:
+1. View the list of configured user plane interfaces:
 
     ```azurecli
     upft list
+    ```
+
+    This should report a single interface on the access network (N3) and an interface for each attached data network (N6). For example:
+
+    ```azurecli
+    n6trace1 (Data Network: enterprise)
+    n6trace2 (Data Network: test)
+    n3trace
+    n6trace0 (Data Network: internet)
     ```
 
 1. Run `upftdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>. The following examples are common use cases:
@@ -62,7 +70,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 1. Remove the output files:
 
     ```azurecli
-        kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
+        kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>
     ```
 
 ## Next steps
@@ -70,3 +78,4 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 For more options to monitor your deployment and view analytics:
 
 - [Learn more about monitoring Azure Private 5G Core using Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
+- If you have found identified a problem and don't know how to resolve it, you can [Get support for your Azure Private 5G Core service](open-support-request.md)

@@ -5,8 +5,7 @@ description: This article describes how to use Speech service with an Azure Virt
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/19/2021
 ms.author: alexeyo

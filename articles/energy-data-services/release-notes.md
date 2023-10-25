@@ -23,6 +23,20 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## September 2023
+
+### Azure Data Manager for Energy in Brazil South Region
+Azure Data Manager for Energy is now available in Brazil South Region. Both developer tier and standard tier are available in Brazil South region. You can now select Brazil South as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
+
+### Audit Logs for DDMS 
+You can now access Audit Logs for create, read, update and delete events for Petrel Data Services, Seismic DMS, and Wellbore DMS Public APIs. This allows you to trace user actions, compile relevant metadata, and use this to run internal audits. [Learn More](./how-to-manage-audit-logs.md)  
+
+## August 2023
+
+### General Availability Fixed Pricing for Azure Data Manager for Energy
+Starting September 2023, the General Availability pricing changes for Azure Data Manager for Energy will be effective. You can visit the [Product Pricing Page](https://azure.microsoft.com/pricing/details/energy-data-services/) to learn more.
+
+
 ## June 2023
 
 ### Service Level Agreement (SLA) for Azure Data Manager for Energy

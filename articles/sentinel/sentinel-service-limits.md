@@ -56,6 +56,10 @@ This article lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-workbooks.md)]
 
+## Workspace manager limits
+
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-workspace-manager.md)]
+
 ## Next steps
 
 - [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)

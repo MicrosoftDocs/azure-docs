@@ -14,9 +14,13 @@ ms.author: hrshelar
 
 You have the flexibility to choose between managed modem or virtual RF functionality using the Azure Orbital Ground Station service. These operational modes are specified on a per-channel basis in the contact profile. See [ground station contact profile](concepts-contact-profile.md) to learn more about channels and links.
 
+### Prerequisites
+- Managed modem: a modem configuration file
+- Virtual RF: GNU radio or software radio
+
 ## Managed modems vs virtual RF delivery
 
-We recommend taking advantage of Azure Orbital Ground Station's managed modem functionality, if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You can specify the modem setup using your modem configuration file or apply one of the in-built named modem configurations for commonly used public satellites such as Aqua. 
+We recommend taking advantage of Azure Orbital Ground Station's managed modem functionality, if possible. The modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream for each pass. You must provide a modem configuration file in XML format to specify the modem setup. Currently, we use [Kratos quantumRX v1.4](https://www.kratosdefense.com/products/space/signals/signal-processing/quantumrx) and [Kratos quantumRadio v4.0](https://www.kratosdefense.com/products/space/satellites/ttc-devices-and-software/quantumradio) modems. Your modems and modem configurations must match these versions. You can also apply one of the in-built named modem configurations for commonly used public satellites such as Aqua. 
 
 Virtual RF delivery can be used if you wish to have tighter control on the modem setup or bring your own modem to the Azure resource group. Azure Orbital Ground Station will connect to your channel endpoint that is specified in the contact profile.
 
@@ -35,20 +39,21 @@ The table below shows you how to configure the modem or virtual RF parameters.
 > The endpoint specified for the channel will apply to whichever option is selected. Please review [how to prepare network](prepare-network.md) for more details on setting up endpoints.  
 
 ### Full-duplex cases
-Use the same modem config file in uplink and downlink channels for full-duplex communications in the same band.
+Use the same modem configuration file in uplink and downlink channels for full-duplex communications in the same band.
 
-### How to input the modem config
-You can enter your existing modem config when creating a contact profile object or add it in later. Modifications to existing modem configs are also allowed.
+## How to input the modem config
+You can enter your existing modem configuration when creating a [contact profile object](contact-profile.md) or add it in later. Modifications to existing modem configurations are also allowed.
 
-#### Entering the modem config using the Azure Orbital Ground Station API
-Enter the modem config as a JSON escaped string from the desired modem config file when using the API.
+### Entering the modem configuration 
+#### Using the Azure Orbital Ground Station API
+Enter the modem configuration as a JSON escaped string from the desired modem configuration file when using the Azure Orbital Ground Station API.
 
-#### Entering the modem config using the Azure Portal
-Select 'Raw XML' and then **paste the modem config raw (without JSON escapement)**  into the field shown below when entering channel details using the portal. 
+#### Using the Azure Portal
+Select 'Raw XML' and then **paste the modem configuration raw (without JSON escapement)**  into the field shown below when entering channel details using the Azure portal. 
 
 :::image type="content" source="media/azure-ground-station-modem-config-portal-entry.png" alt-text="Screenshot of entering a modem configuration into the contact profile object." lightbox="media/azure-ground-station-modem-config-portal-entry.png":::
 
-### Named modem configuration
+## Named modem configuration
 We currently support the following named modem configurations:  
 
 | **Public Satellite Service** | **Named modem string** | **Note** |
@@ -64,16 +69,16 @@ We currently support the following named modem configurations:
 > 
 > Azure Orbital Ground Station does not have control over the downlink schedules for these public satellites. NASA conducts their own operations which may interrupt downlink availabilities.
 
- | **Spacecraft Title**    | **Aqua**  |**Suomi NPP**|**JPSS-1/NOAA-20**| **Terra** |
- | :---                    |  :----:   |    :----:   |     :----:       | :----:    |
- | `noradId:`              | 27424     | 37849       | 43013            | 25994     |
- | `centerFrequencyMhz:`   | 8160,     | 7812,       | 7812,            | 8212.5,   |
- | `bandwidthMhz:`         | 15        | 30          | 30               | 45        |
- | `direction:`            | Downlink, | Downlink,   | Downlink,        | Downlink, |
- | `polarization:`         | RHCP      | RHCP        | RHCP             | RHCP      |
+ | **Spacecraft Title** | **noradID** | **centerFrequencyMhz** | **bandwidthMhz** | **direction** | **polarization** |
+ | :---                 | :----:      | :----:                 | :----:           | :----:        | :----:           |
+ | Aqua                 | 27424       | 8160                   | 15               | Downlink      | RHCP             |
+ | Suomi NPP            | 37849       | 7812                   | 30               | Downlink      | RHCP             | 
+ | JPSS-1/NOAA-20       | 43013       | 7812                   | 30               | Downlink      | RHCP             |
+ | Terra                | 25994       | 8212.5                 | 45               | Downlink      | RHCP             |  
 
-#### Specifying a named modem configuration using the Azure Orbital Ground Station API
-Enter the named modem string into the demodulationConfiguration parameter when using the API.
+### Specifying a named modem configuration
+#### Using the Azure Orbital Ground Station API
+Enter the named modem string into the demodulationConfiguration parameter when using the Azure Orbital Ground Station API.
 
 ```javascript
 {
@@ -115,20 +120,20 @@ Enter the named modem string into the demodulationConfiguration parameter when u
 }
 ```
 
-#### Specifying a named modem configuration using the Azure Portal
+#### Using the Azure Portal
 
-Select 'Preset Named Modem Configuration'and chose a configuration as shown below when entering channel details using the portal.
+Select 'Preset Named Modem Configuration'and chose a configuration as shown below when entering channel details using the Azure portal.
 
 :::image type="content" source="media/azure-ground-station-named-modem-example.png" alt-text="Screenshot of choosing a named modem configuration in the contact profile object." lightbox="media/azure-ground-station-named-modem-example.png":::
 
-### How to use virtual RF
+## How to use virtual RF
 
-Leave the modulationConfiguration or demodulationConfiguration parameters blank in the channel parameters to use the virtual RF delivery feature. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
+To use the virtual RF delivery feature, leave the modulationConfiguration or demodulationConfiguration parameters blank in the channel parameters. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. Refer to the [virtual RF tutorial](virtual-rf-tutorial.md) to learn more.
 
 >[!Note]
->Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint for downlink.
+>For downlink, Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint.
 >
->Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint for uplink.
+>For uplink, Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint.
 
 ## Next steps
 

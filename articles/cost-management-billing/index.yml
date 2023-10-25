@@ -15,7 +15,7 @@ metadata:
   ms.reviewer: micflan
   ms.author: banders
   ms.custom: engagement-fy24
-  ms.date: 05/30/2023
+  ms.date: 08/23/2023
 
 highlightedContent:
   items:
@@ -50,8 +50,8 @@ productDirectory:
     - title: Pricing + estimation
       imageSrc: ./media/controls-horizontal.svg
       links:
-        - url: https://azure.microsoft.com/pricing/calculator
-          text: Pricing calculator
+        - url: costs/pricing-calculator.md
+          text: Estimate prices with the Azure pricing calculator
         - url: https://azure.microsoft.com/pricing/tco/calculator
           text: TCO calculator
         - url: ../migrate/index.yml

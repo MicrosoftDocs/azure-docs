@@ -1,48 +1,62 @@
 ---
-title: 'Quickstart: Use the OpenAI Service image generation REST APIs'
+title: 'Quickstart: Generate images with the Python SDK for Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI image generation using the REST API. 
+description: Learn how to generate images with Azure OpenAI Service by using the Python SDK and the endpoint and access keys for your Azure OpenAI resource.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 06/04/2023
+ms.date: 08/08/2023
 keywords: 
 ---
 
-Use this guide to get started calling the image generation APIs using the Python SDK.
+Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
+[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
-- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to DALL-E in the desired Azure subscription
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-- The following Python libraries: os, requests, json
-- An Azure OpenAI resource created in the East US region. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
+- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- The following Python libraries: `os`, `requests`, `json`.
+- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-## Retrieve key and endpoint
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-To successfully make a call against Azure OpenAI, you'll need the following:
+## Set up
 
-|Variable name | Value |
-|--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
-| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+### Retrieve key and endpoint
 
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
+
+| Variable | Name | Value |
+|---|---|---|
+| **Endpoint** | `api_base` | The endpoint value is located under **Keys and Endpoint** for your resource in the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`. |
+| **Key** | `api_key` | The key value is also located under **Keys and Endpoint** for your resource in the Azure portal. Azure generates two keys for your resource. You can use either value. |
+
+Go to your resource in the Azure portal. On the navigation pane, select **Keys and Endpoint** under **Resource Management**. Copy the **Endpoint** value and an access key value. You can use either the **KEY 1** or **KEY 2** value. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
+
+Create and assign persistent environment variables for your key and endpoint.
+
+[!INCLUDE [environment-variables](environment-variables.md)]
+
+
+## Create a new Python application
+
+Open a command prompt and browse to your project folder. Create a new python file, _quickstart.py_.
 
 ## Install the Python SDK
 
-Open the command prompt and navigate to your project folder. Install the OpenAI Python SDK using the following command: 
+Install the OpenAI Python SDK by using the following command: 
 
 ```bash
 pip install openai
 ```
+
 Install the following libraries as well:
 
 ```bash
@@ -50,77 +64,79 @@ pip install requests
 pip install pillow 
 ```
 
-## Create a new Python application
+## Generate images with DALL-E
 
-Create a new Python file called quickstart.py. Then open it in your preferred editor or IDE.
+Open _quickstart.py in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
+Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
-    ```python
-    import openai
-    import os
-    import requests
-    from PIL import Image
+```python
+import openai
+import os
+import requests
+from PIL import Image
 
-    openai.api_base = '<your_openai_endpoint>' # Add your endpoint here
-    openai.api_key = '<your_openai_key>'  # Add your api key here
+# Get endpoint and key from environment variables
+openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
+openai.api_key = os.environ['AZURE_OPENAI_KEY']     
 
-    # At the moment Dall-E is only supported by the 2023-06-01-preview API version
-    openai.api_version = '2023-06-01-preview'
+# Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
+openai.api_version = '2023-06-01-preview'
+openai.api_type = 'azure'
 
-    openai.api_type = 'azure'
+# Create an image by using the image generation API
+generation_response = openai.Image.create(
+    prompt='A painting of a dog',    # Enter your prompt text here
+    size='1024x1024',
+    n=2
+)
 
-    # Create an image using the image generation API
-    generation_response = openai.Image.create(
-        prompt='A painting of a dog',
-        size='1024x1024',
-        n=2
-    )
+# Set the directory for the stored image
+image_dir = os.path.join(os.curdir, 'images')
 
-    # Set the directory where we'll store the image
-    image_dir = os.path.join(os.curdir, 'images')
-    # If the directory doesn't exist, create it
-    if not os.path.isdir(image_dir):
-        os.mkdir(image_dir)
+# If the directory doesn't exist, create it
+if not os.path.isdir(image_dir):
+    os.mkdir(image_dir)
 
-    # With the directory in place, we can initialize the image path (note that filetype should be png)
-    image_path = os.path.join(image_dir, 'generated_image.png')
+# Initialize the image path (note the filetype should be png)
+image_path = os.path.join(image_dir, 'generated_image.png')
 
-    # Now we can retrieve the generated image
-    image_url = generation_response["data"][0]["url"]  # extract image URL from response
-    generated_image = requests.get(image_url).content  # download the image
-    with open(image_path, "wb") as image_file:
-        image_file.write(generated_image)
+# Retrieve the generated image
+image_url = generation_response["data"][0]["url"]  # extract image URL from response
+generated_image = requests.get(image_url).content  # download the image
+with open(image_path, "wb") as image_file:
+    image_file.write(generated_image)
 
-    # Display the image in the default image viewer
-    display(Image.open(image_path))
-    ```
+# Display the image in the default image viewer
+image = Image.open(image_path)
+image.show()
+```
 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
 
-1. Run the application with the `python` command:
+Run the application with the `python` command:
 
-    ```console
-    python quickstart.py
-    ```
+```console
+python quickstart.py
+```
 
-    The script will loop until the generated image is ready.
+The script loops until the generated image is ready.
 
 ## Output
 
-The output image will be downloaded to _generated_image.png_ at your specified location. The script will also display the image in your default image viewer.
+Azure OpenAI stores the output image in the _generated_image.png_ file in your specified directory. The script also displays the image in your default image viewer.
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* Learn more in this [Azure OpenAI overview](../overview.md).
+* Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

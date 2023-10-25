@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 10/17/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
 # Deploy Azure Kubernetes service on Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
+[!INCLUDE [applies-to-gpu-pro-pro2-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 > [!NOTE]
 > Use this procedure only if you are an SAP or a PMEC customer.
@@ -30,11 +30,11 @@ Azure Stack Edge is an AI-enabled edge computing device with high performance ne
 
 Before you begin, ensure that:
 
-- You have a Microsoft account with credentials to access Azure portal, and access to an Azure Stack Edge Pro GPU device. The Azure Stack Edge device will be configured and activated using the instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
+- You have a Microsoft account with credentials to access Azure portal, and access to an Azure Stack Edge Pro GPU device. The Azure Stack Edge device is configured and activated using instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
 - You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device. For detailed steps, see [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
 - You have a client to access your device that's running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
 - Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
-- If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to the resource group.
+- If you intend to deploy Azure Arc for Kubernetes cluster, you need to create a resource group. You must have owner level access to the resource group.
 
   To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
 
@@ -42,9 +42,9 @@ Before you begin, ensure that:
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
-- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription.
+- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you need to register the `Microsoft.ExtendedLocation` resource provider against your subscription.
  
-  You'll also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
+  You must fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
 
    ```azurepowershell
    az login
@@ -61,33 +61,68 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
   For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
-- If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
+- If deploying Kubernetes or PMEC workloads:
+   - You may have selected a specific workload profile using the local UI or using PowerShell. Detailed steps are documented for the local UI in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) and for PowerShell in [Change Kubernetes workload profiles](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles). 
+   - You may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
 
 - If you're using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
      ```azurepowershell
      Get-HcsNumaLpMapping
      ```
-     Here's an example output:
+
+- This configuration is applied when you install or update to Azure Stack Edge 2307. There are two scenarios where the configuration won't be applied during update:
+
+    - When you have more minroot vCPUs configured than the four vCPUs from Numa0 + All vCPUs from Numa1. This scenario applies mainly to Azure Stack Edge gateway customers who configure all vCPUs for minroot. For Azure Stack Edge Pro 2, there's only one Numa. For Azure Stack Edge Pro 2 with 40 cores, it's more minroot vCPUs configured than 24 vCPUs, and for Azure Stack Edge Pro 2 with 48 vCPUs it's more than 28 vCPUs configured.
+
+    - When you have HPN VMs deployed and you're consuming more than 16 vCPUs on a machine with 40 cores, or more than 20 vCPUs on a machine with 48 cores for HPN VMs.
+
+     ### [Azure Stack Edge Pro GPU](#tab/gpu)
+
+     Here's sample output for Azure Stack Edge Pro GPU:
 
      ```azurepowershell
      Hardware:
-      { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
 
      HpnCapableLpMapping:
-      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
 
-     BNVGF33:
-     HpnLpMapping:
-      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+
+     7MT0SZ2:
+      HpnLpMapping:
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [] }
 
      HpnLpAvailable:
-      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [] }
      ```
+
+     ### [Azure Stack Edge Pro 2](#tab/pro2)
+
+     Here's sample output for Azure Stack Edge Pro 2:
+
+     ```azurepowershell
+     Hardware:
+       { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+
+     HpnCapableLpMapping:
+       { Numa Node #0 : CPUs [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+
+    B4P1076003103B:
+     HpnLpMapping:
+       { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+  
+     HpnLpAvailable:
+       { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+     ```
+     ---
 
 ## Deploy AKS on Azure Stack Edge
 
@@ -118,9 +153,12 @@ To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure
 
 ## Specify static IP pools (optional)
 
-This is an **optional** step where you can assign IP pools for the virtual network that will be used by Kubernetes pods. 
+An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods.
 
-You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes will generate a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
+> [!NOTE]
+> SAP customers can skip this step.
+
+You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes generates a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 
 During application provisioning, Kubernetes pods can use static IP addresses in the IP pool for container network interfaces, like container single root I/O virtualization (SR-IOV) interfaces. This can be done by pointing to a `NetworkAttachmentDefinition` in the PodSpec.
 
@@ -128,14 +166,14 @@ Use the following steps to assign static IP pools in the local UI of your device
 
 1. Go to the **Advanced networking** page in Azure portal.
 
-1. If you didn’t create virtual networks earlier, select **Add virtual network** to create a Virtual network. You’ll need to specify the virtual switch associated with the virtual network, VLAN ID, subnet mask, and gateway.
+1. If you didn’t create virtual networks earlier, select **Add virtual network** to create a Virtual network. You need to specify the virtual switch associated with the virtual network, VLAN ID, subnet mask, and gateway.
 
 1. In an example shown here, we've configured three virtual networks. In each of these virtual networks, VLAN is **0** and subnet mask and gateway match the external values; for example, **255.255.0.0** and **192.168.0.1**.
    1. **First virtual network** – Name is **N2** and associated with **vswitch-port5**.
    1. **Second virtual network** – Name is **N3** and associated with **vswitch-port5**.
    1. **Third virtual network** – Name is **N6** and associated with **vswitch-port6**.
  
-   1. Once all three virtual networks are configured, they'll be listed under the virtual networks, as follows: 
+   1. Once all three virtual networks are configured, they are listed under the virtual networks, as follows: 
  
        [![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png#lightbox)
 
@@ -211,14 +249,16 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure AKS.
 
-1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**. 
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+
+   For SAP deployments, select VM node size **Standard_DS5_v2**.
 
    > [!NOTE]
    > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.
 
-1. Check **Manage container from cloud via Arc enabled Kubernetes**. This option, when checked, will enable Arc when the Kubernetes cluster is created.
+1. Check **Manage container from cloud via Arc enabled Kubernetes**. This option, when checked, enables Arc when the Kubernetes cluster is created.
 
-1. If you select **Change**, then you’ll need to provide a subscription name, resource group, cluster name, and region.
+1. If you select **Change**, then you need to provide a subscription name, resource group, cluster name, and region.
 
    [![Screenshot that shows the Configure Arc enabled Kubernetes options part of creating the Kubernetes service on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png#lightbox)
 
@@ -261,7 +301,7 @@ On your Azure Stack Edge Pro device, statically provisioned `PersistentVolumes` 
 
 [![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge compute option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png#lightbox)
 
-To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. If you enable this option, any application data that you write to the Edge share will be tiered to the cloud.
+To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. If you enable this option, any application data that you write to the Edge share is tiered to the cloud.
 
 [![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png#lightbox)
 
@@ -292,7 +332,7 @@ For the shares that were created with the **Use the share with Edge compute** op
 
    [![Screenshot that shows the Azure Stack Edge dialog for Add Persistent volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png#lightbox)
 
-1. You’ll see a notification that the persistent volume is being created. This operation may take a couple of minutes to complete.
+1. You see a notification that the persistent volume is being created. This operation takes a few minutes to complete.
 
    [![Screenshot that shows a Notifications dialog that the Adding Persistent Volumes operation has successfully completed.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png#lightbox)
 
@@ -320,5 +360,4 @@ Use the following steps in the Azure portal to remove AKS.
 
 ## Next steps
 
-- [AKS troubleshooting documentation](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
- 
+- [Azure Kubernetes Services troubleshooting documentation](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).

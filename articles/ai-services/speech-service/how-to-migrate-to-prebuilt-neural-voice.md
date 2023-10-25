@@ -5,8 +5,7 @@ description: This document helps users migrate from prebuilt standard voice to p
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/12/2021
 ms.author: v-baolianzou
@@ -35,7 +34,7 @@ The prebuilt neural voice provides more natural sounding speech output, and thus
 > Even without an Azure account, you can listen to voice samples at the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs.
 
 1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure.
-2. To make the change, [follow the sample code](speech-synthesis-markup-voice.md#voice-element) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Use neural voices for your speech synthesis request, on cloud or on prem. For on-premises container, use the [neural voice containers](../cognitive-services-container-support.md) and follow the [instructions](speech-container-howto.md).
+2. To make the change, [follow the sample code](speech-synthesis-markup-voice.md#use-voice-elements) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Use neural voices for your speech synthesis request, on cloud or on prem. For on-premises container, use the [neural voice containers](../cognitive-services-container-support.md) and follow the [instructions](speech-container-howto.md).
 
 ## Standard voice details (deprecated)
 
@@ -55,7 +54,7 @@ More than 75 prebuilt standard voices are available in over 45 languages and loc
 | Arabic (Arabic ) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
-| Catalan (Spain) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
+| Catalan | `ca-ES` | Female | `ca-ES-HerenaRUS`|
 | Chinese (Cantonese, Traditional) | `zh-HK` | Male | `zh-HK-Danny`|
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-TracyRUS`|
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-HuihuiRUS`|

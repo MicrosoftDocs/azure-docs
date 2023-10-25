@@ -30,7 +30,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
@@ -76,7 +76,7 @@ Esv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 | Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 64000/1600 | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 80000/2000 | 8|24000 |
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
-| Standard_E80is_v4 <sup>3,5</sup> | 80 | 504 | Remote Storage Only | 64 | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80is_v4 <sup>3,5</sup> | 80 | 504 | Remote Storage Only | 64 | 80000/1500 | 80000/2000 | 8|30000 |
 
 <sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 

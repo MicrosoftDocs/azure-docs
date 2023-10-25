@@ -45,9 +45,9 @@ Dev Box has the following benefits for IT admins:
 - Manage dev boxes like any other device on your network:
   - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
-  - If a dev box is compromised, isolate it while helping users get back up and running on a new dev box.
-- Dev Box provides secure access in a secure environment. Access controls in Azure Active Directory (Azure AD) organize access by project or user type:
-  - Join dev boxes natively to an Azure AD or Active Directory domain.
+  - If a dev box is compromised, isolate it while helping users get backup and running on a new dev box.
+- Dev Box provides secure access in a secure environment. Access controls in Microsoft Entra ID organize access by project or user type:
+  - Join dev boxes natively to a Microsoft Entra ID or Active Directory domain.
   - Set conditional access policies that require users to connect via a compliant device.
   - Require multifactor authentication at sign-in.
   - Configure risk-based sign-in policies for dev boxes that access sensitive source code and customer data.
@@ -75,9 +75,9 @@ This diagram shows the components of the Dev Box service and the relationships b
 
 Dev Box service configuration begins with the creation of a dev center, which represents the units of organization in the enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
-Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Azure AD. Use an Azure AD join to connect exclusively to cloud-based resources, or use a hybrid Azure AD join to connect to on-premises resources and cloud-based resources.
+Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Microsoft Entra ID. Use a Microsoft Entra join to connect exclusively to cloud-based resources, or use a Microsoft Entra hybrid join to connect to on-premises resources and cloud-based resources.
 
-Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
+Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in [Azure Compute Gallery](how-to-configure-azure-compute-gallery.md). Specify a SKU with compute and storage to complete the dev box definition.
 
 Dev Box projects are the point of access for development teams. You assign the Dev Box User role to a project to give a developer access to the dev box pools that are associated with the project.
 
@@ -87,9 +87,19 @@ When the configuration of the service is complete, developers can create and man
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
+## Components shared with Azure Deployment Environments
+
+Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+
+When configuring Dev Box, you might see Deployment Environments resources and components. You might even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
+
+For example, as you create a project, you might see this informational message about catalogs: 
+
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned." lightbox="media/overview-what-is-microsoft-dev-box/project-catalog-message.png":::
+
 ## Next steps
 
-Start using Microsoft Dev Box :
+Start using Microsoft Dev Box:
 
 - [Quickstart: Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a dev box](./quickstart-create-dev-box.md)
