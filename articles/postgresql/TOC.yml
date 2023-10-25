@@ -315,7 +315,7 @@
       - name: Networking with Private Endpoint
         items:
         - name: Azure portal
-          href: flexible-server/how-to-manage-virtual-network-pe-portal.md
+          href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
