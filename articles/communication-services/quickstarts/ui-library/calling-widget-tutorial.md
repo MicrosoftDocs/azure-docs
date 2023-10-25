@@ -1,7 +1,7 @@
 ---
 title: Get Started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
+description: Learn how to create a Calling Widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
+![Home page of Calling Widget sample app](./media/calling-widget/sample-app-splash-widget-open.png)
 
 This project aims to guide developers to intiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
@@ -30,7 +30,7 @@ If you wish to try it out, you can download the code from [GitHub](https://githu
 Following this tutorial will:
 
 - Allow you to control your customers audio and video experience depending on your customer scenario
-- Teach you how to build a simple widget for starting calls on your webapp using the UI library.
+- Teach you how to build a simple widget for starting calls on your webapp using the UI library.v
 
 ## Prerequisites
 
@@ -519,11 +519,11 @@ npm run start
 
 Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following splash screen:
 
-![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash-widget-closed.png)
+![Screenshot of calling widget sample app home page widget closed](./media/calling-widget/sample-app-splash-widget-closed.png)
 
 Then when you action the widget button, you should see a little menu:
 
-![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-splash-widget-open.png)
+![Screenshot of calling widget sample app home page widget open](./media/calling-widget/sample-app-splash-widget-open.png)
 
 after you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
 
