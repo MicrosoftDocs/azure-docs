@@ -11,7 +11,7 @@ ms.date: 10/25/2023
 
 There are a few things you need to start using Azure Virtual Desktop. Here you can find what prerequisites you need to complete to successfully provide your users with desktops and applications.
 
-At a high level, you'll need:
+At a high level, you need:
 
 > [!div class="checklist"]
 > - An Azure account with an active subscription
@@ -25,7 +25,7 @@ At a high level, you'll need:
 
 You need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-To deploy Azure Virtual Desktop, you need to assign the relevant Azure role-based access control (RBAC) roles. The specific role requirements are covered in each related article for deploying Azure Virtual Desktop, which are listed in the [Next steps](#next-steps) section.
+To deploy Azure Virtual Desktop, you need to assign the relevant Azure role-based access control (RBAC) roles. The specific role requirements are covered in each of the related articles for deploying Azure Virtual Desktop, which are listed in the [Next steps](#next-steps) section.
 
 Also make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed, select the relevant tab for your scenario and follow the steps.
 
@@ -52,7 +52,7 @@ Also make sure you've registered the *Microsoft.DesktopVirtualization* resource 
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this command even if the resource provider is already registered.
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.DesktopVirtualization
@@ -70,7 +70,7 @@ Also make sure you've registered the *Microsoft.DesktopVirtualization* resource 
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this command even if the resource provider is already registered.
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
@@ -100,9 +100,9 @@ To join session hosts to Microsoft Entra ID or an Active Directory domain, you n
 
 ### Users
 
-Your users need accounts that are in Microsoft Entra ID. If you're also using AD DS or Microsoft Entra Domain Services in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You'll need to keep the following things in mind based on which identity provider you use:
+Your users need accounts that are in Microsoft Entra ID. If you're also using AD DS or Microsoft Entra Domain Services in your deployment of Azure Virtual Desktop, these accounts need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You need to keep the following things in mind based on which identity provider you use:
 
-- If you're using Microsoft Entra ID with AD DS, you'll need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Microsoft Entra ID.
+- If you're using Microsoft Entra ID with AD DS, you need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Microsoft Entra ID.
 - If you're using Microsoft Entra ID with Microsoft Entra Domain Services, user accounts are synchronized one way from Microsoft Entra ID to Microsoft Entra Domain Services. This synchronization process is automatic.
 
 ### Supported identity scenarios
@@ -118,7 +118,7 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Microsoft Entra ID + Microsoft Entra Domain Services | Joined to Microsoft Entra ID | In Microsoft Entra ID and Microsoft Entra Domain Services, synchronized|
 | Microsoft Entra-only | Joined to Microsoft Entra ID | In Microsoft Entra ID |
 
-To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). This means you must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
 - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
@@ -130,7 +130,7 @@ To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial
 
 ### Deployment parameters
 
-You'll need to enter the following identity parameters when deploying session hosts:
+You need to enter the following identity parameters when deploying session hosts:
 
 - Domain name, if using AD DS or Microsoft Entra Domain Services.
 - Credentials to join session hosts to the domain.
@@ -146,7 +146,7 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 |Operating system |User access rights|
 |---|---|
 |<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) by enrolling an Azure subscription instead of license entitlement.</li></ul>|
-|<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
+|<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing isn't available for Windows Server operating systems.|
 
 > [!IMPORTANT]
 > - The following items are not supported:
@@ -171,28 +171,28 @@ You can deploy a virtual machines (VMs) to be used as session hosts from these i
 - Manually by [adding session hosts to an existing host pool](add-session-hosts-host-pool.md?tabs=portal%2Cgui) in the Azure portal.
 - Programmatically, with [Azure CLI](add-session-hosts-host-pool.md?tabs=cli%2Ccmd) or [Azure PowerShell](add-session-hosts-host-pool.md?tabs=powershell%2Ccmd).
 
-If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you will need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You will need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
+If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
 > [!TIP]
 > To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
 
 ## Network
 
-There are several network requirements you'll need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their desktops and applications while also giving them the best possible user experience.
+There are several network requirements you need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their desktops and applications while also giving them the best possible user experience.
 
 Users connecting to Azure Virtual Desktop securely establish a reverse connection to the service, which means you don't need to open any inbound ports. Transmission Control Protocol (TCP) on port 443 is used by default, however RDP Shortpath can be used for [managed networks](shortpath.md) and [public networks](shortpath-public.md) that establishes a direct User Datagram Protocol (UDP)-based transport.
 
-To successfully deploy Azure Virtual Desktop, you'll need to meet the following network requirements:
+To successfully deploy Azure Virtual Desktop, you need to meet the following network requirements:
 
-- You'll need a virtual network and subnet for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
+- You need a virtual network and subnet for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
 
-- Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Microsoft Entra Domain Services, since you'll need to join session hosts to the domain.
+- Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Microsoft Entra Domain Services, since you need to join session hosts to the domain.
 
 - Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. These connections also use TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
 
 Also consider the following:
 
-- Your users may need access to applications and data that is hosted on different networks, so make sure your session hosts can connect to them.
+- Your users might need access to applications and data that is hosted on different networks, so make sure your session hosts can connect to them.
 
 - Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to view your connection health and recommended Azure region. To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users.
 
@@ -207,15 +207,15 @@ To learn more, see [Understanding Azure Virtual Desktop network connectivity](ne
 
 ## Session host management
 
-Consider the following when managing session hosts:
+Consider the following points when managing session hosts:
 
-- Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
+- Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service can't install agent updates on your session hosts, and your session hosts won't function properly.
 
-- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [Microsoft Entra hybrid join](../active-directory/devices/hybrid-join-plan.md).
+- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [Microsoft Entra hybrid join](../active-directory/devices/hybrid-join-plan.md).
 
 - If you're joining session hosts to a Microsoft Entra Domain Services domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
 
-- If you're using Microsoft Entra join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use Microsoft Entra hybrid join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
+- If you're using Microsoft Entra join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server isn't supported with Intune. You need to use Microsoft Entra hybrid join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
 
 ## Azure regions
 
@@ -252,7 +252,7 @@ To learn more about the architecture and resilience of the Azure Virtual Desktop
 
 ## Remote Desktop clients
 
-Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to desktops and applications. The following clients support Azure Virtual Desktop:
+Your users need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to desktops and applications. The following clients support Azure Virtual Desktop:
 
 - [Windows Desktop client](./users/connect-windows.md)
 - [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
