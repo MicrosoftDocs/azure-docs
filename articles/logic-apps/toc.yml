@@ -68,7 +68,7 @@
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
-    href: logic-apps-mainframe-modernization-overview.md
+    href: mainframe-modernization-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
