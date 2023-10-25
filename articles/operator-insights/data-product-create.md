@@ -71,27 +71,6 @@ You'll create the Azure Operator Insights Data Product resource.
 1. Select **Review + create**.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes.
 
-## Copy sample data to the ingestion endpoint
-
-To download the sample MCC EDR data to the ingestion endpoint.
-
-1. You must use tools such as Azure Storage Explorer to download the sample data, including the dashboard JSON files, from `https://bugbashsamplefiles.blob.core.windows.net/samplefiles?sp=rle&st=2023-10-13T11:47:35Z&se=2023-11-30T19:47:35Z&spr=https&sv=2022-11-02&sr=c&sig=v7%2Bww1hrSv1%2Fksy%2BK1RH3pITYKt%2F7n21JJ%2FASN7L8wQ%3D`.
-
-    You cannot select this URL to download.
-1. Use AzCopy to copy the sample data to the ingestion endpoint. [Download AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) and install it on the local machine. You can get the ingestion endpoint from the Data Product Overview page.
-1. Run the following command to copy the sample data to the ingestion endpoint:
-
-    `azcopy cp "<source-path>" "<destination-path>" --recursive`
-
-    where \<*source-path*\> is the local source path to the sample data and  \<*destination-path*\> is the modified ingestion endpoint with the container path.
-1. To find and modify the container path, navigate to the resource groups in your subscription and search for the Azure Managed Group that was created with a name similar to the resource group of your Data Product instance in the format `<data-product-name>-HostedReources-<unique-id>`.
-    1. Select the Key Vault Resource and on the Access control (IAM) pane, navigate to **Add** \> **Add role assignment**, and add your Key Vault Reader and Key Vault Secrets User.
-    1. Navigate to the Secrets pane, select input-storage-sas and the row under CURRENT VERSION. Select **Show Secret Value** and copy this value. It should resemble the following URL:  
-    `https://<dataProductId>.blob.core.windows.net?sv=2021-12-02&ss=b&srt=o&spr=https,http&st=<timestamp>&se=<timestamp>&sip=0.0.0.0-255.255.255.255&sp=w&sig=<secret>`
-    1. Modify this URL by adding /edr/mcc/<*region*>/bronze/raw/events/edr/unseggregated before `?sv=` (replacing \<*region*\> with your region) to create a modified URL in the following format: `https://<dataProductId>.blob.core.windows.net/edr/mcc/<region>/bronze/raw/events/edr/unseggregated?sv=2021-12-02&ss=b&srt=o&spr=https,http&st=<timestamp>&se=<timestamp>&sip=0.0.0.0-255.255.255.255&sp=w&sig=<secret>`
-
-        Run the `azcopy cp "<source-path>" "<destination-path>" --recursive` command to copy the sample data from the local source to the ingestion endpoint using the modified ingestion endpoint URL.  
-
 ## Explore sample data
 
 Once the data is uploaded and processed, you can access the consumption URL to query the data.

@@ -5,16 +5,16 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: concept-article
-ms.date: 10/16/2023
+ms.date: 10/24/2023
 ---
 
 # Data quality and quality monitoring
 
 Every Data Product working on Azure Operator Insights platform has built-in support for data quality monitoring. Data quality is crucial because it ensures accurate, reliable, and trustworthy information for decision-making. It prevents costly mistakes, builds credibility with customers and regulators, and enables personalized experiences.
 
-Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (first AOI Data Product Storage block in following image) and after data processed and available to customers (AOI Data Product Compute in following image).
+Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (first AOI Data Product Storage block in following image) and after data is processed and made available to customers (AOI Data Product Compute in following image).
 
-:::image type="content" source="media/concept-data-quality-monitoring/operator-insights-architecture.png" alt-text="Diagram of Azure Operator Insights Data Product architecture.":::
+:::image type="content" source="media/concept-data-quality-monitoring/operator-insights-architecture.jpg" alt-text="Diagram of Azure Operator Insights Data Product architecture." lightbox="media/concept-data-quality-monitoring/operator-insights-architecture.jpg":::
 
 ## Quality dimensions
 
@@ -57,4 +57,4 @@ The custom data quality metrics are implemented on per data product basis. These
 
 All Azure Operator Insight Data Products are deployed with a dashboard showing quality metrics. You can use the dashboard to monitor quality of their data.
 
-All data quality metrics are saved to the Data Product ADX tables. For exploration of the data quality metrics, you can use the standard Data Product KQL endpoint and then extend the dashboard if required.
+All data quality metrics are saved to the Data Product ADX tables. For exploration of the data quality metrics, you can use the standard Data Product KQL endpoint and then extend the dashboard if necessary.

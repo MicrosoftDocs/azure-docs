@@ -19,12 +19,14 @@
     href: managed-identity.md
   - name: Data quality and data monitoring
     href: concept-data-quality-monitoring.md
-  - name: Data visualization in Data Products
-    href: concept-data-visualization.md
+  - name: Data types
+    href: concept-data-types.md
+  - name: MCC Data Product
+    href: concept-mcc-data-product.md
 - name: How-to
   expanded: true
   items:
-  - name: Use Microsoft Purview with a Data Product
+  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
     href: purview-setup.md
   - name: Use Azure Operator Insights Data Product dashboards
     href: dashboards-use.md
