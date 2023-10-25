@@ -39,7 +39,7 @@ For Operator Connect and Teams Phone Mobile, lab deployments connect to the same
 
 You can't automatically apply the same configuration to lab deployments and production deployments. You need to configure each deployment separately.
 
-Support tickets for lab deployments have the same acknowledgment SLA targets as tickets for standard deployments. However, we don't guarantee resolving them as quickly as tickets for a standard deployment. You should use Severity 4 for a lab deployment, or in rare cases Severity 3. Don't use Severity 0, 1 or 2 for a lab deployment.
+[!INCLUDE [communications-gateway-lab-ticket-sla](includes/communications-gateway-lab-ticket-sla.md)]
 
 ## Setting up and using a lab deployment
 
