@@ -689,7 +689,7 @@ var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"))
 var addParticipantResponse = await callConnection.AddParticipantAsync(addThisPerson);
 
 // cancel the request with optional parameters
-var cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResponse.InvitationId)
+var cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResponse.Value.InvitationId)
 {
     OperationContext = "operationContext",
     OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
