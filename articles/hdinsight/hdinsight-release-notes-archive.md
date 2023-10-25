@@ -96,7 +96,7 @@ For workload specific versions, see
 | [CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188) |	Important|Azure Apache Hadoop Spoofing Vulnerability |
  
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg)Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. Customers need to plan for the updates before 30, September 2023.
 * Cluster permissions for secure storage  
