@@ -10,7 +10,7 @@ ms.date: 08/11/2022
 
 # Integrate Azure Web PubSub with service connector
 
-This page shows all the supported compute services, clients, and authentication types to connect services to Azure Web PubSub instances, using Service Connector. This page also shows the default environment variable names and application properties needed to create service connections. You might still be able to connect to an Azure Web PubSub instance using other programming languages, without using Service Connector. Learn more about the [service connector environment variable naming conventions](concept-service-connector-internals.md).
+This page shows all the supported compute services, clients, and authentication types to connect services to Azure Web PubSub instances, using Service Connector. This page also shows the default environment variable names and application properties needed to create service connections and the sample code of how to use them. You might still be able to connect to an Azure Web PubSub instance using other programming languages, without using Service Connector. Learn more about the [service connector environment variable naming conventions](concept-service-connector-internals.md).
 
 ## Supported compute services
 
@@ -20,45 +20,29 @@ This page shows all the supported compute services, clients, and authentication 
 
 Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
-
 | Client type |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
 |-------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
-|-------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type |   System-assigned managed identity   | User-assigned managed identity |       Secret/connection string       |           Service principal          |
-|-------------|:------------------------------------:|:------------------------------:|:------------------------------------:|:------------------------------------:|
-| .NET        | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java        | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js     | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python      | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
 
 ---
 
-## Default environment variable names or application properties
+## Default environment variable names or application properties and sample code
 
-Use the environment variable names and application properties listed below to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID.
+Use the environment variable names and application properties listed below, according to your connection's authentication type and client type, to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID.
 
 ### System-assigned managed identity
 
 | Default environment variable name | Description           | Sample value                 |
 | --------------------------------- | --------------------- | ---------------------------- |
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host | `<name>.webpubsub.azure.com` |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Web PubSub using a system-assigned managed identity.
+[!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
 
 ### User-assigned managed identity
 
@@ -67,12 +51,22 @@ Use the environment variable names and application properties listed below to co
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com`      |
 | AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                     |
 
-### Secret/connection string
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Web PubSub using a user-assigned managed identity.
+[!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
+
+### Connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                              | Sample value |
 > | --------------------------------- | -----------------------------------------| -------------|
 > | AZURE_WEBPUBSUB_CONNECTIONSTRING  | Azure Web PubSub connection string       | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Web PubSub using a connection string.
+[!INCLUDE [code for web pubsub](./includes/code-webpubsub-secret.md)]
 
 ### Service principal
 
@@ -82,6 +76,11 @@ Use the environment variable names and application properties listed below to co
 | AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                |
 | AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret       | `<client-secret>`            |
 | AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID           | `<tenant-id>`                |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Web PubSub using a service principal.
+[!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
 
 ## Next steps
 
