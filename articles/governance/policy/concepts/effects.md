@@ -68,11 +68,11 @@ policies containing conditions that inspect `tags` related fields.
 
 ## AddToNetworkGroup
 
-AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes) definitions only.
+AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
 
 With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
 
-To learn more, visit [Configuring Azure Policy with network groups in Azure Virtual Network Manager](https://learn.microsoft.com/azure/virtual-network-manager/concept-azure-policy-integration).
+To learn more, visit [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
 
 ## Append
 
@@ -1003,9 +1003,9 @@ is applied only when evaluating requests with API version greater or equals to `
 ```
 ## Mutate (preview)
 
-Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components (such as pods). This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](https://learn.microsoft.com/azure/governance/policy/concepts/definition-structure#resource-provider-modes) definitions only.
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components (such as pods). This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
 
-To learn more, visit [Understand Azure Policy for Kubernetes clusters](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes).
+To learn more, visit [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
 
 ### Mutate properties
 - **mutationInfo** (optional)
