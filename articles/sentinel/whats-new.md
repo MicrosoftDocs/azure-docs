@@ -28,8 +28,8 @@ The listed features were released in the last three months. For information abou
 
 We've made some significant changes in how the Microsoft Sentinel documentation is organized in the table of contents on the left-hand side of the library. Two important things to know:
 
-1. Bookmarked links persist. Unless we retire an article, your saved and shared links to Microsoft Sentinel articles still work.
-1. Articles used to be divided by concepts, how-tos, and tutorials. Now, the articles are organized by lifecycle or scenario with the related concepts, how-tos, and tutorials in those buckets.
+- Bookmarked links persist. Unless we retire an article, your saved and shared links to Microsoft Sentinel articles still work.
+- Articles used to be divided by concepts, how-tos, and tutorials. Now, the articles are organized by lifecycle or scenario with the related concepts, how-tos, and tutorials in those buckets.
 
 We hope these changes to the organization makes your exploration of Microsoft Sentinel documentation more intuitive!
 
