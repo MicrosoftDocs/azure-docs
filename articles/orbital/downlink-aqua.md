@@ -14,7 +14,7 @@ ms.author: apoorvanori
 
 You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink data, you can process and analyze it in Azure. 
 
-In this guide, you'll learn how to:
+In this turotial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create and authorize a spacecraft for select public satellites.
@@ -123,7 +123,7 @@ Your spacecraft authorization request is reviewed by the Azure Orbital Ground St
 
 ## Prepare your virtual machine and network to receive public satellite data
 
-1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint VM using the same subscription and resource group where your spacecraft resource is located.
+1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM) using the same subscription and resource group where your spacecraft resource is located.
 2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created using the same subscription and resource group where your spacecraft resource is located. Ensure that this VM has the following specifications:
    - Under the Basics tab:
       - **Image**: the operating system is Linux (**Ubuntu 20.04** or later).
@@ -134,7 +134,7 @@ Your spacecraft authorization request is reviewed by the Azure Orbital Ground St
    > [!TIP]
    > The public IP address here is only for internet connectivity, not contact data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
-3. Enter the following commands to create a temporary file system (*tmpfs*) on the virtual machine. This virtual machine is where the data will be written to avoid slow writes to disk.
+3. Navigate to the newly created VM. Follow the instructions linked in Step 2 to connect to the VM. At the bash prompt for your VM, enter the following commands to create a temporary file system (*tmpfs*) on the VM. This VM is where the data will be written to avoid slow writes to disk.
 
    ```console
    sudo mkdir /media/aqua
@@ -146,6 +146,12 @@ Your spacecraft authorization request is reviewed by the Azure Orbital Ground St
    sudo apt install socat
    ```
 5. [Prepare the network for Azure Orbital Ground Station integration](prepare-network.md) to configure your network.
+
+When preparing the endpoints, enter the following command in your VM to set the MTU level:
+
+   ```console
+   sudo ifconfig eth0 3650
+   ```
 
 ## Configure a contact profile for an Aqua downlink mission
 
