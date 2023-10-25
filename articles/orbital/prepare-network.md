@@ -13,6 +13,14 @@ ms.author: hrshelar
 
 Azure Orbital Ground Station interfaces with your Azure resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Azure Orbital Ground Station objects are configured correctly.
 
+In this how-to guide, you'll learn how to:
+> [!div class="checklist"]
+> * Prepare the subnet for VNET injection
+> * Prepare endpoints
+> * Verify the contact profile
+> * Find IPs of scheduled contacts
+> * Set up link flows
+
 Ensure the objects comply with the recommendations in this article. Note that these steps do not have to be followed in order.
 
 ## Prepare subnet for VNET injection
@@ -20,20 +28,20 @@ Ensure the objects comply with the recommendations in this article. Note that th
 Prerequisites:
 - An entire subnet with no existing IPs allocated or in use that can be dedicated to the Azure Orbital Ground Station service in your virtual network within your resource group.
 
-Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).
+Delegate a subnet to service named: **Microsoft.Orbital/orbitalGateways**. Follow instructions to [add a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service).
 
 > [!NOTE]
 >  Address range needs to be at least /24 (e.g., 10.0.0.0/23)
 
-The following is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station.
+The following is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station:
 
-:::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Orbital delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
+:::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Azure Orbital Ground Station delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
 
 ## Prepare endpoints
 
-Set the MTU of all desired endpoints to at least 3650.
+Set the MTU of all desired endpoints to at least **3650**. 
 
-## Set up the contact profile
+## Verify the contact profile
 
 Prerequisites:
 - The subnet/vnet is in the same region as the contact profile.
@@ -51,11 +59,11 @@ Ensure the contact profile properties are set as follows:
 
 For more information, learn about [contact profiles](/azure/orbital/concepts-contact-profile) and [how to configure a contact profile](/azure/orbital/contact-profile).
 
-## Schedule the contact
+## Find IPs of a scheduled contact
 
-The Azure Orbital Ground Station platform pre-reserves IPs in the subnet when a contact is scheduled. These IPs represent the platform side endpoints for each link. IPs are unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service fails to schedule the contact and an error is returned if the service runs out of IPs or cannot allocate an IP.
+The Azure Orbital Ground Station platform pre-reserves IPs in the subnet when a contact is scheduled. These IPs represent the platform-side endpoints for each link. IPs are unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service fails to schedule the contact and an error is returned if the service runs out of IPs or cannot allocate an IP.
 
-When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. Make sure to use the current API version of 2022-03-01. The parameters of interest are below:
+When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. Make sure to use the current API version of 2022-11-01. The parameters of interest are below:
 
 | **Parameter**                      | **Usage**                                                                  |
 |------------------------------------|----------------------------------------------------------------------------|
@@ -73,9 +81,9 @@ You can use this information to set up network policies or to distinguish betwee
 
 For more information, learn about [contacts](/azure/orbital/concepts-contact) and [how to schedule a contact](/azure/orbital/schedule-contact).
 
-## Client/Server, TCP/UDP, and link direction
+## Set up link flows
 
-The following sections describe how to set up the link flows based on direction on TCP or UDP preference.
+The following sections describe how to set up the link flows in a contact profile based on direction and TCP or UDP preference.
 
 > [!NOTE]
 > These settings are for managed modems only.
@@ -89,8 +97,6 @@ The following sections describe how to set up the link flows based on direction 
 | **Output**                     |                            |                                      |                            |                                  |
 | _Contact Object destinationIP_   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                   |
 | _Contact Object sourceIP_        | Not applicable             | Link will come from one of these IPs | Not applicable             | Not applicable                   |
-
-
 
 ### Downlink
 
