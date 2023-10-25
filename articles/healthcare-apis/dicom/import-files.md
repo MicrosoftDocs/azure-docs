@@ -29,9 +29,13 @@ Before you perform a bulk import, you need to enable a system-assigned managed i
 
 1. In the Azure portal, go to the DICOM instance and then select **Identity** from the left pane.
 
-2. On the **Identity** page, select the **System assigned** tab, and then set the **Status** field to **On**. Choose **Save**.
+2. On the **Identity** page, select the **System assigned** tab.
+   
+3. In the **Status** field, select **On**. 
 
-:::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot of the system assigned managed identity toggle in the Identity page." lightbox="media/system-assigned-managed-identity.png":::
+4. Choose **Save**.
+
+:::image type="content" source="media/configure-system-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity toggle on the Identity page." lightbox="media/configure-system-managed-keys/system-assigned-managed-identity.png":::
 
 ## Enable bulk import
 
