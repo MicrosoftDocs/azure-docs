@@ -33,10 +33,10 @@ Azure Arc resource bridge (preview) can host other Azure services or solutions r
 * Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
 
   * Azure Arc-enabled VMware
-  * Azure Arc-enabled Azure Stack HCI
+  * Azure Arc VM management on Azure Stack HCI
   * Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 
-* Custom locations: A deployment target where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to an HCI cluster instance.
+* Custom locations: A deployment target where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Azure Arc VM management on Azure Stack HCI, it maps to an HCI cluster instance.
 
 Custom locations and cluster extension are both Azure resources, which are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create an on-premises VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter, Azure Stack HCI cluster, or SCVMM.
 
@@ -111,10 +111,10 @@ The following private cloud environments and their versions are officially suppo
 
 Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.10, then the typical n-3 supported versions are:
 
-- Current version: 1.0.10
-- n-1 version: 1.0.9
-- n-2 version: 1.0.8
-- n-3 version: 1.0.7
+* Current version: 1.0.10
+*n-1 version: 1.0.9
+* n-2 version: 1.0.8
+* n-3 version: 1.0.7
 
 There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
 
@@ -123,7 +123,7 @@ Arc resource bridge typically releases a new version on a monthly cadence, at th
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
-* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
 
 

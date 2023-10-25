@@ -98,7 +98,7 @@ Yes, Azure Virtual Network Manager is fully compatible with pre-existing hub and
 
 ### Can I migrate an existing hub and spoke topology to Azure Virtual Network Manager?
 
-Yes, 
+Yes, migrating existing VNets to AVNM’s hub and spoke topology is very easy and requires no down time. Customers can [create a hub and spoke topology connectivity configuration](how-to-create-hub-and-spoke.md) of the desired topology. When the deployment of this configuration is deployed, virtual network manager will automatically create the necessary peerings. Any pre-existing peerings set up by users will remain intact, ensuring there's no downtime.
 
 ### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
 

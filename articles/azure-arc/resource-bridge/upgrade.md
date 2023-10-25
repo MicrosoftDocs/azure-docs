@@ -70,7 +70,7 @@ Or to upgrade a resource bridge on Azure Stack HCI, run: `az arcappliance upgrad
 
 Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
 
-For Arc-enabled VMware vSphere (preview), manual upgrade is available, and cloud-managed upgrade is supported for appliances on version 1.0.15 and higher. When Arc-enabled VMware vSphere announces General Availability, appliances on version 1.0.15 and higher will receive cloud-managed upgrade as the default experience. Appliances that are below version 1.0.15 must be manually upgraded.
+For Arc-enabled VMware vSphere (preview), manual upgrade is available, and cloud-managed upgrade is supported for appliances on version 1.0.15 and higher. When Arc-enabled VMware vSphere announces General Availability, appliances on version 1.0.15 and higher will receive cloud-managed upgrade as the default experience. Appliances that are below version 1.0.15 must be manually upgraded. 
 
 [Azure Arc VM management (preview) on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until appliance version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade or a support request for cloud-managed upgrade. For subsequent upgrades, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq).
 
@@ -82,14 +82,16 @@ The Arc resource bridge version is tied to the versions of underlying components
 
 ## Supported versions
 
-Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.10, then the typical n-3 supported versions are:
+Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported, starting from appliance version 1.0.15 and onward. An Arc resource bridge with an appliance version earlier than 1.0.15 must be upgraded or redeployed to be at minimum on appliance version 1.0.15 to be in a production support window.
 
-- Current version: 1.0.10
-- n-1 version: 1.0.9
-- n-2 version: 1.0.8
-- n-3 version: 1.0.7
+For example, if the current version is 1.0.18, then the typical n-3 supported versions are:
 
-There might be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
+- Current version: 1.0.18
+- n-1 version: 1.0.17
+- n-2 version: 1.0.16
+- n-3 version: 1.0.15
+
+There might be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month, although it's possible that delays could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 
@@ -113,3 +115,5 @@ To see the current version of an Arc resource bridge appliance, run `az arcappli
 
 - Learn about [Arc resource bridge maintenance operations](maintenance.md).
 - Learn about [troubleshooting Arc resource bridge](troubleshoot-resource-bridge.md).
+
+
