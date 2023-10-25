@@ -44,7 +44,6 @@ With the geo-replication feature, Contoso can now establish a replica in Canada 
 ![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
-
 # [Portal](#tab/Portal)
 To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
@@ -72,12 +71,17 @@ Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/detai
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
 ## Delete a replica
+# [Portal](#tab/Portal)
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 
 
 To delete a replica in the Azure portal:
 
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
+# [CLI](#tab/CLI)
+   ```azurecli
+   az signalr replica delete -g MyGroup --signalr-name mySignalRName --replica-name myReplicaName
+   ```
 
 ## Understand how the geo-replication feature works
 
