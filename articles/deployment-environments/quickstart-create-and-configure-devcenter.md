@@ -25,7 +25,7 @@ You need to perform the steps in both quickstarts before you can create a deploy
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor).
 
 ## Create a dev center
 To create and configure a Dev center in Azure Deployment Environments by using the Azure portal:
@@ -151,7 +151,15 @@ The managed identity that represents your dev center requires access to the subs
     |---------|----------|
     |**Scope**|Subscription|
     |**Subscription**|Select the subscription in which to use the managed identity.|
-    |**Role**|Owner|
+    |**Role**|Contributor|
+
+1. To give access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 1. To give access to the key vault, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
     

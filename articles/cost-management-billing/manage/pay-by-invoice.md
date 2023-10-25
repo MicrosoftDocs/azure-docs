@@ -27,9 +27,9 @@ If you signed up for Azure through a Microsoft representative, then your default
 
 When you switch to pay by wire transfer, you must pay your bill within 30 days of the invoice date by wire transfer.
 
-Users with a Microsoft Customer Agreement must always submit a request [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
+Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
 
-Customers who have a Microsoft Online Services Program (pay-as-you-go) account can use the Azure portal to [Request to pay by wire transfer](#request-to-pay-by-wire-transfer).
+Customers who have a Microsoft Online Services Program (pay-as-you-go) account can use the Azure portal to [request to pay by wire transfer](#request-to-pay-by-wire-transfer).
 
 > [!IMPORTANT]
 > * Pay by wire transfer is only available for customers using Azure on behalf of a company.
@@ -42,7 +42,7 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 ## Request to pay by wire transfer
 
 > [!NOTE]
-> Currently only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. If you are not in the United States, you must [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> Currently only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
 
 1. Sign in to the Azure portal.
 1. Navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
@@ -51,7 +51,7 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 1. On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.
 1. Depending on your approval status:
     - If you're automatically approved, the page shows a message stating that you've been approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
-    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) section.
+    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next section [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer).
 1. If you've been approved, on the Payment methods page under **Other payment methods**, to the right of **Wire transfer**, select the ellipsis (**...**) symbol and then select **Make default**.  
     You're all set to pay by wire transfer.
 
@@ -124,7 +124,7 @@ On the Payment methods page, select **Pay by wire transfer**.
 
 ### Switch billing profile to wire transfer
 
-Using the following steps to switch a billing profile to wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
+Use the following steps to switch a billing profile to wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
 
 1. Go to the Azure portal view your billing information. Search for and select **Cost Management + Billing**.
 1. In the menu, choose **Billing profiles**.  
@@ -156,6 +156,10 @@ Occasionally Microsoft needs legal documentation if the information you provided
 
 * Name difference between Account name and Company name
 * Change in name
+
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

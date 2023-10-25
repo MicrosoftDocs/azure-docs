@@ -136,7 +136,7 @@ For more information about querying, see [Overview of log queries in Azure Monit
 We recommend you to install the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by the policy name, correlation ID (the application insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you to find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C.
 
 > [!NOTE]
-> The community has developed the vs code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft, and is made available strictly as-is.
+> The community has developed the VS Code extension to help people implementing and maintaining Azure AD B2C solutions. The extension is not supported by Microsoft, and is made available strictly as-is.
 
 ### Set Application Insights API access
 
