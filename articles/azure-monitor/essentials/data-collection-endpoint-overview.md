@@ -22,7 +22,7 @@ A data collection endpoint includes components required to ingest data into Azur
 
 [How you set up endpoints for your deployment](#how-to-set-up-data-collection-endpoints-based-on-your-deployment) depends on whether your monitored resources and Log Analytics workspaces are in one or more regions.
 
-This table describes the components, related regionality considerations, and where you set the values when you create a data collection rule using the portal:
+This table describes the components of a data collection endpoint, related regionality considerations, and how to  set up the data collection endpoint when you create a data collection rule using the portal:
 
 | Component | Description | Regionality considerations |Data collection rule configuration |
 |:---|:---|:---|
