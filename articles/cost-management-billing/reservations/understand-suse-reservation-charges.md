@@ -56,7 +56,7 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 
 The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers only a portion of the software cost, which is about 77%.
 
-The ratios are based on prices. The 2.6 ratio means that 1 vCPU VM is covered when your purchase a quantity of 1 has 5 or more vCPUs.
+The ratios are based on prices. The 2.6 ratio means that 1 vCPU VM is covered when your purchase quantity of 1 has 5 or more vCPUs.
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 
