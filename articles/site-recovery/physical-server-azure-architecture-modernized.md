@@ -19,7 +19,7 @@ For information about configuration server requirements in Classic releases, s
 
 ## Architectural components
 
-The following table and graphic provide a high-level view of the components used for physical machines disaster recovery to Azure.
+The following table and graphic provide a high-level view of the components used for physical machine disaster recovery to Azure.
 
 :::image type="Modernized architecture." source="./media/physical-server-azure-architecture-modernized/architecture-modernized.png" alt-text="Screenshot of Modernized architecture.":::
 
