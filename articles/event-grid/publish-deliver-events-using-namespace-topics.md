@@ -142,13 +142,13 @@ az eventhubs eventhub create --resource-group $resourceGroup --namespace-name $e
 
 ## Add role assignment in Event Hubs for the Event Grid system managed identity
 
-Get Event Grid namespace system managed identity principal id.
+Get Event Grid namespace system managed identity principal ID.
 
 ```console
 $principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
 ```
 
-Get Event Hubs event hub resource id.
+Get Event Hubs event hub resource ID.
 
 ```console
 $eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
