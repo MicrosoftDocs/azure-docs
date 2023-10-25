@@ -1,6 +1,6 @@
 ---
-title: Bulk-delete operation for Azure Health Data Services FHIR service
-description: This article describes the bulk-delete operation for the FHIR service.
+title: Bulk-delete operation for Azure API for FHIR
+description: This article describes the bulk-delete operation for Azure API for FHIR.
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
