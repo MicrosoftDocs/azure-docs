@@ -50,7 +50,8 @@ Event Grid offers a rich mixture of features. These features include:
 - **Publish-subscribe messaging model** - communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices the standard mechanism for device authentication in the IoT industry.
+- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
+- **[AAD authentication](mqtt-client-azure-ad-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
@@ -127,7 +128,7 @@ Your own service or application publishes events to Event Grid that subscriber a
 A multi-tenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
 - [Auth0](auth0-overview.md)
-- [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Microsoft Entra ID](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
+- [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
 - [Tribal Group](subscribe-to-tribal-group-events.md)
 - [SAP](subscribe-to-sap-events.md)
 
@@ -161,7 +162,9 @@ You can configure **private links** to connect to Azure Event Grid to **publish 
 
 ## How much does Event Grid cost?
 
-Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For details on pricing, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). To learn more about the capabilities for each tier, see [Choose the right Event Grid tier](choose-right-tier.md).
+Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred to as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+
+Event Grid operations involving Namespaces and its resources, including MQTT and pull HTTP delivery operations, are in public preview and are available at no charge today.
 
 ## Next steps
 
@@ -173,7 +176,7 @@ Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For deta
 
 ### Data distribution using pull or push  delivery
 
-- [Pull delivery overview](pull-delivery-overview.md)
-- [Push delivery overview](push-delivery-overview.md)
+- [Pull delivery overview](pull-delivery-overview.md).
+- [Push delivery overview](push-delivery-overview.md).
 - [Concepts](concepts.md)
-- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md)
+- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).

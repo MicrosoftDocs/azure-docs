@@ -50,7 +50,7 @@ Before using this feature, you need to configure the namespace to allow multiple
 
 #### Connection flow:
 The CONNECT packets for each session should include the following properties:
-- Provide the Username property in the CONNECT packet to signify your client authentication name
+- Provide the Username property in the CONNECT packet to signify your client authentication name.
 - Provide the ClientID property in the CONNECT packet to signify the session name such as there are one or more values for the ClientID for each Username.
 
 For example, the following combinations of Username and ClientIds in the CONNECT packet enable the client "Mgmt-application" to connect to Event Grid over three independent sessions:
@@ -71,9 +71,9 @@ For more information, see [How to establish multiple sessions for a single clien
 
 #### Handling sessions:
 
-- If a client tries to take over another client's active session by presenting its session name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected.
-- If a client resource is deleted without ending its session, other clients can't use its session name until the session expires. For example, If client B creates a session with session name 123 then client B deleted, client A can't connect to session 123 until it expires.
-
+- If a client tries to take over another client's active session by presenting its session name with a different authentication name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected. That being said, if the same client tries to reconnect with the same session names and the same authentication name, it is able to take over its existing session.
+- If a client resource is deleted without ending its session, other clients can't use its session name until the session expires. For example, If client B creates a session with session name 123 then client B gets deleted, client A can't connect to session 123 until it expires.
+- The limit for the number of sessions per client applies to online and offline sessions at any point in time. For example, consider a namespace with the maximum client sessions per authentication name is set to 1. If client A connects with a persistent session 123 then gets disconnected, client A won't be able to connect with a new session 456 since its session 123 is still active even if it's offline. Accordingly, we recommend that the same client always reconnects with the same static session names as opposed to generating a new session name with every reconnect.
 
 ## MQTT features
 Event Grid supports the following MQTT features:
