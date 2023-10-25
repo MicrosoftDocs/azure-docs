@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 
 # Custom tool package creation and usage (preview)
 
-When developing flows, you can not only use the built-in tools provided by Prompt flow, but also develop your own custom tool. In this document, we'll guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
+When developing flows, you can not only use the built-in tools provided by Prompt flow, but also develop your own custom tool. In this document, we guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
 
 After successful installation, your custom "tool" can show up in the tool list:
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui.png" alt-text="Screenshot of custom tools in the UI tool list."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui.png":::
@@ -25,17 +25,17 @@ After successful installation, your custom "tool" can show up in the tool list:
 
 ## Create your own tool package
 
-Your tool package should be a python package. To develop your custom tool, please follow the steps **Create your own tool package** and **build and share the tool package** in [Create and Use Tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). You can also [Add a tool icon](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/add-a-tool-icon.html) and [Add Category and tags](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/add-category-and-tags-for-tool.html) for your tool.
+Your tool package should be a python package. To develop your custom tool, follow the steps **Create your own tool package** and **build and share the tool package** in [Create and Use Tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). You can also [Add a tool icon](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/add-a-tool-icon.html) and [Add Category and tags](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/add-category-and-tags-for-tool.html) for your tool.
 
 ## Prepare runtime
 
-To add the custom tool to your tool list, it's necessary to create a runtime, which is based on a customized environment where your custom tool is pre-ginstalled. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example to prepare the runtime.
+To add the custom tool to your tool list, it's necessary to create a runtime, which is based on a customized environment where your custom tool is preginstalled. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example to prepare the runtime.
 
 ### Create customized environment
 
 1. Create a customized environment with docker context.
 
-   1. Create a customized environment in Azure Machine Learning studio by going to **Environments**  then select **Create**. In the settings tab under *Select environment source*, choose " Create a new docker content".
+   1. Create a customized environment in Azure Machine Learning studio by going to **Environments**  then select **Create**. In the settings tab under *Select environment source*, choose " Create a new docker content."
 
        Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
 
@@ -50,12 +50,12 @@ To add the custom tool to your tool list, it's necessary to create a runtime, wh
 
          :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png":::
     
-       It will take several minutes to create the environment. After it succeeded, you can copy the Azure Container Registry (ACR) from environment detail page for the next step.
+       It takes several minutes to create the environment. After it succeeded, you can copy the Azure Container Registry (ACR) from environment detail page for the next step.
 
 ### Prepare compute instance runtime
 
 1. Create a compute instance runtime using the customized environment created in step 2.
-    1. Create a new compute instance. Existing compute instance created long time ago may hit unexpected issue.
+    1. Create a new compute instance. Existing compute instance created long time ago can possibly hit unexpected issue.
     2. Create runtime on CI with customized environment.
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png":::
@@ -70,7 +70,7 @@ To add the custom tool to your tool list, it's necessary to create a runtime, wh
 ## Test from VS Code extension
 
 1. Install Prompt flow for VS Code extension
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png" alt-text="Screenshot of Prompt flow VS code extension."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png":::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png" alt-text="Screenshot of Prompt flow VS Code extension."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png":::
 2. Go to terminal and install your tool package in conda environment of the extension. Assume your conda env name is `prompt-flow`.
 
    ```sh
@@ -78,7 +78,7 @@ To add the custom tool to your tool list, it's necessary to create a runtime, wh
    (prompt-flow) PS D:\projects\promptflow\tool-package-quickstart> pip install .\dist\my_tools_package-0.0.1-py3-none-any.whl
    ```
 
-3. Go to the extension and open one flow folder. Select 'flow.dag.yaml' and preview the flow. Next, select `+` button and you'll see your tools. You need to **reload the windows** to clean previous cache if you don't see your tool in the list.
+3. Go to the extension and open one flow folder. Select 'flow.dag.yaml' and preview the flow. Next, select `+` button and you can see your tools. You need to **reload the windows** to clean previous cache if you don't see your tool in the list.
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png" alt-text="Screenshot of the VS Code showing the tools." lightbox ="./media/how-to-custom-tool-package-creation-and-usage/auto-list-tool-in-extension.png":::
 
@@ -100,13 +100,13 @@ You can test your tool package using the following script to ensure that you've 
           test()
       ```
 
-  3. Run this script in your conda environment. This will return the metadata of all tools installed in your local environment, and you should verify that your tools are listed.
+  3. Run this script in your conda environment. It returns the metadata of all tools installed in your local environment, and you should verify that your tools are listed.
 - If you're using runtime with CI, try to restart your container with command `docker restart <container_name_or_id>` to see if the issue can be resolved.
 
 ### Why am I unable to upload package to PyPI?
 
 - Make sure that the entered username and password of your PyPI account are accurate.
-- If you encounter a `403 Forbidden Error`, it's likely due to a naming conflict with an existing package. You'll need to choose a different name. Package names must be unique on PyPI to avoid confusion and conflicts among users. Before creating a new package, it's recommended to search PyPI (https://pypi.org/) to verify that your chosen name isn't already taken. If the name you want is unavailable, consider selecting an alternative name or a variation that clearly differentiates your package from the existing one.
+- If you encounter a `403 Forbidden Error`, it's likely due to a naming conflict with an existing package. You need to choose a different name. Package names must be unique on PyPI to avoid confusion and conflicts among users. Before creating a new package, it's recommended to search PyPI (https://pypi.org/) to verify that your chosen name isn't already taken. If the name you want is unavailable, consider selecting an alternative name or a variation that clearly differentiates your package from the existing one.
 
 ## Next steps
 
