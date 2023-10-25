@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
+This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the Windows Cloud Login resource app. This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
 
 For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
 
@@ -49,10 +49,6 @@ Clients currently supported:
 
 Before enabling single sign-on, review the following information for using SSO in your environment.
 
-### Allow remote desktop connection dialog
-
-When enabling single sign-on, you'll currently be prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
-
 ### Disconnection when the session is locked
 
 When SSO is enabled, you sign in to Windows using a Microsoft Entra authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Microsoft Entra authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected.
@@ -75,7 +71,42 @@ To allow these admin accounts to connect when single sign-on is enabled:
 
 ## Enable single sign-on
 
-To enable single sign-on in your environment, you must first create a Kerberos Server object, then configure your host pool to enable the feature.
+To enable single sign-on in your environment, you must:
+
+1. Enable Microsoft Entra authentication.
+1. Configure the target device groups.
+1. Create a Kerberos Server object.
+1. Configure your host pool to enable single sign-on.
+
+### Enable Microsoft Entra authentication
+
+Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens for the Windows Cloud Login app (App ID 270efc09-cd0d-444b-a71f-39af4910ec45) to enable users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the Windows Cloud Login service principal's remoteDesktopSecurityConfiguration object.
+
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration?view=graph-rest-beta) and set the **isRemoteDesktopProtocolEnabled** to "true" to enable Microsoft Entra authentication.
+
+> [!IMPORTANT]
+> If you are using the following client versions, you need to configure the same properties on the Microsoft Remote Desktop service principal (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
+> 
+> XYZ client.
+
+### Configure the target device groups
+
+By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
+
+To provide single sign-on for all connections, you can hide this dialog by configuring a list of trusted devices. This is done by adding one or more Device Groups containing Azure Virtual Desktop session hosts to a property on the Windows Cloud Login service principal in your Microsoft Entra tenant. 
+
+Follow these steps to hide the dialog:
+
+1. Create a Device Group in Microsoft Entra containing the devices to hide the dialog for.
+    > [!TIP]
+    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use Extension attributes.
+1. The Device Group ID will be needed for a step below.
+1. Use the [Microsoft Graph API](/graph/use-the-api) to [create targetDeviceGroup](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-beta).
+
+> [!IMPORTANT]
+> If you are using the following client versions, you need to configure the same properties on the Microsoft Remote Desktop service principal (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
+> 
+> XYZ client.
 
 ### Create a Kerberos Server object
 
