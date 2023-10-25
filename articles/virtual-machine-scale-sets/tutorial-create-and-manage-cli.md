@@ -40,7 +40,6 @@ You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode flexible \
   --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -155,7 +154,6 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image <SKU image> \
-  --orchestration-mode flexible \
   --vm-sku Standard_F1 \
   --admin-user azureuser \
   --generate-ssh-keys
