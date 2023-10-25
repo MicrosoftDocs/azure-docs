@@ -119,7 +119,7 @@ As an alternative to VS Code (Web), you can run the copilot sample in Codespaces
 
 - For Prompt flow specific capabilities that aren't present in the Azure AI SDK and CLI, you can work directly with the Prompt flow CLI, SDK, or VS Code extension (that are all preinstalled in the VS Code (Web) environment). For more information about prompt flow, see [Prompt flow reference](https://microsoft.github.io/promptflow/reference/index.html).
 
-- To work with a split root file explorer for your repositories, follow these steps:
+- If you plan to work across multiple code and data directories, or multiple repositories, you can use the split root file explorer feature in VS Code. To try this out, follow these steps:
     1. Enter *Ctrl+Shift+p* to open the command palette. Search for and select **Workspaces: Add Folder to Workspace**.
     1. Select the repository folder that you want to load. You should see a new section in your file explorer for the folder you opened. If it was a repository, you can now work with source control in VS Code.
     1. If you want to save this configuration for future development sessions, again enter *Ctrl+Shift+p* and select **Workspaces: Save Workspace As**. This action saves a config file to your current folder.
