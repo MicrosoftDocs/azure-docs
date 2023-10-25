@@ -28,7 +28,6 @@ Bulk delete operation is currently in public preview. Review disclaimer below fo
 Bulk-Delete operation requires two header parameters  
 * Accept: application/fhir+json
 * Prefer: respond-async
-` is an operation that allows you to delete the history of a single Fast Healthcare Interoperability Resources (FHIR&#174;) resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
 
 ## Query Parameters
 Query parameters allow you to filter raw resources you intend to delete. To support filtering, FHIR service query parameters are: 
