@@ -1,25 +1,25 @@
 ---
 title: Connect an OPC UA server
-description: How to connect an OPC UA server to Azure IoT OPC UA Broker (preview)
+description: How to connect an OPC UA server to Azure IoT OPC UA Broker Preview
 author: timlt
 ms.author: timlt
 # ms.subservice: opcua-broker
 ms.topic: how-to 
-ms.date: 10/23/2023
+ms.date: 10/24/2023
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to connect an OPC UA server to 
 # Azure IoT OPC UA Broker. This enables OPC UA servers in my solution to exchange data with my cluster.
 ---
 
-# Connect an OPC UA server to Azure IoT OPC UA Broker (preview)
+# Connect an OPC UA server to Azure IoT OPC UA Broker Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to connect an OPC UA server to Azure IoT OPC UA Broker (preview). You can then start to use OPC UA Broker to define and manage OPC UA assets.
+In this article, you learn how to connect an OPC UA server to Azure IoT OPC UA Broker Preview. You can then start to use OPC UA Broker to define and manage OPC UA assets.
 
 ## Prerequisites
 
-- Install OPC UA Broker. For more information, see [Install Azure IoT OPC UA Broker (preview) by using helm](howto-install-opcua-broker-using-helm.md).
+- Install OPC UA Broker. For more information, see [Install Azure IoT OPC UA Broker by using helm](howto-install-opcua-broker-using-helm.md).
 
 ## Features supported
 
@@ -86,7 +86,7 @@ The following types of secrets are supported:
 A Kubernetes Secret is structured as a dictionary holding multiple key-value pairs. Each key-value pair stores the sensitive data in the value.
 The same approach applies to CSI secrets, they contain sensitive credentials in the form of key-value pairs.
 
-OPC UA Broker only uses references to secrets and doesn't directly use sensitive values. The type of secrets that OPC UA Broker should reference is specified at deployment time in the `secrets.kind` configuration parameter. For more information, see [Install Azure IoT OPC UA Broker (preview) by using helm](howto-install-opcua-broker-using-helm.md).
+OPC UA Broker only uses references to secrets and doesn't directly use sensitive values. The type of secrets that OPC UA Broker should reference is specified at deployment time in the `secrets.kind` configuration parameter. For more information, see [Install Azure IoT OPC UA Broker by using helm](howto-install-opcua-broker-using-helm.md).
 
 OPC UA Broker supports two types of references to secrets:
 
