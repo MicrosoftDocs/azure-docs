@@ -21,7 +21,7 @@ This section answers generic questions about Azure NetApp Files application volu
 Manual QoS capacity pool provides the best balance between capacity and throughput to fit the database needs. It avoids over-provisioning to reach the performance of, for example, the log volume or data volume. It can also reserve larger space for log-backups while keeping the performance to a value that suits your needs. Overall, using manual QoS capacity pool results in a cost advantage.
 
 > [!NOTE]
-> Only manual QoS capacity pools will be displayed in the list to select from.
+> During application volume group creation only manual QoS capacity pools will be displayed in the list to select from.
 
 ### Can I clone a volume created with application volume group? 
 
@@ -34,11 +34,11 @@ Yes, you can clone a volume created by the application volume group. You can do 
 
 ### How long does it take to create a volume group?
 
-Creating a volume group involves many different steps, and not all of them can be done in parallel. Especially when you create the first volume group for a given location, it might take 9-12 minutes for completion. Subsequent volume groups will be created faster.
+Creating a volume group involves many different steps, and not all of them can be done in parallel. Especially when you create the first volume group for a given location, it might take 9-12 minutes for completion. Subsequent volume groups should take less time to create.
 
 ### The deployment failed and not even a single volume was created. Why is that?
 
-This is normal behavior. Application volume group will provision the volumes in an atomic fashion and roll back the deployment in case one of the components fails to deploy. Deployment typically fails because the given location doesn’t have enough available resources to accommodate your requirements. Also check the deployment log for details and correct the capacity pool configuration where needed.
+This is normal behavior. Application volume group will provision the volumes in an atomic fashion and roll back the deployment in case one of the components fails to deploy. Deployment typically fails because the given location doesn’t have enough available resources to accommodate your requirements. Check the deployment log for details and correct the capacity pool configuration where needed.
 
 ### Why can’t I edit the volume group description?
 
@@ -46,7 +46,7 @@ In the current implementation, the application volume group has a focus on the i
 
 ### What snapshot policy should I use for my database volumes? 
 
-You can use products such as [AzAcSnap](azacsnap-introduction.md) or CommVault for an application-consistent backup for your database environment. You can't use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection.
+You can use products such as [AzAcSnap](azacsnap-introduction.md) or Commvault for an application-consistent backup for your database environment. You can't use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection.
 
 General recommendations for snapshots in a database environment are as follows:
 
@@ -59,7 +59,7 @@ This section answers questions about Azure NetApp Files application volume group
 
 ### The mount instructions of a volume include a list of IP addresses. Which IP address should I use?
 
-Application volume group ensures that data and log volumes for one host always have separate storage endpoints with different IP addresses to achieve best performance. To host your data, log and shared volumes across the Azure NetApp Files storage resources up to six storage endpoints can be created per used Azure NetApp Files storage resource. For this reason, it's recommended to size the delegated subnet accordingly. See [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It's recommended to always use the first IP address.
+Application volume group ensures that data and log volumes for one host always have separate storage endpoints with different IP addresses to achieve best performance. To host your data, log and shared volumes across the Azure NetApp Files storage resources, up to six storage endpoints can be created per used Azure NetApp Files storage resource. For this reason, it's recommended to size the delegated subnet accordingly. See [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It's recommended to always use the first IP address.
 
 ### Can I use `nconnect` as a mount option?
 
@@ -72,7 +72,7 @@ When you use the `nconnect` mount option, the read limit is up to 4500 MiB/s (se
 
 ### Why is the `hostid` (for example, 00001) added to my names even when I've removed the `{Hostid}` placeholder?  
 
-Application volume group requires the placeholder `{Hostid}` to be part of the names. If it’s removed, the `hostid` is automatically added to the provided string.
+Application volume group requires the placeholder `{Hostid}` to be part of the names. If removed, the `hostid` is automatically added back to the provided string.
 
 You can see the final names for each of the volumes after selecting **Review + Create**.
 
@@ -86,21 +86,21 @@ For optimal sizing, it's important to size for the complete landscape including 
 
 ### I received a warning message `"Not enough pool capacity"`. What can I do? 
 
-Application volume group calculates the capacity and throughput demand of all volumes based on your input of the HANA memory. When you select the capacity pool, it immediately checks if there's enough space or throughput left in the capacity pool. 
+Application volume group calculates the capacity and throughput demand of all volumes based on your input of the HANA memory. When you select the capacity pool, it immediately checks if there's enough space and throughput left in the capacity pool. 
 
 At the initial **SAP HANA** screen, you can ignore this message and continue with the workflow by clicking the **Next** button. And you can later adapt the proposed values for each volume individually so that all volumes fit into the capacity pool. This error message reappears when you change each individual volume until all volumes fit into the capacity pool.
 
-You might also want to increase the size of the pool to avoid this warning message.
+You may want to increase the size of the pool to avoid this warning message.
 
 ### How can I understand how to size my system or my overall system landscape?
 
 Contact an SAP Azure NetApp Files sizing expert to help you plan the overall SAP system sizing. 
 
-Important information you need to provide for each of the systems include the following items: SID, role (production, Dev, pre-prod/QA), HANA memory, Snapshot reserve in percentage, number of days for local snapshot retention, number of file-based backups, single-host/multiple-host with the number of hosts, and HSR (primary, secondary).
+Important information you need to provide for each of the systems include the following items: SID, role (production, dev, pre-prod/QA), HANA memory, Snapshot reserve in percentage, number of days for local snapshot retention, number of file-based backups, single-host/multiple-host with the number of hosts, and HSR (primary, secondary).
 
-You can use the [SAP HANA sizing estimator](https://azure.github.io/azure-netapp-files/sap-calc/) to optimize the sizing process. 
+You can use the [SAP HANA sizing estimator](https://aka.ms/anfsapcalc) to optimize the sizing process. 
 
-If you know your systems (from running HANA before), you can provide your data instead of these generic assumptions. 
+If you know your systems (from running HANA before), you can provide manually your data instead of these generic assumptions. 
 
 ### Can I use the new SAP HANA feature of multiple partitions?
 
@@ -109,8 +109,8 @@ Application volume group for SAP HANA wasn't built with a dedicated focus on mul
 The basics for multiple partitions are as follows:  
 
 * Multiple partitions mean that a single SAP HANA host is using more than one volume to store its persistence. 
-* Multiple partitions need to mount on a different path. For example, the first volume is on `/hana/data/SID/mnt00001`, and the second volume needs a different path (`/hana/data2/SID/mnt00001`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA_MNT00001; SID_DATA2_MNT00001, ...`.
-* Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should only use 50% of the memory. For three partitions, you should use 1/3 of the memory, and so on. 
+* Multiple partitions need to mount on different paths. For example, the first volume is on `/hana/SID/data/mnt00001`, and the second volume needs a different path (`/hana/SID/data2/mnt00002`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA1_MNT00001; SID_DATA2_MNT00002, ...`.
+* Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should only use 50% of the memory. For three partitions, you should use 33% of the memory, and so on. 
 
 For each host and each partition you want to create, you need to rerun application volume group for SAP HANA. And you should adapt the naming proposal to meet the above recommendations.
 
@@ -118,7 +118,7 @@ For more details about this topic, see [Using Azure NetApp Files AVG for SAP HAN
 
 ### What are the rules behind the proposed throughput for my HANA data and log volumes?
 
-SAP defines the Key Performance Indicators (KPIs) for the HANA data and log volume as 400 MiB/s for the data and 250 MiB/s for the log volume. This definition is independent of the size or the workload of the HANA database. Application volume group scales the throughput values in a way that even the smallest database meets the SAP HANA KPIs, and larger database benefits from a higher throughput level, scaling the proposal based on the entered HANA database size.
+SAP defines the Key Performance Indicators (KPIs) for the HANA volumes as 400 MiB/s for the data and 250 MiB/s for the log volume. This definition is independent of the size or the workload of the HANA database. Application volume group scales the throughput values in a way that even the smallest database meets the SAP HANA KPIs, and larger database benefits from a higher throughput level, scaling the proposal based on the entered HANA database size.
 
 The following table describes the memory range and proposed throughput ***for the HANA data volume***:
 
@@ -130,15 +130,15 @@ The following table  describes the memory range and proposed throughput ***for t
 
 Higher throughput for the database volume is most important for the database startup of larger databases when reading data into memory. At runtime, most of the I/O is write I/O, where even the KPIs show lower values. User experience shows that, for smaller databases, HANA KPI values may be higher than what’s required for most of the time. 
 
-Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs for normal operation.  
+Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs during normal operation.  
 
 ### Will all the volumes be provisioned in close proximity to my SAP HANA servers?
 
-Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, the backup volumes are placed on a different storage location inside the region that has sufficient space and throughput available.
+Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, application volume group places the backup volumes on a different storage location inside the region that has sufficient space and throughput available.
 
 ### What is the relationship between AVset, VM, PPG, and Azure NetApp Files volumes? 
 
-A PPG needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to AVG to search for Azure NetApp Files resources in the very same data center. This setting only works when at least ONE VM in the PPG is started. Typically, you can add your database servers to the PPG.
+A proximity placement group (PPG) needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to application volume group to search for Azure NetApp Files resources in the very same data center. This setting only works when at least ONE VM in the PPG is started. Typically, you can add your database servers to the PPG.
 
 PPGs have the side effect that if all VMs are shut down, a following restart of VMs DOES NOT guarantee that they will start in the same data center as before. To prevent this situation from happening, it's strongly recommended to use an AVset where all VMs and the PPG are associated to and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs aren't moving if restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available. 
 
@@ -151,7 +151,7 @@ No. This scenario is currently one of the very few cases where you need to manua
 
 ### I want to create the data-backup volume for not only a single instance but for more than one SAP HANA database. How can I do this?
 
-Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using the standard volume provisioning and selecting the proper capacity and throughput that meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
+Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using standard volume provisioning and selecting the proper capacity and throughput that meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
 
 
 ## FAQs about application volume group for Oracle
@@ -170,7 +170,7 @@ Important information you need to provide for sizing each of the volumes include
 
 ### The mount instructions of a volume include a list of IP addresses. Which IP address should I use for Oracle?
 
-Application volume group ensures that data, log, mirror log and backup volumes have separate storage endpoints with different IP addresses to achieve best performance. Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It's recommended to always use the first IP address.
+Application volume group ensures that data, redo log, archive log and backup volumes have separate storage endpoints with different IP addresses to achieve best performance. Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It's recommended to always use the first IP address.
 
 ### What version of NFS should I use for my Oracle volumes?
 
@@ -180,7 +180,7 @@ To achieve best performance for large databases, we recommend using dNFS at the 
 
 ### What snapshot policy should I use for my Oracle volumes?
 
-This question isn't directly related to application volume group for Oracle. As a short answer, you can use products such as AzAcSnap or CommVault for an application-consistent backup for your Oracle databases. You **cannot** use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection of your Oracle database.
+This question isn't directly related to application volume group for Oracle. You can use products such as AzAcSnap or Commvault for an application-consistent backup for your Oracle databases. You **cannot** use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection of your Oracle database.
 
 General recommendations for snapshots in an Oracle environment are as follows:
 
