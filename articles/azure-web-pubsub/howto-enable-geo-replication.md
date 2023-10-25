@@ -61,7 +61,61 @@ After creation, you would be able to view/edit your replica on the portal by cli
    ```
 
 # [Bicep](#tab/Bicep)
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/azure-web-pubsub/main.bicep":::
+
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
+
+```bicep
+@description('The name for your Web PubSub service.')
+param primaryName string = 'contoso'
+
+@description('The region in which to create the webpubsub instance')
+param primaryLocation string = 'eastus'
+
+@description('Unit count')
+param primaryCapacity int = 1
+
+resource primary 'Microsoft.SignalRService/webpubsub@2023-08-01-preview' = {
+  name: primaryName
+  location: primaryLocation
+  sku: {
+    capacity: primaryCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+  }
+}
+
+@description('The name for your Web PubSub replica.')
+param replicaName string = 'contoso-westus'
+
+@description('The region in which to create the replica')
+param replicaLocation string = 'westus'
+
+@description('Unit count of the replica')
+param replicaCapacity int = 1
+
+@description('Whether to enable region endpoint for the replica')
+param regionEndpointEnabled string = 'Enabled'
+
+resource replica 'Microsoft.SignalRService/webpubsub/replicas@2023-08-01-preview' = {
+  parent: primary
+  name: replicaName
+  location: replicaLocation
+  sku: {
+    capacity: replicaCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+    regionEndpointEnabled: regionEndpointEnabled
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI 
+   ```azurecli
+   az group create --name exampleRG --location eastus
+   az deployment group create --resource-group exampleRG --template-file main.bicep
+   ```
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
