@@ -87,7 +87,7 @@ The following list presents the set of features that are currently available for
 
 | Group of features          | Capability                             | Public preview | General availability |
 |----------------------------|----------------------------------------|----------------|----------------------|
-| DTMF Support in ACS UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
+| DTMF Support in Azure Communication Services UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
 | Teams Capabilities         | Audio and video                        | ✔️              | ✔️                    |
 |                            | Screen sharing                         | ✔️              | ✔️                    |
 |                            | Record the call                        | ✔️              | ✔️                    |
