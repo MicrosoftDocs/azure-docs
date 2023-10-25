@@ -173,7 +173,7 @@ To perform these tasks, you need either the 'Owner' or 'User Access Administrato
 
 In prior steps, you created a Managed Identity labeled identity-for-nginx-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Follow the steps in the next sections to grant the identity the 'Contributor' role over the Publisher Resource Group and the Managed Identity Operator role over itself. Through this identity, the Site Network Service (SNS) attains the required permissions.
 
-### Grant Contributor role over published Resource Group to Managed Identity
+### Grant Contributor role over publisher Resource Group to Managed Identity
 
 1. Access the Azure portal and open the Publisher Resource Group created when publishing the Network Function Definition.
 
