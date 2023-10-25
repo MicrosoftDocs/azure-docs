@@ -63,11 +63,11 @@ Typically the size of a log is 15-20 KB.
 
 ## Built-in Azure Monitor alerts for Azure Site Recovery
 
-### Is there any cost for using built-in Azure Monitor alerts for ASR? 
+### Is there any cost for using built-in Azure Monitor alerts for Azure Site Recovery? 
 
 With built-in Azure Monitor alerts, alerts for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-### Will the current email notification solution for ASR in Recovery Services vault continue to work? 
+### Will the current email notification solution for Azure Site Recovery in Recovery Services vault continue to work? 
 
 As of today, the current email notification solution co-exists in parallel with the new built-in Azure Monitor alerts solution. we recommend you to try out the Azure Monitor based alerting to familiarize yourself with the new experience and leverage its capabilities.
 

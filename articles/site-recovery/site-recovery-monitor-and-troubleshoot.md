@@ -130,7 +130,7 @@ Monitor jobs as follows:
     > [!NOTE]
     > You can also access job information from the vault menu > **Site Recovery Jobs**. 
 
-2. In the **Site Recovery Jobs** list, a list of jobs is displayed. On the top menu you can get error details for a specific jobs, filter the jobs list based on specific criteria, and export selected job details to Excel.
+2. In the **Site Recovery Jobs** list, a list of jobs is displayed. On the top menu you can get error details for a specific job, filter the jobs list based on specific criteria, and export selected job details to Excel.
 3. You can drill into a job by selecting it. 
 
 ## Monitor virtual machines
@@ -181,7 +181,7 @@ To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particula
 > [!NOTE]
 > We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-registration.png" alt-text="Screenshot displays feature flag to register for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-registration.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png" alt-text="Screenshot displays feature flag to register for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png":::
 
 ### Alerts scenarios
 
@@ -206,7 +206,7 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 3.	Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-portal-view-azmon.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
 
 ### View the generated Azure Site Recovery alerts in Recovery Services vault
 
@@ -217,7 +217,7 @@ Follow these steps to view the alerts generated for a particular vault via the v
 3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-portal-view-vault.png" alt-text="Screenshot displays alerts via Recovery Services vault in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-asr-alert-portal-view-vault.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png" alt-text="Screenshot displays alerts via Recovery Services vault in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png":::
 
 ### Configure email notifications for alerts
 
@@ -227,7 +227,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
  
 1.	Go to **Azure Monitor** > **Alerts** and select **Alert processing rules** on the top pane.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-asr-button.png" alt-text="Screenshot displays alert processing rules option in Azure Monitor." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-asr-button.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png" alt-text="Screenshot displays alert processing rules option in Azure Monitor." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png":::
 
 2.	Select **Create**.
 
@@ -279,7 +279,7 @@ You can use the following interfaces supported by Azure Monitor to manage action
 
 ### Suppress notifications during a planned maintenance window
 
-There might be scenarios like maintenance windows during which Azure Site Recovery operations are expected to fail. If you have a requirement to suppress notifications during such periods, you can setup a suppression alert processing rule to run for a specific period.
+There might be scenarios like maintenance windows during which Azure Site Recovery operations are expected to fail. If you have a requirement to suppress notifications during such periods, you can set up a suppression alert processing rule to run for a specific period.
 
 To create a suppression alert processing rule, use the same process followed for creating a notification-based alert processing rule described in the earlier section, with the following differences:
 
