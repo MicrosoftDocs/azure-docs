@@ -29,7 +29,7 @@ What are those Native capabilities?
 Microsoft has provided Integration with Mainframes and Midranges since 1990 with Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server in 2000. 
 While it started as an SNA Gateway, it then expanded to include IBM’s data stores (DB2, VSAM, Informix), IBM’s transaction systems (CICS, IMS, IBMi) and IBM’s messaging (MQ Series). Our strategic customers have been using these technologies for more than 20 years. To allow our customers running applications and data on Azure to leverage these technologies, those capabilities have been gradually incorporated into Azure Logic Apps and our Visual Studio Designers: Microsoft HIS Designer for logic Apps and the Microsoft 3270 Design Tool.
 
-   :::image type="content" source="media/la-mainframe-midranges/la-mainframe-modernization" alt-text="Cloud native capabilities for mainframe integration":::
+   :::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Cloud native capabilities for mainframe integration":::
 
 The following are our capabilities for Mainframe and Midrange integration:
 
@@ -83,7 +83,7 @@ There are multiple ways to conduct Mainframe modernization. The most common ones
 Big Bang approaches are typically chosen by organizations focused on locking time, scope of migration, and resources. While this sounds positive, the risks associated with this approach are that as these migrations can take months or even years, what was analyzed at the beginning of the migration journey, during planning, is no longer accurate as it is usually outdated. Also, as these organizations typically focus on having comprehensive documentation to reduce risks for delivery, the time spent on providing planning artifacts causes exactly the opposite effect. Focusing on planning more than executing tends to create delays in execution, causing increased costs in the long run.
 A typical Big Bang Migration starts with a Kickoff in an Envisioning phase, then a Planning phase where planning deliverables are prepared and then once they are approved, the building phase begins. The Building phase expects that all work for dependencies has been identified and Migration activities can begin. Once this occurs, there will be multiple iterations to complete the migration work.
 
-   :::image type="content" source="media/la-mainframe-midranges/la-waterfall-mainframe" alt-text="Big Bang migration":::
+   :::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Big Bang migration":::
 
 After the Building phase is completed, the Stabilizing or Testing phase begins where the Migrated environment, dependencies and applications are tested against the Mainframe environment test regions. Once all of this is approved, it moves to the Deploy phase where a Go Live occurs.
 
@@ -92,11 +92,11 @@ After the Building phase is completed, the Stabilizing or Testing phase begins w
 Agile Waves are results oriented and focused on building software and not planning deliverables. While the first stages of an Agile delivery may be chaotic and complex for the organizational barriers that need to break, once the migration team has matured after a few sprints of execution, it becomes smoother. The goal is to release features to production frequently and provide business value sooner than with a Big Bang approach.
 A Sprint zero (0) is designed to define the team, an initial Backlog of work and core dependencies to begin work. Features are defined and a Minimum Viable Product is defined as well. Mainframe readiness is kicked off at this stage and with a defined set of work items (user stories) the work begins.
 
-   :::image type="content" source="media/la-mainframe-midranges/la-mainframe-waves" alt-text="Mainframe Migration waves":::
+   :::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Mainframe Migration waves":::
 
 Each Sprint will have a Sprint Goal. The team should have a shipping mindset. In other words, the focus will be on completing migration goals and release them to production. A group of sprints will be used to deliver a specific Feature or Wave of Features. Each Feature will include slices of Integration workloads.
 
-   :::image type="content" source="media/la-mainframe-midranges/la-mainframe-streams" alt-text="Mainframe migration waves per streams":::
+   :::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Mainframe migration waves per streams":::
 
 As pointed out before, there are shared elements that have impact across the entire environments, such as Jobs and Interdependencies. A successful strategy focuses on a partial enablement of Jobs and re-architecture of the applications to be modernized and leaves the systems with most interdependencies at the end of the modernization effort, to reduce the size of the migration work first and then complete the scope of the modernization.
 
@@ -111,13 +111,13 @@ While there are multiple Design and Implementation Patterns, there are two that 
 Regardless of the selected Modernization Approach, you will need to implement an “Anticorruption layer” using Azure Logic Apps. In other words, Azure Logic Apps will become the façade or adapter layer between the Mainframe legacy system and Azure systems. For this approach to be effective, we recommend identifying the Mainframe workloads to Integrate/coexist (Mainframe Integration Workloads) and create a strategy per Integration workload. An Integration workload is the set of Interfaces that need to be enabled because of the migration of a Mainframe Application. For more information on this pattern, visit this location:
 https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer 
 
-   :::image type="content" source="media/la-mainframe-midranges/la-anti-corruption-pattern" alt-text="Anticorruption layer":::
+   :::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Anticorruption layer":::
 
 ### Strangler Fig Pattern
 
 Once you have an Anticorruption Layer, modernization will be progressive. For that you need to use the Strangler Fig  pattern. For instance, if you decide to modernize a CICS application, you will have to modernize not only the CICS Programs but most likely 3270 Applications along with their corresponding data and Jobs. As you modernize workloads, you will start “strangling the monolith”. This expression is used when the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it. For more information on this pattern, visit here: https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig 
 
-   :::image type="content" source="media/la-mainframe-midranges/la-strangler-fig-pattern" alt-text="Strangler fig pattern":::
+   :::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Strangler fig pattern":::
 
 ## Related content
 
