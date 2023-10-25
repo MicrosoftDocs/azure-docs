@@ -8,7 +8,7 @@ ms.author: wchi
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package Azure.Data.Tables
     ```
@@ -44,7 +44,7 @@ ms.author: wchi
 
 
 ### [Python](#tab/python)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     pip install azure-data-tables
     ```
@@ -59,7 +59,7 @@ ms.author: wchi
 
 
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     npm install @azure/data-tables
     ```
