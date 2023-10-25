@@ -41,7 +41,8 @@ This article introduces you to Security Copilot and includes sample prompts that
 
 - Security Copilot saves your prompt sessions. To see the previous sessions, in Security Copilot, go to the menu > **My investigations**:
 
-  :::image type="content" source="/media/copilot-1.png" alt-text="Screenshot that shows the Microsoft Security Copilot menu and My investigations with previous sessions.":::
+![Screenshot that shows the Microsoft Security Copilot menu and My investigations with previous sessions.](media/copilot-1.png)
+
 
   For a walkthrough on Security Copilot, including the pin and share feature, go to [Navigating Microsoft Security Copilot](/security-copilot/navigating-security-copilot).
 
@@ -52,7 +53,8 @@ For more information on writing Security Copilot prompts, go to [Microsoft Secur
 1. Go to [Microsoft Security Copilot](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
 2. By default, Defender EASM should be enabled. To confirm, select **plugins** (bottom left corner):
 
-    :::image type="content" source="/media/copilot-2.png" alt-text="Screenshot that shows the plugins that are available, enabled, and disabled in Microsoft Security Copilot.":::
+    ![Screenshot that shows the plugins that are available, enabled, and disabled in Microsoft Security Copilot.](media/copilot-2.png)
+
 
     In **My plugins**, confirm Defender EASM is on. Close **Plugins**.
 
@@ -117,7 +119,7 @@ Get information about **domain and SSL certificate posture**, like expire domain
 
 Your feedback on the Defender EASM integration with Security Copilot helps with development. To provide feedback, in Security Copilot, use the feedback buttons at the bottom of each completed prompt:
 
-:::image type="content" source="/media/copilot-3.png" alt-text="Screenshot that shows how to submit feedback on the prompt results in Microsoft Security Copilot.":::
+![Screenshot that shows how to submit feedback on the prompt results in Microsoft Security Copilot.](media/copilot-3.png)
 
 Your options:
 
