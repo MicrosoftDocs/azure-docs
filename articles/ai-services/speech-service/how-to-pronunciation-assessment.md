@@ -18,7 +18,9 @@ zone_pivot_groups: programming-languages-speech-sdk
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 > [!NOTE]
-> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
+> As a baseline, usage of pronunciation assessment costs the same as speech to text for pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
+> 
+> For pricing differences between scripted and unscripted assessment, see [the pricing note](./pronunciation-assessment-tool.md#pricing).
 
 You can get pronunciation assessment scores for:
 
@@ -119,7 +121,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 
 | Parameter | Description | 
 |-----------|-------------|
-| `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't set the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. | 
+| `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't set the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario.<br/><br/>For pricing differences between scripted and unscripted assessment, see [the pricing note](./pronunciation-assessment-tool.md#pricing) | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels greater than or equal to the minimal value are returned. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table. |
@@ -639,6 +641,9 @@ To learn how to specify the learning language for pronunciation assessment in yo
 
 Depending on whether you're using [scripted](#scripted-assessment-results) or [unscripted](#unscripted-assessment-results) assessment, you can get different pronunciation assessment results. Scripted assessment is for the reading language learning scenario, and unscripted assessment is for the speaking language learning scenario. 
 
+> [!NOTE]
+> For pricing differences between scripted and unscripted assessment, see [the pricing note](./pronunciation-assessment-tool.md#pricing).
+
 #### Scripted assessment results
 
 This table lists some of the key pronunciation assessment results for the scripted assessment (reading scenario) and the supported granularity for each.
@@ -674,17 +679,17 @@ The following table describes the prosody assessment results in more detail:
 
 | Field                   | Description                                                                                         |
 |-------------------------|-----------------------------------------------------------------------------------------------------|
-| ProsodyScore            | Prosody score of the entire utterance.                                                            |
-| Feedback                | Feedback on the word level, including Break and Intonation.                                         |
-|</s>`Break`    |                                                                                           |
-|</s> -`ErrorTypes`     | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. In the current version, we don’t provide the break error type. You need to set thresholds on the following fields “UnexpectedBreak – Confidence” and “MissingBreak – confidence”, respectively to decide whether there is an unexpected break or missing break before the word. |
-|</s> -`UnexpectedBreak` | Indicates an unexpected break before the word.                                                        |
-|</s> -`MissingBreak`    | Indicates a missing break before the word.                                                           |
-|</s> - Thresholds  | Suggested thresholds on both confidence scores are 0.75. That means, if the value of ‘UnexpectedBreak – Confidence’ is larger than 0.75, it can be decided to have an unexpected break. If the value of ‘MissingBreak – confidence’ is larger than 0.75, it can be decided to have a missing break. If you want to have variable detection sensitivity on these two breaks, it’s suggested to assign different thresholds to the 'UnexpectedBreak - Confidence' and 'MissingBreak - Confidence' fields. |
-|</s>`Intonation`|                                                                                      |
-|</s> - `ErrorTypes`  | Error types related to intonation, currently supporting only Monotone. If the ‘Monotone’ exists in the field ‘ErrorTypes’, the utterance is detected to be monotonic. Note that monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
-|</s> - `Monotone`   | Indicates monotonic speech.                                                                         |
-|</s> - Thresholds (Monotone Confidence) | The fields 'Monotone - SyllablePitchDeltaConfidence' are reserved for user-customized monotone detection. If you're unsatisfied with the provided monotone decision, you can adjust the thresholds on these fields to customize the detection according to your preferences. |
+| `ProsodyScore`            | Prosody score of the entire utterance.                                                            |
+| `Feedback`                | Feedback on the word level, including Break and Intonation.                                         |
+|`Break`    |                                                                                           |
+| `ErrorTypes`     | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. In the current version, we don’t provide the break error type. You need to set thresholds on the following fields “UnexpectedBreak – Confidence” and “MissingBreak – confidence”, respectively to decide whether there is an unexpected break or missing break before the word. |
+| `UnexpectedBreak` | Indicates an unexpected break before the word.                                                        |
+| `MissingBreak`    | Indicates a missing break before the word.                                                           |
+| `Thresholds`  | Suggested thresholds on both confidence scores are 0.75. That means, if the value of ‘UnexpectedBreak – Confidence’ is larger than 0.75, it can be decided to have an unexpected break. If the value of ‘MissingBreak – confidence’ is larger than 0.75, it can be decided to have a missing break. If you want to have variable detection sensitivity on these two breaks, it’s suggested to assign different thresholds to the 'UnexpectedBreak - Confidence' and 'MissingBreak - Confidence' fields. |
+|`Intonation`|                                                                                      |
+| `ErrorTypes`  | Error types related to intonation, currently supporting only Monotone. If the ‘Monotone’ exists in the field ‘ErrorTypes’, the utterance is detected to be monotonic. Note that monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
+| `Monotone`   | Indicates monotonic speech.                                                                         |
+| `Thresholds (Monotone Confidence)` | The fields 'Monotone - SyllablePitchDeltaConfidence' are reserved for user-customized monotone detection. If you're unsatisfied with the provided monotone decision, you can adjust the thresholds on these fields to customize the detection according to your preferences. |
 
 ### JSON result example
 
