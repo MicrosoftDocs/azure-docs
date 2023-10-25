@@ -1,141 +1,182 @@
 ---
-title: Uninstall Azure IoT OPC UA Broker
-description: How to uninstall Azure IoT OPC UA Broker using helm.
+title: Uninstall Azure IoT OPC UA Broker Preview
+description: How to uninstall Azure IoT OPC UA Broker Preview using helm.
 author: timlt
 ms.author: timlt
+# ms.subservice: opcua-broker
 ms.topic: how-to 
-ms.date: 09/22/2023
+ms.date: 10/24/2023
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+# CustomerIntent: As an industrial edge IT or operations user, I want to uninstall OPC UA Broker
+# from my environment, so that I have the option to remove it or to complete a new installation to resolve issues.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Uninstall OPC UA Broker using helm
+# Uninstall OPC UA Broker Preview using helm
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+In this article, you learn how to uninstall the OPC UA Broker Preview by using helm.  This approach gives you a convenient option to either remove OPC UA Broker entirely, or to update your environment with a clean installation.  
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+For removal options, you can remove any or all of the following items:
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental “why would I want to do this?” question. Keep it short.
+- Individual assets
+- Connections to OPC UA servers
+- OPC UA Broker software
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+## Remove an asset definition
+If you don't know the name of an asset you want to remove, confirm which assets are defined for a specific OPC UA Server. For each OPC UA Server endpoint connection, there's a separate namespace in which the assets are defined. 
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
+To list all assets defined in a namespace, run a command like the following example:
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+# [bash](#tab/bash)
 
--->
+```bash
+kubectl get assets.opcuabroker.iotoperations.azure.com --namespace opcuabroker
+```
 
-TODO: Add your introductory paragraph
+# [Azure PowerShell](#tab/azure-powershell)
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+```azurepowershell
+kubectl get assets.opcuabroker.iotoperations.azure.com --namespace opcuabroker
+```
+---
 
--->
+The command generates output like the following example:
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+```console
+NAME                AGE
+thermostat-sample   14d
+```
 
-Required: Make Prerequisites the first H2 after the H1. 
+To remove an asset, remove the asset definition that defines the asset by running the following command. In the code example, the command removes the `thermostat-sample` definition in the namespace `opcua`.
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+# [bash](#tab/bash)
 
--->
+```bash
+kubectl delete assets.opcuabroker.iotoperations.azure.com thermostat-sample --namespace opcuabroker
+```
 
-## Prerequisites
+# [Azure PowerShell](#tab/azure-powershell)
 
-TODO: List the prerequisites
+```azurepowershell
+kubectl delete assets.opcuabroker.iotoperations.azure.com thermostat-sample --namespace opcuabroker
+```
+---
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+### Remove an AssetType definition
+After you remove all instances of an `AssetType`, you can remove the `AssetType` definition as well. The `AssetType` definitions are created in the same namespace as the assets. 
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+To list all defined `AssetType` definitions, run the following command:
 
-For portal-based procedures, minimize bullets and numbering.
+# [bash](#tab/bash)
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+```bash
+kubectl get assettypes.opcuabroker.iotoperations.azure.com --namespace opcuabroker
+```
 
--->
+# [Azure PowerShell](#tab/azure-powershell)
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+```azurepowershell
+kubectl get assettypes.opcuabroker.iotoperations.azure.com --namespace opcuabroker
+```
+---
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+The command generates output like the following example:
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+```console
+NAME                AGE
+thermostat          20d
+```
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+To remove an `AssetType`, remove the `AssetType` definition that defines the `AssetType`. Run the following command to remove the `AssetType` definition named `thermostat` in the namespace `opcua`:
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+# [bash](#tab/bash)
 
--->
+```bash
+kubectl delete assettypes.opcuabroker.iotoperations.azure.com thermostat --namespace opcuabroker
+```
 
-## Next step
+# [Azure PowerShell](#tab/azure-powershell)
 
-TODO: Add your next step link(s)
+```azurepowershell
+kubectl delete assettypes.opcuabroker.iotoperations.azure.com thermostat --namespace opcuabroker
+```
+---
 
+## Remove the connection to an OPC UA server
+To connect OPC UA Broker to an OPC UA Server (endpoint), an instance of OPC UA Connector was previously deployed with a specific name. The OPC UA connector instance is named `aio-opcplc-connector` in the following example. If you deployed the OPC UA Connector instance with helm as shown in [Connect an OPC UA server](howto-connect-an-opcua-server.md), you can use helm to remove the OPC UA Connector.
 
-<!-- OR -->
+To remove an OPC UA Connector, run a helm command as in the following example:
+
+# [bash](#tab/bash)
+
+```bash
+helm uninstall aio-opcplc-connector -n opcuabroker --wait
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+helm uninstall aio-opcplc-connector -n opcuabroker --wait
+```
+---
+
+## Remove OPC UA Broker completely
+To remove OPC UA Broker, first remove all OPC UA Connectors. In a previous step in the article [Connect an OPC UA server](howto-connect-an-opcua-server.md), you created an instance of the OPC UA Connector per OPC UA Server.
+
+To remove the OPC UA Connector named `aio-opcplc-connector` that you added in the previous example, run the following command:
+
+# [bash](#tab/bash)
+
+```bash
+helm uninstall aio-opcplc-connector -n opcuabroker --wait
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+helm uninstall aio-opcplc-connector -n opcuabroker --wait
+```
+---
+
+After you remove all OPC UA Connectors, you can remove the OPC UA Broker runtime.  To remove the OPC UA Broker runtime named `opcuabroker` in the previous example, run the following command:
+
+# [bash](#tab/bash)
+
+```bash
+helm uninstall opcuabroker -n opcuabroker --wait
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+helm uninstall opcuabroker -n opcuabroker --wait
+```
+---
+
+The OPC UA Broker runtime uses Kubernetes custom resource definitions (CRDs) internally. The CRDs were installed using helm charts as shown in [Install OPC UA Broker](howto-install-opcua-broker-using-helm.md). However, CRDs can't be deleted using helm. CRDs are global resources.  If you delete them, all instances that use those CRDs are automatically removed.
+
+> [!WARNING]
+> The next step makes the OPC UA Broker runtime and all OPC UA Connectors unusable. Remove the OPC UA Broker and all OPC UA Connectors before you remove the CRDs. 
+
+Run the following command to delete all CRDs that the OPC UA Broker uses:
+
+# [bash](#tab/bash)
+
+```bash
+kubectl delete crd assets.opcuabroker.iotoperations.azure.com
+kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+kubectl delete crd assets.opcuabroker.iotoperations.azure.com
+kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com
+```
+---
+
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+- [Install Azure IoT OPC UA Broker](howto-install-opcua-broker-using-helm.md)
