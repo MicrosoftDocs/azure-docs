@@ -89,7 +89,7 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
 
 ## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
-The following Azure CLI command is used to configure compute threshold parameters for a runtime upgrade:
+The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
 az networkcloud cluster update --name "<clusterName>" --resource-group "<resourceGroup>" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> wait-time-minutes=<waitTimeBetweenRacks>
@@ -107,8 +107,7 @@ Upon successful execution of the command, the updateStrategy values specified wi
     },
 ```
 
-Here's what each parameter means:
-
+Parameter definitions:
 maxUnavailable: The maximum number of worker nodes that can be offline, i.e., upgraded rack at a time. The default value is 32767.
 thresholdType: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is "PercentSuccess".
 thresholdValue: The numeric threshold value used to evaluate an update.
