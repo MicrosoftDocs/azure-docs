@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Enable Inline Image Support
-author: <TODO>
-ms.author: <TODO>
-ms.date: <TODO>
+author: palatter
+ms.author: palatter
+ms.date: oct 25, 2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -10,21 +10,41 @@ ms.service: azure-communication-services
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample Code
-Find the finalized code of this tutorial on [GitHub](<TODO>).
+Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
 
 ## Prerequisites 
 
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for C# (@azure/communication-chat<TODO>) X.X.X or latest. See [here](<TODO>).
-
+* You're using the Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat/).
+  
 ## Goal
 
 1. Be able to render preview images in the message thread
 2. Be able to render full scale image upon click on preview images
 
 ## Handle inline images for new messages
+
+```c#
+public class ChatAttachment
+{
+    public ChatAttachment(string id, AttachmentType attachmentType)
+    public AttachmentType AttachmentType { get }
+    public string Extension { get }
+    public string Id { get }
+    public string Name { get }
+    public System.Uri PreviewUrl { get }
+    public System.Uri Url { get }
+}
+
+public struct AttachmentType : System.IEquatable<AttachmentType>
+{
+    public AttachmentType(string value)
+    public static Azure.Communication.Chat.AttachmentType File { get }
+    public static Azure.Communication.Chat.AttachmentType Image { get }
+}
+```
 
 
 In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
