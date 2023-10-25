@@ -11,7 +11,7 @@
   - name: Configure protection for datasources
     href: tutorial-configure-protection-datasource.md
   - name: Recover item
-    href: 
+    href: tutorial-recover-deleted-item.md
   - name: View protected items and perform actions
     href: tutorial-view-protected-items-and-perform-actions.md
   - name: Review security posture
