@@ -200,6 +200,7 @@ Authentication type is not supported for Spring Boot.
     from cassandra.auth import PlainTextAuthProvider
     import requests
     from azure.core.pipeline.policies import BearerTokenCredentialPolicy
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
     contactPoint = os.getenv('AZURE_COSMOS_CONTACTPOINT')
@@ -327,6 +328,7 @@ Authentication type is not supported for Spring Boot.
 2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
+    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const cassandra = require("cassandra-driver");
     const axios = require('axios');
     
