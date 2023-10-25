@@ -44,7 +44,7 @@ Here are some samples open source tools to build your own converter:
 Each converted WSI results in a DICOM series with multiple instances. 
 
 #### Batch upload
-Considering the bigger size and number of instances that needs to be uploaded, we recommend batch upload of each series or a batch of converted WSIs using [Import](./import-files.md)
+Considering the bigger size and number of instances that needs to be uploaded, we recommend batch upload of each series or a batch of converted WSIs using [Import](import-files.md)
 
 #### Streaming upload
 If you want to upload each file as they get converted you can use the STOW single part request like below.
@@ -88,6 +88,36 @@ Sample open-source viewer
 - [Slim](https://github.com/herrmannlab/slim)
 
 Follow the [CORS guidelines](configure-cross-origin-resource-sharing.md) if the Viewer directly interacts with the DICOM service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
