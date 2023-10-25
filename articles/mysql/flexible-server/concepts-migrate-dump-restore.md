@@ -160,7 +160,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_bac
 ---
 
 >[!NOTE]
->You can also use [MySQL Workbench client utility to restore MySQL database](../single-server/concepts-migrate-import-export.md#import-and-export-data-by-using-mysql-workbench).
+>You can also use [MySQL Workbench client utility to restore MySQL database](concepts-migrate-import-export.md#import-and-export-data-by-using-mysql-workbench).
 
 ## Dump and restore using PHPMyAdmin
 

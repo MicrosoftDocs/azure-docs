@@ -36,7 +36,7 @@ For security, you must always connect to your MySQL server over SSL and configur
 
 ### Use advanced networking with AKS
 
-When accelerated networking is enabled on a VM, there's lower latency, reduced jitter, and decreased CPU utilization on the VM. To learn more, see [Best practices for Azure Kubernetes Service and Azure Database for MySQL](single-server/concepts-aks.md).
+When accelerated networking is enabled on a VM, there's lower latency, reduced jitter, and decreased CPU utilization on the VM. To learn more, see [Best practices for Azure Kubernetes Service and Azure Database for MySQL](flexible-server/concepts-aks.md).
 
 ### Tune your server parameters
 
