@@ -49,7 +49,7 @@ Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azu
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory.
 
-For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
+For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-linux.md#restrictions).
 
 ### Supported operating systems
 
