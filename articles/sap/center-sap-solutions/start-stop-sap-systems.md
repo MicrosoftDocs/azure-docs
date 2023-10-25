@@ -1,6 +1,6 @@
 ---
-title: Start and stop SAP systems
-description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
+title: Start and stop SAP systems, instances and HANA database
+description: Learn how to start or stop an SAP system, specific instances and HANA database through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal, PowerShell, CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
