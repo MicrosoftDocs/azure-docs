@@ -1,275 +1,426 @@
 ---
-title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure PowerShell'
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: quickstart
-ms.date: 11/01/2022
+ms.date: 10/23/2023
 ms.custom: devx-track-azurepowershell, mode-api, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service cluster using PowerShell
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure PowerShell
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using PowerShell.
-* Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
+* Deploy an AKS cluster using Azure PowerShell.
+* Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+> [!NOTE]
+> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+:::image type="content" source="media/quick-kubernetes-deploy-powershell/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-powershell/aks-store-application.png":::
 
-## Prerequisites
+## Before you begin
+
+* This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
-
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+* If you're running PowerShell locally, install the `Az PowerShell` module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
+* The identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
+[`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
     ```azurepowershell-interactive
     Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
     ```
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+> [!NOTE]
+> If you plan to run the commands locally instead of in Azure Cloud Shell, make sure you run the commands with administrative privileges.
 
 ## Create a resource group
 
-An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
 
-* The storage location of your resource group metadata.
-* Where your resources will run in Azure if you don't specify another region during resource creation.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* region.
+* Create a resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet.
 
-Create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet.
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    ```
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location eastus
-```
+    The following example output resembles successful creation of the resource group:
 
-The following output example resembles successful creation of the resource group:
-
-```plaintext
-ResourceGroupName : myResourceGroup
-Location          : eastus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
-```
+    ```output
+    ResourceGroupName : myResourceGroup
+    Location          : eastus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
+    ```
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with the *-WorkspaceResourceId* parameter to enable [Azure Monitor container insights][azure-monitor-containers].
+The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
 
-1. Create an AKS cluster named **myAKSCluster** with one node.
+* Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet with the `-WorkspaceResourceId` parameter to enable [Azure Monitor container insights][azure-monitor-containers].
 
     ```azurepowershell-interactive
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -GenerateSshKey -WorkspaceResourceId <WORKSPACE_RESOURCE_ID>
     ```
 
-After a few minutes, the command completes and returns information about the cluster.
+    After a few minutes, the command completes and returns information about the cluster.
 
-> [!NOTE]
-> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
+    > [!NOTE]
+    > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
-1. Install `kubectl` locally using the `Install-AzAksCliTool` cmdlet:
+1. Install `kubectl` locally using the `Install-AzAksCliTool` cmdlet.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Install-AzAksCliTool
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell-interactive
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurepowershell-interactive
     kubectl get nodes
     ```
 
-    The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*:
+    The following example output shows the single node created in the previous steps. Make sure the node status is *Ready*.
 
-    ```plaintext
+    ```output
     NAME                       STATUS   ROLES   AGE     VERSION
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
     ```
 
 ## Deploy the application
 
-A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
+To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
-In this quickstart, you will use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+:::image type="content" source="media/quick-kubernetes-deploy-powershell/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-powershell/aks-store-architecture.png":::
 
-* The sample Azure Vote Python applications.
-* A Redis instance.
+* **Store front**: Web application for customers to view products and place orders.
+* **Product service**: Shows product information.
+* **Order service**: Places orders.
+* **Rabbit MQ**: Message queue for an order queue.
 
-Two [Kubernetes Services][kubernetes-service] are also created:
+> [!NOTE]
+> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
-* An internal service for the Redis instance.
-* An external service to access the Azure Vote application from the internet.
-
-1. Create a file named `azure-vote.yaml`.
-    
-1. Copy in the following YAML definition:
+1. Create a file named `aks-store-quickstart.yaml` and copy in the following manifest:
 
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: azure-vote-back
+      name: rabbitmq
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: azure-vote-back
+          app: rabbitmq
       template:
         metadata:
           labels:
-            app: azure-vote-back
+            app: rabbitmq
         spec:
           nodeSelector:
             "kubernetes.io/os": linux
           containers:
-          - name: azure-vote-back
-            image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+          - name: rabbitmq
+            image: mcr.microsoft.com/mirror/docker/library/rabbitmq:3.10-management-alpine
+            ports:
+            - containerPort: 5672
+              name: rabbitmq-amqp
+            - containerPort: 15672
+              name: rabbitmq-http
             env:
-            - name: ALLOW_EMPTY_PASSWORD
-              value: "yes"
+            - name: RABBITMQ_DEFAULT_USER
+              value: "username"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "password"
             resources:
               requests:
-                cpu: 100m
+                cpu: 10m
                 memory: 128Mi
               limits:
                 cpu: 250m
                 memory: 256Mi
-            ports:
-            - containerPort: 6379
-              name: redis
+            volumeMounts:
+            - name: rabbitmq-enabled-plugins
+              mountPath: /etc/rabbitmq/enabled_plugins
+              subPath: enabled_plugins
+          volumes:
+          - name: rabbitmq-enabled-plugins
+            configMap:
+              name: rabbitmq-enabled-plugins
+              items:
+              - key: rabbitmq_enabled_plugins
+                path: enabled_plugins
+    ---
+    apiVersion: v1
+    data:
+      rabbitmq_enabled_plugins: |
+        [rabbitmq_management,rabbitmq_prometheus,rabbitmq_amqp1_0].
+    kind: ConfigMap
+    metadata:
+      name: rabbitmq-enabled-plugins            
     ---
     apiVersion: v1
     kind: Service
     metadata:
-      name: azure-vote-back
+      name: rabbitmq
     spec:
-      ports:
-      - port: 6379
       selector:
-        app: azure-vote-back
+        app: rabbitmq
+      ports:
+        - name: rabbitmq-amqp
+          port: 5672
+          targetPort: 5672
+        - name: rabbitmq-http
+          port: 15672
+          targetPort: 15672
+      type: ClusterIP
     ---
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: azure-vote-front
+      name: order-service
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: azure-vote-front
+          app: order-service
       template:
         metadata:
           labels:
-            app: azure-vote-front
+            app: order-service
         spec:
           nodeSelector:
             "kubernetes.io/os": linux
           containers:
-          - name: azure-vote-front
-            image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+          - name: order-service
+            image: ghcr.io/azure-samples/aks-store-demo/order-service:latest
+            ports:
+            - containerPort: 3000
+            env:
+            - name: ORDER_QUEUE_HOSTNAME
+              value: "rabbitmq"
+            - name: ORDER_QUEUE_PORT
+              value: "5672"
+            - name: ORDER_QUEUE_USERNAME
+              value: "username"
+            - name: ORDER_QUEUE_PASSWORD
+              value: "password"
+            - name: ORDER_QUEUE_NAME
+              value: "orders"
+            - name: FASTIFY_ADDRESS
+              value: "0.0.0.0"
             resources:
               requests:
-                cpu: 100m
-                memory: 128Mi
+                cpu: 1m
+                memory: 50Mi
               limits:
-                cpu: 250m
-                memory: 256Mi
-            ports:
-            - containerPort: 80
-            env:
-            - name: REDIS
-              value: "azure-vote-back"
+                cpu: 75m
+                memory: 128Mi
+          initContainers:
+          - name: wait-for-rabbitmq
+            image: busybox
+            command: ['sh', '-c', 'until nc -zv rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']
+            resources:
+              requests:
+                cpu: 1m
+                memory: 50Mi
+              limits:
+                cpu: 75m
+                memory: 128Mi    
     ---
     apiVersion: v1
     kind: Service
     metadata:
-      name: azure-vote-front
+      name: order-service
     spec:
-      type: LoadBalancer
+      type: ClusterIP
+      ports:
+      - name: http
+        port: 3000
+        targetPort: 3000
+      selector:
+        app: order-service
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: product-service
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: product-service
+      template:
+        metadata:
+          labels:
+            app: product-service
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+          - name: product-service
+            image: ghcr.io/azure-samples/aks-store-demo/product-service:latest
+            ports:
+            - containerPort: 3002
+            resources:
+              requests:
+                cpu: 1m
+                memory: 1Mi
+              limits:
+                cpu: 1m
+                memory: 7Mi
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: product-service
+    spec:
+      type: ClusterIP
+      ports:
+      - name: http
+        port: 3002
+        targetPort: 3002
+      selector:
+        app: product-service
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: store-front
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: store-front
+      template:
+        metadata:
+          labels:
+            app: store-front
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+          - name: store-front
+            image: ghcr.io/azure-samples/aks-store-demo/store-front:latest
+            ports:
+            - containerPort: 8080
+              name: store-front
+            env: 
+            - name: VUE_APP_ORDER_SERVICE_URL
+              value: "http://order-service:3000/"
+            - name: VUE_APP_PRODUCT_SERVICE_URL
+              value: "http://product-service:3002/"
+            resources:
+              requests:
+                cpu: 1m
+                memory: 200Mi
+              limits:
+                cpu: 1000m
+                memory: 512Mi
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: store-front
+    spec:
       ports:
       - port: 80
+        targetPort: 8080
       selector:
-        app: azure-vote-front
+        app: store-front
+      type: LoadBalancer
     ```
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ```azurepowershell-interactive
-    kubectl apply -f azure-vote.yaml
+    ```console
+    kubectl apply -f aks-store-quickstart.yaml
     ```
 
-    The following example resembles output showing the successfully created deployments and services:
+    The following example output shows the deployments and services:
 
-    ```plaintext
-    deployment.apps/azure-vote-back created
-    service/azure-vote-back created
-    deployment.apps/azure-vote-front created
-    service/azure-vote-front created
+    ```output
+    deployment.apps/rabbitmq created
+    service/rabbitmq created
+    deployment.apps/order-service created
+    service/order-service created
+    deployment.apps/product-service created
+    service/product-service created
+    deployment.apps/store-front created
+    service/store-front created
     ```
 
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
+1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-```azurepowershell-interactive
-kubectl get service azure-vote-front --watch
-```
+2. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-The **EXTERNAL-IP** output for the `azure-vote-front` service will initially show as *pending*.
+    ```azurecli-interactive
+    kubectl get service store-front --watch
+    ```
 
-```plaintext
-NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
-```
+    The **EXTERNAL-IP** output for the `store-front` service initially shows as *pending*:
 
-Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+    ```output
+    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
+    ```
 
-```plaintext
-azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
-```
+3. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
-To see the Azure Vote app in action, open a web browser to the external IP address of your service.
+    The following example output shows a valid public IP address assigned to the service:
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+    ```output
+    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
+    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
+    ```
+
+4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+
+    :::image type="content" source="media/quick-kubernetes-deploy-powershell/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-powershell/aks-store-application.png":::
 
 ## Delete the cluster
 
-To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
+If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup
-```
+* Remove the resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet
 
-> [!NOTE]
-> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
+    ```azurepowershell-interactive
+    Remove-AzResourceGroup -Name myResourceGroup
+    ```
+
+    > [!NOTE]
+    > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and doesn't require removal.
 
 ## Next steps
 
 In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -278,21 +429,15 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 
 <!-- LINKS - internal -->
-[windows-container-powershell]: ../windows-container-powershell.md
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
-[kubernetes-service]: ../concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
+[azure-resource-group]: ../../azure-resource-manager/management/overview.md
