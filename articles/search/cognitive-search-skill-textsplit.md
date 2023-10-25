@@ -44,8 +44,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `textItems`	| An array of substrings that were extracted. |
 
-
-##	Sample definition
+## Sample definition
 
 ```json
 {
@@ -72,7 +71,7 @@ Parameters are case-sensitive.
 }
 ```
 
-##	Sample Input
+## Sample input
 
 ```json
 {
@@ -95,7 +94,7 @@ Parameters are case-sensitive.
 }
 ```
 
-##	Sample Output
+## Sample output
 
 ```json
 {
@@ -122,13 +121,94 @@ Parameters are case-sensitive.
 }
 ```
 
-## Error cases
-<<<<<<< HEAD
+## Example for integrated vectorization (preview)
 
-If a language isn't supported, a warning is generated.
-=======
+This example is for integrated vectorization, currently in preview. It adds preview-only parameters to the sample definition, and shows the resulting output. Overlapping text is useful in data chunking because it preserves continuity between chunks. Limits on page intake help you stay under the maximum input limits of the embedding models providing the vectorization.
+
+### Sample definition adds `pageOverlapLength` and `maximumPagesToTake`
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+    "textSplitMode" : "pages", 
+    "maximumPageLength": 1000,
+    "pageOverlapLength": 100,
+    "maximumPagesToTake": 1,
+    "defaultLanguageCode": "en",
+    "inputs": [
+        {
+            "name": "text",
+            "source": "/document/content"
+        },
+        {
+            "name": "languageCode",
+            "source": "/document/language"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "textItems",
+            "targetName": "mypages"
+        }
+    ]
+}
+```
+
+### Sample input (same as above)
+
+```json
+{
+    "values": [
+        {
+            "recordId": "1",
+            "data": {
+                "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia...",
+                "languageCode": "en"
+            }
+        },
+        {
+            "recordId": "2",
+            "data": {
+                "text": "This is the second document, which will be broken into several pages...",
+                "languageCode": "en"
+            }
+        }
+    ]
+}
+```
+
+### Sample output (notice the overlap)
+
+Within each "textItems" array, trailing text from the first item is copied into the beginning of the second item.
+
+```json
+{
+    "values": [
+        {
+            "recordId": "1",
+            "data": {
+                "textItems": [
+                    "This is the loan...Here is the overlap part",
+                    "Here is the overlap part...On the second page we..."
+                ]
+            }
+        },
+        {
+            "recordId": "2",
+            "data": {
+                "textItems": [
+                    "This is the second document...Here is the overlap part...",
+                    "Here is the overlap part...On the second page of the second doc..."
+                ]
+            }
+        }
+    ]
+}
+```
+
+## Error cases
+
 If a language is not supported, a warning is generated.
->>>>>>> bcb80c40fa26e07aec1ba197d5dcc57bd58aeafb
 
 ## See also
 
