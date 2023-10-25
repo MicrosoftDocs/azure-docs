@@ -4,8 +4,8 @@ titleSuffix: Azure Chaos Studio
 description: Learn how to configure customer-managed keys for your Azure Chaos Studio experiment resource with Azure Key Vault and Azure Storage
 services: chaos-studio
 ms.service: chaos-studio
-ms.author: nikhilkaul-msft
-author: nikhilkaul
+ms.author: nikhilkaul
+author: nikhilkaul-msft
 ms.date: 10/06/2023
 ms.topic: how-to
 ---
