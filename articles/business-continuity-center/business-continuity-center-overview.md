@@ -2,6 +2,7 @@
 title: What is Azure Business Continuity center?
 description: Azure Business Continuity center is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
+ms.service: backup
 ms.date: 04/01/2023
 ms.custom: mvc
 author: AbhishekMallick-MS
@@ -24,10 +25,6 @@ Some of the key benefits you get with Azure Business Continuity center (preview)
 - BCDR protection posture - ABC center evaluates your current configuration and proactively notify you of any gap in it with respect to Security configurations (currently applicable to Azure Backup). 
 
 - Audit Compliance – With ABC center, you can view and use built-in [Azure  Policies](/azure/governance/policy/overview) available for your BCDR management at scale and view compliance against the applied policies. You can also create custom Azure Policies for BCDR management and view compliance in Azure Business Continuity center.
-
-Watch the following video to understand the capabilities of ABC center:
-
-[VIDEO link](video-link)
 
 ## What can I manage with ABC center? 
 
