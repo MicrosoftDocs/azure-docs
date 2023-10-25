@@ -47,11 +47,11 @@ The pronunciation assessment feature also offers additional scores that are not 
 
 Here's a table of available pronunciation assessment scores, whether it's available in the [scripted](#conduct-a-scripted-assessment) or [unscripted](#conduct-an-unscripted-assessment) assessments, and whether it's included in the baseline speech to text price or the add-on price.
 
-| Score | Scripted or unscripted | Included in baseline speech to text price? | 
+| Score | Scripted or unscripted | Included in baseline speech to text price? |
 | --- | --- | --- |
 | Accuracy | Scripted and unscripted | Yes |
 | Fluency | Scripted and unscripted | Yes |
-| Completeness | Scripted and unscripted | Yes |
+| Completeness | Scripted | Yes |
 | Miscue | Scripted and unscripted | Yes |
 | Prosody | Scripted and unscripted | No |
 | Grammar | Unscripted only | No |
@@ -120,18 +120,6 @@ If you want to conduct an unscripted assessment, select the Speaking tab. This a
    When recording your speech for pronunciation assessment, it's important to ensure that your recording time falls within the recommended range of 15 seconds (equivalent to more than 50 words) to 10 minutes. This time range is optimal for evaluating the content of your speech accurately. To receive a topic score, your spoken audio should contain at least 3 sentences. 
 
    You can also upload recorded audio for pronunciation assessment. Once successfully uploaded, the audio will be automatically evaluated by the system.
-
-## Selecting advanced options for pronunciation assessment
-
-If you are conducting either a scripted or unscripted assessment and you aim to enhance recognition accuracy and customize speech recognition to align with your specific business requirements, you can utilize the advanced options available on either the Reading or Speaking tab. Here's how to proceed. 
-
-1.	Select **Show advanced options**.
-
-    :::image type="content" source="media/pronunciation-assessment/show-advanced-options.png" alt-text="Screenshot of selecting show advanced options to customize speech recognition to align with your specific business requirements.":::
-   
-1.	Choose a custom endpoint from the **Choose a custom endpoint**. This customization leads to improved accuracy, better recognition of specialized term, and ultimately, more effective speech-to-text conversions for your unique use case.
-
-    :::image type="content" source="media/pronunciation-assessment/choose-custom-endpoint.png" alt-text="Screenshot of choosing a custom endpoint to customize speech recognition to align with your specific business requirements.":::
 
 ## Pronunciation assessment results
 
@@ -301,7 +289,7 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 
 Pronunciation Assessment supports uninterrupted streaming mode. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
 
-Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, fluency, and completeness. At the bottom of **Assessment result**, you can see **Pronunciation score** as aggregated overall score which includes 3 sub aspects: **Accuracy score**, **Fluency score**, and **Completeness score**. In streaming mode, since the **Accuracy score**, **Fluency score and Completeness score** will vary over time throughout the recording process, we demonstrate an approach on Speech Studio to display approximate overall score incrementally before the end of the evaluation, which weighted only with Accuracy score and Fluency score. The **Completeness score** is only calculated at the end of the evaluation after you press the stop button, so the final overall score is aggregated from **Accuracy score**, **Fluency score**, and **Completeness score** with weight.
+Pronunciation Assessment evaluates several aspects of pronunciation. At the bottom of **Assessment result**, you can see **Pronunciation score** as aggregated overall score which includes 4 sub aspects: **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score**. In streaming mode, since the **Accuracy score**, **Fluency score**, and **Prosody score** will vary over time throughout the recording process, we demonstrate an approach on Speech Studio to display approximate overall score incrementally before the end of the evaluation, which weighted only with Accuracy score, Fluency score, and Prosody score. The **Completeness score** is only calculated at the end of the evaluation after you press the stop button, so the final pronunciation overall score is aggregated from **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score** with weight.
 
 Refer to the demo examples below for the whole process of evaluating pronunciation in streaming mode.
 
@@ -319,7 +307,7 @@ During recording a long paragraph, you can pause recording at any time. You can 
 
 **Finish recording**
 
-After you press the stop button, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, and **Completeness score** at the bottom.
+After you press the stop button, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score** at the bottom.
 
 :::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording." lightbox="media/pronunciation-assessment/pa-after-recording-display-score.png":::
 

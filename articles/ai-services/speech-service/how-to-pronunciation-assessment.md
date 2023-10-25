@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 > [!NOTE]
-> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
 
 You can get pronunciation assessment scores for:
 
@@ -37,7 +37,7 @@ You can get pronunciation assessment scores for:
 > Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide, but you must select another programming language for implementation details. 
 ::: zone-end
 
-You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
+You must create a `PronunciationAssessmentConfig` object. You need to configure the `PronunciationAssessmentConfig` object to enable prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm, providing insights into the naturalness and expressiveness of your speech. For content assessment, you also need to configure the `PronunciationAssessmentConfig` object. By providing a topic description, you can enhance the assessment's understanding of the specific topic being spoken about, resulting in more precise content assessment scores.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -115,17 +115,14 @@ do {
 
 ::: zone-end
 
-
 This table lists some of the key configuration parameters for pronunciation assessment.
 
 | Parameter | Description | 
 |-----------|-------------|
-| `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. | 
-| `Topic`  | A topic description that is used to evaluate the topic relevance for the given speech. If you want to obtain accurate topic scores during assessment, you need to input a topic description. This ensures that the [unscripted assessment](#unscripted-assessment-results) considers the specific topic being spoken about and provides more precise topic relevance scores.<br/><br/>The `Topic` parameter is only applicable for an [unscripted assessment](#unscripted-assessment-results). Include this parameter in your configuration to obtain an accurate topic score during assessment. | 
+| `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't set the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels greater than or equal to the minimal value are returned. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table.|
-| `EnableProsodyAssessment` |Enables the assessment of prosody in the pronunciation. Accepted values are `False` and `True`. Default: `False`. To obtain prosody score for an [unscripted assessment](#unscripted-assessment-results), set the `EnableProsodyAssessment` to `True`.<br/><br/>The `EnableProsodyAssessment` parameter is only applicable for an [unscripted assessment](#unscripted-assessment-results).|
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table. |
 | `ScenarioId` | A GUID indicating a customized point system. |
 
 ## Syllable groups
@@ -592,7 +589,6 @@ To learn how to specify the learning language for pronunciation assessment in yo
 
 ::: zone-end  
 
-
 ::: zone pivot="programming-language-objectivec"
    
 ```ObjectiveC
@@ -641,16 +637,7 @@ To learn how to specify the learning language for pronunciation assessment in yo
 
 ### Result parameters
 
-Depending on whether you're using [scripted](#scripted-assessment-results) or [unscripted](#unscripted-assessment-results) assessment, you can get different pronunciation assessment results. Scripted assessment is for the reading language learning scenario, and unscripted assessment is for the speaking language learning scenario.
-
-Results for scripted and unscripted assessment include the following:
-- `ProsodyScore`
-- `ErrorType`
-
-Results for unscripted assessment only include the following:
-- `VocabularyScore`
-- `GrammarScore`
-- `TopicScore`
+Depending on whether you're using [scripted](#scripted-assessment-results) or [unscripted](#unscripted-assessment-results) assessment, you can get different pronunciation assessment results. Scripted assessment is for the reading language learning scenario, and unscripted assessment is for the speaking language learning scenario. 
 
 #### Scripted assessment results
 
@@ -661,9 +648,9 @@ This table lists some of the key pronunciation assessment results for the script
 | `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives.|Phoneme level，<br>Syllable level (en-US only)，<br>Word level，<br>Full Text level|
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |Full Text level|
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
+| `ProsodyScore`       | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |Full Text level|
-| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
-
+| `ErrorType`          | This value indicates whether a word is omitted, inserted, badly pronounced, improperly inserted with a break, missing a break at punctuation, or monotonically rising, falling, or flat on the utterance, compared to the ReferenceText. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
 
 #### Unscripted assessment results
 
@@ -676,13 +663,12 @@ This table lists some of the key pronunciation assessment results for the unscri
 |--------------------|-------------|-------------|
 | `AccuracyScore`     | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives. | Phoneme level，<br>Syllable level (en-US only)，<br>Word level，<br>Full Text level|
 | `FluencyScore`       | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. | Full Text level|
-| `CompletenessScore`  | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
 | `ProsodyScore`       | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
 | `VocabularyScore`    | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, as well as the level of lexical complexity. | Full Text level|
 | `GrammarScore`       | Correctness in using grammar and variety of sentence patterns. Grammatical errors are jointly evaluated by lexical accuracy, grammatical accuracy, and diversity of sentence structures. | Full Text level|
 | `TopicScore`         | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
 | `PronScore`          | Overall score indicating the pronunciation quality of the given speech. This is aggregated from AccuracyScore, FluencyScore, and CompletenessScore with weight. | Full Text level|
-| `ErrorType`          | This value indicates whether a word is omitted, inserted, badly pronounced, improperly inserted with a break, missing a break at punctuation, or monotonically rising, falling, or flat on the utterance, compared to ReferenceText. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level|
+| `ErrorType`          | This value indicates whether a word is badly pronounced, improperly inserted with a break, missing a break at punctuation, or monotonically rising, falling, or flat on the utterance. Possible values are `None` (meaning no error on this word), `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level|
 
 The following table describes the prosody assessment results in more detail: 
 
