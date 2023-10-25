@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.reviewer: maghan
 ms.date: 03/29/2023
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 

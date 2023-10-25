@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 04/27/2023
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ---
