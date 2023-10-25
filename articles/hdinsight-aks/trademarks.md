@@ -3,7 +3,7 @@ title: Trademarks
 description: The Trademark and Brand Guidelines detail how you can help us protect Microsoft’s brand assets.
 ms.service: hdinsight-aks
 ms.topic: legal
-ms.date: 10/18/2023
+ms.date: 10/26/2023
 ---
 
 # Trademarks
