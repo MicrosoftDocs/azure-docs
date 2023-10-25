@@ -20,7 +20,7 @@ With Azure Container Apps resiliency, you can proactively prevent, detect, and r
 
 For container app resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
 
-You can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-name-resiliency.md) or Dapr service invocation. 
+You can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-discovery-resiliency.md) or Dapr service invocation. 
 
 This guide focuses on configuring Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
 
@@ -200,5 +200,5 @@ properties: {
 ## Related content
 
 See how resiliency works for:
-- [Container apps using the application's service name](./service-name-resiliency.md)
+- [Container apps using the application's service name](./service-discovery-resiliency.md)
 - [Dapr components in Azure Container Apps](./dapr-component-resiliency.md)

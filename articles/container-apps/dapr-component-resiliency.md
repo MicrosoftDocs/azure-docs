@@ -214,5 +214,5 @@ properties: {
 ## Related content
 
 See how resiliency works for:
-- [Container apps using the application's service name](./service-name-resiliency.md)
+- [Container apps using the application's service name](./service-discovery-resiliency.md)
 - [Container apps using Dapr Service Invocation API](./dapr-invoke-resiliency.md)

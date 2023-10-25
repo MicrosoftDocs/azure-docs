@@ -1,5 +1,5 @@
 ---
-title: Service name resiliency
+title: Service discovery resiliency
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
@@ -14,7 +14,7 @@ zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Service name resiliency
+# Service discovery resiliency
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 

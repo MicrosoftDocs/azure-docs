@@ -182,7 +182,7 @@
     - name: Application resiliency
       items:
       - name: ACA service discovery
-        href: service-name-resiliency.md
+        href: service-discovery-resiliency.md
       - name: Dapr service invocation API
         href: dapr-invoke-resiliency.md
     - name: Dapr component resiliency
